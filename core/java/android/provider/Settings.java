@@ -6482,6 +6482,15 @@ public final class Settings {
         public static final String STATUS_BAR_LOGO = "status_bar_logo";
 
         /**
+         * Whether to launch default music player when headset plugged in
+         * @hide
+         */
+        public static final String HEADSET_CONNECT_PLAYER = "headset_connect_player";
+        /** @hide */
+        private static final Validator HEADSET_CONNECT_PLAYER_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6627,6 +6636,7 @@ public final class Settings {
             QS_DATAUSAGE,
             DATA_ACTIVITY_ARROW,
             SWITCH_STYLE,
+            HEADSET_CONNECT_PLAYER,
         };
 
         /**
@@ -6880,6 +6890,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_DATAUSAGE);
             PRIVATE_SETTINGS.add(DATA_ACTIVITY_ARROW);
             PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
+            PRIVATE_SETTINGS.add(HEADSET_CONNECT_PLAYER);
         }
 
         /**
@@ -7103,6 +7114,7 @@ public final class Settings {
             VALIDATORS.put(QS_DATAUSAGE, QS_DATAUSAGE_VALIDATOR);
             VALIDATORS.put(DATA_ACTIVITY_ARROW, DATA_ACTIVITY_ARROW_VALIDATOR);
             VALIDATORS.put(SWITCH_STYLE, SWITCH_STYLE_VALIDATOR);
+            VALIDATORS.put(HEADSET_CONNECT_PLAYER, HEADSET_CONNECT_PLAYER_VALIDATOR);
         }
 
         /**
