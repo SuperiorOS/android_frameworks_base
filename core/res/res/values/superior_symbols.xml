@@ -1,5 +1,5 @@
 <!--
-     Copyright (C) 2021 SuperiorOS
+     Copyright (C) 2021-2023 The SuperiorOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,38 +15,42 @@
 -->
 <resources>
 
-    <!-- Device keyhandlers -->
-    <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
-    <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
+     <!-- Device keyhandlers -->
+     <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
+     <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
 
-    <!-- Wether to handle audio direction changes between major call states -->
-    <java-symbol type="bool" name="config_handleAudioDirectionChangesBetweenCallStateChanges" />
+     <!-- Wether to handle audio direction changes between major call states -->
+     <java-symbol type="bool" name="config_handleAudioDirectionChangesBetweenCallStateChanges" />
 
-    <!-- App error dialog -->
-    <java-symbol type="id" name="aerr_copy" />
-    <java-symbol type="string" name="url_copy_success" />
-    <java-symbol type="string" name="url_copy_failed" />
+     <!-- App error dialog -->
+     <java-symbol type="id" name="aerr_copy" />
+     <java-symbol type="string" name="url_copy_success" />
+     <java-symbol type="string" name="url_copy_failed" />
 
-    <!-- Enable face auth only when swiping security view -->
-    <java-symbol type="bool" name="config_faceAuthOnlyOnSecurityView" />
+     <!-- Enable face auth only when swiping security view -->
+     <java-symbol type="bool" name="config_faceAuthOnlyOnSecurityView" />
 
-    <!-- Whether to cancel fingerprint operation if not idle -->
-    <java-symbol type="bool" name="config_fpCancelIfNotIdle" />
+     <!-- Whether to cancel fingerprint operation if not idle -->
+     <java-symbol type="bool" name="config_fpCancelIfNotIdle" />
 
-    <!-- Power Menu Reboot -->
-    <java-symbol name="reboot_to_bootloader_title" type="string" />
-    <java-symbol name="reboot_to_bootloader_message" type="string" />
-    <java-symbol name="reboot_to_recovery_title" type="string" />
-    <java-symbol name="reboot_to_recovery_message" type="string" />
-    <java-symbol name="reboot_system_title" type="string" />
-    <java-symbol name="reboot_system_message" type="string" />
-    <java-symbol type="array" name="config_rebootActionsList" />
+     <!-- Power Menu Reboot -->
+     <java-symbol name="reboot_to_bootloader_title" type="string" />
+     <java-symbol name="reboot_to_bootloader_message" type="string" />
+     <java-symbol name="reboot_to_recovery_title" type="string" />
+     <java-symbol name="reboot_to_recovery_message" type="string" />
+     <java-symbol name="reboot_system_title" type="string" />
+     <java-symbol name="reboot_system_message" type="string" />
+     <java-symbol type="array" name="config_rebootActionsList" />
 
-    <!-- Light / Regular style fonts -->
-    <java-symbol type="string" name="config_lightFontFamily" />
-    <java-symbol type="string" name="config_regularFontFamily" />
+     <!-- Light / Regular style fonts -->
+     <java-symbol type="string" name="config_lightFontFamily" />
+     <java-symbol type="string" name="config_regularFontFamily" />
 
-    <!-- Whether device supports an alt. ambient display -->
-    <java-symbol type="bool" name="config_alt_ambient_display"/>
+     <!-- Whether device supports an alt. ambient display -->
+     <java-symbol type="bool" name="config_alt_ambient_display" />
 
+     <!-- Package Manager -->
+     <java-symbol type="array" name="config_deviceDisabledComponents" />
+     <java-symbol type="array" name="config_globallyDisabledComponents" />
+     <java-symbol type="array" name="config_forceEnabledComponents" />
 </resources>
