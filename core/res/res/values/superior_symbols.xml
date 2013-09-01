@@ -62,4 +62,8 @@
     <java-symbol type="string" name="battery_saver_on_notification_title" />
     <java-symbol type="string" name="battery_saver_on_notification_summary" />
 
+    <!-- Package Manager -->
+    <java-symbol type="array" name="config_deviceDisabledComponents" />
+    <java-symbol type="array" name="config_globallyDisabledComponents" />
+    <java-symbol type="array" name="config_forceEnabledComponents" />
 </resources>
