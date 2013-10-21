@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (c) 2018 Project dotOS
-     Licensed under the Apache License, Version 2.0 (the "License");
-     you may not use this file except in compliance with the License.
-     You may obtain a copy of the License at
-          http://www.apache.org/licenses/LICENSE-2.0
-     Unless required by applicable law or agreed to in writing, software
-     distributed under the License is distributed on an "AS IS" BASIS,
-     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     See the License for the specific language governing permissions and
-     limitations under the License.
+   Copyright (c) 2018 Project dotOS
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+    http://www.apache.org/licenses/LICENSE-2.0
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
 -->
 <resources>
 
-    <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
+  <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
 
-    <!-- Package Manager -->
-    <java-symbol type="array" name="config_disabledComponents" />
-    <java-symbol type="array" name="config_forceEnabledComponents" />
+  <!-- Package Manager -->
+  <java-symbol type="array" name="config_disabledComponents" />
+  <java-symbol type="array" name="config_forceEnabledComponents" />
 
-    <!-- Usb drive persistent notification -->
-    <java-symbol type="bool" name="config_persistUsbDriveNotification" />
+  <!-- Usb drive persistent notification -->
+  <java-symbol type="bool" name="config_persistUsbDriveNotification" />
 
-    <java-symbol type="bool" name="config_useDefaultBatchingForAccel" />
+  <java-symbol type="bool" name="config_useDefaultBatchingForAccel" />
 
-    <!-- Full screen aspect ratio -->
-    <java-symbol type="bool" name="config_haveHigherAspectRatioScreen" />
-    <java-symbol type="dimen" name="config_screenAspectRatio" />
+  <!-- Full screen aspect ratio -->
+  <java-symbol type="bool" name="config_haveHigherAspectRatioScreen" />
+  <java-symbol type="dimen" name="config_screenAspectRatio" />
 
-    <!-- Device keyhandlers -->
-    <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
-    <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
+  <!-- Device keyhandlers -->
+  <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
+  <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
 
-    <!-- Whether notify fingerprint client of successful cancelled authentication -->
-    <java-symbol type="bool" name="config_notifyClientOnFingerprintCancelSuccess" />
+  <!-- Whether notify fingerprint client of successful cancelled authentication -->
+  <java-symbol type="bool" name="config_notifyClientOnFingerprintCancelSuccess" />
 
-    <!-- Button brightness -->
-    <java-symbol type="integer" name="config_buttonBrightnessSettingDefault" />
-    <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
+  <!-- Button brightness -->
+  <java-symbol type="integer" name="config_buttonBrightnessSettingDefault" />
+  <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
 
 	<!-- Powermenu Buttons -->
 	<java-symbol type="string" name="reboot_to_recovery_title" />
-    <java-symbol type="string" name="reboot_to_recovery_message" />
-    <java-symbol type="string" name="reboot_to_bootloader_title" />
-    <java-symbol type="string" name="reboot_to_bootloader_message" />
-    <java-symbol type="string" name="reboot_title" />
-    <java-symbol type="string" name="reboot_message" />
+  <java-symbol type="string" name="reboot_to_recovery_message" />
+  <java-symbol type="string" name="reboot_to_bootloader_title" />
+  <java-symbol type="string" name="reboot_to_bootloader_message" />
+  <java-symbol type="string" name="reboot_title" />
+  <java-symbol type="string" name="reboot_message" />
 	<java-symbol type="array" name="config_custom_globalActionsList" />
 
-    <!-- Emergency button in power menu -->
-    <java-symbol type="bool" name="config_showEmergencyButtonInPowerMenu" />
+  <!-- Emergency button in power menu -->
+  <java-symbol type="bool" name="config_showEmergencyButtonInPowerMenu" />
 	
   <!-- HW keys binding -->
   <java-symbol type="anim" name="custom_app_in" />
@@ -116,9 +116,9 @@
   <java-symbol type="bool" name="config_multiColorBatteryLed" />
   <java-symbol type="bool" name="config_ledCanPulse" />
 
-    <!-- Alternative keyhandler -->
-    <java-symbol type="string" name="config_alternativeDeviceKeyHandlerLib" />
-    <java-symbol type="string" name="config_alternativeDeviceKeyHandlerClass" />
+  <!-- Alternative keyhandler -->
+  <java-symbol type="string" name="config_alternativeDeviceKeyHandlerLib" />
+  <java-symbol type="string" name="config_alternativeDeviceKeyHandlerClass" />
 
   <!-- SystemUI Restart -->
   <java-symbol type="string" name="systemui_restart_title" />
@@ -147,11 +147,25 @@
   <java-symbol type="drawable" name="weather_windy" />
   
   <!-- Minimum time in milliseconds between power button presses so it will be considered
-         as a camera launch. To avoid false triggers.
+   as a camera launch. To avoid false triggers.
   -->
   <java-symbol type="integer" name="config_cameraPowerDoubleTapMinTime" />
 
-    <!-- Whether device has dash charging support -->
-    <java-symbol type="bool" name="config_hasDashCharger" />
+  <!-- Whether device has dash charging support -->
+  <java-symbol type="bool" name="config_hasDashCharger" />
 
+  <!-- Privacy Guard -->
+  <java-symbol type="drawable" name="stat_notify_privacy_guard" />
+  <java-symbol type="string" name="privacy_guard_notification" />
+  <java-symbol type="string" name="privacy_guard_notification_detail" />
+  <java-symbol type="string" name="privacy_guard_dialog_title" />
+  <java-symbol type="string" name="privacy_guard_dialog_summary" />
+  <java-symbol type="id" name="permission_text" />
+  <java-symbol type="id" name="permission_remember_layout" />
+  <java-symbol type="id" name="permission_remember_choice_checkbox" />
+  <java-symbol type="id" name="permission_remember_choice_text" />
+  <java-symbol type="string" name="allow" />
+  <java-symbol type="string" name="deny" />
+  <java-symbol type="layout" name="permission_confirmation_dialog" />
+  <java-symbol type="array" name="app_ops_labels" />
 </resources>
