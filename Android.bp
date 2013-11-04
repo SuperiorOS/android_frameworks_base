@@ -253,6 +253,7 @@ java_library {
         "PlatformProperties",
         "vendor.lineage.health-V1-java",
         "vendor.lineage.touch-V1.0-java",
+        "SurfaceFlingerProperties",
     ],
     sdk_version: "core_platform",
     installable: false,
