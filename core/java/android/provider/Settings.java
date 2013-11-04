@@ -4537,6 +4537,12 @@ public final class Settings {
                 ANY_INTEGER_VALIDATOR;
 
         /**
+         * Allow all rotations.
+         * @hide
+         */
+        public static final String ACCELEROMETER_ROTATION_ANGLES = "accelerometer_rotation_angles";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
