@@ -5013,6 +5013,12 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * Force expanded notifications on all apps that support it.
+         * @hide
+         */
+        public static final String FORCE_EXPANDED_NOTIFICATIONS = "force_expanded_notifications";
+
+        /**
          * Reader mode
          * 0 = 0ff, 1 = on
          */
