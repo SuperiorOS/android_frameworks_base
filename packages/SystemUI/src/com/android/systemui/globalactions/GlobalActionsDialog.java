@@ -398,6 +398,9 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         mScreenshotHelper = new ScreenshotHelper(context);
         mScreenRecordHelper = new ScreenRecordHelper(context);
 
+        // Set the initial status of airplane mode toggle
+        mAirplaneState = getUpdatedAirplaneToggleState();
+
         mConfigurationController.addCallback(this);
 
         mActivityStarter = activityStarter;
@@ -2390,15 +2393,17 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         }
     };
 
+    private ToggleState getUpdatedAirplaneToggleState() {
+        return (Settings.Global.getInt(mContentResolver,
+                    Settings.Global.AIRPLANE_MODE_ON, 0) == 1) ?
+                ToggleState.On : ToggleState.Off;
+    }
+
     private void onAirplaneModeChanged() {
         // Let the service state callbacks handle the state.
         if (mHasTelephony) return;
 
-        boolean airplaneModeOn = Settings.Global.getInt(
-                mContentResolver,
-                Settings.Global.AIRPLANE_MODE_ON,
-                0) == 1;
-        mAirplaneState = airplaneModeOn ? ToggleState.On : ToggleState.Off;
+        mAirplaneState = getUpdatedAirplaneToggleState();
         mAirplaneModeOn.updateState(mAirplaneState);
     }
 
