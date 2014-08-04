@@ -5944,6 +5944,13 @@ public final class Settings {
         public static final String WFD_LEGACY_VIDEO_MODE = "wfd_legacy_video_mode";
 
         /**
+         * Whether to scramble a pin unlock layout
+         * 0 = 0ff, 1 = on
+         */
+        public static final String LOCKSCREEN_PIN_SCRAMBLE_LAYOUT =
+                "lockscreen_scramble_pin_layout";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -6130,6 +6137,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(ACCENT_COLOR);
             PRIVATE_SETTINGS.add(VOLUME_PANEL_ON_LEFT);
             PRIVATE_SETTINGS.add(FLASHLIGHT_ON_CALL);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_PIN_SCRAMBLE_LAYOUT);
         }
 
         /**
