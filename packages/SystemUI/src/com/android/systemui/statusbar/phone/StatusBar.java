@@ -3927,6 +3927,9 @@ public class StatusBar extends SystemUI implements
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.HEADS_UP_BLACKLIST_VALUES),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -3949,6 +3952,9 @@ public class StatusBar extends SystemUI implements
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.HEADS_UP_BLACKLIST_VALUES))) {
                 setHeadsUpBlacklist();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN))) {
+                setStatusBarWindowViewOptions();
             }
             update();
         }
@@ -3959,6 +3965,7 @@ public class StatusBar extends SystemUI implements
             setLockScreenMediaBlurLevel();
             setHeadsUpStoplist();
             setHeadsUpBlacklist();
+            setStatusBarWindowViewOptions();
         }
     }
 
@@ -3979,6 +3986,12 @@ public class StatusBar extends SystemUI implements
     private void setLockScreenMediaBlurLevel() {
         if (mMediaManager != null) {
             mMediaManager.setLockScreenMediaBlurLevel();
+        }
+    }
+
+    private void setStatusBarWindowViewOptions() {
+        if (mNotificationShadeWindowViewController != null) {
+            mNotificationShadeWindowViewController.setStatusBarWindowViewOptions();
         }
     }
 
