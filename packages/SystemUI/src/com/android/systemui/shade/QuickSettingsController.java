@@ -588,7 +588,22 @@ public class QuickSettingsController implements Dumpable {
                         MotionEvent.BUTTON_SECONDARY) || event.isButtonPressed(
                         MotionEvent.BUTTON_TERTIARY));
 
-        return twoFingerDrag || stylusButtonClickDrag || mouseButtonClickDrag;
+	    final float w = mPanelView.getMeasuredWidth();
+        final float x = event.getX();
+        float region = w * 1.f / 4.f; // TODO overlay region fraction?
+        boolean showQsOverride = false;
+
+        switch (mPanelViewControllerLazy.get().getOneFingerQuickSettingsIntercept()) {
+            case 1: // Right side pulldown
+                showQsOverride = mPanelView.isLayoutRtl() ? x < region : w - region < x;
+                break;
+            case 2: // Left side pulldown
+                showQsOverride = mPanelView.isLayoutRtl() ? w - region < x : x < region;
+                break;
+        }
+        showQsOverride &= mBarState == StatusBarState.SHADE;
+
+        return twoFingerDrag || showQsOverride || stylusButtonClickDrag || mouseButtonClickDrag;
     }
 
     public boolean getExpanded() {
