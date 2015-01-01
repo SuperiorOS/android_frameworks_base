@@ -5633,6 +5633,16 @@ public final class Settings {
         /** @hide */
         private static final Validator NAVIGATION_HANDLE_WIDTH_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
+        /** Whether to vibrate when quick settings tile is pressed.
+         *
+         * @hide
+         */
+        public static final String QUICK_SETTINGS_TILES_VIBRATE = "quick_settings_vibrate";
+
+        /** @hide */
+        private static final Validator QUICK_SETTINGS_TILES_VIBRATE_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
         /**
          * Whether to use partial screenshot when using volume keys
          * @hide
@@ -5990,6 +6000,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_ACCENT);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_NEW_TINT);
             PRIVATE_SETTINGS.add(NAVIGATION_HANDLE_WIDTH);
+            PRIVATE_SETTINGS.add(QUICK_SETTINGS_TILES_VIBRATE);
         }
 
         /**
@@ -6174,6 +6185,7 @@ public final class Settings {
             VALIDATORS.put(QS_PANEL_BG_USE_ACCENT, QS_PANEL_BG_USE_ACCENT_VALIDATOR);
             VALIDATORS.put(QS_PANEL_BG_USE_NEW_TINT, QS_PANEL_BG_USE_NEW_TINT_VALIDATOR);
             VALIDATORS.put(NAVIGATION_HANDLE_WIDTH, NAVIGATION_HANDLE_WIDTH_VALIDATOR);
+            VALIDATORS.put(QUICK_SETTINGS_TILES_VIBRATE, QUICK_SETTINGS_TILES_VIBRATE_VALIDATOR);
         }
 
         /**
