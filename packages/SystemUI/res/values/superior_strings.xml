@@ -73,4 +73,7 @@
     <string name="accessibility_quick_settings_heads_up_changed_off">Peek notifications turned off.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Peek notifications turned on.</string>
 
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USB tethering</string>
+
 </resources>
