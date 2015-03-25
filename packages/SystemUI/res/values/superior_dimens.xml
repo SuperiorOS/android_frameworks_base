@@ -61,4 +61,7 @@
     <!-- QS header data usage -->
     <dimen name="qs_datausage_icon_size">16sp</dimen>
 
+    <!-- QS detail view scrolling -->
+    <dimen name="qs_detail_item_height_twoline">72dp</dimen>
+
 </resources>
