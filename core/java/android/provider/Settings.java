@@ -5046,6 +5046,12 @@ public final class Settings {
         /** @hide */
         private static final Validator RECENT_PANEL_GRAVITY_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
+	    /**
+         * show the membar in recents
+         *  @hide
+         */
+        public static final String SYSTEMUI_RECENTS_MEM_DISPLAY = "systemui_recents_mem_display";
+
         /**
          * Size of recent panel view in percent (default = 100).
          * @hide
