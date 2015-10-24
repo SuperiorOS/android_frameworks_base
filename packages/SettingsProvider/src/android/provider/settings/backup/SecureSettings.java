@@ -218,5 +218,6 @@ public class SecureSettings {
         Settings.Secure.BLUETOOTH_LE_BROADCAST_APP_SOURCE_NAME,
         Settings.Secure.TETHERING_ALLOW_VPN_UPSTREAMS,
         Settings.Secure.GESTURE_NAVBAR_LENGTH_MODE,
+        Settings.Secure.POWER_MENU_HIDE_ON_SECURE,
     };
 }
