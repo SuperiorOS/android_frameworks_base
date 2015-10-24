@@ -6396,6 +6396,12 @@ public final class Settings {
         public static final String GLOBAL_ACTIONS_DEVICE_CONTROLS = "global_actions_device_controls";
 
         /**
+         * Whether to show power menu on Lock screen
+         * @hide
+         */
+        public static final String LOCKSCREEN_ENABLE_POWER_MENU = "lockscreen_enable_power_menu";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
