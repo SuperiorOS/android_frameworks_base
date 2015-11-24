@@ -465,7 +465,7 @@ public final class Settings implements Watchable, Snappable, ResilientAtomicFile
             sdkVersion = Build.VERSION.SDK_INT;
             databaseVersion = CURRENT_DATABASE_VERSION;
             buildFingerprint = Build.FINGERPRINT;
-            fingerprint = PackagePartitions.FINGERPRINT;
+            fingerprint = Build.VERSION.INCREMENTAL;
         }
     }
 
@@ -5732,7 +5732,7 @@ public final class Settings implements Watchable, Snappable, ResilientAtomicFile
         }
 
         private String getExtendedFingerprint(long version) {
-            return PackagePartitions.FINGERPRINT + "?pc_version=" + version;
+            return Build.VERSION.INCREMENTAL + "?pc_version=" + version;
         }
 
         private static long uniformRandom(double low, double high) {

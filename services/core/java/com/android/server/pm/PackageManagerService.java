@@ -1616,7 +1616,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
         }
 
         PackageManagerService m = new PackageManagerService(injector, factoryTest,
-                PackagePartitions.FINGERPRINT, Build.IS_ENG, Build.IS_USERDEBUG,
+                Build.VERSION.INCREMENTAL, Build.IS_ENG, Build.IS_USERDEBUG,
                 Build.VERSION.SDK_INT, Build.VERSION.INCREMENTAL);
         t.traceEnd(); // "create package manager"
 
@@ -2085,7 +2085,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
             if (mIsUpgrade) {
                 PackageManagerServiceUtils.logCriticalInfo(Log.INFO,
                         "Upgrading from " + ver.fingerprint + " (" + ver.buildFingerprint + ") to "
-                                + PackagePartitions.FINGERPRINT + " (" + Build.FINGERPRINT + ")");
+                                + Build.VERSION.INCREMENTAL + " (" + Build.FINGERPRINT + ")");
             }
 
             mInitAppsHelper = new InitAppsHelper(this, mApexManager, mInstallPackageHelper,
@@ -2222,8 +2222,8 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
             // allow...  it would be nice to have some better way to handle
             // this situation.
             if (mIsUpgrade) {
-                Slog.i(TAG, "Partitions fingerprint changed from " + ver.fingerprint + " to "
-                        + PackagePartitions.FINGERPRINT
+                Slog.i(TAG, "Build incremental version changed from " + ver.fingerprint + " to "
+                        + Build.VERSION.INCREMENTAL
                         + "; regranting permissions for internal storage");
             }
             mPermissionManager.onStorageVolumeMounted(
@@ -2243,7 +2243,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
             // across OTAs and are used to drive profile verification (post OTA) and
             // profile compilation (without waiting to collect a fresh set of profiles).
             if (mIsUpgrade) {
-                Slog.i(TAG, "Build fingerprint changed; clearing code caches");
+                Slog.i(TAG, "Build incremental version changed; clearing code caches");
                 for (int i = 0; i < packageSettings.size(); i++) {
                     final PackageSetting ps = packageSettings.valueAt(i);
                     if (Objects.equals(StorageManager.UUID_PRIVATE_INTERNAL, ps.getVolumeUuid())) {
@@ -2255,7 +2255,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
                     }
                 }
                 ver.buildFingerprint = Build.FINGERPRINT;
-                ver.fingerprint = PackagePartitions.FINGERPRINT;
+                ver.fingerprint = Build.VERSION.INCREMENTAL;
             }
 
             // Defer the app data fixup until we are done with app data clearing above.
