@@ -6206,6 +6206,13 @@ public final class Settings {
          */
         public static final String GLOBAL_ACTIONS_ADVANCED = "global_actions_advanced";
 
+         /**
+         * Volume rocker wake
+         * @hide
+         */
+        @Readable
+        public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
+
         /**
          * Whether to display power in the power menu
          * @hide
