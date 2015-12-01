@@ -5767,6 +5767,11 @@ public final class Settings {
          */
         public static final String PULSE_TRIGGER_REASON = "pulse_trigger_reason";
 
+        /** Volume rocker wake
+         * @hide
+         */
+        public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
+
         /**
          * These are all public system settings
          *
@@ -5893,6 +5898,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(VOLTE_VOWIFI_OVERRIDE);
             PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT);
             PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC);
+            PRIVATE_SETTINGS.add(VOLUME_ROCKER_WAKE);
         }
 
         /**
