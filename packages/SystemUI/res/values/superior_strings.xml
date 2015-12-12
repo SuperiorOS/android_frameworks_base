@@ -174,4 +174,7 @@
 	<string name="call_title_tile">Dialer</string>
 	<string name="camera_title_tile">Camera</string>
 
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ambient Display</string>
+
 </resources>
