@@ -27,6 +27,7 @@ import com.android.systemui.plugins.qs.QSTileView;
 import com.android.systemui.qs.QSTileHost;
 import com.android.systemui.qs.external.CustomTile;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
+import com.android.systemui.qs.tiles.AmbientDisplayTile;
 import com.android.systemui.qs.tiles.BatterySaverTile;
 import com.android.systemui.qs.tiles.BluetoothTile;
 import com.android.systemui.qs.tiles.CastTile;
@@ -85,6 +86,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<GarbageMonitor.MemoryTile> mMemoryTileProvider;
     private final Provider<UiModeNightTile> mUiModeNightTileProvider;
     private final Provider<SoundTile> mSoundTileProvider;
+    private final Provider<AmbientDisplayTile> mAmbientDisplayTileProvider;
     private final Provider<CaffeineTile> mCaffeineTileProvider;
     private final Provider<RebootTile> mRebootTileProvider;
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
@@ -120,6 +122,7 @@ public class QSFactoryImpl implements QSFactory {
             Provider<CaffeineTile> caffeineTileProvider,
             Provider<RebootTile> rebootTileProvider,
             Provider<ScreenshotTile> screenshotTileProvider,
+            Provider<AmbientDisplayTile> ambientDisplayTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider,
             Provider<HWKeysTile> hWKeysTileProvider,
             Provider<UsbTetherTile> usbTetherTileProvider,
@@ -148,6 +151,7 @@ public class QSFactoryImpl implements QSFactory {
         mCaffeineTileProvider = caffeineTileProvider;
         mRebootTileProvider = rebootTileProvider;
         mScreenshotTileProvider = screenshotTileProvider;
+        mAmbientDisplayTileProvider = ambientDisplayTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
         mHWKeysTileProvider = hWKeysTileProvider;
         mUsbTetherTileProvider = usbTetherTileProvider;
@@ -208,6 +212,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mUiModeNightTileProvider.get();
             case "sound":
                 return mSoundTileProvider.get();
+            case "ambient_display":
+                return mAmbientDisplayTileProvider.get();
             case "caffeine":
                 return mCaffeineTileProvider.get();
             case "reboot":
