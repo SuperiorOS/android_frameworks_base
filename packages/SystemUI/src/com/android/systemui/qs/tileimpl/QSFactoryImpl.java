@@ -51,6 +51,7 @@ import com.android.systemui.qs.tiles.MusicTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.RebootTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
+import com.android.systemui.qs.tiles.SleepScreenTile;
 import com.android.systemui.qs.tiles.SoundTile;
 import com.android.systemui.qs.tiles.ThemeTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
@@ -149,6 +150,8 @@ public class QSFactoryImpl implements QSFactory {
                 return new AmbientPlayTile(mHost);
             case "music":
                 return new MusicTile(mHost);
+            case "sleepscreen":
+                return new SleepScreenTile(mHost);
         }
 
         // Intent tiles.
