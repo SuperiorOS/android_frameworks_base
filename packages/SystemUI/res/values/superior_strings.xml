@@ -232,4 +232,10 @@
     <string name="navigation_bar_accessibility_dpad_right">Cursor right</string>
     <string name="navigation_bar_inverse_title">Swap buttons</string>
     <string name="navigation_bar_inverse_summary">Swap the order of recents and back buttons</string>    
+
+    <!-- Navigation Bar tile -->
+    <string name="quick_settings_navbar_title">Navigation Bar</string>
+    <string name="accessibility_quick_settings_navbar_on">Navigation bar on</string>
+    <string name="accessibility_quick_settings_navbar_off">Navigation bar off</string>
+
 </resources>
