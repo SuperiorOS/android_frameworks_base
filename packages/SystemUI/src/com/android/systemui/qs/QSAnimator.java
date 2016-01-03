@@ -232,7 +232,8 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
         View brightness = mQsPanel.getBrightnessView();
         if (mAllowFancy) {
             // Make brightness appear static position and alpha in through second half.
-            if (brightness != null && !mQsPanel.isBrightnessViewBottom()) {
+            /*View brightness = mQsPanel.getBrightnessView();
+            if (brightness != null) {
                 firstPageBuilder.addFloat(brightness, "translationY", heightDiff, 0);
                 mBrightnessAnimator = new TouchAnimator.Builder()
                         .addFloat(brightness, "alpha", 0, 1)
@@ -241,25 +242,27 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
                 mAllViews.add(brightness);
             } else {
                 mBrightnessAnimator = null;
-            }
+            }*/
             mFirstPageAnimator = firstPageBuilder
                     .setListener(this)
                     .build();
             // Fade in the tiles/labels as we reach the final position.
-            TouchAnimator.Builder animationBuilder = new TouchAnimator.Builder()
+            TouchAnimator.Builder builder = new TouchAnimator.Builder()
                     .setStartDelay(EXPANDED_TILE_DELAY)
                     .addFloat(mQsPanel.getPageIndicator(), "alpha", 0, 1)
                     .addFloat(tileLayout, "alpha", 0, 1)
                     .addFloat(mQsPanel.getDivider(), "alpha", 0, 1)
                     .addFloat(mQsPanel.getFooter().getView(), "alpha", 0, 1);
+            if (brightness != null) {
+                builder.addFloat(mQsPanel.getBrightnessView(), "alpha", 0, 1);
+            }
+            mFirstPageDelayedAnimator = builder.build();
             mAllViews.add(mQsPanel.getPageIndicator());
             mAllViews.add(mQsPanel.getDivider());
             mAllViews.add(mQsPanel.getFooter().getView());
-            if (brightness != null && mQsPanel.isBrightnessViewBottom()) {
-                mAllViews.add(brightness);
-                animationBuilder.addFloat(brightness, "alpha", 0, 1);
+            if (brightness != null) {
+                mAllViews.add(mQsPanel.getBrightnessView());
             }
-            mFirstPageDelayedAnimator = animationBuilder.build();
             float px = 0;
             float py = 1;
             if (tiles.size() <= 3) {
@@ -273,16 +276,16 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
             mTranslationXAnimator = translationXBuilder.build();
             mTranslationYAnimator = translationYBuilder.build();
         }
-        TouchAnimator.Builder animationBuilder = new TouchAnimator.Builder()
+        TouchAnimator.Builder builder = new TouchAnimator.Builder()
                 .addFloat(mQuickQsPanel, "alpha", 1, 0)
                 .addFloat(mQsPanel.getPageIndicator(), "alpha", 0, 1)
                 .addFloat(mQsPanel.getDivider(), "alpha", 0, 1)
                 .setListener(mNonFirstPageListener)
                 .setEndDelay(.5f);
-        if (brightness != null && mQsPanel.isBrightnessViewBottom()) {
-            animationBuilder.addFloat(brightness, "alpha", 0, 1);
+        if (brightness != null) {
+            builder.addFloat(mQsPanel.getBrightnessView(), "alpha", 0, 1);
         }
-        mNonfirstPageAnimator = animationBuilder.build();
+        mNonfirstPageAnimator = builder.build();
         mNonfirstPageDelayedAnimator = new TouchAnimator.Builder()
                 .setStartDelay(.14f)
                 .addFloat(tileLayout, "alpha", 0, 1).build();
@@ -325,9 +328,9 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
             mFirstPageDelayedAnimator.setPosition(position);
             mTranslationXAnimator.setPosition(position);
             mTranslationYAnimator.setPosition(position);
-            if (mBrightnessAnimator != null) {
+            /*if (mBrightnessAnimator != null) {
                 mBrightnessAnimator.setPosition(position);
-            }
+            }*/
         } else {
             mNonfirstPageAnimator.setPosition(position);
             mNonfirstPageDelayedAnimator.setPosition(position);
