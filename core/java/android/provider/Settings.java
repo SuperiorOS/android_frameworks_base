@@ -5216,6 +5216,33 @@ public final class Settings {
         public static final String RECENTS_ICON_PACK = "recents_icon_pack";
 
         /**
+         * Whether the phone ringtone should be played in an increasing manner
+         * @hide
+         */
+        public static final String INCREASING_RING = "increasing_ring";
+         /** @hide */
+        public static final Validator INCREASING_RING_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
+         * Start volume fraction for increasing ring volume
+         * @hide
+         */
+        public static final String INCREASING_RING_START_VOLUME = "increasing_ring_start_vol";
+         /** @hide */
+        public static final Validator INCREASING_RING_START_VOLUME_VALIDATOR =
+                ANY_STRING_VALIDATOR;
+
+        /**
+         * Ramp up time (seconds) for increasing ring
+         * @hide
+         */
+        public static final String INCREASING_RING_RAMP_UP_TIME = "increasing_ring_ramp_up_time";
+         /** @hide */
+        public static final Validator INCREASING_RING_RAMP_UP_TIME_VALIDATOR =
+                ANY_STRING_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5281,6 +5308,9 @@ public final class Settings {
             OMNI_QS_LAYOUT_ROWS,
             OMNI_QS_LAYOUT_ROWS_LANDSCAPE,
             OMNI_QS_QUICKBAR_COLUMNS,
+            INCREASING_RING,
+            INCREASING_RING_START_VOLUME,
+            INCREASING_RING_RAMP_UP_TIME,
             STATUS_BAR_CLOCK,
             STATUSBAR_CLOCK_STYLE,
             STATUS_BAR_CLOCK_SECONDS,
@@ -5443,6 +5473,9 @@ public final class Settings {
             PRIVATE_SETTINGS.add(OMNI_QS_LAYOUT_ROWS);
             PRIVATE_SETTINGS.add(OMNI_QS_LAYOUT_ROWS_LANDSCAPE);
             PRIVATE_SETTINGS.add(OMNI_QS_QUICKBAR_COLUMNS);
+            PRIVATE_SETTINGS.add(INCREASING_RING);
+            PRIVATE_SETTINGS.add(INCREASING_RING_START_VOLUME);
+            PRIVATE_SETTINGS.add(INCREASING_RING_RAMP_UP_TIME);
             PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK);
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_STYLE);
             PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK_SECONDS);
@@ -5584,6 +5617,9 @@ public final class Settings {
             VALIDATORS.put(OMNI_QS_LAYOUT_ROWS, OMNI_QS_LAYOUT_ROWS_VALIDATOR);
             VALIDATORS.put(OMNI_QS_LAYOUT_ROWS_LANDSCAPE, OMNI_QS_LAYOUT_ROWS_LANDSCAPE_VALIDATOR);
             VALIDATORS.put(OMNI_QS_QUICKBAR_COLUMNS, OMNI_QS_QUICKBAR_COLUMNS_VALIDATOR);
+            VALIDATORS.put(INCREASING_RING, INCREASING_RING_VALIDATOR);
+            VALIDATORS.put(INCREASING_RING_START_VOLUME, INCREASING_RING_START_VOLUME_VALIDATOR);
+            VALIDATORS.put(INCREASING_RING_RAMP_UP_TIME, INCREASING_RING_RAMP_UP_TIME_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_CLOCK, STATUS_BAR_CLOCK_VALIDATOR);
             VALIDATORS.put(STATUSBAR_CLOCK_STYLE, STATUSBAR_CLOCK_STYLE_VALIDATOR);
             VALIDATORS.put(STATUS_BAR_CLOCK_SECONDS, STATUS_BAR_CLOCK_SECONDS_VALIDATOR);
