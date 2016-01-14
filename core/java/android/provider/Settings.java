@@ -4158,11 +4158,19 @@ public final class Settings {
          * @hide
          */
         public static final String VIBRATE_ON_CALLWAITING = "vibrate_on_callwaiting";
-         /**
+
+		/**
          * Whether the phone vibrates on disconnect
          * @hide
          */
         public static final String VIBRATE_ON_DISCONNECT = "vibrate_on_disconnect";
+
+        /**
+         * whether to enable or disable vibration on succesful fingerprint auth
+         *
+         * @hide
+         */
+        public static final String FINGERPRINT_SUCCESS_VIB = "fingerprint_success_vib";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
