@@ -5648,6 +5648,14 @@ public final class Settings {
         public static final String LESS_BORING_HEADS_UP = "less_boring_heads_up";
 
         /**
+         * Whether the HighTouchSensitivity is activated or not.
+         * 0 = off, 1 = on
+         * @hide
+         */
+        public static final String HIGH_TOUCH_SENSITIVITY_ENABLE =
+                "high_touch_sensitivity_enable";
+
+        /**
          * Enable statusbar double tap gesture to put device to sleep
          * @hide
          */
@@ -5832,6 +5840,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(VIBRATE_ON_DISCONNECT);
             PRIVATE_SETTINGS.add(VOLUME_ROCKER_WAKE);
             PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
+            PRIVATE_SETTINGS.add(HIGH_TOUCH_SENSITIVITY_ENABLE);
         }
 
         /**
