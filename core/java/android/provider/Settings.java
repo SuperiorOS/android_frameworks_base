@@ -4119,6 +4119,11 @@ public final class Settings {
          */
         public static final String TOUCHSCREEN_GESTURE_HAPTIC_FEEDBACK = "touchscreen_gesture_haptic_feedback";
         /**
+         * Enable or disable lockscreen rotation
+         */
+        public static final String LOCKSCREEN_ROTATION = "lockscreen_rotation";
+
+        /**
          * Control the type of rotation which can be performed using the accelerometer
          * if ACCELEROMETER_ROTATION is enabled.
          * Value is a bitwise combination of
