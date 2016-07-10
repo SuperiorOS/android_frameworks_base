@@ -50,4 +50,8 @@
 
     <!-- Display color inversion availability -->
     <bool name="config_displayInversionAvailable">true</bool>
+
+    <!-- Whether device has dash charging support -->
+    <bool name="config_hasDashCharger">false</bool>
+
 </resources>
