@@ -54,4 +54,7 @@
     <!-- Boost Framework -->
     <bool name="config_supportsBoostFramework">false</bool>
 
+    <!-- Whether device has dash charging support -->
+    <bool name="config_hasDashCharger">false</bool>
+
 </resources>
