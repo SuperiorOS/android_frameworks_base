@@ -523,6 +523,9 @@ public final class PowerManagerService extends SystemService
     // overrule and disable brightness for buttons
     private boolean mHardwareKeysDisable = false;
 
+    // overrule and disable brightness for buttons
+    private boolean mHardwareKeysDisable = false;
+
     // Set of app ids that we will always respect the wake locks for.
     int[] mDeviceIdleWhitelist = new int[0];
 
@@ -863,6 +866,9 @@ public final class PowerManagerService extends SystemService
         resolver.registerContentObserver(Settings.Secure.getUriFor(
                 Settings.Secure.HARDWARE_KEYS_DISABLE),
                 false, mSettingsObserver, UserHandle.USER_ALL);
+        resolver.registerContentObserver(Settings.Secure.getUriFor(
+                Settings.Secure.HARDWARE_KEYS_DISABLE),
+                false, mSettingsObserver, UserHandle.USER_ALL);
         IVrManager vrManager = (IVrManager) getBinderService(Context.VR_SERVICE);
         if (vrManager != null) {
             try {
@@ -986,6 +992,10 @@ public final class PowerManagerService extends SystemService
         mButtonBrightness = Settings.System.getIntForUser(resolver,
                 Settings.System.BUTTON_BRIGHTNESS, mButtonBrightnessSettingDefault,
                 UserHandle.USER_CURRENT);
+
+        mHardwareKeysDisable = Settings.Secure.getIntForUser(resolver,
+                Settings.Secure.HARDWARE_KEYS_DISABLE, 0,
+                UserHandle.USER_CURRENT) != 0;
 
         mHardwareKeysDisable = Settings.Secure.getIntForUser(resolver,
                 Settings.Secure.HARDWARE_KEYS_DISABLE, 0,
