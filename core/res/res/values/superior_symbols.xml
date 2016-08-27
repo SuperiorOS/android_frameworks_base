@@ -187,4 +187,12 @@
   <java-symbol type="integer" name="nav_gesture_swipe_timout" />
   <java-symbol type="integer" name="nav_gesture_move_threshold" />
 
+  <!-- Notification icon/text dynamic tint -->
+  <java-symbol name="config_allowNotificationIconTextTinting" type="bool" />
+  <java-symbol name="notification_text_default_color" type="color" />
+  <java-symbol name="notification_icon_default_color" type="color" />
+
+  <!-- Notification sender text color -->
+  <java-symbol name="sender_text_color" type="color" />
+
 </resources>
