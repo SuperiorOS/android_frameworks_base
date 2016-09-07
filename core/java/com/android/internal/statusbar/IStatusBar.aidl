@@ -386,4 +386,7 @@ oneway interface IStatusBar
     * @param displayId the id of the current display.
     */
     void enterDesktop(int displayId);
+
+    /** Superior additions. */
+    void toggleCameraFlash();
 }
