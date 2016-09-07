@@ -176,6 +176,8 @@ public class CommandQueue extends IStatusBar.Stub implements
     private static final int MSG_CONFIRM_IMMERSIVE_PROMPT = 77 << MSG_SHIFT;
     private static final int MSG_IMMERSIVE_CHANGED = 78 << MSG_SHIFT;
     private static final int MSG_SET_QS_TILES = 79 << MSG_SHIFT;
+    private static final int MSG_TOGGLE_CAMERA_FLASH  = 80 << MSG_SHIFT;
+
     public static final int FLAG_EXCLUDE_NONE = 0;
     public static final int FLAG_EXCLUDE_SEARCH_PANEL = 1 << 0;
     public static final int FLAG_EXCLUDE_RECENTS_PANEL = 1 << 1;
@@ -482,6 +484,11 @@ public class CommandQueue extends IStatusBar.Stub implements
          */
         default void unregisterNearbyMediaDevicesProvider(
                 @NonNull INearbyMediaDevicesProvider provider) {}
+
+        /**
+         * @see IStatusBar#toggleCameraFlash
+         */
+        default void toggleCameraFlash() { }
 
         /**
          * @see IStatusBar#showRearDisplayDialog
@@ -1387,6 +1394,14 @@ public class CommandQueue extends IStatusBar.Stub implements
     }
 
     @Override
+    public void toggleCameraFlash() {
+        synchronized (mLock) {
+            mHandler.removeMessages(MSG_TOGGLE_CAMERA_FLASH);
+            mHandler.sendEmptyMessage(MSG_TOGGLE_CAMERA_FLASH);
+        }
+    }
+
+    @Override
     public void goToFullscreenFromSplit() {
         mHandler.obtainMessage(MSG_GO_TO_FULLSCREEN_FROM_SPLIT).sendToTarget();
     }
@@ -1873,6 +1888,11 @@ public class CommandQueue extends IStatusBar.Stub implements
                     boolean isImmersiveMode = args.argi2 != 0;
                     for (int i = 0; i < mCallbacks.size(); i++) {
                         mCallbacks.get(i).immersiveModeChanged(rootDisplayAreaId, isImmersiveMode);
+                    }
+                    break;
+                case MSG_TOGGLE_CAMERA_FLASH:
+                    for (int i = 0; i < mCallbacks.size(); i++) {
+                        mCallbacks.get(i).toggleCameraFlash();
                     }
                     break;
             }
