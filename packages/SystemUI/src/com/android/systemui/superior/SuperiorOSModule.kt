@@ -19,6 +19,7 @@ package com.android.systemui.superior
 import com.android.systemui.qs.tileimpl.QSTileImpl
 import com.android.systemui.qs.tiles.AmbientDisplayTile
 import com.android.systemui.qs.tiles.CaffeineTile
+import com.android.systemui.qs.tiles.SyncTile
 import com.android.systemui.qs.tiles.UsbTetherTile
 
 import dagger.Binds
@@ -40,6 +41,12 @@ interface SuperiorOSModule {
     @IntoMap
     @StringKey(CaffeineTile.TILE_SPEC)
     fun bindCaffeineTile(caffeineTile: CaffeineTile): QSTileImpl<*>
+
+    /** Inject SyncTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(SyncTile.TILE_SPEC)
+    fun bindSyncTile(syncTile: SyncTile): QSTileImpl<*>
 
     /** Inject UsbTetherTile into tileMap in QSModule */
     @Binds
