@@ -4217,6 +4217,15 @@ public final class Settings {
         public static final String VIBRATE_ON_DISCONNECT = "vibrate_on_disconnect";
 
         /**
+         * Whether allowing pocket service to register sensors and dispatch informations.
+         *   0 = disabled
+         *   1 = enabled
+         * @author Carlo Savignano
+         * @hide
+         */
+        public static final String POCKET_JUDGE = "pocket_judge";
+
+        /**
          * whether to enable or disable vibration on succesful fingerprint auth
          *
          * @hide
@@ -5109,6 +5118,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_HEADER_STYLE);
             PRIVATE_SETTINGS.add(OMNI_USE_BOTTOM_GESTURE_NAVIGATION);
             PRIVATE_SETTINGS.add(QS_TILE_STYLE);       
+            PRIVATE_SETTINGS.add(POCKET_JUDGE);
         }
 
         /**
