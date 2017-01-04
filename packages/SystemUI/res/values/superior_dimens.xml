@@ -44,5 +44,4 @@
     <dimen name="dialog_button_vertical_padding">8dp</dimen>
     <dimen name="dialog_side_padding">24dp</dimen>
     <dimen name="dialog_bottom_padding">18dp</dimen>
-
 </resources>
