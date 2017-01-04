@@ -25,7 +25,7 @@ import com.android.systemui.statusbar.pipeline.icons.shared.model.ModernStatusBa
 
 /** Wraps [com.android.internal.statusbar.StatusBarIcon] so we can still have a uniform list */
 open class StatusBarIconHolder private constructor() {
-    @IntDef(TYPE_ICON, TYPE_MOBILE_NEW, TYPE_WIFI_NEW, TYPE_BINDABLE)
+    @IntDef(TYPE_ICON, TYPE_MOBILE_NEW, TYPE_WIFI_NEW, TYPE_BINDABLE, TYPE_NETWORK_TRAFFIC)
     @Retention(AnnotationRetention.SOURCE)
     internal annotation class IconType
 
@@ -49,6 +49,7 @@ open class StatusBarIconHolder private constructor() {
                 TYPE_BINDABLE,
                 TYPE_MOBILE_NEW,
                 TYPE_WIFI_NEW -> true
+                TYPE_NETWORK_TRAFFIC -> true
                 else -> true
             }
         set(visible) {
@@ -108,6 +109,15 @@ open class StatusBarIconHolder private constructor() {
                 TYPE_WIFI_NEW -> "WIFI_NEW"
                 else -> "UNKNOWN"
             }
+        }
+
+        const val TYPE_NETWORK_TRAFFIC = 6
+
+	    @JvmStatic
+	    fun fromNetworkTraffic(): StatusBarIconHolder {
+            val holder = StatusBarIconHolder()
+            holder.type = TYPE_NETWORK_TRAFFIC
+            return holder
         }
 
         @JvmStatic
