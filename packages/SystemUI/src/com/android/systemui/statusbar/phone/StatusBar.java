@@ -4190,6 +4190,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         } else {
             Log.d("StatusBar", "updateKeyguardState -> AmbientIndicationContainer null");
         }
+        ((StatusBarIconControllerImpl) mStatusBarIconController).setKeyguardShowing(mState == StatusBarState.KEYGUARD);
         Trace.endSection();
     }
 
