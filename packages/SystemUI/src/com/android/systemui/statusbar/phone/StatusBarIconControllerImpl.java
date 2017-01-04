@@ -453,6 +453,12 @@ public class StatusBarIconControllerImpl extends StatusBarIconList implements Tu
         return s;
     }
 
+    public void setKeyguardShowing(boolean showing) {
+        for (IconManager manager : mIconGroups) {
+            manager.setKeyguardShowing(showing);
+        }
+    }
+
     /** */
     @Override
     public void onDensityOrFontScaleChanged() {
