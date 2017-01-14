@@ -46,4 +46,8 @@
 
     <!-- Screen Record -->
     <dimen name="screenrecord_dot_size">48dp</dimen>
+
+    <!-- BurnIn Protection -->
+    <dimen name="burnin_protection_horizontal_shift">1dp</dimen>
+    <dimen name="burnin_protection_vertical_shift">1dp</dimen>
 </resources>
