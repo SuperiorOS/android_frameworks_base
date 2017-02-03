@@ -241,4 +241,7 @@
     <!-- QS long-press actions -->
     <string name="tuner_qs_long_press_action">Dont show panels on long press</string>
 
+    <!-- Running service button -->
+    <string name="accessibility_quick_settings_running_services">Open Running Services screen.</string>
+
 </resources>
