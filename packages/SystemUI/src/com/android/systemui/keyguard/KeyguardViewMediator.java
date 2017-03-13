@@ -1938,6 +1938,8 @@ public class KeyguardViewMediator implements CoreStartable, Dumpable,
             if (mLockPatternUtils.isLockScreenDisabled(KeyguardUpdateMonitor.getCurrentUser())
                     && !lockedOrMissing && !forceShow) {
                 if (DEBUG) Log.d(TAG, "doKeyguard: not showing because lockscreen is off");
+                setShowingLocked(false, mAodShowing);
+                hideLocked();
                 return;
             }
         }
