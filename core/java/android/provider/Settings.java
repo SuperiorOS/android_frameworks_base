@@ -5467,6 +5467,11 @@ public final class Settings {
          * @hide
          */
         public static final String LOCKSCREEN_TEXT_CLOCK_ALIGN = "lockscreen_text_clock_align";
+		
+        /**
+         * @hide
+         */
+        public static final String ROAMING_INDICATOR_ICON = "roaming_indicator_icon";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
