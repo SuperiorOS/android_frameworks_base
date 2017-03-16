@@ -78,6 +78,8 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
     private RemoteInputQuickSettingsDisabler mRemoteInputQuickSettingsDisabler =
             Dependency.get(RemoteInputQuickSettingsDisabler.class);
 
+    private boolean mSecureExpandDisabled;
+
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container,
             Bundle savedInstanceState) {
@@ -303,10 +305,9 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
         mContainer.setExpansion(expansion);
         final float translationScaleY = expansion - 1;
         if (!mHeaderAnimating) {
-            getView().setTranslationY(
-                    mKeyguardShowing
-                            ? translationScaleY * mHeader.getHeight()
-                            : headerTranslation);
+            int height = mHeader.getHeight();
+            getView().setTranslationY((mKeyguardShowing || mSecureExpandDisabled) ? (translationScaleY * height)
+                    : headerTranslation);
         }
         if (expansion == mLastQSExpansion) {
             return;
@@ -344,6 +345,9 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
 
     @Override
     public void animateHeaderSlidingIn(long delay) {
+        if (mSecureExpandDisabled) {
+            return;
+        }
         if (DEBUG) Log.d(TAG, "animateHeaderSlidingIn");
         // If the QS is already expanded we don't need to slide in the header as it's already
         // visible.
@@ -426,8 +430,13 @@ public class QSFragment extends Fragment implements QS, CommandQueue.Callbacks {
 
     @Override
     public int getQsMinExpansionHeight() {
-        return mHeader.getHeight();
+        return mSecureExpandDisabled ? 0 : mHeader.getHeight();
     }
+
+    public void setSecureExpandDisabled(boolean value) {
+        if (DEBUG) Log.d(TAG, "setSecureExpandDisabled " + value);
+        mSecureExpandDisabled = value;
+      }
 
     @Override
     public void hideImmediately() {
