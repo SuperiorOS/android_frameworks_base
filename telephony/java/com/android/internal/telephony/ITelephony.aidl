@@ -1534,4 +1534,11 @@ interface ITelephony {
      * @hide
      */
     void refreshUiccProfile(int subId);
+
+    /**
+     * ToggleE_GSM, NT_MODE_WCDMA_PREF)
+     * @param boolean to turn on and off 2G
+     * @hide
+     */
+     void toggle2G(boolean on);
 }
