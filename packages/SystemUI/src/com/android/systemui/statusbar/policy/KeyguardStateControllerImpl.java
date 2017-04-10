@@ -155,13 +155,13 @@ public class KeyguardStateControllerImpl implements KeyguardStateController, Dum
     }
 
     @Override
-    public void addCallback(@NonNull Callback callback) {
+    public synchronized void addCallback(@NonNull Callback callback) {
         Objects.requireNonNull(callback, "Callback must not be null. b/128895449");
         mCallbacks.add(callback);
     }
 
     @Override
-    public void removeCallback(@NonNull Callback callback) {
+    public synchronized void removeCallback(@NonNull Callback callback) {
         Objects.requireNonNull(callback, "Callback must not be null. b/128895449");
         mCallbacks.remove(callback);
     }
