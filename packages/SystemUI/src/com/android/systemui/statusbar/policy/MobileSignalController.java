@@ -521,6 +521,7 @@ public class MobileSignalController extends SignalController<
                 case 7:
                     resId = R.drawable.ic_volte_emui;
                     break;
+		// Superior VoLTE icon
                 case 0:
                 default:
                     resId = R.drawable.ic_volte;
