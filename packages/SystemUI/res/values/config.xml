@@ -505,6 +505,7 @@
         <item>@*android:string/status_bar_rotate</item>
         <item>@*android:string/status_bar_headset</item>
         <item>@*android:string/status_bar_call_strength</item>
+        <item>@*android:string/status_bar_ims</item>
     </string-array>
 
 
