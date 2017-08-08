@@ -4,50 +4,53 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
-     <!-- The list of components which should be automatically disabled for a specific device.
+    <!-- The list of components which should be automatically disabled for a specific device.
          Note: this MUST not be used to randomly disable components, ask for approval first! -->
-     <string-array name="config_deviceDisabledComponents" translatable="false">
-     </string-array>
+    <string-array name="config_deviceDisabledComponents" translatable="false">
+    </string-array>
 
-     <!-- The list of components which should be automatically disabled for all devices. -->
-     <string-array name="config_globallyDisabledComponents" translatable="false">
-     </string-array>
+    <!-- The list of components which should be automatically disabled for all devices. -->
+    <string-array name="config_globallyDisabledComponents" translatable="false">
+    </string-array>
 
-     <!-- The list of components which should be forced to be enabled. -->
-     <string-array name="config_forceEnabledComponents" translatable="false">
-     </string-array>
+    <!-- The list of components which should be forced to be enabled. -->
+    <string-array name="config_forceEnabledComponents" translatable="false">
+    </string-array>
 
-     <!-- Paths to the libraries that contain device specific key handlers -->
-     <string-array name="config_deviceKeyHandlerLibs" translatable="false">
-     </string-array>
+    <!-- Paths to the libraries that contain device specific key handlers -->
+    <string-array name="config_deviceKeyHandlerLibs" translatable="false">
+    </string-array>
 
-     <!-- Names of the key handler classes -->
-     <string-array name="config_deviceKeyHandlerClasses" translatable="false">
-     </string-array>
+    <!-- Names of the key handler classes -->
+    <string-array name="config_deviceKeyHandlerClasses" translatable="false">
+    </string-array>
 
-     <!-- Name of a font family to use as light font. For theming purpose. -->
-     <string name="config_lightFontFamily" translatable="false">sans-serif-light</string>
+    <!-- Name of a font family to use as light font. For theming purpose. -->
+    <string name="config_lightFontFamily" translatable="false">sans-serif-light</string>
 
-     <!-- Name of a font family to use as regular font. For theming purpose. -->
-     <string name="config_regularFontFamily" translatable="false">sans-serif-regular</string>
+    <!-- Name of a font family to use as regular font. For theming purpose. -->
+    <string name="config_regularFontFamily" translatable="false">sans-serif-regular</string>
 
-     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
-     <bool name="config_intrusiveBatteryLed">@bool/config_intrusiveNotificationLed</bool>
+    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
+    <bool name="config_intrusiveBatteryLed">@bool/config_intrusiveNotificationLed</bool>
 
-     <!-- Whether to use Richtap vibration -->
-     <bool name="config_usesRichtapVibration">false</bool>
+    <!-- Whether to use Richtap vibration -->
+    <bool name="config_usesRichtapVibration">false</bool>
 
-     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
-     <bool name="config_cleanupUnusedFingerprints">true</bool>
+    <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
+    <bool name="config_cleanupUnusedFingerprints">true</bool>
 
-     <!-- Whether to cancel fingerprint operation if not idle -->
-     <bool name="config_fpCancelIfNotIdle">false</bool>
+    <!-- Whether to cancel fingerprint operation if not idle -->
+    <bool name="config_fpCancelIfNotIdle">false</bool>
 
-     <!-- The list of package IDs that are allowed to use aux cameras.
+    <!-- The list of package IDs that are allowed to use aux cameras.
          NOTE: If this list is empty then all apps will be able to use aux cameras. -->
-     <string-array name="config_cameraAuxPackageAllowList" translatable="false" />
+    <string-array name="config_cameraAuxPackageAllowList" translatable="false" />
 
-     <!-- The list of package IDs that are not allowed to use aux cameras. -->
-     <string-array name="config_cameraAuxPackageExcludeList" translatable="false" />
+    <!-- The list of package IDs that are not allowed to use aux cameras. -->
+    <string-array name="config_cameraAuxPackageExcludeList" translatable="false" />
+
+    <!-- The list of package IDs that are allowed to skip camera high frame rate checks. -->
+    <string-array name="config_cameraHFRPrivAppList" translatable="false" />
 
 </resources>
