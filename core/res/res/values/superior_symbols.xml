@@ -22,4 +22,8 @@
 
     <!-- Whether to cancel fingerprint operation if not idle -->
     <java-symbol type="bool" name="config_fpCancelIfNotIdle" />
+
+    <!-- Camera -->
+    <java-symbol type="array" name="config_cameraHFRPrivAppList" />
+
 </resources>
