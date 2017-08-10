@@ -16,6 +16,7 @@
 
 package android.view;
 
+import com.android.internal.onehand.IOneHandedModeListener;
 import com.android.internal.os.IResultReceiver;
 import com.android.internal.view.IInputContext;
 import com.android.internal.view.IInputMethodClient;
@@ -448,4 +449,22 @@ interface IWindowManager
     boolean isGestureButtonEnabled();
 
     boolean isGestureButtonRegion(int i, int i2);
+
+    // This requires the ONE_HANDED_MODE permission.
+    boolean isOneHandedModeAvailable();
+
+    // This requires the ONE_HANDED_MODE permission.
+    float getOneHandedModeShrinkingScale();
+
+    /**
+     * Registers a listener that will be called when one handed mode state is changed.
+     * This requires the ONE_HANDED_MODE permission.
+     */
+    void registerOneHandedModeListener(IOneHandedModeListener listener);
+
+    /**
+     * Unregisters a listener that will be called when one handed mode state is changed.
+     * This requires the ONE_HANDED_MODE permission.
+     */
+    void unregisterOneHandedModeListener(IOneHandedModeListener listener);
 }
