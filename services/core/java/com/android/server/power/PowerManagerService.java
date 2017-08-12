@@ -266,7 +266,9 @@ public final class PowerManagerService extends SystemService
 
     // True if MSG_SANDMAN has been scheduled.
     private boolean mSandmanScheduled;
-
+    private long mLastButtonActivityTime;
+    private boolean mButtonLightOnKeypressOnly;
+    private boolean mButtonPressed;
     // Table of all suspend blockers.
     // There should only be a few of these.
     private final ArrayList<SuspendBlocker> mSuspendBlockers = new ArrayList<SuspendBlocker>();
@@ -1411,6 +1413,14 @@ public final class PowerManagerService extends SystemService
                 }
             } else {
                 if (eventTime > mLastUserActivityTime) {
+                    mButtonPressed = event == PowerManager.USER_ACTIVITY_EVENT_BUTTON;
+                    if (eventTime == mLastWakeTime ||
+                            (mButtonLightOnKeypressOnly && mButtonPressed &&
+                                    (flags & PowerManager.USER_ACTIVITY_FLAG_NO_BUTTON_LIGHTS)
+                                            == 0)) {
+                        mButtonPressed = true;
+                        mLastButtonActivityTime = eventTime;
+                    }
                     mLastUserActivityTime = eventTime;
                     mDirty |= DIRTY_USER_ACTIVITY;
                     if (event == PowerManager.USER_ACTIVITY_EVENT_BUTTON) {
