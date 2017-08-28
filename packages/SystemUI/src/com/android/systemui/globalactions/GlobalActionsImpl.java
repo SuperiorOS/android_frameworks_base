@@ -95,7 +95,7 @@ public class GlobalActionsImpl implements GlobalActions, CommandQueue.Callbacks 
     }
 
     @Override
-    public void showShutdownUi(boolean isReboot, String reason) {
+    public void showShutdownUi(boolean isReboot, String reason, boolean rebootCustom) {
         ScrimDrawable background = new ScrimDrawable();
 
         final Dialog d = new Dialog(mContext,
@@ -152,11 +152,28 @@ public class GlobalActionsImpl implements GlobalActions, CommandQueue.Callbacks 
         reasonView.setTextColor(color);
         messageView.setTextColor(color);
 
-        messageView.setText(getRebootMessage(isReboot, reason));
-        String rebootReasonMessage = getReasonMessage(reason);
-        if (rebootReasonMessage != null) {
-            reasonView.setVisibility(View.VISIBLE);
-            reasonView.setText(rebootReasonMessage);
+        if (rebootCustom) {
+            if (reason != null) {
+                if (PowerManager.REBOOT_RECOVERY.equals(reason)) {
+                    messageView.setText(
+                            com.android.systemui.R.string.global_action_reboot_recovery_progress);
+                } else if (PowerManager.REBOOT_BOOTLOADER.equals(reason)) {
+                    messageView.setText(
+                            com.android.systemui.R.string.global_action_reboot_bootloader_progress);
+                } else if (PowerManager.REBOOT_FASTBOOT.equals(reason)) {
+                    messageView.setText(
+                            com.android.systemui.R.string.global_action_reboot_fastboot_progress);
+                }
+            } else {
+                messageView.setText(com.android.systemui.R.string.global_action_reboot_progress);
+            }
+        } else {
+            messageView.setText(getRebootMessage(isReboot, reason));
+            String rebootReasonMessage = getReasonMessage(reason);
+            if (rebootReasonMessage != null) {
+                reasonView.setVisibility(View.VISIBLE);
+                reasonView.setText(rebootReasonMessage);
+            }
         }
 
         d.show();
