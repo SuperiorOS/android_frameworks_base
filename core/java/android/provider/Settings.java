@@ -5160,6 +5160,88 @@ public final class Settings {
          */
 
         /**
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_LIST = "global_actions_list";
+
+        /**
+         * Whether to display airplane in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_AIRPLANE = "global_actions_airplane";
+
+        /**
+         * Whether to display the flashlight option in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_EMERGENCY = "global_actions_emergency";
+
+        /**
+         * Whether to display the flashlight option in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_FLASHLIGHT = "global_actions_flashlight";
+
+        /**
+         * Whether to display lock in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_LOCKDOWN = "global_actions_lockdown";
+
+        /**
+         * Whether to display sound panel in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_SOUNDPANEL = "global_actions_soundpanel";
+
+        /**
+         * Whether to display screenshot in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_SCREENSHOT = "global_actions_screenshot";
+
+        /**
+         * Whether to display screenrecord in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_SCREENRECORD = "global_actions_screenrecord";
+
+        /**
+         * Whether to display settings in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_SETTINGS = "global_actions_settings";
+
+        /**
+         * Whether to display the users option in the power menu
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_USERS = "global_actions_users";
+
+        /**
+         * How many action item columns to show before moving to overflow
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_MAX_COLUMNS = "global_actions_max_columns";
+
+        /**
+         * How many action item rows to show before moving to overflow
+         *
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_MAX_ROWS = "global_actions_max_rows";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -5279,6 +5361,17 @@ public final class Settings {
             PRIVATE_SETTINGS.add(SHOW_BATTERY_PERCENT);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE_VENDOR_HINT);
+            PRIVATE_SETTINGS.add(GLOBAL_ACTIONS_AIRPLANE);
+            PRIVATE_SETTINGS.add(GLOBAL_ACTIONS_EMERGENCY);
+            PRIVATE_SETTINGS.add(GLOBAL_ACTIONS_FLASHLIGHT);
+            PRIVATE_SETTINGS.add(GLOBAL_ACTIONS_LOCKDOWN);
+            PRIVATE_SETTINGS.add(GLOBAL_ACTIONS_SOUNDPANEL);
+            PRIVATE_SETTINGS.add(GLOBAL_ACTIONS_SCREENSHOT);
+            PRIVATE_SETTINGS.add(GLOBAL_ACTIONS_SCREENRECORD);
+            PRIVATE_SETTINGS.add(GLOBAL_ACTIONS_SETTINGS);
+            PRIVATE_SETTINGS.add(GLOBAL_ACTIONS_USERS);
+            PRIVATE_SETTINGS.add(GLOBAL_ACTIONS_MAX_COLUMNS);
+            PRIVATE_SETTINGS.add(GLOBAL_ACTIONS_MAX_ROWS);
         }
 
         /**
@@ -10071,6 +10164,13 @@ public final class Settings {
          * @hide
          */
         public static final String ADAPTIVE_CONNECTIVITY_ENABLED = "adaptive_connectivity_enabled";
+
+        /**
+         * Enable rebooting into bootloader or fastboot.
+         *
+         * @hide
+         */
+        public static final String ADVANCED_REBOOT = "advanced_reboot";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to

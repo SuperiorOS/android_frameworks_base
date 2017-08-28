@@ -80,6 +80,7 @@ import com.android.systemui.util.RingerModeTracker;
 import com.android.systemui.util.leak.RotationUtils;
 import com.android.systemui.util.settings.GlobalSettings;
 import com.android.systemui.util.settings.SecureSettings;
+import com.android.systemui.util.settings.SystemSettings;
 
 import java.util.concurrent.Executor;
 
@@ -152,6 +153,7 @@ public class GlobalActionsDialog extends GlobalActionsDialogLite
             TelephonyListenerManager telephonyListenerManager,
             GlobalSettings globalSettings,
             SecureSettings secureSettings,
+            SystemSettings systemSettings,
             @Nullable Vibrator vibrator,
             @Main Resources resources,
             ConfigurationController configurationController,
@@ -184,6 +186,7 @@ public class GlobalActionsDialog extends GlobalActionsDialogLite
                 telephonyListenerManager,
                 globalSettings,
                 secureSettings,
+                systemSettings,
                 vibrator,
                 resources,
                 configurationController,
