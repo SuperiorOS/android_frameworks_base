@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2020 Paranoid Android
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+    android:tint="?android:attr/colorControlNormal">
+
+    <path
+        android:fillColor="#000000"
+        android:pathData="M15.368 1.22302L14.039 2.55202C12.6 1.57602 10.866 1.00502 9 1.00502C7.134 1.00502 5.4 1.57602 3.961 2.55202L2.632 1.22302C2.24153 0.832559 1.60847 0.83256 1.218 1.22302C0.827535 1.61349 0.827535 2.24656 1.218 2.63703L2.442 3.86102C0.933 5.47102 0 7.62903 0 10.005V22H2V10.005C2 6.14503 5.14 3.00502 9 3.00502C12.86 3.00502 16 6.14503 16 10.005V10.252C16.6392 10.0875 17.3094 10 18 10C17.9987 7.62598 17.0659 5.46989 15.558 3.86102L16.782 2.63703C17.1725 2.24656 17.1725 1.61349 16.782 1.22302C16.3915 0.83256 15.7585 0.83256 15.368 1.22302ZM6 12H12.7084C12.0604 12.5719 11.5057 13.2472 11.0703 14H6V20H10V22H6C4.89543 22 4 21.1046 4 20V14C4 12.8954 4.89543 12 6 12ZM18 12.0001C15.3374 12.0001 13.0749 13.7425 12.2926 16.1472L14.1122 17.057C14.5372 15.3047 16.1188 14.0001 18 14.0001C20.205 14.0001 22 15.7941 22 18.0001C22 20.2061 20.205 22.0001 18 22.0001C16.931 22.0001 15.926 21.5841 15.22 20.8811L15.173 20.8271L17 19.0001H12V24.0001L13.757 22.2431C14.889 23.3761 16.396 24.0001 18 24.0001C21.309 24.0001 24 21.3091 24 18.0001C24 14.6911 21.309 12.0001 18 12.0001ZM6 8C6 8.55228 5.55228 9 5 9C4.44772 9 4 8.55228 4 8C4 7.44772 4.44772 7 5 7C5.55228 7 6 7.44772 6 8ZM11 9C11.5523 9 12 8.55228 12 8C12 7.44772 11.5523 7 11 7C10.4477 7 10 7.44772 10 8C10 8.55228 10.4477 9 11 9Z" />
+</vector>
