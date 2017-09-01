@@ -5242,6 +5242,13 @@ public final class Settings {
         public static final String GLOBAL_ACTIONS_MAX_ROWS = "global_actions_max_rows";
 
         /**
+         * Double tap on lockscreen to sleep
+         * @hide
+         */
+        public static final String DOUBLE_TAP_SLEEP_LOCKSCREEN =
+                "double_tap_sleep_lockscreen";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -5372,6 +5379,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(GLOBAL_ACTIONS_USERS);
             PRIVATE_SETTINGS.add(GLOBAL_ACTIONS_MAX_COLUMNS);
             PRIVATE_SETTINGS.add(GLOBAL_ACTIONS_MAX_ROWS);
+            PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_LOCKSCREEN);
         }
 
         /**
