@@ -350,6 +350,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     static final int LONG_PRESS_POWER_SHUT_OFF = 2;
     static final int LONG_PRESS_POWER_SHUT_OFF_NO_CONFIRM = 3;
     static final int LONG_PRESS_POWER_GO_TO_VOICE_ASSIST = 4;
+    static final int LONG_PRESS_POWER_TORCH = 5;
 
     static final int VERY_LONG_PRESS_POWER_NOTHING = 0;
     static final int VERY_LONG_PRESS_POWER_GLOBAL_ACTIONS = 1;
@@ -378,6 +379,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     static final int SHORT_PRESS_SLEEP_GO_TO_SLEEP_AND_GO_HOME = 1;
 
     static final int PENDING_KEY_NULL = -1;
+
+    static final int TORCH_DOUBLE_TAP_DELAY = 170;
 
     // Controls navigation bar opacity depending on which workspace stacks are currently
     // visible.
@@ -643,6 +646,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     boolean mAllowStartActivityForLongPressOnPowerDuringSetup;
     MetricsLogger mLogger;
 
+    private int mTorchActionMode;
     private boolean mHandleVolumeKeysInWM;
 
     int mPointerLocationMode = 0; // guarded by mLock
@@ -784,6 +788,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     // Whether to support long press from power button in non-interactive mode
     private boolean mSupportLongPressPowerWhenNonInteractive;
 
+    // Power long press action saved on key down that should happen on key up
+    private int mResolvedLongPressOnPowerBehavior;
+
     // Whether to go to sleep entering theater mode from power button
     private boolean mGoToSleepOnButtonPressTheaterMode;
 
@@ -879,12 +886,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private static final int MSG_NOTIFY_USER_ACTIVITY = 29;
     private static final int MSG_RINGER_TOGGLE_CHORD = 30;
     private static final int MSG_DISPATCH_VOLKEY_WITH_WAKE_LOCK = 31;
-
-    private static final int MSG_REQUEST_TRANSIENT_BARS_ARG_STATUS = 0;
-    private static final int MSG_REQUEST_TRANSIENT_BARS_ARG_NAVIGATION = 1;
+    private static final int MSG_TOGGLE_TORCH = 32;
 
     private boolean mClearedBecauseOfForceShow;
     private boolean mTopWindowIsKeyguard;
+
+    private static final int MSG_REQUEST_TRANSIENT_BARS_ARG_STATUS = 0;
+    private static final int MSG_REQUEST_TRANSIENT_BARS_ARG_NAVIGATION = 1;
 
     private class PolicyHandler extends Handler {
         @Override
@@ -982,6 +990,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     break;
                 case MSG_HANDLE_ALL_APPS:
                     launchAllAppsAction();
+                    break;
+		case MSG_TOGGLE_TORCH:
+                    performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, true);
+            	    SuperiorUtils.toggleCameraFlash();
                     break;
                 case MSG_NOTIFY_USER_ACTIVITY:
                     removeMessages(MSG_NOTIFY_USER_ACTIVITY);
@@ -1090,6 +1102,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.VOLUME_BUTTON_MUSIC_CONTROL), false, this,
+                    UserHandle.USER_ALL);
+	    resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.TORCH_POWER_BUTTON_GESTURE), false, this,
                     UserHandle.USER_ALL);
             updateSettings();
         }
@@ -1465,6 +1480,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     if ((event.getFlags() & KeyEvent.FLAG_LONG_PRESS) != 0) {
                         powerLongPress();
                     } else {
+			mResolvedLongPressOnPowerBehavior = getResolvedLongPressOnPowerBehavior();
                         Message msg = mHandler.obtainMessage(MSG_POWER_LONG_PRESS);
                         msg.setAsynchronous(true);
                         mHandler.sendMessageDelayed(msg,
@@ -1478,9 +1494,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     }
                 }
             } else {
-                wakeUpFromPowerKey(event.getDownTime());
-
-                if (mSupportLongPressPowerWhenNonInteractive && hasLongPressOnPowerBehavior()) {
+		if ((mTorchActionMode == 2) || (mSupportLongPressPowerWhenNonInteractive
+                        && hasLongPressOnPowerBehavior())) {
+                    mResolvedLongPressOnPowerBehavior = getResolvedLongPressOnPowerBehavior();
+                    if (mResolvedLongPressOnPowerBehavior != LONG_PRESS_POWER_TORCH) {
+                        wakeUpFromPowerKey(event.getDownTime());
+                    }
                     if ((event.getFlags() & KeyEvent.FLAG_LONG_PRESS) != 0) {
                         powerLongPress();
                     } else {
@@ -1498,6 +1517,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
                     mBeganFromNonInteractive = true;
                 } else {
+		    if ((mTorchActionMode != 1) ||
+                            (mTorchActionMode == 1 && isScreenOn() && !isDozeMode())) {
+                        wakeUpFromPowerKey(event.getDownTime());
+                    }
                     final int maxCount = getMaxMultiPressPowerCount();
 
                     if (maxCount <= 1) {
@@ -1508,6 +1531,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 }
             }
         }
+    }
+
+    private boolean isDozeMode() {
+        return mDisplay.getState() == Display.STATE_DOZE;
     }
 
     private void interceptPowerKeyUp(KeyEvent event, boolean interactive, boolean canceled) {
@@ -1528,7 +1555,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 Message msg = mHandler.obtainMessage(MSG_POWER_DELAYED_PRESS,
                         interactive ? 1 : 0, mPowerKeyPressCounter, eventTime);
                 msg.setAsynchronous(true);
-                mHandler.sendMessageDelayed(msg, ViewConfiguration.getMultiPressTimeout());
+		mHandler.sendMessageDelayed(msg, (mTorchActionMode == 1)
+                        ? TORCH_DOUBLE_TAP_DELAY : ViewConfiguration.getDoubleTapTimeout());
                 return;
             }
 
@@ -1552,6 +1580,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         if (!mPowerKeyHandled) {
             mPowerKeyHandled = true;
             mHandler.removeMessages(MSG_POWER_LONG_PRESS);
+        // See if we deferred screen wake because long press power for torch is enabled
+            if (mResolvedLongPressOnPowerBehavior == LONG_PRESS_POWER_TORCH
+                    && (!isScreenOn() || isDozeMode())) {
+                wakeUpFromPowerKey(SystemClock.uptimeMillis());
+            }
         }
         if (hasVeryLongPressOnPowerBehavior()) {
             mHandler.removeMessages(MSG_POWER_VERY_LONG_PRESS);
@@ -1566,7 +1599,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     private void powerPress(long eventTime, boolean interactive, int count) {
-        if (mScreenOnEarly && !mScreenOnFully) {
+        if (!isDozeMode() && mScreenOnEarly && !mScreenOnFully) {
             Slog.i(TAG, "Suppressed redundant power key press while "
                     + "already in the process of turning the screen on.");
             return;
@@ -1613,6 +1646,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     break;
                 }
             }
+        } else if ((mTorchActionMode == 1) && (!isScreenOn() || isDozeMode())) {
+            wakeUpFromPowerKey(eventTime);
         }
     }
 
@@ -1633,6 +1668,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private void powerMultiPressAction(long eventTime, boolean interactive, int behavior) {
         switch (behavior) {
             case MULTI_PRESS_POWER_NOTHING:
+		if ((mTorchActionMode == 1) && (!isScreenOn() || isDozeMode())) {
+                    performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, true);
+                    SuperiorUtils.toggleCameraFlash();
+                }
                 break;
             case MULTI_PRESS_POWER_THEATER_MODE:
                 if (!isUserSetupComplete()) {
@@ -1671,29 +1710,21 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         if (mTriplePressOnPowerBehavior != MULTI_PRESS_POWER_NOTHING) {
             return 3;
         }
-        if (mDoublePressOnPowerBehavior != MULTI_PRESS_POWER_NOTHING) {
+        if (mDoublePressOnPowerBehavior != MULTI_PRESS_POWER_NOTHING || (mTorchActionMode == 1)) {
             return 2;
         }
         return 1;
     }
 
     private void powerLongPress() {
-        int behavior = getResolvedLongPressOnPowerBehavior();
+        final int behavior = mResolvedLongPressOnPowerBehavior;
         switch (behavior) {
         case LONG_PRESS_POWER_NOTHING:
             break;
         case LONG_PRESS_POWER_GLOBAL_ACTIONS:
             mPowerKeyHandled = true;
-            KeyguardManager km = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
-            boolean locked = km.inKeyguardRestrictedInputMode();
-            boolean globalActionsOnLockScreen = Settings.System.getInt(
-                    mContext.getContentResolver(), Settings.System.POWERMENU_LOCKSCREEN, 1) == 1;
-            if (locked && !globalActionsOnLockScreen) {
-                behavior = LONG_PRESS_POWER_NOTHING;
-            } else {
                 performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, false);
                 showGlobalActionsInternal();
-            }
             break;
         case LONG_PRESS_POWER_SHUT_OFF:
         case LONG_PRESS_POWER_SHUT_OFF_NO_CONFIRM:
@@ -1701,6 +1732,15 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, false);
             sendCloseSystemWindows(SYSTEM_DIALOG_REASON_GLOBAL_ACTIONS);
             mWindowManagerFuncs.shutdown(behavior == LONG_PRESS_POWER_SHUT_OFF);
+            break;
+	case LONG_PRESS_POWER_TORCH:
+            mPowerKeyHandled = true;
+            // Toggle torch state asynchronously to help protect against
+            // a misbehaving cameraservice from blocking systemui.
+            mHandler.removeMessages(MSG_TOGGLE_TORCH);
+            Message msg = mHandler.obtainMessage(MSG_TOGGLE_TORCH);
+            msg.setAsynchronous(true);
+            msg.sendToTarget();
             break;
         case LONG_PRESS_POWER_GO_TO_VOICE_ASSIST:
             mPowerKeyHandled = true;
@@ -1779,6 +1819,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private int getResolvedLongPressOnPowerBehavior() {
         if (FactoryTest.isLongPressOnPowerOffEnabled()) {
             return LONG_PRESS_POWER_SHUT_OFF_NO_CONFIRM;
+        }
+	if ((mTorchActionMode == 2) && (!isScreenOn() || isDozeMode())) {
+            return LONG_PRESS_POWER_TORCH;
         }
         return mLongPressOnPowerBehavior;
     }
@@ -2613,6 +2656,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mRingerToggleChord = Settings.Secure.getIntForUser(resolver,
                     Settings.Secure.VOLUME_HUSH_GESTURE, VOLUME_HUSH_OFF,
                     UserHandle.USER_CURRENT);
+	    mTorchActionMode = Settings.System.getIntForUser(resolver,
+                    Settings.System.TORCH_POWER_BUTTON_GESTURE, 0,
+                    UserHandle.USER_CURRENT);
+
             if (!mContext.getResources()
                     .getBoolean(com.android.internal.R.bool.config_volumeHushGestureEnabled)) {
                 mRingerToggleChord = Settings.Secure.VOLUME_HUSH_OFF;
