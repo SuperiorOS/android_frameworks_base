@@ -49,4 +49,7 @@
     <!-- Cycle through ringer modes -->
     <java-symbol type="string" name="volume_dialog_ringer_guidance_normal" />
 
+    <!-- Battery Leds -->
+    <java-symbol type="bool" name="config_intrusiveBatteryLed" />
+
 </resources>

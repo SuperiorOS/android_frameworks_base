@@ -16190,6 +16190,12 @@ public final class Settings {
         public static final String KEY_CHORD_POWER_VOLUME_UP =
                 "key_chord_power_volume_up";
 
+       /**
+        * Whether to blink light when battery is low
+        * @hide
+        */
+        public static final String LOW_BATTERY_LIGHT_ENABLED = "low_battery_light_enabled";
+
         /**
          * Keyguard should be on the left hand side of the screen, for wide screen layouts.
          *
