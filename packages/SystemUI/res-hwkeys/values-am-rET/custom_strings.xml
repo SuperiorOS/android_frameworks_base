@@ -18,4 +18,11 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
   <!-- Bindable action labels -->
   <!-- App killed message -->
+
+    <string name="global_action_restart_advanced">Расшир. перезагрузка</string>
+
+    <!-- LTE QS Tile -->
+    <string name="qs_lte_label">LTE</string>
+    <string name="lte_on">LTE ВКЛ</string>
+    <string name="lte_off">LTE ВЫКЛ.</string>
 </resources>

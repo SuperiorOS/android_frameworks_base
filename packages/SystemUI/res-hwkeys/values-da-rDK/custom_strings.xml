@@ -20,4 +20,16 @@
   <string name="label_action_region_screenshot">Delvis screenshot</string>
   <string name="label_action_flashlight">Lommelygte</string>
   <!-- App killed message -->
+
+    <string name="global_action_restart_advanced">Advanced reboot</string>
+
+    <!-- Screenshot delete toast -->
+    <string name="delete_screenshot_toast">Screenshot deleted</string>
+
+    <string name="statusbar_items_title">Statusbar icon</string>
+
+    <!-- LTE QS Tile -->
+    <string name="qs_lte_label">LTE</string>
+    <string name="lte_on">LTE ON </string>
+    <string name="lte_off">LTE OFF</string>
 </resources>
