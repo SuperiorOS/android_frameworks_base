@@ -31,4 +31,14 @@
 
     <!-- System icon area layout weight -->
     <item name="system_icon_area_weight" format="float" type="integer">1</item>
+	
+    <!-- The min animation duration for animating the fab in. -->
+    <integer name="recents_animate_fab_enter_duration">225</integer>
+
+    <!-- The animation delay for animating the fab in. This should roughly be the animation
+     duration of the transition in to recents. -->
+    <integer name="recents_animate_fab_enter_delay">275</integer>
+
+    <!-- The min animation duration for animating the fab out. -->
+    <integer name="recents_animate_fab_exit_duration">125</integer>
 </resources>
