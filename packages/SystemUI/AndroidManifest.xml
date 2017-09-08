@@ -366,7 +366,7 @@
                   android:theme="@style/ExTunerSettings"
                   android:label="@string/statusbar_items_title"
                   android:process=":tuner"
-                  android:parentActivityName="com.nitrogen.settings.fragments.StatusBarSettings"
+                  android:parentActivityName="com.superior.settings.SuperiorSettings"
                   android:exported="true">
         </activity>
 
@@ -374,7 +374,7 @@
                   android:theme="@style/ExTunerSettings"
                   android:label="@string/nav_bar"
                   android:process=":tuner"
-                  android:parentActivityName="com.nitrogen.settings.fragments.NavbarSettings"
+                  android:parentActivityName="com.superior.settings.SuperiorSettings"
                   android:exported="true">
         </activity>
 
@@ -382,7 +382,7 @@
                   android:theme="@style/ExTunerSettings"
                   android:label="@string/tuner_lock_screen"
                   android:process=":tuner"
-                  android:parentActivityName="com.nitrogen.settings.fragments.LockScreenSettings"
+                  android:parentActivityName="com.superior.settings.SuperiorSettings"
                   android:exported="true">
         </activity>
 
