@@ -10,4 +10,8 @@
 
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
     <string name="accessibility_status_bar_nfc">Nfc</string>
+
+    <!-- Status bar tuner -->
+    <string name="status_bar_items_title">Status bar icons</string>
+
 </resources>
