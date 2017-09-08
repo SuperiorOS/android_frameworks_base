@@ -487,6 +487,9 @@ public class StatusBar extends SystemUI implements DemoMode,
     private boolean mExpandedVisible;
 
     private int mStatusBarHeaderHeight;
+
+    ActivityManager mAm;
+
     private boolean mFpDismissNotifications;
 
     private final int[] mAbsPos = new int[2];
@@ -500,7 +503,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     protected KeyguardViewMediator mKeyguardViewMediator;
     private ZenModeController mZenController;
 
-    ActivityManager mAm;
+    private int mPreviousDarkMode;
+
     private ArrayList<String> mStoplist = new ArrayList<String>();
     private ArrayList<String> mBlacklist = new ArrayList<String>();
 
@@ -2257,6 +2261,10 @@ public class StatusBar extends SystemUI implements DemoMode,
             if (DEBUG) {
                 Log.d(TAG, "No peeking: disabled panel : " + sbn.getKey());
             }
+            return false;
+        }
+
+        if (mEntryManager.shouldSkipHeadsUp(sbn)) {
             return false;
         }
 
@@ -5199,6 +5207,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                      Settings.System.QS_TILE_STYLE),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.LESS_BORING_HEADS_UP),
+                    false, this, UserHandle.USER_ALL);
 	 }
 
         @Override
@@ -5219,6 +5230,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.Secure.getUriFor(
                     Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS))) {
                 setFpToDismissNotifications();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.LESS_BORING_HEADS_UP))) {
+                setUseLessBoringHeadsUp();
             } else if (uri.equals(Settings.System.getUriFor(
                 Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN))) {
                 setStatusBarWindowViewOptions();
@@ -5244,6 +5258,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             setLockscreenMediaMetadata();
 	    setBrightnessSlider();
             setFpToDismissNotifications();
+            setUseLessBoringHeadsUp();
         }
     }
 
@@ -5313,6 +5328,13 @@ public class StatusBar extends SystemUI implements DemoMode,
         mFpDismissNotifications = Settings.Secure.getIntForUser(mContext.getContentResolver(),
                 Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS, 0,
                 UserHandle.USER_CURRENT) == 1;
+    }
+
+    private void setUseLessBoringHeadsUp() {
+        boolean lessBoringHeadsUp = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LESS_BORING_HEADS_UP, 1,
+                UserHandle.USER_CURRENT) == 1;
+        mEntryManager.setUseLessBoringHeadsUp(lessBoringHeadsUp);
     }
 
     // Switches qs tile style to user selected.
