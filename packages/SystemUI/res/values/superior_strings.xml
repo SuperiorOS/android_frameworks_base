@@ -26,4 +26,7 @@
     <!-- Face Unlock -->
     <string name="face_unlock_recognizing">Recognizing face...</string>
 
+    <!-- Statusbar tuner -->
+    <string name="statusbar_items_title">Statusbar icons</string>
+
 </resources>
