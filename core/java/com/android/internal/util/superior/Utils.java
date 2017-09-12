@@ -33,7 +33,11 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.PowerManager;
 import android.os.SystemProperties;
+import android.os.ServiceManager;
 import android.os.SystemClock;
+import android.os.UserHandle;
+import android.view.IWindowManager;
+import android.view.WindowManagerGlobal;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.view.InputDevice;
@@ -47,6 +51,9 @@ import java.util.List;
 import java.util.Locale;
 
 public class Utils {
+
+    public static final String INTENT_SCREENSHOT = "action_handler_screenshot";
+    public static final String INTENT_REGION_SCREENSHOT = "action_handler_region_screenshot";
 
     // Check to see if device is WiFi only
     public static boolean isWifiOnly(Context context) {
@@ -191,6 +198,15 @@ public class Utils {
                     // do nothing.
                 }
             }
+        }
+    }
+
+    public static void takeScreenshot(boolean full) {
+        IWindowManager wm = WindowManagerGlobal.getWindowManagerService();
+        try {
+            wm.sendCustomAction(new Intent(full? INTENT_SCREENSHOT : INTENT_REGION_SCREENSHOT));
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
     }
 
