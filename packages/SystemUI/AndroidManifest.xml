@@ -363,9 +363,8 @@
     <protected-broadcast android:name="com.google.android.systemui.smartspace.ENABLE_UPDATE"/>
     <protected-broadcast android:name="com.google.android.systemui.smartspace.EXPIRE_EVENT"/>
 
-    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
-
     <!-- Custom permissions -->
+    <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
     <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
