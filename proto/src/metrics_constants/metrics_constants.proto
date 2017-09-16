@@ -7443,5 +7443,9 @@ message MetricsEvent {
     // OPEN: Settings > Display > Full screen apps
     // OS: T
     DISPLAY_CUTOUT_FORCE_FULLSCREEN = 1999;
+
+    // CustomSettings constant
+    CUSTOM_SETTINGS = 2000;
+
   }
 }
