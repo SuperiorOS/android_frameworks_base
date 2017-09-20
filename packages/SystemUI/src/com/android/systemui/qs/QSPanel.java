@@ -31,6 +31,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -206,9 +207,9 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         if (mRegularTileLayout instanceof PagedTileLayout) {
             mQsTileRevealController = new QSTileRevealController(mContext, this,
                     (PagedTileLayout) mRegularTileLayout);
-            updateSettings();
         }
         mQSLogger.logAllTilesChangeListening(mListening, getDumpableTag(), mCachedSpecs);
+        updateSettings();
         updateResources();
     }
 
@@ -872,6 +873,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
 
         if (mTileLayout != null) {
             mTileLayout.addTile(r);
+            configureTile(r.tile, r.tileView);
         }
 
         return r;
@@ -1167,6 +1169,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         boolean updateResources();
         int getNumColumns();
         void updateSettings();
+        boolean isShowTitles();
 
         void setListening(boolean listening);
 
@@ -1197,9 +1200,32 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         int getNumVisibleTiles();
     }
 
+    private void configureTile(QSTile t, QSTileView v) {
+        if (mTileLayout != null) {
+            v.setHideLabel(!mTileLayout.isShowTitles());
+            if (t.isDualTarget()) {
+                if (!mTileLayout.isShowTitles()) {
+                    v.setOnLongClickListener(view -> {
+                        t.secondaryClick();
+                        return true;
+                    });
+                } else {
+                    v.setOnLongClickListener(view -> {
+                        t.longClick();
+                        return true;
+                    });
+                }
+            }
+        }
+    }
+
     public void updateSettings() {
         if (mTileLayout != null) {
             mTileLayout.updateSettings();
+
+            for (TileRecord r : mRecords) {
+                configureTile(r.tile, r.tileView);
+            }
         }
     }
 
