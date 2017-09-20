@@ -157,6 +157,7 @@ public final class NotificationRecord {
     private boolean mShowBadge;
     private LogMaker mLogMaker;
     private Light mLight;
+    private boolean mLightOnZen;
     private String mGroupLogTag;
     private String mChannelIdLogTag;
 
@@ -195,6 +196,7 @@ public final class NotificationRecord {
         mAttributes = calculateAttributes();
         mImportance = calculateImportance();
         mLight = calculateLights();
+        mLightOnZen = calculateLightOnZen();
         mAdjustments = new ArrayList<>();
         mStats = new NotificationStats();
         calculateUserSentiment();
@@ -269,6 +271,10 @@ public final class NotificationRecord {
             }
         }
         return light;
+    }
+
+    private boolean calculateLightOnZen() {
+        return getChannel().shouldLightOnZen();
     }
 
     private long[] calculateVibration() {
@@ -940,6 +946,10 @@ public final class NotificationRecord {
 
     public Light getLight() {
         return mLight;
+    }
+
+    public boolean shouldLightOnZen() {
+        return mLightOnZen;
     }
 
     public Uri getSound() {
