@@ -85,6 +85,7 @@ android_library {
         "res-keyguard",
         "res-smartspace",
         "res",
+        "res-hwkeys",
     ],
     static_libs: [
         "WindowManager-Shell",
