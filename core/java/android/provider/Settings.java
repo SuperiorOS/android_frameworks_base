@@ -5170,6 +5170,16 @@ public final class Settings {
                 ANY_INTEGER_VALIDATOR;
 
         /**
+          * Volume dialog timeout
+          * @hide
+          */
+         public static final String VOLUME_DIALOG_TIMEOUT = "volume_dialog_timeout";
+
+         /** @hide */
+         private static final Validator VOLUME_DIALOG_TIMEOUT_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(500, 10000);;
+
+        /**
          * Whether to show the kill app button in notification guts
          *
          * @hide
@@ -5294,6 +5304,7 @@ public final class Settings {
             FORCE_FULLSCREEN_CUTOUT_APPS,
             BACK_GESTURE_HEIGHT,
             NOTIFICATION_GUTS_KILL_APP_BUTTON,
+            VOLUME_DIALOG_TIMEOUT,
         };
 
         /**
@@ -5473,6 +5484,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HEIGHT);
             PRIVATE_SETTINGS.add(NOTIFICATION_GUTS_KILL_APP_BUTTON);
+            PRIVATE_SETTINGS.add(VOLUME_DIALOG_TIMEOUT);
         }
 
         /**
@@ -5624,6 +5636,7 @@ public final class Settings {
             VALIDATORS.put(BACK_GESTURE_HEIGHT, BACK_GESTURE_HEIGHT_VALIDATOR);
             VALIDATORS.put(ACCELEROMETER_ROTATION_ANGLES, ACCELEROMETER_ROTATION_ANGLES_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_GUTS_KILL_APP_BUTTON, NOTIFICATION_GUTS_KILL_APP_BUTTON_VALIDATOR);
+            VALIDATORS.put(VOLUME_DIALOG_TIMEOUT,VOLUME_DIALOG_TIMEOUT_VALIDATOR);
         }
 
         /**
