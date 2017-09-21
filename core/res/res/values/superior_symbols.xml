@@ -32,4 +32,9 @@
     <!-- Global Actions pref list -->
     <java-symbol type="array" name="custom_config_globalActionsList" />
 
+    <!-- HW keys binding -->
+    <java-symbol type="anim" name="custom_app_in" />
+    <java-symbol type="anim" name="custom_app_out" />
+    <java-symbol type="integer" name="config_deviceHardwareKeys" />
+
 </resources>
