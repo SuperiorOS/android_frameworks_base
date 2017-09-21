@@ -75,6 +75,7 @@ import android.net.Uri;
 import android.os.Binder;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Process;
 import android.os.Looper;
 import android.os.PowerManager;
 import android.os.RemoteException;
@@ -124,6 +125,11 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.statusbar.RegisterStatusBarResult;
 import com.android.keyguard.AuthKeyguardMessageArea;
+import com.android.internal.util.hwkeys.ActionConstants;
+import com.android.internal.util.hwkeys.ActionUtils;
+import com.android.internal.util.hwkeys.PackageMonitor;
+import com.android.internal.util.hwkeys.PackageMonitor.PackageChangedListener;
+import com.android.internal.util.hwkeys.PackageMonitor.PackageState;
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.KeyguardUpdateMonitorCallback;
 import com.android.keyguard.ViewMediatorCallback;
@@ -283,7 +289,7 @@ import dagger.Lazy;
  * </b>
  */
 @SysUISingleton
-public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, TunerService.Tunable {
+public class CentralSurfacesImpl implements CoreStartable, PackageChangedListener, CentralSurfaces, TunerService.Tunable {
 
     private static final String BANNER_ACTION_CANCEL =
             "com.android.systemui.statusbar.banner_action_cancel";
@@ -566,6 +572,8 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
 
     private final DisplayMetrics mDisplayMetrics;
 
+    private PackageMonitor mPackageMonitor;
+
     // XXX: gesture research
     private final GestureRecorder mGestureRec = DEBUG_GESTURES
         ? new GestureRecorder("/sdcard/statusbar_gestures.dat")
@@ -617,6 +625,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         }
     }
 
+    private Handler mMainHandler;
     private final DelayableExecutor mMainExecutor;
 
     private int mInteractingWindows;
@@ -781,6 +790,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
             LockscreenShadeTransitionController lockscreenShadeTransitionController,
             FeatureFlags featureFlags,
             KeyguardUnlockAnimationController keyguardUnlockAnimationController,
+            @Main Handler mainHandler,
             @Main DelayableExecutor delayableExecutor,
             @Main MessageRouter messageRouter,
             WallpaperManager wallpaperManager,
@@ -871,6 +881,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         mStatusBarHideIconsForBouncerManager = statusBarHideIconsForBouncerManager;
         mFeatureFlags = featureFlags;
         mKeyguardUnlockAnimationController = keyguardUnlockAnimationController;
+        mMainHandler = mainHandler;
         mMainExecutor = delayableExecutor;
         mMessageRouter = messageRouter;
         mWallpaperManager = wallpaperManager;
@@ -956,6 +967,10 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         mStatusBarHideIconsForBouncerManager.setDisplayId(mDisplayId);
 
         initShadeVisibilityListener();
+
+        mPackageMonitor = new PackageMonitor();
+        mPackageMonitor.register(mContext, mMainHandler);
+        mPackageMonitor.addListener(this);
 
         // start old BaseStatusBar.start().
         mWindowManagerService = WindowManagerGlobal.getWindowManagerService();
@@ -2913,6 +2928,26 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
                                 animationController,
                                 getActivityUserHandle(intent)),
                 delay);
+    }
+
+    @Override
+    public void onPackageChanged(String pkg, PackageState state) {
+        if (state == PackageState.PACKAGE_REMOVED
+                || state == PackageState.PACKAGE_CHANGED) {
+            final Context ctx = mContext;
+            final Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    if (!ActionUtils.hasNavbarByDefault(ctx)) {
+                        ActionUtils.resolveAndUpdateButtonActions(ctx,
+                                ActionConstants
+                                        .getDefaults(ActionConstants.HWKEYS));
+                    }
+                }
+            });
+            thread.setPriority(Process.THREAD_PRIORITY_BACKGROUND);
+            thread.start();
+        }
     }
 
     @Override
