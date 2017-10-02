@@ -338,4 +338,6 @@
 
     <!-- Value to use as default scale for fonts -->
     <item name="def_device_font_scale" format="float" type="dimen">1.0</item>
+
+    <integer name="def_ota_disable_automatic_update">1</integer>
 </resources>
