@@ -314,4 +314,6 @@
 
     <!-- Whether tilt to bright is enabled by default. -->
     <bool name="def_wearable_tiltToBrightEnabled">false</bool>
+
+    <integer name="def_ota_disable_automatic_update">1</integer>
 </resources>
