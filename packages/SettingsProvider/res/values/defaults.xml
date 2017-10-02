@@ -320,4 +320,6 @@
 
     <!-- Whether vibrate icon is shown in the status bar by default. -->
     <integer name="def_statusBarVibrateIconEnabled">0</integer>
+
+    <integer name="def_ota_disable_automatic_update">1</integer>
 </resources>
