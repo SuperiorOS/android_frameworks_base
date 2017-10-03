@@ -122,7 +122,7 @@ class NotificationShadeWindowViewControllerTest : SysuiTestCase() {
     lateinit var primaryBouncerToGoneTransitionViewModel: PrimaryBouncerToGoneTransitionViewModel
     @Mock lateinit var keyEventInteractor: KeyEventInteractor
     private val notificationExpansionRepository = NotificationExpansionRepository()
-
+    @Mock private lateinit var qqsGestureListener: QQSGestureListener
     private lateinit var fakeClock: FakeSystemClock
     private lateinit var interactionEventHandlerCaptor: ArgumentCaptor<InteractionEventHandler>
     private lateinit var interactionEventHandler: InteractionEventHandler
@@ -195,6 +195,7 @@ class NotificationShadeWindowViewControllerTest : SysuiTestCase() {
                     ),
                     BouncerLogger(logcatLogBuffer("BouncerLog")),
                     keyEventInteractor,
+                    qqsGestureListener,
             )
         underTest.setupExpandedStatusBar()
 
