@@ -123,6 +123,7 @@ class NotificationShadeWindowViewTest : SysuiTestCase() {
     @Mock private lateinit var keyguardTransitionInteractor: KeyguardTransitionInteractor
     @Mock lateinit var primaryBouncerInteractor: PrimaryBouncerInteractor
     @Mock lateinit var alternateBouncerInteractor: AlternateBouncerInteractor
+    @Mock private lateinit var qqsGestureListener: QQSGestureListener
     @Captor
     private lateinit var interactionEventHandlerCaptor: ArgumentCaptor<InteractionEventHandler>
 
@@ -197,6 +198,7 @@ class NotificationShadeWindowViewTest : SysuiTestCase() {
                 alternateBouncerInteractor,
                 { Mockito.mock(JavaAdapter::class.java) },
                 { Mockito.mock(AlternateBouncerDependencies::class.java) },
+                qqsGestureListener,
                 mock()
             )
 
