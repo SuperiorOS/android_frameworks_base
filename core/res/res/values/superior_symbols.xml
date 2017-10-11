@@ -75,4 +75,9 @@
 
      <!-- Global Actions pref list -->
      <java-symbol type="array" name="custom_config_globalActionsList" />
+
+     <!-- Device keyhandlers -->
+     <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
+     <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
+
 </resources>
