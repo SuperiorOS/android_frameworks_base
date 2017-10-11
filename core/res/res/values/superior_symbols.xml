@@ -105,10 +105,14 @@
     <java-symbol type="string" name="config_SmartChargingSupspendValue" />
     <java-symbol type="string" name="config_SmartChargingResumeValue" />
 
-  <!-- Themes -->
-  <java-symbol type="color" name="theme_generic_semi_transparent_color" />
+    <!-- Themes -->
+    <java-symbol type="color" name="theme_generic_semi_transparent_color" />
 
-     <!-- Home button wake -->
+    <!-- Home button wake -->
     <java-symbol type="bool" name="config_HomeWakeButton" />
+
+    <!-- Device keyhandlers -->
+    <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
+    <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
 
 </resources>
