@@ -22,6 +22,7 @@ import android.annotation.Nullable;
 import android.app.Fragment;
 import android.content.ContentResolver;
 import android.database.ContentObserver;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.UserHandle;
@@ -50,6 +51,11 @@ import com.android.systemui.statusbar.policy.EncryptionHelper;
 import com.android.systemui.statusbar.policy.KeyguardMonitor;
 import com.android.systemui.statusbar.policy.NetworkController;
 import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
+
+import android.widget.ImageView;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 
 /**
  * Contains the collapsed status bar and handles hiding/showing based on disable flags
@@ -96,6 +102,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     // Superior Logo
     private ImageView mSuperiorLogo;
     private boolean mShowLogo;
+    private int mLogoStyle;
 
     private class SettingsObserver extends ContentObserver {
        SettingsObserver(Handler handler) {
@@ -115,12 +122,19 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
          mContentResolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_LOGO),
                     false, this, UserHandle.USER_ALL);
+         mContentResolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_LOGO_STYLE),
+                    false, this, UserHandle.USER_ALL);
        }
 
-       @Override
-       public void onChange(boolean selfChange) {
-           updateSettings(true);
-       }
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            if ((uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_LOGO))) ||
+                (uri.equals(Settings.System.getUriFor(Settings.System.STATUS_BAR_LOGO_STYLE)))){
+                 updateStatusBarLogo(true);
+        }
+            updateSettings(true);
+        }
     }
     private SettingsObserver mSettingsObserver = new SettingsObserver(mHandler);
 
@@ -522,6 +536,48 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     }
 
     private void updateStatusBarLogo(boolean animate) {
+        Drawable logo = null;
+        if (mStatusBar == null) return;
+        if (getContext() == null) {
+            return;
+        }
+
+        mShowLogo = Settings.System.getIntForUser(
+                getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO, 0,
+                UserHandle.USER_CURRENT) == 1;
+        mLogoStyle = Settings.System.getIntForUser(
+                getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO_STYLE, 0,
+                UserHandle.USER_CURRENT);
+
+        switch(mLogoStyle) {
+                // Default SuperiorOS logo
+            case 0:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_logo);
+                break;
+                // Phoenix 1
+            case 1:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_phoenix);
+                break;
+                // Phoenix 2
+            case 2:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_phoenix2);
+                break;
+                // Default SuperiorOS logo
+            default:
+                logo = getContext().getResources().getDrawable(R.drawable.status_bar_logo);
+                break;
+        }
+
+        if (mSuperiorLogo != null) {
+            if (logo == null) {
+                // Something wrong. Do not show anything
+                mSuperiorLogo.setImageDrawable(logo);
+                mShowLogo = false;
+                return;
+            }
+
+            mSuperiorLogo.setImageDrawable(logo);
+        }
         if (mNotificationIconAreaInner != null) {
             if (mShowLogo) {
                 if (mNotificationIconAreaInner.getVisibility() == View.VISIBLE) {

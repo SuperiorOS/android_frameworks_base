@@ -4740,7 +4740,11 @@ public final class Settings {
         private static final Validator DEVICE_PROXI_CHECK_ENABLED_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
-
+       /**
+        * Statusbar logo Style
+        * @hide
+         */
+        public static final String STATUS_BAR_LOGO_STYLE = "status_bar_logo_style";
 
         /**
          * Setting to determine whether or not to show the battery percentage in the qs status bar header.
