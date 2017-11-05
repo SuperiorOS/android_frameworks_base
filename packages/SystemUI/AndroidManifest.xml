@@ -256,6 +256,9 @@
     <!-- DayNight mode -->
     <uses-permission android:name="android.permission.MODIFY_DAY_NIGHT_MODE" />
 
+    <!-- QS Tiles -->
+    <uses-permission android:name="lineageos.permission.MANAGE_LIVEDISPLAY" />
+
     <application
         android:name=".SystemUIApplication"
         android:persistent="true"
