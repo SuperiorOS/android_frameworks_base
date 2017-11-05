@@ -275,6 +275,9 @@
 
     <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
 
+    <!-- LiveDisplay -->
+    <uses-permission android:name="lineageos.permission.MANAGE_LIVEDISPLAY" />
+
     <application
         android:name=".SystemUIApplication"
         android:persistent="true"
