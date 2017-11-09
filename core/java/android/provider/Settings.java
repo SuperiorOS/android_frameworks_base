@@ -5408,6 +5408,18 @@ public final class Settings {
         public static final String SMART_CHARGING_LEVEL = "smart_charging_level";
 
         /**
+         * Screen stabilization parameters
+         * @hide
+         */
+        public static final String STABILIZATION_ENABLE = "stabilization_enable";
+
+        public static final String STABILIZATION_VELOCITY_FRICTION = "stabilization_velocity_friction";
+
+        public static final String STABILIZATION_POSITION_FRICTION = "stabilization_position_friction";
+
+        public static final String STABILIZATION_VELOCITY_AMPLITUDE = "stabilization_velocity_amplitude";
+
+        /**
          * @hide
          */
         public static final String SMART_CHARGING_RESUME_LEVEL = "smart_charging_resume_level";
