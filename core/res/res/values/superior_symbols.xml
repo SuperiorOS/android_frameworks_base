@@ -38,7 +38,7 @@
     <!-- Button brightness -->
     <java-symbol type="integer" name="config_buttonBrightnessSettingDefault" />
     <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
-	
+
 	<!-- Powermenu Buttons -->
 	<java-symbol type="string" name="reboot_to_recovery_title" />
     <java-symbol type="string" name="reboot_to_recovery_message" />
@@ -93,5 +93,8 @@
   <!-- Ambient play -->
   <java-symbol type="string" name="ambient_recognition_notification" />
   <java-symbol type="string" name="ambient_recognition_information" />
+  
+	<!-- Whether device supports an alt. ambient display -->
+    <java-symbol type="bool" name="config_alt_ambient_display"/>
 
 </resources>
