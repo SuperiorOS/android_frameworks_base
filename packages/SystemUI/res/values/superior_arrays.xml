@@ -5,8 +5,6 @@
 -->
 <resources>
 
-    <color name="qs_ripple_color">@android:color/system_accent1_400</color>
-
     <!-- Cardinal directions for the compass tile -->
     <string-array name="cardinal_directions">
         <item>@string/quick_settings_compass_N</item>  <!-- North -->
