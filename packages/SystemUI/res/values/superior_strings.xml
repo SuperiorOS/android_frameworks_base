@@ -54,4 +54,7 @@
     <string name="usage_data_default_suffix">Data</string>
     <string name="usage_wifi_default_suffix">Wi-Fi</string>
 
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Screenshot deleted</string>
+
 </resources>
