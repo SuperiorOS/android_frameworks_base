@@ -4092,7 +4092,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 shouldTurnOnTv = true;
             } else if (down && (isWakeKey || keyCode == KeyEvent.KEYCODE_WAKEUP)
                     && isWakeKeyWhenScreenOff(keyCode)) {
-                wakeUpFromWakeKey(event);
+                wakeUpFromWakeKey(event, false);
                 shouldTurnOnTv = true;
             }
             if (shouldTurnOnTv) {
@@ -4174,7 +4174,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             }
 
             if (isWakeKey) {
-                wakeUpFromWakeKey(event);
+                wakeUpFromWakeKey(event, true);
             }
             return result;
         }
@@ -4531,7 +4531,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
 
         if (isWakeKey) {
-            wakeUpFromWakeKey(event);
+            // Check proximity only on wake key
+            wakeUpFromWakeKey(event, event.getKeyCode() == KeyEvent.KEYCODE_WAKEUP);
         }
 
         // If the key event is targeted to a specific display, then the user is interacting with
@@ -5057,9 +5058,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
     }
 
-    private void wakeUpFromWakeKey(KeyEvent event) {
+    private void wakeUpFromWakeKey(KeyEvent event, boolean withProximityCheck) {
         if (wakeUp(event.getEventTime(), mAllowTheaterModeWakeFromKey,
-                PowerManager.WAKE_REASON_WAKE_KEY, "android.policy:KEY")) {
+                PowerManager.WAKE_REASON_WAKE_KEY, "android.policy:KEY", withProximityCheck)) {
             // Start HOME with "reason" extra if sleeping for more than mWakeUpToLastStateTimeout
             if (shouldWakeUpWithHomeIntent() && event.getKeyCode() == KEYCODE_HOME) {
                 startDockOrHome(DEFAULT_DISPLAY, /*fromHomeKey*/ true, /*wakenFromDreams*/ true,
@@ -5070,6 +5071,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     private boolean wakeUp(long wakeTime, boolean wakeInTheaterMode, @WakeReason int reason,
             String details) {
+        return wakeUp(wakeTime, wakeInTheaterMode, reason, details, false);
+    }
+
+    private boolean wakeUp(long wakeTime, boolean wakeInTheaterMode, @WakeReason int reason,
+            String details, boolean withProximityCheck) {
         final boolean theaterModeEnabled = isTheaterModeEnabled();
         if (!wakeInTheaterMode && theaterModeEnabled) {
             return false;
@@ -5080,7 +5086,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     Settings.Global.THEATER_MODE_ON, 0);
         }
 
-        mPowerManager.wakeUp(wakeTime, reason, details);
+        if (withProximityCheck) {
+            mPowerManager.wakeUpWithProximityCheck(wakeTime, reason, details);
+        } else {
+            mPowerManager.wakeUp(wakeTime, reason, details);
+        }
+
         return true;
     }
 
