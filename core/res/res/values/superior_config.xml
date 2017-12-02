@@ -181,5 +181,9 @@
 	
     <!-- Pocket Lock -->
     <bool name="config_pocketModeSupported">true</bool>
+	
+    <!-- Button brightness -->
+    <bool name="config_button_brightness_support">false</bool>
+    <integer name="config_button_brightness_default">128</integer>
 
 </resources>

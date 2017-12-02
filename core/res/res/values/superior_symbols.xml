@@ -298,5 +298,9 @@
 	
     <!-- Whether to allow sending active app broadcast -->
     <java-symbol type="bool" name="config_allowActivePackageBroadcast" />
+	
+    <!-- Button brightness -->
+    <java-symbol type="bool" name="config_button_brightness_support" />
+    <java-symbol type="integer" name="config_button_brightness_default" />
 
 </resources>
