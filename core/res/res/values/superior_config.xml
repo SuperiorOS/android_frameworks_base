@@ -78,6 +78,8 @@
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
     <integer name="config_deviceHardwareKeys">64</integer>
+	<bool name="config_button_brightness_support">false</bool>
+    <integer name="config_button_brightness_default">128</integer>
 
     <!-- The second metric to be used for antenna bar display for LTE
          The metrics to be used for Antenna display is based on RSRP and either one of the
