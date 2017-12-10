@@ -807,6 +807,9 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         // end old BaseStatusBar.start().
 
+        mSuperiorSettingsObserver.observe();
+        mSuperiorSettingsObserver.update();
+
         // Lastly, call to the icon policy to install/update all the icons.
         mIconPolicy = new PhoneStatusBarPolicy(mContext, mIconController);
         mSignalPolicy = new StatusBarSignalPolicy(mContext, mIconController);
@@ -4437,6 +4440,28 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     public boolean isDeviceInteractive() {
         return mDeviceInteractive;
+    }
+
+    private SuperiorSettingsObserver mSuperiorSettingsObserver = new SuperiorSettingsObserver(mHandler);
+
+    private class SuperiorSettingsObserver extends ContentObserver {
+        SuperiorSettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = mContext.getContentResolver();
+
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+
+        }
+
+        public void update() {
+
+        }
     }
 
     private final BroadcastReceiver mBannerActionBroadcastReceiver = new BroadcastReceiver() {
