@@ -13,5 +13,6 @@
 
     <!-- Status bar tuner -->
     <string name="status_bar_items_title">Status bar icons</string>
+    <string name="status_bar_vpn">VPN</string>
 
 </resources>
