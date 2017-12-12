@@ -77,4 +77,5 @@
 
     <!-- Status bar tuner -->
     <string name="status_bar_items_title">Statusbar icons</string>
+    <string name="status_bar_vpn">VPN</string>
 </resources>
