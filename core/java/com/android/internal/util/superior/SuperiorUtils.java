@@ -45,12 +45,15 @@ import android.view.InputDevice;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.net.ConnectivityManager;
+
 import android.os.Handler;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.os.SystemProperties;
 import android.net.NetworkInfo;
 import com.android.internal.R;
+
+import java.util.List;
 
 import java.util.List;
 
@@ -252,5 +255,21 @@ public class SuperiorUtils {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
+    }
+
+    public static ActivityInfo getRunningActivityInfo(Context context) {
+        final ActivityManager am = (ActivityManager) context
+                .getSystemService(Context.ACTIVITY_SERVICE);
+        final PackageManager pm = context.getPackageManager();
+
+        List<ActivityManager.RunningTaskInfo> tasks = am.getRunningTasks(1);
+        if (tasks != null && !tasks.isEmpty()) {
+            ActivityManager.RunningTaskInfo top = tasks.get(0);
+            try {
+                return pm.getActivityInfo(top.topActivity, 0);
+            } catch (PackageManager.NameNotFoundException e) {
+            }
+        }
+        return null;
     }
 }
