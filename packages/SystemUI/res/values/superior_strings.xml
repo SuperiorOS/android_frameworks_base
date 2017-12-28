@@ -18,8 +18,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
     <string name="statusbar_items_title">Statusbar icon</string>
-	<string name="status_bar_roaming">Roaming</string>
-	<string name="lockscreen_default">Default</string>
+    <string name="status_bar_roaming">Roaming</string>
+    <string name="lockscreen_default">Default</string>
     <string name="lockscreen_hidden">None</string>
 	
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
@@ -85,15 +85,15 @@
     <string name="qs_menu_item_columns_eight">8</string>
     <string name="qs_menu_item_columns_nine">9</string>
     <string name="qs_menu_item_reset">Reset</string>
-	<string name="qs_menu_item_titles">Show labels</string>
-	<string name="qs_menu_item_rows">Rows</string>
+    <string name="qs_menu_item_titles">Show labels</string>
+    <string name="qs_menu_item_rows">Rows</string>
     <string name="qs_menu_item_rows_one">1</string>
     <string name="qs_menu_item_rows_two">2</string>
     <string name="qs_menu_item_rows_three">3</string>
     <string name="qs_menu_item_rows_four">4</string>
-	<string name="qs_menu_item_rows_landscape">Rows landscape</string>
-	<string name="qs_menu_item_qs_columns">Quickbar columns</string>
-	<string name="qs_menu_item_columns_auto">Automatic</string>
+    <string name="qs_menu_item_rows_landscape">Rows landscape</string>
+    <string name="qs_menu_item_qs_columns">Quickbar columns</string>
+    <string name="qs_menu_item_columns_auto">Automatic</string>
 	
     <!-- Theme tile -->
     <string name="systemui_theme_style_title">UI style</string>
@@ -153,5 +153,11 @@
 	
     <!-- Screenshot -->
     <string name="quick_settings_screenshot_label">Screenshot</string>
-	<string name="quick_settings_region_screenshot_label">Partial screenshot</string>
+    <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
+	
+    <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
+    
+    <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">To unpin this screen, touch &amp; hold Back button</string>
 </resources>
