@@ -67,6 +67,7 @@
     <java-symbol type="string" name="url_copy_failed" />
 
     <!-- Advanced reboot -->
+    <java-symbol type="array" name="config_custom_globalActionsList" />
     <java-symbol type="string" name="reboot_to_recovery_title" />
     <java-symbol type="string" name="reboot_to_recovery_message" />
     <java-symbol type="string" name="reboot_to_bootloader_title" />
