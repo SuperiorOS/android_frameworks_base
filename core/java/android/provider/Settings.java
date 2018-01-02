@@ -7444,8 +7444,21 @@ public final class Settings {
          * @hide
          */
         public static final int LOCATION_CHANGER_SYSTEM_SETTINGS = 1;
+
         /**
-         * The location icon in drop down notification drawer.
+         * Setting to allow setting rounded corner size and content padding
+         */
+        public static final String SYSUI_ROUNDED_SIZE = "sysui_rounded_size";
+        public static final String SYSUI_ROUNDED_CONTENT_PADDING = "sysui_rounded_content_padding";
+
+        /**
+         * Setting to disable rounded corner preferences and use frameworks values instead
+         * @hide
+         */
+        public static final String SYSUI_ROUNDED_FWVALS = "sysui_rounded_fwvals";
+
+        /**
+         *The location icon in drop down notification drawer.
          * @hide
          */
         public static final int LOCATION_CHANGER_QUICK_SETTINGS = 2;

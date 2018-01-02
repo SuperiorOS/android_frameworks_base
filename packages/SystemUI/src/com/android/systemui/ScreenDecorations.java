@@ -48,6 +48,7 @@ import android.os.UserHandle;
 import android.os.HandlerThread;
 import android.os.Build;
 import android.os.SystemProperties;
+import android.os.UserHandle;
 import android.provider.Settings.Secure;
 import android.provider.Settings.System;
 import android.support.annotation.VisibleForTesting;
@@ -133,6 +134,10 @@ public class ScreenDecorations extends SystemUI implements Tunable {
         mWindowManager = mContext.getSystemService(WindowManager.class);
 
         updateRoundedCornerRadii();
+
+        Dependency.get(Dependency.MAIN_HANDLER).post(
+                () -> Dependency.get(TunerService.class).addTunable(this, SIZE));
+
         if (hasRoundedCorners() || shouldDrawCutout()) {
             setupDecorations();
         }
@@ -212,9 +217,6 @@ public class ScreenDecorations extends SystemUI implements Tunable {
         DisplayMetrics metrics = new DisplayMetrics();
         mWindowManager.getDefaultDisplay().getMetrics(metrics);
         mDensity = metrics.density;
-
-        Dependency.get(Dependency.MAIN_HANDLER).post(
-                () -> Dependency.get(TunerService.class).addTunable(this, SIZE));
 
         // Watch color inversion and invert the overlay as needed.
         SecureSetting setting = new SecureSetting(mContext, mHandler,
@@ -370,7 +372,8 @@ public class ScreenDecorations extends SystemUI implements Tunable {
     }
 
     private boolean hasRoundedCorners() {
-        return mRoundedDefault > 0 || mRoundedDefaultBottom > 0 || mRoundedDefaultTop > 0;
+        return mRoundedDefault > 0 || mRoundedDefaultBottom > 0 || mRoundedDefaultTop > 0 ||
+                Secure.getIntForUser(mContext.getContentResolver(), SIZE, 0, UserHandle.USER_CURRENT) != 0;
     }
 
     private boolean shouldDrawCutout() {
@@ -388,13 +391,7 @@ public class ScreenDecorations extends SystemUI implements Tunable {
         // screen decorations overlay.
         int padding = mContext.getResources().getDimensionPixelSize(
                 R.dimen.rounded_corner_content_padding);
-        int padding_alt = mContext.getResources().getDimensionPixelSize(
-                R.dimen.rounded_corner_content_padding_alt);
-	if (padding != 0 && Build.PRODUCT.matches("taimen|beryllium")) {
             setupStatusBarPadding(padding);
-        } else {
-            setupStatusBarPadding(padding_alt);
-        }
 
     }
 
@@ -471,8 +468,13 @@ public class ScreenDecorations extends SystemUI implements Tunable {
     @Override
     public void onTuningChanged(String key, String newValue) {
         mHandler.post(() -> {
-            if (mOverlay == null) return;
             if (SIZE.equals(key)) {
+                if (mOverlay == null) {
+                    if (newValue != null && Integer.parseInt(newValue) != 0)
+                        setupDecorations();
+                    else
+                        return;
+                }
                 int size = mRoundedDefault;
                 int sizeTop = mRoundedDefaultTop;
                 int sizeBottom = mRoundedDefaultBottom;
@@ -489,7 +491,7 @@ public class ScreenDecorations extends SystemUI implements Tunable {
                 if (sizeBottom == 0) {
                     sizeBottom = size;
                 }
-
+                updateWindowVisibilities();
                 setSize(mOverlay.findViewById(R.id.left), sizeTop);
                 setSize(mOverlay.findViewById(R.id.right), sizeTop);
                 setSize(mBottomOverlay.findViewById(R.id.left), sizeBottom);
