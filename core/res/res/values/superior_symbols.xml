@@ -162,4 +162,7 @@
     <!-- Whether to show activity indicators in the status bar -->
     <java-symbol type="bool" name="config_showActivity" />  
 
+    <!-- Whether the device supports Smart Pixels -->
+    <java-symbol type="bool" name="config_enableSmartPixels" />
+
 </resources>
