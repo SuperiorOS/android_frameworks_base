@@ -17,7 +17,7 @@ package com.android.systemui.qs;
 import static android.app.StatusBarManager.DISABLE2_QUICK_SETTINGS;
 
 import static com.android.systemui.util.InjectionInflationController.VIEW_CONTEXT;
-
+import android.content.ContentResolver;
 import android.annotation.ColorInt;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
@@ -36,6 +36,8 @@ import android.graphics.Rect;
 import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Handler;
+import android.os.UserHandle;
+import android.database.ContentObserver;
 import android.os.Looper;
 import android.os.UserHandle;
 import android.provider.AlarmClock;
@@ -463,7 +465,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         updatePrivacyChipAlphaAnimator();
     }
 
-
     private void updateSettings() {
         updateQSBatteryMode();
         updateSBBatteryStyle();
@@ -489,20 +490,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         }
         mBatteryMeterView.updatePercentView();
         mBatteryMeterView.updateVisibility();
-    }
-
-    private void updateSBBatteryStyle() {
-        mBatteryMeterView.setBatteryStyle(Settings.System.getInt(mContext.getContentResolver(),
-        Settings.System.STATUS_BAR_BATTERY_STYLE, 0));
-        mBatteryMeterView.updateBatteryStyle();
-        mBatteryMeterView.updatePercentView();
-        mBatteryMeterView.updateVisibility();
-    }
-
-    private void updateQSClock() {
-        int show = Settings.System.getInt(mContext.getContentResolver(),
-        Settings.System.SHOW_QS_CLOCK, 1);
-        mClockView.setClockVisibleByUser(show == 1);
     }
 
     private void updateStatusIconAlphaAnimator() {

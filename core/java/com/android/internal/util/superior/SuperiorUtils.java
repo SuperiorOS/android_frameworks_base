@@ -58,6 +58,19 @@ public class SuperiorUtils {
         return ctx.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
     }
 
+    public static boolean isAvailableApp(String packageName, Context context) {
+       Context mContext = context;
+       final PackageManager pm = mContext.getPackageManager();
+       try {
+           pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
+           int enabled = pm.getApplicationEnabledSetting(packageName);
+           return enabled != PackageManager.COMPONENT_ENABLED_STATE_DISABLED &&
+               enabled != PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER;
+       } catch (Exception e) {
+           return false;
+       }
+    }
+
     public static void toggleCameraFlash() {
         FireActions.toggleCameraFlash();
     }
