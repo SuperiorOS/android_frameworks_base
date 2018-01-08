@@ -4995,6 +4995,13 @@ public final class Settings {
 	        new SettingsValidators.InclusiveIntegerRangeValidator(0, 1);;
 
         /**
+         * 0 - fullscreen
+         * 1 - partial
+         * @hide
+         */
+        public static final String SCREENSHOT_DEFAULT_MODE = "screenshot_default_mode";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5282,6 +5289,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(OMNIJAWS_WEATHER_ICON_PACK);
             PRIVATE_SETTINGS.add(OMNI_LOCKSCREEN_WEATHER_ENABLED);
             PRIVATE_SETTINGS.add(AICP_LOCKSCREEN_WEATHER_STYLE);
+            PRIVATE_SETTINGS.add(SCREENSHOT_DEFAULT_MODE);
         }
 
         /**
