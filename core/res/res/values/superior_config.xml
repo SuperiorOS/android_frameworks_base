@@ -218,4 +218,8 @@
          This needs to match the enums in DeviceKeysConstants.java.
     -->
     <integer name="config_longPressOnAssistBehaviorHwKeys">4</integer>
+
+    <!-- Indicates that the device has Single-stage Camera key
+         (without "Focus" state) instead of Dual-stage. -->
+    <bool name="config_singleStageCameraKey">false</bool>
 </resources>
