@@ -7698,5 +7698,9 @@ public class WindowManagerService extends IWindowManager.Stub
         synchronized (mWindowMap) {
             scheduleAnimationLocked();
         }
+    
+    @Override
+    public void screenRecordAction(int mode) {
+        mPolicy.screenRecordAction(mode);
     }
 }
