@@ -126,4 +126,7 @@
     <java-symbol type="integer" name="config_longPressOnMenuBehaviorHwKeys" />
     <java-symbol type="integer" name="config_longPressOnAppSwitchBehaviorHwKeys" />
     <java-symbol type="integer" name="config_longPressOnAssistBehaviorHwKeys" />
+
+    <!-- Camera key type -->
+    <java-symbol type="bool" name="config_singleStageCameraKey" />
 </resources>
