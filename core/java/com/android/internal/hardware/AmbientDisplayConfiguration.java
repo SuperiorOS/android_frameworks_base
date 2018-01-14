@@ -103,8 +103,8 @@ public class AmbientDisplayConfiguration {
     }
 
     public boolean alwaysOnEnabled(int user) {
-        return boolSetting(Settings.Secure.DOZE_ALWAYS_ON, user, mAlwaysOnByDefault ? 1 : 0)
-                && alwaysOnAvailable() && !accessibilityInversionEnabled(user);
+        return boolSettingDefaultOff(Settings.Secure.DOZE_ALWAYS_ON, user) && alwaysOnAvailable()
+                && !accessibilityInversionEnabled(user);
     }
 
     public boolean alwaysOnAvailable() {
