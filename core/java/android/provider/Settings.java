@@ -4493,6 +4493,8 @@ public final class Settings {
          */
         public static final String POWERMENU_ADVANCED_REBOOT = "powermenu_advanced_reboot";
 
+        public static final String FORCE_AMBIENT_FOR_MEDIA = "force_ambient_for_media";
+
         /**
          * Whether to display the screenshot option on the power menu
          *

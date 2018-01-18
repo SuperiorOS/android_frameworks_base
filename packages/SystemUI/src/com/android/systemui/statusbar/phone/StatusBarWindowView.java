@@ -118,6 +118,7 @@ public class StatusBarWindowView extends FrameLayout implements Tunable {
 
     private boolean mShowAutoBrightnessButton;
     private boolean mShowBrightnessSideButtons;
+    private boolean mIsMusicTickerTap;
 
     public StatusBarWindowView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -125,7 +126,11 @@ public class StatusBarWindowView extends FrameLayout implements Tunable {
         mTransparentSrcPaint.setColor(0);
         mTransparentSrcPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC));
         mFalsingManager = FalsingManager.getInstance(context);
-        mDoubleTapHelper = new DoubleTapHelper(this, active -> {}, () -> {
+        mDoubleTapHelper = new DoubleTapHelper(this, active -> {}, event -> {
+            if (mIsMusicTickerTap) {
+                mService.handleSystemKey(KeyEvent.KEYCODE_MEDIA_NEXT);
+                return true;
+            }
             mService.wakeUpIfDozing(SystemClock.uptimeMillis(), this);
             return true;
         }, null, null);
@@ -367,10 +372,20 @@ public class StatusBarWindowView extends FrameLayout implements Tunable {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        if (mService.isDozing() && !mStackScrollLayout.hasPulsingNotifications()) {
-            // Capture all touch events in always-on.
-            return true;
+        // if in Aod, or dozing but tapping on music info, return to skip the onTouchEvent
+        mIsMusicTickerTap = false;
+        if (mService.isDozing()) {
+            if (mService.isDoubleTapOnMusicTicker(ev.getX(), ev.getY())) {
+                mIsMusicTickerTap = true;
+                mDoubleTapHelper.onTouchEvent(ev);
+                return true;
+            }
+            if (!mStackScrollLayout.hasPulsingNotifications()) {
+                // Capture all touch events in always-on.
+                return true;
+            }
         }
+
         boolean intercept = false;
         if (mNotificationPanel.isFullyExpanded()
                 && mStackScrollLayout.getVisibility() == View.VISIBLE

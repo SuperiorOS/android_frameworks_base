@@ -63,6 +63,7 @@ public class NotificationMediaManager implements Dumpable {
     public interface MediaUpdateListener {
         public void onMediaUpdated(boolean playing);
         public void setPulseColors(boolean isColorizedMEdia, int[] colors);
+        public void onMediaUpdated(boolean playing);
     }
 
     private final MediaController.Callback mMediaListener = new MediaController.Callback() {
@@ -77,6 +78,7 @@ public class NotificationMediaManager implements Dumpable {
                     clearCurrentMediaNotification();
                     mPresenter.updateMediaMetaData(true, true);
                 }
+                setMediaPlaying();
                 if (mListener != null) {
                     setMediaPlaying();
                 }
@@ -94,17 +96,13 @@ public class NotificationMediaManager implements Dumpable {
             }
             mMediaMetadata = metadata;
             mPresenter.updateMediaMetaData(true, true);
-            if (mListener != null) {
-                setMediaPlaying();
-            }
+            setMediaPlaying();
         }
 
         @Override
         public void onSessionDestroyed() {
             super.onSessionDestroyed();
-            if (mListener != null) {
-                setMediaPlaying();
-            }
+            setMediaPlaying();
         }
     };
 
@@ -217,9 +215,7 @@ public class NotificationMediaManager implements Dumpable {
                 mMediaController = controller;
                 mMediaController.registerCallback(mMediaListener);
                 mMediaMetadata = mMediaController.getMetadata();
-                if (mListener != null) {
-                    setMediaPlaying();
-                }
+                setMediaPlaying();
                 if (DEBUG_MEDIA) {
                     Log.v(TAG, "DEBUG_MEDIA: insert listener, found new controller: "
                             + mMediaController + ", receive metadata: " + mMediaMetadata);
@@ -317,14 +313,12 @@ public class NotificationMediaManager implements Dumpable {
                         + mMediaController.getPackageName());
             }
             mMediaController.unregisterCallback(mMediaListener);
-            if (mListener != null) {
-                setMediaPlaying();
-            }
+            setMediaPlaying();
         }
         mMediaController = null;
     }
 
-    public void setMediaPlaying() {
+  public void setMediaPlaying() {
         if (PlaybackState.STATE_PLAYING ==
                 getMediaControllerPlaybackState(mMediaController)
                 || PlaybackState.STATE_BUFFERING ==
@@ -355,6 +349,7 @@ public class NotificationMediaManager implements Dumpable {
             }
         } else {
             mEntryManager.setEntryToRefresh(null);
+            mPresenter.setAmbientMusicInfo(null, null);
             if (mListener != null) {
                 mListener.onMediaUpdated(false);
             }
@@ -375,4 +370,9 @@ public class NotificationMediaManager implements Dumpable {
             }
         }
     }
+
+    public void setMediaNotificationText(String notificationText) {
+        mPresenter.setAmbientMusicInfo(mMediaMetadata, notificationText);
+    }
 }
+
