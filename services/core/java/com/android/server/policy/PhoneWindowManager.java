@@ -215,6 +215,7 @@ import android.os.IBinder;
 import android.os.IDeviceIdleController;
 import android.os.Looper;
 import android.os.Message;
+import android.os.Messenger;
 import android.os.PowerManager;
 import android.os.PowerManagerInternal;
 import android.os.Process;
@@ -2133,7 +2134,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
     @Override
     public void screenRecordAction(int mode) {
-        mContext.enforceCallingOrSelfPermission(Manifest.permission.ACCESS_SURFACE_FLINGER,
+        mContext.enforceCallingOrSelfPermission(ACCESS_SURFACE_FLINGER,
                 TAG + "screenRecordAction permission denied");
         mHandler.removeCallbacks(mScreenrecordRunnable);
         mScreenrecordRunnable.setMode(mode);
