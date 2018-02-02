@@ -1359,8 +1359,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 break;
             case LONG_PRESS_POWER_GLOBAL_ACTIONS:
                 mPowerKeyHandled = true;
-                performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false,
-                        "Power - Long Press - Global Actions");
                 KeyguardManager km = (KeyguardManager) mContext.getSystemService(Context.KEYGUARD_SERVICE);
                 boolean locked = km.inKeyguardRestrictedInputMode();
                 boolean globalActionsOnLockScreen = Settings.System.getInt(
@@ -1368,6 +1366,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 if (locked && !globalActionsOnLockScreen) {
                     behavior = LONG_PRESS_POWER_NOTHING;
                 } else {
+                    performHapticFeedback(HapticFeedbackConstants.LONG_PRESS, false,
+                            "Power - Long Press - Global Actions");
                     showGlobalActionsInternal();
                 }
                 break;
