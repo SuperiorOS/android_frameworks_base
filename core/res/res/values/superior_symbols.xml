@@ -153,6 +153,9 @@
 
   <!-- Whether device has dash charging support -->
   <java-symbol type="bool" name="config_hasDashCharger" />
+  
+  <!-- Whether device has turbo power charging support -->
+  <java-symbol type="bool" name="config_hasTurboPowerCharger" />
 
   <!-- Privacy Guard -->
   <java-symbol type="drawable" name="stat_notify_privacy_guard" />

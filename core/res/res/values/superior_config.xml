@@ -136,6 +136,9 @@
 
     <!-- Whether device has dash charging support -->
     <bool name="config_hasDashCharger">false</bool>
+	
+    <!-- Whether device has turbo power charging support -->
+    <bool name="config_hasTurboPowerCharger">false</bool>
 
     <!-- EdgeGesture service -->
     <java-symbol type="dimen" name="edge_gesture_trigger_distance" />
