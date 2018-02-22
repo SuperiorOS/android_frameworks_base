@@ -57,6 +57,7 @@ import com.android.systemui.qs.tiles.ReadingModeTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.SleepScreenTile;
 import com.android.systemui.qs.tiles.UiModeNightTile;
+import com.android.systemui.qs.tiles.ThemeTile;
 import com.android.systemui.qs.tiles.SoundTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
 import com.android.systemui.qs.tiles.UsbTetherTile;
@@ -284,6 +285,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mReadingModeTileProvider.get();
             case "navbar":
                 return mNavBarTileProvider.get();
+            case "theme":
+                return new ThemeTile(mHost);
         }
 
         // Intent tiles.
