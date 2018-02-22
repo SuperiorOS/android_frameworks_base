@@ -234,4 +234,17 @@
     <!-- Running service button -->
     <string name="accessibility_quick_settings_running_services">Open Running Services screen.</string>
 
+    <!-- Theme tile -->
+    <string name="system_theme_style_title">System Themes</string>
+    <string name="quick_settings_theme_tile_title">Themes</string>
+    <string name="quick_settings_theme_tile_style_detail_title">Select Theme</string>
+    <string name="system_theme_style_light">Light</string>
+    <string name="system_theme_style_dark">Google Dark</string>
+    <string name="system_theme_style_solarized_dark">Solarized Dark</string>
+    <string name="system_theme_style_baked_green">Baked Green</string>
+    <string name="system_theme_style_choco_x">Choco X</string> 
+    <string name="system_theme_style_pitch_black">Pitch Black</string>
+    <string name="system_theme_style_dark_grey">Dark Grey</string>
+    <string name="system_theme_style_material_ocean">Material Ocean</string>
+
 </resources>
