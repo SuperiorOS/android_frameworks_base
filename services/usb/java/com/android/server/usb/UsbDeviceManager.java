@@ -50,6 +50,7 @@ import android.hardware.usb.gadget.V1_0.IUsbGadgetCallback;
 import android.hardware.usb.gadget.V1_0.Status;
 import android.hidl.manager.V1_0.IServiceManager;
 import android.hidl.manager.V1_0.IServiceNotification;
+import android.net.NetworkInfo;
 import android.net.NetworkUtils;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -156,6 +157,8 @@ public class UsbDeviceManager implements ActivityManagerInternal.ScreenObserver 
     private static final int MSG_SET_FUNCTIONS_TIMEOUT = 15;
     private static final int MSG_GET_CURRENT_USB_FUNCTIONS = 16;
     private static final int MSG_FUNCTION_SWITCH_TIMEOUT = 17;
+    private static final int MSG_UPDATE_ADB_NOTIFICATION = 18;
+    private static final int MSG_UPDATE_ADB_NOTIFICATION_FORCE = 19;
 
     private static final int AUDIO_MODE_SOURCE = 1;
 
@@ -171,6 +174,9 @@ public class UsbDeviceManager implements ActivityManagerInternal.ScreenObserver 
     private static final String BOOT_MODE_PROPERTY = "ro.bootmode";
 
     private static final String ADB_NOTIFICATION_CHANNEL_ID_TV = "usbdevicemanager.adb.tv";
+
+    private static final String ADB_NOTIF_CHANNEL = "ADBNOTIF";
+
     private UsbHandler mHandler;
 
     private final Object mLock = new Object();
@@ -338,6 +344,9 @@ public class UsbDeviceManager implements ActivityManagerInternal.ScreenObserver 
                         .getDeviceList().entrySet().iterator();
                 if (intent.getAction().equals(UsbManager.ACTION_USB_DEVICE_ATTACHED)) {
                     mHandler.sendMessage(MSG_UPDATE_HOST_STATE, devices, true);
+                } else if (intent.getAction().equals(WifiManager.NETWORK_STATE_CHANGED_ACTION)) {
+                    NetworkInfo info = intent.getParcelableExtra(WifiManager.EXTRA_NETWORK_INFO);
+                    mHandler.sendMessage(MSG_UPDATE_ADB_NOTIFICATION_FORCE, (info != null && info.isConnected()));
                 } else {
                     mHandler.sendMessage(MSG_UPDATE_HOST_STATE, devices, false);
                 }
@@ -377,12 +386,16 @@ public class UsbDeviceManager implements ActivityManagerInternal.ScreenObserver 
         ContentObserver adbNotificationObserver = new ContentObserver(null) {
             @Override
             public void onChange(boolean selfChange) {
-                updateAdbNotification(false);
+                mHandler.sendEmptyMessage(MSG_UPDATE_ADB_NOTIFICATION);
             }
         };
         mContentResolver.registerContentObserver(
                 Settings.Secure.getUriFor(Settings.Secure.ADB_PORT),
                 false, adbNotificationObserver);
+
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
+        mContext.registerReceiver(hostReceiver, intentFilter);
     }
 
     UsbProfileGroupSettingsManager getCurrentSettings() {
@@ -399,6 +412,7 @@ public class UsbDeviceManager implements ActivityManagerInternal.ScreenObserver 
 
     public void systemReady() {
         if (DEBUG) Slog.d(TAG, "systemReady");
+
 
         LocalServices.getService(ActivityManagerInternal.class).registerScreenObserver(this);
 
@@ -513,6 +527,7 @@ public class UsbDeviceManager implements ActivityManagerInternal.ScreenObserver 
         protected SharedPreferences mSettings;
         protected int mCurrentUser;
         protected boolean mCurrentUsbFunctionsReceived;
+        private boolean mWifiConnected;
 
         /**
          * The persistent property which stores whether adb is enabled or not.
@@ -977,6 +992,16 @@ public class UsbDeviceManager implements ActivityManagerInternal.ScreenObserver 
                                                         .adb_debugging_notification_channel_tv),
                                         NotificationManager.IMPORTANCE_HIGH));
                     }
+
+                    final NotificationChannel adbChannel = new NotificationChannel(
+                            ADB_NOTIF_CHANNEL,
+                            mContext.getString(com.android.internal.R.string.adb_debugging_notification_channel_tv),
+                            NotificationManager.IMPORTANCE_LOW);
+                    adbChannel.setBlockableSystem(true);
+                    adbChannel.enableLights(false);
+                    adbChannel.enableVibration(false);
+                    mNotificationManager.createNotificationChannel(adbChannel);
+
                     mSystemReady = true;
                     finishBoot();
                     break;
@@ -1012,6 +1037,15 @@ public class UsbDeviceManager implements ActivityManagerInternal.ScreenObserver 
                     if (!mConnected || (mCurrentFunctions & UsbManager.FUNCTION_ACCESSORY) == 0) {
                         notifyAccessoryModeExit();
                     }
+                    break;
+                }
+                case MSG_UPDATE_ADB_NOTIFICATION_FORCE: {
+                    mWifiConnected = msg.arg1 == 1;
+                    updateAdbNotification(true);
+                    break;
+                }
+                case MSG_UPDATE_ADB_NOTIFICATION: {
+                    updateAdbNotification(false);
                     break;
                 }
             }
@@ -1201,7 +1235,7 @@ public class UsbDeviceManager implements ActivityManagerInternal.ScreenObserver 
             boolean netAdbActive = mAdbEnabled &&
                     Settings.Secure.getInt(mContentResolver, Settings.Secure.ADB_PORT, -1) > 0;
             final int titleRes;
-            boolean hideNotification = "0".equals(getSystemProperty("persist.adb.notify"));
+            boolean hideNotification = "0".equals(getSystemProperty("persist.adb.notify", ""));
             if (hideNotification) {
                 titleRes = 0;
             } else if (usbAdbActive && netAdbActive) {
@@ -1224,9 +1258,9 @@ public class UsbDeviceManager implements ActivityManagerInternal.ScreenObserver 
                     CharSequence message = r.getText(
                             com.android.internal.R.string.adb_active_generic_notification_message);
                     if (netAdbActive) {
-                        WifiManager wifiManager = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
-                        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-                        if (wifiInfo != null) {
+                        if (mWifiConnected) {
+                            WifiManager wifiManager = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
+                            WifiInfo wifiInfo = wifiManager.getConnectionInfo();
                             InetAddress address = NetworkUtils.intToInetAddress(wifiInfo.getIpAddress());
                             message = "IP: " + address.getHostAddress() + ":5555";
                         }
@@ -1239,10 +1273,10 @@ public class UsbDeviceManager implements ActivityManagerInternal.ScreenObserver 
                             intent, 0, null, UserHandle.CURRENT);
 
                     Notification notification =
-                            new Notification.Builder(mContext, SystemNotificationChannels.DEVELOPER)
+                            new Notification.Builder(mContext, ADB_NOTIF_CHANNEL)
                                     .setSmallIcon(com.android.internal.R.drawable.stat_sys_adb)
                                     .setWhen(0)
-                                    .setOngoing(true)
+                                    .setOngoing(false)
                                     .setTicker(title)
                                     .setDefaults(0)  // please be quiet
                                     .setColor(mContext.getColor(
