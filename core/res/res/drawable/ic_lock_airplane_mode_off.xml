@@ -17,7 +17,33 @@
  */
 -->
 
-<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
-    android:src="@drawable/ic_lock_airplane_mode_off_am_alpha"
-    android:autoMirrored="true"
-    android:tint="?attr/colorControlNormal" />
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24.000000dp"
+    android:height="24.000000dp"
+    android:viewportWidth="512.000000"
+    android:viewportHeight="512.000000"
+    android:tint="@color/power_menu_airplane">
+
+    <group
+        android:translateY="512.000000"
+        android:scaleX="0.100000"
+        android:scaleY="-0.100000">
+        <path
+            android:fillColor="#000000"
+            android:strokeWidth="1"
+            android:pathData="M2520 4231 c-71 -23 -131 -74 -166 -141 -17 -32 -19 -66 -22 -410 l-2 -375 677
+-682 678 -683 150 -46 c83 -25 212 -66 288 -90 77 -24 143 -44 148 -44 5 0 9 78 9
+178 l-1 177 -707 441 -707 441 -5 529 c-5 481 -7 532 -23 561 -28 52 -77 103 -121
+125 -44 23 -153 33 -196 19z" />
+        <path
+            android:fillColor="#000000"
+            android:strokeWidth="1"
+            android:pathData="M1187 3792 c-53 -53 -97 -102 -97 -107 0 -6 201 -211 446 -456 l446 -446 -536 -334
+-535 -334 -1 -177 c0 -100 4 -178 9 -178 5 0 71 20 148 44 184 59 440 139 703 221
+118 37 289 91 380 120 91 29 168 49 173 46 4 -4 6 -223 5 -487 l-3 -479 -178 -134
+-178 -134 3 -131 c2 -102 6 -130 16 -128 28 5 234 63 417 117 l189 55 246 -71 c135
+-39 268 -77 297 -85 29 -8 59 -17 68 -20 13 -5 15 11 15 128 l0 134 -180 134 -180
+135 0 340 0 340 508 -508 c279 -279 512 -507 517 -507 13 0 205 192 205 205 0 13
+-2782 2795 -2795 2795 -6 0 -54 -44 -108 -98z" />
+    </group>
+</vector>
