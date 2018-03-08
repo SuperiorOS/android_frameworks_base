@@ -4949,6 +4949,7 @@ public final class Settings {
          */
         public static final String POWERMENU_LOCKSCREEN = "powermenu_lockscreen";
 
+         /**
          * Whether to display the power menu reboot option on a secured lockscreen
          *
          * @hide
