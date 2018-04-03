@@ -86,5 +86,7 @@ public class SystemSettings {
         Settings.System.NOTIFICATION_LIGHT_PULSE,
         Settings.System.DOUBLE_TAP_SLEEP_GESTURE,
         Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN
+        Settings.System.QS_SHOW_BRIGHTNESS,
+        Settings.System.QS_BRIGHTNESS_POSITION_BOTTOM,
     };
 }
