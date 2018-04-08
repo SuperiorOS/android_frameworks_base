@@ -254,4 +254,8 @@
     <string name="accessibility_quick_settings_sync_changed_off">Sync turned off.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sync turned on.</string>
 
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Smart Pixels</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled Smart Pixels</string>
+
 </resources>
