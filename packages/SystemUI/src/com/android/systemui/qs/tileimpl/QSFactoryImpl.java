@@ -60,6 +60,7 @@ import com.android.systemui.qs.tiles.ThemeTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
 import com.android.systemui.qs.tiles.SyncTile;
 import com.android.systemui.qs.tiles.UsbTetherTile;
+import com.android.systemui.qs.tiles.SmartPixelsTile;
 import com.android.systemui.qs.tiles.UserTile;
 import com.android.systemui.qs.tiles.VolumeTile;
 import com.android.systemui.qs.tiles.WifiTile;
@@ -167,6 +168,8 @@ public class QSFactoryImpl implements QSFactory {
                 return new VolumeTile(mHost);
             case "adb_network":
                 return new AdbOverNetworkTile(mHost);
+            case "smartpixels":
+                return new SmartPixelsTile(mHost);
         }
 
         // Intent tiles.

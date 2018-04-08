@@ -203,14 +203,14 @@
     <!-- SleepScreen QS Tile -->
     <string name="quick_settings_sleepscreen_label">Sleep Screen</string>
 
-     <!-- Sync QS Tile -->
+    <!-- Sync QS Tile -->
     <string name="quick_settings_sync_label">Sync</string>
     <string name="accessibility_quick_settings_sync_off">Sync off</string>
     <string name="accessibility_quick_settings_sync_on">Sync on</string>
     <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
     <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
 
-     <!-- Navbar Tuner -->
+    <!-- Navbar Tuner -->
     <string name="preview">Preview</string>
     <string name="keycode">Keycode</string>
     <string name="no_home_title">No home button found</string>
@@ -266,4 +266,8 @@
     <string name="quick_settings_adb_network">ADB network</string>
     <string name="quick_settings_network_adb_enabled_label">Adb over Net</string>
     <string name="quick_settings_network_adb_disabled_label">Adb over Net</string>
+
+    <!-- Smart pixels QS tile -->
+    <string name="quick_settings_smart_pixels">Smart pixels</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
 </resources>
