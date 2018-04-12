@@ -62,6 +62,7 @@ public class QSContainerImpl extends FrameLayout implements
 
     private int mSideMargins;
     private boolean mQsDisabled;
+    private Drawable mQsBackGround;
 
     private boolean mHeaderImageEnabled;
     private ImageView mBackgroundImage;
@@ -73,6 +74,8 @@ public class QSContainerImpl extends FrameLayout implements
     public QSContainerImpl(Context context, AttributeSet attrs) {
         super(context, attrs);
         Handler mHandler = new Handler();
+        SettingsObserver settingsObserver = new SettingsObserver(mHandler);
+        settingsObserver.observe();
         mStatusBarHeaderMachine = new StatusBarHeaderMachine(context);
     }
 
@@ -82,14 +85,16 @@ public class QSContainerImpl extends FrameLayout implements
         mQSPanel = findViewById(R.id.quick_settings_panel);
         mQSDetail = findViewById(R.id.qs_detail);
         mHeader = findViewById(R.id.header);
-        mQSCustomizer = findViewById(R.id.qs_customize);
+        mQSCustomizer = (QSCustomizer) findViewById(R.id.qs_customize);
         mQSFooter = findViewById(R.id.qs_footer);
         mBackground = findViewById(R.id.quick_settings_background);
         mStatusBarBackground = findViewById(R.id.quick_settings_status_bar_background);
         mBackgroundGradient = findViewById(R.id.quick_settings_gradient_view);
         mSideMargins = getResources().getDimensionPixelSize(R.dimen.notification_side_paddings);
+        mQsBackGround = getContext().getDrawable(R.drawable.qs_background_primary);
         mBackgroundImage = findViewById(R.id.qs_header_image_view);
         mBackgroundImage.setClipToOutline(true);
+        updateSettings();
         updateResources();
 
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_NO);
@@ -125,6 +130,39 @@ public class QSContainerImpl extends FrameLayout implements
         updateResources();
         updateStatusbarVisibility();
         mSizePoint.set(0, 0); // Will be retrieved on next measure pass.
+    }
+
+    private class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            getContext().getContentResolver().registerContentObserver(Settings.System
+                            .getUriFor(Settings.System.QS_PANEL_BG_ALPHA), false,
+                    this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            updateSettings();
+        }
+    }
+
+    private void updateSettings() {
+        int mQsBackGroundAlpha = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.QS_PANEL_BG_ALPHA, 255,
+                UserHandle.USER_CURRENT);
+
+        if (mQsBackGroundAlpha < 255 ) {
+            mBackground.setVisibility(View.INVISIBLE);
+            mBackgroundGradient.setVisibility(View.INVISIBLE);
+            mQsBackGround.setAlpha(mQsBackGroundAlpha);
+            setBackground(mQsBackGround);
+        } else {
+            mBackground.setVisibility(View.VISIBLE);
+            mBackgroundGradient.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

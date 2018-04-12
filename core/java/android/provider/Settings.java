@@ -5455,6 +5455,7 @@ public final class Settings {
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
          * the setting value. See an example above.
          */
+
         public static final String QS_BLUR = "qs_blur";
 
         /**
@@ -5507,6 +5508,16 @@ public final class Settings {
          * @hide
          */
         public static final String BATTERY_BAR_USE_GRADIENT_COLOR = "battery_bar_use_gradient_color";
+
+        /**
+         * Whether to change the transparency of the qs panel
+         * @hide
+         */
+        public static final String QS_PANEL_BG_ALPHA = "qs_panel_bg_alpha";
+
+        /** @hide */
+        private static final Validator QS_PANEL_BG_ALPHA_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
@@ -5633,6 +5644,7 @@ public final class Settings {
             OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER,
             OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE,
             OMNI_STATUS_BAR_FILE_HEADER_IMAGE,
+            QS_PANEL_BG_ALPHA,
 
         };
 
@@ -5836,6 +5848,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER_PROVIDER);
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE);
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_FILE_HEADER_IMAGE);
+            PRIVATE_SETTINGS.add(QS_PANEL_BG_ALPHA);
         }
 
         /**
@@ -6007,6 +6020,7 @@ public final class Settings {
                     OMNI_STATUS_BAR_CUSTOM_HEADER_IMAGE_VALIDATOR);
             VALIDATORS.put(OMNI_STATUS_BAR_FILE_HEADER_IMAGE,
                     OMNI_STATUS_BAR_FILE_HEADER_IMAGE_VALIDATOR);
+            VALIDATORS.put(QS_PANEL_BG_ALPHA, QS_PANEL_BG_ALPHA_VALIDATOR);
         }
 
         /**
