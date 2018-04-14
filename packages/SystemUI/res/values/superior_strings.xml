@@ -289,4 +289,8 @@
     <string name="screenrecord_show_hint">Show hint</string>
     <!-- Screenshot QS tile -->
     <string name="quick_settings_screenrecord_label">Screenrecord</string>
+
+    <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">Invert layout</string>
+
 </resources>
