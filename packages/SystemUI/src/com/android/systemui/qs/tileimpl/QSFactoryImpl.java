@@ -25,6 +25,7 @@ import com.android.systemui.plugins.qs.QSTileView;
 import com.android.systemui.qs.external.CustomTile;
 import com.android.systemui.qs.tiles.AirplaneModeTile;
 import com.android.systemui.qs.tiles.AmbientDisplayTile;
+import com.android.systemui.qs.tiles.AODTile;
 import com.android.systemui.qs.tiles.BatterySaverTile;
 import com.android.systemui.qs.tiles.BluetoothTile;
 import com.android.systemui.qs.tiles.CastTile;
@@ -120,7 +121,6 @@ public class QSFactoryImpl implements QSFactory {
                 return new SoundTile(mHost);
             case "heads_up":
                 return new HeadsUpTile(mHost);
-<<<<<<< HEAD
             case "gaming":
                 return new GamingModeTile(mHost);
             case "reboot":
@@ -139,16 +139,10 @@ public class QSFactoryImpl implements QSFactory {
                 return new CallTile(mHost);
             case "camera":
                 return new CameraTile(mHost);
-=======
-            case "hwkeys":
-                return new HWKeysTile(mHost);
-            case "screenrecord":
-                return new ScreenrecordTile(mHost);
-            case "aod":
-                return new AODTile(mHost);
             case "ambient_display":
                 return new AmbientDisplayTile(mHost);
->>>>>>> 5db62cf... QS: SystemUI: AmbientDisplay tile
+            case "aod":
+                return new AODTile(mHost);
         }
 
         // Intent tiles.
