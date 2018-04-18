@@ -81,6 +81,9 @@
      <string name="accessibility_quick_settings_ambient_display_off">Ambient display off.</string>
      <string name="accessibility_quick_settings_ambient_display_on">Ambient display on.</string>
 
+     <!-- AOD QS tile -->
+     <string name="quick_settings_aod_label">AOD</string>
+
      <!-- Status bar tuner -->
      <string name="status_bar_items_title">Statusbar icons</string>
      <string name="status_bar_call_strength">Call strength</string>
