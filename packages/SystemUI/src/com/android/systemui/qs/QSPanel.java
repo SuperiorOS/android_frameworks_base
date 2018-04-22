@@ -32,6 +32,10 @@ import android.metrics.LogMaker;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.UserHandle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
+import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -142,6 +146,8 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     private LinearLayout mHorizontalLinearLayout;
     private LinearLayout mHorizontalContentContainer;
 
+    private final Vibrator mVibrator;
+
     // Only used with media
     private QSTileLayout mHorizontalTileLayout;
     protected QSTileLayout mRegularTileLayout;
@@ -176,6 +182,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         mBroadcastDispatcher = broadcastDispatcher;
         mUiEventLogger = uiEventLogger;
 
+        mVibrator = (Vibrator) mContext.getSystemService(Context.VIBRATOR_SERVICE);
         setOrientation(VERTICAL);
 
         addViewsAboveTiles();
@@ -261,6 +268,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
             @Override
             public boolean onLongClick(View v) {
                 setBrightnessMin(context, isAdaptiveBrightness(context));
+                mVibrator.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
                 return false;
             }
         });
@@ -293,6 +301,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
             @Override
             public boolean onLongClick(View v) {
                 setBrightnessMax(context, isAdaptiveBrightness(context));
+                mVibrator.vibrate(VibrationEffect.createOneShot(50, VibrationEffect.DEFAULT_AMPLITUDE));
                 return false;
             }
         });
