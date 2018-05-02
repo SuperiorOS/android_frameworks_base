@@ -87,6 +87,7 @@
     <string name="qs_data_switch_changed_2">Switched data card to SIM 2.</string>
 
     <!-- Reboot/Recovery QS tile -->
+    <string name="quick_settings_poweroff_label">Power off</string>
     <string name="quick_settings_reboot_label">Reboot</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
 
