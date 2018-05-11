@@ -1713,7 +1713,8 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     private static final int MESSAGE_REFRESH = 1;
     private static final int MESSAGE_SHOW = 2;
     private static final int MESSAGE_SHOW_ADVANCED_TOGGLES = 3;
-    private static final int DIALOG_DISMISS_DELAY = 300; // ms
+    private static final int DIALOG_DISMISS_DELAY = 200; // ms
+    private static final int MESSAGE_SHOW_ADVANCED_TOGGLES_SHOW = 6;
 
     private Handler mHandler = new Handler() {
         public void handleMessage(Message msg) {
@@ -1736,9 +1737,14 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     handleShow();
                     break;
                 case MESSAGE_SHOW_ADVANCED_TOGGLES:
+                    mDialog.dismiss();
+                    mHandler.sendEmptyMessageDelayed(MESSAGE_SHOW_ADVANCED_TOGGLES_SHOW, DIALOG_DISMISS_DELAY);
+                    break;
+                case MESSAGE_SHOW_ADVANCED_TOGGLES_SHOW:
                     mAdapter.notifyDataSetChanged();
                     addNewItems();
                     mDialog.refreshList();
+                    mDialog.show();
                     break;
             }
         }
@@ -1991,7 +1997,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     .alpha(1)
                     .translationX(0)
                     .translationY(0)
-                    .setDuration(300)
+                    .setDuration(DIALOG_DISMISS_DELAY)
                     .setInterpolator(Interpolators.FAST_OUT_SLOW_IN)
                     .setUpdateListener(animation -> {
                         int alpha = (int) ((Float) animation.getAnimatedValue()
@@ -2014,7 +2020,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                     .alpha(0)
                     .translationX(mGlobalActionsLayout.getAnimationOffsetX())
                     .translationY(mGlobalActionsLayout.getAnimationOffsetY())
-                    .setDuration(300)
+                    .setDuration(DIALOG_DISMISS_DELAY)
                     .withEndAction(super::dismiss)
                     .setInterpolator(new LogAccelerateInterpolator())
                     .setUpdateListener(animation -> {
