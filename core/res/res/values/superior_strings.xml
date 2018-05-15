@@ -43,4 +43,8 @@
     <string name="reboot_system_title">Restart system</string>
     <string name="reboot_system_message">Restarting system\u2026</string>
 
+    <!-- Alert slider proc nodes paths. -->
+    <string name="alert_slider_state_path"></string>
+    <string name="alert_slider_uevent_match_path"></string>
+
 </resources>
