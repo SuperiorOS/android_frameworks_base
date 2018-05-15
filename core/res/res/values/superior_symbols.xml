@@ -59,4 +59,9 @@
 
     <!-- QQS Height -->
     <java-symbol type="dimen" name="quick_qs_total_height" />
+
+    <!-- Alert slider -->
+    <java-symbol type="string" name="alert_slider_state_path" />
+    <java-symbol type="string" name="alert_slider_uevent_match_path" />
+    <java-symbol type="bool" name="config_hasAlertSlider" />
 </resources>
