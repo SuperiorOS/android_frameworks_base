@@ -371,4 +371,9 @@
   <java-symbol type="string" name="notify_battery_fully_charged_title" />
   <java-symbol type="string" name="notify_battery_fully_charged_text" />
 
+  <!-- Alert slider. -->
+  <java-symbol type="string" name="alert_slider_state_path" />
+  <java-symbol type="string" name="alert_slider_uevent_match_path" />
+  <java-symbol type="bool" name="config_hasAlertSlider" />
+
 </resources>

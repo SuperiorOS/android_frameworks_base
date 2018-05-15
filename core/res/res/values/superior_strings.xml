@@ -209,4 +209,8 @@
     <string name="notify_battery_fully_charged_text">Disconnect your device from the charger to improve battery longevity.</string>
     <string name="battery_charged_channel_name">Battery charged</string>
 
+    <!-- Alert slider proc nodes paths. -->
+    <string name="alert_slider_state_path"></string>
+    <string name="alert_slider_uevent_match_path"></string>
+
 </resources>

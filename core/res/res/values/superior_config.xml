@@ -233,4 +233,7 @@
   <!-- Screen off delay -->
   <integer name="config_screen_off_delay">1000</integer>
 
+    <!-- Whether device has physical tri state switch -->
+    <bool name="config_hasAlertSlider">false</bool>
+
 </resources>
