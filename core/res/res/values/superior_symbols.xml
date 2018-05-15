@@ -25,4 +25,9 @@
     <!-- Device keyhandlers -->
     <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
     <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
+
+    <!-- Alert Slider -->
+    <java-symbol type="string" name="alert_slider_state_path" />
+    <java-symbol type="string" name="alert_slider_uevent_match_path" />
+    <java-symbol type="bool" name="config_hasAlertSlider" />
 </resources>
