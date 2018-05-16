@@ -52,6 +52,7 @@ import com.android.systemui.qs.tiles.MonoToggleTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.RebootTile;
+import com.android.systemui.qs.tiles.ReadingModeTile;
 import com.android.systemui.qs.tiles.RotationLockTile;
 import com.android.systemui.qs.tiles.SleepScreenTile;
 import com.android.systemui.qs.tiles.UiModeNightTile;
@@ -111,6 +112,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<MonoToggleTile> mMonoToggleTileProvider;
     private final Provider<LessBoringTile> mLessBoringTileProvider;
     private final Provider<LiveDisplayTile> mLiveDisplayTileProvider;
+    private final Provider<ReadingModeTile> mReadingModeTileProvider;
 
     private QSTileHost mHost;
 
@@ -151,7 +153,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<ScreenStabilizationTile> screenStabilizationTileProvider,
             Provider<AODTile> aodTileProvider,
             Provider<MonoToggleTile> monoToggleTileProvider,
-            Provider<LiveDisplayTile> liveDisplayTileProvider) {
+            Provider<LiveDisplayTile> liveDisplayTileProvider,
+            Provider<ReadingModeTile> readingModeTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -189,6 +192,7 @@ public class QSFactoryImpl implements QSFactory {
         mAODTileProvider = aodTileProvider;
         mMonoToggleTileProvider = monoToggleTileProvider;
         mLiveDisplayTileProvider = liveDisplayTileProvider;
+        mReadingModeTileProvider = readingModeTileProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -278,6 +282,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mMonoToggleTileProvider.get();
             case "livedisplay":
                 return mLiveDisplayTileProvider.get();
+            case "reading_mode":
+                return mReadingModeTileProvider.get();
         }
 
         // Intent tiles.
