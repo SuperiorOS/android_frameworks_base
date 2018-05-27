@@ -70,6 +70,11 @@
   <java-symbol type="bool" name="config_notificationTinting_override" />
   
   <!-- Fastscroller text color (Launcher3) -->
-    <java-symbol type="color" name="fastscroller_text_color" />
+  <java-symbol type="color" name="fastscroller_text_color" />
+  
+  <!-- Generic colors -->
+  <java-symbol type="color" name="generic_theme_primary" />
+  <java-symbol type="color" name="generic_theme_primary_dark" />
+  <java-symbol type="color" name="generic_theme_accent" />
 
 </resources>

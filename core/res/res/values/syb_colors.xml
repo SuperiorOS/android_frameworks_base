@@ -69,4 +69,9 @@ oding="utf-8"?>
     <!-- Fastscroller -->
     <color name="fastscroller_text_color">#FFFFFFFF</color>
 
+    <!-- Generic colors -->
+    <color name="generic_theme_primary">#4285f4</color>
+    <color name="generic_theme_primary_dark">#346AC3</color>
+    <color name="generic_theme_accent">#3B77DB</color>
+
 </resources>
