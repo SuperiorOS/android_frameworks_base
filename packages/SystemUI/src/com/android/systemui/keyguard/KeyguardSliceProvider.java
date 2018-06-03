@@ -281,10 +281,6 @@ public class KeyguardSliceProvider extends SliceProvider implements
         }
     }
 
-    public NotificationMediaManager getMediaManager() {
-        return mMediaManager;
-    }
-
     protected void addPrimaryActionLocked(ListBuilder builder) {
         // Add simple action because API requires it; Keyguard handles presenting
         // its own slices so this action + icon are actually never used.
