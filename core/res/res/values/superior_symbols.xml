@@ -37,4 +37,9 @@
     <java-symbol type="anim" name="custom_app_out" />
     <java-symbol type="integer" name="config_deviceHardwareKeys" />
 
+    <!-- App error dialog -->
+    <java-symbol type="id" name="aerr_copy" />
+    <java-symbol type="string" name="url_copy_success" />
+    <java-symbol type="string" name="url_copy_failed" />
+
 </resources>
