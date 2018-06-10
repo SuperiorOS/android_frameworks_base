@@ -66,4 +66,7 @@ oding="utf-8"?>
     <color name="immersive_cling_text_color">@android:color/white</color>
     <color name="immersive_cling_button_text_color">@android:color/white</color>
 
+    <!-- Fastscroller -->
+    <color name="fastscroller_text_color">#FFFFFFFF</color>
+
 </resources>
