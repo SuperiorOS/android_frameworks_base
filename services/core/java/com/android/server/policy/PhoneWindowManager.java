@@ -1445,7 +1445,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         IDreamManager dreamManager = getDreamManager();
 
         try {
-            if (dreamManager != null && dreamManager.isDozing()) {
+            if (dreamManager != null && dreamManager.isDreaming()) {
                 return true;
             }
         } catch (RemoteException e) {
@@ -1458,7 +1458,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         if (FactoryTest.isLongPressOnPowerOffEnabled()) {
             return LONG_PRESS_POWER_SHUT_OFF_NO_CONFIRM;
         }
-        if (mTorchLongPressPowerEnabled && !isScreenOn()) {
+        if (mTorchLongPressPowerEnabled && (!isScreenOn() || isDozeMode())) {
             return LONG_PRESS_POWER_TORCH;
         }
         return mLongPressOnPowerBehavior;
@@ -4603,12 +4603,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             return false;
         }
 
-        boolean isDozing = isDozeMode();
+        final boolean isDozing = isDozeMode();
 
-        if (isDozing) {
-            if (keyCode > 0 && isVolumeKey(keyCode)) {
-                return false;
-            }
+        if ((keyCode == KeyEvent.KEYCODE_VOLUME_DOWN || keyCode == KeyEvent.KEYCODE_VOLUME_UP)
+                && isDozing) {
+            return false;
         }
 
         // Send events to keyguard while the screen is on and it's showing.
