@@ -359,7 +359,7 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
 
     @Override
     public boolean isAvailable() {
-        return !isPackageInstalled();
+        return (!isPackageInstalled() || isForceThemeAllowed());
     }
 
     private boolean isPackageInstalled() {
@@ -370,6 +370,11 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
             return false;
         }
         return true;
+    }
+
+    public boolean isForceThemeAllowed() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.FORCE_ALLOW_SYSTEM_THEMES, 0) == 1;
     }
 
     @Override

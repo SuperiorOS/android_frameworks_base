@@ -4954,6 +4954,13 @@ public final class Settings {
         /** End of ABC system settings**/
 
         /**
+         * Whether to allow use of system themes alongside substratum
+         *
+         * @hide
+         */
+        public static final String FORCE_ALLOW_SYSTEM_THEMES = "force_allow_system_themes";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
