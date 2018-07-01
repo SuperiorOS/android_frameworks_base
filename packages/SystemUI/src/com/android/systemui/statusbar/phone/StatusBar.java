@@ -5335,7 +5335,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                 stockTileStyle();
                 updateTileStyle();
 	    }
-            update();
         }
 
          public void update() {
