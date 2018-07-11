@@ -232,4 +232,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/effects/ogg/WirelessChargingStarted.ogg:system/media/audio/ui/WirelessChargingStarted.ogg \
     $(LOCAL_PATH)/effects/ogg/camera_click_48k.ogg:system/media/audio/ui/camera_click.ogg \
     $(LOCAL_PATH)/effects/ogg/camera_focus.ogg:system/media/audio/ui/camera_focus.ogg \
-
+    $(LOCAL_PATH)/effects/ogg/NFCFailure.ogg:system/media/audio/ui/NFCFailure.ogg \
+    $(LOCAL_PATH)/effects/ogg/NFCInitiated.ogg:system/media/audio/ui/NFCInitiated.ogg \
+    $(LOCAL_PATH)/effects/ogg/NFCSuccess.ogg:system/media/audio/ui/NFCSuccess.ogg \
+    $(LOCAL_PATH)/effects/ogg/NFCTransferComplete.ogg:system/media/audio/ui/NFCTransferComplete.ogg \
+    $(LOCAL_PATH)/effects/ogg/NFCTransferInitiated.ogg:system/media/audio/ui/NFCTransferInitiated.ogg \
