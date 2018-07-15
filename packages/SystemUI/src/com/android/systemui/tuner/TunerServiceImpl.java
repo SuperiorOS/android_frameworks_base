@@ -47,6 +47,7 @@ import com.android.systemui.qs.QSHost;
 import com.android.systemui.settings.UserTracker;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.statusbar.phone.SystemUIDialog;
+import com.android.systemui.statusbar.policy.Clock;
 import com.android.systemui.util.leak.LeakDetector;
 
 import java.util.HashSet;
@@ -73,6 +74,14 @@ public class TunerServiceImpl extends TunerService {
     // Things that use the tunable infrastructure but are now real user settings and
     // shouldn't be reset with tuner settings.
     private static final String[] RESET_EXCEPTION_LIST = new String[] {
+            Clock.STATUS_BAR_CLOCK_SECONDS,
+            Clock.STATUS_BAR_CLOCK_DATE_DISPLAY,
+            Clock.STATUS_BAR_CLOCK_DATE_STYLE,
+            Clock.STATUS_BAR_CLOCK_DATE_POSITION,
+            Clock.STATUS_BAR_CLOCK_DATE_FORMAT,
+            Clock.STATUS_BAR_CLOCK_AUTO_HIDE,
+            Clock.STATUS_BAR_CLOCK_AUTO_HIDE_HDURATION,
+            Clock.STATUS_BAR_CLOCK_AUTO_HIDE_SDURATION,
             QSHost.TILES_SETTING,
             Settings.Secure.DOZE_ALWAYS_ON,
             Settings.Secure.MEDIA_CONTROLS_RESUME,

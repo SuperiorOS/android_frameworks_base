@@ -48,7 +48,6 @@ import com.android.systemui.statusbar.notification.row.ExpandableNotificationRow
 import com.android.systemui.statusbar.notification.row.NotificationTestHelper;
 import com.android.systemui.statusbar.notification.stack.NotificationRoundnessManager;
 import com.android.systemui.statusbar.notification.stack.NotificationStackScrollLayoutController;
-import com.android.systemui.statusbar.policy.Clock;
 import com.android.systemui.statusbar.policy.HeadsUpManager;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
 
@@ -85,6 +84,7 @@ public class HeadsUpAppearanceControllerTest extends SysuiTestCase {
     private CommandQueue mCommandQueue;
     private NotificationRoundnessManager mNotificationRoundnessManager;
     private final FakeFeatureFlagsClassic mFeatureFlags = new FakeFeatureFlagsClassic();
+    private PhoneStatusBarView mPhoneStatusBarView = mock(PhoneStatusBarView.class);
 
     @Before
     public void setUp() throws Exception {
@@ -121,10 +121,10 @@ public class HeadsUpAppearanceControllerTest extends SysuiTestCase {
                 mShadeViewController,
                 mNotificationRoundnessManager,
                 mHeadsUpStatusBarView,
-                new Clock(mContext, null),
                 mFeatureFlags,
                 mock(HeadsUpNotificationIconInteractor.class),
-                Optional.of(mOperatorNameView));
+                Optional.of(mOperatorNameView),
+                mPhoneStatusBarView);
         mHeadsUpAppearanceController.setAppearFraction(0.0f, 0.0f);
     }
 
@@ -207,9 +207,9 @@ public class HeadsUpAppearanceControllerTest extends SysuiTestCase {
                 mShadeViewController,
                 mNotificationRoundnessManager,
                 mHeadsUpStatusBarView,
-                new Clock(mContext, null),
                 mFeatureFlags, mock(HeadsUpNotificationIconInteractor.class),
-                Optional.empty());
+                Optional.empty(),
+                mPhoneStatusBarView);
 
         assertEquals(expandedHeight, newController.mExpandedHeight, 0.0f);
         assertEquals(appearFraction, newController.mAppearFraction, 0.0f);
