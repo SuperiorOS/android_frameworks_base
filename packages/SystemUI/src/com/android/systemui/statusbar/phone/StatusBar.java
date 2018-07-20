@@ -550,6 +550,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     private boolean mWallpaperSupported;
 
     private VisualizerView mVisualizerView;
+    // LS visualizer on Ambient Display
+    private boolean mAmbientVisualizer;
 
     private int mChargingAnimation;
     private boolean mShowNavBar;
@@ -4094,8 +4096,11 @@ public class StatusBar extends SystemUI implements DemoMode,
                 BiometricUnlockController.MODE_WAKE_AND_UNLOCK) {
             dozing = false;
         }
-
         mStatusBarStateController.setIsDozing(dozing);
+
+        if (mAmbientVisualizer && mDozing) {
+            mVisualizerView.setVisible(true);
+        }
     }
 
     private void updateKeyguardState() {
@@ -4450,6 +4455,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_BLUR_INTENSITY),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.AMBIENT_VISUALIZER_ENABLED),
+                    false, this, UserHandle.USER_ALL);
         }
          @Override
         public void onChange(boolean selfChange, Uri uri) {
@@ -4484,6 +4492,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_BLUR_ALPHA)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_BLUR_INTENSITY))) {
                 updateBlurVisibility();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.AMBIENT_VISUALIZER_ENABLED))) {
+                setAmbientVis();
             }
             update();
             updateQSPanel();
@@ -4501,6 +4512,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             updateQSPanel();
             setGestureNavOptions();
             setMediaHeadsup();
+            setAmbientVis();
             updateNavigationBar(getRegisterStatusBarResult(), false);
         }
     }
@@ -4553,6 +4565,12 @@ public class StatusBar extends SystemUI implements DemoMode,
             getNavigationBarView().setEdgeGestureDeadZone();
             getNavigationBarView().setLongSwipeOptions();
         }
+    }
+
+    private void setAmbientVis() {
+        mAmbientVisualizer = Settings.System.getIntForUser(
+                mContext.getContentResolver(), Settings.System.AMBIENT_VISUALIZER_ENABLED, 0,
+                UserHandle.USER_CURRENT) == 1;
     }
 
     private void setLockScreenMediaBlurLevel() {
