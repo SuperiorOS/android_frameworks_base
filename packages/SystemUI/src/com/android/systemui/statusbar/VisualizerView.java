@@ -64,6 +64,7 @@ public class VisualizerView extends View
     private boolean mDisplaying = false; // the state we're animating to
     private boolean mDozing = false;
     private boolean mOccluded = false;
+    private boolean mAmbientVisualizerEnabled = false;
 
     private int mColor;
     private Bitmap mCurrentBitmap;
@@ -220,6 +221,12 @@ public class VisualizerView extends View
         }
     }
 
+    private void setVisualizerEnabled() {
+        mAmbientVisualizerEnabled = Settings.Secure.getIntForUser(
+                getContext().getContentResolver(), Settings.Secure.AMBIENT_VISUALIZER_ENABLED, 0,
+                UserHandle.USER_CURRENT) == 1;
+    }
+
     public void setVisible(boolean visible) {
         if (mVisible != visible) {
             if (DEBUG) {
@@ -331,11 +338,32 @@ public class VisualizerView extends View
     }
 
     private void checkStateChanged() {
-        if (getVisibility() == View.VISIBLE && mVisible && mPlaying && !mDozing && !mPowerSaveMode
+        boolean isVisible = getVisibility() == View.VISIBLE;
+        if (isVisible && mVisible && mPlaying && mDozing && mAmbientVisualizerEnabled && !mPowerSaveMode
+                 && mVisualizerEnabled && !mOccluded) {
+            if (!mDisplaying) {
+                mDisplaying = true;
+		dolink();
+                animate()
+                        .alpha(0.40f)
+                        .withEndAction(null)
+                        .setDuration(800);
+            } else {
+                animate()
+                        .alpha(0.40f)
+                        .withEndAction(null)
+                        .setDuration(800);
+            }
+        } else if (isVisible && mVisible && mPlaying && !mDozing && !mPowerSaveMode
                 && mVisualizerEnabled && !mOccluded) {
             if (!mDisplaying) {
                 mDisplaying = true;
                 dolink();
+                animate()
+                        .alpha(1f)
+                        .withEndAction(null)
+                        .setDuration(800);
+            } else {
                 animate()
                         .alpha(1f)
                         .withEndAction(null)
@@ -345,7 +373,7 @@ public class VisualizerView extends View
             if (mDisplaying) {
                 unlink();
                 mDisplaying = false;
-                if (mVisible) {
+                if (mVisible && !mAmbientVisualizerEnabled) {
                     animate()
                             .alpha(0f)
                             .setDuration(600);
@@ -367,11 +395,21 @@ public class VisualizerView extends View
             resolver.registerContentObserver(Settings.Secure.getUriFor(
                 Settings.Secure.LOCKSCREEN_VISUALIZER_ENABLED),
                 false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.Secure.getUriFor(
+                    Settings.Secure.AMBIENT_VISUALIZER_ENABLED),
+                    false, this, UserHandle.USER_ALL);
             update();
         }
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             super.onChange(selfChange, uri);
+            ContentResolver resolver = mContext.getContentResolver();
+                if (uri.equals(Settings.Secure.getUriFor( 
+                    Settings.Secure.AMBIENT_VISUALIZER_ENABLED))) {
+                setVisualizerEnabled();
+                checkStateChanged();
+                updateViewVisibility();
+        }
             update();
         }
         public void update() {

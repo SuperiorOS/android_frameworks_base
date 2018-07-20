@@ -9863,6 +9863,14 @@ public final class Settings {
                 NON_NEGATIVE_INTEGER_VALIDATOR;
 
         /**
+         * Ambient Display Visualizer
+         * @hide
+         */
+        public static final String AMBIENT_VISUALIZER_ENABLED = "ambient_visualizer";
+
+        private static final Validator AMBIENT_VISUALIZER_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * The number of times (integer) the user has manually enabled battery saver.
          * @hide
          */
@@ -10540,6 +10548,7 @@ public final class Settings {
             FLING_KEYBOARD_CURSORS,
             PULSE_AUTO_COLOR,
             SMARTBAR_DOUBLETAP_SLEEP,
+            AMBIENT_VISUALIZER_ENABLED,
         };
 
         /**
@@ -10746,6 +10755,7 @@ public final class Settings {
             VALIDATORS.put(SMARTBAR_DOUBLETAP_SLEEP, SMARTBAR_DOUBLETAP_SLEEP_VALIDATOR);
             VALIDATORS.put(LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS, BOOLEAN_VALIDATOR);
             VALIDATORS.put(LOCK_SCREEN_SHOW_NOTIFICATIONS, BOOLEAN_VALIDATOR);
+            VALIDATORS.put(AMBIENT_VISUALIZER_ENABLED, AMBIENT_VISUALIZER_ENABLED_VALIDATOR);
         }
 
         /**

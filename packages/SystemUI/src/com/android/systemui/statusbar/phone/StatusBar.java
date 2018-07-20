@@ -632,6 +632,9 @@ public class StatusBar extends SystemUI implements DemoMode,
     private boolean mScreenOn;
     private boolean mKeyguardShowingMedia;
 
+    // LS visualizer on Ambient Display
+    private boolean mAmbientVisualizer;
+
     private BroadcastReceiver mWallpaperChangedReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -5357,7 +5360,10 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.FORCE_AMBIENT_FOR_MEDIA),
                     false, this, UserHandle.USER_ALL);
-        }
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.Secure.AMBIENT_VISUALIZER_ENABLED),
+                    false, this, UserHandle.USER_ALL);
+	 }
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
@@ -5410,6 +5416,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                 updateLockscreenFilter();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.FORCE_AMBIENT_FOR_MEDIA))) {
                 setForceAmbient();
+            } else if (uri.equals(Settings.Secure.getUriFor(
+                Settings.Secure.AMBIENT_VISUALIZER_ENABLED))) {
+                setAmbientVis();
             }
 
         }
@@ -5433,6 +5442,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             updateKeyguardStatusSettings();
             updateLockscreenFilter();
             setForceAmbient();
+	    setAmbientVis();
         }
     }
 
@@ -5753,6 +5763,8 @@ public class StatusBar extends SystemUI implements DemoMode,
             mStatusBarKeyguardViewManager.setDozing(mDozing);
             if (mAmbientMediaPlaying && mAmbientIndicationContainer instanceof DozeReceiver) {
                 ((DozeReceiver) mAmbientIndicationContainer).setDozing(mDozing);
+            } else if (mAmbientVisualizer && mDozing) {
+                mVisualizerView.setVisible(true);
             }
             mEntryManager.updateNotifications();
             updateDozingState();
@@ -6275,6 +6287,11 @@ public class StatusBar extends SystemUI implements DemoMode,
         String blacklist = Settings.System.getStringForUser(mContext.getContentResolver(),
                 Settings.System.PULSE_APPS_BLACKLIST, UserHandle.USER_CURRENT);
         getMediaManager().setPulseBlacklist(blacklist);
+    }
+
+    private void setAmbientVis() {
+        mAmbientVisualizer = Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                Settings.Secure.AMBIENT_VISUALIZER_ENABLED, 0, UserHandle.USER_CURRENT) == 1;
     }
 
     private final BroadcastReceiver mBannerActionBroadcastReceiver = new BroadcastReceiver() {
