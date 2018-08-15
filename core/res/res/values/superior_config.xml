@@ -99,19 +99,19 @@
     <integer name="config_LTE_RSRP_threshold_type">0</integer>
 
     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveBatteryLed">true</bool>
+    <bool name="config_intrusiveBatteryLed">false</bool>
 
      <!-- Does the battery LED support multiple colors?
          Used to decide if the user can change the colors -->
-    <bool name="config_multiColorBatteryLed">true</bool>
+    <bool name="config_multiColorBatteryLed">false</bool>
 
     <!-- Does the notification LED support multiple colors?
          Used to decide if the user can change the colors -->
-    <bool name="config_multiColorNotificationLed">true</bool>
+    <bool name="config_multiColorNotificationLed">false</bool>
 
      <!-- Do the battery/notification LEDs support pulsing?
          Used to decide if we show pulse settings -->
-    <bool name="config_ledCanPulse">true</bool>
+    <bool name="config_ledCanPulse">false</bool>
     
     <!-- True if the notification's dynamic app icon/title tint should be optimised for dark
     backgrounds (requires config_allowNotificationIconTextTinting to be true)-->
@@ -119,4 +119,9 @@
     <bool name="config_useDarkBgNotificationTinting_override">false</bool>
     <bool name="config_notificationTinting_override">false</bool>
 	
+     <!-- Path to the library that contains a alternative device specific key handler -->
+    <string name="config_alternativeDeviceKeyHandlerLib" translatable="false"></string>
+
+      <!-- Name of that alternative key handler class -->
+    <string name="config_alternativeDeviceKeyHandlerClass" translatable="false"></string>
 </resources>

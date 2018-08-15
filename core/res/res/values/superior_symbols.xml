@@ -116,4 +116,8 @@
   <java-symbol type="bool" name="config_multiColorBatteryLed" />
   <java-symbol type="bool" name="config_ledCanPulse" />
 
+    <!-- Alternative keyhandler -->
+    <java-symbol type="string" name="config_alternativeDeviceKeyHandlerLib" />
+    <java-symbol type="string" name="config_alternativeDeviceKeyHandlerClass" />
+
 </resources>
