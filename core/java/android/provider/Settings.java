@@ -4258,6 +4258,15 @@ public final class Settings {
         public static final String HEADS_UP_NOTIFICATION_SNOOZE = "heads_up_notification_snooze";
 
         /**
+         * @hide
+         */
+        public static final String OMNI_NAVIGATION_BAR_SHOW = "navigation_bar_show";
+
+         /** @hide */
+        private static final Validator OMNI_NAVIGATION_BAR_SHOW_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -4315,7 +4324,8 @@ public final class Settings {
             SHOW_BATTERY_PERCENT,
             NOTIFICATION_VIBRATION_INTENSITY,
             HAPTIC_FEEDBACK_INTENSITY,
-            DISPLAY_COLOR_MODE
+            DISPLAY_COLOR_MODE,
+            OMNI_NAVIGATION_BAR_SHOW
         };
 
         /**
@@ -4435,6 +4445,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_ROWS_LANDSCAPE);
             PRIVATE_SETTINGS.add(QS_COLUMNS_PORTRAIT);
             PRIVATE_SETTINGS.add(QS_COLUMNS_LANDSCAPE);
+            PRIVATE_SETTINGS.add(OMNI_NAVIGATION_BAR_SHOW);
         }
 
         /**
@@ -4523,6 +4534,7 @@ public final class Settings {
             VALIDATORS.put(WIFI_STATIC_DNS1, WIFI_STATIC_DNS1_VALIDATOR);
             VALIDATORS.put(WIFI_STATIC_DNS2, WIFI_STATIC_DNS2_VALIDATOR);
             VALIDATORS.put(SHOW_BATTERY_PERCENT, SHOW_BATTERY_PERCENT_VALIDATOR);
+            VALIDATORS.put(OMNI_NAVIGATION_BAR_SHOW, OMNI_NAVIGATION_BAR_SHOW_VALIDATOR);
         }
 
         /**
