@@ -137,10 +137,10 @@ public class NotificationIconContainer extends ViewGroup {
     }.setDuration(CONTENT_FADE_DURATION);
 
     private static final int MAX_ICONS_ON_AOD = 3;
-
-    /* Maximum number of icons in short shelf on lockscreen when also showing overflow dot. */
-    public static final int MAX_ICONS_ON_LOCKSCREEN = 3;
-    public static final int MAX_STATIC_ICONS = 4;
+    private final int MAX_ICONS_ON_LOCKSCREEN =
+            getResources().getInteger(R.integer.config_maxVisibleNotificationIconsOnLock);
+    public final int MAX_STATIC_ICONS =
+            getResources().getInteger(R.integer.config_maxVisibleNotificationIcons);
 
     private boolean mIsStaticLayout = true;
     private final HashMap<View, IconState> mIconStates = new HashMap<>();
@@ -454,7 +454,8 @@ public class NotificationIconContainer extends ViewGroup {
         float translationX = getActualPaddingStart();
         int firstOverflowIndex = -1;
         int childCount = getChildCount();
-        int maxVisibleIcons = getMaxVisibleIcons(childCount);
+        int maxVisibleIcons = mOnLockScreen ? MAX_ICONS_ON_LOCKSCREEN :
+                mIsStaticLayout ? MAX_STATIC_ICONS : childCount;
         float layoutEnd = getLayoutEnd();
         mVisualOverflowStart = 0;
         mFirstVisibleIconState = null;
