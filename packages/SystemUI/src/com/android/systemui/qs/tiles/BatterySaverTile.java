@@ -86,7 +86,7 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
         bsi.mState = state.state;
         state.icon = bsi;
         if (mCharging) {
-            state.label = mContext.getString(R.string.keyguard_plugged_in);
+            state.label = mContext.getString(R.string.keyguard_plugged_in, mLevel + "%");
         } else {
             if (mLevel == 100) {
                 state.label = mContext.getString(R.string.keyguard_charged);
