@@ -91,6 +91,8 @@ public class BatteryMeterView extends LinearLayout implements
 
     private int mStyle = BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT;
     private boolean mQsHeaderOrKeyguard;
+    private boolean mCharging;
+    private boolean mPowerSave;
 
     /**
      * Whether we should use colors that adapt based on wallpaper/the scrim behind quick settings.
@@ -246,10 +248,10 @@ public class BatteryMeterView extends LinearLayout implements
     @Override
     public void onBatteryLevelChanged(int level, boolean pluggedIn, boolean charging) {
 
-        if (isCircleBattery() || mStyle == BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT) {
-            setForceShowPercent(pluggedIn);
+        if (mCharging != pluggedIn) {
+            mCharging = pluggedIn;
+            updateShowPercent();
         }
-
         mDrawable.setBatteryLevel(level);
         mDrawable.setCharging(pluggedIn);
         mLevel = level;
@@ -266,9 +268,9 @@ public class BatteryMeterView extends LinearLayout implements
 
     @Override
     public void onPowerSaveChanged(boolean isPowerSave) {
-        mDrawable.setPowerSaveEnabled(isPowerSave);
-        if (isCircleBattery() || mStyle == BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT) {
-            setForceShowPercent(isPowerSave);
+        mDrawable.setPowerSave(isPowerSave);
+        if (mPowerSave != isPowerSave) {
+            mPowerSave = isPowerSave;
             updateShowPercent();
         }
     }
@@ -362,7 +364,7 @@ public class BatteryMeterView extends LinearLayout implements
         scaledLayoutParams.setMargins(0, 0, 0, marginBottom);
 
         if (mBatteryIconView != null) {
-            mBatteryIconView.setLayoutParams(scaledLayoutParams);
+            mBatteryIconView.post(() -> mBatteryIconView.setLayoutParams(scaledLayoutParams));
         }
 
         FontSizeUtils.updateFontSize(mBatteryPercentView, R.dimen.qs_time_expanded_size);
