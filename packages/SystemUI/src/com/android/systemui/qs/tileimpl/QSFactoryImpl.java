@@ -50,6 +50,7 @@ import com.android.systemui.qs.tiles.SoundTile;
 import com.android.systemui.qs.tiles.ScreenshotTile;
 import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.UserTile;
+import com.android.systemui.qs.tiles.WeatherTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
 import com.android.systemui.util.leak.GarbageMonitor;
@@ -89,6 +90,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
     private final Provider<HWKeysTile> mHWKeysTileProvider;
     private final Provider<UsbTetherTile> mUsbTetherTileProvider;
+    private final Provider<WeatherTile> mWeatherTileProvider;
 
     private QSTileHost mHost;
 
@@ -118,7 +120,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<ScreenshotTile> screenshotTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider,
             Provider<HWKeysTile> hWKeysTileProvider,
-            Provider<UsbTetherTile> usbTetherTileProvider) {
+            Provider<UsbTetherTile> usbTetherTileProvider,
+            Provider<WeatherTile> weatherTileProvider) {
         mWifiTileProvider = wifiTileProvider;
         mBluetoothTileProvider = bluetoothTileProvider;
         mCellularTileProvider = cellularTileProvider;
@@ -145,6 +148,7 @@ public class QSFactoryImpl implements QSFactory {
         mHeadsUpTileProvider = headsUpTileProvider;
         mHWKeysTileProvider = hWKeysTileProvider;
         mUsbTetherTileProvider = usbTetherTileProvider;
+        mWeatherTileProvider = weatherTileProvider;
     }
 
     public void setHost(QSTileHost host) {
@@ -212,6 +216,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mHWKeysTileProvider.get();
             case "usb_tether":
                 return mUsbTetherTileProvider.get();
+            case "weather":
+                return mWeatherTile.get();
         }
 
         // Intent tiles.
