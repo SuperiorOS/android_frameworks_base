@@ -217,7 +217,7 @@ public class QSFactoryImpl implements QSFactory {
             case "usb_tether":
                 return mUsbTetherTileProvider.get();
             case "weather":
-                return mWeatherTile.get();
+                return mWeatherTileProvider.get();
         }
 
         // Intent tiles.
