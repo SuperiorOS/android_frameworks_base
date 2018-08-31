@@ -197,4 +197,7 @@
 
   <!-- Notification app name tint -->
   <java-symbol type="bool" name="config_allowNotificationAppNameTextTinting" />
+  
+  <!-- Whether to allow process with media UID to access CameraServiceProxy -->
+  <java-symbol type="bool" name="config_allowMediaUidForCameraServiceProxy" />
 </resources>
