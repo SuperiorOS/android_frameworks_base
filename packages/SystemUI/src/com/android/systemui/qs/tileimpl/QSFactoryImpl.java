@@ -111,8 +111,6 @@ public class QSFactoryImpl implements QSFactory {
                 return new SoundTile(mHost);
             case "heads_up":
                 return new HeadsUpTile(mHost);
-            case "screenshot":
-                return new ScreenshotTile(mHost);
             case "gaming":
                 return new GamingModeTile(mHost);
         }
