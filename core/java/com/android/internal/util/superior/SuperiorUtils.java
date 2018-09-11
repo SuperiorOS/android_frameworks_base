@@ -50,6 +50,7 @@ import android.view.KeyEvent;
 import android.util.DisplayMetrics;
 
 import java.util.List;
+import java.util.Locale;
 
 import com.android.internal.statusbar.IStatusBarService;
 
@@ -82,6 +83,12 @@ public class SuperiorUtils {
         if (pm!= null) {
             pm.goToSleep(SystemClock.uptimeMillis());
         }
+    }
+
+    // Check for Chinese language
+    public static boolean isChineseLanguage() {
+       return Resources.getSystem().getConfiguration().locale.getLanguage().startsWith(
+               Locale.CHINESE.getLanguage());
     }
 
     public static boolean deviceHasFlashlight(Context ctx) {
