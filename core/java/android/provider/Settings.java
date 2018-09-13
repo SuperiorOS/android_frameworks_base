@@ -4469,6 +4469,12 @@ public final class Settings {
         public static final String POWERMENU_LS_SCREENSHOT = "powermenu_ls_screenshot";
 
         /**
+         * Whether to use old mobile data icons
+         * @hide
+         */
+        public static final String USE_OLD_MOBILETYPE = "use_old_mobiletype";
+
+        /**
          * Whether to display the power menu airplane mode option on a secured lockscreen
          *
          * @hide
@@ -6082,6 +6088,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_ADJUSTMENT);
             PRIVATE_SETTINGS.add(DISPLAY_PICTURE_ADJUSTMENT);
             PRIVATE_SETTINGS.add(LIVE_DISPLAY_HINTED);
+            PRIVATE_SETTINGS.add(USE_OLD_MOBILETYPE);
         }
 
         /**
