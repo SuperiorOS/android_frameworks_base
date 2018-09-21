@@ -4697,6 +4697,12 @@ public final class Settings {
         private static final Validator BATTERY_LIGHT_ALLOW_ON_DND_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
+	/**
+         * Home wake button
+         * @hide
+         */
+        public static final String HOME_WAKE_BUTTON = "home_wake_button";
+
         /**
         * Whether to show blinking light when battery is low
         * @hide
