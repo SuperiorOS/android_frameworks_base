@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-android:width="24dp"
-android:height="24dp"
-android:viewportWidth="24"
-android:viewportHeight="24"
-android:tint="@*android:color/power_menu_advanced_recovery">
+    android:width="24.0dp"
+    android:height="24.0dp"
+    android:viewportWidth="24.0"
+    android:viewportHeight="24.0"
+    android:tint="@*android:color/accent_device_default_light" >
 
 <path
     android:pathData="M0 0h24v24H0V0z" />
