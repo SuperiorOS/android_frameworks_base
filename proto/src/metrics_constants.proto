@@ -6434,6 +6434,7 @@ message MetricsEvent {
     // Add new aosp constants above this line.
     // END OF AOSP CONSTANTS
     
-    SUPERIOR = 4200;
+    // Superior constant
+    SUPERIOR = 1500;
   }
 }
