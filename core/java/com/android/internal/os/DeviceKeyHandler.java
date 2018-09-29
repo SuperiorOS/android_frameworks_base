@@ -16,6 +16,8 @@
 
 package com.android.internal.os;
 
+import android.content.Intent;
+import android.hardware.SensorEvent;
 import android.view.KeyEvent;
 
 public interface DeviceKeyHandler {
@@ -28,4 +30,13 @@ public interface DeviceKeyHandler {
      * @return null if event is consumed, KeyEvent to be handled otherwise
      */
     public KeyEvent handleKeyEvent(KeyEvent event);
+    public Intent isActivityLaunchEvent(KeyEvent event);
+
+    default public String getCustomProxiSensor() {
+        return null;
+    }
+
+    default public boolean getCustomProxiIsNear(SensorEvent event) {
+        return false;
+    }
 }

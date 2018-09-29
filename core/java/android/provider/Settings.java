@@ -4340,6 +4340,14 @@ public final class Settings {
          */
         public static final String SYSTEM_UI_THEME = "system_ui_theme";
 
+         /**
+         * @hide
+         */
+        public static final String DEVICE_FEATURE_SETTINGS = "device_feature_settings";
+         /** @hide */
+        private static final Validator DEVICE_FEATURE_SETTINGS_VALIDATOR =
+                ANY_STRING_VALIDATOR;
+
         /**
          * Applications list where heasdup should't show
          *
