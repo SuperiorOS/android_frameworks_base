@@ -17,6 +17,18 @@
 
 package com.android.internal.util.superior;
 
+import android.view.IWindowManager;
+import android.app.ActivityManager;
+import android.content.Intent;
+import android.view.IWindowManager;
+import android.view.WindowManagerGlobal;
+import android.net.ConnectivityManager;
+import java.util.List;
+import java.util.Locale;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
+
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.hardware.input.InputManager;
