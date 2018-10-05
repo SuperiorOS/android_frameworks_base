@@ -992,28 +992,26 @@ class AppErrors {
         }
 
         ProcessCpuTracker processCpuTracker = new ProcessCpuTracker(true);
+        ArrayList<Integer> nativePids = null;
 
         // don't dump native PIDs for background ANRs unless it is the process of interest
-        String[] nativeProcs = null;
+        String[] nativeProc = null;
         if (isSilentANR) {
             for (int i = 0; i < NATIVE_STACKS_OF_INTEREST.length; i++) {
                 if (NATIVE_STACKS_OF_INTEREST[i].equals(app.processName)) {
-                    nativeProcs = new String[] { app.processName };
+                    nativeProc = new String[] { app.processName };
                     break;
                 }
             }
-        } else {
-            nativeProcs = NATIVE_STACKS_OF_INTEREST;
-        }
-
-        int[] pids = nativeProcs == null ? null : Process.getPidsForCommands(nativeProcs);
-        ArrayList<Integer> nativePids = null;
-
-        if (pids != null) {
-            nativePids = new ArrayList<Integer>(pids.length);
-            for (int i : pids) {
-                nativePids.add(i);
+            int[] pid = nativeProc == null ? null : Process.getPidsForCommands(nativeProc);
+            if(pid != null){
+                nativePids = new ArrayList<Integer>(pid.length);
+                for (int i : pid) {
+                    nativePids.add(i);
+                }
             }
+        } else {
+            nativePids = Watchdog.getInstance().getInterestingNativePids();
         }
 
         // For background ANRs, don't pass the ProcessCpuTracker to
