@@ -158,4 +158,8 @@
   <java-symbol type="bool" name="config_liveDisplayAvailable" />
   <java-symbol type="array" name="config_displayModeMappings" />
 
+  <!-- SystemUI Restart -->
+  <java-symbol type="string" name="systemui_restart_title" />
+  <java-symbol type="string" name="systemui_restart_message" />
+  
 </resources>
