@@ -61,6 +61,7 @@ public class ThemeAccentUtils {
         "com.android.dialer.theme.dark", //3
         "com.android.contacts.theme.dark", //4
         "com.android.documentsui.theme.dark", //5
+        "com.android.updater.theme.dark", //6
     };
 
     private static final String[] BLACK_THEMES = {
@@ -70,6 +71,7 @@ public class ThemeAccentUtils {
         "com.android.dialer.theme.black", //3
         "com.android.contacts.theme.black", //4
         "com.android.documentsui.theme.black", //5
+        "com.android.updater.theme.black", //6
     };
 
 
@@ -77,10 +79,7 @@ public class ThemeAccentUtils {
 
     // Switches theme accent from to another or back to stock
     public static void updateAccents(IOverlayManager om, int userId, int accentSetting) {
-        if (accentSetting == 0) {
-            unloadAccents(om, userId);
-            }
-        } else if (accentSetting < 25) {
+         if (accentSetting < 25) {
             try {
                 om.setEnabled(ACCENTS[accentSetting],
                         true, userId);
