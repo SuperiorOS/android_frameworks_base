@@ -4385,6 +4385,13 @@ public final class Settings {
         public static final String POWERMENU_REBOOT = "powermenu_reboot";
 
         /**
+         * Whether to display the lockdown option in the power menu
+         *
+         * @hide
+         */
+        public static final String POWERMENU_LOCKDOWN = "powermenu_lockdown";
+
+        /**
          * Whether to display the power menu advanced reboot option on a secured lockscreen
          *
          * @hide
@@ -4412,7 +4419,14 @@ public final class Settings {
          */
         public static final String POWERMENU_LS_REBOOT = "powermenu_ls_reboot";
 
-	/**
+        /**
+         * Whether to display the lockdown option on a secured lockscreen
+         *
+         * @hide
+         */
+        public static final String POWERMENU_LS_LOCKDOWN = "powermenu_ls_lockdown";
+
+        /**
          * Whether Ambient Play enabled/disabled
          *
          * @hide

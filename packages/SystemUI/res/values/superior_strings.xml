@@ -69,6 +69,7 @@
     <string name="global_action_restart_ui">SystemUI</string>
     <string name="global_action_restart_hot">Hot</string>
     <string name="global_action_screenshot">Screenshot</string>
+    <string name="global_action_lockdown">Lockdown</string>
 
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Reboot</string>
