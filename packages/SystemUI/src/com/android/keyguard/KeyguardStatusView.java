@@ -96,7 +96,6 @@ public class KeyguardStatusView extends GridLayout implements
                 refreshTime();
                 updateOwnerInfo();
                 updateLogoutView();
-                updateSettings();
                 refreshLockFont();
             }
         }
@@ -116,7 +115,6 @@ public class KeyguardStatusView extends GridLayout implements
             refreshFormat();
             updateOwnerInfo();
             updateLogoutView();
-            updateSettings();
             refreshLockFont();
         }
 
@@ -197,7 +195,6 @@ public class KeyguardStatusView extends GridLayout implements
         updateOwnerInfo();
         updateLogoutView();
         updateDark();
-        updateSettings();
         refreshLockFont();
 
         // Disable elegant text height because our fancy colon makes the ymin value huge for no
