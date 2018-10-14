@@ -230,4 +230,7 @@
     <!-- Whether to enable oneplus cam hack -->
     <bool name="config_enableOPcamhack">false</bool>
 
+  <!-- Screen off delay -->
+  <integer name="config_screen_off_delay">1000</integer>
+
 </resources>
