@@ -101,4 +101,7 @@
 
     <!-- Allow devices override audio panel location to the left side -->
     <bool name="config_audioPanelOnLeftSide">false</bool>
+
+    <!-- Screen off delay -->
+    <integer name="config_screen_off_delay">1000</integer>
 </resources>
