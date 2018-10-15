@@ -125,16 +125,6 @@ public class ScreenDecorations extends SystemUI implements Tunable {
             setupDecorations();
         }
 
-        int padding = mContext.getResources().getDimensionPixelSize(
-                R.dimen.rounded_corner_content_padding);
-        int padding_alt = mContext.getResources().getDimensionPixelSize(
-                R.dimen.rounded_corner_content_padding_alt);
-        if (padding != 0 && Build.PRODUCT.equals("taimen")) {
-            setupPadding(padding);
-        } else {
-            setupPadding(padding_alt);
-        }
-
         mDisplayListener = new DisplayManager.DisplayListener() {
             @Override
             public void onDisplayAdded(int displayId) {
@@ -379,8 +369,12 @@ public class ScreenDecorations extends SystemUI implements Tunable {
         // screen decorations overlay.
         int padding = mContext.getResources().getDimensionPixelSize(
                 R.dimen.rounded_corner_content_padding);
-        if (padding != 0) {
+        int padding_alt = mContext.getResources().getDimensionPixelSize(
+                R.dimen.rounded_corner_content_padding_alt);
+	if (padding != 0 && Build.PRODUCT.matches("taimen|beryllium")) {
             setupStatusBarPadding(padding);
+        } else {
+            setupStatusBarPadding(padding_alt);
         }
 
     }
