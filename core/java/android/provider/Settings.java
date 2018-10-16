@@ -4862,6 +4862,15 @@ public final class Settings {
         public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
 
         /**
+         * 0 - Default
+         * 1 - Round with ring
+         * 2 - Two-toned round with ring
+	 * 3 - Squircle with ring
+         * @hide
+         */
+        public static final String QS_TILE_STYLE = "qs_tile_style";
+
+        /**
          * @hide
          */
         public static final String OMNI_USE_BOTTOM_GESTURE_NAVIGATION =
@@ -5099,6 +5108,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(WEATHER_LOCKSCREEN_UNIT);
             PRIVATE_SETTINGS.add(QS_HEADER_STYLE);
             PRIVATE_SETTINGS.add(OMNI_USE_BOTTOM_GESTURE_NAVIGATION);
+            PRIVATE_SETTINGS.add(QS_TILE_STYLE);       
         }
 
         /**
