@@ -66,6 +66,7 @@ import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.widget.Toast;
 import android.util.DisplayMetrics;
+import android.util.Log;
 
 import com.android.internal.statusbar.IStatusBarService;
 
@@ -84,6 +85,7 @@ public class Utils {
     public static final String INTENT_REGION_SCREENSHOT = "action_handler_region_screenshot";
 
     private static OverlayManager mOverlayService;
+    private static final String TAG = "Utils";
 
 	// Check if device is connected to Wi-Fi
     public static boolean isWiFiConnected(Context context) {
@@ -565,5 +567,33 @@ public class Utils {
         newColor[2] = empty[2] + ((full[2]-empty[2])*blendFactor);
         int newAlpha = (int) (emptyAlpha + ((fullAlpha-emptyAlpha)*blendFactor));
         return Color.HSVToColor(newAlpha, newColor);
+    }
+
+    // Switches qs tile style to user selected.
+    public static void updateTileStyle(IOverlayManager om, int userId, int qsTileStyle) {
+        if (qsTileStyle == 0) {
+            stockTileStyle(om, userId);
+        } else {
+            try {
+                om.setEnabled(ThemesUtils.QS_TILE_THEMES[qsTileStyle],
+                        true, userId);
+            } catch (RemoteException e) {
+                Log.w(TAG, "Can't change qs tile icon", e);
+            }
+        }
+    }
+
+    // Switches qs tile style back to stock.
+    public static void stockTileStyle(IOverlayManager om, int userId) {
+        // skip index 0
+        for (int i = 0; i < ThemesUtils.QS_TILE_THEMES.length; i++) {
+            String qstiletheme = ThemesUtils.QS_TILE_THEMES[i];
+            try {
+                om.setEnabled(qstiletheme,
+                        false /*disable*/, userId);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
