@@ -70,6 +70,8 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.om.IOverlayManager;
+import android.content.om.OverlayInfo;
 import android.content.pm.IPackageManager;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -145,6 +147,7 @@ import com.android.internal.util.hwkeys.PackageMonitor.PackageChangedListener;
 import com.android.internal.util.hwkeys.PackageMonitor.PackageState;
 import com.android.internal.util.superior.Utils;
 import com.android.internal.view.AppearanceRegion;
+import com.android.internal.util.superior.ThemesUtils;
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.KeyguardUpdateMonitorCallback;
 import com.android.keyguard.ViewMediatorCallback;
@@ -638,6 +641,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     private final LifecycleRegistry mLifecycle = new LifecycleRegistry(this);
     protected final BatteryController mBatteryController;
     protected boolean mPanelExpanded;
+    private IOverlayManager mOverlayManager;
     private UiModeManager mUiModeManager;
     protected boolean mIsKeyguard;
     private LogMaker mStatusBarStateLog;
@@ -982,6 +986,9 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         mAccessibilityManager = (AccessibilityManager)
                 mContext.getSystemService(Context.ACCESSIBILITY_SERVICE);
+
+        mOverlayManager = IOverlayManager.Stub.asInterface(
+                ServiceManager.getService(Context.OVERLAY_SERVICE));
 
         mKeyguardUpdateMonitor.setKeyguardBypassController(mKeyguardBypassController);
         mBarService = IStatusBarService.Stub.asInterface(
@@ -4159,9 +4166,17 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.HEADS_UP_STOPLIST_VALUES), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.HEADS_UP_BLACKLIST_VALUES), false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_TILE_STYLE),
+                    false, this, UserHandle.USER_ALL);
         }
          @Override
         public void onChange(boolean selfChange, Uri uri) {
+            if (uri.equals(Settings.System.getUriFor(Settings.System.QS_TILE_STYLE))) {
+                stockTileStyle();
+                updateTileStyle();
+                mQSPanel.getHost().reloadAllTiles();
+            }
             update();
         }
          public void update() {
@@ -4450,6 +4465,18 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     public boolean isDeviceInteractive() {
         return mDeviceInteractive;
+    }
+
+    // Switches qs tile style from stock to custom
+    public void updateTileStyle() {
+        int qsTileStyle = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.QS_TILE_STYLE, 0, mLockscreenUserManager.getCurrentUserId());
+        Utils.updateTileStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), qsTileStyle);
+    }
+
+    // Unload all qs tile styles back to stock
+    public void stockTileStyle() {
+        Utils.stockTileStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
     }
 
     private final BroadcastReceiver mBannerActionBroadcastReceiver = new BroadcastReceiver() {
