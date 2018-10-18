@@ -523,9 +523,6 @@ public final class PowerManagerService extends SystemService
     // overrule and disable brightness for buttons
     private boolean mHardwareKeysDisable = false;
 
-    // overrule and disable brightness for buttons
-    private boolean mHardwareKeysDisable = false;
-
     // Set of app ids that we will always respect the wake locks for.
     int[] mDeviceIdleWhitelist = new int[0];
 
