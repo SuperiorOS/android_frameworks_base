@@ -4578,6 +4578,12 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * Whether to show VoLTE icon or not
+         * @hide
+         */
+        public static final String SHOW_VOLTE_ICON = "volte_icon";
+
+        /**
          * @hide
          */
         public static final String OMNI_QS_LAYOUT_ROWS = "qs_layout_rows";
