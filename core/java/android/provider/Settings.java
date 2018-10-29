@@ -4811,6 +4811,15 @@ public final class Settings {
         public static final String FULL_GESTURE_NAVBAR_DT2S = "full_gesture_navbar_dt2s";
 
         /**
+         * Weather lockscreen temperature scale
+         * @hide
+         */
+        public static final String WEATHER_LOCKSCREEN_UNIT = "weather_lockscreen_unit";
+         /** @hide */
+        private static final Validator WEATHER_LOCKSCREEN_UNIT_VALIDATOR =
+               BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -4885,7 +4894,8 @@ public final class Settings {
             STATUSBAR_CLOCK_DATE_STYLE,
             STATUSBAR_CLOCK_DATE_FORMAT,
             OMNI_QS_PANEL_BG_ALPHA,
-            RECENTS_COMPONENT
+            RECENTS_COMPONENT,
+            WEATHER_LOCKSCREEN_UNIT,
         };
 
         /**
@@ -5033,6 +5043,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(CUSTOM_DEVICE_FEATURE_SETTINGS);
             PRIVATE_SETTINGS.add(TOAST_ICON);
             PRIVATE_SETTINGS.add(RECENTS_COMPONENT);
+            PRIVATE_SETTINGS.add(WEATHER_LOCKSCREEN_UNIT);
         }
 
         /**
@@ -5146,6 +5157,7 @@ public final class Settings {
             VALIDATORS.put(CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED, CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED_VALIDATOR);
             VALIDATORS.put(CUSTOM_DEVICE_FEATURE_SETTINGS, CUSTOM_DEVICE_FEATURE_SETTINGS_VALIDATOR);
             VALIDATORS.put(RECENTS_COMPONENT,RECENTS_COMPONENT_VALIDATOR);
+            VALIDATORS.put(WEATHER_LOCKSCREEN_UNIT, WEATHER_LOCKSCREEN_UNIT_VALIDATOR);
         }
 
         /**

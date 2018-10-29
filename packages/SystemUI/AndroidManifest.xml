@@ -240,6 +240,9 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="org.pixelexperience.ambient.play.history.MANAGE_HISTORY" />
 
+    <!-- Weather on lockscreen -->
+    <uses-permission android:name="org.pixelexperience.weather.client.READ_WEATHER" />
+
     <application
         android:name=".SystemUIApplication"
         android:persistent="true"
