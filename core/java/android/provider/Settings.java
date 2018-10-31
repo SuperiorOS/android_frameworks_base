@@ -4779,6 +4779,10 @@ public final class Settings {
         /** @hide */
         public static final Validator RECENTS_COMPONENT_VALIDATOR =
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 1);
+        /**
+         * @hide
+         */
+        public static final String FULL_GESTURE_NAVBAR = "full_gesture_navbar";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
