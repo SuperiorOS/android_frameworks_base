@@ -131,6 +131,7 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
     private ExpandableNotificationRow.OnAppOpsClickListener mOnAppOpsClickListener;
 
     private boolean mLessBoringHeadsUp;
+    private NotificationData.Entry mEntryToRefresh;
 
     /**
      * Notifications with keys in this set are not actually around anymore. We kept them around
@@ -473,6 +474,17 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
             mPresenter.updateNotificationViews();
         }
         entry.row.setLowPriorityStateUpdated(false);
+
+        if (mEntryToRefresh == entry) {
+            final Notification n = entry.notification.getNotification();
+            final int[] colors = {n.backgroundColor, n.foregroundColor,
+                    n.primaryTextColor, n.secondaryTextColor};
+            mMediaManager.setPulseColors(n.isColorizedMedia(), colors);
+        }
+    }
+
+    public void setEntryToRefresh(NotificationData.Entry entry) {
+        mEntryToRefresh = entry;
     }
 
     @Override
