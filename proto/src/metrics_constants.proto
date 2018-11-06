@@ -6435,6 +6435,6 @@ message MetricsEvent {
     // END OF AOSP CONSTANTS
     
     // Superior constant
-    SUPERIOR = 1500;
+    SUPERIOR = 1669;
   }
 }
