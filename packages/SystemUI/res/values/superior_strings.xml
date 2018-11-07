@@ -172,5 +172,6 @@
     <string name="alarm_title_tile">Alarm</string>
 	<string name="calendar_title_tile">Add Event</string>
 	<string name="call_title_tile">Dialer</string>
+	<string name="camera_title_tile">Camera</string>
 
 </resources>
