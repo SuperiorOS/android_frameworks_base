@@ -170,5 +170,6 @@
 	
 	<!-- Other QS tiles -->
     <string name="alarm_title_tile">Alarm</string>
+	<string name="calendar_title_tile">Add Event</string>
 
 </resources>
