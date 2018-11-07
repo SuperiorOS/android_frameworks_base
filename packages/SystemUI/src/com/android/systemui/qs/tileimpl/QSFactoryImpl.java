@@ -132,6 +132,8 @@ public class QSFactoryImpl implements QSFactory {
                 return new AlarmTile(mHost);
             case "calendar":
                 return new CalendarTile(mHost);
+            case "call":
+                return new CallTile(mHost);
         }
 
         // Intent tiles.
