@@ -30,7 +30,7 @@ import com.android.settingslib.drawable.UserIconDrawable;
 import com.android.settingslib.wrapper.LocationManagerWrapper;
 import java.text.NumberFormat;
 
-import com.android.internal.util.custom.ambient.play.AmbientPlayHistoryManager;
+import com.android.internal.util.superior.ambient.play.AmbientPlayHistoryManager;
 
 public class Utils {
 

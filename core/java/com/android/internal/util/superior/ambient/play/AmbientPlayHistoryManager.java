@@ -13,7 +13,7 @@
  * if not, see <http://www.gnu.org/licenses>.
  */
 
-package com.android.internal.util.custom.ambient.play;
+package com.android.internal.util.superior.ambient.play;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -35,7 +35,7 @@ public class AmbientPlayHistoryManager {
     private static final String KEY_ARTIST = "artist";
     private static final String KEY_SONG = "song";
     private static final String[] PROJECTION = {KEY_ID, KEY_TIMESTAMP, KEY_SONG, KEY_ARTIST};
-    private static String ACTION_SONG_MATCH = "com.android.internal.util.custom.ambient.play.AMBIENT_PLAY_SONG_MATCH";
+    private static String ACTION_SONG_MATCH = "com.android.internal.util.superior.ambient.play.AMBIENT_PLAY_SONG_MATCH";
     public static Intent INTENT_SONG_MATCH = new Intent(ACTION_SONG_MATCH);
     public static final String SERVICE_PACKAGE = "org.pixelexperience.ambient.play.history";
 
