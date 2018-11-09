@@ -24,4 +24,9 @@
     <string name="reboot_to_bootloader_message" translatable="false">Rebooting to bootloader</string>
     <string name="reboot_title">Reboot</string>
     <string name="reboot_message">Rebooting system</string>
-</resources> 
+
+    <!-- Ambient play -->
+    <string name="ambient_recognition_notification">Now Playing</string>
+    <string name="ambient_recognition_information">%1$s by %2$s</string>
+
+</resources>
