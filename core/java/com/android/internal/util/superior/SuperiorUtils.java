@@ -320,6 +320,13 @@ public class SuperiorUtils {
         }
     }
 
+    public static boolean isConnectionAvailable(Context context) {
+        ConnectivityManager connManager =
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo network = (connManager != null) ? connManager.getActiveNetworkInfo() : null;
+        return network != null;
+    }
+
     public static ActivityInfo getRunningActivityInfo(Context context) {
         final ActivityManager am = (ActivityManager) context
                 .getSystemService(Context.ACTIVITY_SERVICE);
