@@ -1219,9 +1219,8 @@ public class MediaScanner implements AutoCloseable {
             if (TextUtils.isEmpty(existingSettingValue)) {
                 final Uri settingUri = Settings.System.getUriFor(settingName);
                 final Uri ringtoneUri = ContentUris.withAppendedId(uri, rowId);
-                final int slotId = Settings.System.RINGTONE2.equals(settingName) ? 1 : 0;
-                RingtoneManager.setActualDefaultRingtoneUriBySlot(mContext,
-                        RingtoneManager.getDefaultType(settingUri), ringtoneUri, slotId);
+                RingtoneManager.setActualDefaultRingtoneUriForPhoneAccountHandle(mContext,
+                        RingtoneManager.getDefaultType(settingUri), ringtoneUri, null);
             }
             Settings.System.putInt(cr, settingSetIndicatorName(settingName), 1);
         }
