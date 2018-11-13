@@ -2448,26 +2448,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                             + alternativeDeviceKeyHandlerLib, e);
                 }
             }
-        }
-
-
-        // Register for torch off events
-        BroadcastReceiver torchReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
-                mTorchOffPendingIntent = null;
-                if (mTorchEnabled) {
-                    mHandler.removeMessages(MSG_TOGGLE_TORCH);
-                    Message msg = mHandler.obtainMessage(MSG_TOGGLE_TORCH);
-                    msg.setAsynchronous(true);
-                    msg.sendToTarget();
-                }
-            }
-        };
-        filter = new IntentFilter();
-        filter.addAction(ACTION_TORCH_OFF);
-        context.registerReceiver(torchReceiver, filter);
-    }
+        }	
+	}
 
     /**
      * Read values from config.xml that may be overridden depending on
