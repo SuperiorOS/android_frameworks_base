@@ -359,22 +359,27 @@ public class StatusBar extends SystemUI implements DemoMode,
         "com.android.systemui.qsheader.accent", // 3
         "com.android.systemui.qsheader.transparent", // 4
     };
+
     private static final String[] QS_TILE_THEMES = {
         "com.android.systemui.qstile.default", // 0
-        "com.android.systemui.qstile.circletrim", // 1
-        "com.android.systemui.qstile.dualtonecircletrim", // 2
-        "com.android.systemui.qstile.squircletrim", // 3
-        "com.android.systemui.qstile.circlegradient", // 4
-        "com.android.systemui.qstile.wavey", // 5
-        "com.android.systemui.qstile.circledualtone", // 6
-        "com.android.systemui.qstile.pokesign", // 7
-        "com.android.systemui.qstile.ninja", // 8
-        "com.android.systemui.qstile.dottedcircle", // 9
-        "com.android.systemui.qstile.attemptmountain", // 10
-	"com.android.systemui.qstile.squaremedo", // 11
-        "com.android.systemui.qstile.oreo", // 12
-        "com.android.systemui.qstile.oreocircletrim", // 13
-        "com.android.systemui.qstile.oreosquircletrim", // 14
+        "com.android.systemui.qstile.circlegradient", // 1
+        "com.android.systemui.qstile.circletrim", // 2
+        "com.android.systemui.qstile.dottedcircle", // 3
+        "com.android.systemui.qstile.dualtonecircle", // 4
+        "com.android.systemui.qstile.dualtonecircletrim", // 5
+        "com.android.systemui.qstile.ink", // 6
+        "com.android.systemui.qstile.inkdrop", // 7
+        "com.android.systemui.qstile.mountain", // 8
+        "com.android.systemui.qstile.ninja", // 9
+        "com.android.systemui.qstile.oreo", // 10
+        "com.android.systemui.qstile.oreocircletrim", // 11
+        "com.android.systemui.qstile.oreosquircletrim", // 12
+        "com.android.systemui.qstile.pokesign", // 13
+        "com.android.systemui.qstile.squaremedo", // 14
+        "com.android.systemui.qstile.squircle", // 15
+        "com.android.systemui.qstile.squircletrim", // 16
+        "com.android.systemui.qstile.teardrop", // 17
+        "com.android.systemui.qstile.wavey", // 18
     };
 
     /** If true, the system is in the half-boot-to-decryption-screen state.
