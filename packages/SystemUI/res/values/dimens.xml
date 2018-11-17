@@ -602,7 +602,7 @@
     <dimen name="framed_avatar_size">54dp</dimen>
 
     <!-- Margin on the left side of the carrier text on Keyguard -->
-    <dimen name="keyguard_carrier_text_margin">16dp</dimen>
+    <dimen name="keyguard_carrier_text_margin">10dp</dimen>
 
     <!-- Margin on the left side of the battery % in the header. -->
     <dimen name="header_battery_margin_expanded">6dp</dimen>
