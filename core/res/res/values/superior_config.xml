@@ -236,4 +236,9 @@
     <!-- Whether device has physical tri state switch -->
     <bool name="config_hasAlertSlider">false</bool>
 
+    <!-- Key codes of physical tri state switch if supported -->
+    <integer name="config_sliderTopCode">0</integer>
+    <integer name="config_sliderMiddleCode">0</integer>
+    <integer name="config_sliderBottomCode">0</integer>
+
 </resources>

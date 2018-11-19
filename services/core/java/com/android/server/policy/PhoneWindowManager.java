@@ -517,6 +517,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     AccessibilityManager mAccessibilityManager;
     BurnInProtectionHelper mBurnInProtectionHelper;
     AppOpsManager mAppOpsManager;
+    AlertSliderHandler mAlertSliderHandler;
     AlertSliderObserver mAlertSliderObserver;
 
     private ScreenshotHelper mScreenshotHelper;
@@ -2645,6 +2646,13 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         mWindowManagerInternal.registerAppTransitionListener(
                 mStatusBarController.getAppTransitionListener());
+
+        boolean hasAlertSlider = context.getResources().
+                getBoolean(com.android.internal.R.bool.config_hasAlertSlider);
+        if (hasAlertSlider) {
+            mAlertSliderHandler = new AlertSliderHandler(mContext);
+        }
+
         mWindowManagerInternal.registerAppTransitionListener(new AppTransitionListener() {
             @Override
             public int onAppTransitionStartingLocked(int transit, IBinder openToken,
@@ -6836,6 +6844,12 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             }
         }
 
+        if (mAlertSliderHandler != null) {
+            if (mAlertSliderHandler.handleKeyEvent(event)) {
+                return 0;
+            }
+        }
+
         // Basic policy based on interactive state.
         boolean isVolumeRockerWake = !isScreenOn()
                 && mVolumeRockerWake
@@ -8683,6 +8697,10 @@ public class PhoneWindowManager implements WindowManagerPolicy {
 
         mSystemGestures.systemReady();
         mImmersiveModeConfirmation.systemReady();
+
+        if (mAlertSliderHandler != null) {
+            mAlertSliderHandler.systemReady();
+        }
 
         mAutofillManagerInternal = LocalServices.getService(AutofillManagerInternal.class);
     }
