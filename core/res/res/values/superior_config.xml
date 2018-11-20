@@ -134,6 +134,9 @@
     -->
     <integer name="config_cameraPowerDoubleTapMinTime">0</integer>
 
+    <!-- Whether or not swipe up gesture's opt-in setting is available on this device -->
+    <bool name="config_custom_swipe_up_gesture_setting_available">false</bool>
+
     <!-- Whether device has dash charging support -->
     <bool name="config_hasDashCharger">false</bool>
 	
