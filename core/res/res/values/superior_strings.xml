@@ -65,4 +65,9 @@
     <string name="systemui_restart_title">Restart SystemUI</string>
     <string name="systemui_restart_message">For the changes to take effect, a SystemUI restart is required. Restart SystemUI now?</string>    
 
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">access font manager</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Allows an application to access the font manager.</string>
+
 </resources>
