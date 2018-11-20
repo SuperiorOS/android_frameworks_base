@@ -127,4 +127,7 @@
     <java-symbol type="bool" name="config_defaultAntiFlicker" />
     <java-symbol type="bool" name="config_filterDisplayModes" />
     <java-symbol type="array" name="config_displayModeMappings" />
+
+    <!-- System fonts -->
+    <java-symbol type="array" name="config_fontPackages" />
 </resources>
