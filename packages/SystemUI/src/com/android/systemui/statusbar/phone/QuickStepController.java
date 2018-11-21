@@ -396,6 +396,7 @@ public class QuickStepController implements GestureHelper {
                     }
                     if (mBackActionScheduled) {
                         HavocUtils.sendKeycode(KeyEvent.KEYCODE_BACK, mHandler);
+                        mNavigationBarView.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
                     } else {
                         endQuickScrub(true /* animate */);
                     }
