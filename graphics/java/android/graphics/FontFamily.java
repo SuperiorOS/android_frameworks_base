@@ -16,6 +16,7 @@
 
 package android.graphics;
 
+import android.annotation.NonNull;
 import android.annotation.Nullable;
 import android.annotation.UnsupportedAppUsage;
 import android.content.res.AssetManager;
@@ -87,6 +88,15 @@ public class FontFamily {
         } else {
             langsString = TextUtils.join(",", langs);
         }
+        mBuilderPtr = nInitBuilder(langsString, variant);
+        mNativeBuilderCleaner = sBuilderRegistry.registerNativeAllocation(this, mBuilderPtr);
+    }
+
+    /**
+     * This cannot be deleted because it's in use by AndroidX.
+     */
+    @UnsupportedAppUsage(trackingBug = 123768928)
+    public FontFamily(@NonNull String langsString, int variant) {
         mBuilderPtr = nInitBuilder(langsString, variant);
         mNativeBuilderCleaner = sBuilderRegistry.registerNativeAllocation(this, mBuilderPtr);
     }

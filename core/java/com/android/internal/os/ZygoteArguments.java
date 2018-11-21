@@ -119,6 +119,9 @@ class ZygoteArguments {
     /** from --package-name */
     String mPackageName;
 
+    /** from --refresh-theme */
+    boolean refreshTheme;
+
     /**
      * Any args after and including the first non-option arg (or after a '--')
      */
@@ -409,6 +412,8 @@ class ZygoteArguments {
                 mUsapPoolStatusSpecified = true;
                 mUsapPoolEnabled = Boolean.parseBoolean(arg.substring(arg.indexOf('=') + 1));
                 expectRuntimeArgs = false;
+            } else if (arg.equals("--refresh_theme")) {
+                refreshTheme = true;
             } else {
                 break;
             }

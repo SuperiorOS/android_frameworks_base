@@ -530,11 +530,12 @@ public class Process {
                                            @Nullable String appDataDir,
                                            @Nullable String invokeWith,
                                            @Nullable String packageName,
+                                            boolean refreshTheme,
                                            @Nullable String[] zygoteArgs) {
         return ZYGOTE_PROCESS.start(processClass, niceName, uid, gid, gids,
                     runtimeFlags, mountExternal, targetSdkVersion, seInfo,
                     abi, instructionSet, appDataDir, invokeWith, packageName,
-                    /*useUsapPool=*/ true, zygoteArgs);
+                    /*useUsapPool=*/ true, refreshTheme, zygoteArgs);
     }
 
     /** @hide */
@@ -550,11 +551,12 @@ public class Process {
                                                   @Nullable String appDataDir,
                                                   @Nullable String invokeWith,
                                                   @Nullable String packageName,
+                                                  boolean refreshTheme,
                                                   @Nullable String[] zygoteArgs) {
         return WebViewZygote.getProcess().start(processClass, niceName, uid, gid, gids,
                     runtimeFlags, mountExternal, targetSdkVersion, seInfo,
                     abi, instructionSet, appDataDir, invokeWith, packageName,
-                    /*useUsapPool=*/ false, zygoteArgs);
+                    /*useUsapPool=*/ false, refreshTheme, zygoteArgs);
     }
 
     /**
