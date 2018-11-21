@@ -107,6 +107,7 @@ java_library {
         "core/java/android/app/usage/IUsageStatsManager.aidl",
         ":libbluetooth-binder-aidl",
         "core/java/android/content/IClipboard.aidl",
+	"core/java/android/content/IFontService.aidl",
         "core/java/android/content/IContentService.aidl",
         "core/java/android/content/IIntentReceiver.aidl",
         "core/java/android/content/IIntentSender.aidl",
