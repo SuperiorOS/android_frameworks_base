@@ -334,6 +334,8 @@ public class NotificationMediaManager implements Dumpable {
                 return;
             }
 
+
+            boolean mediaNotification= false;
             for (int i = 0; i < N; i++) {
                 final NotificationData.Entry entry = activeNotifications.get(i);
                 if (entry.notification.getPackageName().equals(pkg)) {
@@ -341,9 +343,17 @@ public class NotificationMediaManager implements Dumpable {
                     // when colors and album are loaded for the notification, then we can send
                     // those info to Pulse
                     mEntryManager.setEntryToRefresh(entry);
+                    mediaNotification = true;
                     break;
                 }
             }
+            if (!mediaNotification) {
+                // no notification for this mediacontroller thus no artwork or track info,
+                // clean up Ambient Music and Pulse albumart color
+                mEntryManager.setEntryToRefresh(null);
+                mPresenter.setAmbientMusicInfo(null, null);
+            }
+
             if (mListener != null) {
                 mListener.onMediaUpdated(true);
             }
