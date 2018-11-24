@@ -490,14 +490,29 @@ public class KeyguardStatusView extends GridLayout implements
         if (lockClockFont == 28) {
             mClockView.setTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
         }
-	if (lockClockFont == 29) {
+        if (lockClockFont == 29) {
             mClockView.setTypeface(Typeface.create("neoneon-sys", Typeface.NORMAL));
         }
         if (lockClockFont == 30) {
             mClockView.setTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
-	}
-	if (lockClockFont == 31) {
+        }
+        if (lockClockFont == 31) {
             mClockView.setTypeface(Typeface.create("samsung-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 32) {
+            mClockView.setTypeface(Typeface.create("abcthru-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 33) {
+            mClockView.setTypeface(Typeface.create("anurati-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 34) {
+            mClockView.setTypeface(Typeface.create("joostmillionaire-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 35) {
+            mClockView.setTypeface(Typeface.create("locust-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 36) {
+            mClockView.setTypeface(Typeface.create("wallpoet-sys", Typeface.NORMAL));
         }
     }
 
@@ -600,6 +615,21 @@ public class KeyguardStatusView extends GridLayout implements
     	}
 	    if (lockDateFont == 31) {
             mKeyguardSlice.setViewsTypeface(Typeface.create("samsung-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 32) {
+            mClockView.setTypeface(Typeface.create("abcthru-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 33) {
+            mClockView.setTypeface(Typeface.create("anurati-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 34) {
+            mClockView.setTypeface(Typeface.create("joostmillionaire-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 35) {
+            mClockView.setTypeface(Typeface.create("locust-sys", Typeface.NORMAL));
+        }
+        if (lockClockFont == 36) {
+            mClockView.setTypeface(Typeface.create("wallpoet-sys", Typeface.NORMAL));
         }
     }
 

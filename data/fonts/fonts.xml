@@ -121,6 +121,21 @@
     <family name="samsung-sys">
 	<font weight="300" style="normal">Shamshung.ttf</font>
     </family>
+    <family name="abcthru-sys">
+	<font weight="300" style="normal">ABCThru.ttf</font>
+    </family>
+    <family name="anurati-sys">
+	<font weight="300" style="normal">anurati_regular.ttf</font>
+    </family>
+    <family name="joostmillionaire-sys">
+	<font weight="300" style="normal">JoostAMillionaireNF.ttf</font>
+    </family>
+    <family name="locust-sys">
+	<font weight="300" style="normal">Locust_Resistance.ttf</font>
+    </family>
+    <family name="wallpoet-sys">
+	<font weight="300" style="normal">Wallpoet_regular.ttf</font>
+    </family>
 
     <!-- fallback fonts -->
     <family lang="und-Arab" variant="elegant">

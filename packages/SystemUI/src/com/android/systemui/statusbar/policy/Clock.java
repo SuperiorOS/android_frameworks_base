@@ -130,6 +130,12 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
     public static final int GOOGLESANS = 28;
     public static final int NEONEON = 29;
     public static final int THEMEABLE = 30;
+    public static final int SAMSUNG = 31;
+    public static final int ABCTHRU = 32;
+    public static final int ANURATI = 33;
+    public static final int JOOSTAMILLIONAIRE= 34;
+    public static final int LOCUST = 35;
+    public static final int WALLPOET = 36;
     public int DEFAULT_CLOCK_SIZE = 14;
     public int DEFAULT_CLOCK_COLOR = 0xffffffff;
 
@@ -750,6 +756,24 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
             case THEMEABLE:
                 setTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
                 break;
+            case SAMSUNG:
+                setTypeface(Typeface.create("samsung-sys", Typeface.NORMAL));
+                break;
+            case ABCTHRU:
+                setTypeface(Typeface.create("abcthru-sys", Typeface.NORMAL));
+                break;
+            case ANURATI:
+                setTypeface(Typeface.create("anurati-sys", Typeface.NORMAL));
+                break;
+            case JOOSTAMILLIONAIRE:
+                setTypeface(Typeface.create("joostmillionaire-sys", Typeface.NORMAL));
+                break;
+            case LOCUST:
+                setTypeface(Typeface.create("locust-sys", Typeface.NORMAL));
+                break;
+            case WALLPOET:
+                setTypeface(Typeface.create("wallpoet-sys", Typeface.NORMAL));
+                break;				
         }
     }
 }
