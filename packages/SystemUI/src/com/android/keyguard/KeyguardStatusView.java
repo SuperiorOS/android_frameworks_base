@@ -325,12 +325,12 @@ public class KeyguardStatusView extends GridLayout implements
 
     private int getLockClockFont() {
         return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.LOCK_CLOCK_FONTS, 29);
+                Settings.System.LOCK_CLOCK_FONTS, 36);
     }
 
     private int getLockDateFont() {
         return Settings.System.getInt(mContext.getContentResolver(),
-                Settings.System.LOCK_DATE_FONTS, 29);
+                Settings.System.LOCK_DATE_FONTS, 36);
     }
 
     private void refreshFormat() {
@@ -401,7 +401,7 @@ public class KeyguardStatusView extends GridLayout implements
     private void refreshLockFont() {
         final Resources res = getContext().getResources();
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int lockClockFont = isPrimary ? getLockClockFont() : 29;
+        int lockClockFont = isPrimary ? getLockClockFont() : 36;
 
         if (lockClockFont == 0) {
             mClockView.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
@@ -519,7 +519,7 @@ public class KeyguardStatusView extends GridLayout implements
     private void refreshLockDateFont() {
         final Resources res = getContext().getResources();
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int lockDateFont = isPrimary ? getLockDateFont() : 29;
+        int lockDateFont = isPrimary ? getLockDateFont() : 36;
         if (lockDateFont == 0) {
             mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
         }
@@ -616,19 +616,19 @@ public class KeyguardStatusView extends GridLayout implements
 	    if (lockDateFont == 31) {
             mKeyguardSlice.setViewsTypeface(Typeface.create("samsung-sys", Typeface.NORMAL));
         }
-        if (lockClockFont == 32) {
+        if (lockDateFont == 32) {
             mClockView.setTypeface(Typeface.create("abcthru-sys", Typeface.NORMAL));
         }
-        if (lockClockFont == 33) {
+        if (lockDateFont == 33) {
             mClockView.setTypeface(Typeface.create("anurati-sys", Typeface.NORMAL));
         }
-        if (lockClockFont == 34) {
+        if (lockDateFont == 34) {
             mClockView.setTypeface(Typeface.create("joostmillionaire-sys", Typeface.NORMAL));
         }
-        if (lockClockFont == 35) {
+        if (lockDateFont == 35) {
             mClockView.setTypeface(Typeface.create("locust-sys", Typeface.NORMAL));
         }
-        if (lockClockFont == 36) {
+        if (lockDateFont == 36) {
             mClockView.setTypeface(Typeface.create("wallpoet-sys", Typeface.NORMAL));
         }
     }
