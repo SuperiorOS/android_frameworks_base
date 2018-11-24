@@ -132,4 +132,8 @@
          as a camera launch. To avoid false triggers.
     -->
     <integer name="config_cameraPowerDoubleTapMinTime">0</integer>
+
+    <!-- Whether device has dash charging support -->
+    <bool name="config_hasDashCharger">false</bool>
+
 </resources>
