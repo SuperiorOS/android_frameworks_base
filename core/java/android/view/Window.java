@@ -1084,6 +1084,11 @@ public abstract class Window {
     public void clearFlags(int flags) {
         setFlags(0, flags);
     }
+    
+    /** @hide */
+    public void clearPrivateFlags(int flags) {
+        setPrivateFlags(0, flags);
+    }
 
     /**
      * Set the flags of the window, as per the
