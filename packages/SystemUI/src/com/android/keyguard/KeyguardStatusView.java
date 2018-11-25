@@ -401,7 +401,7 @@ public class KeyguardStatusView extends GridLayout implements
     private void refreshLockFont() {
         final Resources res = getContext().getResources();
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int lockClockFont = isPrimary ? getLockClockFont() : 36;
+        int lockClockFont = isPrimary ? getLockClockFont() : 34;
 
         if (lockClockFont == 0) {
             mClockView.setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
@@ -519,7 +519,7 @@ public class KeyguardStatusView extends GridLayout implements
     private void refreshLockDateFont() {
         final Resources res = getContext().getResources();
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
-        int lockDateFont = isPrimary ? getLockDateFont() : 36;
+        int lockDateFont = isPrimary ? getLockDateFont() : 34;
         if (lockDateFont == 0) {
             mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
         }
@@ -563,37 +563,37 @@ public class KeyguardStatusView extends GridLayout implements
             mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
         }
         if (lockDateFont == 14) {
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
+            mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
         }
         if (lockDateFont == 15) {
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
+            mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
         }
         if (lockDateFont == 16) {
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
+            mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
         }
         if (lockDateFont == 17) {
-                mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-black", Typeface.ITALIC));
+            mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif-black", Typeface.ITALIC));
         }
         if (lockDateFont == 18) {
-                mKeyguardSlice.setViewsTypeface(Typeface.create("cursive", Typeface.NORMAL));
+            mKeyguardSlice.setViewsTypeface(Typeface.create("cursive", Typeface.NORMAL));
         }
         if (lockDateFont == 19) {
-                mKeyguardSlice.setViewsTypeface(Typeface.create("cursive", Typeface.BOLD));
+            mKeyguardSlice.setViewsTypeface(Typeface.create("cursive", Typeface.BOLD));
         }
         if (lockDateFont == 20) {
-                mKeyguardSlice.setViewsTypeface(Typeface.create("casual", Typeface.NORMAL));
+            mKeyguardSlice.setViewsTypeface(Typeface.create("casual", Typeface.NORMAL));
         }
         if (lockDateFont == 21) {
-                mKeyguardSlice.setViewsTypeface(Typeface.create("serif", Typeface.NORMAL));
+            mKeyguardSlice.setViewsTypeface(Typeface.create("serif", Typeface.NORMAL));
         }
         if (lockDateFont == 22) {
-                mKeyguardSlice.setViewsTypeface(Typeface.create("serif", Typeface.ITALIC));
+            mKeyguardSlice.setViewsTypeface(Typeface.create("serif", Typeface.ITALIC));
         }
         if (lockDateFont == 23) {
-                mKeyguardSlice.setViewsTypeface(Typeface.create("serif", Typeface.BOLD));
+            mKeyguardSlice.setViewsTypeface(Typeface.create("serif", Typeface.BOLD));
         }
         if (lockDateFont == 24) {
-                mKeyguardSlice.setViewsTypeface(Typeface.create("serif", Typeface.BOLD_ITALIC));
+            mKeyguardSlice.setViewsTypeface(Typeface.create("serif", Typeface.BOLD_ITALIC));
         }
         if (lockDateFont == 25) {
             mKeyguardSlice.setViewsTypeface(Typeface.create("gobold-light-sys", Typeface.NORMAL));
@@ -617,19 +617,19 @@ public class KeyguardStatusView extends GridLayout implements
             mKeyguardSlice.setViewsTypeface(Typeface.create("samsung-sys", Typeface.NORMAL));
         }
         if (lockDateFont == 32) {
-            mClockView.setTypeface(Typeface.create("abcthru-sys", Typeface.NORMAL));
+            mKeyguardSlice.setViewsTypeface(Typeface.create("abcthru-sys", Typeface.NORMAL));
         }
         if (lockDateFont == 33) {
-            mClockView.setTypeface(Typeface.create("anurati-sys", Typeface.NORMAL));
+            mKeyguardSlice.setViewsTypeface(Typeface.create("anurati-sys", Typeface.NORMAL));
         }
         if (lockDateFont == 34) {
-            mClockView.setTypeface(Typeface.create("joostmillionaire-sys", Typeface.NORMAL));
+            mKeyguardSlice.setViewsTypeface(Typeface.create("joostmillionaire-sys", Typeface.NORMAL));
         }
         if (lockDateFont == 35) {
-            mClockView.setTypeface(Typeface.create("locust-sys", Typeface.NORMAL));
+            mKeyguardSlice.setViewsTypeface(Typeface.create("locust-sys", Typeface.NORMAL));
         }
         if (lockDateFont == 36) {
-            mClockView.setTypeface(Typeface.create("wallpoet-sys", Typeface.NORMAL));
+            mKeyguardSlice.setViewsTypeface(Typeface.create("wallpoet-sys", Typeface.NORMAL));
         }
     }
 
