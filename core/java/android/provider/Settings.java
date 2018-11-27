@@ -5170,6 +5170,18 @@ public final class Settings {
                 ANY_INTEGER_VALIDATOR;
 
         /**
+         * Whether to show the kill app button in notification guts
+         *
+         * @hide
+         */
+        public static final String NOTIFICATION_GUTS_KILL_APP_BUTTON =
+                "notification_guts_kill_app_button";
+
+        /** @hide */
+        private static final Validator NOTIFICATION_GUTS_KILL_APP_BUTTON_VALIDATOR =
+                BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -5281,6 +5293,7 @@ public final class Settings {
             STATUSBAR_CLOCK_DATE_POSITION,
             FORCE_FULLSCREEN_CUTOUT_APPS,
             BACK_GESTURE_HEIGHT,
+            NOTIFICATION_GUTS_KILL_APP_BUTTON,
         };
 
         /**
@@ -5459,6 +5472,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_POSITION);
             PRIVATE_SETTINGS.add(FORCE_FULLSCREEN_CUTOUT_APPS);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HEIGHT);
+            PRIVATE_SETTINGS.add(NOTIFICATION_GUTS_KILL_APP_BUTTON);
         }
 
         /**
@@ -5609,6 +5623,7 @@ public final class Settings {
             VALIDATORS.put(FORCE_FULLSCREEN_CUTOUT_APPS, FORCE_FULLSCREEN_CUTOUT_APPS_VALIDATOR);
             VALIDATORS.put(BACK_GESTURE_HEIGHT, BACK_GESTURE_HEIGHT_VALIDATOR);
             VALIDATORS.put(ACCELEROMETER_ROTATION_ANGLES, ACCELEROMETER_ROTATION_ANGLES_VALIDATOR);
+            VALIDATORS.put(NOTIFICATION_GUTS_KILL_APP_BUTTON, NOTIFICATION_GUTS_KILL_APP_BUTTON_VALIDATOR);
         }
 
         /**
