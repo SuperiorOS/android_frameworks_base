@@ -202,4 +202,7 @@
   
   <!-- Whether or not swipe up gesture's opt-in setting is available on this device -->
   <java-symbol type="bool" name="config_custom_swipe_up_gesture_setting_available" />
+  
+  <!-- Wallpaper component -->
+  <java-symbol type="string" name="default_wallpaper_component_custom" />
 </resources>

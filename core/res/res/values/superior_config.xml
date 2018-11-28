@@ -71,6 +71,9 @@
     <!-- Whether to show emergency button in power menu -->
     <bool name="config_showEmergencyButtonInPowerMenu">false</bool>
 
+    <!-- Wallpaper component -->
+    <string name="default_wallpaper_component_custom" translatable="false">@null</string>
+
     <!-- Hardware keys present on the device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
          of the following keys present:
