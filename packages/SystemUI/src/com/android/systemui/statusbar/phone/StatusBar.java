@@ -358,7 +358,7 @@ public class StatusBar extends SystemUI implements DemoMode,
         "com.android.systemui.qsheader.lightgrey", // 2
         "com.android.systemui.qsheader.accent", // 3
         "com.android.systemui.qsheader.transparent", // 4
-
+    };
     private static final String[] QS_TILE_THEMES = {
         "com.android.systemui.qstile.default", // 0
         "com.android.systemui.qstile.circletrim", // 1
@@ -4458,6 +4458,7 @@ public class StatusBar extends SystemUI implements DemoMode,
     // Unload all qs header styles back to stock
     public void stockQSHeaderStyle() {
         stockNewQSHeaderStyle(mOverlayManager, mLockscreenUserManager.getCurrentUserId());
+    }
 
      // Switches qs tile style back to stock.
     public void stockTileStyle() {
