@@ -364,18 +364,16 @@ public class StatusBar extends SystemUI implements DemoMode,
         "com.android.systemui.qstile.default", // 0
         "com.android.systemui.qstile.circlegradient", // 1
         "com.android.systemui.qstile.circletrim", // 2
-        "com.android.systemui.qstile.dottedcircle", // 3
-        "com.android.systemui.qstile.dualtonecircle", // 4
-        "com.android.systemui.qstile.dualtonecircletrim", // 5
-        "com.android.systemui.qstile.inkdrop", // 6
-        "com.android.systemui.qstile.mountain", // 7
-        "com.android.systemui.qstile.ninja", // 8
-        "com.android.systemui.qstile.pokesign", // 9
-        "com.android.systemui.qstile.squaremedo", // 10
-        "com.android.systemui.qstile.squircle", // 11
-        "com.android.systemui.qstile.squircletrim", // 12
-        "com.android.systemui.qstile.teardrop", // 13
-        "com.android.systemui.qstile.wavey", // 14
+        "com.android.systemui.qstile.dualtonecircle", // 3
+        "com.android.systemui.qstile.dualtonecircletrim", // 4
+        "com.android.systemui.qstile.inkdrop", // 5
+        "com.android.systemui.qstile.mountain", // 6
+        "com.android.systemui.qstile.ninja", // 7
+        "com.android.systemui.qstile.pokesign", // 8
+        "com.android.systemui.qstile.squircle", // 9
+        "com.android.systemui.qstile.squircletrim", // 10
+        "com.android.systemui.qstile.teardrop", // 11
+        "com.android.systemui.qstile.wavey", // 12
     };
 
     /** If true, the system is in the half-boot-to-decryption-screen state.
