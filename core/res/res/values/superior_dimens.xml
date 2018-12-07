@@ -14,9 +14,6 @@
 
 <resources>
 
-    <dimen name="nav_gesture_swipe_min_length">50dp</dimen>
-    <dimen name="nav_gesture_long_press_max_length">45dp</dimen>
-
    <!-- EdgeGesture service: Distance a swipe must travel to be recognized as swipe. -->
     <dimen name="edge_gesture_trigger_distance">20dp</dimen>
 
