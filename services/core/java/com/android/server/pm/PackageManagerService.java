@@ -15777,6 +15777,9 @@ public class PackageManagerService extends IPackageManager.Stub
                         }
                     }
 
+                    final ComponentName requiredVerifierComponent = matchComponentForVerifier(
+                            mRequiredVerifierPackage, receivers);
+
                     if (mOptionalVerifierPackage != null) {
                         final Intent optionalIntent = new Intent(verification);
                         optionalIntent.setAction("com.qualcomm.qti.intent.action.PACKAGE_NEEDS_OPTIONAL_VERIFICATION");
