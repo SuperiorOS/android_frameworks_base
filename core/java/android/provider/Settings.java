@@ -4320,15 +4320,6 @@ public final class Settings {
         public static final String ACCENT_PICKER = "accent_picker";
 
         /**
-         * 0 - wallpaper based
-         * 1 - force light
-         * 2 - force dark
-         * 3 - force black
-         * @hide
-         */
-        public static final String SYSTEM_UI_THEME = "system_ui_theme";
-
-        /**
          * Applications list where heasdup should't show
          *
          * @hide

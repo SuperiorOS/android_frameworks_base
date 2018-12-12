@@ -121,13 +121,13 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
     static final List<ThemeTileItem> sStyleItems = new ArrayList<ThemeTileItem>();
     static {
         sStyleItems.add(new ThemeTileItem(0, -1,
-                R.string.systemui_theme_style_auto, Settings.System.SYSTEM_UI_THEME));
+                R.string.systemui_theme_style_auto, Settings.System.SYSTEM_THEME_STYLE));
         sStyleItems.add(new ThemeTileItem(1, -1,
-                R.string.systemui_theme_style_light, Settings.System.SYSTEM_UI_THEME));
+                R.string.systemui_theme_style_light, Settings.System.SYSTEM_THEME_STYLE));
         sStyleItems.add(new ThemeTileItem(2, -1,
-                R.string.systemui_theme_style_dark, Settings.System.SYSTEM_UI_THEME));
+                R.string.systemui_theme_style_dark, Settings.System.SYSTEM_THEME_STYLE));
         sStyleItems.add(new ThemeTileItem(3, -1,
-                R.string.systemui_theme_style_black, Settings.System.SYSTEM_UI_THEME));
+                R.string.systemui_theme_style_black, Settings.System.SYSTEM_THEME_STYLE));
     }
 
     private enum Mode {

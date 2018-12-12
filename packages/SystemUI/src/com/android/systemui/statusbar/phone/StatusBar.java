@@ -499,6 +499,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     protected KeyguardViewMediator mKeyguardViewMediator;
     private ZenModeController mZenController;
 
+    private int mPreviousDarkMode;
+
     ActivityManager mAm;
     private ArrayList<String> mStoplist = new ArrayList<String>();
     private ArrayList<String> mBlacklist = new ArrayList<String>();
@@ -747,6 +749,10 @@ public class StatusBar extends SystemUI implements DemoMode,
         void observe() {
             mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
                     Settings.System.OMNI_NAVIGATION_BAR_SHOW),
+                    false, this, UserHandle.USER_ALL);
+
+            mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SYSTEM_THEME_STYLE),
                     false, this, UserHandle.USER_ALL);
         }
 
@@ -1115,8 +1121,21 @@ public class StatusBar extends SystemUI implements DemoMode,
                     mDozeServiceHost.firePowerSaveChanged(isPowerSave);
                 }
                 if (NIGHT_MODE_IN_BATTERY_SAVER) {
-                    mContext.getSystemService(UiModeManager.class).setNightMode(
-                        isPowerSave ? UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
+                    final UiModeManager umm = mContext.getSystemService(UiModeManager.class);
+                    if (isPowerSave) {
+                        mPreviousDarkMode = umm.getNightMode();
+                    }
+                    switch (mPreviousDarkMode) {
+                        case UiModeManager.MODE_NIGHT_AUTO:
+                        case UiModeManager.MODE_NIGHT_NO:
+                           umm.setNightMode(
+                                    isPowerSave ? UiModeManager.MODE_NIGHT_YES :
+                                            mPreviousDarkMode);
+                            break;
+                        case UiModeManager.MODE_NIGHT_YES:
+                            // do nothing, the user forced dark mode
+                            break;
+                    }
                 }
             }
 
@@ -4365,7 +4384,7 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     private void getCurrentThemeSetting() {
         mCurrentTheme = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.SYSTEM_UI_THEME, 0, mLockscreenUserManager.getCurrentUserId());
+                Settings.System.SYSTEM_THEME_STYLE, 0, mLockscreenUserManager.getCurrentUserId());
     }
 
     /**
@@ -4395,16 +4414,10 @@ public class StatusBar extends SystemUI implements DemoMode,
             useBlackTheme = mCurrentTheme == 3;
         }
         if (isUsingDarkTheme() != useDarkTheme) {
-            // Check for black and white accent so we don't end up
-            // with white on white or black on black
-            // unfuckBlackWhiteAccent();
-            ThemeAccentUtils.setLightDarkTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useDarkTheme);
+                ThemeAccentUtils.setLightDarkTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useDarkTheme);
         }
         if (isUsingBlackTheme() != useBlackTheme) {
-            // Check for black and white accent so we don't end up
-            // with white on white or black on black
-            // unfuckBlackWhiteAccent();
-            ThemeAccentUtils.setLightBlackTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useBlackTheme);
+                ThemeAccentUtils.setLightBlackTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useBlackTheme);
         }
 
         // Lock wallpaper defines the color of the majority of the views, hence we'll use it
@@ -5153,7 +5166,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.ACCENT_PICKER),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.SYSTEM_UI_THEME),
+                    Settings.System.SYSTEM_THEME_STYLE),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.HEADS_UP_STOPLIST_VALUES), false, this);
@@ -5199,6 +5212,10 @@ public class StatusBar extends SystemUI implements DemoMode,
                 // Keeps us from overloading the system by performing these tasks every time.
                 unloadAccents();
                 updateAccents();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.SYSTEM_THEME_STYLE))) {
+                getCurrentThemeSetting();
+                updateTheme();
             } else if (uri.equals(Settings.Secure.getUriFor(
                     Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS))) {
                 setFpToDismissNotifications();
