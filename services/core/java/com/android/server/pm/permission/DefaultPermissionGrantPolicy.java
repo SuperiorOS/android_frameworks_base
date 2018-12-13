@@ -979,6 +979,11 @@ final class DefaultPermissionGrantPolicy {
                 getDefaultProviderAuthorityPackage("com.android.providers.media.MediaProvider", userId), userId,
                 STORAGE_PERMISSIONS);
 
+        // Mediascanner
+        grantSystemFixedPermissionsToSystemPackage(pm,
+                getDefaultProviderAuthorityPackage("com.android.providers.media.MediaProvider", userId), userId,
+                STORAGE_PERMISSIONS);
+
         // Google App
         grantPermissionsToPackage(pm, "com.google.android.googlequicksearchbox", userId,
                 false /* ignoreSystemPackage */, true /* whitelistRestrictedPermissions */,
