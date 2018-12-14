@@ -536,6 +536,8 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     private ScreenPinningRequest mScreenPinningRequest;
 
+    private UiModeManager mUiModeManager;
+
     Runnable mLongPressBrightnessChange = new Runnable() {
         @Override
         public void run() {
@@ -948,6 +950,8 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         mScreenPinningRequest = new ScreenPinningRequest(mContext);
         mFalsingManager = FalsingManager.getInstance(mContext);
+
+        mUiModeManager = mContext.getSystemService(UiModeManager.class);
 
         Dependency.get(ActivityStarterDelegate.class).setActivityStarterImpl(this);
 
@@ -3624,7 +3628,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     public void onConfigChanged(Configuration newConfig) {
         updateResources();
         updateDisplaySize(); // populates mDisplayMetrics
-        updateTheme();
+	updateTheme();
+
 
         if (DEBUG) {
             Log.v(TAG, "configuration changed: " + mContext.getResources().getConfiguration());
@@ -4409,15 +4414,24 @@ public class StatusBar extends SystemUI implements DemoMode,
                     .getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
             useDarkTheme = systemColors != null
                     && (systemColors.getColorHints() & WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0;
+            useBlackTheme = false;
         } else {
             useDarkTheme = mCurrentTheme == 2;
             useBlackTheme = mCurrentTheme == 3;
         }
         if (isUsingDarkTheme() != useDarkTheme) {
                 ThemeAccentUtils.setLightDarkTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useDarkTheme);
+                if (mUiModeManager != null) {
+                    mUiModeManager.setNightMode(useDarkTheme ?
+                            UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
+                }
         }
         if (isUsingBlackTheme() != useBlackTheme) {
                 ThemeAccentUtils.setLightBlackTheme(mOverlayManager, mLockscreenUserManager.getCurrentUserId(), useBlackTheme);
+                if (mUiModeManager != null) {
+                    mUiModeManager.setNightMode(useBlackTheme ?
+                            UiModeManager.MODE_NIGHT_YES : UiModeManager.MODE_NIGHT_NO);
+                }
         }
 
         // Lock wallpaper defines the color of the majority of the views, hence we'll use it
@@ -5237,11 +5251,11 @@ public class StatusBar extends SystemUI implements DemoMode,
          public void update() {
 	    setLockscreenDoubleTapToSleep();
             setQsRowsColumns();
-	        updateTheme();
             setHeadsUpStoplist();
             setHeadsUpBlacklist();
 	    setStatusBarWindowViewOptions();
             setLockscreenMediaMetadata();
+	    updateTheme();
 	    setBrightnessSlider();
             setFpToDismissNotifications();
         }
