@@ -36,7 +36,7 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 public class AmbientPlayTile extends QSTileImpl<BooleanState> {
 
     private static final Intent AMBIENT_PLAY_SETTINGS = new Intent().setComponent(new ComponentName(
-            "com.android.settings", "com.android.settings.Settings$AmbientPlaySettingsActivity"));
+            "com.android.settings", "com.android.settings.Settings$AmbientPlayHistoryActivity"));
 
     private final SystemSetting mSetting;
 
