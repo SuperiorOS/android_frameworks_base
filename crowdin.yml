@@ -1,3 +1,0 @@
-files:
-  - source: packages/SystemUI/res/values/superior_strings.xml
-    translation: packages/SystemUI/res/values-%android_code%/%original_file_name%
