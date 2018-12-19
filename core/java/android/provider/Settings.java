@@ -5744,6 +5744,12 @@ public final class Settings {
                 "display_picture_adjustment";
 
         /**
+         * Volume panel on left
+         * @hide
+         */
+        public static final String VOLUME_PANEL_ON_LEFT = "volume_panel_on_left";
+
+        /**
          * Did we tell about how they can stop breaking their eyes?
          * @hide
          */
@@ -5945,6 +5951,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(COLOR_BUCKET_OVERLAY);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_NEW_TINT);
             PRIVATE_SETTINGS.add(ACCENT_COLOR);
+            PRIVATE_SETTINGS.add(VOLUME_PANEL_ON_LEFT);
         }
 
         /**
