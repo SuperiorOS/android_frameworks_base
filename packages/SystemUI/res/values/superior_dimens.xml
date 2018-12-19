@@ -45,4 +45,7 @@
     <dimen name="dialog_side_padding">24dp</dimen>
     <dimen name="dialog_bottom_padding">18dp</dimen>
 
+    <!-- Volume panel -->
+    <dimen name="volume_dialog_panel_transparent_padding_left">8dp</dimen>
+
 </resources>
