@@ -24,4 +24,7 @@
     <color name="media_dialog_item_background">@android:color/system_neutral2_800</color>
     <color name="media_dialog_item_status">@android:color/system_accent1_100</color>
 
+    <!-- Volume panel -->
+    <dimen name="volume_dialog_panel_transparent_padding_left">8dp</dimen>
+
 </resources>
