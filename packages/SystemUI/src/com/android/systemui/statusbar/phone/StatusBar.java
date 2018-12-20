@@ -4413,8 +4413,13 @@ public class StatusBar extends SystemUI implements DemoMode,
             // The system wallpaper defines if QS should be light or dark.
             WallpaperColors systemColors = mColorExtractor
                     .getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
-            useDarkTheme = systemColors != null
+            final boolean wallpaperWantsDarkTheme = systemColors != null
                     && (systemColors.getColorHints() & WallpaperColors.HINT_SUPPORTS_DARK_THEME) != 0;
+            final Configuration config = mContext.getResources().getConfiguration();
+            final boolean nightModeWantsDarkTheme = DARK_THEME_IN_NIGHT_MODE
+                    && (config.uiMode & Configuration.UI_MODE_NIGHT_MASK)
+                        == Configuration.UI_MODE_NIGHT_YES;
+            useDarkTheme = wallpaperWantsDarkTheme || nightModeWantsDarkTheme;
         } else {
             useDarkTheme = mCurrentTheme == 2;
             useBlackTheme = mCurrentTheme == 3;
@@ -5880,6 +5885,88 @@ public class StatusBar extends SystemUI implements DemoMode,
         return mVrMode;
     }
 
+    private SbSettingsObserver mSbSettingsObserver = new SbSettingsObserver(mHandler);
+    private class SbSettingsObserver extends ContentObserver {
+        SbSettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.DOUBLE_TAP_SLEEP_GESTURE),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.HEADS_UP_STOPLIST_VALUES), 
+                    false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.HEADS_UP_BLACKLIST_VALUES),
+                    false, this);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SYSTEM_THEME_STYLE),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.ACCENT_PICKER),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.Secure.getUriFor(
+                    Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS),
+                    false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_TILE_STYLE),
+                    false, this, UserHandle.USER_ALL);
+        }
+
+        @Override
+        public void onChange(boolean selfChange, Uri uri) {
+            super.onChange(selfChange, uri);
+            if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.DOUBLE_TAP_SLEEP_LOCKSCREEN))) {
+                setLockscreenDoubleTapToSleep();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.DOUBLE_TAP_SLEEP_GESTURE))) {
+                setLockscreenDoubleTapToSleep();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.HEADS_UP_STOPLIST_VALUES))) {
+                setHeadsUpStoplist();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.HEADS_UP_BLACKLIST_VALUES))) {
+                setHeadsUpBlacklist();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.SYSTEM_THEME_STYLE))) {
+                getCurrentThemeSetting();
+                updateTheme();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.ACCENT_PICKER))) {
+                // Unload the accents and update the accent only when the user asks.
+                // Keeps us from overloading the system by performing these tasks every time.
+                unloadAccents();
+                updateAccents();
+            } else if (uri.equals(Settings.Secure.getUriFor(
+                    Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS))) {
+                setFpToDismissNotifications();
+            }
+
+        }
+
+        public void update() {
+            setLockscreenDoubleTapToSleep();
+            setHeadsUpStoplist();
+            setHeadsUpBlacklist();
+            updateTheme();
+            setQsPanelOptions();
+            setFpToDismissNotifications();
+        }
+    }
+
+    private void setQsPanelOptions() {
+        if (mQSPanel != null) {
+            mQSPanel.updateSettings();
+        }
+    }
+	
     private final BroadcastReceiver mBannerActionBroadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
