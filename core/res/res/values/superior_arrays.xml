@@ -192,4 +192,12 @@
     <string-array name="config_fontPackages" translatable="false">
     </string-array>
 
+	<!-- Power menu -->
+    <string-array translatable="false" name="config_custom_globalActionsList">
+        <item>power</item>
+        <item>restart</item>
+        <item>advanced</item>
+        <item>screenshot</item>
+        <item>lockdown</item>
+    </string-array>
 </resources>
