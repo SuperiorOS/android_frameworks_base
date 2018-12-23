@@ -32,6 +32,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.android.systemui.Dependency;
@@ -92,6 +93,10 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
     private int mShowCarrierLabel;
     private boolean mHasCarrierLabel;
 
+    // Superior Logo
+    private ImageView mSuperiorLogo;
+    private boolean mShowLogo;
+
     private class SettingsObserver extends ContentObserver {
        SettingsObserver(Handler handler) {
            super(handler);
@@ -107,7 +112,10 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
          mContentResolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_SHOW_CARRIER),
                     false, this, UserHandle.USER_ALL);
-        }
+         mContentResolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_LOGO),
+                    false, this, UserHandle.USER_ALL);
+       }
 
        @Override
        public void onChange(boolean selfChange) {
@@ -178,6 +186,8 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mBatteryBars[0] = mStatusBar.findViewById(R.id.battery_bar);
         mBatteryBars[1] = mStatusBar.findViewById(R.id.battery_bar_1);
         mCustomCarrierLabel = mStatusBar.findViewById(R.id.statusbar_carrier_text);
+        mSuperiorLogo = (ImageView)mStatusBar.findViewById(R.id.status_bar_logo);
+        updateSettings(false);
         showSystemIconArea(false);
         initEmergencyCryptkeeperText();
 	animateHide(mClockView, false, false);
@@ -347,6 +357,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         animateHide(mCenteredIconArea, animate, true);
         animateHide(mCenterClockLayout, animate, true);
         animateHide(mCustomIconArea, animate, true);
+        if (mShowLogo) {
+            animateHide(mSuperiorLogo, animate, true);
+        }
     }
 
     public void showNotificationIconArea(boolean animate) {
@@ -354,6 +367,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         animateShow(mCenteredIconArea, animate);
         animateShow(mCenterClockLayout, animate);
         animateShow(mCustomIconArea, animate);
+        if (mShowLogo) {
+            animateShow(mSuperiorLogo, animate);
+        }
     }
 
     public void hideOperatorName(boolean animate) {
@@ -470,6 +486,9 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         mShowCarrierLabel = Settings.System.getIntForUser(mContentResolver,
                 Settings.System.STATUS_BAR_SHOW_CARRIER, 1,
                 UserHandle.USER_CURRENT);
+        mShowLogo = Settings.System.getIntForUser(
+                getContext().getContentResolver(), Settings.System.STATUS_BAR_LOGO, 0,
+                UserHandle.USER_CURRENT) == 1;
         mHasCarrierLabel = (mShowCarrierLabel == 2 || mShowCarrierLabel == 3);
         if (!mShowClock) {
             mClockStyle = 1; // internally switch to centered clock layout because
@@ -481,6 +500,7 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
         }
         updateClockStyle(animate);
         setCarrierLabel(animate);
+        updateStatusBarLogo(animate);
     }
 
     private void updateClockStyle(boolean animate) {
@@ -498,6 +518,18 @@ public class CollapsedStatusBarFragment extends Fragment implements CommandQueue
             animateShow(mCustomCarrierLabel, animate);
         } else {
             animateHide(mCustomCarrierLabel, animate, false);
+        }
+    }
+
+    private void updateStatusBarLogo(boolean animate) {
+        if (mNotificationIconAreaInner != null) {
+            if (mShowLogo) {
+                if (mNotificationIconAreaInner.getVisibility() == View.VISIBLE) {
+                    animateShow(mSuperiorLogo, animate);
+                }
+            } else {
+                animateHide(mSuperiorLogo, animate, false);
+            }
         }
     }
 }

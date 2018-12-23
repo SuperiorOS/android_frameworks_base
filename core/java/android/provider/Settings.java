@@ -6476,6 +6476,12 @@ public final class Settings {
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 7);
 
         /**
+         * Whether to display our Superior logo in the statusbar
+         * @hide
+         */
+        public static final String STATUS_BAR_LOGO = "status_bar_logo";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6873,6 +6879,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_ARROW_KEYS);
             PRIVATE_SETTINGS.add(QS_DATAUSAGE);
             PRIVATE_SETTINGS.add(DATA_ACTIVITY_ARROW);
+            PRIVATE_SETTINGS.add(STATUS_BAR_LOGO);
         }
 
         /**
