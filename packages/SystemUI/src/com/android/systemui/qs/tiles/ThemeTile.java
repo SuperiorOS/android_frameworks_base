@@ -128,6 +128,8 @@ public class ThemeTile extends QSTileImpl<BooleanState> {
                 R.string.systemui_theme_style_dark, Settings.System.SYSTEM_UI_THEME));
         sStyleItems.add(new ThemeTileItem(3, -1,
                 R.string.systemui_theme_style_black, Settings.System.SYSTEM_UI_THEME));
+         sStyleItems.add(new ThemeTileItem(4, -1,
+                 R.string.systemui_theme_style_superior, Settings.System.SYSTEM_UI_THEME));
     }
 
     private enum Mode {

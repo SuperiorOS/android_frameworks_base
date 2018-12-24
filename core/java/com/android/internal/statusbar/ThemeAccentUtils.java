@@ -74,6 +74,14 @@ public class ThemeAccentUtils {
         "com.android.updater.theme.black", //6
     };
 
+    private static final String[] SUPERIOR_THEMES = {
+        "com.android.system.theme.superior", // 0
+        "com.android.settings.theme.superior", // 1
+        "com.android.systemui.theme.superior", // 2
+        "com.android.dialer.theme.superior", //3
+        "com.android.contacts.theme.superior", //4
+        "com.android.documentsui.theme.superior", //5
+    };
 
     private static final String STOCK_DARK_THEME = "com.android.systemui.theme.dark";
 
@@ -140,6 +148,18 @@ public class ThemeAccentUtils {
         return themeInfo != null && themeInfo.isEnabled();
      }
 
+     // Check for the superior system theme
+     public static boolean isUsingSuperiorTheme(IOverlayManager om, int userId) {
+         OverlayInfo themeInfo = null;
+         try {
+             themeInfo = om.getOverlayInfo(SUPERIOR_THEMES[0],
+                     userId);
+         } catch (RemoteException e) {
+             e.printStackTrace();
+         }
+         return themeInfo != null && themeInfo.isEnabled();
+      }
+
     public static void setLightDarkTheme(IOverlayManager om, int userId, boolean useDarkTheme) {
         for (String theme : DARK_THEMES) {
                 try {
@@ -167,6 +187,17 @@ public class ThemeAccentUtils {
         }
     }
 
+     public static void setLightSuperiorTheme(IOverlayManager om, int userId, boolean useSuperiorTheme) {
+         for (String theme : SUPERIOR_THEMES) {
+                 try {
+                     om.setEnabled(theme,
+                         useSuperiorTheme, userId);
+                  //  unfuckBlackWhiteAccent(om, userId);
+                 } catch (RemoteException e) {
+                     Log.w(TAG, "Can't change theme", e);
+                 }
+         }
+     }
     // Check for black and white accent overlays
 /*    public static void unfuckBlackWhiteAccent(IOverlayManager om, int userId) {
         OverlayInfo themeInfo = null;
