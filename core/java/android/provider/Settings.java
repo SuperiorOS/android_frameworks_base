@@ -4924,6 +4924,12 @@ public final class Settings {
         public static final String LOCKSCREEN_INFO = "lockscreen_info";
 
         /**
+         * Select which lockscreen clock style to display
+         * @hide
+         */
+        public static final String LOCKSCREEN_CLOCK_SELECTION = "lockscreen_clock_selection";
+
+        /**
          * Use EdgeGesture Service for system gestures in PhoneWindowManager
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
