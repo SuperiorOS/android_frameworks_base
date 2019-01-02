@@ -198,7 +198,7 @@ public class KeyguardSliceProvider extends SliceProvider implements
     private boolean useMetricUnit;
 
     protected void addWeather(ListBuilder builder) {
-        if (mWeatherInfo == null || mWeatherInfo.getStatus() != WeatherClient.WEATHER_UPDATE_SUCCESS) {
+        if (!WeatherClient.isAvailable(getContext()) || mWeatherInfo == null || mWeatherInfo.getStatus() != WeatherClient.WEATHER_UPDATE_SUCCESS) {
             return;
         }
         if (mWeatherInfo.getWeatherConditionImage() == 0){
@@ -258,11 +258,13 @@ public class KeyguardSliceProvider extends SliceProvider implements
         mNextAlarmController.addCallback(this);
         mZenModeController = new ZenModeControllerImpl(getContext(), mHandler);
         mZenModeController.addCallback(this);
-        mWeatherSettingsObserver = new WeatherSettingsObserver(mHandler);
-        mWeatherSettingsObserver.observe();
-        mWeatherSettingsObserver.updateLockscreenUnit();
-        mWeatherClient = new WeatherClient(getContext());
-        mWeatherClient.addObserver(this);
+        if (WeatherClient.isAvailable(getContext())) {
+            mWeatherSettingsObserver = new WeatherSettingsObserver(mHandler);
+            mWeatherSettingsObserver.observe();
+            mWeatherSettingsObserver.updateLockscreenUnit();
+            mWeatherClient = new WeatherClient(getContext());
+            mWeatherClient.addObserver(this);
+        }
         mDatePattern = getContext().getString(R.string.system_ui_aod_date_pattern);
         registerClockUpdate();
         updateClock();
