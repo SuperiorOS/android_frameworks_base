@@ -61,8 +61,6 @@ import com.android.internal.R;
 
 import java.util.List;
 
-import java.util.List;
-
 import com.android.internal.statusbar.IStatusBarService;
 
 /**
@@ -263,28 +261,6 @@ public class SuperiorUtils {
                         InputManager.INJECT_INPUT_EVENT_MODE_ASYNC);
             }
         }, 20);
-    }
-
-    public static boolean deviceSupportNavigationBarForUser(Context context, int userId) {
-        final boolean showByDefault = context.getResources().getBoolean(
-                com.android.internal.R.bool.config_showNavigationBar);
-        final int hasNavigationBar = Settings.System.getIntForUser(
-                context.getContentResolver(),
-                Settings.System.OMNI_NAVIGATION_BAR_SHOW, -1,
-                userId);
-
-        if (hasNavigationBar == -1) {
-            String navBarOverride = SystemProperties.get("qemu.hw.mainkeys");
-            if ("1".equals(navBarOverride)) {
-                return false;
-            } else if ("0".equals(navBarOverride)) {
-                return true;
-            } else {
-                return showByDefault;
-            }
-        } else {
-            return hasNavigationBar == 1;
-        }
     }
 
     private static final class FireActions {

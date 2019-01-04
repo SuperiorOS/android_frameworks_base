@@ -78,7 +78,6 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.UserInfo;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.database.ContentObserver;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.graphics.PointF;
@@ -763,33 +762,12 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         void observe() {
             mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.OMNI_NAVIGATION_BAR_SHOW),
-                    false, this, UserHandle.USER_ALL);
-
-            mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
                     Settings.System.SYSTEM_UI_THEME),
                     false, this, UserHandle.USER_ALL);
         }
 
-        @Override
-        public void onChange(boolean selfChange) {
-            update();
-        }
-
-        public void update() {
-            int showNavBar = Settings.System.getIntForUser(
-                    mContext.getContentResolver(), Settings.System.OMNI_NAVIGATION_BAR_SHOW,
-                    -1, UserHandle.USER_CURRENT);
-            if (showNavBar != -1){
-                boolean showNavBarBool = showNavBar == 1;
-                if (showNavBarBool !=  mShowNavBar){
-                    updateNavigationBar();
-                }
-            }
-        }
     }
     private OmniSettingsObserver mOmniSettingsObserver;
-    private boolean mShowNavBar;
     private boolean mLockscreenMediaMetadata;
 
     @Override
@@ -974,10 +952,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         Dependency.get(ActivityStarterDelegate.class).setActivityStarterImpl(this);
 
         Dependency.get(ConfigurationController.class).addCallback(this);
-
-        mOmniSettingsObserver = new OmniSettingsObserver(mHandler);
-        mOmniSettingsObserver.observe();
-        mOmniSettingsObserver.update();
     }
 
     // ================================================================================
@@ -3698,7 +3672,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         updateNotificationViews();
         mMediaManager.clearCurrentMediaNotification();
         setLockscreenUser(newUserId);
-        mOmniSettingsObserver.update();
     }
 
     @Override
@@ -6624,26 +6597,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                     saveImportance.run();
                 }
             };
-
-    // omni additions start
-    private void updateNavigationBar() {
-        mShowNavBar = SuperiorUtils.deviceSupportNavigationBar(mContext);
-        if (DEBUG) Log.v(TAG, "updateNavigationBar=" + mShowNavBar);
-
-        if (mShowNavBar) {
-            if (mNavigationBarView == null) {
-                createNavigationBar();
-            }
-        } else {
-            if (mNavigationBarView != null){
-                FragmentHostManager fm = FragmentHostManager.get(mNavigationBarView);
-                mWindowManager.removeViewImmediate(mNavigationBarView);
-                mNavigationBarView = null;
-                fm.getFragmentManager().beginTransaction().remove(mNavigationBar).commit();
-                mNavigationBar = null;
-            }
-        }
-    }
 
     public void updateEdgeGestures(boolean enabled) {
         Log.d(TAG, "updateEdgeGestures: Updating edge gestures");
