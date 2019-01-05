@@ -62,8 +62,7 @@ public class HWKeysTile extends QSTileImpl<BooleanState> {
 
     @Override
     public Intent getLongClickIntent() {
-        return new Intent().setComponent(new ComponentName(
-            "com.android.settings", "com.android.settings.Settings$ButtonSettingsActivity"));
+        return null;
     }
 
     private void setEnabled(boolean enabled) {

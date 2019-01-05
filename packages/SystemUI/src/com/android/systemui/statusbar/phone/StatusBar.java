@@ -5866,14 +5866,26 @@ public class StatusBar extends SystemUI implements DemoMode,
             boolean showing = Settings.Secure.getInt(mContext.getContentResolver(),
                     Settings.Secure.NAVIGATION_BAR_VISIBLE,
                     ActionUtils.hasNavbarByDefault(mContext) ? 1 : 0) != 0;
-            if (!ActionUtils.hasNavbarByDefault(mContext)) {
-                Intent intent = new Intent("com.cyanogenmod.action.UserChanged");
-                intent.setPackage("com.android.settings");
-                mContext.sendBroadcastAsUser(intent, new UserHandle(UserHandle.USER_CURRENT));
+            if (!showing && mNavigationBar != null && mNavigationBarView != null) {
+                removeNavigationBar();
+            } else if (showing && mNavigationBar == null && mNavigationBarView == null) {
+                createNavigationBar();
             }
         }
     };
 
+    protected void removeNavigationBar() {
+        if (mNavigationBar != null && mNavigationBarView != null) {
+            FragmentHostManager fragmentHost = FragmentHostManager.get(mNavigationBarView);
+            if (mNavigationBarView.isAttachedToWindow()) {
+                mWindowManager.removeViewImmediate(mNavigationBarView);
+                mNavigationBarView = null;
+            }
+            fragmentHost.getFragmentManager().beginTransaction().remove(mNavigationBar).commit();
+            mNavigationBar = null;
+        }
+}
+	
     // Begin Extra BaseStatusBar methods.
 
     protected CommandQueue mCommandQueue;
