@@ -348,7 +348,6 @@ public class QuickStepController implements GestureHelper {
             case MotionEvent.ACTION_CANCEL:
                 wasConsumed = true;
                 isDoubleTapPending = false;
-                endQuickScrub(true /* animate */);
                 break;
             case MotionEvent.ACTION_UP:
                if (mNavigationBarView.isFullGestureMode()) {
