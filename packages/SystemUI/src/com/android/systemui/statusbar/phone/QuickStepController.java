@@ -45,7 +45,6 @@ import android.util.Slog;
 import android.view.HapticFeedbackConstants;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.KeyEvent;
 import android.view.WindowManagerGlobal;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
@@ -57,7 +56,6 @@ import com.android.systemui.plugins.statusbar.phone.NavGesture.GestureHelper;
 import com.android.systemui.shared.recents.IOverviewProxy;
 import com.android.systemui.shared.recents.utilities.Utilities;
 import com.android.systemui.shared.system.NavigationBarCompat;
-import com.android.internal.util.superior.SuperiorUtils;
 
 /**
  * Class to detect gestures on the navigation bar and implement quick scrub.
@@ -88,8 +86,6 @@ public class QuickStepController implements GestureHelper {
     private AnimatorSet mTrackAnimator;
     private ButtonDispatcher mHitTarget;
     private View mCurrentNavigationBarView;
-
-    private boolean mBackActionScheduled;
 
     private final Handler mHandler = new Handler();
     private final Rect mTrackRect = new Rect();
@@ -275,17 +271,6 @@ public class QuickStepController implements GestureHelper {
                     offset -= mIsVertical ? mTrackRect.height() : mTrackRect.width();
                 }
 
-                final boolean allowBackAction = !mNavigationBarView.isFullGestureMode() ? false
-                        : (!mDragPositive ? offset < 0 && pos > touchDown
-                        : offset >= 0 && pos < touchDown);
-                // if quickscrub is active, don't trigger the back action but allow quickscrub drag
-                // action so the user can still switch apps
-                if (!mQuickScrubActive && exceededScrubTouchSlop && allowBackAction) {
-                    // schedule a back button action and skip quickscrub
-                     mBackActionScheduled = true;
-                    break;
-                }
-
                 final boolean allowDrag = !mDragPositive
                         ? offset < 0 && pos < touchDown : offset >= 0 && pos > touchDown;
                 float scrubFraction = Utilities.clamp(Math.abs(offset) * 1f / trackSize, 0, 1);
@@ -312,16 +297,8 @@ public class QuickStepController implements GestureHelper {
                 break;
             }
             case MotionEvent.ACTION_CANCEL:
-                mBackActionScheduled = false;
-                break;
             case MotionEvent.ACTION_UP:
-                if (mBackActionScheduled) {
-                    mBackActionScheduled = false;
-                    SuperiorUtils.sendKeycode(KeyEvent.KEYCODE_BACK);
-                    mNavigationBarView.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
-                } else {
-                    endQuickScrub(true /* animate */);
-                }
+                endQuickScrub(true /* animate */);
                 break;
         }
 
