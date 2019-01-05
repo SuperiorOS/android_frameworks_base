@@ -1,3 +1,4 @@
+
 /*
  * Copyright (C) 2017 The Android Open Source Project
  *
@@ -311,7 +312,6 @@ Navigator.OnVerticalChangedListener, KeyguardMonitor.Callback, NotificationMedia
         Dependency.get(AccessibilityManagerWrapper.class).removeCallback(
                 mAccessibilityListener);
         mContentResolver.unregisterContentObserver(mSettingsObserver);
-        mContentResolver.unregisterContentObserver(mMagnificationObserver);
         mContentResolver.unregisterContentObserver(mNavbarObserver);
         try {
             WindowManagerGlobal.getWindowManagerService()
@@ -1169,10 +1169,6 @@ Navigator.OnVerticalChangedListener, KeyguardMonitor.Callback, NotificationMedia
                 dt2sEnabled = fullModeEnabled;
             }
         } catch (Settings.SettingNotFoundException e) {
-        }
-        mFullGestureMode = mOverviewProxyService.shouldShowSwipeUpUI() && fullModeEnabled;
-        if (mNavigationBarView != null) {
-            mNavigationBarView.setFullGestureMode(mFullGestureMode, dt2sEnabled);
         }
     }
 

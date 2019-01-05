@@ -287,11 +287,6 @@ public class ScreenPinningRequest implements View.OnClickListener {
                     ((ImageView) mLayout.findViewById(R.id.screen_pinning_home_icon))
                             .setImageDrawable(homeDrawable);
                 }
-                if (recentsVisible) {
-                    ((ImageView) mLayout.findViewById(R.id.screen_pinning_recents_icon))
-                            .setImageDrawable(navigationBarView.getRecentsDrawable(lightContext,
-                                    darkContext));
-                }
             }
 
             ((TextView) mLayout.findViewById(R.id.screen_pinning_description))

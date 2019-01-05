@@ -34,13 +34,13 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 /** Quick settings tile: NavBarTile **/
 public class NavBarTile extends QSTileImpl<BooleanState> {
 
-    private final SystemSetting mSetting;
+    private final SecureSetting mSetting;
 
     public NavBarTile(QSHost host) {
         super(host);
 
-        mSetting = new SystemSetting(mContext, mHandler,
-                   Settings.System.OMNI_NAVIGATION_BAR_SHOW) {
+        mSetting = new SecureSetting(mContext, mHandler,
+                   Settings.Secure.NAVIGATION_BAR_VISIBLE) {
             @Override
             protected void handleValueChanged(int value, boolean observedChange) {
                 handleRefreshState(value);

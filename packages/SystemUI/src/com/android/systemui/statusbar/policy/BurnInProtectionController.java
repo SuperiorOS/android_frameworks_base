@@ -110,12 +110,6 @@ public class BurnInProtectionController {
             mVerticalDirection *= -1;
         }
 
-        mPhoneStatusBarView.swiftStatusBarItems(mHorizontalShift, mVerticalShift);
-        NavigationBarView mNavigationBarView = mStatusBar.getNavigationBarView();
-        if (mNavigationBarView != null) {
-            mNavigationBarView.swiftNavigationBarItems(mHorizontalShift, mVerticalShift);
-        }
-
         if (DEBUG) Log.d(TAG, "Swifting items..");
     }
 }

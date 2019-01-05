@@ -1370,10 +1370,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         return mMediaManager;
     }
 
-    public NotificationMediaManager getMediaManager() {
-        return mMediaManager;
-    }
-
     /**
      * Returns the {@link android.view.View.OnTouchListener} that will be invoked when the
      * background window of the status bar is clicked.
@@ -5870,11 +5866,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             boolean showing = Settings.Secure.getInt(mContext.getContentResolver(),
                     Settings.Secure.NAVIGATION_BAR_VISIBLE,
                     ActionUtils.hasNavbarByDefault(mContext) ? 1 : 0) != 0;
-            if (!showing && mNavigationBar != null && mNavigationBarView != null) {
-                removeNavigationBar();
-            } else if (showing && mNavigationBar == null && mNavigationBarView == null) {
-                createNavigationBar();
-            }
             if (!ActionUtils.hasNavbarByDefault(mContext)) {
                 Intent intent = new Intent("com.cyanogenmod.action.UserChanged");
                 intent.setPackage("com.android.settings");

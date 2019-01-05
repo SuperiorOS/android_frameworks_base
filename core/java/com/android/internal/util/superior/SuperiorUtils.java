@@ -173,10 +173,6 @@ public class SuperiorUtils {
         return ctx.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
     }
 
-    public static boolean deviceSupportNavigationBar(Context context) {
-        return deviceSupportNavigationBarForUser(context, UserHandle.USER_CURRENT);
-    }
-
     public static void restartSystemUi(Context context) {
         new RestartSystemUiTask(context).execute();
     }
