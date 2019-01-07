@@ -81,6 +81,7 @@ public class ThemeAccentUtils {
         "com.android.dialer.theme.superior", //3
         "com.android.contacts.theme.superior", //4
         "com.android.documentsui.theme.superior", //5
+        "default_accent", // 6
     };
 
     private static final String STOCK_DARK_THEME = "com.android.systemui.theme.dark";
