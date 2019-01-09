@@ -103,10 +103,6 @@
   
   <!-- Gesture Sensor -->
   <java-symbol type="bool" name="config_enableGestureService" />
-
-  <!-- Ambient play -->
-  <java-symbol type="string" name="ambient_recognition_notification" />
-  <java-symbol type="string" name="ambient_recognition_information" />
   
   <!-- Whether device supports an alt. ambient display -->
   <java-symbol type="bool" name="config_alt_ambient_display"/>

@@ -62,7 +62,6 @@ import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.UserTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
-import com.android.systemui.qs.tiles.AmbientPlayTile;
 import com.android.systemui.qs.QSTileHost;
 import com.android.systemui.util.leak.GarbageMonitor;
 
@@ -150,8 +149,6 @@ public class QSFactoryImpl implements QSFactory {
                 return new AmbientDisplayTile(mHost);
             case "aod":
                 return new AODTile(mHost);
-            case "ambientplay":
-                return new AmbientPlayTile(mHost);
             case "music":
                 return new MusicTile(mHost);
             case "sleepscreen":
