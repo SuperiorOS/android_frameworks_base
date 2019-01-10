@@ -89,7 +89,14 @@ include $(CLEAR_VARS)
 
 LOCAL_MODULE := fonts.xml
 LOCAL_MODULE_CLASS := ETC
-LOCAL_PREBUILT_MODULE_FILE := vendor/superior/themes/fonts/prebuilt/fonts.xml
+
+ifneq ($(filter true,$(EXCLUDE_SERIF_FONTS) $(SMALLER_FONT_FOOTPRINT)),)
+AOSP_FONTS_FILE := frameworks/base/data/fonts/fonts_no_serif.xml
+else
+AOSP_FONTS_FILE := vendor/superior/themes/fonts/prebuilt/fonts.xml
+endif
+
+LOCAL_PREBUILT_MODULE_FILE := $(AOSP_FONTS_FILE)
 
 include $(BUILD_PREBUILT)
 
