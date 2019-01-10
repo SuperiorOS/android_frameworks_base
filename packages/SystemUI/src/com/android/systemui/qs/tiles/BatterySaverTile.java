@@ -36,7 +36,7 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
 
     private int mLevel;
     private boolean mPowerSave;
-    private static boolean mCharging;
+    private boolean mCharging;
     private boolean mPluggedIn;
 
     public BatterySaverTile(QSHost host) {
@@ -85,10 +85,10 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
         BatterySaverIcon bsi = new BatterySaverIcon();
         bsi.mState = state.state;
         state.icon = bsi;
-        if (mCharging) {
+        if (mCharging && mLevel != 100) {
             state.label = mContext.getString(R.string.keyguard_plugged_in, mLevel + "%");
         } else {
-            if (mLevel == 100) {
+            if (mCharging && mLevel == 100) {
                 state.label = mContext.getString(R.string.keyguard_charged);
             } else {
                 state.label = mLevel + "%";
@@ -137,11 +137,7 @@ public class BatterySaverTile extends QSTileImpl<BooleanState> implements
             // Show as full so it's always uniform color
             super.setBatteryLevel(MAX_BATTERY);
             setPowerSave(true);
-            if (mCharging) {
-                setCharging(true);
-            } else {
-                setCharging(false);
-            }
+            setCharging(false);
             setPowerSaveAsColorError(false);
             mPowerSaveAsColorError = true;
             mFramePaint.setColor(0);
