@@ -106,9 +106,6 @@ public class StatusBarWindowView extends FrameLayout {
     private boolean mExpandingBelowNotch;
 
     private boolean mDoubleTapToSleepEnabled;
-    private GestureDetector mDoubleTapGesture;
-    private Handler mHandler = new Handler();
-    private SettingsObserver mSettingsObserver;
     private boolean mIsMusicTickerTap;
 
     public StatusBarWindowView(Context context, AttributeSet attrs) {

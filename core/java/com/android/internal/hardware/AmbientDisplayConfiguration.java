@@ -40,7 +40,7 @@ public class AmbientDisplayConfiguration {
                 || pulseOnDoubleTapEnabled(user)
                 || pulseOnLongPressEnabled(user)
                 || pulseOnMedia(user)
-                || alwaysOnEnabled(user);
+                || alwaysOnEnabled(user));
     }
 
     public boolean available() {
