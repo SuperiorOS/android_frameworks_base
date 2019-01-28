@@ -4533,14 +4533,6 @@ public final class Settings {
                 new SettingsValidators.InclusiveIntegerRangeValidator(0, 2);
 
         /**
-         * Force an Ambient notification when a new media track is being played
-         * 0 - disabled
-         * 1 - show track info within normal Ambient Display and force a new Ambient clean layout when skipping tracks
-         * @hide
-         */
-        public static final String FORCE_AMBIENT_FOR_MEDIA = "force_ambient_for_media";
-
-        /**
          * Shows custom date before clock time
          * 0 - No Date
          * 1 - Small Date

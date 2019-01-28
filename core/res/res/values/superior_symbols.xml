@@ -205,9 +205,6 @@
   
   <!-- Wallpaper component -->
   <java-symbol type="string" name="default_wallpaper_component_custom" />
-  
-  <!-- Ambient display music ticker -->
-  <java-symbol type="bool" name="config_canForceDozeNotifications" />
 	
   <!-- Toast Animation -->
   <java-symbol type="style" name="Animation.Toast.Fade" />

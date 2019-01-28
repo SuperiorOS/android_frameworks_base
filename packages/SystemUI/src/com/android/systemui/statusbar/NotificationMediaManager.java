@@ -22,11 +22,8 @@ import android.media.session.MediaController;
 import android.media.session.MediaSession;
 import android.media.session.MediaSessionManager;
 import android.media.session.PlaybackState;
-import android.os.Handler;
 import android.os.UserHandle;
-import android.os.SystemClock;
 import android.util.Log;
-import android.view.KeyEvent;
 
 import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.Dumpable;
@@ -75,7 +72,13 @@ public class NotificationMediaManager implements Dumpable {
                     clearCurrentMediaNotification();
                     mPresenter.updateMediaMetaData(true, true);
                 }
-                setMediaPlaying();
+                if (mStatusBar != null) {
+                    mStatusBar.getVisualizer().setPlaying(state.getState()
+                            == PlaybackState.STATE_PLAYING);
+                }
+            }
+            if (mListener != null) {
+                mListener.onMediaUpdated(isPlaybackActive(state.getState()));
             }
         }
 
@@ -87,13 +90,17 @@ public class NotificationMediaManager implements Dumpable {
             }
             mMediaMetadata = metadata;
             mPresenter.updateMediaMetaData(true, true);
-            setMediaPlaying();
+            if (mListener != null) {
+                mListener.onMediaUpdated(isPlaybackActive());
+            }
         }
 
         @Override
         public void onSessionDestroyed() {
             super.onSessionDestroyed();
-            setMediaPlaying();
+            if (mListener != null) {
+                mListener.onMediaUpdated(isPlaybackActive());
+            }
         }
     };
 
@@ -209,7 +216,6 @@ public class NotificationMediaManager implements Dumpable {
                     mListener.onMediaUpdated(isPlaybackActive());
                 }
                 mMediaMetadata = mMediaController.getMetadata();
-                setMediaPlaying();
                 if (DEBUG_MEDIA) {
                     Log.v(TAG, "DEBUG_MEDIA: insert listener, found new controller: "
                             + mMediaController + ", receive metadata: " + mMediaMetadata);
@@ -236,7 +242,6 @@ public class NotificationMediaManager implements Dumpable {
 
     public void clearCurrentMediaNotification() {
         mMediaNotificationKey = null;
-        mPresenter.setAmbientMusicInfo(null, null);
         clearCurrentMediaNotificationSession();
     }
 
@@ -293,7 +298,7 @@ public class NotificationMediaManager implements Dumpable {
         return PlaybackState.STATE_NONE;
     }
 
-    protected boolean isMediaNotification(NotificationData.Entry entry) {
+    private boolean isMediaNotification(NotificationData.Entry entry) {
         // TODO: confirm that there's a valid media key
         return entry.getExpandedContentView() != null &&
                 entry.getExpandedContentView()
@@ -308,90 +313,10 @@ public class NotificationMediaManager implements Dumpable {
                         + mMediaController.getPackageName());
             }
             mMediaController.unregisterCallback(mMediaListener);
-            setMediaPlaying();
+            if (mListener != null) {
+                mListener.onMediaUpdated(isPlaybackActive());
+            }
         }
         mMediaController = null;
     }
-
-  public void setMediaPlaying() {
-        if (PlaybackState.STATE_PLAYING ==
-                getMediaControllerPlaybackState(mMediaController)
-                || PlaybackState.STATE_BUFFERING ==
-                getMediaControllerPlaybackState(mMediaController)) {
-
-            ArrayList<NotificationData.Entry> activeNotifications =
-                    mEntryManager.getNotificationData().getAllNotifications();
-            int N = activeNotifications.size();
-            final String pkg = mMediaController.getPackageName();
-
-
-            boolean mediaNotification= false;
-            for (int i = 0; i < N; i++) {
-                final NotificationData.Entry entry = activeNotifications.get(i);
-                if (entry.notification.getPackageName().equals(pkg)) {
-                    // NotificationEntryManager onAsyncInflationFinished will get called
-                    // when colors and album are loaded for the notification, then we can send
-                    // those info to Pulse
-                    mEntryManager.setEntryToRefresh(entry);
-                    mediaNotification = true;
-                    break;
-                }
-            }
-            if (!mediaNotification) {
-                // no notification for this mediacontroller thus no artwork or track info,
-                // clean up Ambient Music and Pulse albumart color
-                mEntryManager.setEntryToRefresh(null);
-                mPresenter.setAmbientMusicInfo(null, null);
-            }
-
-            if (mListener != null) {
-                mListener.onMediaUpdated(true);
-            }
-        } else {
-            mEntryManager.setEntryToRefresh(null);
-            mPresenter.setAmbientMusicInfo(null, null);
-            if (mListener != null) {
-                mListener.onMediaUpdated(false);
-            }
-        }
-    }
-
-    public void setMediaNotificationText(String notificationText) {
-        mPresenter.setAmbientMusicInfo(mMediaMetadata, notificationText);
-    }
-
-    private void triggerKeyEvents(int key, MediaController controller, final Handler h) {
-        long when = SystemClock.uptimeMillis();
-        final KeyEvent evDown = new KeyEvent(when, when, KeyEvent.ACTION_DOWN, key, 0);
-        final KeyEvent evUp = KeyEvent.changeAction(evDown, KeyEvent.ACTION_UP);
-        h.post(new Runnable() {
-            @Override
-            public void run() {
-                controller.dispatchMediaButtonEvent(evDown);
-            }
-        });
-        h.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                controller.dispatchMediaButtonEvent(evUp);
-            }
-        }, 20);
-    }
-
-    public void onSkipTrackEvent(int key, final Handler h) {
-        if (mMediaSessionManager != null) {
-            final List<MediaController> sessions
-                    = mMediaSessionManager.getActiveSessionsForUser(
-                    null, UserHandle.USER_ALL);
-            for (MediaController aController : sessions) {
-                if (PlaybackState.STATE_PLAYING ==
-                        getMediaControllerPlaybackState(aController)) {
-                    triggerKeyEvents(key, aController, h);
-                    break;
-                }
-            }
-        }
-    }
-
 }
-

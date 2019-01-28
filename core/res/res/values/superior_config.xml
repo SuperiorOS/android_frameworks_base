@@ -157,10 +157,7 @@
 
     <!-- Whether to allow process with media UID to access CameraServiceProxy -->
     <bool name="config_allowMediaUidForCameraServiceProxy">false</bool>
-	
-    <!-- Ambient display music ticker -->
-    <bool name="config_canForceDozeNotifications">true</bool>
-	
+
     <!-- Whether device has a physical display cutout -->
     <bool name="config_physicalDisplayCutout">false</bool>
 </resources>
