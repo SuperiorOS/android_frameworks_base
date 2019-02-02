@@ -62,6 +62,7 @@ public class ThemeAccentUtils {
         "com.android.contacts.theme.dark", //4
         "com.android.documentsui.theme.dark", //5
         "com.android.updater.theme.dark", //6
+        "com.android.wellbeing.theme.dark", //7
     };
 
     private static final String[] BLACK_THEMES = {
@@ -72,6 +73,7 @@ public class ThemeAccentUtils {
         "com.android.contacts.theme.black", //4
         "com.android.documentsui.theme.black", //5
         "com.android.updater.theme.black", //6
+        "com.android.wellbeing.theme.black", //7
     };
 
     private static final String[] SUPERIOR_THEMES = {
@@ -82,6 +84,7 @@ public class ThemeAccentUtils {
         "com.android.contacts.theme.superior", //4
         "com.android.documentsui.theme.superior", //5
         "default_accent", // 6
+        "com.android.wellbeing.theme.superior", //7
     };
 
     private static final String STOCK_DARK_THEME = "com.android.systemui.theme.dark";
