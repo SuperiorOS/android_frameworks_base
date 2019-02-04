@@ -519,8 +519,8 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
                     n.primaryTextColor, n.secondaryTextColor};
             mMediaManager.setPulseColors(n.isColorizedMedia(), colors);
             String notificationText = null;
-            final String title = n.extras.getString(Notification.EXTRA_TITLE);
-            final String text = n.extras.getString(Notification.EXTRA_TEXT);
+            final CharSequence title = n.extras.getCharSequence(Notification.EXTRA_TITLE);
+            final CharSequence text = n.extras.getCharSequence(Notification.EXTRA_TEXT);
             if (!TextUtils.isEmpty(title) && !TextUtils.isEmpty(text)) {
                 notificationText = title + " - " + text;
             }
