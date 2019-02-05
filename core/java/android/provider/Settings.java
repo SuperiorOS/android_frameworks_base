@@ -5395,6 +5395,7 @@ public final class Settings {
             RINGTONE,
             RINGTONE2,
             LOCK_TO_APP_ENABLED,
+            NOTIFICATION_LIGHT_PULSE,
             NOTIFICATION_SOUND,
             ACCELEROMETER_ROTATION,
             SHOW_BATTERY_PERCENT,
@@ -5764,6 +5765,7 @@ public final class Settings {
             VALIDATORS.put(SLIM_RECENTS_BLACKLIST_VALUES, SLIM_RECENTS_BLACKLIST_VALUES_VALIDATOR);
             VALIDATORS.put(DISPLAY_CUTOUT_MODE, DISPLAY_CUTOUT_MODE_VALIDATOR);
             VALIDATORS.put(STOCK_STATUSBAR_IN_HIDE, STOCK_STATUSBAR_IN_HIDE_VALIDATOR);
+            VALIDATORS.put(NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
         }
 
         /**
@@ -10269,6 +10271,8 @@ public final class Settings {
             VALIDATORS.put(FLING_KEYBOARD_CURSORS, FLING_KEYBOARD_CURSORS_VALIDATOR);
             VALIDATORS.put(PULSE_AUTO_COLOR, PULSE_AUTO_COLOR_VALIDATOR);
             VALIDATORS.put(SMARTBAR_DOUBLETAP_SLEEP, SMARTBAR_DOUBLETAP_SLEEP_VALIDATOR);
+            VALIDATORS.put(LOCK_SCREEN_ALLOW_PRIVATE_NOTIFICATIONS, BOOLEAN_VALIDATOR);
+            VALIDATORS.put(LOCK_SCREEN_SHOW_NOTIFICATIONS, BOOLEAN_VALIDATOR);
         }
 
         /**
@@ -14882,6 +14886,7 @@ public final class Settings {
          * Supported keys:
          * compatibility_wal_supported      (boolean)
          * wal_syncmode       (String)
+         * truncate_size      (int)
          *
          * @hide
          */
