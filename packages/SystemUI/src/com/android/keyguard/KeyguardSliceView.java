@@ -42,6 +42,7 @@ import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.util.TypedValue;
 
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.graphics.ColorUtils;
@@ -316,6 +317,16 @@ public class KeyguardSliceView extends LinearLayout implements View.OnClickListe
         updateTextColors();
         mRow.setVisibility(mRowAvailable ? ((mShowInfo || mDarkAmount == 1) ? VISIBLE : GONE)
                 : GONE);
+    }
+	
+    public void setViewsTextSize(int scale, float size) {
+        int childCount = mRow.getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View v = mRow.getChildAt(i);
+            if (v instanceof Button) {
+                ((Button) v).setTextSize(scale, size);
+            }
+        }
     }
 
     public void setViewsTypeface(Typeface tf) {
