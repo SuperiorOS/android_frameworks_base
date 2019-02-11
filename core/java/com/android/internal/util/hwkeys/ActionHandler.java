@@ -158,8 +158,6 @@ public class ActionHandler {
     static {
         sDisabledActions.add(SYSTEMUI_TASK_REGION_SCREENSHOT);
         sDisabledActions.add(SYSTEMUI_TASK_SCREENRECORD);
-        sDisabledActions.add(SYSTEMUI_TASK_ONE_HANDED_MODE_LEFT);
-        sDisabledActions.add(SYSTEMUI_TASK_ONE_HANDED_MODE_RIGHT);
         sDisabledActions.add(SYSTEMUI_TASK_STOP_SCREENPINNING);
         sDisabledActions.add(SYSTEMUI_TASK_ASSISTANT_SOUND_SEARCH);
     }
@@ -1075,13 +1073,6 @@ public class ActionHandler {
         }
     }
 
-    private static void toggleOneHandedMode(Context context, int direction) {
-	Intent intent = new Intent();
-        intent.setAction(ACTION_ONEHAND_TRIGGER_EVENT);
-        intent.putExtra(EXTRA_ALIGNMENT_STATE, direction);
-        context.sendBroadcast(intent);
-    }
-
     public static Context getPackageContext(Context context, String packageName) {
         Context pkgContext = null;
         if (context.getPackageName().equals(packageName)) {
@@ -1161,17 +1152,13 @@ public class ActionHandler {
         am.adjustVolume(AudioManager.ADJUST_SAME, AudioManager.FLAG_SHOW_UI);
     }
 
-/*
-    private static void toggleOneHandedMode(Context context, String direction) {
-        String str = Settings.Global.getString(context.getContentResolver(), Settings.Global.SINGLE_HAND_MODE);
 
-        if (TextUtils.isEmpty(str))
-            Settings.Global.putString(context.getContentResolver(), Settings.Global.SINGLE_HAND_MODE, direction);
-        else
-            Settings.Global.putString(context.getContentResolver(), Settings.Global.SINGLE_HAND_MODE, "");
+    private static void toggleOneHandedMode(Context mContext, int state) {
+        Intent intent = new Intent();
+        intent.setAction(ACTION_ONEHAND_TRIGGER_EVENT);
+        intent.putExtra(EXTRA_ALIGNMENT_STATE, state);
+        mContext.sendBroadcast(intent);
     }
-    
-*/
 
     public static void startAssistantSoundSearch(Context context) {
         Intent intent = new Intent(Intent.ACTION_MAIN);
