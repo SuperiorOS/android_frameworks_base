@@ -226,5 +226,8 @@
     <bool name="config_filterDisplayModes">false</bool>
 
     <bool name="config_canForceDozeNotifications">true</bool>
+	
+    <!-- Whether to enable oneplus cam hack -->
+    <bool name="config_enableOPcamhack">false</bool>
 
 </resources>
