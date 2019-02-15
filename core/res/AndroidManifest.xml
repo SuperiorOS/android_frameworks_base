@@ -4040,6 +4040,9 @@
         android:description="@string/permdesc_toggleNavigationEditor"
         android:protectionLevel="signatureOrSystem" />
 
+    <!-- Weather on lockscreen -->
+    <uses-permission android:name="org.pixelexperience.weather.client.READ_WEATHER" />
+
     <application android:process="system"
                  android:persistent="true"
                  android:hasCode="false"
