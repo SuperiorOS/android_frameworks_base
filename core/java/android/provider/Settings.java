@@ -10028,13 +10028,6 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
-         * Force authorize Substratum (or equivalent) frontend calling packages by ThemeInterfacer
-         * The value is boolean (1 or 0).
-         * @hide
-         */
-        public static final String FORCE_AUTHORIZE_SUBSTRATUM_PACKAGES = "force_authorize_substratum_packages";
-
-        /**
          * The TCP/IP port to run ADB on, or -1 for USB
          * @hide
          */
