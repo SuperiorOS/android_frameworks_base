@@ -4927,21 +4927,14 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
-         * Hold current font name and name of the originating package Uses "|" as a delimiter
-         *
-         * @hide
-         */
-        public static final String FONT_INFO = "font_info";
-        
-        /**
-         * Hold list of installed font provider packages. Uses "|" as a delimiter
-         *
-         * @hide
-         */
-        public static final String FONT_PACKAGES = "font_packages";
-
-        /**
          * Use EdgeGesture Service for system gestures in PhoneWindowManager
+         * Settings to backup. This is here so that it's in the same place as the settings
+         * keys and easy to update.
+         *
+         * NOTE: Settings are backed up and restored in the order they appear
+         *       in this array. If you have one setting depending on another,
+         *       make sure that they are ordered appropriately.
+         *
          * @hide
          */
         public static final String USE_EDGE_SERVICE_FOR_GESTURES = "edge_service_for_gestures";

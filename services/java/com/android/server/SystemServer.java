@@ -238,10 +238,6 @@ public final class SystemServer {
             "com.android.server.slice.SliceManagerService$Lifecycle";
     private static final String CAR_SERVICE_HELPER_SERVICE_CLASS =
             "com.android.internal.car.CarServiceHelperService";
-    private static final String PERF_SERVICE_CLASS =
-            "com.qualcomm.qti.PerfService";
-    private static final String FONT_SERVICE_CLASS =
-            "com.android.server.FontService$Lifecycle";
 
     private static final String PERSISTENT_DATA_BLOCK_PROP = "ro.frp.pst";
 
@@ -863,10 +859,6 @@ public final class SystemServer {
             // Now that SettingsProvider is ready, reactivate SQLiteCompatibilityWalFlags
             SQLiteCompatibilityWalFlags.reset();
             traceEnd();
-
-			traceBeginAndSlog("StartFontService");
-        	mSystemServiceManager.startService(FONT_SERVICE_CLASS);
-        	traceEnd();
 
             // Records errors and logs, for example wtf()
             // Currently this service indirectly depends on SettingsProvider so do this after

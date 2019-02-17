@@ -188,10 +188,6 @@
         <item>@string/app_ops_toggle_mobile_data</item>
     </string-array>
 
-    <!-- System font packages (overlay in vendor) -->
-    <string-array name="config_fontPackages" translatable="false">
-    </string-array>
-
 	<!-- Power menu -->
     <string-array translatable="false" name="config_custom_globalActionsList">
         <item>power</item>
@@ -201,3 +197,5 @@
         <item>lockdown</item>
     </string-array>
 </resources>
+
+

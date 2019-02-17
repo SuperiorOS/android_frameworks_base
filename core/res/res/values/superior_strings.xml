@@ -128,18 +128,12 @@
   <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
   <string name="permission_remember_choice">Remember my choice</string>
 
-  <!-- Pocket Lock -->
-  <string name="pocket_lock_message_long_press">Long press power button to interact</string>
+    <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Long press power button to interact</string>
 
-  <!-- Defines the sysfs attribute path used by pocket bridge to communicate pocket state to the pocket judge kernel driver. -->
-  <string name="config_pocketBridgeSysfsInpocket"></string>
-
-   <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-   <string name="permlab_accessFontManager">access font manager</string>
-   <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-   <string name="permdesc_accessFontManager">Allows an application to access the font manager.</string>
-   <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
-   <string name="fontservice_incompatible_font">The font package you\'ve installed is not compatible due to missing fonts.xml on their files. Please contact the package developer for support.</string>
+    <!-- Defines the sysfs attribute path used by pocket bridge
+        to communicate pocket state to the pocket judge kernel driver. -->
+    <string name="config_pocketBridgeSysfsInpocket"></string>
 
     <string name="permlab_toggleNavigationEditor">control navigation editor</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

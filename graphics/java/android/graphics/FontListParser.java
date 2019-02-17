@@ -23,9 +23,6 @@ import android.util.Xml;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -40,40 +37,18 @@ import java.util.regex.Pattern;
 public class FontListParser {
 
     /* Parse fallback list (no names) */
-    public static FontConfig parse(File configFilename, String fontDir) throws XmlPullParserException, IOException {
-        FileInputStream in = null;
-        in = new FileInputStream(configFilename);
-        return FontListParser.parse(in, fontDir);
-    }
-
-     /* Parse fallback list (no names) */
-    public static FontConfig parse(InputStream in, String fontDir)
-            throws XmlPullParserException, IOException {
-        BufferedInputStream bis = null;
+    public static FontConfig parse(InputStream in) throws XmlPullParserException, IOException {
         try {
-            // wrap input stream in a BufferedInputStream, if it's not already, for mark support
-            if (!(in instanceof BufferedInputStream)) {
-                bis = new BufferedInputStream(in);
-            } else {
-                bis = (BufferedInputStream) in;
-            }
-            // mark the beginning so we can reset to this position after checking format
-            bis.mark(in.available());
-            return parseNormalFormat(bis, fontDir);
+            XmlPullParser parser = Xml.newPullParser();
+            parser.setInput(in, null);
+            parser.nextTag();
+            return readFamilies(parser);
         } finally {
-            if (bis != null) bis.close();
+            in.close();
         }
     }
 
-    public static FontConfig parseNormalFormat(InputStream in, String dirName)
-            throws XmlPullParserException, IOException {
-        XmlPullParser parser = Xml.newPullParser();
-        parser.setInput(in, null);
-        parser.nextTag();
-        return readFamilies(parser, dirName);
-    }
-
-    private static FontConfig readFamilies(XmlPullParser parser, String dirPath)
+    private static FontConfig readFamilies(XmlPullParser parser)
             throws XmlPullParserException, IOException {
         List<FontConfig.Family> families = new ArrayList<>();
         List<FontConfig.Alias> aliases = new ArrayList<>();
@@ -83,17 +58,18 @@ public class FontListParser {
             if (parser.getEventType() != XmlPullParser.START_TAG) continue;
             String tag = parser.getName();
             if (tag.equals("family")) {
-                families.add(readFamily(parser, dirPath));
+                families.add(readFamily(parser));
             } else if (tag.equals("alias")) {
                 aliases.add(readAlias(parser));
             } else {
                 skip(parser);
             }
         }
-        return new FontConfig(families, aliases);
+        return new FontConfig(families.toArray(new FontConfig.Family[families.size()]),
+                aliases.toArray(new FontConfig.Alias[aliases.size()]));
     }
 
-    private static FontConfig.Family readFamily(XmlPullParser parser, String dirPath)
+    private static FontConfig.Family readFamily(XmlPullParser parser)
             throws XmlPullParserException, IOException {
         final String name = parser.getAttributeValue(null, "name");
         final String lang = parser.getAttributeValue(null, "lang");
@@ -104,7 +80,7 @@ public class FontListParser {
             if (parser.getEventType() != XmlPullParser.START_TAG) continue;
             final String tag = parser.getName();
             if (tag.equals("font")) {
-                fonts.add(readFont(parser, dirPath));
+                fonts.add(readFont(parser));
             } else {
                 skip(parser);
             }
@@ -125,7 +101,7 @@ public class FontListParser {
     private static final Pattern FILENAME_WHITESPACE_PATTERN =
             Pattern.compile("^[ \\n\\r\\t]+|[ \\n\\r\\t]+$");
 
-    private static FontConfig.Font readFont(XmlPullParser parser, String dirPath)
+    private static FontConfig.Font readFont(XmlPullParser parser)
             throws XmlPullParserException, IOException {
         String indexStr = parser.getAttributeValue(null, "index");
         int index = indexStr == null ? 0 : Integer.parseInt(indexStr);
@@ -147,8 +123,7 @@ public class FontListParser {
                 skip(parser);
             }
         }
-        String sanitizedName = dirPath + File.separatorChar +
-                FILENAME_WHITESPACE_PATTERN.matcher(filename).replaceAll("");
+        String sanitizedName = FILENAME_WHITESPACE_PATTERN.matcher(filename).replaceAll("");
         return new FontConfig.Font(sanitizedName, index,
                 axes.toArray(new FontVariationAxis[axes.size()]), weight, isItalic, fallbackFor);
     }
