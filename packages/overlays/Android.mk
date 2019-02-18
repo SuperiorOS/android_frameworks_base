@@ -18,6 +18,14 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := frameworks-base-overlays
 LOCAL_REQUIRED_MODULES := \
 	AccentColorBlackOverlay \
+        AccentColorRoseOverlay \
+        AccentColorScooterOverlay \
+        AccentColorSlateOverlay \
+        AccentColorSuperNovaOverlay \
+        AccentColorPurpleHeatOverlay \
+        AccentColorHadalZoneOverlay \
+        AccentColorLostInForestOverlay \
+        AccentColorTorchRedOverlay \
 	AccentColorCinnamonOverlay \
 	AccentColorOceanOverlay \
 	AccentColorOrchidOverlay \
@@ -26,6 +34,12 @@ LOCAL_REQUIRED_MODULES := \
 	AccentColorPurpleOverlay \
 	AccentColorPaletteOverlay \
 	AccentColorCarbonOverlay \
+        FadedPink \
+        DeepRed \
+        PinkRed \
+        KindaIndigo \
+        ArmyGreen \
+        Grey \
 	AccentColorSandOverlay \
 	AccentColorAmethystOverlay \
 	AccentColorAquamarineOverlay \
