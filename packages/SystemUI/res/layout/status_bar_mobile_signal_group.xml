@@ -35,8 +35,8 @@
           android:layout_height="wrap_content"
           android:layout_width="wrap_content"
           android:visibility="gone"
-          android:paddingStart="4dp"
-          android:paddingEnd="4dp"/>
+          android:paddingStart="1.5dp"
+          android:paddingEnd="1.5dp"/>
         <FrameLayout
             android:id="@+id/inout_container"
             android:layout_height="17dp"
