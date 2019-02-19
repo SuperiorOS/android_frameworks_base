@@ -301,5 +301,8 @@
     <!-- Whether device needs to wait for Qualcomm MPCTL service to start
          before setting power profiles on boot. -->
     <java-symbol type="bool" name="config_waitForMpctlOnBoot" />
+	
+    <!-- Whether to allow sending active app broadcast -->
+    <java-symbol type="bool" name="config_allowActivePackageBroadcast" />
 
 </resources>
