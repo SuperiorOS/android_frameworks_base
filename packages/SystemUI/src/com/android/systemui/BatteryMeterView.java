@@ -272,10 +272,9 @@ public class BatteryMeterView extends LinearLayout implements
 
     private void updatePercentText() {
         Typeface tf = Typeface.create(FONT_FAMILY, Typeface.NORMAL);
-		if (mBatteryPercentView != null) {
+        if (mBatteryPercentView != null) {
             mBatteryPercentView.setText(
                     NumberFormat.getPercentInstance().format(mLevel / 100f));
-			mBatteryPercentView.setTypeface(tf);
         }
     }
 

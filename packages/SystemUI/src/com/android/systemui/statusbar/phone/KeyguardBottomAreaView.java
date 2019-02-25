@@ -98,8 +98,8 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
 
     final static String TAG = "StatusBar/KeyguardBottomAreaView";
 	private static final String FONT_FAMILY = "sans-serif";
-    
-	public static final String CAMERA_LAUNCH_SOURCE_AFFORDANCE = "lockscreen_affordance";
+
+    public static final String CAMERA_LAUNCH_SOURCE_AFFORDANCE = "lockscreen_affordance";
     public static final String CAMERA_LAUNCH_SOURCE_WIGGLE = "wiggle_gesture";
     public static final String CAMERA_LAUNCH_SOURCE_POWER_DOUBLE_TAP = "power_double_tap";
     public static final String CAMERA_LAUNCH_SOURCE_LIFT_TRIGGER = "lift_to_launch_ml";
@@ -323,7 +323,7 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
     	Typeface tf = Typeface.create(FONT_FAMILY, Typeface.ITALIC);
-	    mIndicationBottomMargin = getResources().getDimensionPixelSize(
+        mIndicationBottomMargin = getResources().getDimensionPixelSize(
                 R.dimen.keyguard_indication_margin_bottom);
         mIndicationBottomMarginAmbient = getResources().getDimensionPixelSize(
                 R.dimen.keyguard_indication_margin_bottom_ambient);
