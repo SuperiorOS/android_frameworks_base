@@ -498,6 +498,15 @@ public class CentralSurfacesCommandQueueCallbacks implements CommandQueue.Callba
     }
 
     @Override
+    public void toggleSettingsPanel() {
+        if (mShadeViewController.isPanelExpanded()) {
+            mShadeController.animateCollapseShade();
+        } else {
+            animateExpandSettingsPanel(null);
+        }
+    }
+
+    @Override
     public void setBlockedGesturalNavigation(boolean blocked) {
         mCentralSurfaces.setBlockedGesturalNavigation(blocked);
     }
