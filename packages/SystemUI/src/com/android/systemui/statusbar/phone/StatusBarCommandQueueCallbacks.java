@@ -651,4 +651,14 @@ public class StatusBarCommandQueueCallbacks implements CommandQueue.Callbacks {
             mFlashlightController.setFlashlight(!mFlashlightController.isEnabled());
         }
     }
+
+    @Override
+    public void toggleSettingsPanel() {
+        if (mStatusBar.isPanelExpanded()) {
+            mShadeController.animateCollapsePanels();
+        } else {
+            animateExpandSettingsPanel(null);
+        }
+    }
+
 }

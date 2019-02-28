@@ -2078,6 +2078,10 @@ public class StatusBar extends SystemUI implements
         mMessageRouter.sendMessage(MSG_OPEN_SETTINGS_PANEL);
     }
 
+    public void toggleSettingsPanel() {
+        mCommandQueueCallbacks.toggleSettingsPanel();
+    }
+
     public boolean isExpandedVisible() {
         return mExpandedVisible;
     }
