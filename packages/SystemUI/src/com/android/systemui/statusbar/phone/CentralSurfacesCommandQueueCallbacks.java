@@ -504,6 +504,15 @@ public class CentralSurfacesCommandQueueCallbacks implements CommandQueue.Callba
         }
     }
 
+    @Override
+    public void toggleSettingsPanel() {
+        if (mShadeViewController.isPanelExpanded()) {
+            mShadeController.animateCollapseShade();
+        } else {
+            animateExpandSettingsPanel(null);
+        }
+    }
+
     private boolean isGoingToSleep() {
         return mWakefulnessLifecycle.getWakefulness()
                 == WakefulnessLifecycle.WAKEFULNESS_GOING_TO_SLEEP;
