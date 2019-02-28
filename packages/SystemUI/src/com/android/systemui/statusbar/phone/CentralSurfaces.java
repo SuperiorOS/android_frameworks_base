@@ -283,6 +283,8 @@ public interface CentralSurfaces extends Dumpable, ActivityStarter, LifecycleOwn
 
     void postAnimateOpenPanels();
 
+    void toggleSettingsPanel();
+
     boolean isPanelExpanded();
 
     void onInputFocusTransfer(boolean start, boolean cancel, float velocity);
