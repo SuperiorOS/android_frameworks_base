@@ -2100,6 +2100,11 @@ public class CentralSurfacesImpl implements CoreStartable, PackageChangedListene
     }
 
     @Override
+    public void toggleSettingsPanel() {
+        mCommandQueueCallbacks.toggleSettingsPanel();
+    }
+
+    @Override
     public boolean isPanelExpanded() {
         return mPanelExpanded;
     }
