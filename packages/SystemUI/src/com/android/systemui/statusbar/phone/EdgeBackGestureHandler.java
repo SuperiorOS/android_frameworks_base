@@ -712,7 +712,13 @@ public class EdgeBackGestureHandler implements DisplayListener {
                 SuperiorUtils.toggleRingerModes(mContext);
                 break;
             case 13: // Kill app
-                ActionUtils.killForegroundApp();
+                SuperiorUtils.killForegroundApp();
+                break;
+            case 14: // Skip song
+                SuperiorUtils.sendSystemKeyToStatusBar(KeyEvent.KEYCODE_MEDIA_NEXT);
+                break;
+            case 15: // Previous song
+                SuperiorUtils.sendSystemKeyToStatusBar(KeyEvent.KEYCODE_MEDIA_PREVIOUS);
                 break;
         }
     }
