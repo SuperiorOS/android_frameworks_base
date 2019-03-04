@@ -260,6 +260,9 @@
     <uses-permission android:name="lineageos.permission.HARDWARE_ABSTRACTION_ACCESS" />
     <uses-permission android:name="lineageos.permission.MANAGE_LIVEDISPLAY" />
 
+    <!-- Font tile -->
+    <uses-permission android:name="android.permission.ACCESS_FONT_MANAGER" />
+
     <application
         android:name=".SystemUIApplication"
         android:persistent="true"
