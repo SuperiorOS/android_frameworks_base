@@ -19,7 +19,6 @@ package com.android.keyguard;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.app.ActivityManager;
-import android.content.ContentResolver;
 import android.app.IActivityManager;
 import android.content.Context;
 import android.content.ContentResolver;
@@ -233,11 +232,6 @@ public class KeyguardStatusView extends GridLayout implements
         refreshLockDateFont();
         refreshclocksize();
         refreshdatesize();
-
-        // Disable elegant text height because our fancy colon makes the ymin value huge for no
-        // reason.
-        mClockView.setElegantTextHeight(false);
-
     }
 
     /**
@@ -253,7 +247,6 @@ public class KeyguardStatusView extends GridLayout implements
         int height = mClockView.getHeight();
         layoutParams.bottomMargin = (int) -(height - (clockScale * height));
         mClockView.setLayoutParams(layoutParams);
-        mClockView.setTypeface(tf);
 
         // Custom analog clock
         RelativeLayout.LayoutParams customlayoutParams =
@@ -426,12 +419,12 @@ public class KeyguardStatusView extends GridLayout implements
             mClockView.setFormat24Hour("kk\nmm");
         }
     }
-
+	
     private int getLockClockFont() {
         return Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.LOCK_CLOCK_FONTS, 0);
     }
-
+	
     private int getLockDateFont() {
         return Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.LOCK_DATE_FONTS, 0);
@@ -512,7 +505,7 @@ public class KeyguardStatusView extends GridLayout implements
     public boolean hasOverlappingRendering() {
         return false;
     }
-
+	
     private void refreshLockFont() {
         final Resources res = getContext().getResources();
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
@@ -628,13 +621,15 @@ public class KeyguardStatusView extends GridLayout implements
         }
         if (lockClockFont == 36) {
             mClockView.setTypeface(Typeface.create("wallpoet-sys", Typeface.NORMAL));
+
         }
     }
-
+	
     private void refreshLockDateFont() {
         final Resources res = getContext().getResources();
         boolean isPrimary = UserHandle.getCallingUserId() == UserHandle.USER_OWNER;
         int lockDateFont = isPrimary ? getLockDateFont() : 0;
+
         if (lockDateFont == 0) {
             mKeyguardSlice.setViewsTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
         }
@@ -745,6 +740,7 @@ public class KeyguardStatusView extends GridLayout implements
         }
         if (lockDateFont == 36) {
             mKeyguardSlice.setViewsTypeface(Typeface.create("wallpoet-sys", Typeface.NORMAL));
+
         }
     }
 	
