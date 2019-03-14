@@ -5251,12 +5251,6 @@ public final class Settings {
         private static final Validator SLIM_RECENTS_BLACKLIST_VALUES_VALIDATOR = ANY_STRING_VALIDATOR;
 
         /**
-         * Whether to use icon pack for Recents
-         * @hide
-         */
-        public static final String RECENTS_ICON_PACK = "recents_icon_pack";
-
-        /**
          * Whether the phone ringtone should be played in an increasing manner
          * @hide
          */

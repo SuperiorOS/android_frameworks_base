@@ -24,13 +24,10 @@ import android.content.pm.ActivityInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Looper;
 import android.os.Trace;
-import android.os.UserHandle;
-import android.provider.Settings;
 import android.util.Log;
 import android.util.LruCache;
 
 import com.android.internal.annotations.GuardedBy;
-import com.android.internal.icons.IconsHandler;
 import com.android.systemui.shared.recents.model.RecentsTaskLoadPlan.Options;
 import com.android.systemui.shared.recents.model.RecentsTaskLoadPlan.PreloadOptions;
 import com.android.systemui.shared.recents.model.Task.TaskKey;
@@ -85,9 +82,6 @@ public class RecentsTaskLoader {
     private int mDefaultTaskBarBackgroundColor;
     private int mDefaultTaskViewBackgroundColor;
 
-    private IconsHandler mIconsHandler;
-    private Context mContext;
-
     private EvictionCallback mClearActivityInfoOnEviction = new EvictionCallback() {
         @Override
         public void onEntryEvicted(TaskKey key) {
@@ -99,7 +93,6 @@ public class RecentsTaskLoader {
 
     public RecentsTaskLoader(Context context, int maxThumbnailCacheSize, int maxIconCacheSize,
             int svelteLevel) {
-        mContext = context;
         mMaxThumbnailCacheSize = maxThumbnailCacheSize;
         mMaxIconCacheSize = maxIconCacheSize;
         mSvelteLevel = svelteLevel;
@@ -115,10 +108,6 @@ public class RecentsTaskLoader {
                 mClearActivityInfoOnEviction);
         mActivityInfoCache = new LruCache<>(numRecentTasks);
 
-        mIconsHandler = new IconsHandler(
-                context, -1/*default con size*/, 1.0f);
-        setIconPack();
-
         mIconLoader = createNewIconLoader(context, mIconCache, mActivityInfoCache);
         mLoader = new BackgroundTaskLoader(mLoadQueue, mIconLoader,
                 mHighResThumbnailLoader::setTaskLoadQueueIdle);
@@ -126,26 +115,7 @@ public class RecentsTaskLoader {
 
     protected IconLoader createNewIconLoader(Context context,TaskKeyLruCache<Drawable> iconCache,
             LruCache<ComponentName, ActivityInfo> activityInfoCache) {
-        return new IconLoader.DefaultIconLoader(context, iconCache, activityInfoCache, mIconsHandler);
-    }
-
-    public void resetIconCache() {
-        mIconCache.evictAll();
-    }
-
-    public void onDpiChanged() {
-        mIconsHandler.onDpiChanged(mContext);
-    }
-
-    public void setIconPack() {
-        resetIconCache();
-        String currentIconPack = Settings.System.getString/*ForUser*/(mContext.getContentResolver(),
-                Settings.System.RECENTS_ICON_PACK/*, UserHandle.myUserId()*/);
-        mIconsHandler.updatePrefs(currentIconPack);
-    }
-
-    public IconsHandler getIconsHandler() {
-        return mIconsHandler;
+        return new IconLoader.DefaultIconLoader(context, iconCache, activityInfoCache);
     }
 
     /**
