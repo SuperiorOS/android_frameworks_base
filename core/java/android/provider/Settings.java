@@ -4769,16 +4769,6 @@ public final class Settings {
 	 ** @hide
 	 **/
         public static final String SCREENSHOT_TYPE = "screenshot_type";
-		
-		/**
-         * Whether to change the transparency of the qs panel
-         * @hide
-         */
-        public static final String OMNI_QS_PANEL_BG_ALPHA = "qs_panel_bg_alpha";
-
-        /** @hide */
-        private static final Validator OMNI_QS_PANEL_BG_ALPHA_VALIDATOR = new
-                SettingsValidators.InclusiveIntegerRangeValidator(100, 255);
 
         /**
          * some devices have a extra hw button e.g. n3 on the back on the
@@ -5540,7 +5530,6 @@ public final class Settings {
             STATUSBAR_CLOCK_DATE_DISPLAY,
             STATUSBAR_CLOCK_DATE_STYLE,
             STATUSBAR_CLOCK_DATE_FORMAT,
-            OMNI_QS_PANEL_BG_ALPHA,
             RECENTS_COMPONENT,
             WEATHER_LOCKSCREEN_UNIT,
             OMNI_USE_BOTTOM_GESTURE_NAVIGATION,
@@ -5721,7 +5710,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_STYLE);
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_FORMAT);
             PRIVATE_SETTINGS.add(SCREENSHOT_DEFAULT_MODE);
-            PRIVATE_SETTINGS.add(OMNI_QS_PANEL_BG_ALPHA);
             PRIVATE_SETTINGS.add(STATUS_BAR_BRIGHTNESS_CONTROL);
             PRIVATE_SETTINGS.add(CUSTOM_BUTTON_EXTRA_KEY_MAPPING);
             PRIVATE_SETTINGS.add(CUSTOM_DEVICE_PROXI_CHECK_ENABLED);
@@ -5872,7 +5860,6 @@ public final class Settings {
             VALIDATORS.put(STATUSBAR_CLOCK_DATE_DISPLAY, STATUSBAR_CLOCK_DATE_DISPLAY_VALIDATOR);
             VALIDATORS.put(STATUSBAR_CLOCK_DATE_STYLE, STATUSBAR_CLOCK_DATE_STYLE_VALIDATOR);
             VALIDATORS.put(STATUSBAR_CLOCK_DATE_FORMAT, STATUSBAR_CLOCK_DATE_FORMAT_VALIDATOR);
-            VALIDATORS.put(OMNI_QS_PANEL_BG_ALPHA, OMNI_QS_PANEL_BG_ALPHA_VALIDATOR);
             VALIDATORS.put(CUSTOM_BUTTON_EXTRA_KEY_MAPPING, CUSTOM_BUTTON_EXTRA_KEY_MAPPING_VALIDATOR);
             VALIDATORS.put(CUSTOM_DEVICE_PROXI_CHECK_ENABLED, CUSTOM_DEVICE_PROXI_CHECK_ENABLED_VALIDATOR);
             VALIDATORS.put(CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED, CUSTOM_DEVICE_GESTURE_FEEDBACK_ENABLED_VALIDATOR);
