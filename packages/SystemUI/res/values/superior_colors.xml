@@ -53,6 +53,7 @@
     <color name="quick_settings_theme_tile_jade_green">#9ABC98</color>
     <color name="quick_settings_theme_tile_black">#000000</color>
     <color name="quick_settings_theme_tile_white">#ffffff</color>
+    <color name="quick_settings_theme_tile_qpurple">#B39DDB</color>
 
     <!-- Quicksettings main QS background-->
     <color name="quick_settings_status_bar_background_color">#ff000000</color>
