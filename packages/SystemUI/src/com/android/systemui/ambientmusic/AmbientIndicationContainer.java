@@ -1,8 +1,7 @@
 package com.android.systemui.ambientmusic;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Color;
+import android.graphics.drawable.AnimatedVectorDrawable;
 import android.media.MediaMetadata;
 import android.os.Handler;
 import android.text.TextUtils;
@@ -11,8 +10,6 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.FrameLayout.LayoutParams;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.systemui.AutoReinflateContainer;
@@ -23,11 +20,13 @@ import com.android.systemui.statusbar.phone.StatusBar;
 
 import com.android.systemui.ambientmusic.AmbientIndicationInflateListener;
 
+import java.util.Locale;
+
 public class AmbientIndicationContainer extends AutoReinflateContainer {
     private View mAmbientIndication;
-    private ImageView mIcon;
     private CharSequence mIndication;
     private StatusBar mStatusBar;
+    private AnimatedVectorDrawable mAnimatedIcon;
     private TextView mText;
     private Context mContext;
     private MediaMetadata mMediaMetaData;
@@ -44,11 +43,17 @@ public class AmbientIndicationContainer extends AutoReinflateContainer {
     public AmbientIndicationContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         mContext = context;
+        final int iconSize = mContext.getResources().getDimensionPixelSize(
+                R.dimen.notification_menu_icon_padding);
+        mAnimatedIcon = (AnimatedVectorDrawable) mContext.getDrawable(
+                R.drawable.audioanim_animation).getConstantState().newDrawable();
+        mAnimatedIcon.setBounds(0, 0, iconSize, iconSize);
         mTrackInfoSeparator = getResources().getString(R.string.ambientmusic_songinfo);
     }
 
     public void hideIndication() {
         setIndication(null, null);
+        mAnimatedIcon.stop();
     }
 
     public void initializeView(StatusBar statusBar, Handler handler) {
@@ -60,7 +65,6 @@ public class AmbientIndicationContainer extends AutoReinflateContainer {
     public void updateAmbientIndicationView(View view) {
         mAmbientIndication = findViewById(R.id.ambient_indication);
         mText = (TextView)findViewById(R.id.ambient_indication_text);
-        mIcon = (ImageView)findViewById(R.id.ambient_indication_icon);
         setIndication(mMediaMetaData, mMediaText);
     }
 
@@ -89,7 +93,12 @@ public class AmbientIndicationContainer extends AutoReinflateContainer {
                 public void run() {
                     mText.setEllipsize(TruncateAt.MARQUEE);
                     mText.setMarqueeRepeatLimit(2);
+                    boolean rtl = TextUtils.getLayoutDirectionFromLocale(
+                            Locale.getDefault()) == View.LAYOUT_DIRECTION_RTL;
+                    mText.setCompoundDrawables(rtl ? null : mAnimatedIcon, null, rtl ?
+                            mAnimatedIcon : null, null);
                     mText.setSelected(true);
+                    mAnimatedIcon.start();
                     if (extendPulseOnNewTrack && mStatusBar.isPulsing()) {
                         mStatusBar.getDozeScrimController().extendPulseForMusicTicker();
                     }
@@ -98,6 +107,7 @@ public class AmbientIndicationContainer extends AutoReinflateContainer {
         } else {
             mText.setEllipsize(null);
             mText.setSelected(false);
+            mAnimatedIcon.stop();
         }
     }
 
