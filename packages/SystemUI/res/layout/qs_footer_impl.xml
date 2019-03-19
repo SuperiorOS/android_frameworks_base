@@ -100,7 +100,7 @@
 
             <com.android.systemui.statusbar.AlphaOptimizedImageView
                 android:id="@android:id/edit"
-                android:layout_width="46dp"
+                android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="?android:attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
@@ -125,7 +125,7 @@
 
             <com.android.systemui.statusbar.AlphaOptimizedFrameLayout
                 android:id="@+id/settings_button_container"
-                android:layout_width="46dp"
+                android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:clipChildren="false"
                 android:clipToPadding="false">

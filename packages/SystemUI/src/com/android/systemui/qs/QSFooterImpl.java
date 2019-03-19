@@ -214,7 +214,6 @@ public class QSFooterImpl extends FrameLayout implements Tunable, QSFooter,
     @Nullable
     private TouchAnimator createFooterAnimator() {
         return new TouchAnimator.Builder()
-                .addFloat(mDivider, "alpha", 0, 1)
                 .addFloat(mEdit, "alpha", 0, 1)
                 .addFloat(mPageIndicator, "alpha", 0, 1)
                 .addFloat(mMobileSignal, "alpha", 0, 1)
