@@ -6467,12 +6467,13 @@ public final class Settings {
          * 4 = Telegram
          * 5 = Md2
          * 6 = Retro
+         * 7 = Stockish
          * @hide
          */
         public static final String SWITCH_STYLE = "switch_style";
         /** @hide */
         private static final Validator SWITCH_STYLE_VALIDATOR =
-                new SettingsValidators.InclusiveIntegerRangeValidator(0, 6);
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 7);
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
