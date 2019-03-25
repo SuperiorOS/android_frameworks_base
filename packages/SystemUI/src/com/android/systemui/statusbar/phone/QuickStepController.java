@@ -269,7 +269,10 @@ public class QuickStepController implements GestureHelper {
                     int deltaX = (int) mPreviousUpEventX - (int) event.getX();
                     int deltaY = (int) mPreviousUpEventY - (int) event.getY();
                     boolean isDoubleTapReally = deltaX * deltaX + deltaY * deltaY < sDoubleTapSquare;
-                    if (isDoubleTapReally) HavocUtils.switchScreenOff(mContext);
+                    if (isDoubleTapReally) {
+                        mNavigationBarView.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+                        SuperiorUtils.switchScreenOff(mContext);
+                    }
                 } else {
                     // this is the first tap, let's go further and schedule a
                     // mDoubleTapCancelTimeout call in the action up event so after the set time
@@ -398,8 +401,8 @@ public class QuickStepController implements GestureHelper {
                     }
                     if (mBackActionScheduled) {
                         endQuickScrub(true /* animate */);
-                        HavocUtils.sendKeycode(KeyEvent.KEYCODE_BACK, mHandler);
                         mNavigationBarView.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+                        SuperiorUtils.sendKeycode(KeyEvent.KEYCODE_BACK, mHandler);
                     } else {
                         endQuickScrub(true /* animate */);
                     }
@@ -426,7 +429,8 @@ public class QuickStepController implements GestureHelper {
             isDoubleTapPending = false;
             // it was a single tap, let's trigger the home button action
             mHandler.removeCallbacksAndMessages(null);
-            HavocUtils.sendKeycode(KeyEvent.KEYCODE_HOME, mHandler);
+            mNavigationBarView.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
+            SuperiorUtils.sendKeycode(KeyEvent.KEYCODE_HOME, mHandler);
         }
     };
 
@@ -441,6 +445,7 @@ public class QuickStepController implements GestureHelper {
 
         @Override
         public void run() {
+            mNavigationBarView.performHapticFeedback(HapticFeedbackConstants.VIRTUAL_KEY);
             moveKbCursor(isRight, true);
         }
     }
@@ -456,8 +461,8 @@ public class QuickStepController implements GestureHelper {
                 moveKbCursor(right, false);
             }
         };
-        HavocUtils.moveKbCursor(KeyEvent.ACTION_UP, right);
-        HavocUtils.moveKbCursor(KeyEvent.ACTION_DOWN, right);
+        SuperiorUtils.moveKbCursor(KeyEvent.ACTION_UP, right);
+        SuperiorUtils.moveKbCursor(KeyEvent.ACTION_DOWN, right);
         mHandler.postDelayed(r, firstTrigger ? 500 : 250);
     }
 
