@@ -108,5 +108,10 @@
     <!-- Default value for Horizon light color (Blue) -->
     <integer name="config_AmbientPulseLightColor">0x3980FF</integer>
 
+    <!-- Wheather device has OP haptic motor -->
     <bool name="config_hasOnePlusHapticMotor">false</bool>
+
+    <!-- Smart charging battery percentage -->
+    <integer name="config_smartChargingBatteryLevel">80</integer>
+
 </resources>
