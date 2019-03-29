@@ -28,6 +28,7 @@
     <string name="global_action_reboot_bootloader_progress">Restarting to bootloader mode\u2026</string>
     <string name="global_action_reboot_fastboot">Fastboot</string>
     <string name="global_action_reboot_fastboot_progress">Restarting to fastboot mode\u2026</string>
+    <string name="global_action_restart_systemui">SystemUI</string>
     <string name="global_action_settings">Settings</string>
     <string name="global_action_screenshot">Screenshot</string>
     <string name="global_action_screenrecord">Screenrecord</string>
