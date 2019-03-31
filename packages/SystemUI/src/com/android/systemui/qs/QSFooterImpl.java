@@ -154,6 +154,7 @@ public class QSFooterImpl extends FrameLayout implements Tunable, QSFooter,
         addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight,
                 oldBottom) -> updateAnimator(right - left));
         setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_YES);
+        updateEverything();
     }
 
     @Override
