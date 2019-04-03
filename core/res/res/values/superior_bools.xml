@@ -15,5 +15,8 @@
 
     <!-- Whether device supports an alt. ambient display -->
     <bool name="config_alt_ambient_display">false</bool>
+	
+    <!-- Whether to show multiuser icon on keyguard -->
+    <java-symbol type="bool" name="config_showMultiuserIconKeyguard" />
 
 </resources>
