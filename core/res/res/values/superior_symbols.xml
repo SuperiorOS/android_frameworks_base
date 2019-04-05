@@ -383,4 +383,7 @@
   <java-symbol type="integer" name="config_sliderMiddleCode" />
   <java-symbol type="integer" name="config_sliderBottomCode" />
 
+  <!-- Whether to show a custom view for FOD -->
+  <java-symbol type="bool" name="config_needCustomFODView" />
+
 </resources>
