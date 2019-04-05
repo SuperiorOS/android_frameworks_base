@@ -84,4 +84,6 @@
     <!-- Vendor mismatch fingerprint warning -->
     <java-symbol type="string" name="system_error_vendorprint" />
 
+    <!-- In-display Fingerprint -->
+    <java-symbol type="bool" name="config_supportsInDisplayFingerprint" />
 </resources>
