@@ -152,5 +152,8 @@
   <!-- SystemUI Restart -->
   <java-symbol type="string" name="systemui_restart_title" />
   <java-symbol type="string" name="systemui_restart_message" />
+
+    <!-- Whether to show a custom view for FOD -->
+    <java-symbol type="bool" name="config_needCustomFODView" />
   
 </resources>
