@@ -59,4 +59,8 @@
 
    <!-- Soli check -->
    <java-symbol type="bool" name="config_has_Soli" />
+
+   <!-- In-display Fingerprint -->
+   <java-symbol type="bool" name="config_supportsInDisplayFingerprint" />
+
 </resources>
