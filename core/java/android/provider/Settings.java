@@ -5197,16 +5197,6 @@ public final class Settings {
         private static final Validator SLIM_RECENTS_ICON_PACK_VALIDATOR = ANY_STRING_VALIDATOR;
 
         /**
-         * @hide
-         */
-        public static final String FULL_GESTURE_NAVBAR = "full_gesture_navbar";
-
-        /**
-         * @hide
-         */
-        public static final String FULL_GESTURE_NAVBAR_DT2S = "full_gesture_navbar_dt2s";
-
-        /**
          * Slim Recents MemBar Color
          * @hide
          */
