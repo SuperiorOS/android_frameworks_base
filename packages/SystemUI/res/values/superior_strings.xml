@@ -295,4 +295,8 @@
 
     <!-- OneHand mode QS tile -->
     <string name="qs_onehand_label">OneHand mode</string>
+	
+    <!-- CustomText clock -->
+    <string name="high_noon_first_row">High</string>
+    <string name="high_noon_second_row">Noon</string>
 </resources>
