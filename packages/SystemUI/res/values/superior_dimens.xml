@@ -92,4 +92,7 @@
     <dimen name="tri_state_up_top_left_radius">63.0px</dimen>
     <dimen name="tri_state_up_top_right_radius">63.0px</dimen>
 
+    <!-- Padding needed on bottom of lockscreen for FoD devices -->
+    <dimen name="op_keyguard_indication_margin_bottom">415.0px</dimen>
+
 </resources>
