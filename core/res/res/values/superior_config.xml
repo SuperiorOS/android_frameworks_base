@@ -117,9 +117,6 @@
 
       <!-- Name of that alternative key handler class -->
     <string name="config_alternativeDeviceKeyHandlerClass" translatable="false"></string>
-
-     <!-- Component name for the activity that will be presenting the Oreo's Recents UI -->
-    <string name="config_recentsComponentNameOreo" translatable="false">com.android.systemui/.recents.RecentsActivity</string>
 	
 	    <!-- Minimum time in milliseconds between power button presses so it will be considered
          as a camera launch. To avoid false triggers.
