@@ -55,6 +55,9 @@ public class LangGuard {
                     numString = TensString[tens] + UnitsString[units].toLowerCase();
                 }
                 return numString;
+
+            case "ja":
+                numString = TensString[tens] + UnitsString[units];
         }
         return numString;
     }
