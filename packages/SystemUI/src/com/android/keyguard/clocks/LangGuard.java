@@ -71,6 +71,10 @@ public class LangGuard {
                     numString = UnitsString[units] + "en" + TensString[tens];
                 }
                 return numString;
+
+            case "tr":
+                numString = TensString[tens] + UnitsString[units];
+                return numString;
         }
         return numString;
     }
