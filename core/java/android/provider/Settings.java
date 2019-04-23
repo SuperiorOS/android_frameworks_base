@@ -5455,6 +5455,12 @@ public final class Settings {
          * @hide
          */
         public static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
+		
+        /**
+         * Select alignment for text clock on lockscreen
+         * @hide
+         */
+        public static final String LOCKSCREEN_TEXT_CLOCK_ALIGN = "lockscreen_text_clock_align";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
