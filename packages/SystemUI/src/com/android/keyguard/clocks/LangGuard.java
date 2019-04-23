@@ -58,6 +58,19 @@ public class LangGuard {
 
             case "ja":
                 numString = TensString[tens] + UnitsString[units];
+                return numString;
+
+            case "nl":
+                if (units == 1 || units == 6) {
+                    numString = UnitsString[units].substring(0,4) + "en" + TensString[tens];
+                } else if (units == 7 || units == 9) {
+                    numString = UnitsString[units].substring(0,6) + "en" + TensString[tens];
+                } else if (units == 2 || units == 3 || units == 4 || units == 5 || units == 8) {
+                    numString = UnitsString[units].substring(0,5) + "en" + TensString[tens];
+                } else {
+                    numString = UnitsString[units] + "en" + TensString[tens];
+                }
+                return numString;
         }
         return numString;
     }
