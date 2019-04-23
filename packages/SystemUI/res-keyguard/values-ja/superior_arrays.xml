@@ -52,37 +52,4 @@
         <item>"じゅうきゅう"</item>
     </string-array>
 
-    <string-array translatable="true" name="TensStringH">
-        <item></item>
-        <item></item>
-        <item>"にじゅう"</item>
-        <item>"さんじゅう"</item>
-        <item>"よんじゅう"</item>
-        <item>"ごじゅう"</item>
-        <item>"ろくじゅう"</item>
-    </string-array>
-
-    <string-array translatable="true" name="UnitsStringH">
-        <item>"じゅうに"</item>
-        <item>"いち"</item>
-        <item>"に"</item>
-        <item>"さん"</item>
-        <item>"し"</item>
-        <item>"ご"</item>
-        <item>"ろく"</item>
-        <item>"しち"</item>
-        <item>"はち"</item>
-        <item>"く"</item>
-        <item>"じゅう"</item>
-        <item>"じゅういち"</item>
-        <item>"じゅうに"</item>
-        <item>"じゅうさん"</item>
-        <item>"じゅうよん"</item>
-        <item>"じゅうご"</item>
-        <item>"じゅうろく"</item>
-        <item>"じゅうしち"</item>
-        <item>"じゅうはち"</item>
-        <item>"じゅうきゅう"</item>
-    </string-array>
-
 </resources>
