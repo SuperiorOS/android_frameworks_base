@@ -51,14 +51,18 @@ public class LangGuard {
             case "pt":
                 if (num < 10) {
                     numString = UnitsString[num];
-                    if (hours) {
-                        numString = numString + "heures";
+                    if (!hours) {
+                        numString = "E "+ numString;
+                    } else if (hours) {
+                        numString = numString + "Heures";
                     }
                     return numString;
                 }
                 numString = TensString[tens] + "e " + UnitsString[units].toLowerCase();
-                if (hours) {
-                    numString = numString + "heures";
+                if (!hours) {
+                    numString = "E "+ numString;
+                } else if (hours) {
+                    numString = numString + "Heures";
                 }
                 return numString;
 
