@@ -66,6 +66,17 @@ public class LangGuard {
                 }
                 return numString;
 
+            case "ru":
+                if (num < 20) {
+                   if (!hours && num < 10 ) {
+                       numString = "Ноль " + UnitsString[num];
+                   } else
+                    numString = UnitsString[num];
+                    return numString;
+                }
+                numString = TensString[tens] + " "+ UnitsString[units];
+                return numString;
+
             case "fr":
                 if (num < 10) {
                     numString = UnitsString[num];
