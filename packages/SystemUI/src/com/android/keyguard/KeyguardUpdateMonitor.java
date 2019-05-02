@@ -278,6 +278,10 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
     // For face unlock identification
     private String lastBroadcastActionReceived;
 
+    public boolean isPocketLockVisible(){
+        return mPocketManager.isPocketLockVisible();
+    }
+
     private final Handler mHandler = new Handler(Looper.getMainLooper()) {
         @Override
         public void handleMessage(Message msg) {
