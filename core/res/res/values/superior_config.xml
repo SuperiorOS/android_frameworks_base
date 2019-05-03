@@ -180,5 +180,8 @@
 	
     <!-- Whether to allow sending active app broadcast -->
     <bool name="config_allowActivePackageBroadcast">false</bool>
+	
+    <!-- Pocket Lock -->
+    <bool name="config_pocketModeSupported">true</bool>
 
 </resources>
