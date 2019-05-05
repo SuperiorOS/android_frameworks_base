@@ -5216,9 +5216,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.HEADS_UP_BLACKLIST_VALUES), false, this);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN),
-                    false, this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.LOCKSCREEN_MEDIA_METADATA),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
@@ -5293,9 +5290,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.LESS_BORING_HEADS_UP))) {
                 setUseLessBoringHeadsUp();
             } else if (uri.equals(Settings.System.getUriFor(
-                Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN))) {
-                setStatusBarWindowViewOptions();
-            } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.QS_HEADER_STYLE))) {
                 stockQSHeaderStyle();
                 updateQSHeaderStyle();
@@ -5336,7 +5330,6 @@ public class StatusBar extends SystemUI implements DemoMode,
 	        updateTheme();
             setHeadsUpStoplist();
             setHeadsUpBlacklist();
-            setStatusBarWindowViewOptions();
             setLockscreenMediaMetadata();
             setBrightnessSlider();
             setFpToDismissNotifications();
@@ -5353,13 +5346,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             mStatusBarWindow.setLockscreenDoubleTapToSleep();
         }
     }
-
-    private void setStatusBarWindowViewOptions() {
-        if (mStatusBarWindow != null) {
-            mStatusBarWindow.setStatusBarWindowViewOptions();
-        }
-    }
-
          private void setQsRowsColumns() {
             if (mQSPanel != null) {
                 mQSPanel.updateResources();

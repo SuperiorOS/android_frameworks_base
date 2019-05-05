@@ -849,15 +849,6 @@ public class StatusBarWindowView extends FrameLayout implements Tunable {
         }
     }
 
-    public void setStatusBarWindowViewOptions() {
-        ContentResolver resolver = mContext.getContentResolver();
-        boolean isQsQuickPulldown = Settings.System.getIntForUser(resolver,
-                Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN, 1, UserHandle.USER_CURRENT) == 1;
-        if (mNotificationPanel != null) {
-            mNotificationPanel.setQsQuickPulldown(isQsQuickPulldown);
-        }
-    }
-
     @Override
     public void onTuningChanged(String key, String newValue) {
         if (QS_SHOW_AUTO_BRIGHTNESS_BUTTON.equals(key)) {
