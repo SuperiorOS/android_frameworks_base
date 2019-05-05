@@ -291,7 +291,9 @@ public class BatteryMeterView extends LinearLayout implements
     }
 
     private boolean forcePercentageQsHeader() {
-        return mQsHeaderOrKeyguard && (mStyle == BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT
+        return (mQsHeaderOrKeyguard || mCharging || mPowerSave)
+                && (mStyle == BatteryMeterDrawableBase.BATTERY_STYLE_PORTRAIT
+                || mStyle == BatteryMeterDrawableBase.BATTERY_STYLE_Q
                 || mStyle == BatteryMeterDrawableBase.BATTERY_STYLE_HIDDEN
                 || mStyle == BatteryMeterDrawableBase.BATTERY_STYLE_TEXT
                 || isCircleBattery());
