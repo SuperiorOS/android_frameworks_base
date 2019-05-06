@@ -188,6 +188,14 @@ public class CarStatusBar extends StatusBar implements
     }
 
     @Override
+    public boolean onMenuPressed() {
+        if(mFullscreenUserSwitcher != null && mFullscreenUserSwitcher.isShowing()) {
+            mFullscreenUserSwitcher.onMenuPressed();
+        }
+        return super.onMenuPressed();
+    }
+
+    @Override
     public void destroy() {
         mCarBatteryController.stopListening();
         mConnectedDeviceSignalController.stopListening();

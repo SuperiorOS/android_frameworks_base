@@ -79,6 +79,14 @@ public class FullscreenUserSwitcher {
         mParent.setVisibility(View.GONE);
     }
 
+    public void onMenuPressed() {
+        dismissKeyguard();
+    }
+
+    public boolean isShowing() {
+        return mShowing;
+    }
+
     public void onUserSwitched(int newUserId) {
         // The logic for foreground user change is needed here to exclude the reboot case. On
         // reboot, system fires ACTION_USER_SWITCHED change from -1 to 0 user. This is not an actual
