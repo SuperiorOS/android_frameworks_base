@@ -27485,6 +27485,7 @@ public class ActivityManagerService extends IActivityManager.Stub
 
     public boolean isAppBroadcastAllowed() {
         return mAllowAppBroadcast;
+    }
 
     private class SwipeToScreenshotObserver extends ContentObserver {
 
@@ -27515,7 +27516,7 @@ public class ActivityManagerService extends IActivityManager.Stub
     @Override
     public boolean isSwipeToScreenshotGestureActive() {
         synchronized (this) {
-            return mIsSwipeToScrenshotEnabled;
+            return mIsSwipeToScrenshotEnabled && SystemProperties.getBoolean("sys.android.screenshot", false);
         }
     }
 
