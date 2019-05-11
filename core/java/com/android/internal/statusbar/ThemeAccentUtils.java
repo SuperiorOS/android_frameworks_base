@@ -50,10 +50,10 @@ public class ThemeAccentUtils {
         "com.accents.extendedgreen", //22
         "com.accents.paleblue", //23
         "com.accents.jadegreen", //24
-        // "com.accents.black", // 25
-        // "com.accents.white", // 26
-        "com.accents.qpurple", // 27
-
+        "com.accents.qpurple", // 25
+        "com.accents.qgreen", // 26
+        // "com.accents.black", // 27
+        // "com.accents.white", // 28
     };
 
     private static final String[] DARK_THEMES = {
@@ -93,7 +93,7 @@ public class ThemeAccentUtils {
 
     // Switches theme accent from to another or back to stock
     public static void updateAccents(IOverlayManager om, int userId, int accentSetting) {
-         if (accentSetting < 25) {
+         if (accentSetting < 27) {
             try {
                 om.setEnabled(ACCENTS[accentSetting],
                         true, userId);
