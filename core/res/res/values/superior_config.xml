@@ -55,6 +55,10 @@
     <!-- Whether notify fingerprint client of successful cancelled authentication -->
     <bool name="config_notifyClientOnFingerprintCancelSuccess">false</bool>
 
+    <!-- Button brightness -->
+    <integer name="config_buttonBrightnessSettingDefault">255</integer>
+    <bool name="config_deviceHasVariableButtonBrightness">false</bool>
+
     <!-- Whether to show emergency button in power menu -->
     <bool name="config_showEmergencyButtonInPowerMenu">false</bool>
 
@@ -74,8 +78,6 @@
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
     <integer name="config_deviceHardwareKeys">64</integer>
-	<bool name="config_button_brightness_support">false</bool>
-    <integer name="config_button_brightness_default">128</integer>
 
     <!-- The second metric to be used for antenna bar display for LTE
          The metrics to be used for Antenna display is based on RSRP and either one of the
