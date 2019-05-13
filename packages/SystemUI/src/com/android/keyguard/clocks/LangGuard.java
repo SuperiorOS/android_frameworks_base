@@ -28,101 +28,152 @@ public class LangGuard {
         return (ArrayUtils.contains(langExceptions, langVal) ? true : false);
     }
 
-    public static String evaluateEx (String lang, int units, String[] TensString, String[] UnitsString, int tens, boolean hours, int num) {
+    public static String evaluateExMin (String lang, int units, String[] TensString, String[] UnitsString, int tens) {
         String numString = "";
         switch (lang) {
-            case "it":
-                if (num < 10) {
-                    numString = UnitsString[num];
+
+            case "pl":
+                numString = TensString[tens] + " " + UnitsString[units];
+                return numString;
+
+            case "nl":
+                numString = UnitsString[units].substring(0, UnitsString[units].length() - 5) + "en" + TensString[tens].toLowerCase();
+                return numString;
+
+            case "pt":
+                numString = TensString[tens] + " e " + UnitsString[units].toLowerCase();
+                return numString;
+
+            case "fr":
+                if (units == 1) {
+                    numString = TensString[tens] + " et un";
+                    return numString;
+                } else {
+                    numString = TensString[tens] + "-" + UnitsString[units].toLowerCase();
                     return numString;
                 }
+
+            case "it":
                 if (units == 1) {
                     numString = TensString[tens].substring(0, TensString[tens].length() - 1)+
                                 UnitsString[units].toLowerCase();
-                    return numString;
+                    return numString;                    
                 } else if (units == 3) {
                     numString = TensString[tens] + "tré";
+                    return numString; 
+                } else if (units == 8) {
+                    numString = TensString[tens].substring(0, TensString[tens].length() - 1)+
+                                UnitsString[units].toLowerCase();
                     return numString;
                 } else {
                     numString = TensString[tens] + UnitsString[units].toLowerCase();
+                    return numString;
+                }
+
+            case "ja":
+                numString = TensString[tens] + " " + UnitsString[units];
+                return numString;
+
+            case "tr":
+                numString = TensString[tens] + " " + UnitsString[units];
+                return numString;
+        }
+        return numString;
+    }
+
+    public static String evaluateExHr (String lang, int units, String[] TensString, String[] UnitsString, int tens, int hours, String[] UnitsStringH, String[] TensStringH, boolean h24) {
+        String numString = "";
+        switch (lang) {
+                    
+            case "pl":
+                if ( hours == 0 && h24) {
+                    numString = "Dwudziesta czwarta";
+                    return numString;
+                }
+                if ( hours == 0 && !h24) {
+                    numString = "Dwunasta";
+                    return numString;
+                }
+                if ( hours > 20 ) {
+                    numString = "Dwudziesta" + " " + UnitsStringH[units];
+                    return numString;
+                }
+                if (units != 0) {
+                    numString = TensStringH[tens] + " " + UnitsStringH[units];
+                    return numString;
+                } else {
+                    numString = TensStringH[tens];
+                    return numString;
+                }
+
+            case "nl":
+                if (units != 0) {
+                    numString = UnitsString[units].substring(0, UnitsString[units].length() - 5) + "en" + TensString[tens].toLowerCase();
+                    return numString;
+                } else {
+                    numString = UnitsString[units].substring(0, UnitsString[units].length() - 5);
                     return numString;
                 }
 
             case "pt":
-                if (num < 10) {
-                    numString = UnitsString[num];
-                    if (!hours) {
-                        numString = "E "+ numString;
-                    } else if (hours) {
-                        numString = numString + "Heures";
-                    }
+                if (units != 0) {
+                    numString = TensString[tens] + " e " + UnitsString[units].toLowerCase();
                     return numString;
+                } else {
+                   numString = TensString[tens];
+                   return numString;
                 }
-                numString = TensString[tens] + "e " + UnitsString[units].toLowerCase();
-                if (!hours) {
-                    numString = "E "+ numString;
-                } else if (hours) {
-                    numString = numString + "Heures";
-                }
-                return numString;
-
-            case "ru":
-                if (num < 20) {
-                   if (!hours && num < 10 ) {
-                       numString = "Ноль " + UnitsString[num];
-                   } else
-                    numString = UnitsString[num];
-                    return numString;
-                }
-                numString = TensString[tens] + " "+ UnitsString[units];
-                return numString;
 
             case "fr":
-                if (num < 10) {
-                    numString = UnitsString[num];
+                if (units == 1) {
+                    numString = TensString[tens] + " et un" + "heures";
+                    return numString;
+                }
+                if (units == 0) {
+                    numString = TensStringH[tens] + " heures";
+                    return numString;
+                }
+                if (hours > 1) {
+                    numString = TensString[tens] + "-" + UnitsString[units].toLowerCase() + "heures";
+                    return numString;
+                }
+
+            case "it":
+                if ( hours == 0 && h24) {
+                    numString = "Mezzanotte e";
                     return numString;
                 }
                 if (units == 1) {
-                    numString = TensString[tens] + "et un";
-                } else {
-                    numString = TensString[tens] + UnitsString[units].toLowerCase();
+                    numString = TensStringH[tens].substring(0, TensStringH[tens].length() - 1)+
+                                UnitsString[units].toLowerCase() + " e";
+                    return numString;
                 }
-                return numString;
+                if (units == 3) {
+                    numString = TensStringH[tens] + "tré" + " e";
+                    return numString;                    
+                }
+                if (units == 0) {
+                    numString = TensStringH[tens] + " e";
+                    return numString;
+                }
+                    numString = TensStringH[tens] + UnitsString[units].toLowerCase() + " e";
+                    return numString;
 
             case "ja":
-                if (num < 10) {
-                    numString = UnitsString[num];
+                if (units != 0) {
+                    numString = TensStringH[tens] + " " + UnitsString[units];
                     return numString;
-                }
-                numString = TensString[tens] + UnitsString[units];
-                return numString;
-
-            case "nl":
-                if(hours && num < 10) {
-                    units = num;
-                    tens = 0;
-                }
-                if (units == 1 || units == 6) {
-                    numString = UnitsString[units].substring(0,3 ) + "en" + TensString[tens].toLowerCase();
-                } else if (units == 7 || units == 9) {
-                    numString = UnitsString[units].substring(0,5) + "en" + TensString[tens].toLowerCase();
-                } else if (units == 2 || units == 3 || units == 4 || units == 5 || units == 8) {
-                    numString = UnitsString[units].substring(0,4) + "en" + TensString[tens].toLowerCase();
                 } else {
-                    numString = UnitsString[units] + "en" + TensString[tens].toLowerCase();
+                    numString = TensStringH[tens];
                 }
-                if (hours && num < 10) {
-                    numString = numString.substring(0, (numString.length() - 2));
-                }
-                return numString;
 
             case "tr":
-                if (num < 10) {
-                    numString = UnitsString[num];
+                if (units != 0) {
+                    numString = TensStringH[tens] + " " + UnitsString[units];
                     return numString;
+                } else {
+                    numString = TensStringH[tens];
                 }
-                numString = TensString[tens] + UnitsString[units];
-                return numString;
         }
         return numString;
     }
