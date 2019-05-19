@@ -166,4 +166,5 @@ interface IStatusBarService
      * SuperiorOS
      */
     void toggleCameraFlash();
+    void toggleCameraFlashState(boolean enable);
 }

@@ -289,4 +289,6 @@ oneway interface IStatusBar
      * SuperiorOS
      */
     void toggleCameraFlash();
+    void toggleCameraFlashState(boolean enable);
+
 }
