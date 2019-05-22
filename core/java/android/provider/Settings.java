@@ -5441,18 +5441,12 @@ public final class Settings {
          * @hide
          */
         public static final String RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
-		
-        /**
-         * Select alignment for text clock on lockscreen
-         * @hide
-         */
-        public static final String LOCKSCREEN_TEXT_CLOCK_ALIGN = "lockscreen_text_clock_align";
-		
+
         /**
          * @hide
          */
         public static final String ROAMING_INDICATOR_ICON = "roaming_indicator_icon";
-		
+
         /**
          * Disable expanding quick settings on secure lock screens
          *
