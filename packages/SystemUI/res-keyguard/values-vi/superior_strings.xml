@@ -16,5 +16,5 @@
      output, insert an eat-comment element after the comment lines.
 -->
 <resources>
-  <string name="custom_text_clock_top_text_default">Je</string>
+  <string name="custom_text_clock_top_text_default">Bây giờ là</string>
 </resources>
