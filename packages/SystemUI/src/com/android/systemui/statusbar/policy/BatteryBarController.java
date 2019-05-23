@@ -14,8 +14,11 @@ import android.provider.Settings;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
+import android.view.Surface;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.LinearLayout;
 
 public class BatteryBarController extends LinearLayout {
@@ -29,6 +32,10 @@ public class BatteryBarController extends LinearLayout {
     public static final int STYLE_SYMMETRIC = 1;
     public static final int STYLE_REVERSE = 2;
 
+    // vertical navbar positions
+    public static final int POSITION_NAVBAR_TOP = 2;
+    public static final int POSITION_NAVBAR_BOTTOM = 3;
+
     int mStyle = STYLE_REGULAR;
     int mLocation = 0;
 
@@ -40,6 +47,7 @@ public class BatteryBarController extends LinearLayout {
 
     boolean isAttached = false;
     boolean isVertical = false;
+    boolean mIsLeftInLandscape = false;
 
     class SettingsObserver extends ContentObserver {
 
@@ -77,6 +85,7 @@ public class BatteryBarController extends LinearLayout {
         super.onAttachedToWindow();
         if (!isAttached) {
             isVertical = (getLayoutParams().height == LayoutParams.MATCH_PARENT);
+            mIsLeftInLandscape = isLeftInLandscape();
 
             isAttached = true;
             IntentFilter filter = new IntentFilter();
@@ -114,13 +123,14 @@ public class BatteryBarController extends LinearLayout {
     @Override
     protected void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
+        mIsLeftInLandscape = isLeftInLandscape();
         if (isAttached) {
             getHandler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     updateSettings();
                 }
-            }, 500);
+            }, 150);
 
         }
     }
@@ -197,6 +207,18 @@ public class BatteryBarController extends LinearLayout {
     }
 
     protected boolean isLocationValid(int location) {
-        return mLocationToLookFor == location;
+        if (isVertical && mIsLeftInLandscape) {
+            return (location == POSITION_NAVBAR_TOP && mLocationToLookFor == POSITION_NAVBAR_BOTTOM)
+                    || (location == POSITION_NAVBAR_BOTTOM && mLocationToLookFor == POSITION_NAVBAR_TOP);
+        } else {
+            return mLocationToLookFor == location;
+        }
+    }
+
+    private boolean isLeftInLandscape() {
+        Display display = ((WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE))
+                .getDefaultDisplay();
+        int orientation = display.getRotation();
+        return orientation == Surface.ROTATION_270;
     }
 }
