@@ -36,5 +36,8 @@
     <color name="clock_gradient_general_gradient_end">@*android:color/bootleg_accent_gradient_end_color</color>
     <color name="clock_gradient_general_dark_overlay">@*android:color/background_material_dark</color>
     <color name="clock_gradient_full_clock_text_color">@*android:color/background_material_dark</color>
+	
+    <!-- Album Art Filters -->
+    <color name="tinted_ls_art">@*android:color/accent_device_default_light</color>
 
 </resources>

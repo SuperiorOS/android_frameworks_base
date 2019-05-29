@@ -149,11 +149,11 @@ import com.android.internal.statusbar.NotificationVisibility;
 import com.android.internal.statusbar.StatusBarIcon;
 import com.android.internal.util.hwkeys.ActionConstants;
 import com.android.internal.util.hwkeys.ActionUtils;
-import com.android.internal.util.hwkeys.ImageHelper;
 import com.android.internal.util.hwkeys.PackageMonitor;
 import com.android.internal.util.hwkeys.PackageMonitor.PackageChangedListener;
 import com.android.internal.util.hwkeys.PackageMonitor.PackageState;
 import com.android.internal.util.superior.SuperiorUtils;
+import com.android.internal.util.superior.ImageHelper;
 import com.android.internal.utils.SmartPackageMonitor;
 import com.android.internal.widget.LockPatternUtils;
 import com.android.internal.widget.MessagingGroup;
@@ -428,7 +428,6 @@ public class StatusBar extends SystemUI implements DemoMode,
     protected FingerprintUnlockController mFingerprintUnlockController;
     private LightBarController mLightBarController;
     protected LockscreenWallpaper mLockscreenWallpaper;
-    private int mAlbumArtFilter;
 
     private BurnInProtectionController mBurnInProtectionController;
 
@@ -444,6 +443,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     private DozeServiceHost mDozeServiceHost = new DozeServiceHost();
     private boolean mWakeUpComingFromTouch;
     private PointF mWakeUpTouchLocation;
+
+    private int mAlbumArtFilter;
 
     private final Object mQueueLock = new Object();
 
@@ -757,7 +758,6 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     }
     private OmniSettingsObserver mOmniSettingsObserver;
-    private boolean mLockscreenMediaMetadata;
 
     @Override
     public void start() {
@@ -1896,7 +1896,8 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
 
         Drawable artworkDrawable = null;
-        if (mediaMetadata != null && mLockscreenMediaMetadata) {
+        if (mediaMetadata != null && (Settings.System.getIntForUser(mContext.getContentResolver(),
+            Settings.System.LOCKSCREEN_MEDIA_METADATA, 1, UserHandle.USER_CURRENT) == 1)) {
             Bitmap artworkBitmap = mediaMetadata.getBitmap(MediaMetadata.METADATA_KEY_ART);
             if (artworkBitmap == null) {
                 artworkBitmap = mediaMetadata.getBitmap(MediaMetadata.METADATA_KEY_ALBUM_ART);
@@ -1909,7 +1910,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                         break;
                     case 2:
                         Drawable aw = new BitmapDrawable(mBackdropBack.getResources(), artworkBitmap);
-                        artworkDrawable = new BitmapDrawable(ImageHelper.getColoredBitmap(aw, mContext.getResources().getColor(R.color.sammy_minutes_accent)));
+                        artworkDrawable = new BitmapDrawable(ImageHelper.getColoredBitmap(aw, mContext.getResources().getColor(R.color.tinted_ls_art)));
                         break;
                     case 3:
                         artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(), ImageHelper.getBlurredImage(mContext, artworkBitmap, 10.0f));
@@ -5222,11 +5223,10 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.SYSTEM_UI_THEME),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.HEADS_UP_STOPLIST_VALUES), false, this);
+                    Settings.System.HEADS_UP_STOPLIST_VALUES),
+                    false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.HEADS_UP_BLACKLIST_VALUES), false, this);
-            resolver.registerContentObserver(Settings.System.getUriFor(
-                    Settings.System.LOCKSCREEN_MEDIA_METADATA),
+                    Settings.System.HEADS_UP_BLACKLIST_VALUES),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL),
@@ -5238,7 +5238,8 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.SCREEN_BRIGHTNESS_MODE),
                     false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.Secure.getUriFor(
-                    Settings.Secure.DOZE_ENABLED), false, this);
+                    Settings.Secure.DOZE_ENABLED),
+                    false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_HEADER_STYLE),
                     false, this, UserHandle.USER_ALL);
@@ -5269,7 +5270,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                   Settings.System.LOCKSCREEN_ALBUM_ART_FILTER),
                   false, this, UserHandle.USER_ALL);
-	    }
+        }
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
@@ -5318,8 +5319,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.DISPLAY_CUTOUT_MODE)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.STOCK_STATUSBAR_IN_HIDE))) {
                 handleCutout(null);
-            } else if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.LOCKSCREEN_ALBUM_ART_FILTER))) {
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.LOCKSCREEN_ALBUM_ART_FILTER))) {
                 updateLockscreenFilter();
             }
 
@@ -5333,10 +5333,9 @@ public class StatusBar extends SystemUI implements DemoMode,
          public void update() {
             setLockscreenDoubleTapToSleep();
             setQsRowsColumns();
-	        updateTheme();
+            updateTheme();
             setHeadsUpStoplist();
             setHeadsUpBlacklist();
-            setLockscreenMediaMetadata();
             setBrightnessSlider();
             setFpToDismissNotifications();
             setUseLessBoringHeadsUp();
@@ -5400,11 +5399,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         splitAndAddToArrayList(mBlacklist, blackString, "\\|");
     }
 
-    private void setLockscreenMediaMetadata() {
-        mLockscreenMediaMetadata = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.LOCKSCREEN_MEDIA_METADATA, 0, UserHandle.USER_CURRENT) == 1;
-    }
-
     private void updateKeyguardStatusSettings() {
         mNotificationPanel.updateKeyguardStatusSettings();
     }
@@ -5448,7 +5442,13 @@ public class StatusBar extends SystemUI implements DemoMode,
                 Settings.System.LESS_BORING_HEADS_UP, 1,
                 UserHandle.USER_CURRENT) == 1;
         mEntryManager.setUseLessBoringHeadsUp(lessBoringHeadsUp);
-    }
+      }
+
+    private void updateLockscreenFilter() {
+        mAlbumArtFilter = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCKSCREEN_ALBUM_ART_FILTER, 0,
+                UserHandle.USER_CURRENT);
+      }
 
     // Switches qs tile style to user selected.
     public static void updateNewTileStyle(IOverlayManager om, int userId, int qsTileStyle) {
@@ -5476,12 +5476,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                 e.printStackTrace();
             }
         }
-    }
-
-    private void updateLockscreenFilter() {
-        mAlbumArtFilter = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.LOCKSCREEN_ALBUM_ART_FILTER, 0,
-                UserHandle.USER_CURRENT);
     }
 
     public int getWakefulnessState() {
