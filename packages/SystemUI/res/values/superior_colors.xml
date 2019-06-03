@@ -56,6 +56,7 @@
     <color name="quick_settings_theme_tile_qpurple">#B39DDB</color>
     <color name="quick_settings_theme_tile_qgreen">#1B873B</color>
     <color name="quick_settings_theme_tile_oneplusred">#ea0024</color>
+    <color name="quick_settings_theme_tile_pixel">#1a73e8</color>
 
     <!-- Quicksettings main QS background-->
     <color name="quick_settings_status_bar_background_color">#ff000000</color>
