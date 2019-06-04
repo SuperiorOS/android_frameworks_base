@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /**
- * Copyright (C) 2019 Havoc-OS
+ * Copyright (C) 2019 Superior OS
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
 
     <string-array translatable="true" name="TensString">
         <item></item>
-        <item></item>
+        <item>On</item>
         <item>Yirmi</item>
         <item>Otuz</item>
         <item>Kırk</item>
@@ -29,26 +29,26 @@
     </string-array>
 
     <string-array translatable="true" name="UnitsString">
-        <item>Saat</item>          
-        <item>Bir</item>          
-        <item>İki</item>    
-        <item>Üç</item>    
-        <item>Dört</item>     
-        <item>Beş</item>     
-        <item>Altı</item>
-        <item>Yedi</item>
-        <item>Sekiz</item>
-        <item>Dokuz</item>
+        <item>"Saat"</item>
+        <item>"Sıfır'Bir"</item>
+        <item>"Sıfır'İki"</item>
+        <item>"Sıfır'Üç"</item>
+        <item>"Sıfır'Dört"</item>
+        <item>"Sıfır'Beş"</item>
+        <item>"Sıfır'Altı"</item>
+        <item>"Sıfır'Yedi"</item>
+        <item>"Sıfır'Sekiz"</item>
+        <item>"Sıfır'Dokuz"</item>
         <item>On</item>
-        <item>On Bir</item>
-        <item>On İki</item>
-        <item>On Üç</item>
-        <item>On Dört</item>
-        <item>On Beş</item>
-        <item>On Altı</item>
-        <item>On Yedi</item>
-        <item>On Sekiz</item>
-        <item>On Dokuz</item>
+        <item>On bir</item>
+        <item>On iki</item>
+        <item>On üç</item>
+        <item>On dört</item>
+        <item>On beş</item>
+        <item>On altı</item>
+        <item>On yedi</item>
+        <item>On sekiz</item>
+        <item>On dokuz</item>
     </string-array>
 
     <string-array translatable="true" name="TensStringH">
@@ -62,26 +62,26 @@
     </string-array>
 
     <string-array translatable="true" name="UnitsStringH">
-        <item>On İki</item>
-        <item>Bir</item>          
-        <item>İki</item>    
-        <item>Üç</item>    
-        <item>Dört</item>     
-        <item>Beş</item>     
+        <item>On iki</item>
+        <item>Bir</item>
+        <item>İki</item>
+        <item>Üç</item>
+        <item>Dört</item>
+        <item>Beş</item>
         <item>Altı</item>
         <item>Yedi</item>
         <item>Sekiz</item>
         <item>Dokuz</item>
         <item>On</item>
-        <item>On Bir</item>
-        <item>On İki</item>
-        <item>On Üç</item>
-        <item>On Dört</item>
-        <item>On Beş</item>
-        <item>On Altı</item>
-        <item>On Yedi</item>
-        <item>On Sekiz</item>
-        <item>On Dokuz</item>
+        <item>On bir</item>
+        <item>On iki</item>
+        <item>On üç</item>
+        <item>On dört</item>
+        <item>On beş</item>
+        <item>On altı</item>
+        <item>On yedi</item>
+        <item>On sekiz</item>
+        <item>On dokuz</item>
     </string-array>
 
 </resources>
