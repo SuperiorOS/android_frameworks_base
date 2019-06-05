@@ -2491,18 +2491,23 @@ public class StatusBar extends SystemUI implements DemoMode,
         // Resource IDs for framework properties
         int resourceIdRadius = res.getIdentifier("com.android.systemui:dimen/rounded_corner_radius", null, null);
         int resourceIdPadding = res.getIdentifier("com.android.systemui:dimen/rounded_corner_content_padding", null, null);
+	int resourceIdSBPadding = res.getIdentifier("com.android.systemui:dimen/status_bar_extra_padding", null, null);
 
         // Values on framework resources
         int cornerRadiusRes = (int) (res.getDimension(resourceIdRadius) / density);
         int contentPaddingRes = (int) (res.getDimension(resourceIdPadding) / density);
+	int sbPaddingRes = (int) (resourceIdSBPadding / density);
 
         // Values in Settings DBs
-        int cornerRadius = Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.SYSUI_ROUNDED_SIZE, cornerRadiusRes);
-        int contentPadding = Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.SYSUI_ROUNDED_CONTENT_PADDING, contentPaddingRes);
+        int cornerRadius = Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                Settings.Secure.SYSUI_ROUNDED_SIZE, cornerRadiusRes, UserHandle.USER_CURRENT);
+        int contentPadding = Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                Settings.Secure.SYSUI_ROUNDED_CONTENT_PADDING, contentPaddingRes, UserHandle.USER_CURRENT);
+        int sbPadding = Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                Settings.Secure.SYSUI_STATUS_BAR_PADDING, contentPaddingRes, UserHandle.USER_CURRENT);
 
-        return (cornerRadiusRes == cornerRadius) && (contentPaddingRes == contentPadding);
+        return (cornerRadiusRes == cornerRadius) && (contentPaddingRes == contentPadding) &&
+                (sbPaddingRes == sbPadding);
     }
 
     @Nullable
@@ -4568,6 +4573,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                 int resourceIdPadding = res.getIdentifier("com.android.systemui:dimen/rounded_corner_content_padding", null, null);
                 Settings.Secure.putInt(mContext.getContentResolver(),
                     Settings.Secure.SYSUI_ROUNDED_CONTENT_PADDING, (int) (res.getDimension(resourceIdPadding) / density));
+				int resourceIdSBPadding = res.getIdentifier("com.android.systemui:dimen/status_bar_extra_padding", null, null);
+	            Settings.Secure.putInt(mContext.getContentResolver(),
+                	Settings.Secure.SYSUI_STATUS_BAR_PADDING, (int) (res.getDimension(resourceIdSBPadding) / density));
             }
         }
     }
