@@ -3245,29 +3245,6 @@ public final class Settings {
         private static final Validator SCREEN_BRIGHTNESS_MODE_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
-<<<<<<< HEAD
-=======
-         * Save the user defined brightness state
-         */
-        public static final String GAMING_SCREEN_BRIGHTNESS_MODE = "gaming_screen_brightness_mode";
-
-        /**
-         * Save the current user ringer mode
-         */
-        public static final String GAMING_RINGER_STATE = "gaming_ringer_state";
-
-        /**
-         * Save the current user zend mode
-         */
-        public static final String GAMING_MODE_ZEN_STATE = "gaming_mode_zen_state";
-
-        /**
-         * Save the user defined media volume for restoring it later
-         */
-        public static final String GAMING_MEDIA_VOLUME = "gaming_media_volume";
-
-        /**
->>>>>>> 2772f3bec41... GamingMode: add more ringer modes [1/2]
          * Adjustment to auto-brightness to make it generally more (>0.0 <1.0)
          * or less (<0.0 >-1.0) bright.
          * @hide
@@ -5386,7 +5363,6 @@ public final class Settings {
         private static final Validator SLIM_RECENTS_CORNER_RADIUS_VALIDATOR = NON_NEGATIVE_INTEGER_VALIDATOR;
 
         /**
-<<<<<<< HEAD
          * Apps to blacklist in Slim Recents
          * @hide
          */
@@ -5394,13 +5370,6 @@ public final class Settings {
 
         /** @hide */
         private static final Validator SLIM_RECENTS_BLACKLIST_VALUES_VALIDATOR = ANY_STRING_VALIDATOR;
-=======
-         * Ringer in gaming mode (0:OFF, 1:Vibrate, 2:DND, 3:Silent)
-         *
-         * @hide
-         */
-        public static final String GAMING_MODE_RINGER_MODE = "gaming_mode_ringer_mode";
->>>>>>> 2772f3bec41... GamingMode: add more ringer modes [1/2]
 
         /**
          * Whether the phone ringtone should be played in an increasing manner
@@ -5680,11 +5649,6 @@ public final class Settings {
          * Save the current user ringer mode
          */
         public static final String GAMING_RINGER_STATE = "gaming_ringer_state";
-
-        /**
-         * Save the user defined media volume for restoring it later
-         */
-        public static final String GAMING_MEDIA_VOLUME = "gaming_media_volume";
 		
         /**
          * Whether to enable gaming mode or not
@@ -5724,11 +5688,11 @@ public final class Settings {
         public static final String GAMING_MODE_RINGER_MODE = "gaming_mode_ringer_mode";
 
         /**
-         * Whether to maximize media volume in gaming mode
+         * Whether to show notifications/toasts (0:OFF, 1:notifications, 2:toasts, 3: all
          *
          * @hide
          */
-        public static final String GAMING_MODE_MAXIMIZE_MEDIA_TOGGLE = "gaming_mode_maximize_media_toggle";
+        public static final String GAMING_MODE_NOTIFICATIONS = "gaming_mode_notifications";
 
         /**
          * Whether to lock brightness in gaming mode

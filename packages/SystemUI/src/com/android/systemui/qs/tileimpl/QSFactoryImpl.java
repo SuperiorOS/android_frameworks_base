@@ -43,7 +43,6 @@ import com.android.systemui.qs.tiles.CalendarTile;
 import com.android.systemui.qs.tiles.ExpandedDesktopTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
-import com.android.systemui.qs.tiles.GamingModeTile;
 import com.android.systemui.qs.tiles.FontTile;
 import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.HWKeysTile;
@@ -160,8 +159,6 @@ public class QSFactoryImpl implements QSFactory {
                 return new MusicTile(mHost);
             case "sleepscreen":
                 return new SleepScreenTile(mHost);
-            case "gaming":
-                return new GamingModeTile(mHost);
             case "livedisplay":
                 return new LiveDisplayTile(mHost);
             case "reading_mode":
