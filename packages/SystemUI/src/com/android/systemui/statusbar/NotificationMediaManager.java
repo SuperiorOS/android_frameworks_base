@@ -79,9 +79,6 @@ public class NotificationMediaManager implements Dumpable {
                     mPresenter.updateMediaMetaData(true, true);
                 }
                 setMediaPlaying();
-                if (mListener != null) {
-                    setMediaPlaying();
-                }
             }
             if (mListener != null) {
                 mListener.onMediaUpdated(isPlaybackActive(state.getState()));
