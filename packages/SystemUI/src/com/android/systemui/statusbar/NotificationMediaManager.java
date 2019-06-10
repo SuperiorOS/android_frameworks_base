@@ -63,7 +63,6 @@ public class NotificationMediaManager implements Dumpable {
     public interface MediaUpdateListener {
         public void onMediaUpdated(boolean playing);
         public void setPulseColors(boolean isColorizedMEdia, int[] colors);
-        public void onMediaUpdated(boolean playing);
     }
 
     private final MediaController.Callback mMediaListener = new MediaController.Callback() {
