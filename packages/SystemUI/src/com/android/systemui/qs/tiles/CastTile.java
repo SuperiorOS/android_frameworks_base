@@ -24,6 +24,7 @@ import android.content.Intent;
 import android.media.MediaRouter.RouteInfo;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.SystemProperties;
 import android.provider.Settings;
 import android.service.quicksettings.Tile;
 import android.util.Log;
@@ -80,6 +81,7 @@ public class CastTile extends QSTileImpl<BooleanState> {
     private final Callback mCallback = new Callback();
     private boolean mWifiConnected;
     private boolean mHotspotConnected;
+    private static final String WFD_ENABLE = "persist.debug.wfd.enable";
 
     @Inject
     public CastTile(
@@ -112,7 +114,6 @@ public class CastTile extends QSTileImpl<BooleanState> {
     @Override
     public BooleanState newTileState() {
         BooleanState state = new BooleanState();
-        state.handlesLongClick = false;
         return state;
     }
 
@@ -133,12 +134,7 @@ public class CastTile extends QSTileImpl<BooleanState> {
 
     @Override
     public Intent getLongClickIntent() {
-        return new Intent(Settings.ACTION_CAST_SETTINGS);
-    }
-
-    @Override
-    protected void handleLongClick(@Nullable View view) {
-        handleClick(view);
+        return CAST_SETTINGS;
     }
 
     @Override
@@ -207,7 +203,7 @@ public class CastTile extends QSTileImpl<BooleanState> {
                         }
 
                         mActivityStarter
-                                .postStartActivityDismissingKeyguard(getLongClickIntent(), 0,
+                                .postStartActivityDismissingKeyguard(CAST_SETTINGS, 0,
                                         controller);
                     }, R.style.Theme_SystemUI_Dialog_Cast, false /* showProgressBarWhenEmpty */);
             holder.init(dialog);
@@ -295,13 +291,19 @@ public class CastTile extends QSTileImpl<BooleanState> {
                 @Override
                 public void setWifiIndicators(@NonNull WifiIndicators indicators) {
                     // statusIcon.visible has the connected status information
-                    boolean enabledAndConnected = indicators.enabled
-                            && (indicators.qsIcon == null ? false : indicators.qsIcon.visible);
-                    if (enabledAndConnected != mWifiConnected) {
-                        mWifiConnected = enabledAndConnected;
-                        // Hotspot is not connected, so changes here should update
-                        if (!mHotspotConnected) {
+                    if(SystemProperties.getBoolean(WFD_ENABLE, false)) {
+                        if(indicators.enabled != mWifiConnected) {
+                            mWifiConnected = indicators.enabled;
                             refreshState();
+                        }
+                    } else {
+                        boolean enabledAndConnected = indicators.enabled && indicators.qsIcon.visible;
+                        if (enabledAndConnected != mWifiConnected) {
+                            mWifiConnected = enabledAndConnected;
+                            // Hotspot is not connected, so changes here should update
+                            if (!mHotspotConnected) {
+                                refreshState();
+                            }
                         }
                     }
                 }
