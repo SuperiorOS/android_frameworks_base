@@ -64,6 +64,7 @@ public class GamingModeController {
     NotificationManager mNotificationManager;
     PackageManager pm;
     private boolean gamingEnabled;
+    private boolean gamingModeMaster;
     private boolean isDynamicGamingMode;
     private Toast toast;
     private String mGamingPackageList;
@@ -77,6 +78,9 @@ public class GamingModeController {
         mUiContext = ActivityThread.currentActivityThread().getSystemUiContext();
         mAudioManager = (AudioManager) mContext.getSystemService(Context.AUDIO_SERVICE);
         mNotificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        gamingModeMaster = Settings.System.getInt(mContext.getContentResolver(),
+                            Settings.System.GAMING_MODE_MASTER_SWITCH, 1) == 1;
 
         isDynamicGamingMode = Settings.System.getInt(mContext.getContentResolver(),
                                Settings.System.GAMING_MODE_DYNAMIC_STATE, 1) == 1;
@@ -118,6 +122,10 @@ public class GamingModeController {
 
     private boolean isGameApp(String packageName) {
         return (mGameApp.contains(packageName));
+    }
+
+    public boolean gamingModeMaster() {
+        return gamingModeMaster;
     }
 
     public void notePackageUninstalled(String pkgName) {
@@ -360,6 +368,10 @@ public class GamingModeController {
             ContentResolver resolver = mContext.getContentResolver();
 
             resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.GAMING_MODE_MASTER_SWITCH), false, this,
+                    UserHandle.USER_ALL);
+
+            resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.ENABLE_GAMING_MODE), false, this,
                     UserHandle.USER_ALL);
 
@@ -384,6 +396,10 @@ public class GamingModeController {
                                    Settings.System.GAMING_MODE_DYNAMIC_STATE))) {
                 isDynamicGamingMode = Settings.System.getInt(mContext.getContentResolver(),
                                        Settings.System.GAMING_MODE_DYNAMIC_STATE, 1) == 1;
+            } else if (uri.equals(Settings.System.getUriFor(
+                                   Settings.System.GAMING_MODE_MASTER_SWITCH))) {
+                gamingModeMaster = Settings.System.getInt(mContext.getContentResolver(),
+                                       Settings.System.GAMING_MODE_MASTER_SWITCH, 1) == 1;
             }
         }
 

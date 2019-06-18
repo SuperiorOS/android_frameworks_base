@@ -5335,6 +5335,14 @@ public final class Settings {
         /** @hide */
         private static final Validator SLIM_RECENTS_ICON_PACK_VALIDATOR = ANY_STRING_VALIDATOR;
 
+
+        /**
+         * Gaming Mode master switch
+         *
+         * @hide
+         */
+        public static final String GAMING_MODE_MASTER_SWITCH = "gaming_mode_master_switch";
+
         /**
          * Slim Recents MemBar Color
          * @hide
