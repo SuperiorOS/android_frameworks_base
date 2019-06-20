@@ -490,15 +490,8 @@ public class Canvas extends BaseCanvas {
     /**
      * @hide
      */
-    public long tempSaveUnclippedLayer(int left, int top, int right, int bottom) {
-        return nSaveUnclippedLayer(mNativeCanvasWrapper, left, top, right, bottom);
-    }
-
-    /**
-     * @hide
-     */
-    public void restoreUnclippedLayer(long savePtr) {
-        nRestoreUnclippedLayer(mNativeCanvasWrapper, savePtr);
+    public int saveUnclippedLayer(int left, int top, int right, int bottom) {
+        return nSaveLayer(mNativeCanvasWrapper, left, top, right, bottom, 0, 0);
     }
 
     /**
@@ -1339,11 +1332,6 @@ public class Canvas extends BaseCanvas {
     private static native void nRestoreToCount(long canvasHandle, int saveCount);
     @CriticalNative
     private static native int nGetSaveCount(long canvasHandle);
-
-    @CriticalNative
-    private static native long nSaveUnclippedLayer(long nativeCanvas, int l, int t, int r, int b);
-    @CriticalNative
-    private static native void nRestoreUnclippedLayer(long nativeCanvas, long savePtr);
 
     @CriticalNative
     private static native void nTranslate(long canvasHandle, float dx, float dy);
