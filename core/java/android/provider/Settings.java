@@ -4419,13 +4419,6 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
-         * Whether to enable gaming mode or not
-         *
-         * @hide
-         */
-        public static final String ENABLE_GAMING_MODE = "enable_gaming_mode";
-
-        /**
          * Whether to display the reboot option in the power menu
          *
          * @hide
