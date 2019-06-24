@@ -121,20 +121,80 @@
     <family name="samsung-sys">
 	<font weight="300" style="normal">Shamshung.ttf</font>
     </family>
-    <family name="abcthru-sys">
-	<font weight="300" style="normal">ABCThru.ttf</font>
+    <family name="themeable-clock">
+        <font weight="300" style="normal">ThemeableClock-vcrosd.ttf</font>
+    </family>
+    <family name="abelreg">
+        <font weight="300" style="normal">Abel-Regular.ttf</font>
+    </family>
+    <family name="alien-league">
+        <font weight="300" style="normal">AlienLeague-Regular.ttf</font>
+    </family>
+    <family name="bignoodle-italic">
+        <font weight="300" style="normal">BigNoodleTilting-Italic.ttf</font>
+    </family>
+    <family name="bignoodle-regular">
+        <font weight="300" style="normal">BigNoodleTilting-Regular.ttf</font>
+    </family>
+    <family name="biko">
+        <font weight="300" style="normal">Biko-Regular.ttf</font>
+    </family>
+    <family name="blern">
+        <font weight="300" style="normal">Blern-Regular.ttf</font>
+    </family>
+    <family name="ginora-sans">
+        <font weight="300" style="normal">GinoraSans-Regular.ttf</font>
+    </family>
+    <family name="inkferno">
+        <font weight="300" style="normal">Inkferno-Regular.ttf</font>
+    </family>
+    <family name="metropolis1920">
+        <font weight="300" style="normal">Metropolis1920-Regular.ttf</font>
+    </family>
+    <family name="neonneon">
+        <font weight="300" style="normal">Neoneon-Regular.ttf</font>
+    </family>
+    <family name="riviera">
+        <font weight="300" style="normal">Riviera-Regular.ttf</font>
+    </family>
+    <family name="unionfont">
+        <font weight="300" style="normal">Union-Regular.ttf</font>
+    </family>
+    <family name="adventpro">
+        <font weight="300" style="normal">AdventPro-Regular.ttf</font>
+    </family>
+    <family name="cherryswash">
+        <font weight="300" style="normal">CherrySwash-Regular.ttf</font>
+    </family>
+    <family name="codystar">
+        <font weight="300" style="normal">Codystar.ttf</font>
+    </family>
+    <family name="jura-reg">
+        <font weight="300" style="normal">Jura-Regular.ttf</font>
+    </family>
+    <family name="kellyslab">
+        <font weight="300" style="normal">KellySlab-Regular.ttf</font>
+    </family>
+    <family name="pompiere">
+        <font weight="300" style="normal">Pompiere-Regular.ttf</font>
+    </family>
+    <family name="reemkufi">
+        <font weight="300" style="normal">ReemKufi-Regular.ttf</font>
+    </family>
+    <family name="sedgwick-ave">
+        <font weight="300" style="normal">SedgwickAveDisplay-Regular.ttf</font>
+    </family>
+    <family name="vibur">
+        <font weight="300" style="normal">Vibur.ttf</font>
+    </family>
+    <family name="voltaire">
+        <font weight="300" style="normal">Voltaire.ttf</font>
     </family>
     <family name="anurati-sys">
-	<font weight="300" style="normal">anurati_regular.ttf</font>
+        <font weight="300" style="normal">anurati_regular.ttf</font>
     </family>
     <family name="joostmillionaire-sys">
-	<font weight="300" style="normal">JoostAMillionaireNF.ttf</font>
-    </family>
-    <family name="locust-sys">
-	<font weight="300" style="normal">Locust_Resistance.ttf</font>
-    </family>
-    <family name="wallpoet-sys">
-	<font weight="300" style="normal">Wallpoet_regular.ttf</font>
+        <font weight="300" style="normal">JoostAMillionaireNF.ttf</font>
     </family>
 
     <!-- fallback fonts -->

@@ -108,42 +108,45 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
 
     private int mClockFontStyle = FONT_NORMAL;
     public static final int FONT_NORMAL = 0;
-    public static final int FONT_ITALIC = 1;
-    public static final int FONT_BOLD = 2;
+    public static final int FONT_BOLD = 1;
+    public static final int FONT_ITALIC = 2;
     public static final int FONT_BOLD_ITALIC = 3;
-    public static final int FONT_LIGHT = 4;
-    public static final int FONT_LIGHT_ITALIC = 5;
-    public static final int FONT_THIN = 6;
-    public static final int FONT_THIN_ITALIC = 7;
-    public static final int FONT_CONDENSED = 8;
-    public static final int FONT_CONDENSED_ITALIC = 9;
-    public static final int FONT_CONDENSED_LIGHT = 10;
-    public static final int FONT_CONDENSED_LIGHT_ITALIC = 11;
-    public static final int FONT_CONDENSED_BOLD = 12;
-    public static final int FONT_CONDENSED_BOLD_ITALIC = 13;
-    public static final int FONT_MEDIUM = 14;
-    public static final int FONT_MEDIUM_ITALIC = 15;
-    public static final int FONT_BLACK = 16;
-    public static final int FONT_BLACK_ITALIC = 17;
-    public static final int FONT_DANCINGSCRIPT = 18;
-    public static final int FONT_DANCINGSCRIPT_BOLD = 19;
-    public static final int FONT_COMINGSOON = 20;
-    public static final int FONT_NOTOSERIF = 21;
-    public static final int FONT_NOTOSERIF_ITALIC = 22;
-    public static final int FONT_NOTOSERIF_BOLD = 23;
-    public static final int FONT_NOTOSERIF_BOLD_ITALIC = 24;
-    public static final int GOBOLD_LIGHT = 25;
-    public static final int ROADRAGE = 26;
-    public static final int SNOWSTORM = 27;
-    public static final int GOOGLESANS = 28;
-    public static final int NEONEON = 29;
-    public static final int THEMEABLE = 30;
-    public static final int SAMSUNG = 31;
-    public static final int ABCTHRU = 32;
-    public static final int ANURATI = 33;
-    public static final int JOOSTAMILLIONAIRE= 34;
-    public static final int LOCUST = 35;
-    public static final int WALLPOET = 36;
+    public static final int FONT_LIGHT_ITALIC = 4;
+    public static final int FONT_THIN_ITALIC = 5;
+    public static final int FONT_CONDENSED = 6;
+    public static final int FONT_CONDENSED_ITALIC = 7;
+    public static final int FONT_CONDENSED_BOLD = 8;
+    public static final int FONT_CONDENSED_BOLD_ITALIC = 9;
+    public static final int FONT_BLACK = 10;
+    public static final int FONT_BLACK_ITALIC = 11;
+    public static final int ABELREG = 12;
+    public static final int ADVENTPRO = 13;
+    public static final int ALIEN = 14;
+    public static final int BIGNOODLE = 15;
+    public static final int BIKO = 16;
+    public static final int BLERN = 17;
+    public static final int CHERRYSWASH = 18;
+    public static final int CODYSTAR = 19;
+    public static final int GINORA = 20;
+    public static final int GOBOLD = 21;
+    public static final int GOOGLESANS = 22;
+    public static final int INKFERN = 23;
+    public static final int JURA = 24;
+    public static final int KELLYSLAB = 25;
+    public static final int METROPOLIS1920 = 26;
+    public static final int NEONNEON = 27;
+    public static final int POMPIERE= 28;
+    public static final int REEMKUFI = 29;
+    public static final int RIVIERA = 30;
+    public static final int ROADRAGE = 31;
+    public static final int SEDGWICK = 32;
+    public static final int SNOWSTORM = 33;
+    public static final int THEMEABLE = 34;
+    public static final int UNION = 35;
+    public static final int VIBUR = 36;
+    public static final int VOLTAIRE = 37;
+    public static final int ANURATI = 38;
+    public static final int JUSTA = 39;
     public int DEFAULT_CLOCK_SIZE = 14;
     public int DEFAULT_CLOCK_COLOR = 0xffffffff;
 
@@ -697,23 +700,17 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
             default:
                 setTypeface(Typeface.create("sans-serif", Typeface.NORMAL));
                 break;
-            case FONT_ITALIC:
-                setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
-                break;
             case FONT_BOLD:
                 setTypeface(Typeface.create("sans-serif", Typeface.BOLD));
+                break;
+            case FONT_ITALIC:
+                setTypeface(Typeface.create("sans-serif", Typeface.ITALIC));
                 break;
             case FONT_BOLD_ITALIC:
                 setTypeface(Typeface.create("sans-serif", Typeface.BOLD_ITALIC));
                 break;
-            case FONT_LIGHT:
-                setTypeface(Typeface.create("sans-serif-light", Typeface.NORMAL));
-                break;
             case FONT_LIGHT_ITALIC:
                 setTypeface(Typeface.create("sans-serif-light", Typeface.ITALIC));
-                break;
-            case FONT_THIN:
-                setTypeface(Typeface.create("sans-serif-thin", Typeface.NORMAL));
                 break;
             case FONT_THIN_ITALIC:
                 setTypeface(Typeface.create("sans-serif-thin", Typeface.ITALIC));
@@ -724,87 +721,102 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
             case FONT_CONDENSED_ITALIC:
                 setTypeface(Typeface.create("sans-serif-condensed", Typeface.ITALIC));
                 break;
-            case FONT_CONDENSED_LIGHT:
-                setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.NORMAL));
-                break;
-            case FONT_CONDENSED_LIGHT_ITALIC:
-                setTypeface(Typeface.create("sans-serif-condensed-light", Typeface.ITALIC));
-                break;
             case FONT_CONDENSED_BOLD:
                 setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD));
                 break;
             case FONT_CONDENSED_BOLD_ITALIC:
                 setTypeface(Typeface.create("sans-serif-condensed", Typeface.BOLD_ITALIC));
                 break;
-            case FONT_MEDIUM:
+            case FONT_BLACK:
                 setTypeface(Typeface.create("sans-serif-medium", Typeface.NORMAL));
                 break;
-            case FONT_MEDIUM_ITALIC:
+            case FONT_BLACK_ITALIC:
                 setTypeface(Typeface.create("sans-serif-medium", Typeface.ITALIC));
                 break;
-            case FONT_BLACK:
-                setTypeface(Typeface.create("sans-serif-black", Typeface.NORMAL));
+            case ABELREG:
+                setTypeface(Typeface.create("abelreg", Typeface.NORMAL));
                 break;
-            case FONT_BLACK_ITALIC:
-                setTypeface(Typeface.create("sans-serif-black", Typeface.ITALIC));
+            case ADVENTPRO:
+                setTypeface(Typeface.create("adventpro", Typeface.NORMAL));
                 break;
-            case FONT_DANCINGSCRIPT:
-                setTypeface(Typeface.create("cursive", Typeface.NORMAL));
+            case ALIEN:
+                setTypeface(Typeface.create("alien-league", Typeface.NORMAL));
                 break;
-            case FONT_DANCINGSCRIPT_BOLD:
-                setTypeface(Typeface.create("cursive", Typeface.BOLD));
+            case BIGNOODLE:
+                setTypeface(Typeface.create("bignoodle-italic", Typeface.NORMAL));
                 break;
-            case FONT_COMINGSOON:
-                setTypeface(Typeface.create("casual", Typeface.NORMAL));
+            case BIKO:
+                setTypeface(Typeface.create("biko", Typeface.NORMAL));
                 break;
-            case FONT_NOTOSERIF:
-                setTypeface(Typeface.create("serif", Typeface.NORMAL));
+            case BLERN:
+                setTypeface(Typeface.create("blern", Typeface.NORMAL));
                 break;
-            case FONT_NOTOSERIF_ITALIC:
-                setTypeface(Typeface.create("serif", Typeface.ITALIC));
+            case CHERRYSWASH:
+                setTypeface(Typeface.create("cherryswash", Typeface.NORMAL));
                 break;
-            case FONT_NOTOSERIF_BOLD:
-                setTypeface(Typeface.create("serif", Typeface.BOLD));
+            case CODYSTAR:
+                setTypeface(Typeface.create("codystar", Typeface.NORMAL));
                 break;
-            case FONT_NOTOSERIF_BOLD_ITALIC:
-                setTypeface(Typeface.create("serif", Typeface.BOLD_ITALIC));
+            case GINORA:
+                setTypeface(Typeface.create("ginora-sans", Typeface.NORMAL));
                 break;
-            case GOBOLD_LIGHT:
+            case GOBOLD:
                 setTypeface(Typeface.create("gobold-light-sys", Typeface.NORMAL));
-                break;
-            case ROADRAGE:
-                setTypeface(Typeface.create("roadrage-sys", Typeface.NORMAL));
-                break;
-            case SNOWSTORM:
-                setTypeface(Typeface.create("snowstorm-sys", Typeface.NORMAL));
                 break;
             case GOOGLESANS:
                 setTypeface(Typeface.create("googlesans-sys", Typeface.NORMAL));
                 break;
-            case NEONEON:
-                setTypeface(Typeface.create("neoneon-sys", Typeface.NORMAL));
+            case INKFERN:
+                setTypeface(Typeface.create("inkferno", Typeface.NORMAL));
+                break;
+            case JURA:
+                setTypeface(Typeface.create("jura-reg", Typeface.NORMAL));
+                break;
+            case KELLYSLAB:
+                setTypeface(Typeface.create("kellyslab", Typeface.NORMAL));
+                break;
+            case METROPOLIS1920:
+                setTypeface(Typeface.create("metropolis1920", Typeface.NORMAL));
+                break;
+            case NEONNEON:
+                setTypeface(Typeface.create("neonneon", Typeface.NORMAL));
+                break;
+            case POMPIERE:
+                setTypeface(Typeface.create("pompiere", Typeface.NORMAL));
+                break;
+            case REEMKUFI:
+                setTypeface(Typeface.create("reemkufi", Typeface.NORMAL));
+                break;
+            case RIVIERA:
+                setTypeface(Typeface.create("riviera", Typeface.NORMAL));
+                break;
+            case ROADRAGE:
+                setTypeface(Typeface.create("roadrage-sys", Typeface.NORMAL));
+                break;
+            case SEDGWICK:
+                setTypeface(Typeface.create("sedgwick-ave", Typeface.NORMAL));
+                break;
+            case SNOWSTORM:
+                setTypeface(Typeface.create("snowstorm-sys", Typeface.NORMAL));
                 break;
             case THEMEABLE:
-                setTypeface(Typeface.create("themeable-sys", Typeface.NORMAL));
+                setTypeface(Typeface.create("themeable-clock", Typeface.NORMAL));
                 break;
-            case SAMSUNG:
-                setTypeface(Typeface.create("samsung-sys", Typeface.NORMAL));
+            case UNION:
+                setTypeface(Typeface.create("unionfont", Typeface.NORMAL));
                 break;
-            case ABCTHRU:
-                setTypeface(Typeface.create("abcthru-sys", Typeface.NORMAL));
+            case VIBUR:
+                setTypeface(Typeface.create("vibur", Typeface.NORMAL));
+                break;
+            case VOLTAIRE:
+                setTypeface(Typeface.create("voltaire", Typeface.NORMAL));
                 break;
             case ANURATI:
                 setTypeface(Typeface.create("anurati-sys", Typeface.NORMAL));
                 break;
-            case JOOSTAMILLIONAIRE:
+            case JUSTA:
                 setTypeface(Typeface.create("joostmillionaire-sys", Typeface.NORMAL));
-                break;
-            case LOCUST:
-                setTypeface(Typeface.create("locust-sys", Typeface.NORMAL));
-                break;
-            case WALLPOET:
-                setTypeface(Typeface.create("wallpoet-sys", Typeface.NORMAL));
-                break;				
+                break;			
         }
     }
 
