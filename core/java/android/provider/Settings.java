@@ -3245,6 +3245,11 @@ public final class Settings {
         private static final Validator SCREEN_BRIGHTNESS_MODE_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+         * Gaming mode active state - to disable via notification / tile
+         */
+        public static final String GAMING_MODE_ACTIVE = "gaming_mode_active";
+
+        /**
          * Adjustment to auto-brightness to make it generally more (>0.0 <1.0)
          * or less (<0.0 >-1.0) bright.
          * @hide
@@ -5281,6 +5286,7 @@ public final class Settings {
          *
          * @hide
          */
+<<<<<<< HEAD
         public static final String RECENT_APP_SIDEBAR_DISABLE_LABELS =
                 "recent_app_sidebar_disable_labels";
 
@@ -5296,6 +5302,9 @@ public final class Settings {
 
         /** @hide */
         private static final Validator RECENT_APP_SIDEBAR_BG_COLOR_VALIDATOR = ANY_INTEGER_VALIDATOR;
+=======
+        public static final String GAMING_MODE_ENABLED = "gaming_mode_enabled";
+>>>>>>> e26d7a47396... GamingMode: Clean up and refine [1/2]
 
         /**
          * Slim recent app sidebar text color
@@ -5340,8 +5349,14 @@ public final class Settings {
         private static final Validator SLIM_RECENTS_MEM_DISPLAY_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
+<<<<<<< HEAD
          * Use the membar in slim recents as clear all button on longclick
          *  @hide
+=======
+         * Whether to show notifications/toasts (0:OFF, 1:notifications, 2:toasts, 3: all)
+         *
+         * @hide
+>>>>>>> e26d7a47396... GamingMode: Clean up and refine [1/2]
          */
         public static final String SLIM_RECENTS_MEM_DISPLAY_LONG_CLICK_CLEAR =
                 "slim_recents_mem_display_long_click_clear";
@@ -5357,14 +5372,6 @@ public final class Settings {
 
         /** @hide */
         private static final Validator SLIM_RECENTS_ICON_PACK_VALIDATOR = ANY_STRING_VALIDATOR;
-
-
-        /**
-         * Gaming Mode master switch
-         *
-         * @hide
-         */
-        public static final String GAMING_MODE_MASTER_SWITCH = "gaming_mode_master_switch";
 
         /**
          * Slim Recents MemBar Color
@@ -5671,22 +5678,6 @@ public final class Settings {
          */
         public static final String BATTERY_BAR_USE_GRADIENT_COLOR = "battery_bar_use_gradient_color";
 		
-        /**
-         * Save the user defined brightness state
-         */
-        public static final String GAMING_SCREEN_BRIGHTNESS_MODE = "gaming_screen_brightness_mode";
-
-        /**
-         * Save the current user ringer mode
-         */
-        public static final String GAMING_RINGER_STATE = "gaming_ringer_state";
-		
-        /**
-         * Whether to enable gaming mode or not
-         *
-         * @hide
-         */
-        public static final String ENABLE_GAMING_MODE = "enable_gaming_mode";
 
         /**
          * Package name of apps for enabling Gaming mode
@@ -5746,13 +5737,7 @@ public final class Settings {
          * @hide
          */
         public static final String GAMING_MODE_DYNAMIC_STATE = "gaming_mode_dynamic_state";
-		
-        /**
-         * Save hardware buttons toggle state.
-         * @hide
-         */
-        public static final String GAMING_HARDWARE_KEYS_DISABLE = "gaming_hardware_keys_disable";
-		
+
         /**
          * Save user defined heads up toggle state.
          *
@@ -5760,11 +5745,6 @@ public final class Settings {
          */
         public static final String GAMING_HEADS_UP_NOTIFICATIONS_ENABLED =
                 "gaming_heads_up_notifications_enabled";
-				
-        /**
-         * Save the current user zend mode
-         */
-        public static final String GAMING_MODE_ZEN_STATE = "gaming_mode_zen_state";
 
         /**
          * Show Settings icon in QS Footer
@@ -9210,12 +9190,6 @@ public final class Settings {
          */
 
         public static final String SHOW_ROTATION_SUGGESTIONS = "show_rotation_suggestions";
-
-        /**
-         * Save hardware buttons toggle state.
-         * @hide
-         */
-        public static final String GAMING_HARDWARE_KEYS_DISABLE = "gaming_hardware_keys_disable";
 
         /**
          * The disabled state of SHOW_ROTATION_SUGGESTIONS.
@@ -14338,14 +14312,6 @@ public final class Settings {
          */
         public static final String HEADS_UP_NOTIFICATIONS_ENABLED =
                 "heads_up_notifications_enabled";
-
-        /**
-         * Save user defined heads up toggle state.
-         *
-         * @hide
-         */
-        public static final String GAMING_HEADS_UP_NOTIFICATIONS_ENABLED =
-                "gaming_heads_up_notifications_enabled";
 
         /** @hide */ public static final int HEADS_UP_OFF = 0;
         /** @hide */ public static final int HEADS_UP_ON = 1;

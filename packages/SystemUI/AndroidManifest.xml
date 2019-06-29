@@ -731,10 +731,19 @@
         <service android:name=".CPUInfoService"
                 android:exported="false" />
 
+<<<<<<< HEAD
         <receiver android:name=".BootReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+
+        <receiver android:name="com.android.systemui.superior.gamingmode.GamingModeReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.GAMING_MODE_TURN_OFF" />
+                <action android:name="android.intent.action.GAMING_MODE_TURN_ON" />
+            </intent-filter>
+        </receiver>
+
     </application>
 </manifest>
