@@ -331,6 +331,7 @@ import com.android.internal.util.MemInfoReader;
 import com.android.internal.util.Preconditions;
 import com.android.internal.util.function.QuadFunction;
 import com.android.internal.util.function.TriFunction;
+import com.android.internal.util.superior.GamingModeController;
 import com.android.server.AlarmManagerInternal;
 import com.android.server.AttributeCache;
 import com.android.server.DeviceIdleController;
@@ -1619,6 +1620,7 @@ public class ActivityManagerService extends IActivityManager.Stub
     private boolean mIsSwipeToScrenshotEnabled;
 
     private CutoutFullscreenController mCutoutFullscreenController;
+    private GamingModeController mGamingModeController;
 
     /**
      * Used to notify activity lifecycle events.
@@ -7679,6 +7681,9 @@ public class ActivityManagerService extends IActivityManager.Stub
 
         // Force full screen for devices with cutout
         mCutoutFullscreenController = new CutoutFullscreenController(mContext);
+
+        // Gaming mode provider
+        mGamingModeController = new GamingModeController(mContext);
     }
 
     void startPersistentApps(int matchFlags) {
@@ -15170,6 +15175,9 @@ public class ActivityManagerService extends IActivityManager.Stub
                                         mServices.forceStopPackageLocked(ssp, userId);
                                         mAtmInternal.onPackageUninstalled(ssp);
                                         mBatteryStatsService.notePackageUninstalled(ssp);
+                                        if (mGamingModeController != null) {
+                                             mGamingModeController.notePackageUninstalled(ssp);
+                                        }
                                     }
                                 } else {
                                     if (killProcess) {
@@ -16844,6 +16852,16 @@ public class ActivityManagerService extends IActivityManager.Stub
                 Binder.restoreCallingIdentity(identity);
             }
 
+            if (mCurResumedPackage != null && mGamingModeController != null && mGamingModeController.isGamingModeEnabled()) {
+                if (mGamingModeController.topAppChanged(mCurResumedPackage) && !mGamingModeController.isGamingModeActivated()) {
+                    Settings.System.putInt(mContext.getContentResolver(),
+                        Settings.System.GAMING_MODE_ACTIVE, 1);
+                } else if (!mGamingModeController.topAppChanged(mCurResumedPackage) && 
+                        mGamingModeController.isGamingModeActivated()) {
+                    Settings.System.putInt(mContext.getContentResolver(),
+                        Settings.System.GAMING_MODE_ACTIVE, 0);
+                }
+           }
         }
         return r;
     }
