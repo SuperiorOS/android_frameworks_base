@@ -5754,20 +5754,34 @@ public final class Settings {
          *
          * @hide
          */
-        public static final String QSFOOTER_SHOW_SETTINGS = "qs_footer_show_settings";
+        public static final String QS_FOOTER_SHOW_SETTINGS = "qs_footer_show_settings";
 
         /**
          * Show Running Services icon in QS Footer.
          *
          * @hide
          */
-        public static final String QSFOOTER_SHOW_SERVICES = "qs_footer_show_services";
+        public static final String QS_FOOTER_SHOW_SERVICES = "qs_footer_show_services";
 
         /**
          * Whether to show or hide the edit icon
          * @hide
          */
         public static final String QS_EDIT_TOGGLE = "qs_edit_toggle";
+
+        /**
+         * Show Edit icon in QS Footer.
+         *
+         * @hide
+         */
+        public static final String QS_FOOTER_SHOW_EDIT = "qs_footer_show_edit";
+
+        /**
+         * Show User switcher icon in QS Footer.
+         *
+         * @hide
+         */
+        public static final String QS_FOOTER_SHOW_USER = "qs_footer_show_user";
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
