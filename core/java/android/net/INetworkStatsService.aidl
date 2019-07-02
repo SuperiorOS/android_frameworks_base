@@ -19,13 +19,11 @@ package android.net;
 import android.net.DataUsageRequest;
 import android.net.INetworkStatsSession;
 import android.net.Network;
-import android.net.NetworkState;
 import android.net.NetworkStats;
 import android.net.NetworkStatsHistory;
 import android.net.NetworkTemplate;
 import android.os.IBinder;
 import android.os.Messenger;
-import com.android.internal.net.VpnInfo;
 
 /** {@hide} */
 interface INetworkStatsService {
@@ -60,11 +58,7 @@ interface INetworkStatsService {
     void incrementOperationCount(int uid, int tag, int operationCount);
 
     /** Force update of ifaces. */
-    void forceUpdateIfaces(
-         in Network[] defaultNetworks,
-         in VpnInfo[] vpnArray,
-         in NetworkState[] networkStates,
-         in String activeIface);
+    void forceUpdateIfaces(in Network[] defaultNetworks);
     /** Force update of statistics. */
     void forceUpdate();
 

@@ -108,7 +108,6 @@ import android.net.NetworkInfo.DetailedState;
 import android.net.NetworkMisc;
 import android.net.NetworkRequest;
 import android.net.NetworkSpecifier;
-import android.net.NetworkState;
 import android.net.NetworkUtils;
 import android.net.RouteInfo;
 import android.net.StringNetworkSpecifier;
@@ -137,7 +136,6 @@ import android.util.ArraySet;
 import android.util.Log;
 
 import com.android.internal.net.VpnConfig;
-import com.android.internal.net.VpnInfo;
 import com.android.internal.util.ArrayUtils;
 import com.android.internal.util.WakeupMessage;
 import com.android.internal.util.test.BroadcastInterceptingContext;
@@ -3810,91 +3808,48 @@ public class ConnectivityServiceTest {
         mCellNetworkAgent = new MockNetworkAgent(TRANSPORT_CELLULAR);
         mWiFiNetworkAgent = new MockNetworkAgent(TRANSPORT_WIFI);
 
-        Network[] onlyCell = new Network[] {mCellNetworkAgent.getNetwork()};
-        Network[] onlyWifi = new Network[] {mWiFiNetworkAgent.getNetwork()};
-
-        LinkProperties cellLp = new LinkProperties();
-        cellLp.setInterfaceName(MOBILE_IFNAME);
-        LinkProperties wifiLp = new LinkProperties();
-        wifiLp.setInterfaceName(WIFI_IFNAME);
+        Network[] onlyCell = new Network[]{mCellNetworkAgent.getNetwork()};
+        Network[] onlyWifi = new Network[]{mWiFiNetworkAgent.getNetwork()};
 
         // Simple connection should have updated ifaces
         mCellNetworkAgent.connect(false);
-        mCellNetworkAgent.sendLinkProperties(cellLp);
         waitForIdle();
-        verify(mStatsService, atLeastOnce())
-                .forceUpdateIfaces(
-                        eq(onlyCell),
-                        eq(new VpnInfo[0]),
-                        any(NetworkState[].class),
-                        eq(MOBILE_IFNAME));
+        verify(mStatsService, atLeastOnce()).forceUpdateIfaces(onlyCell);
         reset(mStatsService);
 
         // Default network switch should update ifaces.
         mWiFiNetworkAgent.connect(false);
-        mWiFiNetworkAgent.sendLinkProperties(wifiLp);
         waitForIdle();
-        assertEquals(wifiLp, mService.getActiveLinkProperties());
-        verify(mStatsService, atLeastOnce())
-                .forceUpdateIfaces(
-                        eq(onlyWifi),
-                        eq(new VpnInfo[0]),
-                        any(NetworkState[].class),
-                        eq(WIFI_IFNAME));
+        verify(mStatsService, atLeastOnce()).forceUpdateIfaces(onlyWifi);
         reset(mStatsService);
 
         // Disconnect should update ifaces.
         mWiFiNetworkAgent.disconnect();
         waitForIdle();
-        verify(mStatsService, atLeastOnce())
-                .forceUpdateIfaces(
-                        eq(onlyCell),
-                        eq(new VpnInfo[0]),
-                        any(NetworkState[].class),
-                        eq(MOBILE_IFNAME));
+        verify(mStatsService, atLeastOnce()).forceUpdateIfaces(onlyCell);
         reset(mStatsService);
 
         // Metered change should update ifaces
         mCellNetworkAgent.addCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED);
         waitForIdle();
-        verify(mStatsService, atLeastOnce())
-                .forceUpdateIfaces(
-                        eq(onlyCell),
-                        eq(new VpnInfo[0]),
-                        any(NetworkState[].class),
-                        eq(MOBILE_IFNAME));
+        verify(mStatsService, atLeastOnce()).forceUpdateIfaces(onlyCell);
         reset(mStatsService);
 
         mCellNetworkAgent.removeCapability(NetworkCapabilities.NET_CAPABILITY_NOT_METERED);
         waitForIdle();
-        verify(mStatsService, atLeastOnce())
-                .forceUpdateIfaces(
-                        eq(onlyCell),
-                        eq(new VpnInfo[0]),
-                        any(NetworkState[].class),
-                        eq(MOBILE_IFNAME));
+        verify(mStatsService, atLeastOnce()).forceUpdateIfaces(onlyCell);
         reset(mStatsService);
 
         // Captive portal change shouldn't update ifaces
         mCellNetworkAgent.addCapability(NetworkCapabilities.NET_CAPABILITY_CAPTIVE_PORTAL);
         waitForIdle();
-        verify(mStatsService, never())
-                .forceUpdateIfaces(
-                        eq(onlyCell),
-                        eq(new VpnInfo[0]),
-                        any(NetworkState[].class),
-                        eq(MOBILE_IFNAME));
+        verify(mStatsService, never()).forceUpdateIfaces(onlyCell);
         reset(mStatsService);
 
         // Roaming change should update ifaces
         mCellNetworkAgent.addCapability(NetworkCapabilities.NET_CAPABILITY_NOT_ROAMING);
         waitForIdle();
-        verify(mStatsService, atLeastOnce())
-                .forceUpdateIfaces(
-                        eq(onlyCell),
-                        eq(new VpnInfo[0]),
-                        any(NetworkState[].class),
-                        eq(MOBILE_IFNAME));
+        verify(mStatsService, atLeastOnce()).forceUpdateIfaces(onlyCell);
         reset(mStatsService);
     }
 
