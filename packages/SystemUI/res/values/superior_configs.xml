@@ -41,4 +41,8 @@
 
     <!-- The min animation duration for animating the fab out. -->
     <integer name="recents_animate_fab_exit_duration">125</integer>
+
+    <!-- Color of the FOD view -->
+    <color name="config_fodColor">#00ff00</color>
+
 </resources>
