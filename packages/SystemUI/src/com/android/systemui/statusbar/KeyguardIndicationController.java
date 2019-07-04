@@ -366,12 +366,20 @@ public class KeyguardIndicationController {
     }
 
     private void updateChargingIndication() {
-        if (!mDozing && mPowerPluggedIn) {
+        if (!mDozing && mPowerPluggedIn && !hasActiveInDisplayFp()) {
             mChargingIndication.setVisibility(View.VISIBLE);
             mChargingIndication.playAnimation();
         } else {
             mChargingIndication.setVisibility(View.GONE);
         }
+    }
+
+    private boolean hasActiveInDisplayFp() {
+        boolean hasInDisplayFingerprint = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_needCustomFODView);
+        int userId = KeyguardUpdateMonitor.getCurrentUser();
+        FingerprintManager fpm = (FingerprintManager) mContext.getSystemService(Context.FINGERPRINT_SERVICE);
+        return hasInDisplayFingerprint && fpm.getEnrolledFingerprints(userId).size() > 0;
     }
 
     // animates textView - textView moves up and bounces down
