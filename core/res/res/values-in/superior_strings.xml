@@ -18,28 +18,28 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced Power menu -->
-    <string name="reboot_title">Nyalakan Ulang</string>
+    <string name="reboot_title">Nyalakan ulang</string>
     <string name="reboot_message">Memulai Ulang Sistem</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_fakePackageSignature">Memalsukan paket tandatangan</string>
+    <string name="permlab_fakePackageSignature">Memalsukan paket tanda tangan</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_fakePackageSignature">Mengizinkan aplikasi berpura-pura menjadi aplikasi yang berbeda. Aplikasi berbahaya mungkin dapat menggunakan ini untuk mengakses data aplikasi pribadi. Berikan izin ini hanya dengan hati-hati!</string>
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Diperlukan memulai ulang SystemUI</string>
     <string name="systemui_restart_message">Untuk melihat semua perubahan, diperlukan memulai ulang SystemUI. Mulai ulang sekarang?</string>
     <!-- App ops requests -->
-    <string name="app_ops_access_camera">Mengakses kamera</string>
-    <string name="app_ops_access_location">mengakses lokasi Anda</string>
-    <string name="app_ops_access_notifications">membaca notifikasi Anda</string>
-    <string name="app_ops_activate_vpn">Mengaktifkan VPN</string>
+    <string name="app_ops_access_camera">mengakses kamera</string>
+    <string name="app_ops_access_location">memalsukan lokasi anda</string>
+    <string name="app_ops_access_notifications">membaca notifikasi anda</string>
+    <string name="app_ops_activate_vpn">aktifkan VPN</string>
     <string name="app_ops_add_voicemail">menambahkan pesan suara</string>
-    <string name="app_ops_app_start_foreground">memulai aplikasi instan di latar depan</string>
-    <string name="app_ops_assist_screenshot">mengambil tangkapan layar</string>
-    <string name="app_ops_assist_structure">gunakan struktur bantuan</string>
-    <string name="app_ops_audio_accessibility_volume">Aksesibilitas volume suara</string>
-    <string name="app_ops_auto_start">Mulai pada saat dinyalakan</string>
+    <string name="app_ops_app_start_foreground">mulai aplikasi instant di latar depan</string>
+    <string name="app_ops_assist_screenshot">ambil tangkapan layar</string>
+    <string name="app_ops_assist_structure">Struktur pembantu</string>
+    <string name="app_ops_audio_accessibility_volume">aksesibilitas volume audio</string>
+    <string name="app_ops_auto_start">mulai pada saat dinyalakan</string>
     <string name="app_ops_bind_accessibility_service">tautkan layanan aksesibilitas</string>
-    <string name="app_ops_bluetooth_scan">Pemindaian Bluetooth</string>
+    <string name="app_ops_bluetooth_scan">pemindaian bluetooth</string>
     <string name="app_ops_change_wallpaper">mengubah wallpaper</string>
     <string name="app_ops_delete_call_log">menghapus daftar riwayat panggilan Anda</string>
     <string name="app_ops_delete_contacts">menghapus kontak Anda</string>
@@ -72,64 +72,63 @@
     <string name="app_ops_read_contacts">membaca kontak Anda</string>
     <string name="app_ops_read_external_storage">membaca penyimpanan eksternal</string>
     <string name="app_ops_read_mms">membaca pesan MMS Anda</string>
-    <string name="app_ops_read_phone_numbers">read phone numbers</string>
-    <string name="app_ops_read_phone_state">access phone state</string>
-    <string name="app_ops_read_sms">read your SMS messages</string>
-    <string name="app_ops_receive_sms">receive an SMS message</string>
-    <string name="app_ops_receive_emergency_broadcast">receive an emergency broadcast message</string>
-    <string name="app_ops_record_audio">record audio</string>
-    <string name="app_ops_request_delete_packages">request delete packages</string>
-    <string name="app_ops_run_in_background">run in background</string>
-    <string name="app_ops_run_any_in_background">run any in background</string>
-    <string name="app_ops_scan_wifi">scan Wi-Fi networks</string>
-    <string name="app_ops_send_mms">send an MMS message</string>
-    <string name="app_ops_send_sms">send an SMS message</string>
-    <string name="app_ops_start_at_bootup">start at power up</string>
-    <string name="app_ops_start_foreground">start foreground</string>
-    <string name="app_ops_toast_window">display toast messages</string>
-    <string name="app_ops_toggle_bluetooth">toggle Bluetooth</string>
-    <string name="app_ops_toggle_mobile_data">toggle cellular data</string>
+    <string name="app_ops_read_phone_numbers">membaca nomor telepon</string>
+    <string name="app_ops_read_phone_state">akses status telpon</string>
+    <string name="app_ops_read_sms">membaca pesan sms anda</string>
+    <string name="app_ops_receive_sms">tulis pesan sms</string>
+    <string name="app_ops_receive_emergency_broadcast">menerima pesan siaran darurat</string>
+    <string name="app_ops_record_audio">rekam suara</string>
+    <string name="app_ops_request_delete_packages">permintaan menghapus paket</string>
+    <string name="app_ops_run_in_background">berjalan dilatar belakang</string>
+    <string name="app_ops_run_any_in_background">jalankan di latar belakang</string>
+    <string name="app_ops_scan_wifi">memindai jaringan Wi-Fi</string>
+    <string name="app_ops_send_mms">mengirim pesan MMS</string>
+    <string name="app_ops_send_sms">kirim pesan sms tiruan</string>
+    <string name="app_ops_start_at_bootup">mulai pada saat dinyalakan</string>
+    <string name="app_ops_start_foreground">mulai di latar depan</string>
+    <string name="app_ops_toast_window">tampilkan pesan kesalahan</string>
+    <string name="app_ops_toggle_bluetooth">hidup/matikan bluetooth</string>
+    <string name="app_ops_toggle_mobile_data">hidup/matikan data selular</string>
     <string name="app_ops_toggle_nfc">toggle NFC</string>
-    <string name="app_ops_toggle_wifi">toggle Wi-Fi</string>
-    <string name="app_ops_turn_on_screen">turn the screen on</string>
-    <string name="app_ops_use_alarm_volume">control alarm volume</string>
-    <string name="app_ops_use_audio_focus">control the audio focus</string>
-    <string name="app_ops_use_bluetooth_volume">control the Bluetooth volume</string>
-    <string name="app_ops_use_body_sensors">use body sensors</string>
-    <string name="app_ops_use_fingerprint">use fingerprint</string>
-    <string name="app_ops_use_master_volume">control the master volume</string>
-    <string name="app_ops_use_media_buttons">use the media buttons</string>
-    <string name="app_ops_use_media_volume">control the media volume</string>
-    <string name="app_ops_use_notification_volume">control the notification volume</string>
-    <string name="app_ops_use_ring_volume">control the ringtone volume</string>
-    <string name="app_ops_use_vibrate">use haptic feedback</string>
-    <string name="app_ops_use_voice_volume">control the voice call volume</string>
-    <string name="app_ops_wifi_change">change Wi-Fi state</string>
-    <string name="app_ops_write_external_storage">write external storage</string>
-    <string name="app_ops_write_mms">write an MMS message</string>
-    <string name="app_ops_write_sms">write an SMS message</string>
+    <string name="app_ops_toggle_wifi">hidup/matikan Wi-Fi</string>
+    <string name="app_ops_turn_on_screen">menghidupkan layar</string>
+    <string name="app_ops_use_alarm_volume">mengatur volume alarm</string>
+    <string name="app_ops_use_audio_focus">mengatur fokus audio</string>
+    <string name="app_ops_use_bluetooth_volume">mengatur volume Bluetooth</string>
+    <string name="app_ops_use_body_sensors">gunakan sensor tubuh</string>
+    <string name="app_ops_use_fingerprint">gunakan sidik jari</string>
+    <string name="app_ops_use_master_volume">kontrol volume utama</string>
+    <string name="app_ops_use_media_buttons">menggunakan tombol media</string>
+    <string name="app_ops_use_media_volume">kontrol volume media</string>
+    <string name="app_ops_use_notification_volume">nengatur volume pemberitahuan</string>
+    <string name="app_ops_use_ring_volume">mengatur volume nada dering</string>
+    <string name="app_ops_use_vibrate">gunakan tanggapan sentuhan</string>
+    <string name="app_ops_use_voice_volume">kontrol volume panggilan suara</string>
+    <string name="app_ops_wifi_change">mengubah status Wi-Fi</string>
+    <string name="app_ops_write_external_storage">membaca penyimpanan eksternal</string>
+    <string name="app_ops_write_mms">tulis pesan mms</string>
+    <string name="app_ops_write_sms">tulis pesan MMS</string>
     <!-- Privacy Guard -->
-    <string name="permlab_changePrivacyGuardState">enable or disable Privacy Guard</string>
+    <string name="permlab_changePrivacyGuardState">kktifkan atau nonaktifkan perlindungan privasi</string>
     <string name="permdesc_changePrivacyGuardState">Allows the app to change whether another app runs with Privacy Guard. When an app is running with Privacy Guard, it will not have access to personal data such as contacts, call logs, or messages.</string>
-    <string name="privacy_guard_notification">Privacy Guard active</string>
-    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> will not be able to access personal data</string>
-    <string name="privacy_guard_dialog_title">Privacy Guard</string>
-    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> would like to <xliff:g id="op">%2$s</xliff:g>.</string>
+    <string name="privacy_guard_notification">Penjaga Privasi Aktif</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> tidak akan dapat mengakses izin khusus</string>
+    <string name="privacy_guard_dialog_title">Penjaga Privasi</string>
+    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> ingin<xliff:g id="op">%2$s</xliff:g>.</string>
     <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-    <string name="permission_remember_choice">Remember my choice</string>
+    <string name="permission_remember_choice">Ingat pilihan</string>
     <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Long press power button to interact</string>
+    <string name="pocket_lock_message_long_press">Tekan Lama Tombol Daya Untuk Senter</string>
     <!-- Defines the sysfs attribute path used by pocket bridge
         to communicate pocket state to the pocket judge kernel driver. -->
-    <string name="config_pocketBridgeSysfsInpocket"></string>
-    <string name="permlab_toggleNavigationEditor">control navigation editor</string>
+    <string name="permlab_toggleNavigationEditor">mengatur Edit Navigasi</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_toggleNavigationEditor">Allows an application to control the navigation bar editor.</string>
+    <string name="permdesc_toggleNavigationEditor">Mengizinkan Aplikasi Mengontrol Editor Bilah Navigasi.</string>
     <!-- AOKP custom system animations -->
     <string name="animation_fade">Fade</string>
-    <string name="animation_slide_right">Slide in right</string>
-    <string name="animation_slide_left">Slide in left</string>
-    <string name="animation_slide_right_no_fade">Slide in right (No fade)</string>
+    <string name="animation_slide_right">Geser ke kanan</string>
+    <string name="animation_slide_left">Geser ke kiri</string>
+    <string name="animation_slide_right_no_fade">Geser ke kanan (tidak pudar)</string>
     <string name="animation_slide_left_no_fade">Geser dari kiri (tanpa memudar)</string>
     <string name="animation_slide_up">Geser ke bawah</string>
     <string name="animation_slide_down">Geser ke atas</string>
@@ -177,4 +176,6 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay dirubah ke mode siang hari.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay dirubah ke mode malam hari.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay dirubah ke mode diluar ruangan.</string>
+    <!-- FireHound Gaming -->
+    <!-- Battery fully charged notification -->
 </resources>

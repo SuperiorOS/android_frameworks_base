@@ -16,57 +16,49 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="statusbar_items_title">Statusbar icon</string>
+    <string name="statusbar_items_title">Ikon statusbar</string>
     <string name="status_bar_roaming">Roaming</string>
-    <string name="lockscreen_default">Default</string>
-    <string name="lockscreen_hidden">None</string>
+    <string name="lockscreen_default">Defaults</string>
+    <string name="lockscreen_hidden">Tidak ada</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
-    <string name="custom_hint">Swipe from icon to launch</string>
+    <string name="custom_hint">Geser dari ikon ke peluncuran</string>
     <!-- Caffeine QS Tile -->
-    <string name="quick_settings_caffeine_label">Caffeine</string>
-    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
-    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
+    <string name="quick_settings_caffeine_label">Kafein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Matikan kafein</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kafein hidup</string>
     <!-- LTE QS Tile -->
     <string name="qs_lte_label">LTE</string>
-    <string name="lte_on">LTE ON </string>
-    <string name="lte_off">LTE OFF</string>
+    <string name="lte_on">LTE Nyala </string>
+    <string name="lte_off">LTE Mati</string>
     <!-- Sound QS Tile -->
-    <string name="quick_settings_sound_label">Sound</string>
-    <string name="quick_settings_sound_ring">Ring</string>
-    <string name="quick_settings_sound_vibrate">Vibrate</string>
-    <string name="quick_settings_sound_dnd">Do not disturb</string>
+    <string name="quick_settings_sound_label">Suara</string>
+    <string name="quick_settings_sound_ring">Dering</string>
+    <string name="quick_settings_sound_vibrate">Getar</string>
+    <string name="quick_settings_sound_dnd">Jangan Ganggu</string>
     <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Peeking notification are snoozing for 1 minute.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Peeking notifications are snoozing for <xliff:g id="number">%d</xliff:g> minutes.</string>
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Mengintip pemberitahuan tidur selama 1 menit.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Mengintip pemberitahuan tertidur selama <xliff:g id="number">%d</xliff:g> menit.</string>
     <!-- Heads Up QS Tile -->
-    <string name="quick_settings_heads_up_label">Heads up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads up off.</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads up on.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads up turned off.</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads up turned on.</string>
-    <!-- Gaming Mode -->
-    <string name="gaming_mode_tile_title">Gaming Mode</string>
-    <string name="gaming_mode_tile_toast">Gaming mode enabled</string>
-    <string name="gaming_mode_tile_toast_disabled">Gaming mode disabled</string>
-    <string name="gaming_mode_dialog_title">Gaming Mode</string>
-    <string name="gaming_mode_dialog_message">When gaming mode is enabled, all heads-up messages will be disabled and hardware keys will be turned off. All the disabled settings will be reset to default once you exit Gaming Mode.</string>
-    <string name="accessibility_quick_settings_gaming_mode_on">Gaming mode on</string>
-    <string name="accessibility_quick_settings_gaming_mode_off">Gaming mode off</string>
+    <string name="quick_settings_heads_up_label">Notifikasi Mengambang</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notidikasi mengambang mati.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notifikasi mengambang hidup.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notifikasi mengambang mati.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notifikasi mengambang hidup.</string>
     <!-- Advanced powermenu -->
-    <string name="global_action_restart_system">Reboot</string>
-    <string name="global_action_restart_advanced">Advanced reboot</string>
-    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_system">Memulai ulang</string>
+    <string name="global_action_restart_advanced">Mulai ulang lanjutan</string>
+    <string name="global_action_restart_recovery">Pemulihan</string>
     <string name="global_action_restart_bootloader">Bootloader</string>
-    <string name="global_action_restart_ui">SystemUI</string>
-    <string name="global_action_restart_hot">Hot</string>
-    <string name="global_action_screenshot">Screenshot</string>
-    <string name="global_action_lockdown">Lockdown</string>
+    <string name="global_action_restart_ui">SystemUi</string>
+    <string name="global_action_restart_hot">Panas</string>
+    <string name="global_action_screenshot">Tangkapan layar</string>
+    <string name="global_action_lockdown">Mengunci</string>
     <!-- Reboot/Recovery QS Tile -->
-    <string name="quick_settings_reboot_label">Reboot</string>
-    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="quick_settings_reboot_label">Memulai ulang</string>
+    <string name="quick_settings_reboot_recovery_label">Pemulihan</string>
     <!-- QS Config -->
-    <string name="qs_menu_item_columns">Columns</string>
-    <string name="qs_menu_item_columns_landscape">Columns landscape</string>
+    <string name="qs_menu_item_columns">Kolom</string>
+    <string name="qs_menu_item_columns_landscape">Kolom mendatar</string>
     <string name="qs_menu_item_columns_three">3</string>
     <string name="qs_menu_item_columns_four">4</string>
     <string name="qs_menu_item_columns_five">5</string>
@@ -74,210 +66,208 @@
     <string name="qs_menu_item_columns_seven">7</string>
     <string name="qs_menu_item_columns_eight">8</string>
     <string name="qs_menu_item_columns_nine">9</string>
-    <string name="qs_menu_item_reset">Reset</string>
-    <string name="qs_menu_item_titles">Show labels</string>
-    <string name="qs_menu_item_rows">Rows</string>
+    <string name="qs_menu_item_reset">Atur ulang</string>
+    <string name="qs_menu_item_titles">Tampilkan label</string>
+    <string name="qs_menu_item_rows">Baris</string>
     <string name="qs_menu_item_rows_one">1</string>
     <string name="qs_menu_item_rows_two">2</string>
     <string name="qs_menu_item_rows_three">3</string>
     <string name="qs_menu_item_rows_four">4</string>
-    <string name="qs_menu_item_rows_landscape">Rows landscape</string>
-    <string name="qs_menu_item_qs_columns">Quickbar columns</string>
-    <string name="qs_menu_item_columns_auto">Automatic</string>
+    <string name="qs_menu_item_rows_landscape">Baris mendatar</string>
+    <string name="qs_menu_item_qs_columns">Kolom quickbar</string>
+    <string name="qs_menu_item_columns_auto">Otomatis</string>
     <!-- Theme tile -->
-    <string name="systemui_theme_style_title">UI style</string>
-    <string name="systemui_theme_style_auto">Automatic</string>
-    <string name="systemui_theme_style_light">Light UI</string>
-    <string name="systemui_theme_style_dark">Dark UI</string>
-    <string name="systemui_theme_style_black">Black UI</string>
+    <string name="systemui_theme_style_title">Style UI</string>
+    <string name="systemui_theme_style_auto">Otomatis</string>
+    <string name="systemui_theme_style_light">UI terang</string>
+    <string name="systemui_theme_style_dark">UI gelap</string>
+    <string name="systemui_theme_style_black">UI hitam</string>
     <string name="systemui_theme_style_superior">Superior UI</string>
-    <string name="quick_settings_theme_tile_title">Accent</string>
-    <string name="quick_settings_theme_tile_accent_detail_title">Select color</string>
-    <string name="quick_settings_theme_tile_style_detail_title">Select style</string>
+    <string name="quick_settings_theme_tile_title">Aksen Warna</string>
+    <string name="quick_settings_theme_tile_accent_detail_title">Pilih warna</string>
+    <string name="quick_settings_theme_tile_style_detail_title">Pilih Style</string>
     <string name="quick_settings_theme_tile_color_default">Default</string>
-    <string name="quick_settings_theme_tile_color_red">Red</string>
+    <string name="quick_settings_theme_tile_color_red">Merah</string>
     <string name="quick_settings_theme_tile_color_pink">Pink</string>
-    <string name="quick_settings_theme_tile_color_purple">Purple</string>
-    <string name="quick_settings_theme_tile_color_deep_purple">Deep purple</string>
+    <string name="quick_settings_theme_tile_color_purple">Ungu</string>
+    <string name="quick_settings_theme_tile_color_deep_purple">Ungu tua</string>
     <string name="quick_settings_theme_tile_color_indigo">Indigo</string>
-    <string name="quick_settings_theme_tile_color_blue">Blue</string>
-    <string name="quick_settings_theme_tile_color_light_blue">Light blue</string>
+    <string name="quick_settings_theme_tile_color_blue">Biru</string>
+    <string name="quick_settings_theme_tile_color_light_blue">Biru muda</string>
     <string name="quick_settings_theme_tile_color_cyan">Cyan</string>
     <string name="quick_settings_theme_tile_color_teal">Teal</string>
-    <string name="quick_settings_theme_tile_color_green">Green</string>
-    <string name="quick_settings_theme_tile_color_light_green">Light green</string>
+    <string name="quick_settings_theme_tile_color_green">Hijau</string>
+    <string name="quick_settings_theme_tile_color_light_green">Hijau muda</string>
     <string name="quick_settings_theme_tile_color_lime">Lime</string>
-    <string name="quick_settings_theme_tile_color_yellow">Yellow</string>
+    <string name="quick_settings_theme_tile_color_yellow">Kuning</string>
     <string name="quick_settings_theme_tile_color_amber">Amber</string>
-    <string name="quick_settings_theme_tile_color_orange">Orange</string>
-    <string name="quick_settings_theme_tile_color_deep_orange">Deep orange</string>
-    <string name="quick_settings_theme_tile_color_brown">Brown</string>
-    <string name="quick_settings_theme_tile_color_grey">Grey</string>
-    <string name="quick_settings_theme_tile_color_blue_grey">Blue grey</string>
-    <string name="quick_settings_theme_tile_color_candy_red">Candy red</string>
-    <string name="quick_settings_theme_tile_color_pale_red">Pale red</string>
-    <string name="quick_settings_theme_tile_color_extended_green">Extended green</string>
-    <string name="quick_settings_theme_tile_color_pale_blue">Pale blue</string>
-    <string name="quick_settings_theme_tile_color_jade_green">Jade green</string>
-    <string name="quick_settings_theme_tile_color_black">Black</string>
-    <string name="quick_settings_theme_tile_color_white">White</string>
-    <string name="quick_settings_theme_tile_color_qpurple">Q Purple</string>
-    <string name="quick_settings_theme_tile_color_qgreen">Q Green</string>
-    <string name="quick_settings_theme_tile_color_oneplusred">Oneplus Red</string>
+    <string name="quick_settings_theme_tile_color_orange">Oranye</string>
+    <string name="quick_settings_theme_tile_color_deep_orange">Oranye tua</string>
+    <string name="quick_settings_theme_tile_color_brown">Coklat</string>
+    <string name="quick_settings_theme_tile_color_grey">Abu Abu</string>
+    <string name="quick_settings_theme_tile_color_blue_grey">Biru abu abu</string>
+    <string name="quick_settings_theme_tile_color_candy_red">Merah permen</string>
+    <string name="quick_settings_theme_tile_color_pale_red">Merah pucat</string>
+    <string name="quick_settings_theme_tile_color_extended_green">Hijau extended</string>
+    <string name="quick_settings_theme_tile_color_pale_blue">Biru pucat</string>
+    <string name="quick_settings_theme_tile_color_jade_green">Hijau permata</string>
+    <string name="quick_settings_theme_tile_color_black">Hitam</string>
+    <string name="quick_settings_theme_tile_color_white">Putih</string>
+    <string name="quick_settings_theme_tile_color_qpurple">Q purple</string>
+    <string name="quick_settings_theme_tile_color_qgreen">Q Hijau</string>
+    <string name="quick_settings_theme_tile_color_oneplusred">Merah Oneplus</string>
     <string name="quick_settings_theme_tile_color_pixel">Pixel</string>
-    <string name="theme_info_title">What is this?</string>
-    <string name="theme_info_message">The Themes tile is a unique but easy to use tile that allows the user to change the system accent or style.\n\nTo change between accents and styles, simply long press on the tile and then press again to select from the options offered.</string>
+    <string name="theme_info_title">Apa ini?</string>
+    <string name="theme_info_message">Ubin Tema adalah ubin unik namun mudah digunakan yang memungkinkan pengguna untuk mengubah aksen atau style sistem.\n\n Untuk mengubah antara aksen dan style, cukup tekan lama pada ubin dan kemudian tekan lagi untuk memilih dari opsi yang ditawarkan.</string>
     <!-- Text to use when the number in a notification info is too large
     (greater than status_bar_notification_info_maxnum, defined in
     values/config.xml) and must be truncated.
     [CHAR LIMIT=4] -->
     <!-- Screenshot -->
-    <string name="quick_settings_screenshot_label">Screenshot</string>
-    <string name="quick_settings_region_screenshot_label">Partial screenshot</string>
+    <string name="quick_settings_screenshot_label">Tangkapan layar</string>
+    <string name="quick_settings_region_screenshot_label">Tangkapan layar parsial</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
-    <string name="screen_pinning_description_no_navbar">This keeps it in view until you unpin. Touch &amp; hold Back to unpin.</string>
+    <string name="screen_pinning_description_no_navbar">Ini membuatnya tetap terlihat sampai Anda melepaskan pin. sentuh &amp; tahan Kembali untuk melepaskan sematan.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
-    <string name="screen_pinning_toast_no_navbar">To unpin this screen, touch &amp; hold Back button</string>
+    <string name="screen_pinning_toast_no_navbar">Untuk melepaskan sematan layar, tahan &amp; dan tahan tombol kembali</string>
     <!-- Expanded Desktop QS Tile -->
-    <string name="quick_settings_expanded_desktop_label">Expanded Desktop</string>
-    <string name="quick_settings_expanded_desktop">Expanded</string>
+    <string name="quick_settings_expanded_desktop_label">Dekstop diperluas</string>
+    <string name="quick_settings_expanded_desktop">Diperluas</string>
     <string name="quick_settings_expanded_desktop_off">Normal</string>
-    <string name="quick_settings_expanded_navigation_off">Hide navbar</string>
-    <string name="quick_settings_expanded_statusbar_off">Hide statusbar</string>
+    <string name="quick_settings_expanded_navigation_off">Sembunyikan navigasi</string>
+    <string name="quick_settings_expanded_statusbar_off">Sembunyikan bilah status</string>
     <!-- Other QS tiles -->
     <string name="alarm_title_tile">Alarm</string>
-    <string name="calendar_title_tile">Add Event</string>
-    <string name="call_title_tile">Dialer</string>
-    <string name="camera_title_tile">Camera</string>
+    <string name="calendar_title_tile">Tambah acara</string>
+    <string name="call_title_tile">Telepon</string>
+    <string name="camera_title_tile">Kamera</string>
     <!-- Ambient display QS tile -->
-    <string name="quick_settings_ambient_display_label">Ambient Display</string>
+    <string name="quick_settings_ambient_display_label">Layar ambien</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
     <!-- Partial screenshot -->
-    <string name="screenshot_abort_title">No screenshot taken</string>
-    <string name="screenshot_abort_text">Operation aborted</string>
+    <string name="screenshot_abort_title">Tidak ada tangkapan layar tersimpan</string>
+    <string name="screenshot_abort_text">Operasi dibatalkan</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash Charging (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
-    <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Mengisi cepat (<xliff:g id="charging_time_left" example="4 jam 2 menit">%s</xliff:g> sampai penuh)</string>
+    <string name="keyguard_plugged_in_dash_charging">Pengisian cepat</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_turbo_power_time">TurboPower connected (<xliff:g id="charging_time_left">%s</xliff:g> until full)</string>
-    <string name="keyguard_plugged_in_turbo_power_charging">TurboPower connected</string>
-    <string name="quick_settings_ambient_play">Now playing</string>
+    <string name="keyguard_indication_turbo_power_time">TurboPower terhuhung (<xliff:g id="charging_time_left">%s</xliff:g> sampai penuh)</string>
+    <string name="keyguard_plugged_in_turbo_power_charging">TurboPower terhubung</string>
+    <string name="quick_settings_ambient_play">Sedang diputar</string>
     <!-- Music tile -->
-    <string name="quick_settings_music_label">Music</string>
-    <string name="quick_settings_music_play">Play</string>
-    <string name="quick_settings_music_pause">Pause</string>
+    <string name="quick_settings_music_label">Musik</string>
+    <string name="quick_settings_music_play">Mainkan</string>
+    <string name="quick_settings_music_pause">Jeda</string>
     <!-- SleepScreen QS Tile -->
-    <string name="quick_settings_sleepscreen_label">Sleep Screen</string>
+    <string name="quick_settings_sleepscreen_label">Matikan Layar</string>
     <!-- Sync QS Tile -->
-    <string name="quick_settings_sync_label">Sync</string>
-    <string name="accessibility_quick_settings_sync_off">Sync off</string>
-    <string name="accessibility_quick_settings_sync_on">Sync on</string>
-    <string name="accessibility_quick_settings_sync_changed_off">Sync turned off</string>
-    <string name="accessibility_quick_settings_sync_changed_on">Sync turned on</string>
+    <string name="quick_settings_sync_label">Sinkronisasi</string>
+    <string name="accessibility_quick_settings_sync_off">Sinkronisasi mati</string>
+    <string name="accessibility_quick_settings_sync_on">Sinkronisasi hidup</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sinkronisasi dimatikan</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sinkronisasi dihidupkan</string>
     <!-- Navbar Tuner -->
-    <string name="preview">Preview</string>
-    <string name="keycode">Keycode</string>
-    <string name="no_home_title">No home button found</string>
-    <string name="no_home_message">A home button is required to be able to navigate this device. Please add a home button before saving.</string>
-    <string name="clipboard_description">The Clipboard allows items to be dragged directly to the clipboard. Items can also be dragged directly out of the clipboard when present.</string>
-    <string name="keycode_description">Keycode buttons allow keyboard keys to be added to the Navigation Bar. When pressed they emulate the selected keyboard key. First the key must be selected for the button, followed by an image to be shown on the button.</string>
-    <string name="start">Start</string>
-    <string name="center">Center</string>
-    <string name="end">End</string>
-    <string name="space">Spacer</string>
-    <string name="menu_ime">Menu / Keyboard Switcher</string>
-    <string name="select_button">Select button to add</string>
-    <string name="add_button">Add button</string>
-    <string name="save">Save</string>
-    <string name="reset">Reset</string>
-    <string name="select_keycode">Select Keyboard Button</string>
-    <string name="left">Left</string>
-    <string name="right">Right</string>
-    <string name="navbar_editor_title">Editor</string>
-    <string name="navbar_editor_summary">Configure navigaton bar</string>
+    <string name="preview">Tinjauan</string>
+    <string name="keycode">Kata kunci</string>
+    <string name="no_home_title">Tombol home tidak ditemukan</string>
+    <string name="no_home_message">Tombol home sangat diperlukan untuk menavigasi perangkat ini, harap tambahkan tombol home sebelum menyimpan.</string>
+    <string name="clipboard_description">Clipboard memungkinkan item untuk diseret langsung ke clipboard. Item juga bisa diseret keluar dari clipboard ketika tersedia.</string>
+    <string name="keycode_description">Tombol kode kunci memungkinkan tombol keyboard ditambahkan di panel navigasi. Ketika ditekan mereka meniru tombol keyboard yang dipilih. Pertama tombol harus dipilih, lalu diikuti oleh gambar yang akan ditampilkan pada tombol.</string>
+    <string name="start">Mulai</string>
+    <string name="center">Tengah</string>
+    <string name="end">Akhir</string>
+    <string name="space">Jarak</string>
+    <string name="menu_ime">Menu / Pengalih Keyboard</string>
+    <string name="select_button">Pilih tombol untuk menambahkan</string>
+    <string name="add_button">Tambah tombol</string>
+    <string name="save">Simpan</string>
+    <string name="reset">Atur ulang</string>
+    <string name="select_keycode">Pilih tombol keyboard</string>
+    <string name="left">Kiri</string>
+    <string name="right">Kanan</string>
+    <string name="navbar_editor_title">Penyunting</string>
+    <string name="navbar_editor_summary">Konfigurasi bilah navigasi</string>
     <string name="menu_ime_always_show">Menu</string>
-    <string name="search">Search</string>
+    <string name="search">Pencarian</string>
     <!-- Screenshot Delete Toast -->
-    <string name="delete_screenshot_toast">Screenshot deleted</string>
+    <string name="delete_screenshot_toast">Tangkapan layar dihapus</string>
     <!-- NavBar QS Tile -->
-    <string name="quick_settings_navbar_title">Navigation Bar</string>
-    <string name="accessibility_quick_settings_navbar_off">Sync off</string>
-    <string name="accessibility_quick_settings_navbar_on">Sync on</string>
-    <string name="accessibility_quick_settings_navbar_changed_off">Navigation bar turned off</string>
-    <string name="accessibility_quick_settings_navbar_changed_on">Navigation bar turned on</string>
+    <string name="quick_settings_navbar_title">Bilah Navigasi</string>
+    <string name="accessibility_quick_settings_navbar_off">Sinkronisasi mati</string>
+    <string name="accessibility_quick_settings_navbar_on">Sinkronisasi hidup</string>
+    <string name="accessibility_quick_settings_navbar_changed_off">Bilah navigasi dinonaktifkan</string>
+    <string name="accessibility_quick_settings_navbar_changed_on">Bilah navigasi diaktifkan</string>
     <!-- USB Tethering tile -->
-    <string name="accessibility_quick_settings_usb_tether_off">USB tethering off</string>
-    <string name="accessibility_quick_settings_usb_tether_on">USB tethering on</string>
-    <string name="accessibility_quick_settings_usb_tether_changed_off">USB tethering turned off</string>
-    <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering turned on</string>
-    <string name="quick_settings_usb_tether_label">USB tethering</string>
+    <string name="accessibility_quick_settings_usb_tether_off">Penambatan USB nonaktif</string>
+    <string name="accessibility_quick_settings_usb_tether_on">Penambatan USB aktif</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">Penambatan USB dinonaktifkan</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">Penambatan USB diaktifkan</string>
+    <string name="quick_settings_usb_tether_label">Penambatan USB</string>
     <!-- HW Keys Tile -->
-    <string name="accessibility_quick_settings_hwkeys_on">HW keys on</string>
-    <string name="accessibility_quick_settings_hwkeys_off">HW keys off</string>
-    <string name="quick_settings_hwkeys_label">HW keys</string>
+    <string name="accessibility_quick_settings_hwkeys_on">Tombol fisik aktif</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Tombol Fisik mati</string>
+    <string name="quick_settings_hwkeys_label">Tombol fisik</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_running_services">Open Running Services screen.</string>
+    <string name="accessibility_quick_settings_running_services">Buka Layar Layanan yang sedang berjalan.</string>
     <!-- Volume panel QS tile -->
-    <string name="quick_settings_volume_panel_label">Volume panel</string>
+    <string name="quick_settings_volume_panel_label">Panel volume</string>
     <!-- ADB network tile -->
-    <string name="quick_settings_adb_network">ADB network</string>
-    <string name="quick_settings_network_adb_enabled_label">Adb over Net</string>
+    <string name="quick_settings_adb_network">Jaringan ADB</string>
     <string name="quick_settings_network_adb_disabled_label">Adb over Net</string>
     <!-- Smart pixels QS tile -->
-    <string name="quick_settings_smart_pixels">Smart pixels</string>
-    <string name="quick_settings_smart_pixels_on_power_save">Auto-enabled smart pixels</string>
+    <string name="quick_settings_smart_pixels">Smart Pixels</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Smart pixels otomatis dihidupkan</string>
     <!-- Screenrecord Notification Ticker -->
-    <string name="screenrecord_notif_ticker">Screen is being recorded</string>
-    <string name="screenrecord_notif_final_ticker">Screen recorded successfully</string>
+    <string name="screenrecord_notif_ticker">Layar sedang di rekam</string>
+    <string name="screenrecord_notif_final_ticker">Layar telah berhasil direkam</string>
     <!-- Screenrecord notification title -->
-    <string name="screenrecord_notif_title">Recording screen</string>
+    <string name="screenrecord_notif_title">Merekam layar</string>
     <!-- Screenrecord notification action: Stop -->
-    <string name="screenrecord_notif_stop">Stop</string>
-    <string name="screenrecord_notif_completed">Screen recorded successfully</string>
+    <string name="screenrecord_notif_stop">Hentikan</string>
+    <string name="screenrecord_notif_completed">Layar telah berhasil direkam</string>
     <!-- Screenrecord notification action: show/hide pointer -->
-    <string name="screenrecord_notif_pointer_on">Show pointer</string>
-    <string name="screenrecord_notif_pointer_off">Hide pointer</string>
+    <string name="screenrecord_notif_pointer_on">Tampilkan pointer</string>
+    <string name="screenrecord_notif_pointer_off">Sembunyikan pointer</string>
     <!-- Screen record notification error title -->
-    <string name="screenrecord_notif_error">Unable to record screen</string>
-    <string name="notification_channel_screenrecord">Screenrecords</string>
-    <string name="screenrecord_hide_hint">Hide hint</string>
-    <string name="screenrecord_show_hint">Show hint</string>
+    <string name="screenrecord_notif_error">Tidak dapat merekam layar</string>
+    <string name="notification_channel_screenrecord">Perekam layar</string>
+    <string name="screenrecord_hide_hint">Sembunyikan petunjuk</string>
+    <string name="screenrecord_show_hint">Tampilkan petunjuk</string>
     <!-- Screenshot QS tile -->
-    <string name="quick_settings_screenrecord_label">Screenrecord</string>
+    <string name="quick_settings_screenrecord_label">Rekaman layar</string>
     <!-- Button that controls inversion of layout of navigation bar -->
     <string name="nav_bar_layout_inverse">Invert layout</string>
     <!-- OneHand mode QS tile -->
-    <string name="qs_onehand_label">OneHand mode</string>
+    <string name="qs_onehand_label">Mode satu tangan</string>
     <!-- CustomText clock -->
-    <string name="high_noon_first_row">High</string>
-    <string name="high_noon_second_row">Noon</string>
+    <string name="high_noon_first_row">Tinggi</string>
+    <string name="high_noon_second_row">Siang</string>
     <!-- Location Tile -->
-    <string name="accessibility_quick_settings_location_battery_saving">Location reporting: battery saving mode.</string>
-    <string name="accessibility_quick_settings_location_gps_only">Location reporting: sensors only mode.</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Location reporting: high accuracy mode.</string>
-    <string name="quick_settings_location_battery_saving_label">Battery saving</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">Battery\nsaving</string>
-    <string name="quick_settings_location_gps_only_label">GPS only</string>
-    <string name="quick_settings_location_gps_only_label_twoline">GPS only</string>
-    <string name="quick_settings_location_high_accuracy_label">High accuracy</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">High\naccuracy</string>
-    <string name="quick_settings_location_detail_title">Location</string>
-    <string name="quick_settings_location_detail_menu_title">Select mode:</string>
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">High accuracy</string>
-    <string name="quick_settings_location_detail_mode_battery_saving_title">Battery saving</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_title">Device only</string>
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">Use GPS, Wi\u2011Fi, Bluetooth, or cellular networks to determine location </string>
-    <string name="quick_settings_location_detail_mode_battery_saving_description">Use Wi\u2011Fi, Bluetooth, or cellular networks to determine location</string>
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Use GPS to determine your location</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Laporan Lokasi: mode hemat baterai.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Laporan lokasi: hanya sensor.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Laporan Lokasi: mode akurasi tinggi.</string>
+    <string name="quick_settings_location_battery_saving_label">Hemat Baterai</string>
+    <string name="quick_settings_location_gps_only_label">Hanya GPS</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Hanya GPS</string>
+    <string name="quick_settings_location_high_accuracy_label">Akurasi tinggi</string>
+    <string name="quick_settings_location_detail_title">Lokasi</string>
+    <string name="quick_settings_location_detail_menu_title">Pilih mode:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Akurasi tinggi</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Hemat Baterai</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Perangkat saja</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">Mengunakan GPS, Wi\u2011Fi, Bluetooth, atau jaringan seluler untuk menentukan lokasi </string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">Mengunakan Wi\u2011Fi, Bluetooth, atau jaringan seluler untuk menentukan lokasi</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">Mengunakan GPS untuk menentukan lokasi anda</string>
     <!-- Reader mode QS tile -->
-    <string name="quick_settings_reading_mode">Reading mode</string>
-    <string name="accessibility_quick_settings_reading_mode_on">Reading mode on.</string>
-    <string name="accessibility_quick_settings_reading_mode_off">Reading mode off.</string>
-    <string name="accessibility_quick_settings_reading_mode_changed_on">Reading mode turned on.</string>
-    <string name="accessibility_quick_settings_reading_mode_changed_off">Reading mode turned off.</string>
+    <string name="quick_settings_reading_mode">Mode membaca</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Mode membaca hidup.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Mode membaca mati.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Mode membaca dihidupkan.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Mode membaca dimatikan.</string>
     <!-- Font Tile -->
-    <string name="quick_settings_font_label">Fonts</string>
-    <string name="quick_settings_font_detail_label">Select a font</string>
-    <string name="ambientmusic_songinfo">%s by %s</string>
+    <string name="quick_settings_font_label">Jenis Huruf</string>
+    <string name="quick_settings_font_detail_label">Pilih huruf</string>
+    <string name="ambientmusic_songinfo">%s oleh %s</string>
+    <!-- FireHound Gaming -->
 </resources>

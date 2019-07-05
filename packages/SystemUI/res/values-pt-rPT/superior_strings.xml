@@ -44,14 +44,6 @@
     <string name="accessibility_quick_settings_heads_up_on">Avisos ligados.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Aviso desativados.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Aviso ativados.</string>
-    <!-- Gaming Mode -->
-    <string name="gaming_mode_tile_title">Modo de Jogo</string>
-    <string name="gaming_mode_tile_toast">Modo de Jogo ativado</string>
-    <string name="gaming_mode_tile_toast_disabled">Modo de Jogo desativado</string>
-    <string name="gaming_mode_dialog_title">Modo de Jogo</string>
-    <string name="gaming_mode_dialog_message">Quando o modo de jogo estiver ativado, todas as mensagens de aviso e teclas de hardware serão desativadas. Todas as definições desativadas serão redefinidas para o para quando saíres do Modo de Jogo.</string>
-    <string name="accessibility_quick_settings_gaming_mode_on">Modo de jogo ligado</string>
-    <string name="accessibility_quick_settings_gaming_mode_off">Modo de jogo desligado</string>
     <!-- Advanced powermenu -->
     <string name="global_action_restart_system">Reiniciar</string>
     <string name="global_action_restart_advanced">Reinicio avançado</string>
@@ -279,5 +271,5 @@
     <!-- Font Tile -->
     <string name="quick_settings_font_label">Fontes</string>
     <string name="quick_settings_font_detail_label">Seleciona uma fonte</string>
-    <string name="ambientmusic_songinfo">%s by %s</string>
+    <!-- FireHound Gaming -->
 </resources>

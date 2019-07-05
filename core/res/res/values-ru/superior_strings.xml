@@ -121,7 +121,6 @@
     <string name="pocket_lock_message_long_press">Удерживайте кнопку питания для взаимодействия</string>
     <!-- Defines the sysfs attribute path used by pocket bridge
         to communicate pocket state to the pocket judge kernel driver. -->
-    <string name="config_pocketBridgeSysfsInpocket"></string>
     <string name="permlab_toggleNavigationEditor">управление редактированием панели навигации</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_toggleNavigationEditor">Позволяет приложению редактировать панель навигации.</string>
@@ -177,4 +176,7 @@
     <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay переключён в дневной режим.</string>
     <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay переключён на ночной режим.</string>
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay переключен в режим «на улице».</string>
+    <!-- FireHound Gaming -->
+    <string name="notification_channel_gaming">Игровой режим</string>
+    <!-- Battery fully charged notification -->
 </resources>

@@ -80,56 +80,13 @@
     <string name="app_ops_record_audio">registrare l\'audio</string>
     <string name="app_ops_request_delete_packages">richiedere l\'eliminazione dei pacchetti</string>
     <string name="app_ops_run_in_background">esecuzione in background</string>
-    <string name="app_ops_run_any_in_background">run any in background</string>
-    <string name="app_ops_scan_wifi">scan Wi-Fi networks</string>
-    <string name="app_ops_send_mms">send an MMS message</string>
-    <string name="app_ops_send_sms">send an SMS message</string>
-    <string name="app_ops_start_at_bootup">start at power up</string>
-    <string name="app_ops_start_foreground">start foreground</string>
-    <string name="app_ops_toast_window">display toast messages</string>
-    <string name="app_ops_toggle_bluetooth">toggle Bluetooth</string>
-    <string name="app_ops_toggle_mobile_data">toggle cellular data</string>
-    <string name="app_ops_toggle_nfc">toggle NFC</string>
-    <string name="app_ops_toggle_wifi">toggle Wi-Fi</string>
-    <string name="app_ops_turn_on_screen">turn the screen on</string>
-    <string name="app_ops_use_alarm_volume">control alarm volume</string>
-    <string name="app_ops_use_audio_focus">control the audio focus</string>
-    <string name="app_ops_use_bluetooth_volume">control the Bluetooth volume</string>
-    <string name="app_ops_use_body_sensors">use body sensors</string>
-    <string name="app_ops_use_fingerprint">use fingerprint</string>
-    <string name="app_ops_use_master_volume">control the master volume</string>
-    <string name="app_ops_use_media_buttons">use the media buttons</string>
-    <string name="app_ops_use_media_volume">control the media volume</string>
-    <string name="app_ops_use_notification_volume">control the notification volume</string>
-    <string name="app_ops_use_ring_volume">control the ringtone volume</string>
-    <string name="app_ops_use_vibrate">use haptic feedback</string>
-    <string name="app_ops_use_voice_volume">control the voice call volume</string>
-    <string name="app_ops_wifi_change">change Wi-Fi state</string>
-    <string name="app_ops_write_external_storage">write external storage</string>
-    <string name="app_ops_write_mms">write an MMS message</string>
-    <string name="app_ops_write_sms">write an SMS message</string>
     <!-- Privacy Guard -->
-    <string name="permlab_changePrivacyGuardState">enable or disable Privacy Guard</string>
-    <string name="permdesc_changePrivacyGuardState">Allows the app to change whether another app runs with Privacy Guard. When an app is running with Privacy Guard, it will not have access to personal data such as contacts, call logs, or messages.</string>
-    <string name="privacy_guard_notification">Privacy Guard active</string>
-    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> will not be able to access personal data</string>
-    <string name="privacy_guard_dialog_title">Privacy Guard</string>
-    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> would like to <xliff:g id="op">%2$s</xliff:g>.</string>
     <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-    <string name="permission_remember_choice">Remember my choice</string>
     <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Long press power button to interact</string>
     <!-- Defines the sysfs attribute path used by pocket bridge
         to communicate pocket state to the pocket judge kernel driver. -->
-    <string name="config_pocketBridgeSysfsInpocket"></string>
-    <string name="permlab_toggleNavigationEditor">control navigation editor</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_toggleNavigationEditor">Allows an application to control the navigation bar editor.</string>
     <!-- AOKP custom system animations -->
-    <string name="animation_fade">Fade</string>
-    <string name="animation_slide_right">Slide in right</string>
-    <string name="animation_slide_left">Slide in left</string>
-    <string name="animation_slide_right_no_fade">Slide in right (No fade)</string>
     <string name="animation_slide_left_no_fade">Scorrimento verso sinistra (senza dissolvenza)</string>
     <string name="animation_slide_up">Scorrimento verso il basso</string>
     <string name="animation_slide_down">Scorrimento verso l\'alto</string>
@@ -166,15 +123,6 @@
     <string name="live_display_night_summary">Utilizza solo le impostazioni della notte</string>
     <string name="live_display_outdoor">All\'aperto (sole vivo)</string>
     <string name="live_display_outdoor_summary">Utilizza solo le impostazioni all\'aperto</string>
-    <string name="live_display_hint">LiveDisplay can help reduce eyestrain and help you sleep at night. Click here to try it out!</string>
-    <string name="accessibility_quick_settings_live_display_off">LiveDisplay off.</string>
-    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: auto mode.</string>
-    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: day mode.</string>
-    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: night mode.</string>
-    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: outdoor mode.</string>
-    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay turned off.</string>
-    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay changed to auto mode.</string>
-    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay changed to day mode.</string>
-    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay changed to night mode.</string>
-    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay changed to outdoor mode.</string>
+    <!-- FireHound Gaming -->
+    <!-- Battery fully charged notification -->
 </resources>

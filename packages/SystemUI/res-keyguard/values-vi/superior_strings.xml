@@ -20,8 +20,6 @@
 -->
 <resources>
     <plurals name="type_clock_header">
-        <item quantity="other"><annotation name="color">It’s</annotation>\"
-^1
-^2\"</item>
+        <item quantity="other"><annotation name="color">Bây giờ là</annotation>\" ^1 ^2\"</item>
     </plurals>
 </resources>

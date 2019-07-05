@@ -44,14 +44,6 @@
     <string name="accessibility_quick_settings_heads_up_on">Bildirim pencereleri açık.</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Bildirim pencereleri kapatıldı.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Bildirim pencereleri açıldı.</string>
-    <!-- Gaming Mode -->
-    <string name="gaming_mode_tile_title">Oyun modu</string>
-    <string name="gaming_mode_tile_toast">Oyun modu etkin</string>
-    <string name="gaming_mode_tile_toast_disabled">Oyun modu devre dışı</string>
-    <string name="gaming_mode_dialog_title">Oyun modu</string>
-    <string name="gaming_mode_dialog_message">Oyun modu etkinleştirildiğinde, tüm bildirim pencereleri mesajları devre dışı bırakılacak ve donanım tuşları kapatılacaktır. Oyun modundan çıktıktan sonra tüm devre dışı ayarlar varsayılan ayarlara getirilecektir.</string>
-    <string name="accessibility_quick_settings_gaming_mode_on">Oyun modu açık</string>
-    <string name="accessibility_quick_settings_gaming_mode_off">Oyun modu kapalı</string>
     <!-- Advanced powermenu -->
     <string name="global_action_restart_system">Yeniden başlat</string>
     <string name="global_action_restart_advanced">Gelişmiş yeniden başlatma</string>
@@ -279,5 +271,7 @@
     <!-- Font Tile -->
     <string name="quick_settings_font_label">Yazı tipi</string>
     <string name="quick_settings_font_detail_label">Bir yazı tipi seç</string>
-    <string name="ambientmusic_songinfo">%s by %s</string>
+    <string name="ambientmusic_songinfo">%s \'e %s</string>
+    <!-- FireHound Gaming -->
+    <string name="notification_channel_gaming">Oyun modu</string>
 </resources>

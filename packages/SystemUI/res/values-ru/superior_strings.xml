@@ -44,14 +44,6 @@
     <string name="accessibility_quick_settings_heads_up_on">Всплывающие уведомления включены</string>
     <string name="accessibility_quick_settings_heads_up_changed_off">Всплывающие уведомления отключены</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Всплывающие уведомления включены</string>
-    <!-- Gaming Mode -->
-    <string name="gaming_mode_tile_title">Игровой режим</string>
-    <string name="gaming_mode_tile_toast">Игровой режим включен</string>
-    <string name="gaming_mode_tile_toast_disabled">Игровой режим выключен</string>
-    <string name="gaming_mode_dialog_title">Игровой режим</string>
-    <string name="gaming_mode_dialog_message">При включении игрового режима все всплывающие уведомления будут заблокированы, а кнопки под экраном выключены. После выхода из игрового режима все отключенные настройки будут возвращены в состояние по умолчанию.</string>
-    <string name="accessibility_quick_settings_gaming_mode_on">Включить Игровой режим</string>
-    <string name="accessibility_quick_settings_gaming_mode_off">Выключить Игровой режим</string>
     <!-- Advanced powermenu -->
     <string name="global_action_restart_system">Перезагрузка</string>
     <string name="global_action_restart_advanced">Расширенная перезагрузка</string>
@@ -182,9 +174,9 @@
     <string name="no_home_message">Кнопка \"Домой\" необходима для управления устройством. Пожалуйста добавьте кнопку \"Домой\" перед сохранением.</string>
     <string name="clipboard_description">С помощью этой кнопки можно копировать файлы в буфер обмена и извлекать их из него.</string>
     <string name="keycode_description">С помощью этой кнопки можно добавлять клавиши с клавиатуры на панель навигации. Необходимо выбрать клавишу и изображение для соответствующей кнопки.</string>
-    <string name="start">Start</string>
-    <string name="center">Center</string>
-    <string name="end">End</string>
+    <string name="start">Запуск</string>
+    <string name="center">Центр</string>
+    <string name="end">Конец</string>
     <string name="space">Пробел</string>
     <string name="menu_ime">Меню / Переключение раскладки</string>
     <string name="select_button">Выберите кнопку для добавления</string>
@@ -192,8 +184,8 @@
     <string name="save">Сохранить</string>
     <string name="reset">Сбросить</string>
     <string name="select_keycode">Выберите клавишу</string>
-    <string name="left">Left</string>
-    <string name="right">Right</string>
+    <string name="left">Лево</string>
+    <string name="right">Право</string>
     <string name="navbar_editor_title">Редактор</string>
     <string name="navbar_editor_summary">Настроить панель навигации</string>
     <string name="menu_ime_always_show">Меню</string>
@@ -250,7 +242,7 @@
     <!-- OneHand mode QS tile -->
     <string name="qs_onehand_label">Режим \"Управление одной рукой\"</string>
     <!-- CustomText clock -->
-    <string name="high_noon_first_row">High</string>
+    <string name="high_noon_first_row">Высоко</string>
     <string name="high_noon_second_row">Полдень</string>
     <!-- Location Tile -->
     <string name="accessibility_quick_settings_location_battery_saving">Определение местоположения: режим экономии энергии.</string>
@@ -279,5 +271,7 @@
     <!-- Font Tile -->
     <string name="quick_settings_font_label">Шрифты</string>
     <string name="quick_settings_font_detail_label">Выберите шрифт</string>
-    <string name="ambientmusic_songinfo">%s by %s</string>
+    <string name="ambientmusic_songinfo">%s от %s</string>
+    <!-- FireHound Gaming -->
+    <string name="notification_channel_gaming">Игровой режим</string>
 </resources>

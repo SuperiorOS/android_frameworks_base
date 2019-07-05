@@ -18,16 +18,4 @@
      the documentation output. To suppress comment lines from the documentation
      output, insert an eat-comment element after the comment lines.
 -->
-<resources>
-    <plurals name="type_clock_header">
-        <item quantity="other"><annotation name="color">It’s</annotation>\"
-^1
-^2\"</item>
-        <item quantity="one"><annotation name="color">It’s</annotation>\"
-^1
-^2\"</item>
-        <item quantity="few"><annotation name="color">It’s</annotation>\"
-^1
-^2\"</item>
-    </plurals>
-</resources>
+<resources></resources>
