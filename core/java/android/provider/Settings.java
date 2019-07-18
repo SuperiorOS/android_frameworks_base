@@ -5286,7 +5286,7 @@ public final class Settings {
          *
          * @hide
          */
-<<<<<<< HEAD
+
         public static final String RECENT_APP_SIDEBAR_DISABLE_LABELS =
                 "recent_app_sidebar_disable_labels";
 
@@ -5302,9 +5302,8 @@ public final class Settings {
 
         /** @hide */
         private static final Validator RECENT_APP_SIDEBAR_BG_COLOR_VALIDATOR = ANY_INTEGER_VALIDATOR;
-=======
+
         public static final String GAMING_MODE_ENABLED = "gaming_mode_enabled";
->>>>>>> e26d7a47396... GamingMode: Clean up and refine [1/2]
 
         /**
          * Slim recent app sidebar text color
