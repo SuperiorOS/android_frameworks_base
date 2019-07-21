@@ -5426,6 +5426,11 @@ public final class Settings {
         public static final Validator INCREASING_RING_START_VOLUME_VALIDATOR =
                 ANY_STRING_VALIDATOR;
 
+	/**
+         * @hide
+         */
+        public static final String SMART_CHARGING_RESET_STATS = "smart_charging_reset_stats";
+
         /**
          * Ramp up time (seconds) for increasing ring
          * @hide
