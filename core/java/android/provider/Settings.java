@@ -5435,6 +5435,11 @@ public final class Settings {
         public static final Validator INCREASING_RING_RAMP_UP_TIME_VALIDATOR =
                 ANY_STRING_VALIDATOR;
 
+	/**
+         * @hide
+         */
+        public static final String SMART_CHARGING_RESUME_LEVEL = "smart_charging_resume_level";
+
         /**
          * Toast animations
          *
