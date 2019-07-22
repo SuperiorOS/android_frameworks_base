@@ -18,164 +18,26 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced Power menu -->
-    <string name="reboot_title">Starta om</string>
-    <string name="reboot_message">Startar om</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_fakePackageSignature">Ändra paketets signatur</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_fakePackageSignature">Låter appen låtsas vara en annan app. Skadliga applikationer kan tänkas använda detta för att få tillgång till privata appdata. Var försiktig med att ge detta tillstånd!</string>
     <!-- SystemUI Restart -->
-    <string name="systemui_restart_title">Omstart av SystemUI krävs</string>
-    <string name="systemui_restart_message">För att alla ändringar ska träda i kraft krävs en omstart av SystemUI. Starta om SystemUI nu?</string>
     <!-- App ops requests -->
-    <string name="app_ops_access_camera">öppna kameran</string>
-    <string name="app_ops_access_location">platsåtkomst</string>
-    <string name="app_ops_access_notifications">läsa notifikationer</string>
-    <string name="app_ops_activate_vpn">aktivera VPN</string>
-    <string name="app_ops_add_voicemail">lägga till röstmedelande</string>
-    <string name="app_ops_app_start_foreground">starta app i förgrunden</string>
-    <string name="app_ops_assist_screenshot">ta en skärmdump</string>
-    <string name="app_ops_assist_structure">använda assistansstruktur</string>
-    <string name="app_ops_audio_accessibility_volume">ljud tillgänglighet volym</string>
-    <string name="app_ops_auto_start">kör vid systemstart</string>
-    <string name="app_ops_bind_accessibility_service">binda tillgänglighetstjänsten</string>
-    <string name="app_ops_bluetooth_scan">bluetoothskanning</string>
-    <string name="app_ops_change_wallpaper">ändra bakgrundsbild</string>
-    <string name="app_ops_delete_call_log">radera samtalsloggen</string>
-    <string name="app_ops_delete_contacts">radera telefonkontakter</string>
-    <string name="app_ops_delete_mms">radera MMS-meddelanden</string>
-    <string name="app_ops_delete_sms">radera SMS-meddelanden</string>
-    <string name="app_ops_draw_on_top">rita fönster ovanpå andra appar</string>
-    <string name="app_ops_get_accounts">åtkomst till konton på enheten</string>
-    <string name="app_ops_get_usage_stats">åtkomst till appanvändningsdata</string>
-    <string name="app_ops_accept_handover">överlämning av ett samtal från en annan app</string>
-    <string name="app_ops_install_packages">installera paket</string>
-    <string name="app_ops_keep_device_awake">hålla enheten vaken</string>
-    <string name="app_ops_manage_ipsec_tunnels">hantera ipsec-tunnlar</string>
-    <string name="app_ops_make_phone_call">ringa samtal</string>
-    <string name="app_ops_mock_location">ange skenplats</string>
-    <string name="app_ops_modify_calendar">uppdatera din kalender</string>
-    <string name="app_ops_modify_call_log">uppdatera samtalslistan</string>
-    <string name="app_ops_modify_clipboard">modifiera urklipp</string>
-    <string name="app_ops_modify_contacts">uppdatera dina kontakter</string>
-    <string name="app_ops_modify_settings">uppdatera systeminställningar</string>
-    <string name="app_ops_mute_unmute_microphone">slå av/på mikrofonen</string>
-    <string name="app_ops_phone_calls">besvara telefonsamtal</string>
-    <string name="app_ops_picture_in_picture">Använda miniatyrbildsläget</string>
-    <string name="app_ops_play_audio">spela upp ljud</string>
-    <string name="app_ops_post_notification">skicka en avisering</string>
-    <string name="app_ops_project_media">visa media</string>
-    <string name="app_ops_read_calendar">läsa din kalender</string>
-    <string name="app_ops_read_call_log">läsa samtalslistan</string>
-    <string name="app_ops_read_cell_broadcasts">läsa mobila sändningar</string>
-    <string name="app_ops_read_clipboard">läsa urklipp</string>
-    <string name="app_ops_read_contacts">läsa dina kontakter</string>
-    <string name="app_ops_read_external_storage">läs extern lagring</string>
-    <string name="app_ops_read_mms">läsa dina MMS</string>
-    <string name="app_ops_read_phone_numbers">läsa telefonnummer</string>
-    <string name="app_ops_read_phone_state">läs telefonstatus</string>
-    <string name="app_ops_read_sms">läsa dina SMS</string>
-    <string name="app_ops_receive_sms">ta emot ett SMS-meddelande</string>
-    <string name="app_ops_receive_emergency_broadcast">ta emot nödanropningar</string>
-    <string name="app_ops_record_audio">spela in ljud</string>
-    <string name="app_ops_request_delete_packages">begär paketborttagning</string>
-    <string name="app_ops_run_in_background">kör i bakgrunden</string>
-    <string name="app_ops_run_any_in_background">kör vilken som helst i bakgrunden</string>
-    <string name="app_ops_scan_wifi">skanna WiFi-nätverk</string>
-    <string name="app_ops_send_mms">skicka ett MMS-meddelande</string>
-    <string name="app_ops_send_sms">skicka ett SMS-meddelande</string>
-    <string name="app_ops_start_at_bootup">kör vid systemstart</string>
-    <string name="app_ops_start_foreground">starta förgrunden</string>
-    <string name="app_ops_toast_window">visa toast-meddelanden</string>
-    <string name="app_ops_toggle_bluetooth">växla Bluetooth</string>
-    <string name="app_ops_toggle_mobile_data">sätta på/av mobildata</string>
-    <string name="app_ops_toggle_nfc">sätta på/av NFC</string>
-    <string name="app_ops_toggle_wifi">sätta på/av Wi-Fi</string>
-    <string name="app_ops_turn_on_screen">aktivera skärmen</string>
-    <string name="app_ops_use_alarm_volume">kontrollera alarmvolym</string>
-    <string name="app_ops_use_audio_focus">kontrollera ljudfokus</string>
-    <string name="app_ops_use_bluetooth_volume">kontrollera Bluetoothvolymen</string>
-    <string name="app_ops_use_body_sensors">använd kroppssensorer</string>
-    <string name="app_ops_use_fingerprint">använd fingeravtryck</string>
-    <string name="app_ops_use_master_volume">kontrollera mastervolymen</string>
-    <string name="app_ops_use_media_buttons">använd mediaknapparna</string>
-    <string name="app_ops_use_media_volume">kontrollera mediavolymen</string>
-    <string name="app_ops_use_notification_volume">kontrollera aviseringsvolymen</string>
-    <string name="app_ops_use_ring_volume">kontrollera ringsignalsvolymen</string>
-    <string name="app_ops_use_vibrate">använda haptisk feedback</string>
-    <string name="app_ops_use_voice_volume">kontrollera röstsamtalsvolymen</string>
-    <string name="app_ops_wifi_change">ändra Wi-Fi status</string>
-    <string name="app_ops_write_external_storage">skriv till extern lagring</string>
-    <string name="app_ops_write_mms">skriv ett MMS-meddelande</string>
-    <string name="app_ops_write_sms">skriv ett SMS-meddelande</string>
     <!-- Privacy Guard -->
-    <string name="permlab_changePrivacyGuardState">aktivera eller inaktivera integritetsskydd</string>
-    <string name="permdesc_changePrivacyGuardState">Tillåter appen att reglera om en annan app ska köras med integritetsskydd. När en app körs med integritetsskydd har den ingen tillgång till personlig data som kontakter, samtalshistorik eller meddelanden.</string>
-    <string name="privacy_guard_notification">Integritetsskydd aktivt</string>
-    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> kommer inte få tillgång till personlig data</string>
-    <string name="privacy_guard_dialog_title">Integritetsskydd</string>
-    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> skulle vilja <xliff:g id="op">%2$s</xliff:g>.</string>
     <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-    <string name="permission_remember_choice">Kom ihåg mitt val</string>
     <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Långtryck på strömbrytaren för att interagera</string>
     <!-- Defines the sysfs attribute path used by pocket bridge
         to communicate pocket state to the pocket judge kernel driver. -->
-    <string name="permlab_toggleNavigationEditor">kontrollera navigationsfältredigeraren</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_toggleNavigationEditor">Tillåter en applikation att ta kontroll över navigationsfältredigeraren.</string>
     <!-- AOKP custom system animations -->
-    <string name="animation_fade">Tona</string>
-    <string name="animation_slide_right">Glid in från höger</string>
-    <string name="animation_slide_left">Glida in från vänster</string>
-    <string name="animation_slide_right_no_fade">Glida in från höger (Utan fade)</string>
-    <string name="animation_slide_left_no_fade">Glida in från vänster (Utan fade)</string>
-    <string name="animation_slide_up">Glida in från botten</string>
-    <string name="animation_slide_down">Glida in från toppen</string>
-    <string name="animation_default">Standard</string>
-    <string name="animation_translucent">Genomskinlig</string>
-    <string name="animation_grow_shrink">Växa in (Topp)</string>
-    <string name="animation_grow_shrink_center">Växa in (Mitten)</string>
-    <string name="animation_grow_shrink_bottom">Växa in (Botten)</string>
-    <string name="animation_grow_shrink_left">Växa in (Vänster)</string>
-    <string name="animation_grow_shrink_right">Växa in (Höger)</string>
-    <string name="animation_random">slumpmässig</string>
-    <string name="action_null">Tom</string>
     <!-- ADB over network notification -->
-    <string name="adb_net_active_notification_title">ADB över nätverket aktiverat</string>
     <!-- ADB over USB and network notification -->
-    <string name="adb_both_active_notification_title">ADB över USB &amp; nätverket aktiverat</string>
     <!-- ADB notification message-->
-    <string name="adb_active_generic_notification_message">Tryck för att inaktivera felsökning.</string>
     <!-- Font service -->
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_accessFontManager">kom åt typsnitt hanteraren</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_accessFontManager">Ger en app åtkomst till typsnittshanteraren.</string>
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-    <string name="system_error_vendorprint">Det verkar som om din vendoravbildning är inaktuell. Vänligen flasha den senaste vendoravbildningen för din enhet.</string>
     <!-- LiveDisplay strings -->
-    <string name="live_display_auto">Automatisk</string>
-    <string name="live_display_auto_summary">Justera automatiskt skärmens färgtemperatur efter solnedgång och soluppgång</string>
-    <string name="live_display_off">Av</string>
-    <string name="live_display_off_summary">Inaktivera alla justeringar</string>
-    <string name="live_display_day">Dag</string>
-    <string name="live_display_day_summary">Använd enbart dagläge</string>
-    <string name="live_display_night">Natt</string>
-    <string name="live_display_night_summary">Använd enbart nattläge</string>
-    <string name="live_display_outdoor">Utomhus (stark sol)</string>
-    <string name="live_display_outdoor_summary">Använd endast utomhusläge</string>
-    <string name="live_display_hint">LiveDisplay kan hjälpa minska belastningen på ögonen och hjälpa dig att sova på natten. Klicka här för att prova det!</string>
-    <string name="accessibility_quick_settings_live_display_off">LiveDisplay av.</string>
-    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: autoläge.</string>
-    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: dagläge.</string>
-    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: nattläge.</string>
-    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: utomhusläge.</string>
-    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay avslaget.</string>
-    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay ändrad till auto-läge.</string>
-    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay ändrad till dagläge.</string>
-    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay ändrad till nattläge.</string>
-    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay ändrad till utomhusläge.</string>
     <!-- FireHound Gaming -->
     <!-- Battery fully charged notification -->
+    <!-- Alert slider proc nodes paths. -->
 </resources>

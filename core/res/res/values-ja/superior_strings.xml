@@ -85,7 +85,7 @@
     <string name="app_ops_send_mms">MMS メッセージの送信</string>
     <string name="app_ops_send_sms">SMS メッセージの送信</string>
     <string name="app_ops_start_at_bootup">起動時の実行</string>
-    <string name="app_ops_start_foreground">フォアグラウンドでの起動</string>
+    <string name="app_ops_start_foreground">前面での起動</string>
     <string name="app_ops_toast_window">トーストメッセージの表示</string>
     <string name="app_ops_toggle_bluetooth">Bluetooth の切り替え</string>
     <string name="app_ops_toggle_mobile_data">モバイルデータの切り替え</string>
@@ -128,8 +128,8 @@
     <string name="animation_fade">フェード</string>
     <string name="animation_slide_right">右スライド</string>
     <string name="animation_slide_left">左スライド</string>
-    <string name="animation_slide_right_no_fade">右にスライド (フェードなし)</string>
-    <string name="animation_slide_left_no_fade">左にスライド (フェードなし)</string>
+    <string name="animation_slide_right_no_fade">右スライド (フェードなし)</string>
+    <string name="animation_slide_left_no_fade">左スライド (フェードなし)</string>
     <string name="animation_slide_up">下スライド</string>
     <string name="animation_slide_down">上スライド</string>
     <string name="animation_default">既定</string>
@@ -149,7 +149,7 @@
     <string name="adb_active_generic_notification_message">タップしてデバッグを無効化</string>
     <!-- Font service -->
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_accessFontManager">フォントマネージャーへのアクセス</string>
+    <string name="permlab_accessFontManager">フォントマネージャーにアクセス</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_accessFontManager">アプリにフォントマネージャーへのアクセスを許可する</string>
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
@@ -178,12 +178,13 @@
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay を屋外モードに変更しました</string>
     <!-- FireHound Gaming -->
     <string name="notification_channel_gaming">ゲームモード</string>
-    <string name="gaming_notif_title">ゲームモード ON</string>
-    <string name="gaming_notif_ticker">ゲームモード有効</string>
+    <string name="gaming_mode_notification_title">ゲームモードが有効です</string>
+    <string name="gaming_mode_notification_content">タップでゲームモードを無効化</string>
     <string name="gaming_mode_enabled_toast">ゲームモードを有効化しました</string>
     <string name="gaming_mode_disabled_toast">ゲームモードを無効化しました</string>
     <!-- Battery fully charged notification -->
-    <string name="notify_battery_fully_charged_title">充電完了時の給電停止</string>
+    <string name="notify_battery_fully_charged_title">充電完了の通知</string>
     <string name="notify_battery_fully_charged_text">バッテリーの寿命を改善するために充電器から端末を切断する</string>
     <string name="battery_charged_channel_name">充電完了</string>
+    <!-- Alert slider proc nodes paths. -->
 </resources>

@@ -79,9 +79,9 @@
     <!-- Theme tile -->
     <string name="systemui_theme_style_title">UI のスタイル</string>
     <string name="systemui_theme_style_auto">自動</string>
-    <string name="systemui_theme_style_light">明るい UI</string>
-    <string name="systemui_theme_style_dark">暗い UI</string>
-    <string name="systemui_theme_style_black">黒い UI</string>
+    <string name="systemui_theme_style_light">ライト UI</string>
+    <string name="systemui_theme_style_dark">ダーク UI</string>
+    <string name="systemui_theme_style_black">ブラック UI</string>
     <string name="systemui_theme_style_superior">Superior UI</string>
     <string name="quick_settings_theme_tile_title">アクセント</string>
     <string name="quick_settings_theme_tile_accent_detail_title">色を選択</string>
@@ -124,14 +124,14 @@
     values/config.xml) and must be truncated.
     [CHAR LIMIT=4] -->
     <!-- Screenshot -->
-    <string name="quick_settings_screenshot_label">スクリーンショット</string>
-    <string name="quick_settings_region_screenshot_label">範囲選択してスクリーンショット</string>
+    <string name="quick_settings_screenshot_label">スクリーン\nショット</string>
+    <string name="quick_settings_region_screenshot_label">範囲選択</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
     <string name="screen_pinning_description_no_navbar">固定を解除するまで画面が常に表示されるようになります。固定を解除するには戻るボタンを押し続けます。</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
     <string name="screen_pinning_toast_no_navbar">画面の固定を解除するには戻るボタンを長押しします</string>
     <!-- Expanded Desktop QS Tile -->
-    <string name="quick_settings_expanded_desktop_label">拡張デスクトップ</string>
+    <string name="quick_settings_expanded_desktop_label">拡張\nデスクトップ</string>
     <string name="quick_settings_expanded_desktop">拡張済み</string>
     <string name="quick_settings_expanded_desktop_off">標準</string>
     <string name="quick_settings_expanded_navigation_off">ナビゲーションバーを隠す</string>
@@ -139,10 +139,10 @@
     <!-- Other QS tiles -->
     <string name="alarm_title_tile">アラーム</string>
     <string name="calendar_title_tile">イベントを追加</string>
-    <string name="call_title_tile">ダイヤラー</string>
+    <string name="call_title_tile">電話</string>
     <string name="camera_title_tile">カメラ</string>
     <!-- Ambient display QS tile -->
-    <string name="quick_settings_ambient_display_label">アンビエント表示</string>
+    <string name="quick_settings_ambient_display_label">アンビエント\n表示</string>
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">Always On Display</string>
     <!-- Partial screenshot -->
@@ -187,23 +187,23 @@
     <string name="left">左</string>
     <string name="right">右</string>
     <string name="navbar_editor_title">エディタ</string>
-    <string name="navbar_editor_summary">ナビゲーションバーを編集</string>
+    <string name="navbar_editor_summary">ナビゲーションバーを編集する</string>
     <string name="menu_ime_always_show">メニュー</string>
     <string name="search">検索</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">スクリーンショットを削除しました</string>
     <!-- NavBar QS Tile -->
-    <string name="quick_settings_navbar_title">ナビゲーションバー</string>
+    <string name="quick_settings_navbar_title">ナビゲーション\nバー</string>
     <string name="accessibility_quick_settings_navbar_off">同期 OFF</string>
     <string name="accessibility_quick_settings_navbar_on">同期 ON</string>
     <string name="accessibility_quick_settings_navbar_changed_off">ナビゲーションバーを OFF にしました</string>
     <string name="accessibility_quick_settings_navbar_changed_on">ナビゲーションバーを ON にしました</string>
     <!-- USB Tethering tile -->
     <string name="accessibility_quick_settings_usb_tether_off">USB テザリング OFF</string>
-    <string name="accessibility_quick_settings_usb_tether_on">USBテザリング ON</string>
+    <string name="accessibility_quick_settings_usb_tether_on">USB テザリング ON</string>
     <string name="accessibility_quick_settings_usb_tether_changed_off">USB テザリングを OFF にしました</string>
     <string name="accessibility_quick_settings_usb_tether_changed_on">USB テザリングを ON にしました</string>
-    <string name="quick_settings_usb_tether_label">USB テザリング</string>
+    <string name="quick_settings_usb_tether_label">USB\nテザリング</string>
     <!-- HW Keys Tile -->
     <string name="accessibility_quick_settings_hwkeys_on">ハードウェアキー ON</string>
     <string name="accessibility_quick_settings_hwkeys_off">ハードウェアキー OFF</string>
@@ -213,11 +213,11 @@
     <!-- Volume panel QS tile -->
     <string name="quick_settings_volume_panel_label">音量パネル</string>
     <!-- ADB network tile -->
-    <string name="quick_settings_adb_network">ADB ネットワーク</string>
+    <string name="quick_settings_adb_network">ADB\nネットワーク</string>
     <string name="quick_settings_network_adb_enabled_label">ネット経由の ADB</string>
     <string name="quick_settings_network_adb_disabled_label">ネット経由の ADB</string>
     <!-- Smart pixels QS tile -->
-    <string name="quick_settings_smart_pixels">スマートピクセル</string>
+    <string name="quick_settings_smart_pixels">スマート\nピクセル</string>
     <string name="quick_settings_smart_pixels_on_power_save">自動有効</string>
     <!-- Screenrecord Notification Ticker -->
     <string name="screenrecord_notif_ticker">画面は録画されています</string>
@@ -274,4 +274,6 @@
     <string name="ambientmusic_songinfo">%s - %s</string>
     <!-- FireHound Gaming -->
     <string name="notification_channel_gaming">ゲームモード</string>
+    <!--Recents -->
+    <string name="recents_free_ram">空きメモリ: %1$d MB</string>
 </resources>

@@ -16,53 +16,263 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="statusbar_items_title">Ikona ve stavové liště</string>
+    <string name="status_bar_roaming">Roaming</string>
+    <string name="lockscreen_default">Výchozí</string>
+    <string name="lockscreen_hidden">Nic</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">Spustit přejetím prstu od ikony</string>
     <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine vyp.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine zap.</string>
     <!-- LTE QS Tile -->
+    <string name="qs_lte_label">LTE</string>
+    <string name="lte_on">LTE zap. </string>
+    <string name="lte_off">LTE vyp.</string>
     <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Zvuk</string>
+    <string name="quick_settings_sound_ring">Vyzvánění</string>
+    <string name="quick_settings_sound_vibrate">Vibrace</string>
+    <string name="quick_settings_sound_dnd">Nerušit</string>
     <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Plovoucí oznámení jsou odložena na dobu 1 minuty.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s </xliff:g> - Plovoucí oznámení jsou odložena na dobu <xliff:g id="number">%d </xliff:g> minut.</string>
     <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Plovoucí oznámení</string>
+    <string name="accessibility_quick_settings_heads_up_off">Plovoucí oznámení vyp.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Plovoucí oznámení zap.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Plovoucí oznámení byla vypnuta.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Plovoucí oznámení byla zapnuta.</string>
     <!-- Advanced powermenu -->
+    <string name="global_action_restart_system">Restartovat</string>
+    <string name="global_action_restart_advanced">Rozšířený restart</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">SystemUI</string>
+    <string name="global_action_restart_hot">Horký restart</string>
+    <string name="global_action_screenshot">Snímek obrazovky</string>
+    <string name="global_action_lockdown">Uzamčení</string>
     <!-- Reboot/Recovery QS Tile -->
+    <string name="quick_settings_reboot_label">Restartovat</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
     <!-- QS Config -->
+    <string name="qs_menu_item_columns">Sloupce</string>
+    <string name="qs_menu_item_columns_landscape">Sloupce (na šířku)</string>
+    <string name="qs_menu_item_columns_three">3</string>
+    <string name="qs_menu_item_columns_four">4</string>
+    <string name="qs_menu_item_columns_five">5</string>
+    <string name="qs_menu_item_columns_six">6</string>
+    <string name="qs_menu_item_columns_seven">7</string>
+    <string name="qs_menu_item_columns_eight">8</string>
+    <string name="qs_menu_item_columns_nine">9</string>
+    <string name="qs_menu_item_reset">Resetovat</string>
+    <string name="qs_menu_item_titles">Zobrazit popisky</string>
+    <string name="qs_menu_item_rows">Řádky</string>
+    <string name="qs_menu_item_rows_one">1</string>
+    <string name="qs_menu_item_rows_two">2</string>
+    <string name="qs_menu_item_rows_three">3</string>
+    <string name="qs_menu_item_rows_four">4</string>
+    <string name="qs_menu_item_rows_landscape">Řádky (na šířku)</string>
+    <string name="qs_menu_item_qs_columns">Sloupce panelu QS</string>
+    <string name="qs_menu_item_columns_auto">Automaticky</string>
     <!-- Theme tile -->
+    <string name="systemui_theme_style_title">Styl UI</string>
+    <string name="systemui_theme_style_auto">Automaticky</string>
+    <string name="systemui_theme_style_light">Světlé UI</string>
+    <string name="systemui_theme_style_dark">Tmavé UI</string>
+    <string name="systemui_theme_style_black">Černé UI</string>
+    <string name="systemui_theme_style_superior">Superior UI</string>
+    <string name="quick_settings_theme_tile_title">Barva zvýraznění</string>
+    <string name="quick_settings_theme_tile_accent_detail_title">Vybrat barvu</string>
+    <string name="quick_settings_theme_tile_style_detail_title">Vybrat styl</string>
+    <string name="quick_settings_theme_tile_color_default">Výchozí</string>
+    <string name="quick_settings_theme_tile_color_red">Červená</string>
+    <string name="quick_settings_theme_tile_color_pink">Růžová</string>
+    <string name="quick_settings_theme_tile_color_purple">Fialová</string>
+    <string name="quick_settings_theme_tile_color_deep_purple">Tmavě fialová</string>
+    <string name="quick_settings_theme_tile_color_indigo">Tmavě modrá</string>
+    <string name="quick_settings_theme_tile_color_blue">Modrá</string>
+    <string name="quick_settings_theme_tile_color_light_blue">Světle modrá</string>
+    <string name="quick_settings_theme_tile_color_cyan">Tyrkysová</string>
+    <string name="quick_settings_theme_tile_color_teal">Modrozelená</string>
+    <string name="quick_settings_theme_tile_color_green">Zelená</string>
+    <string name="quick_settings_theme_tile_color_light_green">Světle zelená</string>
+    <string name="quick_settings_theme_tile_color_lime">Limetková</string>
+    <string name="quick_settings_theme_tile_color_yellow">Žlutá</string>
+    <string name="quick_settings_theme_tile_color_amber">Jantarová</string>
+    <string name="quick_settings_theme_tile_color_orange">Oranžová</string>
+    <string name="quick_settings_theme_tile_color_deep_orange">Tmavě oranžová</string>
+    <string name="quick_settings_theme_tile_color_brown">Hnědá</string>
+    <string name="quick_settings_theme_tile_color_grey">Šedá</string>
+    <string name="quick_settings_theme_tile_color_blue_grey">Modro šedá</string>
+    <string name="quick_settings_theme_tile_color_candy_red">Červená - Candy</string>
+    <string name="quick_settings_theme_tile_color_pale_red">Červená - Pale</string>
+    <string name="quick_settings_theme_tile_color_extended_green">Zelená - Extended</string>
+    <string name="quick_settings_theme_tile_color_pale_blue">Modrá - Pale</string>
+    <string name="quick_settings_theme_tile_color_jade_green">Zelená - Jade</string>
+    <string name="quick_settings_theme_tile_color_black">Černá</string>
+    <string name="quick_settings_theme_tile_color_white">Bílá</string>
+    <string name="quick_settings_theme_tile_color_qpurple">Fialová - Q</string>
+    <string name="quick_settings_theme_tile_color_qgreen">Zelená - Q</string>
+    <string name="quick_settings_theme_tile_color_oneplusred">Červená - OnePlus</string>
+    <string name="quick_settings_theme_tile_color_pixel">Pixel</string>
+    <string name="theme_info_title">Co to je?</string>
+    <string name="theme_info_message">Dlaždice motivů je jedinečná a snadno použitelná dlaždice, která uživateli umožňuje měnit odstín nebo styl systému.\n\nChcete-li provést změnu odstínu a stylu, jednoduše stiskněte dlouze dlaždici a poté ji stiskněte znovu pro výběr nabízených možností.</string>
     <!-- Text to use when the number in a notification info is too large
     (greater than status_bar_notification_info_maxnum, defined in
     values/config.xml) and must be truncated.
     [CHAR LIMIT=4] -->
     <!-- Screenshot -->
+    <string name="quick_settings_screenshot_label">Snímek obrazovky</string>
+    <string name="quick_settings_region_screenshot_label">Částečný snímek obrazovky</string>
     <!-- Screen pinning dialog description. (for devices without navbar) -->
+    <string name="screen_pinning_description_no_navbar">Obsah bude připnut v zobrazení, dokud jej neuvolníte. Uvolníte jej stisknutím &amp; podržením tlačítka Zpět.</string>
     <!-- Notify use that they are in Lock-to-app (for devices without navbar)-->
+    <string name="screen_pinning_toast_no_navbar">Chcete-li tuto obrazovku uvolnit, dotkněte se &amp; podržte tlačítko Zpět</string>
     <!-- Expanded Desktop QS Tile -->
+    <string name="quick_settings_expanded_desktop_label">Rozšířená plocha</string>
+    <string name="quick_settings_expanded_desktop">Rozšířená</string>
+    <string name="quick_settings_expanded_desktop_off">Normální</string>
+    <string name="quick_settings_expanded_navigation_off">Skrýt navigační panel</string>
+    <string name="quick_settings_expanded_statusbar_off">Skrýt stavovou lištu</string>
     <!-- Other QS tiles -->
+    <string name="alarm_title_tile">Budík</string>
+    <string name="calendar_title_tile">Přidat událost</string>
+    <string name="call_title_tile">Číselník</string>
+    <string name="camera_title_tile">Fotoaparát</string>
     <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ambientní displej</string>
     <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
     <!-- Partial screenshot -->
+    <string name="screenshot_abort_title">Žádný snímek obrazovky</string>
+    <string name="screenshot_abort_text">Operace přerušena</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • DASH nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
+    <string name="keyguard_plugged_in_dash_charging">DASH nabíjení</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a turbo power charger. Should match keyguard_plugged_in_turbo_power_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_turbo_power_time">TurboPower je připojen (zbývá <xliff:g id="charging_time_left">%s</xliff:g> do plného nabití)</string>
+    <string name="keyguard_plugged_in_turbo_power_charging">TurboPower je připojen</string>
+    <string name="quick_settings_ambient_play">Nyní hraje</string>
     <!-- Music tile -->
+    <string name="quick_settings_music_label">Hudba</string>
+    <string name="quick_settings_music_play">Přehrát</string>
+    <string name="quick_settings_music_pause">Pozastavit</string>
     <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">Obrazovka režimu spánku</string>
     <!-- Sync QS Tile -->
+    <string name="quick_settings_sync_label">Synchr.</string>
+    <string name="accessibility_quick_settings_sync_off">Synch. vypnuta</string>
+    <string name="accessibility_quick_settings_sync_on">Synch. zapnuta</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Synchronizace byla vypnuta</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Synchronizace byla zapnuta</string>
     <!-- Navbar Tuner -->
+    <string name="preview">Náhled</string>
+    <string name="keycode">Klávesa</string>
+    <string name="no_home_title">Nebylo nalezeno tlačítko Domů</string>
+    <string name="no_home_message">K navigaci v zařízení je potřeba tlačítko Domů. Před uložením toto tlačítko přidejte.</string>
+    <string name="clipboard_description">Tlačítko Schránka umožňuje přetahovat položky přímo do schránky. Položky vložené do schránky lze také přetáhnout ven.</string>
+    <string name="keycode_description">Tlačítka Klávesa umožňují přidat na navigační panel klávesy z klávesnice. Když na ně klepnete, budou emulovat vybranou klávesu. K tlačítku je nejprve nutné přiřadit klávesu a poté přidat obrázek tlačítka.</string>
+    <string name="start">Začátek</string>
+    <string name="center">Uprostřed</string>
+    <string name="end">Konec</string>
+    <string name="space">Mezerník</string>
+    <string name="menu_ime">Přepínač nabídky/klávesnice</string>
+    <string name="select_button">Vyberte tlačítko pro přidání</string>
+    <string name="add_button">Přidat tlačítko</string>
+    <string name="save">Uložit</string>
+    <string name="reset">Resetovat</string>
+    <string name="select_keycode">Vyberte klávesu na klávesnici</string>
+    <string name="left">Vlevo</string>
+    <string name="right">Vpravo</string>
+    <string name="navbar_editor_title">Editor</string>
+    <string name="navbar_editor_summary">Konfigurovat navigační panel</string>
+    <string name="menu_ime_always_show">Menu</string>
+    <string name="search">Hledat</string>
     <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Snímek obrazovky smazán</string>
     <!-- NavBar QS Tile -->
+    <string name="quick_settings_navbar_title">Navigační panel</string>
+    <string name="accessibility_quick_settings_navbar_off">Synch. vypnuta</string>
+    <string name="accessibility_quick_settings_navbar_on">Synch. zapnuta</string>
+    <string name="accessibility_quick_settings_navbar_changed_off">Navigační panel byl vypnutý</string>
+    <string name="accessibility_quick_settings_navbar_changed_on">Navigační panel byl zapnutý</string>
     <!-- USB Tethering tile -->
+    <string name="accessibility_quick_settings_usb_tether_off">USB tethering vyp.</string>
+    <string name="accessibility_quick_settings_usb_tether_on">USB tethering zap.</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">USB tethering je vypnutý</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">USB tethering je zapnutý</string>
+    <string name="quick_settings_usb_tether_label">USB tethering</string>
     <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">HW tlačítka zapnuta</string>
+    <string name="accessibility_quick_settings_hwkeys_off">HW tlačítka vypnuta</string>
+    <string name="quick_settings_hwkeys_label">HW tlačítka</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">Otevřít obrazovku spuštěných služeb.</string>
     <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Panel hlasitosti</string>
     <!-- ADB network tile -->
+    <string name="quick_settings_adb_network">ADB přes síť</string>
+    <string name="quick_settings_network_adb_enabled_label">ADB přes síť</string>
+    <string name="quick_settings_network_adb_disabled_label">ADB přes síť</string>
     <!-- Smart pixels QS tile -->
+    <string name="quick_settings_smart_pixels">Smart Pixels</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Automaticky povolit Smart Pixels</string>
     <!-- Screenrecord Notification Ticker -->
+    <string name="screenrecord_notif_ticker">Obrazovka je zaznamenávána</string>
+    <string name="screenrecord_notif_final_ticker">Obrazovka byla úspěšně zaznamenána</string>
     <!-- Screenrecord notification title -->
+    <string name="screenrecord_notif_title">Zaznamenávání obrazovky</string>
     <!-- Screenrecord notification action: Stop -->
+    <string name="screenrecord_notif_stop">Zastavit</string>
+    <string name="screenrecord_notif_completed">Obrazovka byla úspěšně zaznamenána</string>
     <!-- Screenrecord notification action: show/hide pointer -->
+    <string name="screenrecord_notif_pointer_on">Zobrazit ukazatel</string>
+    <string name="screenrecord_notif_pointer_off">Skrýt ukazatel</string>
     <!-- Screen record notification error title -->
+    <string name="screenrecord_notif_error">Záznam obrazovky není možný</string>
+    <string name="notification_channel_screenrecord">Záznamy obrazovky</string>
+    <string name="screenrecord_hide_hint">Skrýt nápovědu</string>
+    <string name="screenrecord_show_hint">Zobrazit nápovědu</string>
     <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenrecord_label">Záznam obrazovky</string>
     <!-- Button that controls inversion of layout of navigation bar -->
+    <string name="nav_bar_layout_inverse">Převrátit rozložení</string>
     <!-- OneHand mode QS tile -->
+    <string name="qs_onehand_label">Režim jedné ruky</string>
     <!-- CustomText clock -->
+    <string name="high_noon_first_row">Velký</string>
+    <string name="high_noon_second_row">Poledne</string>
     <!-- Location Tile -->
+    <string name="accessibility_quick_settings_location_battery_saving">Hlášení polohy: úspora baterie.</string>
+    <string name="accessibility_quick_settings_location_gps_only">Hlášení polohy: pouze GPS.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Hlášení polohy: vysoká přesnost.</string>
+    <string name="quick_settings_location_battery_saving_label">Úspora baterie</string>
+    <string name="quick_settings_location_battery_saving_label_twoline">Úspora\nbaterie</string>
+    <string name="quick_settings_location_gps_only_label">Pouze GPS</string>
+    <string name="quick_settings_location_gps_only_label_twoline">Pouze GPS</string>
+    <string name="quick_settings_location_high_accuracy_label">Vysoká přesnost</string>
+    <string name="quick_settings_location_high_accuracy_label_twoline">Vysoká\npřesnost</string>
+    <string name="quick_settings_location_detail_title">Poloha</string>
+    <string name="quick_settings_location_detail_menu_title">Zvolte režim:</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_title">Vysoká přesnost</string>
+    <string name="quick_settings_location_detail_mode_battery_saving_title">Úspora baterie</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_title">Pouze GPS</string>
+    <string name="quick_settings_location_detail_mode_high_accuracy_description">K určování polohy používat GPS, Wi\u2011Fi, Bluetooth nebo mobilní sítě </string>
+    <string name="quick_settings_location_detail_mode_battery_saving_description">K určování polohy používat Wi\u2011Fi, Bluetooth nebo mobilní sítě</string>
+    <string name="quick_settings_location_detail_mode_sensors_only_description">K určování polohy používat GPS</string>
     <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Režim čtení</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Režim čtení zap.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Režim čtení vyp.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Režim čtení je zapnutý.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Režim čtení je vypnutý.</string>
     <!-- Font Tile -->
+    <string name="quick_settings_font_label">Písma</string>
+    <string name="quick_settings_font_detail_label">Vybrat písmo</string>
+    <string name="ambientmusic_songinfo">%s od %s</string>
     <!-- FireHound Gaming -->
+    <string name="notification_channel_gaming">Herní režim</string>
+    <!--Recents -->
 </resources>

@@ -223,7 +223,7 @@
     <string name="screenrecord_notif_ticker">Ekran kaydediliyor</string>
     <string name="screenrecord_notif_final_ticker">Ekran başarıyla kaydedildi</string>
     <!-- Screenrecord notification title -->
-    <string name="screenrecord_notif_title">Ekran kaydediliyor</string>
+    <string name="screenrecord_notif_title">Kayıt ekranı</string>
     <!-- Screenrecord notification action: Stop -->
     <string name="screenrecord_notif_stop">Durdur</string>
     <string name="screenrecord_notif_completed">Ekran başarıyla kaydedildi</string>
@@ -247,7 +247,7 @@
     <!-- Location Tile -->
     <string name="accessibility_quick_settings_location_battery_saving">Konum bildirimi: pil tasarrufu modu.</string>
     <string name="accessibility_quick_settings_location_gps_only">Konum bildirimi: sadece sensörler modu.</string>
-    <string name="accessibility_quick_settings_location_high_accuracy">Konum bildirmi: yüksek doğruluk modu.</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Konum bildirimi: yüksek doğruluk modu.</string>
     <string name="quick_settings_location_battery_saving_label">Pil tasarrufu</string>
     <string name="quick_settings_location_battery_saving_label_twoline">Pil\ntasarrufu</string>
     <string name="quick_settings_location_gps_only_label">Sadece GPS</string>
@@ -271,7 +271,8 @@
     <!-- Font Tile -->
     <string name="quick_settings_font_label">Yazı tipi</string>
     <string name="quick_settings_font_detail_label">Bir yazı tipi seç</string>
-    <string name="ambientmusic_songinfo">%s \'e %s</string>
+    <string name="ambientmusic_songinfo">%s tarafından %s</string>
     <!-- FireHound Gaming -->
     <string name="notification_channel_gaming">Oyun modu</string>
+    <!--Recents -->
 </resources>

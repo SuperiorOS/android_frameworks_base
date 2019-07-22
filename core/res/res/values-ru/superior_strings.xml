@@ -37,7 +37,7 @@
     <string name="app_ops_assist_screenshot">Сделать снимок экрана</string>
     <string name="app_ops_assist_structure">Использовать структуру ассистента</string>
     <string name="app_ops_audio_accessibility_volume">Доступ к изменению громкости</string>
-    <string name="app_ops_auto_start">Запуск при включении</string>
+    <string name="app_ops_auto_start">запуск при включении</string>
     <string name="app_ops_bind_accessibility_service">Подключение к службе спец. возможностей</string>
     <string name="app_ops_bluetooth_scan">Поиск Bluetooth-устройств</string>
     <string name="app_ops_change_wallpaper">Изменить обои</string>
@@ -106,7 +106,7 @@
     <string name="app_ops_use_voice_volume">управление громкостью голосового вызова</string>
     <string name="app_ops_wifi_change">изменять состояние Wi-Fi</string>
     <string name="app_ops_write_external_storage">запись на внешний накопитель</string>
-    <string name="app_ops_write_mms">создавать MMS-сообщения</string>
+    <string name="app_ops_write_mms">Создавать MMS-сообщения</string>
     <string name="app_ops_write_sms">создавать SMS-сообщения</string>
     <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">включение и отключение режима Защиты конфиденциальности</string>
@@ -114,7 +114,7 @@
     <string name="privacy_guard_notification">Режим Защиты конфиденциальности включен</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app"> %1$s</xliff:g> не сможет получить доступ к личной информации</string>
     <string name="privacy_guard_dialog_title">Защита конфиденциальности</string>
-    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> пытается <xliff:g id="op">%2$s</xliff:g>.</string>
+    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> запрашивает <xliff:g id="op">%2$s</xliff:g>.</string>
     <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <string name="permission_remember_choice">Запомнить мой выбор</string>
     <!-- Pocket Lock -->
@@ -178,5 +178,13 @@
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay переключен в режим «на улице».</string>
     <!-- FireHound Gaming -->
     <string name="notification_channel_gaming">Игровой режим</string>
+    <string name="gaming_mode_notification_title">Игровой режим включен</string>
+    <string name="gaming_mode_notification_content">Нажмите, чтобы выключить Игровой режим</string>
+    <string name="gaming_mode_enabled_toast">Игровой режим включен</string>
+    <string name="gaming_mode_disabled_toast">Игровой режим выключен</string>
     <!-- Battery fully charged notification -->
+    <string name="notify_battery_fully_charged_title">Батарея полностью заряжена</string>
+    <string name="notify_battery_fully_charged_text">Отключите девайс от зарядного устройства для увеличения срока службы батареи</string>
+    <string name="battery_charged_channel_name">Заряд батареи</string>
+    <!-- Alert slider proc nodes paths. -->
 </resources>

@@ -18,25 +18,169 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced Power menu -->
+    <string name="reboot_title">Restartovat</string>
+    <string name="reboot_message">Restartování systému</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">Napodobit podpis balíčku</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">Umožňuje aplikaci předstírat, že je jinou aplikací. Škodlivé aplikace by mohly použít tuto možnost k přístupu k datům soukromých aplikací. Udělujte toto oprávnění s opatrností!</string>
     <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Je vyžadován restart SystemUI</string>
+    <string name="systemui_restart_message">Aby se projevily všechny změny, je třeba restartovat SystemUI. Restartovat nyní?</string>
     <!-- App ops requests -->
+    <string name="app_ops_access_camera">přístup k fotoaparátu</string>
+    <string name="app_ops_access_location">přístup k poloze</string>
+    <string name="app_ops_access_notifications">číst upozornění</string>
+    <string name="app_ops_activate_vpn">aktivovat VPN</string>
+    <string name="app_ops_add_voicemail">přidat hlasovou zprávu</string>
+    <string name="app_ops_app_start_foreground">spustit okamžitou aplikaci v popředí</string>
+    <string name="app_ops_assist_screenshot">vytvořit snímek obrazovky</string>
+    <string name="app_ops_assist_structure">použít asistenční strukturu</string>
+    <string name="app_ops_audio_accessibility_volume">hlasitost zvuku přístupnosti</string>
+    <string name="app_ops_auto_start">spustit při startu</string>
+    <string name="app_ops_bind_accessibility_service">navázat na službu přístupnosti</string>
+    <string name="app_ops_bluetooth_scan">skenovat Bluetooth</string>
+    <string name="app_ops_change_wallpaper">změnit tapetu</string>
+    <string name="app_ops_delete_call_log">smazat historii hovorů</string>
+    <string name="app_ops_delete_contacts">smazat kontakty</string>
+    <string name="app_ops_delete_mms">smazat MMS zprávy</string>
+    <string name="app_ops_delete_sms">smazat SMS zprávy</string>
+    <string name="app_ops_draw_on_top">vykreslit okna navrchu</string>
+    <string name="app_ops_get_accounts">získat účty zařízení</string>
+    <string name="app_ops_get_usage_stats">získat statistiky využití aplikace</string>
+    <string name="app_ops_accept_handover">předání hovoru z jiné aplikace</string>
+    <string name="app_ops_install_packages">instalovat balíčky</string>
+    <string name="app_ops_keep_device_awake">udržovat zařízení probuzené</string>
+    <string name="app_ops_manage_ipsec_tunnels">spravovat tunely ipsec</string>
+    <string name="app_ops_make_phone_call">uskutečňovat telefonní hovory</string>
+    <string name="app_ops_mock_location">zfalšovat polohu</string>
+    <string name="app_ops_modify_calendar">aktualizovat kalendář</string>
+    <string name="app_ops_modify_call_log">aktualizovat záznam hovoru</string>
+    <string name="app_ops_modify_clipboard">měnit schránku</string>
+    <string name="app_ops_modify_contacts">aktualizovat kontakty</string>
+    <string name="app_ops_modify_settings">aktualizovat systémová nastavení</string>
+    <string name="app_ops_mute_unmute_microphone">vypnout/zapnout mikrofon</string>
+    <string name="app_ops_phone_calls">přijímat telefonní hovory</string>
+    <string name="app_ops_picture_in_picture">použít obraz v obraze</string>
+    <string name="app_ops_play_audio">přehrávat zvuk</string>
+    <string name="app_ops_post_notification">posílat upozornění</string>
+    <string name="app_ops_project_media">promítat média</string>
+    <string name="app_ops_read_calendar">číst kalendář</string>
+    <string name="app_ops_read_call_log">číst výpisy hovorů</string>
+    <string name="app_ops_read_cell_broadcasts">číst vysílání buněk</string>
+    <string name="app_ops_read_clipboard">číst schránku</string>
+    <string name="app_ops_read_contacts">číst kontakty</string>
+    <string name="app_ops_read_external_storage">číst externí úložiště</string>
+    <string name="app_ops_read_mms">číst zprávy MMS</string>
+    <string name="app_ops_read_phone_numbers">číst telefonní čísla</string>
+    <string name="app_ops_read_phone_state">přístup ke stavu telefonu</string>
+    <string name="app_ops_read_sms">číst zprávy SMS</string>
+    <string name="app_ops_receive_sms">přijímat zprávy SMS</string>
+    <string name="app_ops_receive_emergency_broadcast">přijímat zprávy nouzového vysílání</string>
+    <string name="app_ops_record_audio">nahrávat zvuk</string>
+    <string name="app_ops_request_delete_packages">žádat o odstranění balíčků</string>
+    <string name="app_ops_run_in_background">spustit na pozadí</string>
+    <string name="app_ops_run_any_in_background">spustit cokoliv na pozadí</string>
+    <string name="app_ops_scan_wifi">prohledávat sítě Wi-Fi</string>
+    <string name="app_ops_send_mms">poslat zprávu MMS</string>
+    <string name="app_ops_send_sms">poslat zprávu SMS</string>
+    <string name="app_ops_start_at_bootup">spustit při startu</string>
+    <string name="app_ops_start_foreground">spustit na popředí</string>
+    <string name="app_ops_toast_window">zobrazovat vyskakovací upozornění</string>
+    <string name="app_ops_toggle_bluetooth">přepínat Bluetooth</string>
+    <string name="app_ops_toggle_mobile_data">přepínat mobilní data</string>
+    <string name="app_ops_toggle_nfc">přepínat NFC</string>
+    <string name="app_ops_toggle_wifi">přepínat Wi-Fi</string>
+    <string name="app_ops_turn_on_screen">zapnout obrazovku</string>
+    <string name="app_ops_use_alarm_volume">ovládat hlasitost budíku</string>
+    <string name="app_ops_use_audio_focus">ovládat zvukové zdroje</string>
+    <string name="app_ops_use_bluetooth_volume">ovládat hlasitost Bluetooth</string>
+    <string name="app_ops_use_body_sensors">použít tělesné senzory</string>
+    <string name="app_ops_use_fingerprint">použít otisk prstu</string>
+    <string name="app_ops_use_master_volume">ovládat hlavní hlasitost</string>
+    <string name="app_ops_use_media_buttons">použít mediální tlačítka</string>
+    <string name="app_ops_use_media_volume">ovládat hlasitost médií</string>
+    <string name="app_ops_use_notification_volume">ovládat hlasitost upozornění</string>
+    <string name="app_ops_use_ring_volume">ovládat hlasitost vyzvánění</string>
+    <string name="app_ops_use_vibrate">použít hmatovou odezvu</string>
+    <string name="app_ops_use_voice_volume">ovládat hlasitost hovoru</string>
+    <string name="app_ops_wifi_change">změnit stav připojení WiFi</string>
+    <string name="app_ops_write_external_storage">zapsat na externí úložiště</string>
+    <string name="app_ops_write_mms">vytvořit zprávu MMS</string>
+    <string name="app_ops_write_sms">vytvořit zprávu SMS</string>
     <!-- Privacy Guard -->
+    <string name="permlab_changePrivacyGuardState">povolit či zakázat Ochranu soukromí</string>
+    <string name="permdesc_changePrivacyGuardState">Umožní změnit pravidla, zda bude některá aplikace spuštěna v režimu Ochrany soukromí. Pokud je aplikace spuštěna v režimu Ochrany soukromí, tato aplikace nemá umožněn přístup k osobním datům jako jsou kontakty, historie volání nebo zprávy.</string>
+    <string name="privacy_guard_notification">Ochrana soukromí je aktivní</string>
+    <string name="privacy_guard_notification_detail">Aplikaci <xliff:g id="app">%1$s</xliff:g> nebude umožněn přístup k osobním údajům</string>
+    <string name="privacy_guard_dialog_title">Ochrana soukromí</string>
+    <string name="privacy_guard_dialog_summary">Aplikace <xliff:g id="app">%1$s</xliff:g> se pokouší <xliff:g id="op">%2$s</xliff:g>.</string>
     <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
+    <string name="permission_remember_choice">Pamatovat volbu</string>
     <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Pro interakci stiskněte dlouze tlačítko napájení</string>
     <!-- Defines the sysfs attribute path used by pocket bridge
         to communicate pocket state to the pocket judge kernel driver. -->
+    <string name="permlab_toggleNavigationEditor">ovládání navigačního editoru</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">Umožní aplikaci provádět změny v editoru navigačního panelu.</string>
     <!-- AOKP custom system animations -->
+    <string name="animation_fade">Slábnutí</string>
+    <string name="animation_slide_right">Přejetí vpravo</string>
+    <string name="animation_slide_left">Přejetí vlevo</string>
+    <string name="animation_slide_right_no_fade">Přejetí vpravo (bez slábnutí)</string>
+    <string name="animation_slide_left_no_fade">Přejetí vlevo (bez slábnutí)</string>
+    <string name="animation_slide_up">Přejetí dolů</string>
+    <string name="animation_slide_down">Přejetí nahoru</string>
+    <string name="animation_default">Výchozí</string>
+    <string name="animation_translucent">Průhlednost</string>
+    <string name="animation_grow_shrink">Růst (nahoře)</string>
+    <string name="animation_grow_shrink_center">Růst (uprostřed)</string>
+    <string name="animation_grow_shrink_bottom">Růst (dole)</string>
+    <string name="animation_grow_shrink_left">Růst (zleva)</string>
+    <string name="animation_grow_shrink_right">Růst (zprava)</string>
+    <string name="animation_random">Náhodně</string>
+    <string name="action_null">Nic</string>
     <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">ABD přes síť povoleno</string>
     <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">ABD přes USB &amp; síť povoleno</string>
     <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">Dotykem zakázat ladění.</string>
     <!-- Font service -->
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">přístup ke správci písem</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Umožňuje aplikaci přístup ke správci písem.</string>
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">Zdá se, že váš obraz dodavatele může být zastaralý. Prosím nainstalujte nejnovější obraz dodavatele pro vaše zařízení.</string>
     <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automaticky</string>
+    <string name="live_display_auto_summary">Automaticky upravit teplotu barev obrazovky po západu a východu slunce</string>
+    <string name="live_display_off">Vyp.</string>
+    <string name="live_display_off_summary">Zakázat všechny úpravy</string>
+    <string name="live_display_day">Den</string>
+    <string name="live_display_day_summary">Nastavení pouze pro den</string>
+    <string name="live_display_night">Noc</string>
+    <string name="live_display_night_summary">Použít nastavení pouze pro noc</string>
+    <string name="live_display_outdoor">Venku (slunečno)</string>
+    <string name="live_display_outdoor_summary">Použít pouze venkovní nastavení</string>
+    <string name="live_display_hint">LiveDisplay může pomoci proti namáhání očí hlavně při používání v noci. Dotykem zde tuto funkci můžete vyzkoušet!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay vyp.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: automatický režim.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: režim ve dne.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: režim v noci.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: režim venku.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay je vypnutý.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay změněn na automatický režim.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay změněn na režim ve dne.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay změněn na režim v noci.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay změněn na režim venku.</string>
     <!-- FireHound Gaming -->
+    <string name="notification_channel_gaming">Herní režim</string>
     <!-- Battery fully charged notification -->
+    <string name="notify_battery_fully_charged_title">Baterie je plně nabitá</string>
+    <string name="notify_battery_fully_charged_text">Odpojte zařízení od nabíječky pro prodloužení životnost baterie.</string>
+    <string name="battery_charged_channel_name">Baterie je nabitá</string>
+    <!-- Alert slider proc nodes paths. -->
 </resources>

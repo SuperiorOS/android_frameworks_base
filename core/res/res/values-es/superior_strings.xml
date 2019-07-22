@@ -18,20 +18,10 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced Power menu -->
-    <string name="reboot_title">Reiniciar</string>
-    <string name="reboot_message">Reiniciando sistema</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_fakePackageSignature">Simula ser una aplicación diferente. Las aplicaciones maliciosas pueden ser capaces de acceder a datos privados. Ten cuidado al darle permisos!</string>
     <!-- SystemUI Restart -->
-    <string name="systemui_restart_title">Se requiere reinicio de SystemUI</string>
-    <string name="systemui_restart_message">Para que todos los cambios surtan efecto, se requiere un reinicio de SystemUI. ¿Reiniciar SystemUI ahora?</string>
     <!-- App ops requests -->
-    <string name="app_ops_access_camera">acceder a la cámara</string>
-    <string name="app_ops_access_location">acceder a tu ubicación</string>
-    <string name="app_ops_access_notifications">lee tus notificaciones</string>
-    <string name="app_ops_activate_vpn">activar una VPN</string>
-    <string name="app_ops_add_voicemail">añadir un mensaje de voz</string>
     <!-- Privacy Guard -->
     <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <!-- Pocket Lock -->
@@ -49,4 +39,5 @@
     <!-- LiveDisplay strings -->
     <!-- FireHound Gaming -->
     <!-- Battery fully charged notification -->
+    <!-- Alert slider proc nodes paths. -->
 </resources>

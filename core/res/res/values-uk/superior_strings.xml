@@ -18,164 +18,26 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced Power menu -->
-    <string name="reboot_title">Перезавантажити</string>
-    <string name="reboot_message">Перезавантаження системи</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_fakePackageSignature">Дозволити підміну підпису</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_fakePackageSignature">Дозволяє програмі претендувати бути іншою програмою. Шкідливі програми можуть використовувати це для доступу до приватних даних програми. Дозволяйте це з обережністю!</string>
     <!-- SystemUI Restart -->
-    <string name="systemui_restart_title">Необхідно перезапустити інтерфейс системи</string>
-    <string name="systemui_restart_message">Щоб всі зміни набули чинності, необхідне перезавантаження інтерфейсу системи. Перезавантажити?</string>
     <!-- App ops requests -->
-    <string name="app_ops_access_camera">доступ до камери</string>
-    <string name="app_ops_access_location">доступ до вашого місцеположення</string>
-    <string name="app_ops_access_notifications">читати ваші сповіщення</string>
-    <string name="app_ops_activate_vpn">активувати VPN</string>
-    <string name="app_ops_add_voicemail">додати голосове повідомлення</string>
-    <string name="app_ops_app_start_foreground">запускати миттєвий додаток у фоновому режимі</string>
-    <string name="app_ops_assist_screenshot">робити знімок єкрану</string>
-    <string name="app_ops_assist_structure">використовувати асистента</string>
-    <string name="app_ops_audio_accessibility_volume">доступ до гучності звуку</string>
-    <string name="app_ops_auto_start">запуск при старті системи</string>
-    <string name="app_ops_bind_accessibility_service">прив\'язка до служби спеціальних можливостей</string>
-    <string name="app_ops_bluetooth_scan">сканування bluetooth</string>
-    <string name="app_ops_change_wallpaper">міняти фоновий малюнок</string>
-    <string name="app_ops_delete_call_log">видаляти журнал викликів</string>
-    <string name="app_ops_delete_contacts">видаляти ваші контакти</string>
-    <string name="app_ops_delete_mms">видалити ваші MMS-повідомлення</string>
-    <string name="app_ops_delete_sms">видаляти ваші SMS-повідомлення</string>
-    <string name="app_ops_draw_on_top">показувати поверх інших додатків</string>
-    <string name="app_ops_get_accounts">отримувати облікові записи пристрою</string>
-    <string name="app_ops_get_usage_stats">отримувати статистику використання додатка</string>
-    <string name="app_ops_accept_handover">передача виклику з іншого додатку</string>
-    <string name="app_ops_install_packages">встановлення пакетів</string>
-    <string name="app_ops_keep_device_awake">заборонити пристрою переходити в сплячий режим</string>
-    <string name="app_ops_manage_ipsec_tunnels">керувати ipsec тунелями</string>
-    <string name="app_ops_make_phone_call">робити телефоні дзвінки</string>
-    <string name="app_ops_mock_location">підробляти ваше місцеположення</string>
-    <string name="app_ops_modify_calendar">оновлення вашого календаря</string>
-    <string name="app_ops_modify_call_log">оновлювати журнал викликів</string>
-    <string name="app_ops_modify_clipboard">зміна буфера обміну</string>
-    <string name="app_ops_modify_contacts">оновлювати ваші контакти</string>
-    <string name="app_ops_modify_settings">змінювати системні налаштування</string>
-    <string name="app_ops_mute_unmute_microphone">вмик. або вимк. мікрофон</string>
-    <string name="app_ops_phone_calls">відповідати на телефонні дзвінки</string>
-    <string name="app_ops_picture_in_picture">використання картинки в картинці</string>
-    <string name="app_ops_play_audio">відтворення аудіо</string>
-    <string name="app_ops_post_notification">виводити сповіщення</string>
-    <string name="app_ops_project_media">трансляція контенту</string>
-    <string name="app_ops_read_calendar">отримувати доступ до календаря</string>
-    <string name="app_ops_read_call_log">читати журнал викликів</string>
-    <string name="app_ops_read_cell_broadcasts">читання інформації про мережу</string>
-    <string name="app_ops_read_clipboard">читати буфер обміну</string>
-    <string name="app_ops_read_contacts">читати дані ваших контактів</string>
-    <string name="app_ops_read_external_storage">читання зовнішнього накопичувача</string>
-    <string name="app_ops_read_mms">перегляд MMS-повідомлень</string>
-    <string name="app_ops_read_phone_numbers">читання телефонних номерів</string>
-    <string name="app_ops_read_phone_state">доступ до стану телефону</string>
-    <string name="app_ops_read_sms">читати ваші SMS-повідомлення</string>
-    <string name="app_ops_receive_sms">отримувати SMS-повідомлення</string>
-    <string name="app_ops_receive_emergency_broadcast">отримувати повідомлення екстрених служб</string>
-    <string name="app_ops_record_audio">записувати аудіо</string>
-    <string name="app_ops_request_delete_packages">запит на видалення пакетів</string>
-    <string name="app_ops_run_in_background">запускати у фоновому режимі</string>
-    <string name="app_ops_run_any_in_background">запускати коли завгодно у фоновому режимі</string>
-    <string name="app_ops_scan_wifi">сканувати Wi-Fi мережі</string>
-    <string name="app_ops_send_mms">надсилати MMS-повідомлення</string>
-    <string name="app_ops_send_sms">надсилати SMS-повідомлення</string>
-    <string name="app_ops_start_at_bootup">запускати при старті системи</string>
-    <string name="app_ops_start_foreground">запускати на передньому плані</string>
-    <string name="app_ops_toast_window">показувати спливаючі сповіщення</string>
-    <string name="app_ops_toggle_bluetooth">увімк. або вимк. Bluetooth</string>
-    <string name="app_ops_toggle_mobile_data">увімк. або вимк. сотові дані</string>
-    <string name="app_ops_toggle_nfc">увімк. або вимк. NFC</string>
-    <string name="app_ops_toggle_wifi">увімк. або вимк. Wi-Fi</string>
-    <string name="app_ops_turn_on_screen">вмикати екран</string>
-    <string name="app_ops_use_alarm_volume">керувати гучністю будильника</string>
-    <string name="app_ops_use_audio_focus">керувати аудіо-фокусом</string>
-    <string name="app_ops_use_bluetooth_volume">керувати гучністю Bluetooth</string>
-    <string name="app_ops_use_body_sensors">використовувати датчики на тілі</string>
-    <string name="app_ops_use_fingerprint">використовувати відбитки пальців</string>
-    <string name="app_ops_use_master_volume">керувати загальною гучністю</string>
-    <string name="app_ops_use_media_buttons">використовувати кнопки мультимедіа</string>
-    <string name="app_ops_use_media_volume">керувати гучністю медіа</string>
-    <string name="app_ops_use_notification_volume">керувати гучністю сповіщень</string>
-    <string name="app_ops_use_ring_volume">керувати гучністю дзвінка</string>
-    <string name="app_ops_use_vibrate">використовувати вібровідгук</string>
-    <string name="app_ops_use_voice_volume">керувати гучністю при розмові</string>
-    <string name="app_ops_wifi_change">змінювати стан Wi-Fi</string>
-    <string name="app_ops_write_external_storage">записувати дані на карту пам\'яті</string>
-    <string name="app_ops_write_mms">писати MMS-повідомлення</string>
-    <string name="app_ops_write_sms">писати SMS-повідомлення</string>
     <!-- Privacy Guard -->
-    <string name="permlab_changePrivacyGuardState">вмикати або вимикати захищений режим</string>
-    <string name="permdesc_changePrivacyGuardState">Дозволяє програмі змінювати, чи працює інша програма в захищеному режимі. Якщо програма працює в захищеному режимі, вона не матиме доступу до особистих даних, таких як контакти, журнали викликів або повідомлення.</string>
-    <string name="privacy_guard_notification">Захищений режим увімкнений</string>
-    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> не матиме доступу до особистих даних</string>
-    <string name="privacy_guard_dialog_title">Захищений режим</string>
-    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> хотів би <xliff:g id="op">%2$s</xliff:g>.</string>
     <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
-    <string name="permission_remember_choice">Запам\'ятати мій вибір</string>
     <!-- Pocket Lock -->
-    <string name="pocket_lock_message_long_press">Утримуйте кнопку живлення для взаємодії</string>
     <!-- Defines the sysfs attribute path used by pocket bridge
         to communicate pocket state to the pocket judge kernel driver. -->
-    <string name="permlab_toggleNavigationEditor">керування редактором панелі навігації</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_toggleNavigationEditor">Дозволяє програмі контролювати редактором панелі навігації.</string>
     <!-- AOKP custom system animations -->
-    <string name="animation_fade">Згасання</string>
-    <string name="animation_slide_right">Зсунути праворуч</string>
-    <string name="animation_slide_left">Зсунути ліворуч</string>
-    <string name="animation_slide_right_no_fade">Зсунути праворуч (без згасання)</string>
-    <string name="animation_slide_left_no_fade">Зсунути ліворуч (без затухання)</string>
-    <string name="animation_slide_up">Зсунути вниз</string>
-    <string name="animation_slide_down">Зсунути вверх</string>
-    <string name="animation_default">Стандартний</string>
-    <string name="animation_translucent">Прозорість</string>
-    <string name="animation_grow_shrink">Збільшення (зверху)</string>
-    <string name="animation_grow_shrink_center">Збільшення (в центрі)</string>
-    <string name="animation_grow_shrink_bottom">Збільшення (внизу)</string>
-    <string name="animation_grow_shrink_left">Збільшення (ліворуч)</string>
-    <string name="animation_grow_shrink_right">Збільшення (праворуч)</string>
-    <string name="animation_random">Випадково</string>
-    <string name="action_null">Порожньо</string>
     <!-- ADB over network notification -->
-    <string name="adb_net_active_notification_title">Увімкнено функцію ADB по мережі</string>
     <!-- ADB over USB and network notification -->
-    <string name="adb_both_active_notification_title">Увімкнено функцію ADB по USB та мережі</string>
     <!-- ADB notification message-->
-    <string name="adb_active_generic_notification_message">Торкніться, аби вимкнути налагодження.</string>
     <!-- Font service -->
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_accessFontManager">доступ до менеджера шрифтів</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_accessFontManager">Дозволяє програмі отримувати доступ до менеджеру шрифтів.</string>
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-    <string name="system_error_vendorprint">Здається, ваш образ Vendor потребує оновлення. Будь ласка, встановіть останню версію образу Vendor для вашого пристрою.</string>
     <!-- LiveDisplay strings -->
-    <string name="live_display_auto">Автоматично</string>
-    <string name="live_display_auto_summary">Автоматичне підлаштування температури кольору екрана після заходу та сходу сонця</string>
-    <string name="live_display_off">Вимк</string>
-    <string name="live_display_off_summary">Вимкнути всі налаштування</string>
-    <string name="live_display_day">День</string>
-    <string name="live_display_day_summary">Використовувати лише налаштування режиму \"день\"</string>
-    <string name="live_display_night">Ніч</string>
-    <string name="live_display_night_summary">Використовувати лише налаштування режиму \"ніч\"</string>
-    <string name="live_display_outdoor">На вулиці (яскраве сонце)</string>
-    <string name="live_display_outdoor_summary">Використовувати тільки параметри «На вулиці»</string>
-    <string name="live_display_hint">LiveDisplay допоможе зменшити навантаження на зір та покращить сон. Натисніть тут, щоб спробувати його!</string>
-    <string name="accessibility_quick_settings_live_display_off">LiveDisplay вимкнений.</string>
-    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: автоматичний режим.</string>
-    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: денний режим.</string>
-    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: нічний режим.</string>
-    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: режим на вулиці.</string>
-    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay вимкнено.</string>
-    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay змінено на автоматичний режим.</string>
-    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay змінено на денний режим.</string>
-    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay змінено на нічний режим.</string>
-    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay змінено на режим \"на вулиці\"</string>
     <!-- FireHound Gaming -->
     <!-- Battery fully charged notification -->
+    <!-- Alert slider proc nodes paths. -->
 </resources>

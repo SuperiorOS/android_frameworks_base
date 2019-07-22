@@ -18,68 +18,10 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced Power menu -->
-    <string name="reboot_title">Riavvio</string>
-    <string name="reboot_message">Riavvio del sistema</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_fakePackageSignature">Imitazione firma del pacchetto</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_fakePackageSignature">Consente all\'applicazione di fingere di essere un\'altra app. Applicazioni dannose potrebbero essere in grado di utilizzare questa impostazione per accedere ai dati privati dell\'applicazione. Concedi questa autorizzazione con cautela!</string>
     <!-- SystemUI Restart -->
-    <string name="systemui_restart_title">È richiesto il riavvio dell\'interfaccia utente</string>
-    <string name="systemui_restart_message">Per rendere effettive tutte le modifiche, è necessario un riavvio dell\'interfaccia utente. Riavviarla ora?</string>
     <!-- App ops requests -->
-    <string name="app_ops_access_camera">accesso alla fotocamera</string>
-    <string name="app_ops_access_location">accesso alla tua posizione</string>
-    <string name="app_ops_access_notifications">lettura delle notifiche</string>
-    <string name="app_ops_activate_vpn">attivare una VPN</string>
-    <string name="app_ops_add_voicemail">aggiungere un messaggio vocale</string>
-    <string name="app_ops_app_start_foreground">lanciare un\'app istantanea in primo piano</string>
-    <string name="app_ops_assist_screenshot">catturare una schermata</string>
-    <string name="app_ops_assist_structure">utilizzare le funzioni per l\'accessibilità</string>
-    <string name="app_ops_audio_accessibility_volume">utilizzare il volume audio accessibile</string>
-    <string name="app_ops_auto_start">avvio all\'accensione</string>
-    <string name="app_ops_bind_accessibility_service">associare servizi di accessibilità</string>
-    <string name="app_ops_bluetooth_scan">scansione Bluetooth</string>
-    <string name="app_ops_change_wallpaper">cambiare lo sfondo</string>
-    <string name="app_ops_delete_call_log">eliminare il tuo registro delle chiamate</string>
-    <string name="app_ops_delete_contacts">eliminare i tuoi contatti</string>
-    <string name="app_ops_delete_mms">eliminare i tuoi messaggi MMS</string>
-    <string name="app_ops_delete_sms">eliminare i tuoi messaggi SMS</string>
-    <string name="app_ops_draw_on_top">mostrare le finestre in primo piano</string>
-    <string name="app_ops_get_accounts">ottenere gli account del dispositivo</string>
-    <string name="app_ops_get_usage_stats">ottenere le statistiche d\'utilizzo</string>
-    <string name="app_ops_accept_handover">trasferimento di una chiamata da un\'altra app</string>
-    <string name="app_ops_install_packages">installare pacchetti</string>
-    <string name="app_ops_keep_device_awake">mantenere il tuo dispositivo attivo</string>
-    <string name="app_ops_manage_ipsec_tunnels">gestire tunnel ipsec</string>
-    <string name="app_ops_make_phone_call">effettuare chiamate</string>
-    <string name="app_ops_mock_location">falsificare la tua posizione</string>
-    <string name="app_ops_modify_calendar">aggiornare il tuo calendario</string>
-    <string name="app_ops_modify_call_log">aggiornare il registro delle chiamate</string>
-    <string name="app_ops_modify_clipboard">modificare gli appunti</string>
-    <string name="app_ops_modify_contacts">aggiornare i tuoi contatti</string>
-    <string name="app_ops_modify_settings">aggiornare le impostazioni di sistema</string>
-    <string name="app_ops_mute_unmute_microphone">attivare/disattivare il microfono</string>
-    <string name="app_ops_phone_calls">rispondere alle telefonate</string>
-    <string name="app_ops_picture_in_picture">usare la modalità picture in picture</string>
-    <string name="app_ops_play_audio">riprodurre audio</string>
-    <string name="app_ops_post_notification">inviare notifiche</string>
-    <string name="app_ops_project_media">controllare file multimediali</string>
-    <string name="app_ops_read_calendar">leggere il tuo calendario</string>
-    <string name="app_ops_read_call_log">leggere il registro delle chiamate</string>
-    <string name="app_ops_read_cell_broadcasts">leggere le trasmissioni delle cellule</string>
-    <string name="app_ops_read_clipboard">leggere gli appunti</string>
-    <string name="app_ops_read_contacts">leggere i tuoi contatti</string>
-    <string name="app_ops_read_external_storage">leggere la memoria esterna</string>
-    <string name="app_ops_read_mms">leggere i tuoi messaggi MMS</string>
-    <string name="app_ops_read_phone_numbers">leggere i numeri di telefono</string>
-    <string name="app_ops_read_phone_state">accesso allo stato del telefono</string>
-    <string name="app_ops_read_sms">leggere i tuoi messaggi SMS</string>
-    <string name="app_ops_receive_sms">ricevere messaggi SMS</string>
-    <string name="app_ops_receive_emergency_broadcast">ricevere un messaggio broadcast di emergenza</string>
-    <string name="app_ops_record_audio">registrare l\'audio</string>
-    <string name="app_ops_request_delete_packages">richiedere l\'eliminazione dei pacchetti</string>
-    <string name="app_ops_run_in_background">esecuzione in background</string>
     <!-- Privacy Guard -->
     <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <!-- Pocket Lock -->
@@ -87,42 +29,15 @@
         to communicate pocket state to the pocket judge kernel driver. -->
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <!-- AOKP custom system animations -->
-    <string name="animation_slide_left_no_fade">Scorrimento verso sinistra (senza dissolvenza)</string>
-    <string name="animation_slide_up">Scorrimento verso il basso</string>
-    <string name="animation_slide_down">Scorrimento verso l\'alto</string>
-    <string name="animation_default">Predefinito</string>
-    <string name="animation_translucent">Traslucido</string>
-    <string name="animation_grow_shrink">Espansione (verso l\'alto)</string>
-    <string name="animation_grow_shrink_center">Espansione (verso il centro)</string>
-    <string name="animation_grow_shrink_bottom">Espansione (verso il basso)</string>
-    <string name="animation_grow_shrink_left">Espansione (verso sinistra)</string>
-    <string name="animation_grow_shrink_right">Espansione (verso destra)</string>
-    <string name="animation_random">Casuale</string>
-    <string name="action_null">Vuoto</string>
     <!-- ADB over network notification -->
-    <string name="adb_net_active_notification_title">ADB tramite rete abilitato</string>
     <!-- ADB over USB and network notification -->
-    <string name="adb_both_active_notification_title">ADB tramite USB e rete attivato</string>
     <!-- ADB notification message-->
-    <string name="adb_active_generic_notification_message">Tocca per disattivare il debug.</string>
     <!-- Font service -->
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permlab_accessFontManager">accesso al gestore dei font</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_accessFontManager">Consente ad un\'applicazione di accedere al gestore dei font.</string>
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
-    <string name="system_error_vendorprint">Sembra che la tua vendor image sia obsoleta. Si prega di installare l\'ultima vendor image per il tuo dispositivo.</string>
     <!-- LiveDisplay strings -->
-    <string name="live_display_auto">Automatico</string>
-    <string name="live_display_auto_summary">Regola automaticamente la temperatura del colore dello schermo dopo il tramonto e l\'alba</string>
-    <string name="live_display_off">Off</string>
-    <string name="live_display_off_summary">Disabilita tutte le modifiche</string>
-    <string name="live_display_day">Giorno</string>
-    <string name="live_display_day_summary">Utilizza solo le impostazioni del giorno</string>
-    <string name="live_display_night">Notte</string>
-    <string name="live_display_night_summary">Utilizza solo le impostazioni della notte</string>
-    <string name="live_display_outdoor">All\'aperto (sole vivo)</string>
-    <string name="live_display_outdoor_summary">Utilizza solo le impostazioni all\'aperto</string>
     <!-- FireHound Gaming -->
     <!-- Battery fully charged notification -->
+    <!-- Alert slider proc nodes paths. -->
 </resources>
