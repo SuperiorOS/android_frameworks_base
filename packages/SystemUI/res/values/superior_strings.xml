@@ -319,4 +319,7 @@
 
     <!-- FireHound Gaming -->
     <string name="notification_channel_gaming">Gaming Mode</string>
+	
+    <!--Recents -->
+    <string name="recents_free_ram">Free RAM: %1$d MB</string>
 </resources>
