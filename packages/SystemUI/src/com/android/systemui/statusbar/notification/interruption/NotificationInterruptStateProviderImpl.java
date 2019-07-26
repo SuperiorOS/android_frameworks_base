@@ -73,6 +73,8 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
     private final ContentObserver mHeadsUpObserver;
     private HeadsUpManager mHeadsUpManager;
 
+    private boolean mLessBoringHeadsUp;
+
     ActivityManager mAm;
     private ArrayList<String> mStoplist = new ArrayList<String>();
     private ArrayList<String> mBlacklist = new ArrayList<String>();
@@ -211,9 +213,9 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
             return false;
         }
 
-        if (!mUseHeadsUp) {
+        if (!mUseHeadsUp || shouldSkipHeadsUp(sbn)) {
             if (DEBUG_HEADS_UP) {
-                Log.d(TAG, "No heads up: no huns");
+                Log.d(TAG, "No heads up: no huns or less boring headsup enabled");
             }
             return false;
         }
@@ -317,6 +319,19 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
         final String blackString = Settings.System.getString(mContext.getContentResolver(),
                     Settings.System.HEADS_UP_BLACKLIST_VALUES);
         splitAndAddToArrayList(mBlacklist, blackString, "\\|");
+    }
+
+    @Override
+    public void setUseLessBoringHeadsUp(boolean lessBoring) {
+        mLessBoringHeadsUp = lessBoring;
+    }
+
+    private boolean shouldSkipHeadsUp(StatusBarNotification sbn) {
+        boolean isImportantHeadsUp = false;
+        String notificationPackageName = sbn.getPackageName().toLowerCase();
+        isImportantHeadsUp = notificationPackageName.contains("dialer") ||
+                notificationPackageName.contains("messaging");
+        return mLessBoringHeadsUp && !isImportantHeadsUp;
     }
 
     /**
