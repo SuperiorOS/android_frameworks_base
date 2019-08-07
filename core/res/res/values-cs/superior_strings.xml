@@ -178,6 +178,10 @@
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay změněn na režim venku.</string>
     <!-- FireHound Gaming -->
     <string name="notification_channel_gaming">Herní režim</string>
+    <string name="gaming_mode_notification_title">Herní režim povolen</string>
+    <string name="gaming_mode_notification_content">Klepněte sem pro vypnutí Herního režimu</string>
+    <string name="gaming_mode_enabled_toast">Herní režim je zapnutý</string>
+    <string name="gaming_mode_disabled_toast">Herní režim je vypnutý</string>
     <!-- Battery fully charged notification -->
     <string name="notify_battery_fully_charged_title">Baterie je plně nabitá</string>
     <string name="notify_battery_fully_charged_text">Odpojte zařízení od nabíječky pro prodloužení životnost baterie.</string>

@@ -275,4 +275,5 @@
     <!-- FireHound Gaming -->
     <string name="notification_channel_gaming">Herní režim</string>
     <!--Recents -->
+    <string name="recents_free_ram">Volná paměť RAM: %1$d MB</string>
 </resources>

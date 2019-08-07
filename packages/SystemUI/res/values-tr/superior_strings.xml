@@ -275,4 +275,5 @@
     <!-- FireHound Gaming -->
     <string name="notification_channel_gaming">Oyun modu</string>
     <!--Recents -->
+    <string name="recents_free_ram">Boş RAM: %1$d MB</string>
 </resources>

@@ -178,6 +178,10 @@
     <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay açık alan modu olarak değiştirildi.</string>
     <!-- FireHound Gaming -->
     <string name="notification_channel_gaming">Oyun modu</string>
+    <string name="gaming_mode_notification_title">Oyun modu etkin</string>
+    <string name="gaming_mode_notification_content">Oyun modunu kapatmak için dokunun</string>
+    <string name="gaming_mode_enabled_toast">Oyun modu açıldı</string>
+    <string name="gaming_mode_disabled_toast">Oyun modu kapatıldı</string>
     <!-- Battery fully charged notification -->
     <string name="notify_battery_fully_charged_title">Pil tamamen şarj edildi</string>
     <string name="notify_battery_fully_charged_text">Cihazınızın pil ömrünü artırmak için şarjdan çıkarın.</string>

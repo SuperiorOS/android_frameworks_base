@@ -16,12 +16,28 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="statusbar_items_title">状态栏图标</string>
+    <string name="status_bar_roaming">漫游中</string>
+    <string name="lockscreen_default">默认</string>
+    <string name="lockscreen_hidden">无</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">滑动图标以启动</string>
     <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">屏幕常亮</string>
+    <string name="accessibility_quick_settings_caffeine_off">屏幕常亮关闭</string>
+    <string name="accessibility_quick_settings_caffeine_on">屏幕常亮开启</string>
     <!-- LTE QS Tile -->
+    <string name="qs_lte_label">LTE</string>
+    <string name="lte_on">LTE 开启 </string>
+    <string name="lte_off">LTE 关闭</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">声音</string>
+    <string name="quick_settings_sound_ring">响铃</string>
+    <string name="quick_settings_sound_vibrate">振动</string>
+    <string name="quick_settings_sound_dnd">勿扰</string>
     <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - 浮动通知暂停1分钟。</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - 浮动通知暂停<xliff:g id="number">%d</xliff:g>分钟。</string>
     <!-- Heads Up QS Tile -->
     <!-- Advanced powermenu -->
     <!-- Reboot/Recovery QS Tile -->

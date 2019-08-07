@@ -18,10 +18,18 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced Power menu -->
+    <string name="reboot_title">重启</string>
+    <string name="reboot_message">重启系统中</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">伪装安装包签名</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">允许程序伪装成其他程序。 请注意，恶意程序可能会利用此权限访问隐私数据。请谨慎授予此权限！</string>
     <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">需要重启系统界面</string>
+    <string name="systemui_restart_message">要使所有更改生效，需要重新启动系统界面。现在重新启动系统界面吗？</string>
     <!-- App ops requests -->
+    <string name="app_ops_access_camera">访问摄像头</string>
+    <string name="app_ops_access_location">获取你的地理位置信息</string>
     <!-- Privacy Guard -->
     <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <!-- Pocket Lock -->

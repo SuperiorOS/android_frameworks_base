@@ -273,6 +273,7 @@
     <string name="quick_settings_font_detail_label">Selecionar Fonte</string>
     <string name="ambientmusic_songinfo">%s por %s</string>
     <!-- FireHound Gaming -->
-    <string name="notification_channel_gaming">Modo de Jogos</string>
+    <string name="notification_channel_gaming">Modo de Jogo</string>
     <!--Recents -->
+    <string name="recents_free_ram">RAM Livre: %1$d MB</string>
 </resources>
