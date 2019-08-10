@@ -246,5 +246,8 @@
          0: Left side
          1: Right side -->
     <integer name="config_alertSliderLocation">0</integer>
-
+    
+     <!-- Whether to show a custom view for FOD -->
+    <java-symbol type="bool" name="config_needCustomFODView" />
+	
 </resources>
