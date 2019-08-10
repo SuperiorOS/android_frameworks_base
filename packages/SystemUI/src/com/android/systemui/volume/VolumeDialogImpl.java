@@ -241,6 +241,7 @@ public class VolumeDialogImpl implements VolumeDialog,
 
     private boolean mDevicePanelOnLeft;
 
+    private boolean mHasAlertSlider;
     public VolumeDialogImpl(Context context) {
         mContext =
                 new ContextThemeWrapper(context, R.style.qs_theme);
@@ -257,6 +258,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
         mCustomSettingsObserver.observe();
         mCustomSettingsObserver.update();
+        mHasAlertSlider = mContext.getResources().getBoolean(com.android.internal.R.bool.config_hasAlertSlider);
     }
 
     @Override
@@ -379,6 +381,10 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (mExpandRows != null) {
             setLayoutGravity(mExpandRows.getLayoutParams(), panelGravity);
             mExpandRows.setRotation(mVolumePanelOnLeft ? -90 : 90);
+        }
+
+        if (mHasAlertSlider) {
+            mRinger.setVisibility(View.GONE);
         }
 
         if (mRows.isEmpty()) {
