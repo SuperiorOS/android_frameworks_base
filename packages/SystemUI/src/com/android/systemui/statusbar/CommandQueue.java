@@ -97,6 +97,8 @@ public class CommandQueue extends IStatusBar.Stub {
     private static final int MSG_TOGGLE_CAMERA_FLASH           = 47 << MSG_SHIFT;
     private static final int MSG_TOGGLE_CAMERA_FLASH_ON        = 48 << MSG_SHIFT;
     private static final int MSG_TOGGLE_CAMERA_FLASH_OFF       = 49 << MSG_SHIFT;
+    private static final int MSG_SHOW_IN_DISPLAY_FINGERPRINT_VIEW = 55 << MSG_SHIFT;
+    private static final int MSG_HIDE_IN_DISPLAY_FINGERPRINT_VIEW = 56 << MSG_SHIFT;
     private static final int MSG_RESTART_UI                    = 50 << MSG_SHIFT;
     private static final int MSG_SCREEN_PINNING_STATE_CHANGED  = 51 << MSG_SHIFT;
     private static final int MSG_LEFT_IN_LANDSCAPE_STATE_CHANGED  = 52 << MSG_SHIFT;
@@ -177,6 +179,8 @@ public class CommandQueue extends IStatusBar.Stub {
         default void toggleCameraFlash() { }
         default void toggleCameraFlashOn() { }
         default void toggleCameraFlashOff() { }
+        default void showInDisplayFingerprintView() { }
+        default void hideInDisplayFingerprintView() { }
         default void restartUI() { }
         default void screenPinningStateChanged(boolean enabled) {}
         default void leftInLandscapeChanged(boolean isLeft) {}
@@ -582,6 +586,20 @@ public class CommandQueue extends IStatusBar.Stub {
         }
     }
 
+   @Override
+    public void showInDisplayFingerprintView() {
+        synchronized (mLock) {
+            mHandler.obtainMessage(MSG_SHOW_IN_DISPLAY_FINGERPRINT_VIEW).sendToTarget();
+        }
+    }
+
+    @Override
+    public void hideInDisplayFingerprintView() {
+        synchronized (mLock) {
+            mHandler.obtainMessage(MSG_HIDE_IN_DISPLAY_FINGERPRINT_VIEW).sendToTarget();
+        }
+    }
+
     public void dispatchNavigationEditorResults(Intent intent) {
         synchronized (mLock) {
             // don't coalesce these
@@ -901,6 +919,17 @@ public class CommandQueue extends IStatusBar.Stub {
                         mCallbacks.get(i).dispatchNavigationEditorResults(intent);
                     }
                     break;
+                case MSG_SHOW_IN_DISPLAY_FINGERPRINT_VIEW:
+                    for (int i = 0; i < mCallbacks.size(); i++) {
+                        mCallbacks.get(i).showInDisplayFingerprintView();
+                    }
+                    break;
+                case MSG_HIDE_IN_DISPLAY_FINGERPRINT_VIEW:
+                    for (int i = 0; i < mCallbacks.size(); i++) {
+                        mCallbacks.get(i).hideInDisplayFingerprintView();
+                    }
+                    break;
+
             }
         }
     }
