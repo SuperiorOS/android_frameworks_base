@@ -113,6 +113,11 @@ interface IStatusBarService
     void cancelPreloadRecentApps();
     void startAssist(in Bundle args);
     void restartUI();
+    
+     // Used to show or hide in display fingerprint view
+    void showInDisplayFingerprintView();
+    void hideInDisplayFingerprintView();
+    
     // Start SmartNav methods
     void screenPinningStateChanged(boolean enabled);
     void leftInLandscapeChanged(boolean isLeft);
