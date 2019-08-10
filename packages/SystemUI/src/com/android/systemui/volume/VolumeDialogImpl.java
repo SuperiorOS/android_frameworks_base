@@ -200,6 +200,8 @@ public class VolumeDialogImpl implements VolumeDialog,
     private final List<MediaOutputRow> mMediaOutputRows = new ArrayList<>();
     private final List<MediaDevice> mMediaDevices = new ArrayList<>();
 
+    private boolean mHasAlertSlider;
+
     public VolumeDialogImpl(Context context) {
         mContext =
                 new ContextThemeWrapper(context, R.style.qs_theme);
@@ -215,7 +217,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         mVibrateOnSlider = mContext.getResources().getBoolean(R.bool.config_vibrateOnIconAnimation);
         mElevation = mContext.getResources().getDimension(R.dimen.volume_dialog_elevation);
         mSpacer = mContext.getResources().getDimension(R.dimen.volume_dialog_row_spacer);
-
+        mHasAlertSlider = mContext.getResources().getBoolean(com.android.internal.R.bool.config_hasAlertSlider);
         setDarkMode();
 
         mHandler.postDelayed(() -> {
@@ -379,6 +381,10 @@ public class VolumeDialogImpl implements VolumeDialog,
 
         if (mContext.getResources().getBoolean(R.bool.config_audioPanelOnLeftSide))
             mExpandRows.setDefaultDirection(false);
+
+        if (mHasAlertSlider) {
+            mRinger.setVisibility(View.GONE);
+        }
 
         if (mRows.isEmpty()) {
             if (!AudioSystem.isSingleVolume(mContext)) {
