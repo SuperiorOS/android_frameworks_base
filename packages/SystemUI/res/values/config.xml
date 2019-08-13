@@ -587,4 +587,7 @@
     <!-- If the config font scale is >= this value, potentially adjust the number of columns-->
     <item name="controls_max_columns_adjust_above_font_scale" translatable="false" format="float" type="dimen">1.25</item>
 
+    <!-- Asus stitch editor component name -->
+    <string name="config_stitchEditor">com.asus.stitchimage/com.asus.stitchimage.editor.ScreenshotEditorActivity</string>
+
 </resources>
