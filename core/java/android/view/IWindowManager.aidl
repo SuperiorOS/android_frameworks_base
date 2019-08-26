@@ -476,4 +476,11 @@ interface IWindowManager
      */
     void screenRecordAction(int mode);
 
+    /**
+     * Long screenshot
+     * @hide
+     */
+    void takeOPScreenshot(int type, int reason);
+    void stopLongshotConnection();
+
 }
