@@ -5571,11 +5571,6 @@ public final class Settings {
         public static final String FONT_PACKAGES = "font_packages";
 
         /**
-         * @hide
-         */
-        public static final String SCREENRECORD_QUALITY_MODE = "screenrecord_quality_mode";
-
-        /**
          * show clear all recents button
          * @hide
          */

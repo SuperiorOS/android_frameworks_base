@@ -735,6 +735,7 @@ class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         public boolean showBeforeProvisioning() {
             return true;
         }
+
     }
 
     private class BugReportAction extends SinglePressAction implements LongPressAction {

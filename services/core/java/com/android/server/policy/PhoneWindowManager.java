@@ -126,9 +126,6 @@ import static android.view.WindowManager.LayoutParams.TYPE_VOICE_INTERACTION_STA
 import static android.view.WindowManager.LayoutParams.TYPE_VOLUME_OVERLAY;
 import static android.view.WindowManager.LayoutParams.TYPE_WALLPAPER;
 import static android.view.WindowManager.LayoutParams.isSystemAlertWindowType;
-import static android.view.WindowManager.SCREEN_RECORD_LOW_QUALITY;
-import static android.view.WindowManager.SCREEN_RECORD_MID_QUALITY;
-import static android.view.WindowManager.SCREEN_RECORD_HIGH_QUALITY;
 import static android.view.WindowManager.TAKE_SCREENSHOT_FULLSCREEN;
 import static android.view.WindowManager.TAKE_SCREENSHOT_SELECTED_REGION;
 import static android.view.WindowManagerGlobal.ADD_OKAY;
@@ -176,7 +173,6 @@ import android.app.StatusBarManager;
 import android.app.UiModeManager;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
@@ -216,7 +212,6 @@ import android.os.IBinder;
 import android.os.IDeviceIdleController;
 import android.os.Looper;
 import android.os.Message;
-import android.os.Messenger;
 import android.os.PowerManager;
 import android.os.PowerManagerInternal;
 import android.os.Process;
@@ -326,7 +321,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dalvik.system.PathClassLoader;
-
 import com.android.internal.custom.longshot.ILongScreenshotManager;
 
 /**
@@ -2180,30 +2174,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     private final ScreenshotRunnable mScreenshotRunnable = new ScreenshotRunnable();
-
-    private class ScreenrecordRunnable implements Runnable {
-        private int mMode = SCREEN_RECORD_LOW_QUALITY;
-
-        public void setMode(int mode) {
-            mMode = mode;
-        }
-
-        @Override
-        public void run() {
-            takeScreenrecord(mMode);
-        }
-    }
-
-    private final ScreenrecordRunnable mScreenrecordRunnable = new ScreenrecordRunnable();
-
-    @Override
-    public void screenRecordAction(int mode) {
-        mContext.enforceCallingOrSelfPermission(Manifest.permission.ACCESS_SURFACE_FLINGER,
-                TAG + "screenRecordAction permission denied");
-        mHandler.removeCallbacks(mScreenrecordRunnable);
-        mScreenrecordRunnable.setMode(mode);
-        mHandler.post(mScreenrecordRunnable);
-    }
 
     @Override
     public void showGlobalActions() {
@@ -6782,77 +6752,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         return mKeyHandler != null ? mKeyHandler.isHwKeysDisabled() : false;
     }
 
-    final Object mScreenrecordLock = new Object();
-    ServiceConnection mScreenrecordConnection = null;
-
-    final Runnable mScreenrecordTimeout = new Runnable() {
-        @Override public void run() {
-            synchronized (mScreenrecordLock) {
-                if (mScreenrecordConnection != null) {
-                    mContext.unbindService(mScreenrecordConnection);
-                    mScreenrecordConnection = null;
-                }
-            }
-        }
-    };
-
-    // Assume this is called from the Handler thread.
-    private void takeScreenrecord(final int mode) {
-        synchronized (mScreenrecordLock) {
-            if (mScreenrecordConnection != null) {
-                return;
-            }
-            ComponentName cn = new ComponentName("com.android.systemui",
-                    "com.android.systemui.screenrecord.TakeScreenrecordService");
-            Intent intent = new Intent();
-            intent.setComponent(cn);
-            ServiceConnection conn = new ServiceConnection() {
-                @Override
-                public void onServiceConnected(ComponentName name, IBinder service) {
-                    synchronized (mScreenrecordLock) {
-                        Messenger messenger = new Messenger(service);
-                        Message msg = Message.obtain(null, mode);
-                        final ServiceConnection myConn = this;
-                        Handler h = new Handler(mHandler.getLooper()) {
-                            @Override
-                            public void handleMessage(Message msg) {
-                                synchronized (mScreenrecordLock) {
-                                    if (mScreenrecordConnection == myConn) {
-                                        mContext.unbindService(mScreenrecordConnection);
-                                        mScreenrecordConnection = null;
-                                        mHandler.removeCallbacks(mScreenrecordTimeout);
-                                    }
-                                }
-                            }
-                        };
-                        msg.replyTo = new Messenger(h);
-                        msg.arg1 = msg.arg2 = 0;
-                        try {
-                            messenger.send(msg);
-                        } catch (RemoteException e) {
-                        }
-                    }
-                }
-                @Override
-                public void onServiceDisconnected(ComponentName name) {
-                    synchronized (mScreenrecordLock) {
-                        if (mScreenrecordConnection != null) {
-                            mContext.unbindService(mScreenrecordConnection);
-                            mScreenrecordConnection = null;
-                            mHandler.removeCallbacks(mScreenrecordTimeout);
-                        }
-                    }
-                }
-            };
-            if (mContext.bindServiceAsUser(
-                    intent, conn, Context.BIND_AUTO_CREATE, UserHandle.CURRENT)) {
-                mScreenrecordConnection = conn;
-                // Screenrecord max duration is 30 minutes. Allow 32 minutes before killing
-                // the service.
-                mHandler.postDelayed(mScreenrecordTimeout, 32 * 60 * 1000);
-            }
-        }
-    }
 
     /** {@inheritDoc} */
     @Override

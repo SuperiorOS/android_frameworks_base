@@ -250,9 +250,6 @@
     <!-- Kill app from slim recents -->
     <uses-permission android:name="android.permission.FORCE_STOP_PACKAGES" />
     
-    <!--Screenshot and screenrecord -->
-    <uses-permission android:name="android.permission.ACCESS_SURFACE_FLINGER" />
-
     <!-- DayNight mode -->
     <uses-permission android:name="android.permission.MODIFY_DAY_NIGHT_MODE" />
 
@@ -320,12 +317,6 @@
                 <action android:name="com.android.systemui.screenshot.SHOW_ERROR" />
             </intent-filter>
         </receiver>
-
-        <!-- started from PhoneWindowManager
-             TODO: Should have an android:permission attribute -->
-        <service android:name=".screenrecord.TakeScreenrecordService"
-            android:process=":screenrecord"
-            android:exported="false" />
 
         <receiver android:name=".SysuiRestartReceiver"
             android:exported="false">
@@ -453,21 +444,6 @@
         <!-- Callback for deleting screenshot notification -->
         <receiver android:name=".screenshot.GlobalScreenshot$DeleteScreenshotReceiver"
             android:process=":screenshot"
-            android:exported="false" />
-
-        <!-- Springboard for launching the share activity -->
-        <receiver android:name=".screenrecord.GlobalScreenrecord$ShareReceiver"
-            android:process=":screenrecord"
-            android:exported="false" />
-
-        <!-- Callback for dismissing screenrecord notification after a share target is picked -->
-        <receiver android:name=".screenrecord.GlobalScreenrecord$TargetChosenReceiver"
-            android:process=":screenrecord"
-            android:exported="false" />
-
-        <!-- Callback for deleting screenrecord notification -->
-        <receiver android:name=".screenrecord.GlobalScreenrecord$DeleteScreenrecordReceiver"
-            android:process=":screenrecord"
             android:exported="false" />
 
         <!-- started from UsbDeviceSettingsManager -->
@@ -750,6 +726,5 @@
                 <action android:name="android.intent.action.GAMING_MODE_TURN_ON" />
             </intent-filter>
         </receiver>
-
     </application>
 </manifest>

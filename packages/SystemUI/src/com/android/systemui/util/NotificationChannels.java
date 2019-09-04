@@ -38,7 +38,6 @@ public class NotificationChannels extends SystemUI {
     public static String TVPIP       = "TPP";
     public static String BATTERY     = "BAT";
     public static String HINTS       = "HNT";
-    public static String SCREENRECORDS = "SCR";
     public static String GAMING = "GAM";
 
     public static void createAll(Context context) {
@@ -91,12 +90,8 @@ public class NotificationChannels extends SystemUI {
                         context.getString(R.string.notification_channel_screenshot),
                         nm.getNotificationChannel(SCREENSHOTS_LEGACY)),
                 batteryChannel,
-                hint,
                 gaming,
-                new NotificationChannel(
-                        SCREENRECORDS,
-                        context.getString(R.string.notification_channel_screenrecord),
-                        NotificationManager.IMPORTANCE_LOW)
+                hint
         ));
 
         // Delete older SS channel if present.

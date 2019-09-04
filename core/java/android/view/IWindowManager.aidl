@@ -472,11 +472,6 @@ interface IWindowManager
     void unregisterOneHandedModeListener(IOneHandedModeListener listener);
 
     /**
-     * Call screen record from WindowManager.
-     */
-    void screenRecordAction(int mode);
-
-    /**
      * Long screenshot
      * @hide
      */

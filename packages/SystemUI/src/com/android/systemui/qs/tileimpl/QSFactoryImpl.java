@@ -65,7 +65,6 @@ import com.android.systemui.qs.tiles.ScreenshotTile;
 import com.android.systemui.qs.tiles.SyncTile;
 import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.SmartPixelsTile;
-import com.android.systemui.qs.tiles.ScreenrecordTile;
 import com.android.systemui.qs.tiles.UserTile;
 import com.android.systemui.qs.tiles.VolumeTile;
 import com.android.systemui.qs.tiles.WifiTile;
@@ -177,8 +176,6 @@ public class QSFactoryImpl implements QSFactory {
                 return new AdbOverNetworkTile(mHost);
             case "smartpixels":
                 return new SmartPixelsTile(mHost);
-            case "screenrecord":
-                return new ScreenrecordTile(mHost);
             case "onehand":
                 return new OneHandTile(mHost);
             case "font":

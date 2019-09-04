@@ -156,6 +156,9 @@ public class ActionHandler {
     // remove actions from here as they come back on deck
     static final Set<String> sDisabledActions = new HashSet<String>();
     static {
+        sDisabledActions.add(SYSTEMUI_TASK_SCREENRECORD);
+        // we need to make this more reliable when the user tap the partial screenshot button
+        // quickly and more times 
         sDisabledActions.add(SYSTEMUI_TASK_REGION_SCREENSHOT);
         sDisabledActions.add(SYSTEMUI_TASK_SCREENRECORD);
         sDisabledActions.add(SYSTEMUI_TASK_STOP_SCREENPINNING);
