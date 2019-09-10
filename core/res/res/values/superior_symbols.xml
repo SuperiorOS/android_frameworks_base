@@ -81,4 +81,7 @@
    <!-- Whether device has a big physical display cutout -->
    <java-symbol type="bool" name="config_physicalDisplayCutoutCentered" />
 
+   <!-- Post reset runnable for all clients -->
+   <java-symbol type="bool" name="config_fingerprintPostResetRunnableForAllClients" />
+
 </resources>
