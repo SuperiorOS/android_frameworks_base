@@ -219,31 +219,10 @@
     <!-- Smart pixels QS tile -->
     <string name="quick_settings_smart_pixels">Điểm ảnh thông minh</string>
     <string name="quick_settings_smart_pixels_on_power_save">Tự đông bật Điểm ảnh thông minh</string>
-    <!-- Screenrecord Notification Ticker -->
-    <string name="screenrecord_notif_ticker">Màn hình đang được quay lại</string>
-    <string name="screenrecord_notif_final_ticker">Quay màn hình thành công</string>
-    <!-- Screenrecord notification title -->
-    <string name="screenrecord_notif_title">Đang quay màn hình</string>
-    <!-- Screenrecord notification action: Stop -->
-    <string name="screenrecord_notif_stop">Dừng</string>
-    <string name="screenrecord_notif_completed">Quay màn hình thành công</string>
-    <!-- Screenrecord notification action: show/hide pointer -->
-    <string name="screenrecord_notif_pointer_on">Hiện con trỏ</string>
-    <string name="screenrecord_notif_pointer_off">Ẩn con trỏ</string>
-    <!-- Screen record notification error title -->
-    <string name="screenrecord_notif_error">Không thể quay màn hình</string>
-    <string name="notification_channel_screenrecord">Bản ghi màn hình</string>
-    <string name="screenrecord_hide_hint">Ẩn gợi ý</string>
-    <string name="screenrecord_show_hint">Hiện gợi ý</string>
-    <!-- Screenshot QS tile -->
-    <string name="quick_settings_screenrecord_label">Quay màn hình</string>
     <!-- Button that controls inversion of layout of navigation bar -->
     <string name="nav_bar_layout_inverse">Đảo ngược bố cục</string>
     <!-- OneHand mode QS tile -->
     <string name="qs_onehand_label">Chế độ một tay</string>
-    <!-- CustomText clock -->
-    <string name="high_noon_first_row">Cao</string>
-    <string name="high_noon_second_row">Noon</string>
     <!-- Location Tile -->
     <string name="accessibility_quick_settings_location_battery_saving">Dịnh vị: chế độ tiết kiệm pin.</string>
     <string name="accessibility_quick_settings_location_gps_only">Định vị: chỉ cảm biến.</string>
@@ -276,4 +255,5 @@
     <string name="notification_channel_gaming">Chế độ chơi game</string>
     <!--Recents -->
     <string name="recents_free_ram">RAM trống: %1$d MB</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
 </resources>

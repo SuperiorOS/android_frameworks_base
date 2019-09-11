@@ -52,18 +52,12 @@
     <!-- Volume panel QS tile -->
     <!-- ADB network tile -->
     <!-- Smart pixels QS tile -->
-    <!-- Screenrecord Notification Ticker -->
-    <!-- Screenrecord notification title -->
-    <!-- Screenrecord notification action: Stop -->
-    <!-- Screenrecord notification action: show/hide pointer -->
-    <!-- Screen record notification error title -->
-    <!-- Screenshot QS tile -->
     <!-- Button that controls inversion of layout of navigation bar -->
     <!-- OneHand mode QS tile -->
-    <!-- CustomText clock -->
     <!-- Location Tile -->
     <!-- Reader mode QS tile -->
     <!-- Font Tile -->
     <!-- FireHound Gaming -->
     <!--Recents -->
+    <!-- Text for switch default data sub in expanded CellularTile -->
 </resources>

@@ -16,15 +16,63 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="statusbar_items_title">ايقونة شريط الحالة</string>
+    <string name="status_bar_roaming">التجوال</string>
+    <string name="lockscreen_default">الإفتراضي</string>
+    <string name="lockscreen_hidden">لا يوجد</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">تمرير من الأيقونة للتشغيل</string>
     <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">وضع الكافيين</string>
+    <string name="accessibility_quick_settings_caffeine_off">وضع الكافيين معطل</string>
+    <string name="accessibility_quick_settings_caffeine_on">وضع الكافيين مفعل</string>
     <!-- LTE QS Tile -->
+    <string name="qs_lte_label">LTE</string>
+    <string name="lte_on">تفعيل LTE </string>
+    <string name="lte_off">إيقاف LTE</string>
     <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">الصوت</string>
+    <string name="quick_settings_sound_ring">رنين</string>
+    <string name="quick_settings_sound_vibrate">إهتزاز</string>
+    <string name="quick_settings_sound_dnd">عدم الإزعاج</string>
     <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> • التنبيهات الخاطفة غافية لدقيقة واحدة.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="سلسلة">%s</xliff:g> • التنبيهات الخاطفة غافية ل <xliff:g id="رقم">%d</xliff:g> دقائق.</string>
     <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">الإشعارات العلوية</string>
+    <string name="accessibility_quick_settings_heads_up_off">إيقاف الإشعارات العلوية.</string>
+    <string name="accessibility_quick_settings_heads_up_on">تشغيل الإشعارات العلوية.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">تم تعطيل الإشعارات العلوية.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل الاشعارات العلوية.</string>
     <!-- Advanced powermenu -->
+    <string name="global_action_restart_system">اعاده التشغيل</string>
+    <string name="global_action_restart_advanced">إعادة تشغيل متقدمة</string>
+    <string name="global_action_restart_recovery">الإسترداد</string>
+    <string name="global_action_restart_bootloader">محمل الاقلاع</string>
+    <string name="global_action_restart_ui">واجهة النظام</string>
+    <string name="global_action_restart_hot">اعادة تشغيل سريع</string>
+    <string name="global_action_screenshot">لقطة للشاشة</string>
+    <string name="global_action_lockdown">التأمين</string>
     <!-- Reboot/Recovery QS Tile -->
+    <string name="quick_settings_reboot_label">اعاده التشغيل</string>
+    <string name="quick_settings_reboot_recovery_label">الإسترداد</string>
     <!-- QS Config -->
+    <string name="qs_menu_item_columns">الأعمدة</string>
+    <string name="qs_menu_item_columns_landscape">الأعمدة (أفقي)</string>
+    <string name="qs_menu_item_columns_three">۳</string>
+    <string name="qs_menu_item_columns_four">٤</string>
+    <string name="qs_menu_item_columns_five">٥</string>
+    <string name="qs_menu_item_columns_six">6</string>
+    <string name="qs_menu_item_columns_seven">٧</string>
+    <string name="qs_menu_item_columns_eight">٨</string>
+    <string name="qs_menu_item_columns_nine">۹</string>
+    <string name="qs_menu_item_reset">إعادة تعيين</string>
+    <string name="qs_menu_item_titles">عرض التسميات</string>
+    <string name="qs_menu_item_rows">الصفوف</string>
+    <string name="qs_menu_item_rows_one">١</string>
+    <string name="qs_menu_item_rows_two">٢</string>
+    <string name="qs_menu_item_rows_three">3</string>
+    <string name="qs_menu_item_rows_four">٤</string>
     <!-- Theme tile -->
     <!-- Text to use when the number in a notification info is too large
     (greater than status_bar_notification_info_maxnum, defined in
@@ -52,18 +100,12 @@
     <!-- Volume panel QS tile -->
     <!-- ADB network tile -->
     <!-- Smart pixels QS tile -->
-    <!-- Screenrecord Notification Ticker -->
-    <!-- Screenrecord notification title -->
-    <!-- Screenrecord notification action: Stop -->
-    <!-- Screenrecord notification action: show/hide pointer -->
-    <!-- Screen record notification error title -->
-    <!-- Screenshot QS tile -->
     <!-- Button that controls inversion of layout of navigation bar -->
     <!-- OneHand mode QS tile -->
-    <!-- CustomText clock -->
     <!-- Location Tile -->
     <!-- Reader mode QS tile -->
     <!-- Font Tile -->
     <!-- FireHound Gaming -->
     <!--Recents -->
+    <!-- Text for switch default data sub in expanded CellularTile -->
 </resources>

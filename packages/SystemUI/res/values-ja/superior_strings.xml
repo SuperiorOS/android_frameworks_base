@@ -219,31 +219,10 @@
     <!-- Smart pixels QS tile -->
     <string name="quick_settings_smart_pixels">スマート\nピクセル</string>
     <string name="quick_settings_smart_pixels_on_power_save">自動有効</string>
-    <!-- Screenrecord Notification Ticker -->
-    <string name="screenrecord_notif_ticker">画面は録画されています</string>
-    <string name="screenrecord_notif_final_ticker">画面を録画しました</string>
-    <!-- Screenrecord notification title -->
-    <string name="screenrecord_notif_title">画面を録画中</string>
-    <!-- Screenrecord notification action: Stop -->
-    <string name="screenrecord_notif_stop">停止</string>
-    <string name="screenrecord_notif_completed">画面を録画しました</string>
-    <!-- Screenrecord notification action: show/hide pointer -->
-    <string name="screenrecord_notif_pointer_on">ポインターを表示</string>
-    <string name="screenrecord_notif_pointer_off">ポインターを隠す</string>
-    <!-- Screen record notification error title -->
-    <string name="screenrecord_notif_error">画面の録画に失敗しました</string>
-    <string name="notification_channel_screenrecord">画面録画</string>
-    <string name="screenrecord_hide_hint">ヒントを隠す</string>
-    <string name="screenrecord_show_hint">ヒントを表示</string>
-    <!-- Screenshot QS tile -->
-    <string name="quick_settings_screenrecord_label">画面録画</string>
     <!-- Button that controls inversion of layout of navigation bar -->
     <string name="nav_bar_layout_inverse">レイアウトを反転</string>
     <!-- OneHand mode QS tile -->
     <string name="qs_onehand_label">片手モード</string>
-    <!-- CustomText clock -->
-    <string name="high_noon_first_row">高</string>
-    <string name="high_noon_second_row">昼</string>
     <!-- Location Tile -->
     <string name="accessibility_quick_settings_location_battery_saving">位置情報レポート: バッテリー節約モード</string>
     <string name="accessibility_quick_settings_location_gps_only">位置情報レポート: 端末のみモード</string>
@@ -276,4 +255,6 @@
     <string name="notification_channel_gaming">ゲームモード</string>
     <!--Recents -->
     <string name="recents_free_ram">空きメモリ: %1$d MB</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">データ通信に %s 使用</string>
 </resources>

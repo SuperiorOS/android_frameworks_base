@@ -219,31 +219,10 @@
     <!-- Smart pixels QS tile -->
     <string name="quick_settings_smart_pixels">Smart Pixels</string>
     <string name="quick_settings_smart_pixels_on_power_save">Automaticky povolit Smart Pixels</string>
-    <!-- Screenrecord Notification Ticker -->
-    <string name="screenrecord_notif_ticker">Obrazovka je zaznamenávána</string>
-    <string name="screenrecord_notif_final_ticker">Obrazovka byla úspěšně zaznamenána</string>
-    <!-- Screenrecord notification title -->
-    <string name="screenrecord_notif_title">Zaznamenávání obrazovky</string>
-    <!-- Screenrecord notification action: Stop -->
-    <string name="screenrecord_notif_stop">Zastavit</string>
-    <string name="screenrecord_notif_completed">Obrazovka byla úspěšně zaznamenána</string>
-    <!-- Screenrecord notification action: show/hide pointer -->
-    <string name="screenrecord_notif_pointer_on">Zobrazit ukazatel</string>
-    <string name="screenrecord_notif_pointer_off">Skrýt ukazatel</string>
-    <!-- Screen record notification error title -->
-    <string name="screenrecord_notif_error">Záznam obrazovky není možný</string>
-    <string name="notification_channel_screenrecord">Záznamy obrazovky</string>
-    <string name="screenrecord_hide_hint">Skrýt nápovědu</string>
-    <string name="screenrecord_show_hint">Zobrazit nápovědu</string>
-    <!-- Screenshot QS tile -->
-    <string name="quick_settings_screenrecord_label">Záznam obrazovky</string>
     <!-- Button that controls inversion of layout of navigation bar -->
     <string name="nav_bar_layout_inverse">Převrátit rozložení</string>
     <!-- OneHand mode QS tile -->
     <string name="qs_onehand_label">Režim jedné ruky</string>
-    <!-- CustomText clock -->
-    <string name="high_noon_first_row">Velký</string>
-    <string name="high_noon_second_row">Poledne</string>
     <!-- Location Tile -->
     <string name="accessibility_quick_settings_location_battery_saving">Hlášení polohy: úspora baterie.</string>
     <string name="accessibility_quick_settings_location_gps_only">Hlášení polohy: pouze GPS.</string>
@@ -276,4 +255,5 @@
     <string name="notification_channel_gaming">Herní režim</string>
     <!--Recents -->
     <string name="recents_free_ram">Volná paměť RAM: %1$d MB</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
 </resources>

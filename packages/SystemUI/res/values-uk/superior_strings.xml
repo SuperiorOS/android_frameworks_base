@@ -16,10 +16,23 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="statusbar_items_title">Значок в рядку стану</string>
+    <string name="status_bar_roaming">Роумінг</string>
+    <string name="lockscreen_default">За замовчуванням</string>
+    <string name="lockscreen_hidden">Жоден</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">Проведіть від іконки для запуску</string>
     <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">Кофеїн</string>
+    <string name="accessibility_quick_settings_caffeine_off">Кофеїн вимкнено</string>
+    <string name="accessibility_quick_settings_caffeine_on">Кофеїн увімкнено</string>
     <!-- LTE QS Tile -->
+    <string name="qs_lte_label">LTE</string>
+    <string name="lte_on">LTE увімк. </string>
+    <string name="lte_off">LTE вимк.</string>
     <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Звук</string>
+    <string name="quick_settings_sound_ring">Дзвінок</string>
     <!-- Heads up snooze toast -->
     <!-- Heads Up QS Tile -->
     <!-- Advanced powermenu -->
@@ -52,18 +65,13 @@
     <!-- Volume panel QS tile -->
     <!-- ADB network tile -->
     <!-- Smart pixels QS tile -->
-    <!-- Screenrecord Notification Ticker -->
-    <!-- Screenrecord notification title -->
-    <!-- Screenrecord notification action: Stop -->
-    <!-- Screenrecord notification action: show/hide pointer -->
-    <!-- Screen record notification error title -->
-    <!-- Screenshot QS tile -->
     <!-- Button that controls inversion of layout of navigation bar -->
     <!-- OneHand mode QS tile -->
-    <!-- CustomText clock -->
+    <string name="qs_onehand_label">Режим керування однією рукою</string>
     <!-- Location Tile -->
     <!-- Reader mode QS tile -->
     <!-- Font Tile -->
     <!-- FireHound Gaming -->
     <!--Recents -->
+    <!-- Text for switch default data sub in expanded CellularTile -->
 </resources>

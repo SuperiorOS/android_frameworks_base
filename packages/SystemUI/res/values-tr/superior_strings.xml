@@ -219,31 +219,10 @@
     <!-- Smart pixels QS tile -->
     <string name="quick_settings_smart_pixels">Akıllı pikseller</string>
     <string name="quick_settings_smart_pixels_on_power_save">Otomatik olarak akıllı pikselleri etkinleştir</string>
-    <!-- Screenrecord Notification Ticker -->
-    <string name="screenrecord_notif_ticker">Ekran kaydediliyor</string>
-    <string name="screenrecord_notif_final_ticker">Ekran başarıyla kaydedildi</string>
-    <!-- Screenrecord notification title -->
-    <string name="screenrecord_notif_title">Kayıt ekranı</string>
-    <!-- Screenrecord notification action: Stop -->
-    <string name="screenrecord_notif_stop">Durdur</string>
-    <string name="screenrecord_notif_completed">Ekran başarıyla kaydedildi</string>
-    <!-- Screenrecord notification action: show/hide pointer -->
-    <string name="screenrecord_notif_pointer_on">İşaretçiyi göster</string>
-    <string name="screenrecord_notif_pointer_off">İşaretçiyi gizle</string>
-    <!-- Screen record notification error title -->
-    <string name="screenrecord_notif_error">Ekran kaydedilemiyor</string>
-    <string name="notification_channel_screenrecord">Ekran kayıtları</string>
-    <string name="screenrecord_hide_hint">İpuçlarını gizle</string>
-    <string name="screenrecord_show_hint">İpuçlarını göster</string>
-    <!-- Screenshot QS tile -->
-    <string name="quick_settings_screenrecord_label">Ekran kaydı</string>
     <!-- Button that controls inversion of layout of navigation bar -->
     <string name="nav_bar_layout_inverse">Düzeni ters çevir</string>
     <!-- OneHand mode QS tile -->
     <string name="qs_onehand_label">Tek el modu</string>
-    <!-- CustomText clock -->
-    <string name="high_noon_first_row">Akşam vakti</string>
-    <string name="high_noon_second_row">Öğle vakti</string>
     <!-- Location Tile -->
     <string name="accessibility_quick_settings_location_battery_saving">Konum bildirimi: pil tasarrufu modu.</string>
     <string name="accessibility_quick_settings_location_gps_only">Konum bildirimi: sadece sensörler modu.</string>
@@ -276,4 +255,5 @@
     <string name="notification_channel_gaming">Oyun modu</string>
     <!--Recents -->
     <string name="recents_free_ram">Boş RAM: %1$d MB</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
 </resources>

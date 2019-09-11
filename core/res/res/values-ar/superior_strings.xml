@@ -18,10 +18,60 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced Power menu -->
+    <string name="reboot_title">اعاده التشغيل</string>
+    <string name="reboot_message">إعادة تشغيل النظام</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">تزييف التوقيع الرقمي للحزمة</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">السمح للتطبيق بالتظاهر بأنه تطبيق آخر. يمكن للتطبيقات الخبيثة أن تستخدم هذه الميزة للوصول إلى البيانات الخاصة للتطبيق. توخٙ الحذر عند منح هذا الإذن!</string>
     <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">مطلوب إعادة تشغيل واجهة النظام</string>
+    <string name="systemui_restart_message">لتطبيق كل التغييرات، اعادة تشغيل واجهة المستخدم مطلوبة لكي يتم تطبيق التعديلات، هل تريد اعادة التشغيل الان؟</string>
     <!-- App ops requests -->
+    <string name="app_ops_access_camera">الوصول إلى الكاميرا</string>
+    <string name="app_ops_access_location">الوصول إلى موقعك</string>
+    <string name="app_ops_access_notifications">قراءة الإشعارات</string>
+    <string name="app_ops_activate_vpn">تفعيل شبكة افتراضية خاصة (VPN)</string>
+    <string name="app_ops_add_voicemail">إضافة بريد صوتي</string>
+    <string name="app_ops_app_start_foreground">بدء تشغيل التطبيق الفوري في المقدمة</string>
+    <string name="app_ops_assist_screenshot">أخذ لقطة للشاشة</string>
+    <string name="app_ops_assist_structure">استخدام مساعد الهيكل</string>
+    <string name="app_ops_audio_accessibility_volume">إمكانية الوصول لمستوى الصوت</string>
+    <string name="app_ops_auto_start">البدء عند بدء التشغيل</string>
+    <string name="app_ops_bind_accessibility_service">ربط خدمة امكانية الوصول</string>
+    <string name="app_ops_bluetooth_scan">بحث البلوتوث</string>
+    <string name="app_ops_change_wallpaper">تغيير الخلفية</string>
+    <string name="app_ops_delete_call_log">حذف سجل المكالمـات</string>
+    <string name="app_ops_delete_contacts">حذف جهات الاتصال</string>
+    <string name="app_ops_delete_mms">حذف رسائل MMS الخاصة بك</string>
+    <string name="app_ops_delete_sms">حذف الرسائل النصية القصيرة (SMS)</string>
+    <string name="app_ops_draw_on_top">اظهر النوافذ الى الاعلى</string>
+    <string name="app_ops_get_accounts">الحصول على حسابات الجهاز</string>
+    <string name="app_ops_get_usage_stats">الحصول على إحصائيات الاستخدام</string>
+    <string name="app_ops_accept_handover">استلام مكالمه من تطبيق آخر</string>
+    <string name="app_ops_install_packages">تثبيت الحزم</string>
+    <string name="app_ops_keep_device_awake">إبقاء جهازك يقظاً</string>
+    <string name="app_ops_manage_ipsec_tunnels">إدارة أنفاق ipsec</string>
+    <string name="app_ops_make_phone_call">إجراء إتصال هاتفي</string>
+    <string name="app_ops_mock_location">تجاهل موقعك الحالى</string>
+    <string name="app_ops_modify_calendar">تحديث التقويم الخاص بك</string>
+    <string name="app_ops_modify_call_log">تحديث سجل المكالمات</string>
+    <string name="app_ops_modify_clipboard">تعديل الحافظة</string>
+    <string name="app_ops_modify_contacts">تحديث جهات الاتصال</string>
+    <string name="app_ops_modify_settings">تحديث إعدادات النظام</string>
+    <string name="app_ops_mute_unmute_microphone">كتم/إلغاء كتم الميكروفون</string>
+    <string name="app_ops_phone_calls">الرد على المكالمات الهاتفية</string>
+    <string name="app_ops_picture_in_picture">استخدام صورة في صورة</string>
+    <string name="app_ops_play_audio">تشغيل الصوت</string>
+    <string name="app_ops_post_notification">اصدر إشعار</string>
+    <string name="app_ops_project_media">مشروع الوسائط</string>
+    <string name="app_ops_read_calendar">قراءة التقويم</string>
+    <string name="app_ops_read_call_log">قراءة سجل المكالمات</string>
+    <string name="app_ops_read_cell_broadcasts">قراءة البث الخليوي</string>
+    <string name="app_ops_read_clipboard">قراءة حافظة المنسوخات</string>
+    <string name="app_ops_read_contacts">قراءة جهات الاتصال</string>
+    <string name="app_ops_read_external_storage">قراءة الذاكرة الخارجية</string>
+    <string name="app_ops_read_mms">قراءة رسائل MMS</string>
     <!-- Privacy Guard -->
     <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <!-- Pocket Lock -->
@@ -29,7 +79,20 @@
         to communicate pocket state to the pocket judge kernel driver. -->
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <!-- AOKP custom system animations -->
+    <string name="animation_slide_left_no_fade">انزلاق إلى اليسار (بدون تلاشي)</string>
+    <string name="animation_slide_up">السحب الى الاسفل</string>
+    <string name="animation_slide_down">السحب إلى الأعلى</string>
+    <string name="animation_default">الإفتراضي</string>
+    <string name="animation_translucent">شفاف</string>
+    <string name="animation_grow_shrink">نمو نحو (الأعلى)</string>
+    <string name="animation_grow_shrink_center">نمو نحو (الوسط)</string>
+    <string name="animation_grow_shrink_bottom">نمو نحو (الأسفل)</string>
+    <string name="animation_grow_shrink_left">نمو نحو (اليسار)</string>
+    <string name="animation_grow_shrink_right">نمو نحو (اليمين)</string>
+    <string name="animation_random">عشوائي</string>
+    <string name="action_null">فارغ</string>
     <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">تم تمكين ADB عبر الشبكة</string>
     <!-- ADB over USB and network notification -->
     <!-- ADB notification message-->
     <!-- Font service -->

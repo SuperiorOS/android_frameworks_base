@@ -219,31 +219,10 @@
     <!-- Smart pixels QS tile -->
     <string name="quick_settings_smart_pixels">Умные пиксели</string>
     <string name="quick_settings_smart_pixels_on_power_save">Автоматическое включение умных пикселей</string>
-    <!-- Screenrecord Notification Ticker -->
-    <string name="screenrecord_notif_ticker">Идёт запись с экрана</string>
-    <string name="screenrecord_notif_final_ticker">Запись с экрана завершена</string>
-    <!-- Screenrecord notification title -->
-    <string name="screenrecord_notif_title">Запись экрана</string>
-    <!-- Screenrecord notification action: Stop -->
-    <string name="screenrecord_notif_stop">Стоп</string>
-    <string name="screenrecord_notif_completed">Экран записан успешно</string>
-    <!-- Screenrecord notification action: show/hide pointer -->
-    <string name="screenrecord_notif_pointer_on">Показать указатель</string>
-    <string name="screenrecord_notif_pointer_off">Скрыть указатель</string>
-    <!-- Screen record notification error title -->
-    <string name="screenrecord_notif_error">Запись экрана невозможна</string>
-    <string name="notification_channel_screenrecord">Записи экрана</string>
-    <string name="screenrecord_hide_hint">Скрыть подсказку</string>
-    <string name="screenrecord_show_hint">Показать подсказку</string>
-    <!-- Screenshot QS tile -->
-    <string name="quick_settings_screenrecord_label">Запись с экрана</string>
     <!-- Button that controls inversion of layout of navigation bar -->
     <string name="nav_bar_layout_inverse">Инвертировать порядок кнопок</string>
     <!-- OneHand mode QS tile -->
     <string name="qs_onehand_label">Режим \"Управление одной рукой\"</string>
-    <!-- CustomText clock -->
-    <string name="high_noon_first_row">Ночь</string>
-    <string name="high_noon_second_row">Полдень</string>
     <!-- Location Tile -->
     <string name="accessibility_quick_settings_location_battery_saving">Определение местоположения: режим энергосбережения.</string>
     <string name="accessibility_quick_settings_location_gps_only">Определение местоположения: только GPS.</string>
@@ -276,4 +255,6 @@
     <string name="notification_channel_gaming">Игровой режим</string>
     <!--Recents -->
     <string name="recents_free_ram">Свободно памяти: %1$d MБ</string>
+    <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">Использовать %s для мобильных данных</string>
 </resources>
