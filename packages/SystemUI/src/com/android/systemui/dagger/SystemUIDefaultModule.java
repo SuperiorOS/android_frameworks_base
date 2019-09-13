@@ -97,10 +97,6 @@ public abstract class SystemUIDefaultModule {
     @Binds
     abstract EnhancedEstimates bindEnhancedEstimates(EnhancedEstimatesImpl enhancedEstimates);
 
-    @Binds
-    abstract NotificationLockscreenUserManager bindNotificationLockscreenUserManager(
-            NotificationLockscreenUserManagerImpl notificationLockscreenUserManager);
-
     @Provides
     @SysUISingleton
     static BatteryController provideBatteryController(
