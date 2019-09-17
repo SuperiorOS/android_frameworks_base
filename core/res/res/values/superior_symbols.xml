@@ -101,7 +101,10 @@
     <!-- Oneplus haptic motor -->
     <java-symbol type="bool" name="config_hasOnePlusHapticMotor" />
 
-    <!-- Smart charging battery percentage -->
+    <!-- Smart charging -->
     <java-symbol type="integer" name="config_smartChargingBatteryLevel" />
+    <java-symbol type="string" name="config_SmartChargingSysfsNode" />
+    <java-symbol type="string" name="config_SmartChargingSupspendValue" />
+    <java-symbol type="string" name="config_SmartChargingResumeValue" />
 
 </resources>
