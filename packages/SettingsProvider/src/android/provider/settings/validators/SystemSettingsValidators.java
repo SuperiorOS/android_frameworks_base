@@ -227,5 +227,16 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.VOLUME_BUTTON_MUSIC_CONTROL, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.NAVIGATION_BAR_ARROW_KEYS, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.FOD_GESTURE, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(
+                System.COLOR_BUCKET_OVERLAY,
+                new Validator() {
+                    @Override
+                    public boolean validate(String value) {
+                        if (value == null && value.isEmpty()) {
+                            return false;
+                        }
+                        return true;
+                    }
+                });
     }
 }
