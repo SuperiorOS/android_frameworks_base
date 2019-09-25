@@ -5640,6 +5640,11 @@ public final class Settings {
         public static final String DOUBLE_TAP_SLEEP_LOCKSCREEN = "double_tap_sleep_lockscreen";
 
         /**
+         * @hide
+         */
+        public static final String BACK_GESTURE_HEIGHT = "back_gesture_height";
+
+        /**
          * Whether user can swap the order of the Alert Slider.
          * * Whether user can invert the order of the Alert Slider.
          * 0: Default
