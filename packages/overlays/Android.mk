@@ -40,6 +40,10 @@ LOCAL_REQUIRED_MODULES := \
         FontRosemarySourceOverlay \
         FontSonySketchSourceOverlay \
         FontSurferSourceOverlay \
+	FontArbutusSourceOverlay \
+	FontArvoLatoOverlay \
+	FontNotoSerifSourceOverlay \
+	FontRubikRubikOverlay \
 	IconPackCircularAndroidOverlay \
 	IconPackCircularLauncherOverlay \
 	IconPackCircularSettingsOverlay \
