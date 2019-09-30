@@ -97,15 +97,19 @@
 
      <!-- Auto reboot Suggestion/Reminder -->
      <string name="notification_channel_reboot_suggestion">Reboot Suggestion</string>
-     <string name="notification_channel_reboot_suggestion_description">Notifications for Reboot Suggestion</string>
+     <string name="notification_channel_reboot_suggestion_description">Notifications for Reboot
+          Suggestion</string>
      <string name="reboot_suggestion_title">Reboot Reminder</string>
-     <string name="reboot_suggestion_description">Your device has been on for over a week. Rebooting is recommended.</string>
+     <string name="reboot_suggestion_description">Your device has been on for over a week. Rebooting
+          is recommended.</string>
      <string name="reboot_suggestion_now">Reboot</string>
 
      <!-- PowerShare QS tile -->
      <string name="quick_settings_powershare_label">Wireless PowerShare</string>
-     <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare off\nBattery saver</string>
-     <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare off\nBattery too low</string>
+     <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare off\nBattery
+          saver</string>
+     <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare off\nBattery
+          too low</string>
      <string name="quick_settings_powershare_enabled_label">Wireless PowerShare is enabled</string>
 
      <!-- App killer -->
@@ -116,4 +120,20 @@
      <string name="app_picker_dialog_title">Select an app</string>
      <string name="active_edge_app_select_title">Select app</string>
      <string name="active_edge_activity_select_title">Select activity</string>
+
+     <!-- Alert slide extras -->
+     <string name="volume_ringer_priority_only">Priority</string>
+     <string name="volume_ringer_alarms_only">Alarms</string>
+     <string name="volume_ringer_dnd">DnD</string>
+     <string name="tristate_flashlight">Torch</string>
+     <string name="tristate_flashlight_on">Torch on</string>
+     <string name="tristate_flashlight_off">Torch off</string>
+     <string name="tristate_flashlight_blink">Torch blink</string>
+     <string name="tristate_brightness_bright">Max-brightness</string>
+     <string name="tristate_brightness_dark">Min-brightness</string>
+     <string name="tristate_brightness_auto">Auto-brightness</string>
+     <string name="tristate_rotation_auto">Auto-rotate</string>
+     <string name="tristate_rotation_0">Portrait</string>
+     <string name="tristate_rotation_90">Landscape (90°)</string>
+     <string name="tristate_rotation_270">Landscape (270°)</string>
 </resources>
