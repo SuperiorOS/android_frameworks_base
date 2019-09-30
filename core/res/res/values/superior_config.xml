@@ -57,4 +57,10 @@
      <!-- Alert slider proc nodes paths -->
      <string name="alert_slider_state_path"></string>
      <string name="alert_slider_uevent_match_path"></string>
+
+     <!-- The location of the device's alert slider:
+         0: Left side
+         1: Right side -->
+     <integer name="config_alertSliderLocation">0</integer>
+
 </resources>
