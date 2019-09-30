@@ -56,6 +56,11 @@
     <string name="alert_slider_state_path"></string>
     <string name="alert_slider_uevent_match_path"></string>
 
+    <!-- The location of the device's alert slider:
+         0: Left side
+         1: Right side -->
+         <integer name="config_alertSliderLocation">0</integer>
+
     <!-- List of system apps that are allowed to be locked with app lock.
          Use with extreme caution. -->
     <string-array name="config_appLockAllowedSystemApps" translatable="false" />
