@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C)2022-2023 The SuperiorOS Project
+     Copyright (C)2022-2024 The SuperiorOS Project
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
@@ -112,4 +112,13 @@
 
      <!-- Lock gesture -->
      <java-symbol type="string" name="gesture_locked_warning" />
+
+     <!-- Whether device has physical tri state switch -->
+     <java-symbol type="bool" name="config_hasAlertSlider" />
+
+     <!-- The location of the devices physical tri state switch -->
+     <java-symbol type="integer" name="config_alertSliderLocation" />
+
+     <!-- Whether key handler sends intent when changing slider position -->
+     <java-symbol type="string" name="config_alertSliderIntent" />
 </resources>

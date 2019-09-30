@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C)2022-2023 The Superior OS Project
+     Copyright (C) 2022-2024 The Superior OS Project
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -113,9 +113,31 @@
      <string name="weather_condition_wind">Windy</string>
      <string name="weather_condition_mist">Misty</string>
 
-    <!-- PowerShare QS tile -->
-    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
-    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare off\nBattery saver</string>
-    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare off\nBattery too low</string>
-    <string name="quick_settings_powershare_enabled_label">Wireless PowerShare is enabled</string>
+     <!-- PowerShare QS tile -->
+     <string name="quick_settings_powershare_label">Wireless PowerShare</string>
+     <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare off\nBattery saver</string>
+     <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare off\nBattery too low</string>
+     <string name="quick_settings_powershare_enabled_label">Wireless PowerShare is enabled</string>
+
+     <!-- Bluetooth dialog -->
+     <string name="turn_on_bluetooth">Use Bluetooth</string>
+     <string name="bluetooth_is_off">Bluetooth is off</string>
+     <string name="tap_a_device_to_connect">Tap a device to connect</string>
+
+     <!-- Alert slide extras -->
+     <string name="volume_ringer_priority_only">Priority</string>
+     <string name="volume_ringer_alarms_only">Alarms</string>
+     <string name="volume_ringer_dnd">DnD</string>
+     <string name="tristate_flashlight">Torch</string>
+     <string name="tristate_flashlight_on">Torch on</string>
+     <string name="tristate_flashlight_off">Torch off</string>
+     <string name="tristate_flashlight_blink">Torch blink</string>
+     <string name="tristate_brightness_bright">Max-brightness</string>
+     <string name="tristate_brightness_dark">Min-brightness</string>
+     <string name="tristate_brightness_auto">Auto-brightness</string>
+     <string name="tristate_rotation_auto">Auto-rotate</string>
+     <string name="tristate_rotation_0">Portrait</string>
+     <string name="tristate_rotation_90">Landscape (90°)</string>
+     <string name="tristate_rotation_270">Landscape (270°)</string>
+
 </resources>
