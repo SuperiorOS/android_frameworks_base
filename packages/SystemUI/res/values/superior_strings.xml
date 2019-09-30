@@ -90,6 +90,11 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on.</string>
 
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">HW keys on</string>
+    <string name="accessibility_quick_settings_hwkeys_off">HW keys off</string>
+    <string name="quick_settings_hwkeys_label">HW keys</string>
+
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Reboot</string>
     <string name="quick_settings_reboot_recovery_label">Recovery</string>
