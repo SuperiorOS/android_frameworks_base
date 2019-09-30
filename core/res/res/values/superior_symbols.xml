@@ -54,4 +54,8 @@
 
     <!-- In-display Fingerprint -->
     <java-symbol type="bool" name="config_supportsInDisplayFingerprint" />
+
+    <!-- Alert slider -->
+    <java-symbol type="bool" name="config_hasAlertSlider" />
+    <java-symbol type="integer" name="config_alertSliderLocation" />
 </resources>
