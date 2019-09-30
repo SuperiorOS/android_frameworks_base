@@ -43,4 +43,9 @@
         <item name="android:letterSpacing">0.072727273</item>
     </style>
 
+    <!-- Alert slider -->
+    <style name="TriStateUiText">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:fontFamily">@*android:string/config_headlineFontFamilyMedium</item>
+    </style>
 </resources>
