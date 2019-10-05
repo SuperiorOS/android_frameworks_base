@@ -654,6 +654,9 @@ public class StatusBar extends SystemUI implements DemoMode,
              mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
                     Settings.System.USE_OLD_MOBILETYPE),
                     false, this, UserHandle.USER_ALL);
+            mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN),
+                    false, this, UserHandle.USER_ALL);
         }
 
         @Override
@@ -668,6 +671,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             if(USE_OLD_MOBILETYPE != mOldMobileType){
                 USE_OLD_MOBILETYPE = mOldMobileType;
                 TelephonyIcons.updateIcons(USE_OLD_MOBILETYPE);
+            }
+            if (mNotificationPanel != null) {
+                mNotificationPanel.updateSettings();
             }
         }
     }
@@ -869,6 +875,10 @@ public class StatusBar extends SystemUI implements DemoMode,
         int disabledFlags2 = result.mDisabledFlags2;
         Dependency.get(InitController.class).addPostInitTask(
                 () -> setUpDisableFlags(disabledFlags1, disabledFlags2));
+
+        mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
+        mCustomSettingsObserver.observe();
+        mCustomSettingsObserver.update();
     }
 
     private void initCoreOverlays(){

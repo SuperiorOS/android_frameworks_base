@@ -5197,6 +5197,15 @@ public final class Settings {
         private static final Validator USE_OLD_MOBILETYPE_VALIDATOR =
                 BOOLEAN_VALIDATOR;
 
+        /** Whether to allow one finger quick settings expansion on the right side of the statusbar.
+         *
+         * @hide
+         */
+        public static final String STATUS_BAR_QUICK_QS_PULLDOWN = "status_bar_quick_qs_pulldown";
+
+        private static final Validator STATUS_BAR_QUICK_QS_PULLDOWN_VALIDATOR =
+                ANY_INTEGER_VALIDATOR;
+
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
@@ -5311,6 +5320,7 @@ public final class Settings {
             NOTIFICATION_GUTS_KILL_APP_BUTTON,
             VOLUME_DIALOG_TIMEOUT,
             USE_OLD_MOBILETYPE,
+            STATUS_BAR_QUICK_QS_PULLDOWN,
         };
 
         /**
@@ -5502,6 +5512,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(VOLUME_DIALOG_TIMEOUT);
             PRIVATE_SETTINGS.add(DISPLAY_CUTOUT_HIDDEN);
             PRIVATE_SETTINGS.add(USE_OLD_MOBILETYPE);
+            PRIVATE_SETTINGS.add(STATUS_BAR_QUICK_QS_PULLDOWN);
         }
 
         /**
@@ -5655,6 +5666,7 @@ public final class Settings {
             VALIDATORS.put(VOLUME_DIALOG_TIMEOUT,VOLUME_DIALOG_TIMEOUT_VALIDATOR);
             VALIDATORS.put(DISPLAY_CUTOUT_HIDDEN, DISPLAY_CUTOUT_HIDDEN_VALIDATOR);
             VALIDATORS.put(USE_OLD_MOBILETYPE, USE_OLD_MOBILETYPE_VALIDATOR);
+            VALIDATORS.put(STATUS_BAR_QUICK_QS_PULLDOWN, STATUS_BAR_QUICK_QS_PULLDOWN_VALIDATOR);
         }
 
         /**
