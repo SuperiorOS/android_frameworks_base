@@ -52,6 +52,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -514,7 +515,15 @@ public class BatteryStatsHelper {
 
         processMiscUsage();
 
-        Collections.sort(mUsageList);
+        try {
+          List<BatterySipper> tempmUsageList = new ArrayList<BatterySipper>(mUsageList);
+          Collections.sort(tempmUsageList);
+          mUsageList.clear();
+          mUsageList.addAll(tempmUsageList);
+        }
+        catch (Exception e) {
+          mUsageList.clear();
+        }
 
         // At this point, we've sorted the list so we are guaranteed the max values are at the top.
         // We have only added real powers so far.
