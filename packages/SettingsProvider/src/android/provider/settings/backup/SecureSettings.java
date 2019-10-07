@@ -244,6 +244,7 @@ public class SecureSettings {
         Settings.Secure.SEARCH_PRESS_HOLD_NAV_HANDLE_ENABLED,
         Settings.Secure.SEARCH_LONG_PRESS_HOME_ENABLED,
         Settings.Secure.TETHERING_ALLOW_VPN_UPSTREAMS,
-        Settings.Secure.QUICK_SETTINGS_TILES_VIBRATE
+        Settings.Secure.QUICK_SETTINGS_TILES_VIBRATE,
+        Settings.Secure.DOZE_ON_CHARGE
     };
 }
