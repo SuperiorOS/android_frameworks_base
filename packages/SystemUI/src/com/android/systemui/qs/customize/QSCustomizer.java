@@ -96,6 +96,8 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
     private int mY;
     private boolean mOpening;
     private boolean mIsShowingNavBackdrop;
+    private boolean mHeaderImageEnabled;
+
     private UiEventLogger mUiEventLogger = new UiEventLoggerImpl();
 
     private GridLayoutManager mLayout;
@@ -193,6 +195,10 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         LayoutParams lp = (LayoutParams) mTransparentView.getLayoutParams();
         lp.height = mContext.getResources().getDimensionPixelSize(
                 com.android.internal.R.dimen.quick_qs_offset_height);
+        if (mHeaderImageEnabled) {
+            lp.height += mContext.getResources().getDimensionPixelSize(
+                    R.dimen.qs_header_image_offset);
+        }
         mTransparentView.setLayoutParams(lp);
     }
 
@@ -478,6 +484,9 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
 
     public void updateSettings() {
         final Resources res = mContext.getResources();
+        mHeaderImageEnabled = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.STATUS_BAR_CUSTOM_HEADER, 0,
+                UserHandle.USER_CURRENT) == 1;
         boolean isPortrait = res.getConfiguration().orientation
                 == Configuration.ORIENTATION_PORTRAIT;
         int defaultColumns = Math.max(1, mContext.getResources().getInteger(R.integer.quick_settings_num_columns));
