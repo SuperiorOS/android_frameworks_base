@@ -301,7 +301,11 @@ public class StatusIconContainer extends AlphaOptimizedLinearLayout {
 
             vs.initFrom(child);
             vs.alpha = 1.0f;
-            vs.hidden = false;
+            if (child instanceof StatusIconDisplayable) {
+                vs.hidden = !((StatusIconDisplayable)child).isIconVisible();
+            } else {
+                vs.hidden = false;
+            }
         }
     }
 
@@ -329,33 +333,22 @@ public class StatusIconContainer extends AlphaOptimizedLinearLayout {
             }
             StatusIconDisplayable icon = (StatusIconDisplayable) view;
             AnimationProperties animationProperties = null;
-            boolean animateVisibility = true;
+            boolean animate = false;
 
-            // Figure out which properties of the state transition (if any) we need to animate
-            if (justAdded
-                    || icon.getVisibleState() == STATE_HIDDEN && visibleState == STATE_ICON) {
-                // Icon is appearing, fade it in by putting it where it will be and animating alpha
+            if (justAdded) {
                 super.applyToView(view);
-                view.setAlpha(0.f);
-                icon.setVisibleState(STATE_HIDDEN);
                 animationProperties = ADD_ICON_PROPERTIES;
+                animate = true;
             } else if (icon.getVisibleState() != visibleState) {
-                if (icon.getVisibleState() == STATE_ICON && visibleState == STATE_HIDDEN) {
-                    // Disappearing, don't do anything fancy
-                    animateVisibility = false;
-                } else {
-                    // all other transitions (to/from dot, etc)
-                    animationProperties = ANIMATE_ALL_PROPERTIES;
-                }
-            } else if (visibleState != STATE_HIDDEN && xTranslation != view.getTranslationX()) {
-                // Visibility isn't changing, just animate position
-                animationProperties = X_ANIMATION_PROPERTIES;
+                animationProperties = DOT_ANIMATION_PROPERTIES;
+                animate = true;
             }
 
-            icon.setVisibleState(visibleState, animateVisibility);
-            if (animationProperties != null) {
+            if (animate) {
                 animateTo(view, animationProperties);
+                icon.setVisibleState(visibleState);
             } else {
+                icon.setVisibleState(visibleState);
                 super.applyToView(view);
             }
 
@@ -372,18 +365,8 @@ public class StatusIconContainer extends AlphaOptimizedLinearLayout {
         }
     }.setDuration(200).setDelay(50);
 
-    private static final AnimationProperties X_ANIMATION_PROPERTIES = new AnimationProperties() {
+    private static final AnimationProperties DOT_ANIMATION_PROPERTIES = new AnimationProperties() {
         private AnimationFilter mAnimationFilter = new AnimationFilter().animateX();
-
-        @Override
-        public AnimationFilter getAnimationFilter() {
-            return mAnimationFilter;
-        }
-    }.setDuration(200);
-
-    private static final AnimationProperties ANIMATE_ALL_PROPERTIES = new AnimationProperties() {
-        private AnimationFilter mAnimationFilter = new AnimationFilter().animateX().animateY()
-                .animateAlpha().animateScale();
 
         @Override
         public AnimationFilter getAnimationFilter() {

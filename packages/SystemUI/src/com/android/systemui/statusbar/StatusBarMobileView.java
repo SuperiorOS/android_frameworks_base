@@ -289,7 +289,7 @@ public class StatusBarMobileView extends FrameLayout implements DarkReceiver,
     }
 
     @Override
-    public void setVisibleState(int state, boolean animate) {
+    public void setVisibleState(int state) {
         if (state == mVisibleState) {
             return;
         }

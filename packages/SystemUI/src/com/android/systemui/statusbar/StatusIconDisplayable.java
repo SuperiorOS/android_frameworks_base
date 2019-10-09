@@ -22,10 +22,7 @@ public interface StatusIconDisplayable extends DarkReceiver {
     String getSlot();
     void setStaticDrawableColor(int color);
     void setDecorColor(int color);
-    default void setVisibleState(int state) {
-        setVisibleState(state, false);
-    }
-    void setVisibleState(int state, boolean animate);
+    void setVisibleState(int state);
     int getVisibleState();
     boolean isIconVisible();
     default boolean isIconBlocked() {
