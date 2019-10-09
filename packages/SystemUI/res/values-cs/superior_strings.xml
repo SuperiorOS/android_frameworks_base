@@ -256,4 +256,5 @@
     <!--Recents -->
     <string name="recents_free_ram">Volná paměť RAM: %1$d MB</string>
     <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">Použít %s pro data</string>
 </resources>

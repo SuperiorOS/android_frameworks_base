@@ -46,6 +46,8 @@
     <string name="app_ops_delete_mms">eliminare i tuoi MMS</string>
     <string name="app_ops_delete_sms">elimina i tuoi SMS</string>
     <string name="app_ops_draw_on_top">mostra le finestre in primo piano</string>
+    <string name="app_ops_get_accounts">ottenere account del dispositivo</string>
+    <string name="app_ops_accept_handover">consegna di una chiamata da un\'altra app</string>
     <!-- Privacy Guard -->
     <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
     <!-- Pocket Lock -->

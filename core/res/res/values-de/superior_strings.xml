@@ -18,7 +18,7 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced Power menu -->
-    <string name="reboot_title">Gerät neustarten</string>
+    <string name="reboot_title">Gerät neu starten</string>
     <string name="reboot_message">System wird neu gestartet</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">Paket Signatur verändern</string>
@@ -59,22 +59,132 @@
     <string name="app_ops_modify_clipboard">Zwischenablage bearbeiten</string>
     <string name="app_ops_modify_contacts">Kontakte bearbeiten</string>
     <string name="app_ops_modify_settings">Systemeinstellungen aktualisieren</string>
+    <string name="app_ops_mute_unmute_microphone">Mikrofon ein-/ausschalten</string>
+    <string name="app_ops_phone_calls">Anrufe beantworten</string>
+    <string name="app_ops_picture_in_picture">Bild im Bild verwenden</string>
+    <string name="app_ops_play_audio">Audio wiedergeben</string>
+    <string name="app_ops_post_notification">eine Benachrichtigung erstellen</string>
+    <string name="app_ops_project_media">Projektion von Medieninhalten</string>
+    <string name="app_ops_read_calendar">Kalendereinträge lesen</string>
+    <string name="app_ops_read_call_log">Anrufprotokoll lesen</string>
+    <string name="app_ops_read_cell_broadcasts">Cell Broadcast-Nachrichten lesen</string>
+    <string name="app_ops_read_clipboard">Zwischenablage lesen</string>
+    <string name="app_ops_read_contacts">Kontakte lesen</string>
+    <string name="app_ops_read_external_storage">Externen Speicher lesen</string>
+    <string name="app_ops_read_mms">MMS-Nachrichten lesen</string>
+    <string name="app_ops_read_phone_numbers">Telefonnummern lesen</string>
+    <string name="app_ops_read_phone_state">Auf Telefonstatus zugreifen</string>
+    <string name="app_ops_read_sms">Ihre SMS-Nachrichten lesen</string>
+    <string name="app_ops_receive_sms">SMS-Nachricht empfangen</string>
+    <string name="app_ops_receive_emergency_broadcast">Notfall-Broadcasts Nachricht empfangen</string>
+    <string name="app_ops_record_audio">Audio aufzeichnen</string>
+    <string name="app_ops_request_delete_packages">Löschen von Paketen anfordern</string>
+    <string name="app_ops_run_in_background">im Hintergrund ausführen</string>
+    <string name="app_ops_run_any_in_background">im Hintergrund ausführen</string>
+    <string name="app_ops_scan_wifi">WLAN-Netzwerke scannen</string>
+    <string name="app_ops_send_mms">eine MMS-Nachricht senden</string>
+    <string name="app_ops_send_sms">eine SMS-Nachricht senden</string>
+    <string name="app_ops_start_at_bootup">beim Gerätestart ausführen</string>
+    <string name="app_ops_start_foreground">im Vordergrund starten</string>
+    <string name="app_ops_toast_window">Toast-Nachrichten anzeigen</string>
+    <string name="app_ops_toggle_bluetooth">Bluetooth ein-/ausschalten</string>
+    <string name="app_ops_toggle_mobile_data">Mobile Daten ein-/ausschalten</string>
+    <string name="app_ops_toggle_nfc">NFC ein-/ausschalten</string>
+    <string name="app_ops_toggle_wifi">WLAN ein-/ausschalten</string>
+    <string name="app_ops_turn_on_screen">Bildschirm einschalten</string>
+    <string name="app_ops_use_alarm_volume">Weckerlautstärke einstellen</string>
+    <string name="app_ops_use_audio_focus">Audio-Wiedergabepriorität ändern</string>
+    <string name="app_ops_use_bluetooth_volume">Bluetooth-Lautstärke ändern</string>
+    <string name="app_ops_use_body_sensors">Körpersensoren verwenden</string>
+    <string name="app_ops_use_fingerprint">Fingerabdruck verwenden</string>
+    <string name="app_ops_use_master_volume">Gesamtlautstärke ändern</string>
+    <string name="app_ops_use_media_buttons">Lautstärketasten verwenden</string>
+    <string name="app_ops_use_media_volume">Medienlautstärke ändern</string>
+    <string name="app_ops_use_notification_volume">Benachrichtigungs-Lautstärke ändern</string>
+    <string name="app_ops_use_ring_volume">Klingeltonlautstärke ändern</string>
+    <string name="app_ops_use_vibrate">Haptisches Feedback benutzen</string>
+    <string name="app_ops_use_voice_volume">Anruflautstärke ändern</string>
+    <string name="app_ops_wifi_change">WLAN Status ändern</string>
+    <string name="app_ops_write_external_storage">auf externen Speicher schreiben</string>
+    <string name="app_ops_write_mms">eine MMS-Nachricht schreiben</string>
+    <string name="app_ops_write_sms">Eine SMS-Nachricht schreiben</string>
     <!-- Privacy Guard -->
+    <string name="permlab_changePrivacyGuardState">Aktivieren oder Deaktivieren von Privacy Guard</string>
+    <string name="permdesc_changePrivacyGuardState">Ermöglicht der App, den Datenschutz für andere Apps zu aktivieren oder deaktivieren. Eine App mit aktiviertem Datenschutz hat keinen Zugriff auf persönliche Daten wie Kontakte, Nachrichten oder das Anrufprotokoll.</string>
+    <string name="privacy_guard_notification">Datenschutz aktiv</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> hat keinen Zugriff auf persönliche Daten</string>
+    <string name="privacy_guard_dialog_title">Privacy Guard</string>
+    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> möchte <xliff:g id="op">%2$s</xliff:g>.</string>
     <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
+    <string name="permission_remember_choice">Meine Auswahl merken</string>
     <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">Ein-/Aus-Taste gedrückt halten, um mit dem Gerät zu interagieren</string>
     <!-- Defines the sysfs attribute path used by pocket bridge
         to communicate pocket state to the pocket judge kernel driver. -->
+    <string name="permlab_toggleNavigationEditor">Navigations-Editor steuern</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">Erlaubt einer App den Navigationsleisten-Editor zu steuern.</string>
     <!-- AOKP custom system animations -->
+    <string name="animation_fade">Ausblenden</string>
+    <string name="animation_slide_right">Von rechts einblenden</string>
+    <string name="animation_slide_left">Von links einblenden</string>
+    <string name="animation_slide_right_no_fade">Von rechts einblenden (ohne Verblassen)</string>
+    <string name="animation_slide_left_no_fade">Von links einblenden (ohne Verblassen)</string>
+    <string name="animation_slide_up">Von unten einblenden</string>
+    <string name="animation_slide_down">Von oben einblenden</string>
+    <string name="animation_default">Standard</string>
+    <string name="animation_translucent">Transparent</string>
+    <string name="animation_grow_shrink">Einblenden nach (Oben)</string>
+    <string name="animation_grow_shrink_center">Einblenden nach (Mitte)</string>
+    <string name="animation_grow_shrink_bottom">Einblenden nach (Unten)</string>
+    <string name="animation_grow_shrink_left">Einblenden nach (Links)</string>
+    <string name="animation_grow_shrink_right">Einblenden nach (Rechts)</string>
+    <string name="animation_random">Zufällig</string>
+    <string name="action_null">Leer</string>
     <!-- ADB over network notification -->
+    <string name="adb_net_active_notification_title">ADB über Netzwerk aktiviert</string>
     <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">ADB über USB &amp; Netzwerk aktiviert</string>
     <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">Tippen, um Debugging zu deaktivieren.</string>
     <!-- Font service -->
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">Zugriff auf Schriftartenmanager</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Erlaubt einer App den Zugriff auf den Schriftartenmanager.</string>
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">Es scheint, dass Ihr Vendor-Image veraltet ist. Bitte installieren Sie die aktuellste Version für Ihr Gerät.</string>
     <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automatisch</string>
+    <string name="live_display_auto_summary">Farbtemperatur des Bildschirms nach Sonnenaufgang und Sonnenuntergang automatisch anpassen</string>
+    <string name="live_display_off">Aus</string>
+    <string name="live_display_off_summary">Alle Anpassungen deaktivieren</string>
+    <string name="live_display_day">Tag</string>
+    <string name="live_display_day_summary">Nur Tag-Modus verwenden</string>
+    <string name="live_display_night">Nacht</string>
+    <string name="live_display_night_summary">Nur Nacht-Modus verwenden</string>
+    <string name="live_display_outdoor">Draußen (helle Sonne)</string>
+    <string name="live_display_outdoor_summary">Nur Outdoor Einstellungen verwenden</string>
+    <string name="live_display_hint">LiveDisplay entlastet Ihre Augen und lässt Sie nachts besser schlafen. Klicken Sie hier, um es auszuprobieren!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay aus.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: Automatisch.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: Tag-Modus.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: Nacht-Modus.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: Außen.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay ausgeschaltet.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay auf Auto-Modus geändert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay auf Tag-Modus geändert.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay nun im Nacht-Modus</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay auf Außen-Modus geändert.</string>
     <!-- FireHound Gaming -->
+    <string name="notification_channel_gaming">Spielmodus</string>
+    <string name="gaming_mode_notification_title">Spielmodus eingeschaltet</string>
+    <string name="gaming_mode_notification_content">Tippen, um den Spielmodus auszuschalten</string>
+    <string name="gaming_mode_enabled_toast">Spielmodus eingeschaltet.</string>
+    <string name="gaming_mode_disabled_toast">Spielmodus ausgeschaltet.</string>
     <!-- Battery fully charged notification -->
+    <string name="notify_battery_fully_charged_title">Akku vollständig aufgeladen</string>
+    <string name="notify_battery_fully_charged_text">Trennen Sie Ihr Gerät vom Ladegerät, um die Lebensdauer der Batterie zu verbessern.</string>
+    <string name="battery_charged_channel_name">Akku geladen</string>
     <!-- Alert slider proc nodes paths. -->
 </resources>

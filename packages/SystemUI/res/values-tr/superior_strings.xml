@@ -256,4 +256,5 @@
     <!--Recents -->
     <string name="recents_free_ram">Boş RAM: %1$d MB</string>
     <!-- Text for switch default data sub in expanded CellularTile -->
+    <string name="use_data">Veri için %s kullan</string>
 </resources>

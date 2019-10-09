@@ -93,6 +93,7 @@
     <string name="app_ops_toggle_wifi">Activer/désactiver le Wi-Fi</string>
     <string name="app_ops_turn_on_screen">Allumer l\'écran</string>
     <string name="app_ops_use_alarm_volume">contrôler le volume des alarmes</string>
+    <string name="app_ops_use_audio_focus">Contrôler le focus audio</string>
     <string name="app_ops_use_bluetooth_volume">contrôler le volume du Bluetooth</string>
     <string name="app_ops_use_body_sensors">utiliser les capteurs corporels</string>
     <string name="app_ops_use_fingerprint">utiliser les empreintes digitales</string>
@@ -109,6 +110,7 @@
     <string name="app_ops_write_sms">écrire un SMS</string>
     <!-- Privacy Guard -->
     <string name="permlab_changePrivacyGuardState">activer ou désactiver Privacy Guard</string>
+    <string name="permdesc_changePrivacyGuardState">Permet à l\'application de changer si une autre application fonctionne avec la protection de la vie privée. Lorsqu\'une application fonctionne avec la protection de la vie privée, elle n\'aura pas accès à des données personnelles telles que les contacts, les journaux d\'appels ou les messages.</string>
     <string name="privacy_guard_notification">Privacy Guard activé</string>
     <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> ne sera pas en mesure d\'accéder aux données personnelles</string>
     <string name="privacy_guard_dialog_title">Privacy Guard</string>
