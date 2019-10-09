@@ -18,7 +18,7 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced Power menu -->
-    <string name="reboot_title">اعاده التشغيل</string>
+    <string name="reboot_title">إعادة التشغيل</string>
     <string name="reboot_message">إعادة تشغيل النظام</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">تزييف التوقيع الرقمي للحزمة</string>
@@ -72,13 +72,63 @@
     <string name="app_ops_read_contacts">قراءة جهات الاتصال</string>
     <string name="app_ops_read_external_storage">قراءة الذاكرة الخارجية</string>
     <string name="app_ops_read_mms">قراءة رسائل MMS</string>
+    <string name="app_ops_read_phone_numbers">قراءة أرقام الهاتف</string>
+    <string name="app_ops_read_phone_state">قراءة حالة الهاتف</string>
+    <string name="app_ops_read_sms">قراءة رسائل SMS</string>
+    <string name="app_ops_receive_sms">استلام رسالة SMS</string>
+    <string name="app_ops_receive_emergency_broadcast">استلام رسالة بث الطوارئ</string>
+    <string name="app_ops_record_audio">تسجيل الصوت</string>
+    <string name="app_ops_request_delete_packages">طلب حذف الحُزم</string>
+    <string name="app_ops_run_in_background">تشغيل في الخلفية</string>
+    <string name="app_ops_run_any_in_background">تشغيل اي شيء في الخلفية</string>
+    <string name="app_ops_scan_wifi">بحث شبكات Wi-Fi</string>
+    <string name="app_ops_send_mms">إرسال رسالة MMS</string>
+    <string name="app_ops_send_sms">إرسال رسالة SMS</string>
+    <string name="app_ops_start_at_bootup">البدء عند بدء التشغيل</string>
+    <string name="app_ops_start_foreground">بدء في المقدمة</string>
+    <string name="app_ops_toast_window">عرض التنبيهات المنبثقة</string>
+    <string name="app_ops_toggle_bluetooth">تفعيل/ايقاف البلوتوث</string>
+    <string name="app_ops_toggle_mobile_data">تنشيط/إيقاف بيانات الهاتف</string>
+    <string name="app_ops_toggle_nfc">تشغيل/إيقاف NFC</string>
+    <string name="app_ops_toggle_wifi">تفعيل/ايقاف Wi-Fi</string>
+    <string name="app_ops_turn_on_screen">تشغيل الشاشة</string>
+    <string name="app_ops_use_alarm_volume">التحكم في مستوى صوت المنبه</string>
+    <string name="app_ops_use_audio_focus">التحكم في تركيز الصوت</string>
+    <string name="app_ops_use_bluetooth_volume">التحكم في مستوى صوت البلوتوث</string>
+    <string name="app_ops_use_body_sensors">استخدام مستشعرات الجسم</string>
+    <string name="app_ops_use_fingerprint">استخدم البصمة</string>
+    <string name="app_ops_use_master_volume">التحكم في مستوى الصوت الرئيسي</string>
+    <string name="app_ops_use_media_buttons">إستخدام أزرار الوسائط</string>
+    <string name="app_ops_use_media_volume">التحكم في مستوى صوت الوسائط</string>
+    <string name="app_ops_use_notification_volume">التحكم في مستوى صوت الإشعارات</string>
+    <string name="app_ops_use_ring_volume">التحكم في مستوى صوت نغمة الرنين</string>
+    <string name="app_ops_use_vibrate">استخدام ردود الفعل اللمسية</string>
+    <string name="app_ops_use_voice_volume">التحكم في مستوى صوت المكالمة الصوتية</string>
+    <string name="app_ops_wifi_change">تغيير حالة الـ Wi-Fi</string>
+    <string name="app_ops_write_external_storage">الكتابة على وحدة التخزين الخارجية</string>
+    <string name="app_ops_write_mms">كتابة رسالة MMS</string>
+    <string name="app_ops_write_sms">كتابة رسالة SMS</string>
     <!-- Privacy Guard -->
+    <string name="permlab_changePrivacyGuardState">تمكين أو تعطيل حارس الخصوصية</string>
+    <string name="permdesc_changePrivacyGuardState">يسمح للتطبيق أن يتحكم ما إذا كان تطبيق آخر يعمل مع \"حارس الخصوصية\". عندما يتم تشغيل التطبيق الاخر مع \"حارس الخصوصية\"، لن يستطيع الوصول إلى أي بيانات شخصية مثل جهات الاتصال، وسجلات المكالمات أو الرسائل.</string>
+    <string name="privacy_guard_notification">حارس الخصوصية مفعل</string>
+    <string name="privacy_guard_notification_detail"><xliff:g id="app">%1$s</xliff:g> لن تكون قادراً على الوصول إلى البيانات الشخصية</string>
+    <string name="privacy_guard_dialog_title">حارس الخصوصية</string>
+    <string name="privacy_guard_dialog_summary"><xliff:g id="app">%1$s</xliff:g> يرغب في <xliff:g id="op">%2$s</xliff:g>.</string>
     <!-- Text of the checkbox for the permission confirmation dialog to remember the user's choice. [CHAR LIMIT=40] -->
+    <string name="permission_remember_choice">تذكر اختياري</string>
     <!-- Pocket Lock -->
+    <string name="pocket_lock_message_long_press">الضغط على زر الطاقة مطولاً للتفاعل</string>
     <!-- Defines the sysfs attribute path used by pocket bridge
         to communicate pocket state to the pocket judge kernel driver. -->
+    <string name="permlab_toggleNavigationEditor">التحكم بمحرر شريط التنقل</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_toggleNavigationEditor">السماح لتطبيق ما بالتحكم في محرر شريط التنقل.</string>
     <!-- AOKP custom system animations -->
+    <string name="animation_fade">تلاشي</string>
+    <string name="animation_slide_right">انزلاق إلى اليمين</string>
+    <string name="animation_slide_left">انزلاق إلى اليسار</string>
+    <string name="animation_slide_right_no_fade">انزلاق إلى اليمين (بدون تلاشي)</string>
     <string name="animation_slide_left_no_fade">انزلاق إلى اليسار (بدون تلاشي)</string>
     <string name="animation_slide_up">السحب الى الاسفل</string>
     <string name="animation_slide_down">السحب إلى الأعلى</string>
@@ -94,13 +144,47 @@
     <!-- ADB over network notification -->
     <string name="adb_net_active_notification_title">تم تمكين ADB عبر الشبكة</string>
     <!-- ADB over USB and network notification -->
+    <string name="adb_both_active_notification_title">تم تمكين ADB عبر &amp; الشبكة و USB</string>
     <!-- ADB notification message-->
+    <string name="adb_active_generic_notification_message">اللمس لتعطيل تصحيح الأخطاء Adb.</string>
     <!-- Font service -->
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">الوصول لإدارة الخطوط</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">السماح لتطبيق ما بالوصول إلى مدير الخطوط.</string>
     <!-- Vendor mismatched fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">يبدو أن صورة vendor ذات إصدار قديم. الرجاء تثبيت احدث صورة vendor للجهاز.</string>
     <!-- LiveDisplay strings -->
+    <string name="live_display_auto">تلقائي</string>
+    <string name="live_display_auto_summary">ضبط درجة شدة لون الشاشة تلقائيًا بعد غروب الشمس وشروق الشمس</string>
+    <string name="live_display_off">إيقاف</string>
+    <string name="live_display_off_summary">تعطيل جميع التعديلات</string>
+    <string name="live_display_day">النهار</string>
+    <string name="live_display_day_summary">استخدام إعدادات النهار فقط</string>
+    <string name="live_display_night">الليل</string>
+    <string name="live_display_night_summary">استخدام إعدادات الليل فقط</string>
+    <string name="live_display_outdoor">خارج المنزل ( شمس ساطعة)</string>
+    <string name="live_display_outdoor_summary">استخدم إعدادات خارج المنزل فقط</string>
+    <string name="live_display_hint">يمكن أن تساعد ميزة LiveDisplay في تقليل إجهاد العين ومساعدتك على النوم في الليل. لتجربتها يرجى الضغط هنا!</string>
+    <string name="accessibility_quick_settings_live_display_off">إيقاف تشغيل LiveDisplay.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: الوضع التلقائي.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: الوضع النهاري.</string>
+    <string name="accessibility_quick_settings_live_display_night">العرض الحي: الوضع الليلي.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: وضع الأماكن المفتوحة.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">تم إيقاف تشغيل LiveDisplay.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">تم تغيير LiveDisplay إلى الوضع التلقائي.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">تم تغيير LiveDisplay إلى الوضع النهاري.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">تم تغيير LiveDisplay إلى الوضع الليلي.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">تم تغيير LiveDisplay إلى وضع الأماكن المفتوحة.</string>
     <!-- FireHound Gaming -->
+    <string name="notification_channel_gaming">وضع الألعاب</string>
+    <string name="gaming_mode_notification_title">وضع اللعب مفعل</string>
+    <string name="gaming_mode_notification_content">النقر لإيقاف تشغيل وضع الألعاب</string>
+    <string name="gaming_mode_enabled_toast">تم تمكين وضع الألعاب</string>
+    <string name="gaming_mode_disabled_toast">تم تعطيل وضع الألعاب</string>
     <!-- Battery fully charged notification -->
+    <string name="notify_battery_fully_charged_title">البطارية مشحونة بالكامل</string>
+    <string name="notify_battery_fully_charged_text">أفصل الجهاز من الشاحن لتحسين طول عمر البطارية.</string>
+    <string name="battery_charged_channel_name">البطارية مشحونة</string>
     <!-- Alert slider proc nodes paths. -->
 </resources>
