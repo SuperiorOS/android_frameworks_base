@@ -12,7 +12,6 @@ import android.database.ContentObserver;
 import android.graphics.drawable.Drawable;
 import android.graphics.PorterDuff.Mode;
 import android.graphics.Typeface;
-import android.view.Gravity;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.TrafficStats;
@@ -22,6 +21,10 @@ import android.os.UserHandle;
 import android.os.Message;
 import android.os.SystemClock;
 import android.provider.Settings;
+import android.text.Spanned;
+import android.text.SpannableString;
+import android.text.style.RelativeSizeSpan;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -47,18 +50,11 @@ public class NetworkTraffic extends TextView {
     private static final int GB = MB * KB;
     private static final String symbol = "/s";
 
-    private static DecimalFormat decimalFormat = new DecimalFormat("##0.#");
-    static {
-        decimalFormat.setMaximumIntegerDigits(3);
-        decimalFormat.setMaximumFractionDigits(1);
-    }
-
     protected int mIsEnabled;
     private boolean mAttached;
     private long totalRxBytes;
     private long totalTxBytes;
     private long lastUpdateTime;
-    private int txtSize;
     private int txtImgPadding;
     private boolean mHideArrow;
     private int mAutoHideThreshold;
@@ -100,28 +96,30 @@ public class NetworkTraffic extends TextView {
                 mTrafficVisible = false;
             } else if (shouldShowUpload(rxData, txData, timeDelta)) {
                 // Show information for uplink if it's called for
-                String output = formatOutput(timeDelta, txData, symbol);
+                CharSequence  output = formatOutput(timeDelta, txData, symbol);
 
                 // Update view if there's anything new to show
-                if (!output.contentEquals(getText())) {
+                if (output != getText()) {
                     txtFont = getResources().getString(com.android.internal.R.string.config_headlineFontFamilyMedium);
-                    setTextSize(TypedValue.COMPLEX_UNIT_PX, (float)txtSize);
-                    setTypeface(Typeface.create(txtFont, Typeface.NORMAL));
-                    setGravity(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
+                    setTypeface(Typeface.create(txtFont, Typeface.BOLD));
+                    setGravity(Gravity.CENTER);
+                    setMaxLines(2);
+                    setLineSpacing(0.75f, 0.75f);
                     setText(output);
                     indicatorUp = true;
                 }
                 mTrafficVisible = true;
             } else {
                 // Add information for downlink if it's called for
-                String output = formatOutput(timeDelta, rxData, symbol);
+                CharSequence  output = formatOutput(timeDelta, rxData, symbol);
 
                 // Update view if there's anything new to show
-                if (!output.contentEquals(getText())) {
+                if (output != getText()) {
                     txtFont = getResources().getString(com.android.internal.R.string.config_headlineFontFamilyMedium);
-                    setTextSize(TypedValue.COMPLEX_UNIT_PX, (float)txtSize);
-		            setTypeface(Typeface.create(txtFont, Typeface.NORMAL));
-                    setGravity(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
+	            setTypeface(Typeface.create(txtFont, Typeface.BOLD));
+                    setGravity(Gravity.CENTER);
+                    setMaxLines(2);
+                    setLineSpacing(0.75f, 0.75f);
                     setText(output);
                     indicatorDown = true;
                 }
@@ -138,16 +136,55 @@ public class NetworkTraffic extends TextView {
             mTrafficHandler.postDelayed(mRunnable, INTERVAL);
         }
 
-        private String formatOutput(long timeDelta, long data, String symbol) {
+        private CharSequence  formatOutput(long timeDelta, long data, String symbol) {
             long speed = (long)(data / (timeDelta / 1000F));
-            if (speed < KB) {
-                return decimalFormat.format(speed / (float)KB) + 'K' + symbol;
-            } else if (speed < MB) {
-                return decimalFormat.format(speed / (float)KB) + 'K' + symbol;
-            } else if (speed < GB) {
-                return decimalFormat.format(speed / (float)MB) + 'M' + symbol;
+
+            return formatDecimal(speed);
+        }
+
+        private CharSequence formatDecimal(long speed) {
+            DecimalFormat mDecimalFormat;
+            String mUnit;
+            String formatSpeed;
+            SpannableString spanUnitString;
+            SpannableString spanSpeedString;
+
+            if (speed >= GB) {
+                mUnit = "GB";
+                mDecimalFormat = new DecimalFormat("0.00");
+                formatSpeed =  mDecimalFormat.format(speed / (float)GB);
+            } else if (speed >= 100 * MB) {
+                mDecimalFormat = new DecimalFormat("000");
+                mUnit = "MB";
+                formatSpeed =  mDecimalFormat.format(speed / (float)MB);
+            } else if (speed >= 10 * MB) {
+                mDecimalFormat = new DecimalFormat("00.0");
+                mUnit = "MB";
+                formatSpeed =  mDecimalFormat.format(speed / (float)MB);
+            } else if (speed >= MB) {
+                mDecimalFormat = new DecimalFormat("0.00");
+                mUnit = "MB";
+                formatSpeed =  mDecimalFormat.format(speed / (float)MB);
+            } else if (speed >= 100 * KB) {
+                mDecimalFormat = new DecimalFormat("000");
+                mUnit = "KB";
+                formatSpeed =  mDecimalFormat.format(speed / (float)KB);
+            } else if (speed >= 10 * KB) {
+                mDecimalFormat = new DecimalFormat("00.0");
+                mUnit = "KB";
+                formatSpeed =  mDecimalFormat.format(speed / (float)MB);
+            } else {
+                mDecimalFormat = new DecimalFormat("0.00");
+                mUnit = "KB";
+                formatSpeed = mDecimalFormat.format(speed / (float)KB);
             }
-            return decimalFormat.format(speed / (float)GB) + 'G' + symbol;
+
+            spanSpeedString = new SpannableString(formatSpeed);
+            spanSpeedString.setSpan(new RelativeSizeSpan(0.75f), 0, (formatSpeed).length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+
+            spanUnitString = new SpannableString(mUnit + symbol);
+            spanUnitString.setSpan(new RelativeSizeSpan(0.70f), 0, (mUnit + symbol).length(), Spanned.SPAN_INCLUSIVE_INCLUSIVE);
+            return TextUtils.concat(spanSpeedString, "\n", spanUnitString);
         }
 
         private boolean shouldHide(long rxData, long txData, long timeDelta) {
@@ -221,7 +258,6 @@ public class NetworkTraffic extends TextView {
     public NetworkTraffic(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         final Resources resources = getResources();
-        txtSize = resources.getDimensionPixelSize(R.dimen.net_traffic_multi_text_size);
         txtImgPadding = resources.getDimensionPixelSize(R.dimen.net_traffic_txt_img_padding);
         mTintColor = resources.getColor(android.R.color.white);
         setTextColor(mTintColor);
@@ -341,12 +377,12 @@ public class NetworkTraffic extends TextView {
 
     public void onDensityOrFontScaleChanged() {
         final Resources resources = getResources();
-        txtSize = resources.getDimensionPixelSize(R.dimen.net_traffic_multi_text_size);
         txtImgPadding = resources.getDimensionPixelSize(R.dimen.net_traffic_txt_img_padding);
         txtFont = resources.getString(com.android.internal.R.string.config_headlineFontFamilyMedium);
-        setTextSize(TypedValue.COMPLEX_UNIT_PX, (float)txtSize);
         setCompoundDrawablePadding(txtImgPadding);
-        setTypeface(Typeface.create(txtFont, Typeface.NORMAL));
+        setTypeface(Typeface.create(txtFont, Typeface.BOLD));
+        setMaxLines(2);
+        setLineSpacing(0.75f, 0.75f);
     }
 
     protected void updateVisibility() {
