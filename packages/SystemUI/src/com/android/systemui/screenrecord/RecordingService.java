@@ -405,7 +405,7 @@ public class RecordingService extends Service {
     }
 
     private void saveRecording(NotificationManager notificationManager) {
-        String fileName = new SimpleDateFormat("'screen-'yyyyMMdd-HHmmss'.mp4'")
+        String fileName = new SimpleDateFormat("'screenrecord-'yyyyMMdd-HHmmss'.mp4'")
                 .format(new Date());
 
         ContentValues values = new ContentValues();
