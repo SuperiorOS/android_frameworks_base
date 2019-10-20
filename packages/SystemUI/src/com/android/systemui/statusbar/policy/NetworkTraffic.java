@@ -77,6 +77,7 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
     private boolean indicatorUp = false;
     private boolean indicatorDown = false;
     private boolean mShowArrow;
+    private String txtFont;
 
     private boolean mScreenOn = true;
 
@@ -112,8 +113,10 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
 
                 // Update view if there's anything new to show
                 if (!output.contentEquals(getText())) {
+                    txtFont = getResources().getString(com.android.internal.R.string.config_headlineFontFamilyMedium);
                     setTextSize(TypedValue.COMPLEX_UNIT_PX, (float)txtSize);
-                    setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+                    setTypeface(Typeface.create(txtFont, Typeface.NORMAL));
+                    setGravity(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
                     setText(output);
                     indicatorUp = true;
                 }
@@ -123,10 +126,11 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
                 String output = formatOutput(timeDelta, rxData, symbol);
 
                 // Update view if there's anything new to show
-                if (! output.contentEquals(getText())) {
+                if (!output.contentEquals(getText())) {
+                    txtFont = getResources().getString(com.android.internal.R.string.config_headlineFontFamilyMedium);
                     setTextSize(TypedValue.COMPLEX_UNIT_PX, (float)txtSize);
+		            setTypeface(Typeface.create(txtFont, Typeface.NORMAL));
                     setGravity(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
-		            setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
                     setText(output);
                     indicatorDown = true;
                 }
@@ -349,9 +353,10 @@ public class NetworkTraffic extends TextView implements StatusIconDisplayable {
         final Resources resources = getResources();
         txtSize = resources.getDimensionPixelSize(R.dimen.net_traffic_multi_text_size);
         txtImgPadding = resources.getDimensionPixelSize(R.dimen.net_traffic_txt_img_padding);
+        txtFont = resources.getString(com.android.internal.R.string.config_headlineFontFamilyMedium);
         setTextSize(TypedValue.COMPLEX_UNIT_PX, (float)txtSize);
         setCompoundDrawablePadding(txtImgPadding);
-        setTypeface(Typeface.create("sans-serif-condensed", Typeface.NORMAL));
+        setTypeface(Typeface.create(txtFont, Typeface.NORMAL));
     }
 
     @Override
