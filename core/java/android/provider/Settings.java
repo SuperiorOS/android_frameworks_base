@@ -4805,125 +4805,6 @@ public final class Settings {
                 ANY_INTEGER_VALIDATOR;
 
         /**
-         * Whether to display sound panel in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_SOUNDPANEL = "powermenu_soundpanel";
-        /** @hide */
-        private static final Validator POWERMENU_SOUNDPANEL_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * Whether to display screenshot in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_SCREENSHOT = "powermenu_screenshot";
-        /** @hide */
-        private static final Validator POWERMENU_SCREENSHOT_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * Whether to display settings in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_SETTINGS = "powermenu_settings";
-        /** @hide */
-        private static final Validator POWERMENU_SETTINGS_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * Whether to display lock in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_LOCKDOWN = "powermenu_lockdown";
-        /** @hide */
-        private static final Validator POWERMENU_LOCKDOWN_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * Whether to display airplane in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_AIRPLANE = "powermenu_airplane";
-        /** @hide */
-        private static final Validator POWERMENU_AIRPLANE_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * Whether to display reboot in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_RESTART = "powermenu_restart";
-        /** @hide */
-        private static final Validator POWERMENU_RESTART_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * Whether to display advanced reboot in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_RESTART_RECOVERY = "powermenu_restart_recovery";
-        /** @hide */
-        private static final Validator POWERMENU_RESTART_RECOVERY_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * Whether to display power in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_POWER = "powermenu_power";
-        /** @hide */
-        private static final Validator POWERMENU_POWER_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * Whether to display the users option in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_USERS = "powermenu_users";
-        /** @hide */
-        private static final Validator POWERMENU_USERS_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * Whether to display the users option in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_LOGOUT = "powermenu_logout";
-        /** @hide */
-        private static final Validator POWERMENU_LOGOUT_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * Whether to display the power menu dialog while on the lockscreen
-         * @hide
-         */
-        public static final String POWERMENU_LOCKSCREEN = "powermenu_lockscreen";
-        /** @hide */
-        private static final Validator POWERMENU_LOCKSCREEN_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-         * Whether to display the torch option in the power menu
-         *
-         * @hide
-         */
-        public static final String POWERMENU_TORCH = "powermenu_torch";
-        /** @hide */
-        private static final Validator POWERMENU_TORCH_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
          * Number of qs columns on landscape orientation
          * @hide
          */
@@ -5129,18 +5010,6 @@ public final class Settings {
             NETWORK_TRAFFIC_STATE,
             NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD,
             NETWORK_TRAFFIC_HIDEARROW,
-            POWERMENU_SOUNDPANEL,
-            POWERMENU_SCREENSHOT,
-            POWERMENU_SETTINGS,
-            POWERMENU_LOCKDOWN,
-            POWERMENU_AIRPLANE,
-            POWERMENU_RESTART,
-            POWERMENU_RESTART_RECOVERY,
-            POWERMENU_POWER,
-            POWERMENU_USERS,
-            POWERMENU_LOGOUT,
-            POWERMENU_LOCKSCREEN,
-            POWERMENU_TORCH,
             OMNI_QS_LAYOUT_COLUMNS_LANDSCAPE,
             OMNI_QS_LAYOUT_COLUMNS,
             OMNI_QS_TILE_TITLE_VISIBILITY,
@@ -5303,18 +5172,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_STATE);
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD);
             PRIVATE_SETTINGS.add(NETWORK_TRAFFIC_HIDEARROW);
-            PRIVATE_SETTINGS.add(POWERMENU_SOUNDPANEL);
-            PRIVATE_SETTINGS.add(POWERMENU_SCREENSHOT);
-            PRIVATE_SETTINGS.add(POWERMENU_SETTINGS);
-            PRIVATE_SETTINGS.add(POWERMENU_LOCKDOWN);
-            PRIVATE_SETTINGS.add(POWERMENU_AIRPLANE);
-            PRIVATE_SETTINGS.add(POWERMENU_RESTART);
-            PRIVATE_SETTINGS.add(POWERMENU_RESTART_RECOVERY);
-            PRIVATE_SETTINGS.add(POWERMENU_POWER);
-            PRIVATE_SETTINGS.add(POWERMENU_USERS);
-            PRIVATE_SETTINGS.add(POWERMENU_LOGOUT);
-            PRIVATE_SETTINGS.add(POWERMENU_LOCKSCREEN);
-            PRIVATE_SETTINGS.add(POWERMENU_TORCH);
             PRIVATE_SETTINGS.add(OMNI_QS_LAYOUT_COLUMNS_LANDSCAPE);
             PRIVATE_SETTINGS.add(OMNI_QS_LAYOUT_COLUMNS);
             PRIVATE_SETTINGS.add(OMNI_QS_TILE_TITLE_VISIBILITY);
@@ -5452,18 +5309,6 @@ public final class Settings {
             VALIDATORS.put(NETWORK_TRAFFIC_STATE, NETWORK_TRAFFIC_STATE_VALIDATOR);
             VALIDATORS.put(NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD, NETWORK_TRAFFIC_AUTOHIDE_THRESHOLD_VALIDATOR);
             VALIDATORS.put(NETWORK_TRAFFIC_HIDEARROW, NETWORK_TRAFFIC_HIDEARROW_VALIDATOR);
-            VALIDATORS.put(POWERMENU_SOUNDPANEL, POWERMENU_SOUNDPANEL_VALIDATOR);
-            VALIDATORS.put(POWERMENU_SCREENSHOT, POWERMENU_SCREENSHOT_VALIDATOR);
-            VALIDATORS.put(POWERMENU_SETTINGS, POWERMENU_SETTINGS_VALIDATOR);
-            VALIDATORS.put(POWERMENU_LOCKDOWN, POWERMENU_LOCKDOWN_VALIDATOR);
-            VALIDATORS.put(POWERMENU_AIRPLANE, POWERMENU_AIRPLANE_VALIDATOR);
-            VALIDATORS.put(POWERMENU_RESTART, POWERMENU_RESTART_VALIDATOR);
-            VALIDATORS.put(POWERMENU_RESTART_RECOVERY, POWERMENU_RESTART_RECOVERY_VALIDATOR);
-            VALIDATORS.put(POWERMENU_POWER, POWERMENU_POWER_VALIDATOR);
-            VALIDATORS.put(POWERMENU_USERS, POWERMENU_USERS_VALIDATOR);
-            VALIDATORS.put(POWERMENU_LOGOUT, POWERMENU_LOGOUT_VALIDATOR);
-            VALIDATORS.put(POWERMENU_LOCKSCREEN, POWERMENU_LOCKSCREEN_VALIDATOR);
-            VALIDATORS.put(POWERMENU_TORCH, POWERMENU_TORCH_VALIDATOR);
             VALIDATORS.put(OMNI_QS_LAYOUT_COLUMNS_LANDSCAPE,
                     OMNI_QS_LAYOUT_COLUMNS_LANDSCAPE_VALIDATOR);
             VALIDATORS.put(OMNI_QS_LAYOUT_COLUMNS, OMNI_QS_LAYOUT_COLUMNS_VALIDATOR);
@@ -8419,15 +8264,6 @@ public final class Settings {
         private static final Validator WAKE_GESTURE_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
-         * Disable power menu on secure lock screens
-         *
-         * @hide
-         */
-        public static final String LOCK_POWER_MENU_DISABLED = "lockscreen_power_menu_disabled";
-
-        private static final Validator LOCK_POWER_MENU_DISABLED_VALIDATOR = BOOLEAN_VALIDATOR;
-
-        /**
          * Whether the device should doze if configured.
          * @hide
          */
@@ -9954,7 +9790,6 @@ public final class Settings {
             VALIDATORS.put(GLOBAL_ACTIONS_PANEL_ENABLED, GLOBAL_ACTIONS_PANEL_ENABLED_VALIDATOR);
             VALIDATORS.put(AWARE_LOCK_ENABLED, AWARE_LOCK_ENABLED_VALIDATOR);
             VALIDATORS.put(FACE_AUTO_UNLOCK, FACE_AUTO_UNLOCK_VALIDATOR);
-            VALIDATORS.put(LOCK_POWER_MENU_DISABLED, LOCK_POWER_MENU_DISABLED_VALIDATOR);
         }
 
         /**
