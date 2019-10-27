@@ -64,4 +64,7 @@
     <!-- QS detail view scrolling -->
     <dimen name="qs_detail_item_height_twoline">72dp</dimen>
 
+    <!-- screenrecord -->
+    <dimen name="screenrecord_dot_size">48dp</dimen>
+
 </resources>
