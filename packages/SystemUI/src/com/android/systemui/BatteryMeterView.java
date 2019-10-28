@@ -129,31 +129,6 @@ public class BatteryMeterView extends LinearLayout implements
 
     protected ContentResolver mContentResolver;
 
-    private class SettingsObserver extends ContentObserver {
-        SettingsObserver(Handler handler) {
-            super(handler);
-        }
-
-        void observe() {
-            ContentResolver resolver = getContext().getContentResolver();
-            resolver.registerContentObserver(Settings.System
-                    .getUriFor(Settings.System.STATUS_BAR_BATTERY_STYLE), false,
-                    this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System
-                    .getUriFor(Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT), false,
-                    this, UserHandle.USER_ALL);
-            resolver.registerContentObserver(Settings.System
-                    .getUriFor(Settings.System.STATUS_BAR_BATTERY_TEXT_CHARGING), false,
-                    this, UserHandle.USER_ALL);
-            }
-
-        @Override
-        public void onChange(boolean selfChange) {
-            updateSettings();
-        }
-    }
-    private SettingsObserver mSettingsObserver = new SettingsObserver(mHandler);
-
     public BatteryMeterView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
@@ -210,7 +185,7 @@ public class BatteryMeterView extends LinearLayout implements
         setClipChildren(false);
         setClipToPadding(false);
         mContentResolver = context.getContentResolver();
-        mSettingsObserver.observe();
+        mSettingObserver.observe();
         Dependency.get(ConfigurationController.class).observe(viewAttachLifecycle(this), this);
     }
 
@@ -369,8 +344,10 @@ public class BatteryMeterView extends LinearLayout implements
                 Settings.Global.getUriFor(Settings.Global.BATTERY_ESTIMATES_LAST_UPDATE_TIME),
                 false, mSettingObserver);
         updateShowPercent();
+        updateSettings();
         subscribeForTunerUpdates();
         mUserTracker.startTracking();
+        mSettingObserver.observe();
     }
 
     @Override
@@ -522,11 +499,13 @@ public class BatteryMeterView extends LinearLayout implements
     @Override
     public void onDensityOrFontScaleChanged() {
         scaleBatteryMeterViews();
+        updateSettings();
     }
 
     @Override
     public void onOverlayChanged() {
         updateShowPercent();
+        updateSettings();
     }
 
     /**
@@ -613,10 +592,23 @@ public class BatteryMeterView extends LinearLayout implements
         public SettingObserver(Handler handler) {
             super(handler);
         }
+        void observe() {
+            ContentResolver resolver = getContext().getContentResolver();
+            resolver.registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.STATUS_BAR_BATTERY_STYLE), false,
+                    this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.STATUS_BAR_SHOW_BATTERY_PERCENT), false,
+                    this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System
+                    .getUriFor(Settings.System.STATUS_BAR_BATTERY_TEXT_CHARGING), false,
+                    this, UserHandle.USER_ALL);
+        }
 
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             super.onChange(selfChange, uri);
+            updateSettings();
             updateShowPercent();
             if (TextUtils.equals(uri.getLastPathSegment(),
                     Settings.Global.BATTERY_ESTIMATES_LAST_UPDATE_TIME)) {
