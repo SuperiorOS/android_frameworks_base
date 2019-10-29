@@ -6317,6 +6317,14 @@ public final class Settings {
         @Readable
         public static final String TORCH_POWER_BUTTON_GESTURE = "torch_power_button_gesture";
 
+       /**
+         * Whether allowing pocket service to register sensors and dispatch informations.
+         *   0 = disabled
+         *   1 = enabled
+         * @hide
+         */
+        public static final String POCKET_JUDGE = "pocket_judge";
+
         /**
          * Navbar style
          * @hide
