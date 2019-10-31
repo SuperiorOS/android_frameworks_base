@@ -285,4 +285,7 @@
 
     <!-- Power menu item for screenrecord [CHAR LIMIT=20]-->
     <string name="global_action_screenrecord">Screenrecord</string>
+
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Screenrecord</string>
 </resources>
