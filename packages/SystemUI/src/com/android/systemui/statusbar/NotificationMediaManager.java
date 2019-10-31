@@ -28,7 +28,9 @@ import static com.android.systemui.statusbar.phone.StatusBar.SHOW_LOCKSCREEN_MED
 import android.annotation.MainThread;
 import android.annotation.Nullable;
 import android.app.Notification;
+import android.content.ContentResolver;
 import android.content.Context;
+import android.database.ContentObserver;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.ColorDrawable;
@@ -45,10 +47,12 @@ import android.os.Trace;
 import android.os.UserHandle;
 import android.provider.DeviceConfig;
 import android.provider.DeviceConfig.Properties;
+import android.provider.Settings;
 import android.util.ArraySet;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.provider.Settings;
 
 import com.android.internal.config.sysui.SystemUiDeviceConfigFlags;
 import com.android.internal.statusbar.NotificationVisibility;
@@ -66,8 +70,11 @@ import com.android.systemui.statusbar.phone.LockscreenWallpaper;
 import com.android.systemui.statusbar.phone.ScrimController;
 import com.android.systemui.statusbar.phone.ScrimState;
 import com.android.systemui.statusbar.phone.ShadeController;
+import com.android.systemui.statusbar.phone.StatusBar;
 import com.android.systemui.statusbar.phone.StatusBarWindowController;
 import com.android.systemui.statusbar.policy.KeyguardMonitor;
+import com.android.systemui.statusbar.VisualizerView;
+import com.android.systemui.SysUiServiceProvider;
 
 import java.io.FileDescriptor;
 import java.io.PrintWriter;
@@ -139,6 +146,7 @@ public class NotificationMediaManager implements Dumpable {
     private ImageView mBackdropBack;
 
     private boolean mShowCompactMediaSeekbar;
+    private boolean mShowMediaMetadata;
     private final DeviceConfig.OnPropertiesChangedListener mPropertiesChangedListener =
             new DeviceConfig.OnPropertiesChangedListener() {
         @Override
@@ -165,6 +173,11 @@ public class NotificationMediaManager implements Dumpable {
             if (state != null) {
                 if (!isPlaybackActive(state.getState())) {
                     clearCurrentMediaNotification();
+                }
+                StatusBar statusBar = SysUiServiceProvider.getComponent(mContext, StatusBar.class);
+                if (statusBar != null) {
+                    statusBar.getVisualizer().setPlaying(state.getState()
+                            == PlaybackState.STATE_PLAYING);
                 }
                 dispatchUpdateMediaMetaData(true /* changed */, true /* allowAnimation */);
             }
@@ -218,6 +231,39 @@ public class NotificationMediaManager implements Dumpable {
         DeviceConfig.addOnPropertiesChangedListener(DeviceConfig.NAMESPACE_SYSTEMUI,
                 mContext.getMainExecutor(),
                 mPropertiesChangedListener);
+
+        Handler mHandler = new Handler();
+        SettingsObserver settingsObserver = new SettingsObserver(mHandler);
+        settingsObserver.observe();
+    }
+
+    class SettingsObserver extends ContentObserver {
+        SettingsObserver(Handler handler) {
+            super(handler);
+        }
+
+        void observe() {
+            ContentResolver resolver = mContext.getContentResolver();
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                Settings.System.LOCKSCREEN_MEDIA_METADATA),
+                false, this, UserHandle.USER_ALL);
+            updateSettings();
+        }
+
+        /*
+         *  @hide
+         */
+        @Override
+        public void onChange(boolean selfChange) {
+            updateSettings();
+        }
+    }
+
+    private void updateSettings() {
+        ContentResolver resolver = mContext.getContentResolver();
+        mShowMediaMetadata = Settings.System.getIntForUser(resolver,
+                Settings.System.LOCKSCREEN_MEDIA_METADATA, 1,
+                UserHandle.USER_CURRENT) == 1;
     }
 
     public static boolean isPlayingState(int state) {
@@ -527,10 +573,26 @@ public class NotificationMediaManager implements Dumpable {
         StatusBarWindowController windowController = mStatusBarWindowController.get();
         boolean hideBecauseOccluded = shadeController != null && shadeController.isOccluded();
 
-        final boolean hasArtwork = artworkDrawable != null;
+        final boolean hasArtwork = mShowMediaMetadata && artworkDrawable != null;
         mColorExtractor.setHasMediaArtwork(hasMediaArtwork);
         if (mScrimController != null) {
             mScrimController.setHasBackdrop(hasArtwork);
+        }
+
+        StatusBar statusBar = SysUiServiceProvider.getComponent(mContext, StatusBar.class);
+        if (statusBar != null &&
+                mStatusBarStateController.getState() != StatusBarState.SHADE) {
+            VisualizerView visualizerView = statusBar.getVisualizer();
+            if (!mKeyguardMonitor.isKeyguardFadingAway() && hasArtwork) {
+                // if there's album art, ensure visualizer is visible
+                visualizerView.setPlaying(getMediaControllerPlaybackState(mMediaController) ==
+                        PlaybackState.STATE_PLAYING);
+            }
+
+            if (hasMediaArtwork && (artworkDrawable instanceof BitmapDrawable)) {
+                // always use current backdrop to color eq
+                visualizerView.setBitmap(((BitmapDrawable)artworkDrawable).getBitmap());
+            }
         }
 
         if ((hasArtwork || DEBUG_MEDIA_FAKE_ARTWORK)
@@ -667,7 +729,7 @@ public class NotificationMediaManager implements Dumpable {
     };
 
     private Bitmap processArtwork(Bitmap artwork) {
-        return mMediaArtworkProcessor.processArtwork(mContext, artwork);
+        return mMediaArtworkProcessor.processArtwork(mContext, artwork, getLockScreenMediaBlurLevel());
     }
 
     @MainThread
@@ -729,5 +791,12 @@ public class NotificationMediaManager implements Dumpable {
          * @see PlaybackState.State
          */
         void onMetadataOrStateChanged(MediaMetadata metadata, @PlaybackState.State int state);
+    }
+
+    private float getLockScreenMediaBlurLevel() {
+        float level = (float) Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCKSCREEN_MEDIA_BLUR, 100,
+                UserHandle.USER_CURRENT) / 4;
+        return level;
     }
 }
