@@ -5215,6 +5215,12 @@ public final class Settings {
         public static final String NOTIFICATION_SOUND_VIB_SCREEN_ON = "notification_sound_vib_screen_on";
 
         /**
+         * Whether to pulse ambient on new music tracks
+         * @hide
+         */
+        public static final String PULSE_ON_NEW_TRACKS = "pulse_on_new_tracks";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
