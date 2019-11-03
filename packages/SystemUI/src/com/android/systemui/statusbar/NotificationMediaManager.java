@@ -801,17 +801,17 @@ public class NotificationMediaManager implements Dumpable {
         return level;
     }
 
-    private void triggerKeyEvents(int key, MediaController controller, final Handler h) {
+    private void triggerKeyEvents(int key, MediaController controller) {
         long when = SystemClock.uptimeMillis();
         final KeyEvent evDown = new KeyEvent(when, when, KeyEvent.ACTION_DOWN, key, 0);
         final KeyEvent evUp = KeyEvent.changeAction(evDown, KeyEvent.ACTION_UP);
-        h.post(new Runnable() {
+        mHandler.post(new Runnable() {
             @Override
             public void run() {
                 controller.dispatchMediaButtonEvent(evDown);
             }
         });
-        h.postDelayed(new Runnable() {
+        mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 controller.dispatchMediaButtonEvent(evUp);
@@ -819,7 +819,11 @@ public class NotificationMediaManager implements Dumpable {
         }, 20);
     }
 
-    public void onSkipTrackEvent(int key, final Handler h) {
+    public void skipNextTrack() {
+        onSkipTrackEvent(KeyEvent.KEYCODE_MEDIA_NEXT);
+    }
+
+    public void onSkipTrackEvent(int key) {
         if (mMediaSessionManager != null) {
             final List<MediaController> sessions
                     = mMediaSessionManager.getActiveSessionsForUser(
@@ -827,7 +831,7 @@ public class NotificationMediaManager implements Dumpable {
             for (MediaController aController : sessions) {
                 if (PlaybackState.STATE_PLAYING ==
                         getMediaControllerPlaybackState(aController)) {
-                    triggerKeyEvents(key, aController, h);
+                    triggerKeyEvents(key, aController);
                     break;
                 }
             }
