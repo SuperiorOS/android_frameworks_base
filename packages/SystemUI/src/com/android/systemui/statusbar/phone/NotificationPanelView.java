@@ -1210,7 +1210,7 @@ public class NotificationPanelView extends PanelView implements
                 && mBarState == StatusBarState.KEYGUARD) {
             mLockscreenDoubleTapToSleep.onTouchEvent(event);
         }
-        initDownStates(event);
+
         // Make sure the next touch won't the blocked after the current ends.
         if (event.getAction() == MotionEvent.ACTION_UP
                 || event.getAction() == MotionEvent.ACTION_CANCEL) {
@@ -3113,8 +3113,7 @@ public class NotificationPanelView extends PanelView implements
         // If we are launching it when we are occluded already we don't want it to animate,
         // nor setting these flags, since the occluded state doesn't change anymore, hence it's
         // never reset.
-        if (!isFullyCollapsed() && mLastCameraLaunchSource ==
-                KeyguardBottomAreaView.CAMERA_LAUNCH_SOURCE_AFFORDANCE) {
+        if (!isFullyCollapsed()) {
             setLaunchingAffordance(true);
         } else {
             animate = false;
@@ -3483,5 +3482,4 @@ public class NotificationPanelView extends PanelView implements
     public void setOnReinflationListener(Runnable onReinflationListener) {
         mOnReinflationListener = onReinflationListener;
     }
-
 }
