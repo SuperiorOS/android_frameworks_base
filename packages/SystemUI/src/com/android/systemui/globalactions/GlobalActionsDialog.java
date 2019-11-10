@@ -143,6 +143,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
     private static final String GLOBAL_ACTION_KEY_LOGOUT = "logout";
     private static final String GLOBAL_ACTION_KEY_EMERGENCY = "emergency";
     private static final String GLOBAL_ACTION_KEY_SCREENSHOT = "screenshot";
+    private static final String GLOBAL_ACTION_KEY_SCREENRECORD = "screenrecord";
     private static final String GLOBAL_ACTION_KEY_ADVANCED = "advanced";
     private static final String GLOBAL_ACTION_KEY_TORCH = "torch";
 
@@ -473,6 +474,8 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 //}
             } else if (GLOBAL_ACTION_KEY_SETTINGS.equals(actionKey)) {
                 //mItems.add(getSettingsAction());
+            } else if (GLOBAL_ACTION_KEY_SCREENRECORD.equals(actionKey)) {
+                mItems.add(new ScreenrecordAction());
             } else if (GLOBAL_ACTION_KEY_LOCKDOWN.equals(actionKey)) {
                 if (Settings.Secure.getIntForUser(mContext.getContentResolver(),
                             Settings.Secure.LOCKDOWN_IN_POWER_MENU, 0, getCurrentUser().id) != 0
@@ -724,7 +727,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
         }
     }
 
-    private class ScreenshotAction extends SinglePressAction implements LongPressAction {
+    private class ScreenshotAction extends SinglePressAction {
         public ScreenshotAction() {
             super(R.drawable.ic_screenshot, R.string.global_action_screenshot);
         }
@@ -761,15 +764,6 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
             return true;
         }
 
-        @Override
-        public boolean onLongPress() {
-            if (FeatureFlagUtils.isEnabled(mContext, FeatureFlagUtils.SCREENRECORD_LONG_PRESS)) {
-                mScreenRecordHelper.launchRecordPrompt();
-            } else {
-                onPress();
-            }
-            return true;
-        }
     }
 
     private Action getTorchToggleAction() {
@@ -803,6 +797,33 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 return false;
             }
         };
+    }
+
+    private class ScreenrecordAction extends SinglePressAction implements LongPressAction {
+        public ScreenrecordAction() {
+            super(com.android.systemui.R.drawable.ic_screenrecord,
+            com.android.systemui.R.string.global_action_screenrecord);
+        }
+
+        @Override
+        public void onPress() {
+            mScreenRecordHelper.launchRecordPrompt();
+        }
+
+        @Override
+        public boolean showDuringKeyguard() {
+            return true;
+        }
+
+        @Override
+        public boolean showBeforeProvisioning() {
+            return false;
+        }
+
+        @Override
+        public boolean onLongPress() {
+            return false;
+        }
     }
 
     private class BugReportAction extends SinglePressAction implements LongPressAction {
