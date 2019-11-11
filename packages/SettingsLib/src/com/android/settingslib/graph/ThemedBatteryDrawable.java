@@ -244,7 +244,7 @@ public class ThemedBatteryDrawable extends Drawable {
             RectF rectF = fillRect;
             levelTop = (rectF.height() * (((float) 1) - fillFraction)) + rectF.top;
         }
-        pctOpaque = levelTop > pctY;
+        pctOpaque = dualTone && levelTop > pctY;
         levelRect.top = (float) Math.floor(dualTone ? fillRect.top : levelTop);
         levelPath.addRect(levelRect, Direction.CCW);
         unifiedPath.addPath(scaledPerimeter);
@@ -277,7 +277,6 @@ public class ThemedBatteryDrawable extends Drawable {
             } else if (drawText && pctOpaque) {
                 canvas.drawPath(textPath, fillPaint);
             }
-            canvas.restore();
         } else {
             // Non dual-tone means we draw the perimeter (with the level fill), and potentially
             // draw the fill again with a critical color
@@ -294,7 +293,7 @@ public class ThemedBatteryDrawable extends Drawable {
             }
         }
 
-        if (charging) {
+        if (!dualTone && charging) {
             canvas.clipOutPath(scaledBolt);
             if (invertFillIcon) {
                 canvas.drawPath(scaledBolt, fillColorStrokePaint);
@@ -306,7 +305,7 @@ public class ThemedBatteryDrawable extends Drawable {
             canvas.drawPath(scaledErrorPerimeter, errorPaint);
             // And draw the plus sign on top of the fill
             canvas.drawPath(scaledPlus, errorPaint);
-        } else if (drawText) {
+        } else if (drawText && !dualTone) {
             canvas.clipOutPath(textPath);
             if (invertFillIcon) {
                 canvas.drawPath(textPath, fillColorStrokePaint);
@@ -314,7 +313,6 @@ public class ThemedBatteryDrawable extends Drawable {
                 canvas.drawPath(textPath, fillColorStrokeProtection);
             }
         }
-        canvas.restore();
     }
 
     public int getBatteryLevel() {
