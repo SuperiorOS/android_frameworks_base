@@ -1123,7 +1123,7 @@
     <integer name="config_notificationsBatteryFullARGB">0xFF00FF00</integer>
 
     <!-- Default value for LED on time when the battery is low on charge in miliseconds -->
-    <integer name="config_notificationsBatteryLedOn">125</integer>
+    <integer name="config_notificationsBatteryLedOn">130</integer>
 
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
     <bool name="config_intrusiveNotificationLed">false</bool>
@@ -1541,7 +1541,7 @@
     <bool name="config_enableWallpaperService">true</bool>
 
     <!-- True if the device should block turning display on at boot until wallpaper is ready -->
-    <bool name="config_checkWallpaperAtBoot">true</bool>
+    <bool name="config_checkWallpaperAtBoot">false</bool>
 
     <!-- Class name of WallpaperManagerService. -->
     <string name="config_wallpaperManagerServiceName" translatable="false">com.android.server.wallpaper.WallpaperManagerService</string>
@@ -2057,7 +2057,7 @@
     <integer name="config_ntpPollingIntervalShorter">60000</integer>
     <!-- Number of times to try again with the shorter interval, before backing
          off until the normal polling interval. A value < 0 indicates infinite. -->
-    <integer name="config_ntpRetry">3</integer>
+    <integer name="config_ntpRetry">6</integer>
     <!-- Timeout to wait for NTP server response in milliseconds. -->
     <integer name="config_ntpTimeout">5000</integer>
 
@@ -3789,7 +3789,7 @@
     <string name="config_mediaProjectionPermissionDialogComponent" translatable="false">com.android.systemui/com.android.systemui.media.MediaProjectionPermissionActivity</string>
 
     <!-- Corner radius of system dialogs -->
-    <dimen name="config_dialogCornerRadius">@dimen/dialog_corner_radius</dimen>
+    <dimen name="config_dialogCornerRadius">3dp</dimen>
     <!-- Corner radius of system buttons -->
     <dimen name="config_buttonCornerRadius">@dimen/control_corner_material</dimen>
     <!-- Corner radius for bottom sheet system dialogs -->
