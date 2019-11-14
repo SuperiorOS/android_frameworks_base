@@ -51,7 +51,7 @@
 
     <!-- How many icons may be shown at once in the system bar. Includes any
          slots that may be reused for things like IME control. -->
-    <integer name="config_maxNotificationIcons">5</integer>
+    <integer name="config_maxNotificationIcons">6</integer>
 
     <!-- Show phone (voice) signal strength instead of data in mobile RSSI. -->
     <bool name="config_showPhoneRSSIForData">false</bool>
@@ -143,7 +143,7 @@
     <bool name="config_showWifiIndicatorWhenEnabled">false</bool>
 
     <!-- The number of milliseconds before the heads up notification auto-dismisses. -->
-    <integer name="heads_up_notification_decay">5000</integer>
+    <integer name="heads_up_notification_decay">4400</integer>
 
     <!-- The number of milliseconds before the heads up notification sent automatically by the system auto-dismisses. -->
     <integer name="auto_heads_up_notification_decay">3000</integer>
