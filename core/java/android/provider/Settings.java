@@ -5183,12 +5183,6 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
-         * Whether to show charging animation
-         * @hide
-         */
-        public static final String CHARGING_ANIMATION = "charging_animation";
-
-        /**
          * Whether to disable showing arrows in statusbar network traffic indicators
          * @hide
          */
