@@ -55,6 +55,7 @@ import com.android.systemui.qs.tiles.UserTile;
 import com.android.systemui.qs.tiles.VolumeTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
+import com.android.systemui.qs.tiles.DataSwitchTile;
 import com.android.systemui.util.leak.GarbageMonitor;
 import com.android.systemui.qs.tiles.CaffeineTile;
 import com.android.systemui.qs.tiles.AmbientDisplayTile;
@@ -106,6 +107,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<UsbTetherTile> mUsbTetherTileProvider;
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
     private final Provider<VolumeTile> mVolumeTileProvider;
+    private final Provider<DataSwitchTile> mDataSwitchTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
     private final Provider<CustomTile.Builder> mCustomTileBuilderProvider;
@@ -148,7 +150,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<AmbientDisplayTile> ambientDisplayTileProvider,
             Provider<UsbTetherTile> usbTetherTileProvider,
             Provider<HeadsUpTile> headsUpTileProvider,
-            Provider<VolumeTile> volumeTileProvider) {
+            Provider<VolumeTile> volumeTileProvider,
+            Provider<DataSwitchTile> dataSwitchTileProvider) {
         mQsHostLazy = qsHostLazy;
         mCustomTileBuilderProvider = customTileBuilderProvider;
 
@@ -187,6 +190,7 @@ public class QSFactoryImpl implements QSFactory {
         mUsbTetherTileProvider = usbTetherTileProvider;
         mHeadsUpTileProvider = headsUpTileProvider;
         mVolumeTileProvider = volumeTileProvider;
+        mDataSwitchTileProvider = dataSwitchTileProvider;
     }
 
     public QSTile createTile(String tileSpec) {
@@ -269,6 +273,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mHeadsUpTileProvider.get();
             case "volume_panel":
                 return mVolumeTileProvider.get();
+            case "dataswitch":
+                return mDataSwitchTileProvider.get();
         }
 
         // Custom tiles
