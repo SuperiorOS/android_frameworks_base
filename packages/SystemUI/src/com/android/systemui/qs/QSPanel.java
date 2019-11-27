@@ -220,6 +220,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         addDivider();
         addView(mFooter.getView());
         updateResources();
+        updateSettings();
     }
 
     private void restartQSPanel() {
