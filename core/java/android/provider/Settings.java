@@ -4678,6 +4678,31 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * Screenrecord: enable mic
+         * @hide
+         */
+        public static final String SCREENRECORD_ENABLE_MIC = "screenrecord_enable_mic";
+
+        /**
+         * Screenrecord: show taps
+         * @hide
+         */
+        public static final String SCREENRECORD_SHOW_TAPS = "screenrecord_show_taps";
+
+        /**
+         * Screenrecord: show stop dot
+         * @hide
+         */
+        public static final String SCREENRECORD_STOP_DOT = "screenrecord_stop_dot";
+
+        /**
+         * Screenrecord: low quality
+         * @hide
+         */
+        public static final String SCREENRECORD_LOW_QUALITY = "screenrecord_low_quality";
+
+
+        /**
          * Whether the user has already accepted MediaProjection permission for the built-in screenrecorder
          * @hide
          */
