@@ -159,7 +159,7 @@ public class BatteryMeterDrawableBase extends Drawable {
 
         mPlusPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPlusPaint.setColor(Utils.getColorStateListDefaultColor(mContext,
-                R.color.batterymeter_plus_color));
+                R.color.batterymeter_saver_color));
         mPlusPoints = loadPoints(res, R.array.batterymeter_plus_points);
 
         mPowersavePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -431,7 +431,7 @@ public class BatteryMeterDrawableBase extends Drawable {
         if (!mCharging && !mPowerSaveEnabled && level > mCriticalLevel && mShowPercent) {
             mTextPaint.setColor(getColorForLevel(level));
             mTextPaint.setTextSize(height *
-                    (SINGLE_DIGIT_PERCENT ? 0.75f
+                    (SINGLE_DIGIT_PERCENT ? 0.86f
                             : (mLevel == 100 ? 0.38f : 0.5f)));
             mTextHeight = -mTextPaint.getFontMetrics().ascent;
             pctText = String.valueOf(SINGLE_DIGIT_PERCENT ? (level / 10) : level);

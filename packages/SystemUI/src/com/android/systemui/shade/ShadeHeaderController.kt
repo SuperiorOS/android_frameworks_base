@@ -23,6 +23,7 @@ import android.app.PendingIntent
 import android.app.StatusBarManager
 import android.content.Intent
 import android.content.res.Configuration
+import android.graphics.Color
 import android.os.Bundle
 import android.os.Trace
 import android.os.Trace.TRACE_TAG_APP
@@ -134,10 +135,12 @@ constructor(
 
     private var sbPaddingLeft = 0
     private var sbPaddingRight = 0
+    private var batteryStyle = batteryIcon.getBatteryStyle()
     private var roundedCorners = 0
     private var cutout: DisplayCutout? = null
     private var lastInsets: WindowInsets? = null
     private var nextAlarmIntent: PendingIntent? = null
+    private var textColorPrimary = Color.TRANSPARENT
 
     private var qsDisabled = false
     private var visible = false
@@ -306,6 +309,11 @@ constructor(
             v.pivotY = v.height.toFloat() / 2
         }
         clock.setOnClickListener { launchClockActivity() }
+        batteryIcon.setOnClickListener {
+            activityStarter.postStartActivityDismissingKeyguard(
+                Intent(Intent.ACTION_POWER_USAGE_SUMMARY), 0
+            )
+        }
 
         dumpManager.registerDumpable(this)
         configurationController.addCallback(configurationControllerListener)
@@ -506,6 +514,17 @@ constructor(
         header.setPadding(padding, header.paddingTop, padding, header.paddingBottom)
         updateQQSPaddings()
         qsBatteryModeController.updateResources()
+
+        val currentBatteryStyle = batteryIcon.getBatteryStyle()
+        val textColor = Utils.getColorAttrDefaultColor(context, android.R.attr.textColorPrimary)
+        if (textColor != textColorPrimary || batteryStyle != currentBatteryStyle) {
+            var textColorSecondary = Utils.getColorAttrDefaultColor(context,
+                    android.R.attr.textColorSecondary)
+            batteryStyle = currentBatteryStyle
+            if (batteryStyle == 1 || batteryStyle == 2 || batteryStyle == 3) {
+                textColorSecondary = Utils.getColorAttrDefaultColor(header.context, android.R.attr.textColorHint)
+            }
+        }
     }
 
     private fun updateQQSPaddings() {
