@@ -5116,7 +5116,13 @@ public final class Settings {
          * Whether to show VoLTE icon or not
          * @hide
          */
-        public static final String SHOW_VOLTE_ICON = "volte_icon";
+        public static final String SHOW_VOLTE_ICON = "show_volte_icon";
+
+        /**
+         * VoLTE icon style
+         * @hide
+         */
+        public static final String VOLTE_ICON_STYLE = "volte_icon_style";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
@@ -5271,6 +5277,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(HEADS_UP_BLACKLIST_VALUES);
             PRIVATE_SETTINGS.add(SHOW_FOURG);
             PRIVATE_SETTINGS.add(SHOW_VOLTE_ICON);
+            PRIVATE_SETTINGS.add(VOLTE_ICON_STYLE);
         }
 
         /**
