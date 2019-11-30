@@ -101,8 +101,6 @@ class QuickStatusBarHeaderController extends ViewController<QuickStatusBarHeader
 
         mIconManager = tintedIconManagerFactory.create(mIconContainer, StatusBarLocation.QS);
         mDemoModeReceiver = new ClockDemoModeReceiver(mClockView);
-        // Don't need to worry about tuner settings for this icon
-        mBatteryMeterViewController.ignoreTunerUpdates();
     }
 
     @Override

@@ -231,7 +231,6 @@ public abstract class StatusBarViewModule {
         return new BatteryMeterViewController(
                 batteryMeterView,
                 configurationController,
-                tunerService,
                 broadcastDispatcher,
                 mainHandler,
                 contentResolver,
