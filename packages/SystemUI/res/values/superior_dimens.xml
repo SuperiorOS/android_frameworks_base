@@ -19,6 +19,9 @@
     <!-- Network traffic -->
     <dimen name="network_traffic_width">25sp</dimen>
 
+    <!-- Width of the battery icon in the status bar when set to circle style. -->
+    <dimen name="status_bar_battery_icon_circle_width">14.5dp</dimen>
+
     <!-- Old style mobile data indicators -->
     <dimen name="status_bar_mobile_signal_with_type_width">18dp</dimen>
     <dimen name="status_bar_mobile_signal_width">16dp</dimen>
