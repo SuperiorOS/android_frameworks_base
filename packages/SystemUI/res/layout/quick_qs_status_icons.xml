@@ -45,4 +45,10 @@
         android:layout_weight="1"
         android:paddingEnd="@dimen/signal_cluster_battery_padding" />
 
+    <com.android.systemui.BatteryMeterView
+        android:id="@+id/battery"
+        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:gravity="end|end" />
+
 </LinearLayout>
