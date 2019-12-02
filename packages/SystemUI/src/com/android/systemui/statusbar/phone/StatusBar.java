@@ -4132,18 +4132,28 @@ public class StatusBar extends SystemUI implements DemoMode,
             }
     private void updateNavigationBarVisibility() {
         if (mDisplayId == Display.DEFAULT_DISPLAY && mWindowManagerService != null) {
+            int mDefNavBar;
+            if (mNeedsNavigationBar) {
+                mDefNavBar = 1;
+            } else {
+                mDefNavBar = 0;
+            }
             boolean forcedVisibility = mNeedsNavigationBar || Settings.System.getIntForUser(
                 mContext.getContentResolver(), Settings.System.FORCE_SHOW_NAVBAR,
-                 0, UserHandle.USER_CURRENT) == 1;
+                 mDefNavBar, UserHandle.USER_CURRENT) == 1;
             boolean hasNavbar = getNavigationBarView() != null;
             if (forcedVisibility) {
                 if (!hasNavbar) {
-                    mNavigationBarController.onDisplayReady(mDisplayId,
-                            mNavigationBarSystemUiVisibility);
+                    try {
+                        mNavigationBarController.onDisplayReady(mDisplayId,
+                                mNavigationBarSystemUiVisibility);
+                    } catch (Exception e) { }
                 }
             } else {
                 if (hasNavbar) {
-                    mNavigationBarController.onDisplayRemoved(mDisplayId);
+                    try {
+                        mNavigationBarController.onDisplayRemoved(mDisplayId);
+                    } catch (Exception e) { }
                 }
             }
         }
