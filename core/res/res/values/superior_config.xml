@@ -14,7 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
     <bool name="config_cleanupUnusedFingerprints">true</bool>
 
@@ -59,8 +59,8 @@
          Used to decide if we show pulse settings -->
     <bool name="config_ledCanPulse">true</bool>
 
-   <string-array translatable="false" name="config_customPermissionsList">
-        <!-- <item>more packages</item>-->
+    <string-array translatable="false" name="config_customPermissionsList">
+        <item>com.android.wallpaper.livepicker</item>
     </string-array>
 
 </resources>
