@@ -808,6 +808,18 @@ public final class DefaultPermissionGrantPolicy {
         // Google dialer
         grantSystemFixedPermissionsToSystemPackage("com.google.android.dialer", userId, PHONE_PERMISSIONS,
                 CONTACTS_PERMISSIONS, SMS_PERMISSIONS);
+
+       // Android Setup
+        grantSystemFixedPermissionsToSystemPackage("com.google.android.setupwizard", userId, CONTACTS_PERMISSIONS,
+                STORAGE_PERMISSIONS, SMS_PERMISSIONS);
+
+       // Android Setup
+        grantSystemFixedPermissionsToSystemPackage("com.google.android.apps.restore", userId, PHONE_PERMISSIONS,
+                CONTACTS_PERMISSIONS, SMS_PERMISSIONS);
+
+      // Carrier Setup
+        grantSystemFixedPermissionsToSystemPackage("com.google.android.carriersetup", userId, PHONE_PERMISSIONS,
+                SMS_PERMISSIONS);
     }
 
     private String getDefaultSystemHandlerActivityPackageForCategory(String category, int userId) {
