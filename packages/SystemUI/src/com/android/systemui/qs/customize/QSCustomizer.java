@@ -93,6 +93,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
     private QS mQs;
     private int mX;
     private int mY;
+    private int mMaxAllowedRows;
     private boolean mOpening;
     private boolean mIsShowingNavBackdrop;
     private GridLayoutManager mLayout;
@@ -174,6 +175,15 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         mLightBarController = lightBarController;
         mKeyguardMonitor = keyguardMonitor;
         mScreenLifecycle = screenLifecycle;
+        mMaxAllowedRows = Math.max(1, getResources().getInteger(R.integer.quick_settings_max_rows));
+        if (mMaxAllowedRows < 4) {
+            MenuItem menuItemFour = mToolbar.getMenu().findItem(R.id.menu_item_rows_four);
+            menuItemFour.setVisible(false);
+            if (mMaxAllowedRows < 3) {
+                MenuItem menuItemThree = mToolbar.getMenu().findItem(R.id.menu_item_rows_three);
+                menuItemThree.setVisible(false);
+            }
+        }
         updateNavBackDrop(getResources().getConfiguration());
 
         updateSettings();
@@ -563,8 +573,6 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
     }
 
     private void updateRowsMenu() {
-        /* TODO add a value a vendor can change to increase max rows on big ass
-              screens  */
         int rows = Settings.System.getIntForUser(
                 mContext.getContentResolver(), Settings.System.QS_LAYOUT_ROWS, 3,
                 UserHandle.USER_CURRENT);
@@ -572,10 +580,14 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         menuItemOne.setChecked(rows == 1);
         MenuItem menuItemTwo = mToolbar.getMenu().findItem(R.id.menu_item_rows_two);
         menuItemTwo.setChecked(rows == 2);
-        MenuItem menuItemThree = mToolbar.getMenu().findItem(R.id.menu_item_rows_three);
-        menuItemThree.setChecked(rows == 3);
-        MenuItem menuItemFour = mToolbar.getMenu().findItem(R.id.menu_item_rows_four);
-        menuItemFour.setChecked(rows == 4);
+        if (mMaxAllowedRows > 2) {
+            MenuItem menuItemThree = mToolbar.getMenu().findItem(R.id.menu_item_rows_three);
+            menuItemThree.setChecked(rows == 3);
+            if (mMaxAllowedRows > 3) {
+                MenuItem menuItemFour = mToolbar.getMenu().findItem(R.id.menu_item_rows_four);
+                menuItemFour.setChecked(rows == 4);
+            }
+        }
 
         int rowsLandscape = Settings.System.getIntForUser(
                 mContext.getContentResolver(), Settings.System.QS_LAYOUT_ROWS_LANDSCAPE, 2,
