@@ -50,4 +50,7 @@
     <color name="media_dialog_inactive_item_main_content">@android:color/system_accent1_600</color>
     <color name="media_dialog_item_background">@android:color/system_accent2_50</color>
     <color name="media_dialog_item_status">@android:color/system_accent1_900</color>
+
+    <!-- Navbar -->
+    <string name="config_navBarLayoutHandleArrows" translatable="false">back[1.7WC];home_handle;ime_switcher[1.7WC]</string>
 </resources>
