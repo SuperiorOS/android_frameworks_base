@@ -4227,6 +4227,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.LOCKSCREEN_CHARGING_ANIMATION),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.Secure.getUriFor(
+                    Settings.System.EDGE_GESTURE_Y_DEAD_ZONE),
+                    false, this, UserHandle.USER_ALL);
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.LONG_BACK_SWIPE_TIMEOUT),
                     false, this, UserHandle.USER_ALL);
@@ -4253,10 +4256,13 @@ public class StatusBar extends SystemUI implements DemoMode,
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.LOCKSCREEN_CHARGING_ANIMATION))) {
                 updateChargingAnimation();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.EDGE_GESTURE_Y_DEAD_ZONE))) {
+                setGestureNavOptions();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.BACK_SWIPE_EXTENDED)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.LONG_BACK_SWIPE_TIMEOUT)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.LEFT_LONG_BACK_SWIPE_ACTION)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.RIGHT_LONG_BACK_SWIPE_ACTION))) {
+                setGestureNavOptions();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_USE_FW)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_USE_NEW_TINT)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_COLOR)) ||
@@ -4279,6 +4285,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             setLockScreenMediaBlurLevel();
             updateChargingAnimation();
             updateQSPanel();
+            setGestureNavOptions();
         }
     }
 
@@ -4317,6 +4324,13 @@ public class StatusBar extends SystemUI implements DemoMode,
                 Settings.System.LESS_BORING_HEADS_UP, 0,
                 UserHandle.USER_CURRENT) == 1;
         mNotificationInterruptionStateProvider.setUseLessBoringHeadsUp(lessBoringHeadsUp);
+    }
+
+    private void setGestureNavOptions() {
+        if (getNavigationBarView() != null) {
+            getNavigationBarView().setEdgeGestureDeadZone();
+            getNavigationBarView().setLongSwipeOptions();
+        }
     }
 
     private void setGamingMode() {
