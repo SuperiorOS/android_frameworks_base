@@ -270,5 +270,6 @@ public class SystemSettingsValidators {
                     }
                 });
         VALIDATORS.put(System.NOTIFICATION_HEADERS, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(System.FLASHLIGHT_ON_CALL, new InclusiveIntegerRangeValidator(0, 3));
     }
 }

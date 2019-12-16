@@ -91,5 +91,6 @@ public class SystemSettings {
         Settings.System.COLOR_BUCKET_OVERLAY,
         Settings.System.ACCENT_COLOR,
         Settings.System.NOTIFICATION_HEADERS,
+        Settings.System.FLASHLIGHT_ON_CALL,
     };
 }
