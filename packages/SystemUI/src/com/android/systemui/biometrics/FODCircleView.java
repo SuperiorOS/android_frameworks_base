@@ -27,6 +27,7 @@ import android.graphics.Point;
 import android.hardware.display.DisplayManager;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.PowerManager;
 import android.os.RemoteException;
 import android.provider.Settings;
 import android.view.Display;
@@ -75,6 +76,9 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
     private boolean mIsCircleShowing;
 
     private Handler mHandler;
+
+    private PowerManager mPowerManager;
+    private PowerManager.WakeLock mWakeLock;
 
     private Timer mBurnInProtectionTimer;
 
@@ -192,6 +196,10 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         updateCutoutFlags();
 
         Dependency.get(ConfigurationController.class).addCallback(this);
+
+        mPowerManager = context.getSystemService(PowerManager.class);
+        mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
+                FODCircleView.class.getSimpleName());
     }
 
     @Override
@@ -285,6 +293,10 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
         mIsCircleShowing = true;
 
         setKeepScreenOn(true);
+
+        if (mIsDreaming) {
+            mWakeLock.acquire(300);
+        }
 
         setDim(true);
         updateAlpha();
