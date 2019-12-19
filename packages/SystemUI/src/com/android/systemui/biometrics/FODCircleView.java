@@ -284,6 +284,7 @@ public class FODCircleView extends ImageView implements OnTouchListener, Configu
         // the HAL is expected (if supported) to set the screen brightness
         // to maximum / minimum immediately when called
         if (mIsInsideCircle) {
+          if (mIsDreaming) mWakeLock.acquire(300);
             if (mIsDreaming || mIsPulsing) {
                 setAlpha(1.0f);
             }
