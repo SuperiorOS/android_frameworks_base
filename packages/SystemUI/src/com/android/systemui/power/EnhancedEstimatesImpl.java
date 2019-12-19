@@ -12,11 +12,16 @@ import com.android.settingslib.fuelgauge.Estimate;
 import com.android.settingslib.fuelgauge.EstimateKt;
 import com.android.settingslib.utils.PowerUtil;
 
+import javax.inject.Inject;
+import javax.inject.Singleton;
+
+@Singleton
 public class EnhancedEstimatesImpl implements EnhancedEstimates {
 
     BatteryStatsHelper mBatteryStatsHelper;
     UserManager mUserManager;
 
+    @Inject
     public EnhancedEstimatesImpl(Context context) {
         mBatteryStatsHelper = new BatteryStatsHelper(context,
                 true /* collectBatteryBroadcast */);
@@ -43,7 +48,7 @@ public class EnhancedEstimatesImpl implements EnhancedEstimates {
                             EstimateKt.AVERAGE_TIME_TO_DISCHARGE_UNKNOWN);
                 }
             }
-        } catch (Exception e) {
+        } catch (NullPointerException | IndexOutOfBoundsException e) {
         }
         return null;
     }

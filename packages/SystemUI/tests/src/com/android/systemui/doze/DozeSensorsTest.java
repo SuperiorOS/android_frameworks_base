@@ -85,7 +85,6 @@ public class DozeSensorsTest extends SysuiTestCase {
     @Before
     public void setUp() {
         MockitoAnnotations.initMocks(this);
-        when(mProxGatedTriggerSensor.performsProxCheck()).thenReturn(true);
         mTestableLooper = TestableLooper.get(this);
         when(mAmbientDisplayConfiguration.getWakeLockScreenDebounce()).thenReturn(5000L);
         when(mAmbientDisplayConfiguration.alwaysOnEnabled(anyInt())).thenReturn(true);

@@ -3845,5 +3845,5 @@
   <java-symbol type="string" name="user_authentication_failed" />
   <java-symbol type="string" name="service_not_subscribed" />
   <java-symbol type="string" name="multi_conn_to_same_pdn_not_allowed" />
-
+  <java-symbol type="bool" name="config_automotiveHideNavBarForKeyboard" />
 </resources>

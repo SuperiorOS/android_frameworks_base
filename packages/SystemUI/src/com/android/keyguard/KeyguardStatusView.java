@@ -45,6 +45,7 @@ import com.android.internal.widget.LockPatternUtils;
 import com.android.systemui.Dependency;
 import com.android.systemui.Interpolators;
 import com.android.systemui.omni.CurrentWeatherView;
+import com.android.systemui.R;
 import com.android.systemui.statusbar.policy.ConfigurationController;
 
 import java.io.FileDescriptor;
