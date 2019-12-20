@@ -704,10 +704,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                 android.R.attr.colorForeground);
         float intensity = getColorIntensity(colorForeground);
         int fillColor = mDualToneHandler.getSingleColor(intensity);
-
-        // Use SystemUI context to get battery meter colors, and let it use the default tint (white)
-        mBatteryMeterView.setColorsFromContext(mHost.getContext());
-        mBatteryMeterView.onDarkChanged(new Rect(), 0, DarkIconDispatcher.DEFAULT_ICON_TINT);
+        mBatteryMeterView.onDarkChanged(tintArea, intensity, fillColor);
     }
 
     public void setCallback(Callback qsPanelCallback) {
