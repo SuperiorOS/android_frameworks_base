@@ -275,11 +275,9 @@ public class NotificationEntryManager implements Dumpable, NotificationInflater.
         mSystemServicesProxy = SystemServicesProxy.getInstance(mContext);
         mGroupManager.setPendingEntries(mPendingNotifications);
         mFGSExtender.setCallback(key -> removeNotification(key, mLatestRankingMap));
+}
 
-        mTrackInfoSeparator = mContext.getResources().getString(R.string.ambientmusic_songinfo);
-    }
-
-    public void setUpWithPresenter(NotificationPresenter presenter,
+      public void setUpWithPresenter(NotificationPresenter presenter,
             NotificationListContainer listContainer, Callback callback,
             HeadsUpManager headsUpManager) {
         mPresenter = presenter;
