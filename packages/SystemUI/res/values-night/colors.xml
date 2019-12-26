@@ -88,4 +88,9 @@
     <color name="qs_detail_toolbar_background">@*android:color/primary_dark_device_default_settings</color>
     <color name="qs_detail_background">@*android:color/primary_dark_device_default_settings</color>
 
+    <!-- OOS Recent Clearall -->
+    <color name="recents_dismiss_all_background_color">@color/GM2_grey_900</color>
+    <color name="recents_dismiss_all_background_color_ripple">#555555</color>
+    <color name="recents_dismiss_all_icon_color">@android:color/white</color>
+
 </resources>
