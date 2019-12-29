@@ -17,8 +17,16 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Sao chép URL nhật ký sự cố</string>
+    <string name="url_copy_success">Đã sao chép URL thành công</string>
+    <string name="url_copy_failed">Đã xảy ra lỗi khi tải nhật ký lên dogbin</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">Giả mạo chữ ký gói</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">Cho phép ứng dụng giả mạo một ứng dụng khác. Các ứng dụng độc hại có thể có thể sử dụng điều này để truy cập dữ liệu ứng dụng riêng. Cấp quyền này với sự thận trọng!</string>
     <!-- Advanced reboot -->
+    <string name="reboot_title">Reboot</string>
+    <string name="reboot_message">Đang khởi động lại hệ thống...</string>
     <!-- Vendor mismatch fingerprint warning [CHAR LIMIT=NONE] -->
+    <string name="system_error_vendorprint">Hình ảnh nhà cung cấp của bạn không phù hợp với hệ thống. Vui lòng flash <xliff:g id="string">%s</xliff:g> hình ảnh nhà cung cấp cho thiết bị của bạn</string>
 </resources>

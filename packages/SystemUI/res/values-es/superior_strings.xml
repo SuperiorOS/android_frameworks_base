@@ -78,22 +78,10 @@
     <string name="omnijaws_service_error">Error</string>
     <string name="omnijaws_service_unkown">Sin datos del clima</string>
     <!-- Advanced powermenu -->
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <!-- QuickSettings: Location (Off) [CHAR LIMIT=NONE] -->
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
     <!-- Screenshot Delete Toast -->
     <!-- SleepScreen QS Tile -->
     <!-- Ambient display QS tile -->
+    <!-- Kill button in notification guts -->
+    <!-- Heads up snooze toast -->
+    <!-- DataSwitch Tile -->
 </resources>

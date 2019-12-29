@@ -68,6 +68,7 @@
     <string name="quick_settings_sound_label">Suara</string>
     <string name="quick_settings_sound_ring">Dering</string>
     <string name="quick_settings_sound_vibrate">Getar</string>
+    <string name="quick_settings_sound_mute">Senyap</string>
     <!-- Name of the nfc status bar icon. -->
     <string name="status_bar_nfc">Komunikasi jarak dekat</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
@@ -77,23 +78,36 @@
     <string name="status_bar_roaming">Roaming</string>
     <string name="omnijaws_service_error">Kesalahan</string>
     <string name="omnijaws_service_unkown">Data cuaca tidak ada</string>
+    <string name="omnijaws_service_error_long">Kesalahan saat memuat data cuaca</string>
+    <string name="omnijaws_service_disabled">Layanan dinonaktifkan</string>
+    <string name="omnijaws_detail_header">Cuaca</string>
+    <string name="omnijaws_label_default">Cuaca</string>
+    <string name="omnijaws_current_text">Sekarang</string>
+    <string name="omnijaws_package_not_available">OmniJaws tidak tersedia</string>
+    <string name="omnijaws_service_last_update">Pembaruan terakhir:</string>
     <!-- Advanced powermenu -->
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <!-- QuickSettings: Location (Off) [CHAR LIMIT=NONE] -->
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+    <string name="global_action_restart_system">Nyalakan ulang</string>
+    <string name="global_action_restart_advanced">Mulai ulang lanjutan</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">UI Sistem</string>
+    <string name="global_action_restart_hot">Panas</string>
     <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Tangkapan layar dihapus</string>
     <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">Matikan Layar</string>
     <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Tampilan Ambient</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Tampilan ambien mati.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Tampilan ambient aktif.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Layar ambient dimatikan.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Tampilan ambient diaktifkan.</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Hentikan Paksa?</string>
+    <string name="force_stop_dlg_text">Jika anda menghentikan paksa aplikasi ini, kemungkinan akan terjadi gagal fungsi.</string>
+    <string name="dlg_ok">@android:string/ok</string>
+    <string name="dlg_cancel">@android:string/cancel</string>
+    <string name="guts_force_close_app">Tutup Aplikasi</string>
+    <!-- Heads up snooze toast -->
+    <!-- DataSwitch Tile -->
 </resources>

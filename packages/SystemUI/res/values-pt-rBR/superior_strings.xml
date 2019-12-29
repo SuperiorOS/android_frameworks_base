@@ -92,39 +92,6 @@
     <string name="global_action_restart_bootloader">Bootloader</string>
     <string name="global_action_restart_ui">Interface do sistema</string>
     <string name="global_action_restart_hot">Quente</string>
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">Localização: modo de economia de bateria.</string>
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">Localização: somente sensores.</string>
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">Localização: Alta precisão.</string>
-    <!-- QuickSettings: Location (Off) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_turned_off_label">Desligado</string>
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">Economia de Bateria</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">Economia de bateria\n</string>
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">Somente GPS</string>
-    <string name="quick_settings_location_gps_only_label_twoline">Apenas GPS</string>
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_high_accuracy_label">Alta precisão</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">Alta\nprecisão</string>
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">Localização</string>
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_menu_title">Selecionar modo:</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">Alta precisão</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">Economia de Bateria</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_title">Apenas dispositivo</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">Usar GPS, Wi‑Fi, Bluetooth ou redes celulares para determinar a localização </string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_description">Usar Wi\u2011Fi, Bluetooth ou redes móveis para determinar a localização</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Usar o GPS para determinar sua localização</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Captura de tela excluída</string>
     <!-- SleepScreen QS Tile -->
@@ -135,4 +102,12 @@
     <string name="accessibility_quick_settings_ambient_display_on">Tela ambiente ativada.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Tela ambiente foi desligada.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Tela Ambiente foi ligado.</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Forçar parada?</string>
+    <string name="force_stop_dlg_text">Se você forçar a parada de um app, ele pode apresentar mau funcionamento.</string>
+    <string name="dlg_ok">Ok</string>
+    <string name="dlg_cancel">Cancelar</string>
+    <string name="guts_force_close_app">Fechar aplicativo</string>
+    <!-- Heads up snooze toast -->
+    <!-- DataSwitch Tile -->
 </resources>

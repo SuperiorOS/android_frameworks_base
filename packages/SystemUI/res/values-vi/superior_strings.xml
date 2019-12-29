@@ -17,34 +17,76 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Đang sạc (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> đến khi đầy)</string>
+    <string name="keyguard_plugged_in_dash_charging">Đang sạc</string>
     <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
     <!-- Reboot/Recovery QS Tile -->
+    <string name="quick_settings_reboot_label">Reboot</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
     <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Ảnh màn hình</string>
     <!-- Heads Up QS Tile -->
     <!-- HW Keys Tile -->
     <!-- USB Tethering tile -->
+    <string name="lockscreen_default">Mặc định</string>
+    <string name="lockscreen_hidden">Không</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <!-- QS Config -->
+    <string name="qs_menu_item_columns_three">3</string>
+    <string name="qs_menu_item_columns_four">4</string>
+    <string name="qs_menu_item_columns_five">5</string>
+    <string name="qs_menu_item_columns_six">6</string>
+    <string name="qs_menu_item_columns_seven">7</string>
+    <string name="qs_menu_item_columns_eight">8</string>
+    <string name="qs_menu_item_columns_nine">9</string>
+    <string name="qs_menu_item_reset">Cài lại</string>
+    <string name="qs_menu_item_titles">Hiện nhãn</string>
+    <string name="qs_menu_item_columns_auto">Tự động</string>
     <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Âm thanh</string>
+    <string name="quick_settings_sound_ring">Chuông</string>
+    <string name="quick_settings_sound_vibrate">Rung</string>
+    <string name="quick_settings_sound_mute">Tắt tiếng</string>
     <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc">NFC</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <string name="status_bar_data_saver">Tiết kiệm dữ liệu</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_roaming">Chuyển vùng</string>
+    <string name="omnijaws_service_error">Lỗi</string>
+    <string name="omnijaws_service_unkown">Không có dữ liệu thời tiết</string>
+    <string name="omnijaws_service_error_long">Lỗi tải dữ liệu thời tiết</string>
+    <string name="omnijaws_service_disabled">Dịch vụ bị tắt</string>
+    <string name="omnijaws_detail_header">Thời tiết</string>
+    <string name="omnijaws_label_default">Thời tiết</string>
+    <string name="omnijaws_current_text">Bây giờ</string>
+    <string name="omnijaws_package_not_available">OmniJaws không có sẵn</string>
+    <string name="omnijaws_service_last_update">Cập nhật cuối:</string>
     <!-- Advanced powermenu -->
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <!-- QuickSettings: Location (Off) [CHAR LIMIT=NONE] -->
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
+    <string name="global_action_restart_system">Reboot</string>
+    <string name="global_action_restart_advanced">Nâng cao\nReboot</string>
+    <string name="global_action_restart_recovery">Khôi phục</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">SystemUI</string>
+    <string name="global_action_restart_hot">Nóng</string>
     <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Ảnh màn hình đã xóa</string>
     <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">Sleep Screen</string>
     <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Hiển thị xung quanh</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Tắt hiển thị xung quanh.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Bật hiển thị xung quanh.</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Buộc dừng?</string>
+    <string name="force_stop_dlg_text">Nếu bạn buộc dừng một app, nó có thể hoạt động sai.</string>
+    <string name="dlg_ok">@android:string/ok</string>
+    <string name="dlg_cancel">@android:string/cancel</string>
+    <string name="guts_force_close_app">Đóng App</string>
+    <!-- Heads up snooze toast -->
+    <!-- DataSwitch Tile -->
 </resources>

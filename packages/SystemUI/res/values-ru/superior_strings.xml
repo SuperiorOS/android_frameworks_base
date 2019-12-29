@@ -18,16 +18,16 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Быстрая зарядка (<xliff:g id="charging_time_left" example="4 часа и 2 минуты">%s</xliff:g> до полной зарядки)</string>
-    <string name="keyguard_plugged_in_dash_charging">Быстрая зарядка</string>
+    <string name="keyguard_plugged_in_dash_charging">Скоростная Зарядка</string>
     <!-- Caffeine QS Tile -->
-    <string name="quick_settings_caffeine_label">Запрет сна</string>
-    <string name="accessibility_quick_settings_caffeine_off">Запрет сна выкл</string>
-    <string name="accessibility_quick_settings_caffeine_on">Запрет сна вкл</string>
+    <string name="quick_settings_caffeine_label">Запретить сон</string>
+    <string name="accessibility_quick_settings_caffeine_off">Запрет сна выключен</string>
+    <string name="accessibility_quick_settings_caffeine_on">Запрет сна включен</string>
     <!-- Reboot/Recovery QS Tile -->
-    <string name="quick_settings_reboot_label">Перезагрузка</string>
-    <string name="quick_settings_reboot_recovery_label">Перезагрузка в рекавери</string>
+    <string name="quick_settings_reboot_label">Перезагрузить</string>
+    <string name="quick_settings_reboot_recovery_label">Перезагрузка в загрузчик</string>
     <!-- Screenshot QS tile -->
-    <string name="quick_settings_screenshot_label">Скриншот</string>
+    <string name="quick_settings_screenshot_label">Фото с экрана</string>
     <string name="quick_settings_region_screenshot_label">Скриншот выбранной области экрана</string>
     <!-- Heads Up QS Tile -->
     <string name="quick_settings_heads_up_label">Всплывающие уведомления</string>
@@ -40,19 +40,19 @@
     <string name="accessibility_quick_settings_hwkeys_off">Аппаратные кнопки выкл</string>
     <string name="quick_settings_hwkeys_label">Аппаратные кнопки</string>
     <!-- USB Tethering tile -->
-    <string name="accessibility_quick_settings_usb_tether_off">USB-модем выкл</string>
-    <string name="accessibility_quick_settings_usb_tether_on">USB-модем вкл</string>
+    <string name="accessibility_quick_settings_usb_tether_off">USB-модем выключен</string>
+    <string name="accessibility_quick_settings_usb_tether_on">USB-модем включен</string>
     <string name="accessibility_quick_settings_usb_tether_changed_off">USB-модем выключен</string>
     <string name="accessibility_quick_settings_usb_tether_changed_on">USB-модем включен</string>
     <string name="quick_settings_usb_tether_label">USB-модем</string>
-    <string name="statusbar_items_title">Значок в панели уведомления</string>
+    <string name="statusbar_items_title">Значок в строке состояния</string>
     <string name="lockscreen_default">По умолчанию</string>
     <string name="lockscreen_hidden">Не показывать</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
     <string name="custom_hint">Проведите пальцем от иконки для запуска</string>
     <!-- QS Config -->
     <string name="qs_menu_item_columns">Столбцы</string>
-    <string name="qs_menu_item_columns_landscape">Столбцы (альбом)</string>
+    <string name="qs_menu_item_columns_landscape">Столбцы (горизонтально)</string>
     <string name="qs_menu_item_columns_three">3</string>
     <string name="qs_menu_item_columns_four">4</string>
     <string name="qs_menu_item_columns_five">5</string>
@@ -66,7 +66,7 @@
     <string name="qs_menu_item_columns_auto">Автоматически</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Звук</string>
-    <string name="quick_settings_sound_ring">Мелодия вызова</string>
+    <string name="quick_settings_sound_ring">Звонок</string>
     <string name="quick_settings_sound_vibrate">Вибрация</string>
     <string name="quick_settings_sound_mute">Беззвучно</string>
     <!-- Name of the nfc status bar icon. -->
@@ -87,43 +87,11 @@
     <string name="omnijaws_service_last_update">Последнее обновление:</string>
     <!-- Advanced powermenu -->
     <string name="global_action_restart_system">Перезагрузка</string>
+    <string name="global_action_restart_advanced">Расширенная перезагрузка</string>
     <string name="global_action_restart_recovery">Рекавери</string>
     <string name="global_action_restart_bootloader">Загрузчик</string>
     <string name="global_action_restart_ui">Интерфейс системы</string>
     <string name="global_action_restart_hot">Быстрая</string>
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">Определение местоположения: режим энергосбережения.</string>
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">Определение местоположения: только Gps.</string>
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">Определение местоположения: по всем источникам.</string>
-    <!-- QuickSettings: Location (Off) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_turned_off_label">Выкл</string>
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">Энергосбережение</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">Экономия\nбатареи</string>
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">Только GPS</string>
-    <string name="quick_settings_location_gps_only_label_twoline">Только GPS</string>
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_high_accuracy_label">Высокая точность</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">Высокая\nточность</string>
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">Местоположение</string>
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_menu_title">Выберите режим:</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">По всем источникам</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">Энергосбережение</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_title">Только спутники</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">Использовать GPS, Wi\u2011Fi, Bluetooth или мобильную сеть для определения местоположения </string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_description">Использовать Wi\u2011Fi, Bluetooth или мобильную сеть для определения местоположения</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_description">Использовать GPS для определения местоположения</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">Скриншот удалён</string>
     <!-- SleepScreen QS Tile -->
@@ -134,4 +102,12 @@
     <string name="accessibility_quick_settings_ambient_display_on">Ambient Display вкл.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display выключен.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display включен.</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Остановить принудительно?</string>
+    <string name="force_stop_dlg_text">Принудительное закрытие приложения может отразиться на его функциональности.</string>
+    <string name="dlg_ok">@android:string/ok</string>
+    <string name="dlg_cancel">@android:string/cancel</string>
+    <string name="guts_force_close_app">Закрыть приложение</string>
+    <!-- Heads up snooze toast -->
+    <!-- DataSwitch Tile -->
 </resources>

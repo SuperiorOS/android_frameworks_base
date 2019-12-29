@@ -92,39 +92,6 @@
     <string name="global_action_restart_bootloader">ブートローダー</string>
     <string name="global_action_restart_ui">システム UI</string>
     <string name="global_action_restart_hot">ホット</string>
-    <!-- Content description of the location tile in quick settings when on, battery saving mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_battery_saving">位置情報レポート: バッテリー節約モード</string>
-    <!-- Content description of the location tile in quick settings when on, sensors only mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_gps_only">位置情報レポート: 端末のみモード</string>
-    <!-- Content description of the location tile in quick settings when on, high accuracy mode (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_location_high_accuracy">位置情報レポート: 高精度モード</string>
-    <!-- QuickSettings: Location (Off) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_turned_off_label">OFF</string>
-    <!-- QuickSettings: Location (On, low-power) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_battery_saving_label">バッテリー節約</string>
-    <string name="quick_settings_location_battery_saving_label_twoline">バッテリー\n節約</string>
-    <!-- QuickSettings: Location (On, gps-only) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_gps_only_label">GPS のみ</string>
-    <string name="quick_settings_location_gps_only_label_twoline">GPS のみ</string>
-    <!-- QuickSettings: Location (On, high-accuracy) [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_high_accuracy_label">高精度</string>
-    <string name="quick_settings_location_high_accuracy_label_twoline">高精度</string>
-    <!-- QuickSettings: Location detail panel title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_title">位置情報</string>
-    <!-- QuickSettings: Location detail panel menu title [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_location_detail_menu_title">選択モード:</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, high accuracy location mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_title">高精度</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, battery saving location mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_title">バッテリー節約</string>
-    <!-- [CHAR LIMIT=30] Location detail panel, device only location mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_title">端末のみ</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for high accuracy mode -->
-    <string name="quick_settings_location_detail_mode_high_accuracy_description">GPS・Wi‑Fi・Bluetooth・モバイルネットワークで現在地を特定する</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for battery saving mode -->
-    <string name="quick_settings_location_detail_mode_battery_saving_description">Wi‑Fi・Bluetooth・モバイルネットワークで現在地を特定する</string>
-    <!-- [CHAR LIMIT=130] Location detail panel, description for sensors only mode -->
-    <string name="quick_settings_location_detail_mode_sensors_only_description">GPS で現在地を特定する</string>
     <!-- Screenshot Delete Toast -->
     <string name="delete_screenshot_toast">スクリーンショットを削除しました</string>
     <!-- SleepScreen QS Tile -->
@@ -135,4 +102,12 @@
     <string name="accessibility_quick_settings_ambient_display_on">アンビエント表示 ON</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">アンビエント表示を OFF にしました</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">アンビエント表示を ON にしました</string>
+    <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">強制停止しますか?</string>
+    <string name="force_stop_dlg_text">アプリを強制停止するとアプリが正常に機能しないことがあります</string>
+    <string name="dlg_ok">@android:string/ok</string>
+    <string name="dlg_cancel">@android:string/cancel</string>
+    <string name="guts_force_close_app">アプリを終了</string>
+    <!-- Heads up snooze toast -->
+    <!-- DataSwitch Tile -->
 </resources>
