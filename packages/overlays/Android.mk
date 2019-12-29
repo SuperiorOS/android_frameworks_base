@@ -52,8 +52,9 @@ LOCAL_REQUIRED_MODULES := \
 	FontEvolveSansSourceOverlay \
 	FontFucekSourceOverlay \
 	FontGoogleSansMediumSourceOverlay \
-	FontGoogleSansOverlay \
 	FontLemonMilkSourceOverlay \
+	FontComicSansSourceOverlay \
+	FontGoogleSansSourceOverlay \
 	FontNotoSerifSourceOverlay \
 	FontRubikRubikOverlay \
 	FontOdudaSourceOverlay \
