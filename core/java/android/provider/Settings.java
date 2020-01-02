@@ -5640,6 +5640,12 @@ public final class Settings {
         public static final String PULSE_TRIGGER_REASON = "pulse_trigger_reason";
 
         /**
+         * Whether or not to vibrate when a touchscreen gesture is detected
+         * @hide
+         */
+        public static final String TOUCHSCREEN_GESTURE_HAPTIC_FEEDBACK = "touchscreen_gesture_haptic_feedback";
+
+        /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
          * it to PRIVATE_SETTINGS below. Also add a validator that can validate
@@ -5984,6 +5990,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(HIGH_TOUCH_SENSITIVITY_ENABLE);
             PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT);
             PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC);
+            PRIVATE_SETTINGS.add(TOUCHSCREEN_GESTURE_HAPTIC_FEEDBACK);
         }
 
         /**
