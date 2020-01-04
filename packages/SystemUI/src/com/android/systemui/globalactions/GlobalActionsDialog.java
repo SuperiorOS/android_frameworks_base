@@ -1381,8 +1381,7 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
                 LayoutInflater inflater) {
             willCreate();
 
-            View v = inflater.inflate(com.android.systemui.R
-                    .layout.global_actions_grid_item, parent, false);
+            View v = inflater.inflate(com.android.systemui.R.layout.global_actions_grid_item, parent, false);
 
             ImageView icon = (ImageView) v.findViewById(R.id.icon);
             TextView messageView = (TextView) v.findViewById(R.id.message);
