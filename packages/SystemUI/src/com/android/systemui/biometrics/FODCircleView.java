@@ -160,10 +160,6 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
         mWindowManager = context.getSystemService(WindowManager.class);
 
-        mPowerManager = context.getSystemService(PowerManager.class);
-
-        mWakeLock = mPowerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "FODCircleView");
-
         mDisplayManager = context.getSystemService(DisplayManager.class);
 
         mNavigationBarSize = res.getDimensionPixelSize(R.dimen.navigation_bar_size);
@@ -334,7 +330,6 @@ public class FODCircleView extends ImageView implements ConfigurationListener {
 
     private void updateAlpha() {
         if (mIsCircleShowing) {
-            if (mIsDreaming) mWakeLock.acquire(300);
             setAlpha(1.0f);
         } else {
             setAlpha(mIsDreaming ? (mIsPulsing ? 1.0f : 0.8f) : 1.0f);
