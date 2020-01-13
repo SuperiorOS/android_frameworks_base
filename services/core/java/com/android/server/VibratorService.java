@@ -124,7 +124,7 @@ public class VibratorService extends IVibratorService.Stub
     private static final int ONEPLUS_BREAK_CONSTANT = 9990;
     private static final int ONEPLUS_EFFECT_THRESHOLD = 100;
     private static final long ONEPLUS_EFFECT_CLICK = 5909995;
-    private static final long ONEPLUS_EFFECT_DOUBLE_CLICK = 3509993;
+    private static final long[] ONEPLUS_DOUBLE_CLICK_EFFECT_FALLBACK_TIMINGS = { 0, 80, 25, 75 };
     private static final long ONEPLUS_EFFECT_HEAVY_CLICK = 1600051;
     private static final long ONEPLUS_EFFECT_TEXTURE_TICK = 1100111;
     private static final long ONEPLUS_EFFECT_TICK = 1100031;
@@ -423,7 +423,8 @@ public class VibratorService extends IVibratorService.Stub
         VibrationEffect clickEffect = createEffectFromResource(
                 com.android.internal.R.array.config_virtualKeyVibePattern);
         VibrationEffect doubleClickEffect = VibrationEffect.createWaveform(
-                DOUBLE_CLICK_EFFECT_FALLBACK_TIMINGS, -1 /*repeatIndex*/);
+                (mHasOnePlusHapticMotor) ? ONEPLUS_DOUBLE_CLICK_EFFECT_FALLBACK_TIMINGS :
+                    DOUBLE_CLICK_EFFECT_FALLBACK_TIMINGS, -1 /*repeatIndex*/);
         VibrationEffect heavyClickEffect = createEffectFromResource(
                 com.android.internal.R.array.config_longPressVibePattern);
         VibrationEffect tickEffect = createEffectFromResource(
@@ -990,8 +991,6 @@ public class VibratorService extends IVibratorService.Stub
             switch (((VibrationEffect.Prebaked) effect).getId()) {
                 case VibrationEffect.EFFECT_CLICK:
                     return ONEPLUS_EFFECT_CLICK;
-                case VibrationEffect.EFFECT_DOUBLE_CLICK:
-                    return ONEPLUS_EFFECT_DOUBLE_CLICK;
                 case VibrationEffect.EFFECT_HEAVY_CLICK:
                     return ONEPLUS_EFFECT_HEAVY_CLICK;
                 case VibrationEffect.EFFECT_TEXTURE_TICK:
@@ -1007,7 +1006,7 @@ public class VibratorService extends IVibratorService.Stub
                                 + "returning default CLICK");
                     return ONEPLUS_EFFECT_CLICK;
             }
-        } else if (millis > 0) {
+        } else if (millis >= 0) {
             final int usage = attrs.getUsage();
 
             if (isRingtone(usage)) {
@@ -1407,13 +1406,8 @@ public class VibratorService extends IVibratorService.Stub
             synchronized (mInputDeviceVibrators) {
                 usingInputDeviceVibrators = !mInputDeviceVibrators.isEmpty();
             }
-            // OnePlus has different prebaked effect constants.
-            if (mHasOnePlusHapticMotor) {
-                doVibratorOn(vib.uid, vib.attrs);
-                return 0;
-            }
             // Input devices don't support prebaked effect, so skip trying it with them.
-            if (!usingInputDeviceVibrators) {
+            if (!usingInputDeviceVibrators && !mHasOnePlusHapticMotor) {
                 long duration = vibratorPerformEffect(prebaked.getId(),
                         prebaked.getEffectStrength(), vib,
                         hasCapability(IVibrator.CAP_PERFORM_CALLBACK));
@@ -1425,6 +1419,9 @@ public class VibratorService extends IVibratorService.Stub
                     noteVibratorOnLocked(vib.uid, duration);
                     return timeout;
                 }
+            } else if (mHasOnePlusHapticMotor && prebaked.getId() != VibrationEffect.EFFECT_DOUBLE_CLICK /* handled differently */) {
+                doVibratorOn(vib.uid, vib.attrs);
+                return 0;
             }
             if (!prebaked.shouldFallback()) {
                 return 0;
