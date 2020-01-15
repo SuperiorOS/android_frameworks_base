@@ -6216,6 +6216,12 @@ public final class Settings {
         @ChaosLab(name="GestureAnywhere", classification=Classification.NEW_FIELD)
         public static final String GESTURE_ANYWHERE_ENABLED = "gesture_anywhere_enabled";
 
+       /**
+        * Whether to persist settings icon on non-expanded panel or not
+        * @hide
+        */
+        public static final String SETTING_BUTTON_TOGGLE = "setting_button_toggle";
+
         /**
          * Position of gesture anywhere trigger.  Value is either Gravity.LEFT or Gravity.RIGHT
          * @hide
