@@ -48,6 +48,9 @@ LOCAL_REQUIRED_MODULES := \
 	FontGoogleSansMediumSourceOverlay \
 	FontLemonMilkSourceOverlay \
 	FontComfortaaSourceOverlay \
+	FontExotwoSourceOverlay \
+	FontStoropiaSourceOverlay \
+	FontUbuntuSourceOverlay \
 	FontComicSansSourceOverlay \
 	FontGoogleSansSourceOverlay \
 	FontNotoSerifSourceOverlay \
