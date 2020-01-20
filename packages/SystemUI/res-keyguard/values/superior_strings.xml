@@ -42,5 +42,6 @@
     <string name="salute_sleep">Go to Sleep</string>
     <string name="clock_title_spidey" translatable="false">Spidey</string>
     <string name="clock_title_spectrum" translatable="false">Spectrum</string>
+    <string name="clock_title_dot" translatable="false">Dot Clock</string>
 
 </resources>
