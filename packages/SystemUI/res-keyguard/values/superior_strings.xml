@@ -40,5 +40,6 @@
     <string name="salute_evening">Good evening</string>
     <string name="salute_night">Good night</string>
     <string name="salute_sleep">Go to Sleep</string>
+    <string name="clock_title_spidey" translatable="false">Spidey</string>
 
 </resources>
