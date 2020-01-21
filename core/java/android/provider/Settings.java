@@ -6194,6 +6194,15 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
+         * Show data usage in QS header
+         * @hide
+         */
+        public static final String QS_DATAUSAGE = "qs_datausage";
+
+        /** @hide */
+        private static final Validator QS_DATAUSAGE_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6338,6 +6347,7 @@ public final class Settings {
             STATUSBAR_PRIVACY_INDICATORS,
             NOTIFICATION_HEADERS,
             NAVIGATION_BAR_ARROW_KEYS,
+            QS_DATAUSAGE,
         };
 
         /**
@@ -6590,6 +6600,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DISPLAY_PICTURE_ADJUSTMENT);
             PRIVATE_SETTINGS.add(LIVE_DISPLAY_HINTED);
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_ARROW_KEYS);
+            PRIVATE_SETTINGS.add(QS_DATAUSAGE);
         }
 
         /**
@@ -6811,6 +6822,7 @@ public final class Settings {
             VALIDATORS.put(NOTIFICATION_HEADERS, NOTIFICATION_HEADERS_VALIDATOR);
             VALIDATORS.put(NAVIGATION_BAR_ARROW_KEYS,
                     NAVIGATION_BAR_ARROW_KEYS_VALIDATOR);
+            VALIDATORS.put(QS_DATAUSAGE, QS_DATAUSAGE_VALIDATOR);
         }
 
         /**
