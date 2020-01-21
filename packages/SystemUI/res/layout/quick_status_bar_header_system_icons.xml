@@ -77,6 +77,17 @@
             android:lineSpacingMultiplier="1.2"
             systemui:showDark="false"/>
 
+        <com.android.systemui.statusbar.info.DataUsageView
+            android:id="@+id/data_sim_usage"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|end"
+            android:paddingStart="@dimen/status_bar_left_clock_starting_padding"
+            android:paddingEnd="@dimen/status_bar_left_clock_end_padding"
+            android:textAppearance="@style/TextAppearance.StatusBar.Clock"
+            android:singleLine="true"
+            android:text="" />
+
         <com.android.systemui.BatteryMeterView
             android:id="@+id/battery"
             android:layout_height="match_parent"
