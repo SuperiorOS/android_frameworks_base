@@ -238,4 +238,7 @@
     <string name="accessibility_quick_settings_navbar_on">Navigation bar on</string>
     <string name="accessibility_quick_settings_navbar_off">Navigation bar off</string>
 
+    <!-- QS Header data usage info -->
+    <string name="usage_data">used</string>
+
 </resources>
