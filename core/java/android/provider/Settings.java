@@ -5488,6 +5488,8 @@ public final class Settings {
          */
 
         public static final String QS_BLUR = "qs_blur";
+        /** @hide */
+        private static final Validator QS_BLUR_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
          * Whether to show the battery bar
@@ -6007,6 +6009,14 @@ public final class Settings {
         public static final String GESTURE_NAVBAR_BROWSER_ACTION = "gesture_navbar_browser_action";
 
         /**
+         * QS blur alpha
+         * @hide
+         */
+        public static final String QS_BLUR_ALPHA = "qs_blur_alpha";
+        /** @hide */
+        private static final Validator QS_BLUR_ALPHA_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6142,6 +6152,8 @@ public final class Settings {
             QS_PANEL_BG_USE_NEW_TINT,
             NAVIGATION_HANDLE_WIDTH,
             FORCE_SHOW_NAVBAR,
+            QS_BLUR,
+            QS_BLUR_ALPHA,
         };
 
         /**
@@ -6572,6 +6584,8 @@ public final class Settings {
             VALIDATORS.put(CAMERA_WAKE_SCREEN, CAMERA_WAKE_SCREEN_VALIDATOR);
             VALIDATORS.put(CAMERA_SLEEP_ON_RELEASE, CAMERA_SLEEP_ON_RELEASE_VALIDATOR);
             VALIDATORS.put(CAMERA_LAUNCH, CAMERA_LAUNCH_VALIDATOR);
+            VALIDATORS.put(QS_BLUR, QS_BLUR_VALIDATOR);
+            VALIDATORS.put(QS_BLUR_ALPHA, QS_BLUR_ALPHA_VALIDATOR);
         }
 
         /**
