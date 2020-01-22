@@ -414,6 +414,11 @@ public class MobileSignalController extends SignalController<
         if ( (mCurrentState.voiceCapable || mCurrentState.videoCapable)
                 &&  mCurrentState.imsRegistered && mVoLTEicon) {
             switch(mVoLTEstyle) {
+                //Superior
+                case 0:
+                default:
+                    resId = R.drawable.ic_volte;
+                    break;
                 // Vo
                 case 1:
                     resId = R.drawable.ic_volte1;
@@ -426,10 +431,9 @@ public class MobileSignalController extends SignalController<
                 case 3:
                     resId = R.drawable.ic_hd_volte;
                     break;
- 	        //Superior
-                case 0:
-                default:
-                    resId = R.drawable.ic_volte;
+                // CAF HD Icon
+                case 4:
+                    resId = R.drawable.ic_hd_volte2;
                     break;
             }
         }
