@@ -1202,7 +1202,10 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         }
         public void updateBlurVisibility() {
-        int QSBlurAlpha = Math.round(255.0f * mNotificationPanel.getExpandedFraction());
+        int QSUserAlpha = Settings.System.getInt(mContext.getContentResolver(),
+              Settings.System.QS_BLUR_ALPHA, 100);
+        int QSBlurAlpha = Math.round(255.0f *
+                mNotificationPanel.getExpandedFraction() * (float)((float) QSUserAlpha / 100.0));
         if (QSBlurAlpha > 0 && !blurperformed && !mIsKeyguard && isQSBlurEnabled()) {
             Bitmap bittemp = ImageUtilities.blurImage(mContext, ImageUtilities.screenshotSurface(mContext));
             Drawable blurbackground = new BitmapDrawable(mContext.getResources(), bittemp);
@@ -4355,6 +4358,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.GESTURE_NAVBAR_BROWSER_ACTION),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_BLUR_ALPHA),
+                    false, this, UserHandle.USER_ALL);
 
         }
          @Override
@@ -4387,7 +4393,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                 mQSPanel.getHost().reloadAllTiles();
             } else if (uri.equals(Settings.System.getUriFor(Settings.System.SHOW_MEDIA_HEADS_UP))) {
                 setMediaHeadsup();
-        }
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.QS_BLUR_ALPHA))) {
+                updateBlurVisibility();
+            }
             update();
             updateQSPanel();
         }
