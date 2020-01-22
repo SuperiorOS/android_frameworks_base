@@ -22,5 +22,15 @@ public class ThemesUtils {
             "com.android.theme.solarizeddark.system",
             "com.android.theme.solarizeddark.systemui",
     };
+
+    public static final String[] BAKED_GREEN = {
+            "com.android.theme.bakedgreen.system",
+            "com.android.theme.bakedgreen.systemui",
+    };
+
+    public static final String[] CHOCO_X = {
+            "com.android.theme.chocox.system",
+            "com.android.theme.chocox.systemui",
+    };
 }
 
