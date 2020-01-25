@@ -156,9 +156,6 @@ public class SfunyClockController implements ClockPlugin {
     }
 
     @Override
-    public void setStyle(Style style) {}
-
-    @Override
     public void setTextColor(int color) {
         mHourClock.setTextColor(color);
         mMinuteClock.setTextColor(color);

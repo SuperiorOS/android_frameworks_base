@@ -150,9 +150,6 @@ public class MNMLMinimalClockController implements ClockPlugin {
     }
 
     @Override
-    public void setStyle(Style style) {}
-
-    @Override
     public void setTextColor(int color) {
     }
 
