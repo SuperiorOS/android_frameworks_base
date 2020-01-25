@@ -60,7 +60,7 @@ public class TypeClockController implements ClockPlugin {
      * Custom clock shown on AOD screen and behind stack scroller on lock.
      */
     private TypographicClock mTypeClock;
-    private ClockLayout mBigClockView;
+    private TypographicClock mBigClockView;
 
     /**
      * Controller for transition into dark state.
@@ -82,12 +82,15 @@ public class TypeClockController implements ClockPlugin {
     }
 
     private void createViews() {
-        mBigClockView  = (ClockLayout) mLayoutInflater.inflate(R.layout.type_aod_clock, null);
+        mView = mLayoutInflater.inflate(R.layout.type_aod_clock, null);
+
+        mBigClockView  = (TypographicClock) mLayoutInflater.inflate(R.layout.typographic_clock, null);
         mTypeClock = mBigClockView.findViewById(R.id.type_clock);
     }
 
     @Override
     public void onDestroyView() {
+        mView = null;
         mBigClockView = null;
         mTypeClock = null;
         mDarkController = null;
@@ -149,6 +152,11 @@ public class TypeClockController implements ClockPlugin {
     @Override
     public void setTextColor(int color) {
         mTypeClock.setTextColor(color);
+    }
+
+    @Override
+    public void setTypeface(Typeface tf) {
+        mTypeClock.setTypeface(tf);
     }
 
     @Override
