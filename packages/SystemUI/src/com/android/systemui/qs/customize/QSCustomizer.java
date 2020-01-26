@@ -412,6 +412,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
             tiles.add(tile);
         }
         mTileAdapter.resetTileSpecs(mHost, tiles);
+        updateSettings();
     }
 
     private void setTileSpecs() {
