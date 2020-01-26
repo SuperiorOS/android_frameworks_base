@@ -5914,6 +5914,17 @@ public final class Settings {
         public static final String FOD_ANIM = "fod_anim";
 
         /**
+         * Enable/disable privacy indicators on statusbar
+         * @hide
+         */
+        public static final String STATUSBAR_PRIVACY_INDICATORS = "statusbar_privacy_indicators";
+
+        /**
+         * @hide
+         */
+        private static final Validator STATUSBAR_PRIVACY_INDICATORS_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * FOD recognizing animation
          * @hide
          */
@@ -6184,6 +6195,7 @@ public final class Settings {
             LOCK_SHOW_STATUS_BAR,
             ENABLE_CONDITIONS,
             ENABLE_SUGGESTIONS,
+            STATUSBAR_PRIVACY_INDICATORS,
         };
 
         /**
@@ -6422,6 +6434,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LOCK_SHOW_STATUS_BAR);
             PRIVATE_SETTINGS.add(ENABLE_CONDITIONS);
             PRIVATE_SETTINGS.add(ENABLE_SUGGESTIONS);
+            PRIVATE_SETTINGS.add(STATUSBAR_PRIVACY_INDICATORS);
         }
 
         /**
@@ -6627,6 +6640,7 @@ public final class Settings {
             VALIDATORS.put(LOCK_SHOW_STATUS_BAR, LOCK_SHOW_STATUS_BAR_VALIDATOR);
             VALIDATORS.put(ENABLE_CONDITIONS, ENABLE_CONDITIONS_VALIDATOR);
             VALIDATORS.put(ENABLE_SUGGESTIONS, ENABLE_SUGGESTIONS_VALIDATOR);
+            VALIDATORS.put(STATUSBAR_PRIVACY_INDICATORS, STATUSBAR_PRIVACY_INDICATORS_VALIDATOR);
         }
 
         /**
