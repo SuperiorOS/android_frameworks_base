@@ -20,9 +20,9 @@ import android.animation.Animator.AnimatorListener;
 import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.content.res.Configuration;
-import android.os.Bundle;
 import android.content.res.Resources;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.UserHandle;
 import android.provider.Settings;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -102,6 +102,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
     private Menu mQsColumnsSubMenu;
     private Menu mRowsSubMenu;
     private Menu mRowsLandscapeSubMenu;
+    private boolean mHeaderImageEnabled;
 
     @Inject
     public QSCustomizer(Context context, AttributeSet attrs,
@@ -200,6 +201,10 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         LayoutParams lp = (LayoutParams) mTransparentView.getLayoutParams();
         lp.height = mContext.getResources().getDimensionPixelSize(
                 com.android.internal.R.dimen.quick_qs_offset_height);
+        if (mHeaderImageEnabled) {
+            lp.height += mContext.getResources().getDimensionPixelSize(
+                    R.dimen.qs_header_image_offset);
+        }
         mTransparentView.setLayoutParams(lp);
     }
 
@@ -396,7 +401,6 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
             Settings.System.putIntForUser(mContext.getContentResolver(),
                     Settings.System.QS_LAYOUT_ROWS_LANDSCAPE, 2, UserHandle.USER_CURRENT);
         }
-
         updateSettings();
         return false;
     }
@@ -502,7 +506,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         }
     };
 
-    public void updateSettings() {
+    private void updateSettings() {
         final Resources res = mContext.getResources();
         boolean isPortrait = res.getConfiguration().orientation
                 == Configuration.ORIENTATION_PORTRAIT;
@@ -528,6 +532,9 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
         mLayout.setSpanCount(isPortrait ? columns : columnsLandscape);
         updateColumnsMenu(defaultColumns);
         updateRowsMenu();
+        mHeaderImageEnabled = Settings.System.getIntForUser(
+                mContext.getContentResolver(), Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER, 0,
+                UserHandle.USER_CURRENT) == 1;
     }
 
     private void updateColumnsMenu(int defaultColumns) {
