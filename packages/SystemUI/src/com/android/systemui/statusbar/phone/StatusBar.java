@@ -1180,7 +1180,8 @@ public class StatusBar extends SystemUI implements DemoMode,
         ThreadedRenderer.overrideProperty("ambientRatio", String.valueOf(1.5f));
         mFlashlightController = Dependency.get(FlashlightController.class);
 
-    public void updateBlurVisibility() {
+        }
+        public void updateBlurVisibility() {
 
         int QSBlurAlpha = Math.round(255.0f * mNotificationPanel.getExpandedFraction());
         if (QSBlurAlpha > 0 && !blurperformed && !mIsKeyguard && isQSBlurEnabled()) {
@@ -1194,8 +1195,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
         mQSBlurView.setAlpha(QSBlurAlpha);
         mQSBlurView.getBackground().setAlpha(QSBlurAlpha);
-    }
-
     }
 
     protected QS createDefaultQSFragment() {
