@@ -37,6 +37,7 @@ import android.widget.Switch;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.settingslib.net.DataUsageController;
+import com.android.settingslib.net.DataUsageUtils;
 import com.android.systemui.Dependency;
 import com.android.settingslib.net.DataUsageUtils;
 import com.android.systemui.Prefs;
