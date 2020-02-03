@@ -239,10 +239,18 @@ public class ScrimControllerTest extends SysuiTestCase {
         assertScrimVisibility(VISIBILITY_SEMI_TRANSPARENT /* front */,
                 VISIBILITY_FULLY_OPAQUE /* back */);
 
+        // ... and when ambient goes dark, front scrim should be semi-transparent
+        mScrimController.setAodFrontScrimAlpha(0.5f);
+        mScrimController.finishAnimationsImmediately();
+        // Front scrim should be semi-transparent
+        assertScrimVisibility(VISIBILITY_SEMI_TRANSPARENT /* front */,
+                VISIBILITY_FULLY_OPAQUE /* back */);
+
         mScrimController.setWakeLockScreenSensorActive(true);
         mScrimController.finishAnimationsImmediately();
         assertScrimVisibility(VISIBILITY_SEMI_TRANSPARENT /* front */,
                 VISIBILITY_SEMI_TRANSPARENT /* back */);
+
         // Reset value since enums are static.
         mScrimController.setAodFrontScrimAlpha(0f);
     }
