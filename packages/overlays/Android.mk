@@ -65,6 +65,8 @@ LOCAL_REQUIRED_MODULES := \
 	FontFifa2018SourceOverlay \
 	FontCoconSourceOverlay \
 	FontQuandoSourceOverlay \
+	FontGrandHotelSourceOverlay \
+	FontRedressedSourceOverlay \
 	IconPackCircularAndroidOverlay \
 	IconPackCircularPixelLauncherOverlay \
 	IconPackCircularPixelThemePickerOverlay \
