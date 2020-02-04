@@ -93,4 +93,8 @@
     <color name="recents_dismiss_all_background_color_ripple">#555555</color>
     <color name="recents_dismiss_all_icon_color">@android:color/white</color>
 
+    <color name="volume_background_tint">#141414</color>
+
+    <color name="divider_stroke_color">#434343</color>
+
 </resources>
