@@ -54,7 +54,6 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.keyguard.KeyguardUpdateMonitor;
 import com.android.keyguard.KeyguardUpdateMonitorCallback;
 import com.android.systemui.R;
-import com.android.systemui.omni.OmniJawsClient;
 import com.android.systemui.plugins.statusbar.StatusBarStateController;
 import com.android.systemui.statusbar.NotificationMediaManager;
 import com.android.systemui.statusbar.StatusBarState;
@@ -71,6 +70,8 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
+
+import org.omnirom.omni.OmniJawsClient;
 
 /**
  * Simple Slice provider that shows the current date.
