@@ -5021,13 +5021,6 @@ public final class Settings {
 	        new SettingsValidators.InclusiveIntegerRangeValidator(0, 1);;
 
         /**
-         * 0 - fullscreen
-         * 1 - partial
-         * @hide
-         */
-        public static final String SCREENSHOT_DEFAULT_MODE = "screenshot_default_mode";
-
-        /**
          * Three Finger Gesture from Oppo
          * @hide
          */
@@ -5635,7 +5628,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(OMNIJAWS_WEATHER_ICON_PACK);
             PRIVATE_SETTINGS.add(OMNI_LOCKSCREEN_WEATHER_ENABLED);
             PRIVATE_SETTINGS.add(AICP_LOCKSCREEN_WEATHER_STYLE);
-            PRIVATE_SETTINGS.add(SCREENSHOT_DEFAULT_MODE);
             PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_METADATA);
             PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_BLUR);
             PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK);
