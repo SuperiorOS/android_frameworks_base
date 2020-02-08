@@ -5994,6 +5994,12 @@ public final class Settings {
         public static final String FOD_PRESSED_STATE = "fod_pressed_state";
 
         /**
+         * FOD recognizing animation picker
+         * @hide
+         */
+        public static final String FOD_ANIM = "fod_anim";
+
+        /**
          * FOD recognizing animation
          * @hide
          */
