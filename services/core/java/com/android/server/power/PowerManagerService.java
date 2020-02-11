@@ -1077,7 +1077,7 @@ public final class PowerManagerService extends SystemService
         Settings.System.putIntForUser(mContext.getContentResolver(),
                 Settings.System.DOZE_ON_CHARGE_NOW, 0, UserHandle.USER_CURRENT);
         Settings.System.putIntForUser(mContext.getContentResolver(),
-                Settings.System.AMBIENT_NOTIFICATION_LIGHT_ACTIVATED, 0, UserHandle.USER_CURRENT);
+                Settings.System.AOD_NOTIFICATION_PULSE_ACTIVATED, 0, UserHandle.USER_CURRENT);
 
         synchronized (mLock) {
             mSystemReady = true;
@@ -1191,10 +1191,10 @@ public final class PowerManagerService extends SystemService
                 Settings.System.BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED),
                 false, mSettingsObserver, UserHandle.USER_ALL);
         resolver.registerContentObserver(Settings.System.getUriFor(
-                Settings.System.AMBIENT_NOTIFICATION_LIGHT),
+                Settings.System.AOD_NOTIFICATION_PULSE_TRIGGER),
                 false, mSettingsObserver, UserHandle.USER_ALL);
         resolver.registerContentObserver(Settings.System.getUriFor(
-                Settings.System.AMBIENT_NOTIFICATION_LIGHT_ENABLED),
+                Settings.System.AOD_NOTIFICATION_PULSE),
                 false, mSettingsObserver, UserHandle.USER_ALL);
         resolver.registerContentObserver(Settings.Global.getUriFor(
                 Settings.Global.WAKE_WHEN_PLUGGED_OR_UNPLUGGED),
@@ -1317,21 +1317,21 @@ public final class PowerManagerService extends SystemService
                 Settings.System.DOZE_ON_CHARGE, 0, UserHandle.USER_CURRENT) != 0;
         Settings.System.putIntForUser(resolver, Settings.System.DOZE_ON_CHARGE_NOW,
                 mDozeOnChargeEnabled && mIsPowered ? 1 : 0, UserHandle.USER_CURRENT);
-        boolean mAmbientLights = Settings.System.getIntForUser(
-                mContext.getContentResolver(), Settings.System.AMBIENT_NOTIFICATION_LIGHT_ENABLED,
-                0, UserHandle.USER_CURRENT) != 0;
+
+        boolean mAmbientLights = Settings.System.getIntForUser(resolver,
+                Settings.System.AOD_NOTIFICATION_PULSE, 0, UserHandle.USER_CURRENT) != 0;
         if (mAmbientLights) {
             boolean dozeOnNotification = Settings.System.getIntForUser(resolver,
-                    Settings.System.AMBIENT_NOTIFICATION_LIGHT, 0, UserHandle.USER_CURRENT) != 0;
-            Settings.System.putIntForUser(mContext.getContentResolver(),
-                     Settings.System.AMBIENT_NOTIFICATION_LIGHT_ACTIVATED, dozeOnNotification ? 1 : 0,
+                    Settings.System.AOD_NOTIFICATION_PULSE_TRIGGER, 0, UserHandle.USER_CURRENT) != 0;
+            Settings.System.putIntForUser(resolver,
+                     Settings.System.AOD_NOTIFICATION_PULSE_ACTIVATED, dozeOnNotification ? 1 : 0,
                      UserHandle.USER_CURRENT);
         } else {
-             Settings.System.putIntForUser(mContext.getContentResolver(),
-                     Settings.System.AMBIENT_NOTIFICATION_LIGHT_ACTIVATED, 0,
+             Settings.System.putIntForUser(resolver,
+                     Settings.System.AOD_NOTIFICATION_PULSE_ACTIVATED, 0,
                      UserHandle.USER_CURRENT);
         }
-        // depends on AMBIENT_NOTIFICATION_LIGHT_ACTIVATED - so MUST be afterwards
+        // depends on AOD_NOTIFICATION_PULSE_ACTIVATED - so MUST be afterwards
         // no need to call us again
         mAlwaysOnEnabled = mAmbientDisplayConfiguration.alwaysOnEnabled(UserHandle.USER_CURRENT);
 
