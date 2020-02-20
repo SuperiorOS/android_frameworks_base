@@ -1,3 +1,4 @@
+
 /*
  * Copyright (C) 2016 The Android Open Source Project
  *
@@ -102,6 +103,7 @@ public class NavigationBarInflaterView extends FrameLayout
     private boolean mIsVertical;
     private boolean mAlternativeOrder;
     private boolean mUsingCustomLayout;
+    private boolean mInverseLayout;
 
     private OverviewProxyService mOverviewProxyService;
     private int mNavBarMode = NAV_BAR_MODE_3BUTTON;
@@ -165,6 +167,7 @@ public class NavigationBarInflaterView extends FrameLayout
         Dependency.get(TunerService.class).addTunable(this, NAV_BAR_INVERSE);
         Dependency.get(TunerService.class).addTunable(this, NAV_BAR_VIEWS);
         Dependency.get(CustomSettingsService.class).addIntObserver(this, Settings.System.NAVIGATION_BAR_ARROW_KEYS);
+        Dependency.get(TunerService.class).addTunable(this, NAV_BAR_INVERSE);
     }
 
     @Override
@@ -187,6 +190,16 @@ public class NavigationBarInflaterView extends FrameLayout
         if (NAV_BAR_VIEWS.equals(key)) {
             setNavigationBarLayout(newValue);
         }
+        if (NAV_BAR_INVERSE.equals(key)) {
+            mInverseLayout = TunerService.parseIntegerSwitch(newValue, false);
+            updateLayoutInversion();
+        }
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        updateLayoutInversion();
     }
 
     @Override
@@ -546,5 +559,18 @@ public class NavigationBarInflaterView extends FrameLayout
     @Override
     public void onIntSettingChanged(String key, Integer newValue) {
         onLikelyDefaultLayoutChange();
+    }
+
+    private void updateLayoutInversion() {
+        if (mInverseLayout) {
+            Configuration config = mContext.getResources().getConfiguration();
+            if (config.getLayoutDirection() == View.LAYOUT_DIRECTION_RTL) {
+                setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+            } else {
+                setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+            }
+        } else {
+            setLayoutDirection(View.LAYOUT_DIRECTION_INHERIT);
+        }
     }
 }
