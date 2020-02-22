@@ -24,6 +24,8 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
 import android.os.SystemClock;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.os.UserHandle;
 import android.os.VibrationEffect;
 import android.provider.Settings;
@@ -116,6 +118,7 @@ public class NavigationBarEdgePanel extends View {
     private static final Interpolator RUBBER_BAND_INTERPOLATOR_APPEAR
             = new PathInterpolator(1.0f / RUBBER_BAND_AMOUNT_APPEAR, 1.0f, 1.0f, 1.0f);
 
+    private final Vibrator mVibrator;
     private final VibratorHelper mVibratorHelper;
 
     /**
@@ -198,6 +201,9 @@ public class NavigationBarEdgePanel extends View {
     private long mVibrationTime;
     private int mScreenSize;
 
+    private boolean mBackHapticEnabled;
+    private boolean mVibrateOnOpening;
+
     private DynamicAnimation.OnAnimationEndListener mSetGoneEndListener
             = new DynamicAnimation.OnAnimationEndListener() {
         @Override
@@ -254,6 +260,7 @@ public class NavigationBarEdgePanel extends View {
 
         mContext = context;
 
+        mVibrator = context.getSystemService(Vibrator.class);
         mVibratorHelper = Dependency.get(VibratorHelper.class);
 
         mDensity = context.getResources().getDisplayMetrics().density;
@@ -321,12 +328,15 @@ public class NavigationBarEdgePanel extends View {
 
         loadColors(context);
         updateArrowDirection();
+        setBackGestureHaptic();
 
         mSwipeThreshold = context.getResources()
                 .getDimension(R.dimen.navigation_edge_action_drag_threshold);
         setVisibility(GONE);
 
         setExtendedSwipe();
+        mVibrateOnOpening = context.getResources().getBoolean(
+                R.bool.config_vibrateOnIconAnimation);
     }
 
     @Override
@@ -350,6 +360,12 @@ public class NavigationBarEdgePanel extends View {
 
     public void setIsLeftPanel(boolean isLeftPanel) {
         mIsLeftPanel = isLeftPanel;
+    }
+
+    public void setBackGestureHaptic() {
+        mBackHapticEnabled = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.BACK_GESTURE_HAPTIC, 1,
+                UserHandle.USER_CURRENT) == 1;
     }
 
     /**
@@ -549,8 +565,8 @@ public class NavigationBarEdgePanel extends View {
         mVelocityTracker.computeCurrentVelocity(1000);
         // Only do the extra translation if we're not already flinging
         boolean isSlow = Math.abs(mVelocityTracker.getXVelocity()) < 500;
-        if (isSlow
-                || SystemClock.uptimeMillis() - mVibrationTime >= GESTURE_DURATION_FOR_CLICK_MS) {
+        if (mBackHapticEnabled && (isSlow
+                || SystemClock.uptimeMillis() - mVibrationTime >= GESTURE_DURATION_FOR_CLICK_MS)) {
             mVibratorHelper.vibrate(VibrationEffect.EFFECT_CLICK);
         }
 
@@ -629,8 +645,14 @@ public class NavigationBarEdgePanel extends View {
         // Apply a haptic on drag slop passed
         if (!mDragSlopPassed && touchTranslation > mSwipeThreshold) {
             mDragSlopPassed = true;
-            mVibratorHelper.vibrate(VibrationEffect.EFFECT_TICK);
-            mVibrationTime = SystemClock.uptimeMillis();
+            if (mBackHapticEnabled) {
+                if (mVibrateOnOpening) {
+                    mVibratorHelper.vibrate(VibrationEffect.EFFECT_TICK);
+                    mVibrationTime = SystemClock.uptimeMillis();
+                } else {
+                    mVibrator.vibrate(VibrationEffect.createOneShot(20, VibrationEffect.DEFAULT_AMPLITUDE));
+                }
+            }
 
             // Let's show the arrow and animate it in!
             mDisappearAmount = 0.0f;
