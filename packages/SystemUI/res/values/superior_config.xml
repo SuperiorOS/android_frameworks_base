@@ -32,4 +32,7 @@
 
     <!-- CPUInfoService temperature sysfs path -->
     <string name="config_cpuinfoSysTemp" translatable="false"></string>
+
+    <!-- FPSInfoService Fps file path -->
+    <string name="config_fpsInfoSysNode" translatable="false"></string>
 </resources>
