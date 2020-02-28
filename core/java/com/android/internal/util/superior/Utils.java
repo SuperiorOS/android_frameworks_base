@@ -17,6 +17,7 @@
 package com.android.internal.util.superior;
 
 import android.app.NotificationManager;
+import android.app.ActivityManager;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
@@ -266,6 +267,20 @@ public class Utils {
                 } catch (RemoteException e) {}
             }
         }
+
+        // Clear notifications
+        public static void clearAllNotifications() {
+            IStatusBarService service = getStatusBarService();
+            if (service != null) {
+                try {
+                    service.onClearAllNotifications(ActivityManager.getCurrentUser());
+                } catch (RemoteException e) {}
+            }
+        }
+    }
+
+    public static void clearAllNotifications() {
+        FireActions.clearAllNotifications();
     }
 
     public static void toggleQsPanel() {
