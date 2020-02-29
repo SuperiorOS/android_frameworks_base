@@ -16,6 +16,8 @@
 
 package com.android.internal.util.superior;
 
+import android.app.ActivityManager;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -25,6 +27,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.hardware.input.InputManager;
+import android.media.AudioManager;
 import android.os.Handler;
 import android.os.Looper;
 import android.content.pm.PackageManager;
@@ -32,6 +35,7 @@ import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemClock;
+import android.os.Vibrator;
 import android.os.UserHandle;
 import android.view.IWindowManager;
 import android.view.WindowManagerGlobal;
@@ -44,6 +48,9 @@ import java.util.List;
 
 import com.android.internal.statusbar.IStatusBarService;
 
+import static android.content.Context.NOTIFICATION_SERVICE;
+import static android.content.Context.VIBRATOR_SERVICE;
+
 /**
  * Some custom utilities
  */
@@ -52,7 +59,18 @@ public class SuperiorUtils {
     public static final String INTENT_SCREENSHOT = "action_handler_screenshot";
     public static final String INTENT_REGION_SCREENSHOT = "action_handler_region_screenshot";
 
+    private static IStatusBarService mStatusBarService = null;
     private static OverlayManager mOverlayService;
+
+    private static IStatusBarService getStatusBarService() {
+        synchronized (SuperiorUtils.class) {
+            if (mStatusBarService == null) {
+                mStatusBarService = IStatusBarService.Stub.asInterface(
+                        ServiceManager.getService("statusbar"));
+            }
+            return mStatusBarService;
+        }
+    }
 
     public static void switchScreenOff(Context ctx) {
         PowerManager pm = (PowerManager) ctx.getSystemService(Context.POWER_SERVICE);
