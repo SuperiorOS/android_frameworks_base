@@ -7432,5 +7432,7 @@ message MetricsEvent {
       // Superior constant
     SUPERIOR = 2499;
 
+    // Panel for Mobile Data
+    PANEL_MOBILE_DATA = 2002;
   }
 }
