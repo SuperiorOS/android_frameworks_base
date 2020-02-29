@@ -183,4 +183,7 @@
     <!-- AOD QS tile -->
     <string name="quick_settings_aod_label">AOD</string>
 
+    <!-- Long swipe gesture actions -->
+    <string name="app_picker_dialog_title">Select an app</string>
+
 </resources>
