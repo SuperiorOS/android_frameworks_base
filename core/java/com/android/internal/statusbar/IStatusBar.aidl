@@ -389,4 +389,6 @@ oneway interface IStatusBar
 
     /** Superior additions. */
     void toggleCameraFlash();
+
+    void killForegroundApp();
 }
