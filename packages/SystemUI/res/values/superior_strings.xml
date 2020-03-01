@@ -150,4 +150,7 @@
      <string name="tristate_rotation_90">Landscape (90°)</string>
      <string name="tristate_rotation_270">Landscape (270°)</string>
 
+     <!-- App kill -->
+     <string name="task_helper_app_killed">%1$s force stopped</string>
+     <string name="empty_app_killed">App</string>
 </resources>
