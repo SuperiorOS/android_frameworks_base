@@ -68,6 +68,7 @@ import com.android.systemui.statusbar.policy.HeadsUpManager;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.statusbar.policy.RemoteInputQuickSettingsDisabler;
 import com.android.systemui.statusbar.policy.SecureLockscreenQSDisabler;
+import com.android.systemui.statusbar.policy.TaskHelper;
 
 import java.util.Optional;
 
@@ -103,6 +104,7 @@ public class CentralSurfacesCommandQueueCallbacks implements CommandQueue.Callba
     private final VibrationEffect mCameraLaunchGestureVibrationEffect;
     private final SystemBarAttributesListener mSystemBarAttributesListener;
     private final SecureLockscreenQSDisabler mSecureLockscreenQSDisabler;
+    private final TaskHelper mTaskHelper;
 
 
     private static final VibrationAttributes HARDWARE_FEEDBACK_VIBRATION_ATTRIBUTES =
@@ -135,7 +137,8 @@ public class CentralSurfacesCommandQueueCallbacks implements CommandQueue.Callba
             DisableFlagsLogger disableFlagsLogger,
             @DisplayId int displayId,
             SystemBarAttributesListener systemBarAttributesListener,
-            SecureLockscreenQSDisabler secureLockscreenQSDisabler) {
+            SecureLockscreenQSDisabler secureLockscreenQSDisabler,
+            TaskHelper taskHelper) {
 
         mCentralSurfaces = centralSurfaces;
         mContext = context;
@@ -161,6 +164,7 @@ public class CentralSurfacesCommandQueueCallbacks implements CommandQueue.Callba
         mDisableFlagsLogger = disableFlagsLogger;
         mDisplayId = displayId;
         mSecureLockscreenQSDisabler = secureLockscreenQSDisabler;
+        mTaskHelper = taskHelper;
 
         mVibrateOnOpening = resources.getBoolean(R.bool.config_vibrateOnIconAnimation);
         mCameraLaunchGestureVibrationEffect = getCameraGestureVibrationEffect(
