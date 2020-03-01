@@ -232,6 +232,8 @@ interface IStatusBarService
     /** Shows rear display educational dialog */
     void showRearDisplayDialog(int currentBaseState);
 
+    void killForegroundApp();
+
     /**
      * Starts the default assistant app.
      */

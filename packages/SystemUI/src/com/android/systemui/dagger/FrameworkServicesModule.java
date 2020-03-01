@@ -118,6 +118,7 @@ import com.android.systemui.dagger.qualifiers.DisplayId;
 import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.dagger.qualifiers.TestHarness;
 import com.android.systemui.shared.system.PackageManagerWrapper;
+import com.android.systemui.statusbar.policy.TaskHelper;
 
 import dagger.Module;
 import dagger.Provides;
@@ -712,6 +713,12 @@ public class FrameworkServicesModule {
         return IUriGrantsManager.Stub.asInterface(
                 ServiceManager.getService(Context.URI_GRANTS_SERVICE)
         );
+    }
+
+    @Provides
+    @Singleton
+    public TaskHelper provideTaskHelper(Context context) {
+        return new TaskHelper(context);
     }
 
     @Provides

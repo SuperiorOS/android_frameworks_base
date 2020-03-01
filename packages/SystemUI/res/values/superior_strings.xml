@@ -140,4 +140,8 @@
      <string name="usage_data">used today</string>
      <string name="usage_data_default_suffix">Data</string>
      <string name="usage_wifi_default_suffix">Wi-Fi</string>
+
+     <!-- App kill -->
+     <string name="task_helper_app_killed">%1$s force stopped</string>
+     <string name="empty_app_killed">App</string>
 </resources>
