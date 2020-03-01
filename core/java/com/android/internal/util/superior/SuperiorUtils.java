@@ -236,6 +236,10 @@ public class SuperiorUtils {
         FireActions.toggleCameraFlash();
     }
 
+    public static void killForegroundApp() {
+        FireActions.killForegroundApp();
+    }
+
     /**
      * Keep FireAction methods below this point.
      * Place calls to methods above this point.
@@ -249,6 +253,17 @@ public class SuperiorUtils {
                             ServiceManager.getService("statusbar"));
                 }
                 return mStatusBarService;
+            }
+        }
+
+        public static void killForegroundApp() {
+            IStatusBarService service = getStatusBarService();
+            if (service != null) {
+                try {
+                    service.killForegroundApp();
+                } catch (RemoteException e) {
+                    // do nothing.
+                }
             }
         }
 
