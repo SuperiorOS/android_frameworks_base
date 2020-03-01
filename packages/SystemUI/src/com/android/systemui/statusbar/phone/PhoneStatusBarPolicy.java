@@ -62,6 +62,7 @@ import com.android.systemui.statusbar.policy.DataSaverController;
 import com.android.systemui.statusbar.policy.DataSaverController.Listener;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController;
 import com.android.systemui.statusbar.policy.DeviceProvisionedController.DeviceProvisionedListener;
+import com.android.systemui.statusbar.policy.FlashlightController;
 import com.android.systemui.statusbar.policy.HotspotController;
 import com.android.systemui.statusbar.policy.KeyguardMonitor;
 import com.android.systemui.statusbar.policy.LocationController;
@@ -113,6 +114,7 @@ public class PhoneStatusBarPolicy
     private final String mSlotCamera;
     private final String mSlotSensorsOff;
     private final String mSlotNfc;
+    private final String mSlotFlashlight;
 
     private final Context mContext;
     private final Handler mHandler = new Handler();
@@ -134,6 +136,7 @@ public class PhoneStatusBarPolicy
     private final SensorPrivacyController mSensorPrivacyController;
     private boolean mNfcVisible;
     private NfcAdapter mAdapter;
+    private final FlashlightController mFlashlightController;
 
     // Assume it's all good unless we hear otherwise.  We don't always seem
     // to get broadcasts that it *is* there.
@@ -166,6 +169,7 @@ public class PhoneStatusBarPolicy
         mLocationController = Dependency.get(LocationController.class);
         mPrivacyItemController = Dependency.get(PrivacyItemController.class);
         mSensorPrivacyController = Dependency.get(SensorPrivacyController.class);
+        mFlashlightController = Dependency.get(FlashlightController.class);
 
         mSlotCast = context.getString(com.android.internal.R.string.status_bar_cast);
         mSlotHotspot = context.getString(com.android.internal.R.string.status_bar_hotspot);
@@ -184,6 +188,7 @@ public class PhoneStatusBarPolicy
         mSlotCamera = context.getString(com.android.internal.R.string.status_bar_camera);
         mSlotSensorsOff = context.getString(com.android.internal.R.string.status_bar_sensors_off);
         mSlotNfc = context.getString(com.android.internal.R.string.status_bar_nfc);
+        mSlotFlashlight = context.getString(com.android.internal.R.string.status_bar_flashlight);
 
         // listen for broadcasts
         IntentFilter filter = new IntentFilter();
@@ -267,6 +272,11 @@ public class PhoneStatusBarPolicy
         mIconController.setIconVisibility(mSlotNfc, false);
         updateNfc();
 
+        // flashlight
+        mIconController.setIcon(mSlotFlashlight, R.drawable.stat_sys_flashlight,
+                mContext.getString(R.string.accessibility_quick_settings_flashlight_on));
+        mIconController.setIconVisibility(mSlotFlashlight, mFlashlightController.isEnabled());
+
         mRotationLockController.addCallback(this);
         mBluetooth.addCallback(this);
         mProvisionedController.addCallback(this);
@@ -279,6 +289,7 @@ public class PhoneStatusBarPolicy
         mPrivacyItemController.addCallback(this);
         mSensorPrivacyController.addCallback(mSensorPrivacyListener);
         mLocationController.addCallback(this);
+        mFlashlightController.addCallback(mFlashlightListener);
 
         SysUiServiceProvider.getComponent(mContext, CommandQueue.class).addCallback(this);
     }
@@ -602,6 +613,30 @@ public class PhoneStatusBarPolicy
                 public void onSensorPrivacyChanged(boolean enabled) {
                     mHandler.post(() -> {
                         mIconController.setIconVisibility(mSlotSensorsOff, enabled);
+                    });
+                }
+            };
+
+    private final FlashlightController.FlashlightListener mFlashlightListener =
+            new FlashlightController.FlashlightListener() {
+                @Override
+                public void onFlashlightChanged(boolean enabled) {
+                    mHandler.post(() -> {
+                        mIconController.setIconVisibility(mSlotFlashlight, enabled);
+                    });
+                }
+
+                @Override
+                public void onFlashlightAvailabilityChanged(boolean available) {
+                    mHandler.post(() -> {
+                        mIconController.setIconVisibility(mSlotFlashlight, false);
+                    });
+                }
+
+                @Override
+                public void onFlashlightError() {
+                    mHandler.post(() -> {
+                        mIconController.setIconVisibility(mSlotFlashlight, false);
                     });
                 }
             };
