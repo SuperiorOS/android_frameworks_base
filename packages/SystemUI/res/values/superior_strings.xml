@@ -185,8 +185,9 @@
 
     <!-- Long swipe gesture actions -->
     <string name="app_picker_dialog_title">Select an app</string>
-
     <string name="active_edge_app_select_title">Select app</string>
     <string name="active_edge_activity_select_title">Select activity</string>
+    <string name="recents_app_killed">App killed</string>
+    <string name="nope_cant_kill">Launcher cannot be killed</string>
 
 </resources>
