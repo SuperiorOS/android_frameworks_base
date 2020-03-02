@@ -94,6 +94,7 @@ public class PagedTileLayout extends ViewPager implements QSTileLayout {
         super.onConfigurationChanged(newConfig);
         if (mLayoutOrientation != newConfig.orientation) {
             mLayoutOrientation = newConfig.orientation;
+            mDistributeTiles = true;
             setCurrentItem(0, false);
             mPageToRestore = 0;
         }
@@ -253,7 +254,7 @@ public class PagedTileLayout extends ViewPager implements QSTileLayout {
         } else {
             numPages = nTiles / mPages.get(0).maxTiles();
             // Add one more not full page if needed
-            numPages += numPages * mPages.get(0).maxTiles() > nTiles ? 0 : 1;
+            numPages += numPages * mPages.get(0).maxTiles() >= nTiles ? 0 : 1;
         }
 
         final int NP = mPages.size();
@@ -310,12 +311,10 @@ public class PagedTileLayout extends ViewPager implements QSTileLayout {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-
         final int nTiles = mTiles.size();
         // If we have no reason to recalculate the number of rows, skip this step. In particular,
         // if the height passed by its parent is the same as the last time, we try not to remeasure.
         if (mDistributeTiles || mLastMaxHeight != MeasureSpec.getSize(heightMeasureSpec)) {
-
             mLastMaxHeight = MeasureSpec.getSize(heightMeasureSpec);
             // Only change the pages if the number of rows or columns (from updateResources) has
             // changed or the tiles have changed
