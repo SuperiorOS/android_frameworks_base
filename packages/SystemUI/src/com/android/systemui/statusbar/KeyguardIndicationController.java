@@ -21,9 +21,12 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
+import android.content.ContentResolver;
+import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.hardware.biometrics.BiometricSourceType;
 import android.hardware.face.FaceManager;
 import android.hardware.fingerprint.FingerprintManager;
@@ -39,8 +42,10 @@ import android.provider.Settings;
 import android.text.TextUtils;
 import android.text.format.Formatter;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import com.airbnb.lottie.LottieAnimationView;
 
@@ -74,6 +79,8 @@ import java.io.PrintWriter;
 import java.text.NumberFormat;
 import java.util.IllegalFormatConversionException;
 
+import vendor.lineage.biometrics.fingerprint.inscreen.V1_0.IFingerprintInscreen;
+
 /**
  * Controls the indications and error messages shown on the Keyguard
  */
@@ -99,7 +106,12 @@ public class KeyguardIndicationController implements StateListener,
     private KeyguardIndicationTextView mTextView;
     private KeyguardIndicationTextView mDisclosure;
     private LottieAnimationView mChargingIndicationView;
-    private boolean mChargingIndication = true;
+    private LottieAnimationView mChargingIndicationBat;
+    private LottieAnimationView mChargingIndicationDrop;
+    private LottieAnimationView mChargingIndicationExplosion;
+    private LottieAnimationView mChargingIndicationWater;
+    private int mChargingIndication;
+    private int mFODPositionY = 0;
     private final UserManager mUserManager;
     private final IBatteryStats mBatteryInfo;
     private final SettableWakeLock mWakeLock;
@@ -132,6 +144,8 @@ public class KeyguardIndicationController implements StateListener,
     private String mMessageToShowOnScreenOn;
 
     private KeyguardUpdateMonitorCallback mUpdateMonitorCallback;
+
+    private boolean mBiometricHelpShowOnlyWhenFailed = false;
 
     private final DevicePolicyManager mDevicePolicyManager;
     private boolean mDozing;
@@ -203,6 +217,8 @@ public class KeyguardIndicationController implements StateListener,
         mKeyguardUpdateMonitor.registerCallback(mTickReceiver);
         mStatusBarStateController.addCallback(this);
         mUnlockMethodCache.addListener(this);
+
+        mBiometricHelpShowOnlyWhenFailed = res.getBoolean(R.bool.config_biometricHelpShowOnlyWhenFailed);
     }
 
     public void setIndicationArea(ViewGroup indicationArea) {
@@ -213,6 +229,25 @@ public class KeyguardIndicationController implements StateListener,
         mDisclosure = indicationArea.findViewById(R.id.keyguard_indication_enterprise_disclosure);
         mChargingIndicationView = (LottieAnimationView) indicationArea.findViewById(
                 R.id.charging_indication);
+        mChargingIndicationBat = (LottieAnimationView) indicationArea.findViewById(
+              R.id.charging_indication_1);
+        mChargingIndicationDrop = (LottieAnimationView) indicationArea.findViewById(
+              R.id.charging_indication_2);
+        mChargingIndicationExplosion = (LottieAnimationView) indicationArea.findViewById(
+              R.id.charging_indication_3);
+        mChargingIndicationWater = (LottieAnimationView) indicationArea.findViewById(
+              R.id.charging_indication_4);
+        if (hasActiveInDisplayFp()) {
+            try {
+                IFingerprintInscreen daemon = IFingerprintInscreen.getService();
+                mFODPositionY = daemon.getPositionY();
+            } catch (RemoteException e) {
+                // do nothing
+            }
+            if (mFODPositionY <= 0) {
+                mFODPositionY = 0;
+            }
+        }
         updateIndication(false /* animate */);
     }
 
@@ -463,17 +498,129 @@ public class KeyguardIndicationController implements StateListener,
         }
     }
 
-    public void updateChargingIndication(boolean visible) {
-        mChargingIndication = visible;
+    private boolean hasActiveInDisplayFp() {
+        boolean hasInDisplayFingerprint = mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_needCustomFODView);
+        int userId = KeyguardUpdateMonitor.getCurrentUser();
+        FingerprintManager fpm = (FingerprintManager) mContext.getSystemService(Context.FINGERPRINT_SERVICE);
+        return hasInDisplayFingerprint && fpm.getEnrolledFingerprints(userId).size() > 0;
     }
 
-    private void updateChargingIndication() {
-        if (mChargingIndication && !mDozing && mPowerPluggedIn) {
-            mChargingIndicationView.setVisibility(View.VISIBLE);
-            mChargingIndicationView.playAnimation();
+    public void updateChargingIndication() {
+        final ContentResolver resolver = mContext.getContentResolver();
+        mChargingIndication = Settings.System.getIntForUser(resolver,
+                Settings.System.LOCKSCREEN_CHARGING_ANIMATION, 1, UserHandle.USER_CURRENT);
+
+        if (mPowerPluggedIn) {
+            switch (mChargingIndication) {
+                case 0: // hidden
+                    mChargingIndicationView.setVisibility(View.GONE);
+                    mChargingIndicationBat.setVisibility(View.GONE);
+                    mChargingIndicationDrop.setVisibility(View.GONE);
+                    mChargingIndicationExplosion.setVisibility(View.GONE);
+                    mChargingIndicationWater.setVisibility(View.GONE);
+                    break;
+                case 1: // Flash
+                    mChargingIndicationView.setVisibility(View.VISIBLE);
+                    mChargingIndicationView.playAnimation();
+                    mChargingIndicationBat.setVisibility(View.GONE);
+                    mChargingIndicationDrop.setVisibility(View.GONE);
+                    mChargingIndicationExplosion.setVisibility(View.GONE);
+                    mChargingIndicationWater.setVisibility(View.GONE);
+                    break;
+                case 2: // Battery
+                    mChargingIndicationBat.setVisibility(View.VISIBLE);
+                    mChargingIndicationBat.playAnimation();
+                    mChargingIndicationView.setVisibility(View.GONE);
+                    mChargingIndicationDrop.setVisibility(View.GONE);
+                    mChargingIndicationExplosion.setVisibility(View.GONE);
+                    mChargingIndicationWater.setVisibility(View.GONE);
+                    break;
+                case 3: // Drop
+                    mChargingIndicationDrop.setVisibility(View.VISIBLE);
+                    mChargingIndicationDrop.playAnimation();
+                    mChargingIndicationView.setVisibility(View.GONE);
+                    mChargingIndicationBat.setVisibility(View.GONE);
+                    mChargingIndicationExplosion.setVisibility(View.GONE);
+                    mChargingIndicationWater.setVisibility(View.GONE);
+                    break;
+                case 4: // Explosion
+                    mChargingIndicationExplosion.setVisibility(View.VISIBLE);
+                    mChargingIndicationExplosion.playAnimation();
+                    mChargingIndicationView.setVisibility(View.GONE);
+                    mChargingIndicationBat.setVisibility(View.GONE);
+                    mChargingIndicationDrop.setVisibility(View.GONE);
+                    mChargingIndicationWater.setVisibility(View.GONE);
+                    break;
+                case 5: // Water
+                    mChargingIndicationWater.setVisibility(View.VISIBLE);
+                    mChargingIndicationWater.playAnimation();
+                    mChargingIndicationView.setVisibility(View.GONE);
+                    mChargingIndicationBat.setVisibility(View.GONE);
+                    mChargingIndicationDrop.setVisibility(View.GONE);
+                    mChargingIndicationExplosion.setVisibility(View.GONE);
+                    break;
+            }
+            if (hasActiveInDisplayFp()) {
+                if (mFODPositionY != 0) {
+                    // Get screen height
+                    WindowManager windowManager = mContext.getSystemService(WindowManager.class);
+                    Display defaultDisplay = windowManager.getDefaultDisplay();
+                    Point size = new Point();
+                    defaultDisplay.getRealSize(size);
+                    int screenHeight = size.y;
+                    // Correct FOD position if cutout is hidden
+                    int statusbarHeight = mContext.getResources().getDimensionPixelSize(
+                            com.android.internal.R.dimen.status_bar_height_portrait);
+                    boolean cutoutMasked = mContext.getResources().getBoolean(
+                            com.android.internal.R.bool.config_maskMainBuiltInDisplayCutout);
+                    int fodPositionY = mFODPositionY;
+                    if (cutoutMasked) {
+                        fodPositionY = mFODPositionY - statusbarHeight;
+                    }
+                    // Get indication text height
+                    int textViewHeight = mTextView.getMeasuredHeight();
+                    // Get bottom margin height
+                    int marginBottom = mContext.getResources().getDimensionPixelSize(
+                            R.dimen.keyguard_indication_margin_bottom_fingerprint_in_display);
+                    // Calculate charging indication margin
+                    int animationMargin = (screenHeight - fodPositionY) - (textViewHeight + marginBottom) + 10;
+                    // Set position of charging indication
+                    ViewGroup.MarginLayoutParams params =
+                            (ViewGroup.MarginLayoutParams) mChargingIndicationView.getLayoutParams();
+                    params.setMargins(0, 0, 0, animationMargin);
+                    ViewGroup.MarginLayoutParams paramsBat =
+                            (ViewGroup.MarginLayoutParams) mChargingIndicationBat.getLayoutParams();
+                    paramsBat.setMargins(0, 0, 0, animationMargin);
+                    ViewGroup.MarginLayoutParams paramsDrop =
+                            (ViewGroup.MarginLayoutParams) mChargingIndicationDrop.getLayoutParams();
+                    paramsDrop.setMargins(0, 0, 0, animationMargin);
+                    ViewGroup.MarginLayoutParams paramsExp =
+                            (ViewGroup.MarginLayoutParams) mChargingIndicationExplosion.getLayoutParams();
+                    paramsExp.setMargins(0, 0, 0, animationMargin);
+                    ViewGroup.MarginLayoutParams paramsWat =
+                            (ViewGroup.MarginLayoutParams) mChargingIndicationWater.getLayoutParams();
+                    paramsWat.setMargins(0, 0, 0, animationMargin);
+                    if (mChargingIndication == 1) {
+                        mChargingIndicationView.setLayoutParams(params);
+                    } else if (mChargingIndication == 2) {
+                        mChargingIndicationBat.setLayoutParams(paramsBat);
+                    } else if (mChargingIndication == 3) {
+                        mChargingIndicationDrop.setLayoutParams(paramsDrop);
+                    } else if (mChargingIndication == 4) {
+                        mChargingIndicationExplosion.setLayoutParams(paramsExp);
+                    } else if (mChargingIndication == 5) {
+                        mChargingIndicationWater.setLayoutParams(paramsWat);
+                    }
+                }
+            }
         } else {
             mChargingIndicationView.setVisibility(View.GONE);
-        }
+            mChargingIndicationBat.setVisibility(View.GONE);
+            mChargingIndicationDrop.setVisibility(View.GONE);
+            mChargingIndicationExplosion.setVisibility(View.GONE);
+            mChargingIndicationWater.setVisibility(View.GONE);
+	}
     }
 
     // animates textView - textView moves up and bounces down
@@ -748,6 +895,9 @@ public class KeyguardIndicationController implements StateListener,
         @Override
         public void onBiometricHelp(int msgId, String helpString,
                 BiometricSourceType biometricSourceType) {
+            if (mBiometricHelpShowOnlyWhenFailed && msgId != -1){
+                return;
+            }
             if (!mKeyguardUpdateMonitor.isUnlockingWithBiometricAllowed()) {
                 return;
             }

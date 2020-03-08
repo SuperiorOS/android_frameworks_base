@@ -556,8 +556,8 @@ public class StatusBar extends SystemUI implements DemoMode,
     // LS visualizer on Ambient Display
     private boolean mAmbientVisualizer;
 
-    private boolean mChargingAnimation;
     private boolean mShowNavBar;
+    private int mChargingAnimation;
 
     private boolean mWallpaperSupportsAmbientMode;
     private final BroadcastReceiver mWallpaperChangedReceiver = new BroadcastReceiver() {
@@ -4556,6 +4556,14 @@ public class StatusBar extends SystemUI implements DemoMode,
             mPresenter.setHeadsUpBlacklist();
     }
 
+    private void updateChargingAnimation() {
+        mChargingAnimation = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCKSCREEN_CHARGING_ANIMATION, 1, UserHandle.USER_CURRENT);
+        if (mKeyguardIndicationController != null) {
+            mKeyguardIndicationController.updateChargingIndication();
+        }
+    }
+
     private void setPulseOnNewTracks() {
         final KeyguardSliceProvider sliceProvider = KeyguardSliceProvider.getAttachedInstance();
         if (sliceProvider != null) {
@@ -4597,14 +4605,6 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     public int getWakefulnessState() {
         return mWakefulnessLifecycle.getWakefulness();
-    }
-
-    private void updateChargingAnimation() {
-        mChargingAnimation = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.LOCKSCREEN_CHARGING_ANIMATION, 1, UserHandle.USER_CURRENT) == 1;
-        if (mKeyguardIndicationController != null) {
-            mKeyguardIndicationController.updateChargingIndication(mChargingAnimation);
-        }
     }
 
     private void vibrateForCameraGesture() {
