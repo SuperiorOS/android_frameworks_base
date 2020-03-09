@@ -538,7 +538,8 @@ public class FODCircleView extends ImageView {
 class FODAnimation extends ImageView {
 
     private Context mContext;
-    private int mAnimationPositionY;
+    private int mAnimationSize;
+    private int mAnimationOffset;
     private LayoutInflater mInflater;
     private WindowManager mWindowManager;
     private boolean mShowing = false;
@@ -573,17 +574,17 @@ class FODAnimation extends ImageView {
         mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mWindowManager = mContext.getSystemService(WindowManager.class);
 
-        mAnimParams.height = mContext.getResources().getDimensionPixelSize(R.dimen.fod_animation_size);
-        mAnimParams.width = mContext.getResources().getDimensionPixelSize(R.dimen.fod_animation_size);
-
-        mAnimationPositionY = (int) Math.round(mPositionY - (mContext.getResources().getDimensionPixelSize(R.dimen.fod_animation_size) / 2));
+        mAnimationSize = mContext.getResources().getDimensionPixelSize(R.dimen.fod_animation_size);
+        mAnimationOffset = mContext.getResources().getDimensionPixelSize(R.dimen.fod_animation_offset);
+        mAnimParams.height = mAnimationSize;
+        mAnimParams.width = mAnimationSize;
 
         mAnimParams.format = PixelFormat.TRANSLUCENT;
         mAnimParams.type = WindowManager.LayoutParams.TYPE_VOLUME_OVERLAY; // it must be behind FOD icon
         mAnimParams.flags =  WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
                 | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL | WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS;
         mAnimParams.gravity = Gravity.TOP | Gravity.CENTER;
-        mAnimParams.y = mAnimationPositionY;
+        mAnimParams.y = mPositionY - (mAnimationSize / 2) + mAnimationOffset;
 
         this.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         update();
@@ -598,8 +599,7 @@ class FODAnimation extends ImageView {
     }
 
     public void updateParams(int mDreamingOffsetY) {
-        mAnimationPositionY = (int) Math.round(mDreamingOffsetY - (mContext.getResources().getDimensionPixelSize(R.dimen.fod_animation_size) / 2));
-        mAnimParams.y = mAnimationPositionY;
+       mAnimParams.y = mDreamingOffsetY - (mAnimationSize / 2) + mAnimationOffset;
     }
 
     public void setAnimationKeyguard(boolean state) {
