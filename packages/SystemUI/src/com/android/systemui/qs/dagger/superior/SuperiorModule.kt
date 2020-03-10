@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 SuperiorOS
+ * Copyright (C) 2024 The SuperiorOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,15 +17,16 @@
 package com.android.systemui.qs.dagger.superior
 
 import com.android.systemui.qs.tileimpl.QSTileImpl
-import com.android.systemui.qs.tiles.CellularTile
-import com.android.systemui.qs.tiles.CompassTile
-import com.android.systemui.qs.tiles.WifiTile
-import com.android.systemui.qs.tiles.HeadsUpTile
 import com.android.systemui.qs.tiles.AmbientDisplayTile
 import com.android.systemui.qs.tiles.AODTile
 import com.android.systemui.qs.tiles.CaffeineTile
-import com.android.systemui.qs.tiles.SoundTile
+import com.android.systemui.qs.tiles.CellularTile
+import com.android.systemui.qs.tiles.CompassTile
+import com.android.systemui.qs.tiles.FPSInfoTile
+import com.android.systemui.qs.tiles.HeadsUpTile
 import com.android.systemui.qs.tiles.PowerShareTile
+import com.android.systemui.qs.tiles.SoundTile
+import com.android.systemui.qs.tiles.WifiTile
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -33,6 +34,18 @@ import dagger.multibindings.StringKey
 
 @Module
 interface SuperiorModule {
+
+    /** Inject AODTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(AODTile.TILE_SPEC)
+    fun bindAODTile(aodTile: AODTile): QSTileImpl<*>
+
+    /** Inject AmbientDisplayTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(AmbientDisplayTile.TILE_SPEC)
+    fun bindAmbientDisplayTile(ambientDisplayTile: AmbientDisplayTile): QSTileImpl<*>
 
     /** Inject CaffeineTile into tileMap in QSModule */
     @Binds
@@ -46,17 +59,17 @@ interface SuperiorModule {
     @StringKey(CellularTile.TILE_SPEC)
     fun bindCellularTile(cellularTile: CellularTile): QSTileImpl<*>
 
-    /** Inject WifiTile into tileMap in QSModule */
-    @Binds
-    @IntoMap
-    @StringKey(WifiTile.TILE_SPEC)
-    fun bindWifiTile(wifiTile: WifiTile): QSTileImpl<*>
-
     /** Inject CompassTile into tileMap in QSModule */
     @Binds
     @IntoMap
     @StringKey(CompassTile.TILE_SPEC)
     fun bindCompassTile(compassTile: CompassTile): QSTileImpl<*>
+
+    /** Inject FPSInfoTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(FPSInfoTile.TILE_SPEC)
+    fun bindFPSInfoTile(fpsInfoTile: FPSInfoTile): QSTileImpl<*>
 
     /** Inject HeadsUpTile into tileMap in QSModule */
     @Binds
@@ -64,11 +77,11 @@ interface SuperiorModule {
     @StringKey(HeadsUpTile.TILE_SPEC)
     fun bindHeadsUpTile(headsUpTile: HeadsUpTile): QSTileImpl<*>
 
-    /** Inject AmbientDisplayTile into tileMap in QSModule */
+    /** Inject PowerShareTile into tileMap in QSModule */
     @Binds
     @IntoMap
-    @StringKey(AmbientDisplayTile.TILE_SPEC)
-    fun bindAmbientDisplayTile(ambientDisplayTile: AmbientDisplayTile): QSTileImpl<*>
+    @StringKey(PowerShareTile.TILE_SPEC)
+    fun bindPowerShareTile(powerShareTile: PowerShareTile): QSTileImpl<*>
 
     /** Inject SoundTile into tileMap in QSModule */
     @Binds
@@ -76,15 +89,9 @@ interface SuperiorModule {
     @StringKey(SoundTile.TILE_SPEC)
     fun bindSoundTile(soundTile: SoundTile): QSTileImpl<*>
 
-    /** Inject AODTile into tileMap in QSModule */
+    /** Inject WifiTile into tileMap in QSModule */
     @Binds
     @IntoMap
-    @StringKey(AODTile.TILE_SPEC)
-    fun bindAODTile(aodTile: AODTile): QSTileImpl<*>
-
-    /** Inject PowerShareTile into tileMap in QSModule */
-    @Binds
-    @IntoMap
-    @StringKey(PowerShareTile.TILE_SPEC)
-    fun bindPowerShareTile(powerShareTile: PowerShareTile): QSTileImpl<*>
+    @StringKey(WifiTile.TILE_SPEC)
+    fun bindWifiTile(wifiTile: WifiTile): QSTileImpl<*>
 }

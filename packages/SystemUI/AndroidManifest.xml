@@ -503,6 +503,9 @@
         <service android:name=".recordissue.IssueRecordingService"
                  android:foregroundServiceType="systemExempted"/>
 
+        <service android:name="com.android.systemui.FPSInfoService"
+                 android:exported="true" />
+
         <receiver android:name=".SysuiRestartReceiver"
             android:exported="false">
             <intent-filter>
