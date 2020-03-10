@@ -136,4 +136,7 @@
      <string name="tristate_rotation_0">Portrait</string>
      <string name="tristate_rotation_90">Landscape (90°)</string>
      <string name="tristate_rotation_270">Landscape (270°)</string>
+
+     <!-- FPS Info tile -->
+     <string name="quick_settings_fpsinfo_label">FPS Info</string>
 </resources>
