@@ -141,7 +141,8 @@ public class StatusBarWindowView extends FrameLayout {
         AmbientDisplayConfiguration configuration = new AmbientDisplayConfiguration(mContext);
         switch (key) {
             case Settings.Secure.DOZE_DOUBLE_TAP_GESTURE:
-                mDoubleTapEnabled = configuration.doubleTapGestureEnabled(UserHandle.USER_CURRENT);
+                mDoubleTapEnabled = Settings.Secure.getIntForUser(mContext.getContentResolver(),
+                        Settings.Secure.DOZE_DOUBLE_TAP_GESTURE, 1, UserHandle.USER_CURRENT) == 1;
                 break;
             case Settings.Secure.DOZE_TAP_SCREEN_GESTURE:
                 mSingleTapEnabled = configuration.tapGestureEnabled(UserHandle.USER_CURRENT);
