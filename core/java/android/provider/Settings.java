@@ -5377,16 +5377,6 @@ public final class Settings {
         public static final String GAMING_MODE_DYNAMIC_STATE = "gaming_mode_dynamic_state";
 
         /**
-         * Force show navigation bar setting.
-         * @hide
-         */
-        public static final String FORCE_SHOW_NAVBAR = "force_show_navbar";
-
-         /** @hide */
-        public static final Validator FORCE_SHOW_NAVBAR_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
          * Which Vibration Pattern to use
          * 0: dzzz-dzzz
          * 1: dzzz-da
@@ -6130,7 +6120,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(HEADS_UP_NOTIFICATION_SNOOZE);
             PRIVATE_SETTINGS.add(HEADS_UP_TIMEOUT);
             PRIVATE_SETTINGS.add(LESS_BORING_HEADS_UP);
-            PRIVATE_SETTINGS.add(FORCE_SHOW_NAVBAR);
             PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT);
             PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC);
             PRIVATE_SETTINGS.add(OMNI_STATUS_BAR_CUSTOM_HEADER);
@@ -6309,7 +6298,6 @@ public final class Settings {
             VALIDATORS.put(HEADS_UP_NOTIFICATION_SNOOZE,HEADS_UP_NOTIFICATION_SNOOZE_VALIDATOR);
             VALIDATORS.put(HEADS_UP_TIMEOUT,HEADS_UP_TIMEOUT_VALIDATOR);
             VALIDATORS.put(LESS_BORING_HEADS_UP, LESS_BORING_HEADS_UP_VALIDATOR);
-            VALIDATORS.put(FORCE_SHOW_NAVBAR, FORCE_SHOW_NAVBAR_VALIDATOR);
             VALIDATORS.put(OMNI_STATUS_BAR_CUSTOM_HEADER,
                     OMNI_STATUS_BAR_CUSTOM_HEADER_VALIDATOR);
             VALIDATORS.put(OMNI_STATUS_BAR_CUSTOM_HEADER_SHADOW,
