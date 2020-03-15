@@ -458,6 +458,12 @@ public class PhoneStatusBarPolicy
                         break;
                     }
                 }
+            if (mBluetooth.isBluetoothConnected()
+                    && (mBluetooth.isBluetoothAudioActive()
+                    || !mBluetooth.isBluetoothAudioProfileOnly())) {
+                contentDescription = mContext.getString(
+                        R.string.accessibility_bluetooth_connected);
+                bluetoothVisible = mBluetooth.isBluetoothEnabled();
             }
         }
 
