@@ -68,6 +68,7 @@ LOCAL_REQUIRED_MODULES := \
 	FontOneplusSlateSource \
 	FontSamsungOneSourceOverlay \
 	FontNokiaPureSourceOverlay \
+	FontNunitoSourceOverlay \
 	FontFifa2018SourceOverlay \
 	FontCoconSourceOverlay \
 	FontQuandoSourceOverlay \
