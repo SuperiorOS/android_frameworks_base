@@ -580,7 +580,7 @@ public class KeyguardSliceProvider extends SliceProvider implements
     public void onMetadataOrStateChanged(MediaMetadata metadata, @PlaybackState.State int state) {
         synchronized (this) {
             boolean nextVisible = NotificationMediaManager.isPlayingState(state) || mMediaManager.getNowPlayingTrack() != null;
-            mHandler.removeCallbacksAndMessages(mMediaToken);
+            mMediaHandler.removeCallbacksAndMessages(null);
             if (mMediaIsVisible && !nextVisible && mStatusBarState != StatusBarState.SHADE) {
                 // We need to delay this event for a few millis when stopping to avoid jank in the
                 // animation. The media app might not send its update when buffering, and the slice

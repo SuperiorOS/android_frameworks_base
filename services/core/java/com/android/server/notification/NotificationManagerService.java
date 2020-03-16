@@ -4235,6 +4235,7 @@ public class NotificationManagerService extends SystemService {
         @Override
         public void forcePulseLedLight(int color, int onTime, int offTime) {
             forcePulseLed(color, onTime, offTime);
+        }
 
         /**
          * Get stats committed after startNs

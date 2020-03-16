@@ -597,9 +597,6 @@ public class StatusBar extends SystemUI implements DemoMode,
     private KeyguardUserSwitcher mKeyguardUserSwitcher;
     protected UserSwitcherController mUserSwitcherController;
     private CurrentUserTracker mUserTracker;
-    private NetworkController mNetworkController;
-    private KeyguardMonitor mKeyguardMonitor = Dependency.get(KeyguardMonitor.class);
-    private BatteryController mBatteryController;
     protected NetworkController mNetworkController;
     protected KeyguardMonitor mKeyguardMonitor;
     protected BatteryController mBatteryController;
@@ -723,14 +720,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         }
 
         mNotificationListener.registerAsSystemService();
-        mNetworkController = Dependency.get(NetworkController.class);
-        mUserSwitcherController = Dependency.get(UserSwitcherController.class);
-        mScreenLifecycle = Dependency.get(ScreenLifecycle.class);
-        mScreenLifecycle.addObserver(mScreenObserver);
-        mWakefulnessLifecycle = Dependency.get(WakefulnessLifecycle.class);
-        mWakefulnessLifecycle.addObserver(mWakefulnessObserver);
-        mBatteryController = Dependency.get(BatteryController.class);
-        mAssistManager = Dependency.get(AssistManager.class);
         mOverlayManager = IOverlayManager.Stub.asInterface(
                 ServiceManager.getService(Context.OVERLAY_SERVICE));
         if (mBubbleController != null) {
@@ -739,17 +728,9 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         mUiModeManager = mContext.getSystemService(UiModeManager.class);
         mKeyguardViewMediator = getComponent(KeyguardViewMediator.class);
-        mColorExtractor = Dependency.get(SysuiColorExtractor.class);
-        mDeviceProvisionedController = Dependency.get(DeviceProvisionedController.class);
-        mNavigationBarController = Dependency.get(NavigationBarController.class);
-        mNavigationBarSystemUiVisibility = mNavigationBarController.createSystemUiVisibility();
-        mBubbleController = Dependency.get(BubbleController.class);
-        mBubbleController.setExpandListener(mBubbleExpandListener);
         mActivityIntentHelper = new ActivityIntentHelper(mContext);
         final KeyguardSliceProvider sliceProvider = KeyguardSliceProvider.getAttachedInstance();
-        mActivityIntentHelper = new ActivityIntentHelper(mContext);
 
-        KeyguardSliceProvider sliceProvider = KeyguardSliceProvider.getAttachedInstance();
         if (sliceProvider != null) {
             sliceProvider.initDependencies(mMediaManager, mStatusBarStateController,
                     mKeyguardBypassController, DozeParameters.getInstance(mContext));
@@ -838,11 +819,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         };
         mUserTracker.startTracking();
 
-        // Make sure we always have the most current wallpaper info.
-        IntentFilter wallpaperChangedFilter = new IntentFilter(Intent.ACTION_WALLPAPER_CHANGED);
-        mContext.registerReceiverAsUser(mWallpaperChangedReceiver, UserHandle.ALL,
-                wallpaperChangedFilter, null /* broadcastPermission */, null /* scheduler */);
-        mWallpaperChangedReceiver.onReceive(mContext, null);
         if (mWallpaperSupported) {
             // Make sure we always have the most current wallpaper info.
             IntentFilter wallpaperChangedFilter = new IntentFilter(Intent.ACTION_WALLPAPER_CHANGED);
@@ -1114,29 +1090,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                 mStatusBarWindow::onShowingLaunchAffordanceChanged);
 
         // Set up the quick settings tile panel
-        View container = mStatusBarWindow.findViewById(R.id.qs_frame);
-        if (container != null) {
-            FragmentHostManager fragmentHostManager = FragmentHostManager.get(container);
-            ExtensionFragmentListener.attachExtensonToFragment(container, QS.TAG, R.id.qs_frame,
-                    Dependency.get(ExtensionController.class)
-                            .newExtension(QS.class)
-                            .withPlugin(QS.class)
-                            .withDefault(this::createDefaultQSFragment)
-                            .build());
-            mBrightnessMirrorController = new BrightnessMirrorController(mContext, mStatusBarWindow,
-                    (visible) -> {
-                        mBrightnessMirrorVisible = visible;
-                        updateScrimController();
-                    });
-            fragmentHostManager.addTagListener(QS.TAG, (tag, f) -> {
-                QS qs = (QS) f;
-                if (qs instanceof QSFragment) {
-                    mQSPanel = ((QSFragment) qs).getQsPanel();
-                    mQSPanel.setBrightnessMirror(mBrightnessMirrorController);
-                    mQuickQSPanel = ((QSFragment) qs).getQuickQsPanel();
-                }
-            });
-        }
         setUpQuickSettingsTilePanel();
 
 
@@ -1325,7 +1278,7 @@ public class StatusBar extends SystemUI implements DemoMode,
                             .withPlugin(QS.class)
                             .withDefault(this::createDefaultQSFragment)
                             .build());
-            mBrightnessMirrorController = new BrightnessMirrorController(mStatusBarWindow,
+            mBrightnessMirrorController = new BrightnessMirrorController(mContext, mStatusBarWindow,
                     (visible) -> {
                         mBrightnessMirrorVisible = visible;
                         updateScrimController();
