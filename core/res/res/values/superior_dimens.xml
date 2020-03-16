@@ -16,4 +16,5 @@
 
 <resources>
     <dimen name="toast_elevation">4dp</dimen>
+    <dimen name="quick_qs_total_height_extra">188dp</dimen>
 </resources>

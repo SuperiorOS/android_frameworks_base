@@ -63,4 +63,7 @@
     <!-- QS header data usage -->
     <dimen name="qs_datausage_icon_size">16sp</dimen>
 
+    <!-- QS Panel -->
+    <dimen name="qs_quick_header_panel_height_extra">140dp</dimen>
+
 </resources>

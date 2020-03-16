@@ -162,4 +162,7 @@
     <!-- Whether to show activity indicators in the status bar -->
     <java-symbol type="bool" name="config_showActivity" />  
 
+    <!-- QS -->
+    <java-symbol type="dimen" name="quick_qs_total_height_extra" />
+
 </resources>
