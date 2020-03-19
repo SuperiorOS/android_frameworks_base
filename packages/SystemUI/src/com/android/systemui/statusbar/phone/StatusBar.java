@@ -728,6 +728,8 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         mUiModeManager = mContext.getSystemService(UiModeManager.class);
         mKeyguardViewMediator = getComponent(KeyguardViewMediator.class);
+        mNavigationBarController = Dependency.get(NavigationBarController.class);
+        mNavigationBarSystemUiVisibility = mNavigationBarController.createSystemUiVisibility();
         mActivityIntentHelper = new ActivityIntentHelper(mContext);
         final KeyguardSliceProvider sliceProvider = KeyguardSliceProvider.getAttachedInstance();
 
@@ -1088,9 +1090,7 @@ public class StatusBar extends SystemUI implements DemoMode,
 
         mNotificationPanel.setLaunchAffordanceListener(
                 mStatusBarWindow::onShowingLaunchAffordanceChanged);
-
-        // Set up the quick settings tile panel
-        setUpQuickSettingsTilePanel();
+                setUpQuickSettingsTilePanel();
 
 
         mReportRejectedTouch = mStatusBarWindow.findViewById(R.id.report_rejected_touch);
