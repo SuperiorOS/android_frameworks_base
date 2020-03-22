@@ -104,8 +104,6 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
 
     private OnClickListener mExpandClickListener;
 
-    private boolean isSettingButtonEnabled = false;
-
     /*private final ContentObserver mDeveloperSettingsObserver = new ContentObserver(
             new Handler(mContext.getMainLooper())) {
         @Override
@@ -120,8 +118,6 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         @Override
         public void onChange(boolean selfChange, Uri uri) {
             super.onChange(selfChange, uri);
-            isSettingButtonEnabled = Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.SETTING_BUTTON_TOGGLE, 0) == 1;
             updateResources();
             updateEverything();
         }
@@ -232,7 +228,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
                 .addFloat(mActionsContainer, "alpha", 1, 1) // contains mRunningServicesButton
                 .addFloat(mMultiUserAvatar, "alpha", 0, 1)
                 .addFloat(mEditContainer, "alpha", 0, 1)
-                .addFloat(mDragHandle, "alpha", isSettingButtonEnabled ? 0 : 1, 0, 0)
+                .addFloat(mDragHandle, "alpha", isSettingButtonEnabled() ? 0 : 1, 0, 0)
                 .addFloat(mPageIndicator, "alpha", 0, 1)
                 .setStartDelay(0.15f)
                 .build();
@@ -339,7 +335,7 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         mMultiUserSwitch.setVisibility(showUserSwitcher() ? View.VISIBLE : View.INVISIBLE);
         mEditContainer.setVisibility(isDemo || !mExpanded ? View.INVISIBLE : View.VISIBLE);
         mEdit.setVisibility(isEditEnabled() ? View.VISIBLE : View.GONE);
-        mSettingsButton.setVisibility(!isSettingButtonEnabled ? isDemo || !mExpanded ? View.GONE : View.VISIBLE : View.VISIBLE);
+        mSettingsButton.setVisibility(!isSettingButtonEnabled() ? isDemo || !mExpanded ? View.GONE : View.VISIBLE : View.VISIBLE);
         mRunningServicesButton.setVisibility(isRunningServicesEnabled() ? !isDemo && mExpanded ? View.VISIBLE : View.INVISIBLE : View.GONE);
     }
 
@@ -363,6 +359,11 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
             mMultiUserSwitch.setQsPanel(qsPanel);
             mQsPanel.setFooterPageIndicator(mPageIndicator);
         }
+    }
+
+    public boolean isSettingButtonEnabled() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+            Settings.System.SETTING_BUTTON_TOGGLE, 0) == 1;
     }
 
     public boolean isRunningServicesEnabled() {
