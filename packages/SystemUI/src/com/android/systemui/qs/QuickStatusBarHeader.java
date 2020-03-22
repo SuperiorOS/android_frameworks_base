@@ -465,13 +465,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         updatePrivacyChipAlphaAnimator();
     }
 
-    private void updateSettings() {
-        updateQSBatteryMode();
-        updateSBBatteryStyle();
-        updateQSClock();
-        updateResources();
-    }
-
     private void updateQSBatteryMode() {
         int showEstimate = Settings.System.getInt(mContext.getContentResolver(),
         Settings.System.QS_BATTERY_MODE, 0);
@@ -753,6 +746,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
                 Settings.System.OMNI_STATUS_BAR_CUSTOM_HEADER, 0,
                 UserHandle.USER_CURRENT) == 1;
         updateResources();
+        updateQSBatteryMode();
         updateStatusbarProperties();
     }
 
