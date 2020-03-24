@@ -144,6 +144,8 @@ public class KeyguardIndicationController implements StateListener,
 
     private KeyguardUpdateMonitorCallback mUpdateMonitorCallback;
 
+    private boolean mBiometricHelpShowOnlyWhenFailed = false;
+
     private final DevicePolicyManager mDevicePolicyManager;
     private boolean mDozing;
     private final ViewClippingUtil.ClippingParameters mClippingParams =
@@ -213,6 +215,8 @@ public class KeyguardIndicationController implements StateListener,
         mKeyguardUpdateMonitor.registerCallback(mTickReceiver);
         mStatusBarStateController.addCallback(this);
         mUnlockMethodCache.addListener(this);
+
+        mBiometricHelpShowOnlyWhenFailed = res.getBoolean(R.bool.config_biometricHelpShowOnlyWhenFailed);
     }
 
     public void setIndicationArea(ViewGroup indicationArea) {
@@ -888,6 +892,9 @@ public class KeyguardIndicationController implements StateListener,
         @Override
         public void onBiometricHelp(int msgId, String helpString,
                 BiometricSourceType biometricSourceType) {
+            if (mBiometricHelpShowOnlyWhenFailed && msgId != -1){
+                return;
+            }
             if (!mKeyguardUpdateMonitor.isUnlockingWithBiometricAllowed()) {
                 return;
             }
