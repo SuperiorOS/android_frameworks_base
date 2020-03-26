@@ -1090,6 +1090,9 @@ public class EdgeBackGestureHandler extends CurrentUserTracker
     private void prepareForAction() {
         mBlockNextEvent = true;
         mEdgeBackPlugin.resetOnDown();
+        if (mEdgeHapticEnabled) {
+            vibrateBack(false /* HEAVY_CLICK */);
+        }
     }
 
     private void triggerAction(boolean isVertical) {
