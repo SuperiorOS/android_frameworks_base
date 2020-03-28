@@ -355,6 +355,20 @@ public class StatusBarNotificationPresenter implements NotificationPresenter,
     }
 
     public boolean canHeadsUp(NotificationEntry entry, StatusBarNotification sbn) {
+        // get the info from the currently running task
+        List<ActivityManager.RunningTaskInfo> taskInfo = mAm.getRunningTasks(1);
+        if(taskInfo != null && !taskInfo.isEmpty()) {
+            ComponentName componentInfo = taskInfo.get(0).topActivity;
+            if(isPackageInStoplist(componentInfo.getPackageName())
+                && !isDialerApp(sbn.getPackageName())) {
+                return false;
+            }
+        }
+
+        if(isPackageBlacklisted(sbn.getPackageName())) {
+            return false;
+        }
+
         if (mShadeController.isOccluded()) {
             boolean devicePublic = mLockscreenUserManager.
                     isLockscreenPublicMode(mLockscreenUserManager.getCurrentUserId());
