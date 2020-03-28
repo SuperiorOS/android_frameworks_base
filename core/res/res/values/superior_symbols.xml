@@ -81,4 +81,7 @@
    <!-- Whether device has a big physical display cutout -->
    <java-symbol type="bool" name="config_physicalDisplayCutoutCentered" />
 
+   <!-- Enable face auth only when swiping security view -->
+   <java-symbol type="bool" name="config_faceAuthOnlyOnSecurityView" />
+
 </resources>
