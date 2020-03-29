@@ -514,7 +514,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
                 mContext.getContentResolver(), Settings.System.OMNI_QS_LAYOUT_COLUMNS_LANDSCAPE, defaultColumns,
                 UserHandle.USER_CURRENT);
         int rows = Settings.System.getIntForUser(
-                mContext.getContentResolver(), Settings.System.QS_LAYOUT_ROWS, 3,
+                mContext.getContentResolver(), Settings.System.QS_LAYOUT_ROWS, 2,
                 UserHandle.USER_CURRENT);
         int rowsLandscape = Settings.System.getIntForUser(
                 mContext.getContentResolver(), Settings.System.QS_LAYOUT_ROWS_LANDSCAPE, 2,
@@ -572,7 +572,7 @@ public class QSCustomizer extends LinearLayout implements OnMenuItemClickListene
 
     private void updateRowsMenu() {
         int rows = Settings.System.getIntForUser(
-                mContext.getContentResolver(), Settings.System.QS_LAYOUT_ROWS, 3,
+                mContext.getContentResolver(), Settings.System.QS_LAYOUT_ROWS, 2,
                 UserHandle.USER_CURRENT);
         MenuItem menuItemOne = mToolbar.getMenu().findItem(R.id.menu_item_rows_one);
         menuItemOne.setChecked(rows == 1);

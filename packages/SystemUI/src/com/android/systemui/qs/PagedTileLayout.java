@@ -472,7 +472,7 @@ public class PagedTileLayout extends ViewPager implements QSTileLayout {
 
             if (res.getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
                 return Settings.System.getIntForUser(resolver,
-                        Settings.System.QS_LAYOUT_ROWS, 3,
+                        Settings.System.QS_LAYOUT_ROWS, 2,
                         UserHandle.USER_CURRENT);
             }
 
