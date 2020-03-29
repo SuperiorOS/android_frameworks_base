@@ -1594,6 +1594,9 @@ public class StatusBar extends SystemUI implements DemoMode,
         mRunningTaskId = taskId;
         mIsLauncherShowing = taskComponentName.equals(mDefaultHome);
         mTaskComponentName = taskComponentName;
+        if (mMediaManager != null) {
+            mMediaManager.setRunningPackage(mTaskComponentName.getPackageName());
+        }
     }
 
     @Nullable
@@ -4360,6 +4363,9 @@ public class StatusBar extends SystemUI implements DemoMode,
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.RIGHT_VERTICAL_BACK_SWIPE_ACTION),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.SHOW_MEDIA_HEADS_UP),
+                    false, this, UserHandle.USER_ALL);
 
         }
          @Override
@@ -4389,6 +4395,8 @@ public class StatusBar extends SystemUI implements DemoMode,
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_COLOR_WALL)) ||
                     uri.equals(Settings.System.getUriFor(Settings.System.QS_PANEL_BG_USE_ACCENT))) {
                 mQSPanel.getHost().reloadAllTiles();
+            } else if (uri.equals(Settings.System.getUriFor(Settings.System.SHOW_MEDIA_HEADS_UP))) {
+                setMediaHeadsup();
         }
             update();
             updateNavigationBarVisibility();
@@ -4406,6 +4414,7 @@ public class StatusBar extends SystemUI implements DemoMode,
             updateChargingAnimation();
             updateQSPanel();
             setGestureNavOptions();
+            setMediaHeadsup();
         }
     }
 
@@ -4413,6 +4422,12 @@ public class StatusBar extends SystemUI implements DemoMode,
         mFpDismissNotifications = Settings.Secure.getIntForUser(mContext.getContentResolver(),
                 Settings.Secure.FP_SWIPE_TO_DISMISS_NOTIFICATIONS, 0,
                 UserHandle.USER_CURRENT) == 1;
+    }
+
+    private void setMediaHeadsup() {
+        if (mMediaManager != null) {
+            mMediaManager.setMediaHeadsup();
+        }
     }
 
     private void setStatusDoubleTapToSleep() {
