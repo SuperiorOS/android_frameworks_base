@@ -5796,6 +5796,12 @@ public final class Settings {
         public static final String ADAPTIVE_PLAYBACK_TIMEOUT = "adaptive_playback_timeout";
 
         /**
+         * Whether to show heads up on new music tracks
+         * @hide
+         */
+        public static final String SHOW_MEDIA_HEADS_UP = "show_media_heads_up";
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
