@@ -139,9 +139,7 @@ public class CurrentWeatherView extends FrameLayout implements OmniJawsClient.Om
     }
 
     private void setErrorView() {
-        Drawable d = mContext.getResources().getDrawable(R.drawable.ic_qs_weather_default_off_white);
-        updateTint(d);
-        mCurrentImage.setImageDrawable(d);
+        mCurrentImage.setImageDrawable(null);
         mLeftText.setText("");
         mRightText.setText("");
     }
