@@ -151,12 +151,12 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
         int rowsSet;
         if (res.getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
             rowsSet = Settings.System.getIntForUser(resolver,
-                    Settings.System.QS_LAYOUT_ROWS, 2,
+                    Settings.System.QS_LAYOUT_ROWS, 3,
                     UserHandle.USER_CURRENT);
         }
         else {
             rowsSet = Settings.System.getIntForUser(resolver,
-                    Settings.System.QS_LAYOUT_ROWS_LANDSCAPE, 2,
+                    Settings.System.QS_LAYOUT_ROWS_LANDSCAPE, 3,
                     UserHandle.USER_CURRENT);
         }
         if (mRows > rowsSet)
