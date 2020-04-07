@@ -121,7 +121,7 @@ public class CellularTile extends QSTileImpl<SignalState> {
         if (mKeyguard.isSecure() && mKeyguard.isShowing()) {
             Dependency.get(ActivityStarter.class).postQSRunnableDismissingKeyguard(() -> {
                 mHost.openPanels();
-                mDataController.setMobileDataEnabled(true);
+                mDataController.setMobileDataEnabled(!mDataController.isMobileDataEnabled());
             });
             return;
         }
