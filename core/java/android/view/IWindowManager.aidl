@@ -649,11 +649,4 @@ interface IWindowManager
      * native InputManager before proceeding with tests.
      */
     void syncInputTransactions();
-
-    /**
-     * Long screenshot
-     * @hide
-     */
-    void mokeeTakeScreenshot(int type);
-    void stopLongshotConnection();
 }
