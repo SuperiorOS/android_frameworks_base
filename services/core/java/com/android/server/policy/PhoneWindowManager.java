@@ -6387,8 +6387,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     }
 
     @Override
-    public void takeAlternativeScreenshot() {
-        mScreenshotRunnable.setScreenshotType(TAKE_SCREENSHOT_FULLSCREEN);
+    public void takeAlternativeScreenshot(int type) {
+        mScreenshotRunnable.setScreenshotType(type);
         mHandler.post(mScreenshotRunnable);
     }
 

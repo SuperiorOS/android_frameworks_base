@@ -81,7 +81,7 @@ public class ScreenshotTile extends QSTileImpl<BooleanState> {
                 : WindowManager.TAKE_SCREENSHOT_FULLSCREEN;
 
         try {
-            WindowManagerGlobal.getWindowManagerService().takeAlternativeScreenshot();
+            WindowManagerGlobal.getWindowManagerService().takeAlternativeScreenshot(type);
         } catch (RemoteException e) {
             // Do nothing
         }
