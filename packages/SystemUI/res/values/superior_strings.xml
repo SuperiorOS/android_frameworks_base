@@ -195,4 +195,7 @@
     <string name="accessibility_quick_settings_less_boring_changed_off">Less Boring turned off.</string>
     <string name="accessibility_quick_settings_less_boring_changed_on">Less Boring turned on.</string>
 
+    <!-- Alerting notification header label -->
+    <string name="notification_section_header_alerting">Alerting notifications</string>
+
 </resources>
