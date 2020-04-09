@@ -22,9 +22,8 @@ import android.provider.Settings;
 import android.view.View;
 import android.widget.ListView;
 
-import com.superior.settings.R;
-import com.superior.settings.preferences.AppPicker;
-
+import com.android.systemui.R;
+import com.android.systemui.apppicker.AppPicker;
 public class LeftBackSwipeCustomApp extends AppPicker {
 
     @Override
