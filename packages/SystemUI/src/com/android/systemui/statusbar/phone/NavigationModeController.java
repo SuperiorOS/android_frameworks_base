@@ -80,7 +80,6 @@ public class NavigationModeController implements Dumpable {
 
     public interface ModeChangedListener {
         void onNavigationModeChanged(int mode);
-        default void onSettingsChanged() {}
     }
 
     private final Context mContext;
@@ -147,20 +146,6 @@ public class NavigationModeController implements Dumpable {
             };
 
     private BroadcastReceiver mEnableGestureNavReceiver;
-    private final class SuperiorSettingsObserver extends ContentObserver {
-        public SuperiorSettingsObserver(Handler handler) {
-            super(handler);
-        }
-
-        @Override
-        public void onChange(boolean selfChange, Uri uri) {
-            for (int i = 0; i < mListeners.size(); i++) {
-                mListeners.get(i).onSettingsChanged();
-            }
-        }
-    }
-
-    private SuperiorSettingsObserver mSettingsObserver;
 
     @Inject
     public NavigationModeController(Context context,
@@ -179,10 +164,6 @@ public class NavigationModeController implements Dumpable {
         overlayFilter.addDataSchemeSpecificPart("android", PatternMatcher.PATTERN_LITERAL);
         mContext.registerReceiverAsUser(mReceiver, UserHandle.ALL, overlayFilter, null, null);
 
-        mSettingsObserver = new SuperiorSettingsObserver(new Handler());
-        mContext.getContentResolver().registerContentObserver(Settings.System.getUriFor(
-                Settings.System.BACK_GESTURE_HEIGHT),
-                false, mSettingsObserver, UserHandle.USER_ALL);
         IntentFilter preferredActivityFilter = new IntentFilter(ACTION_PREFERRED_ACTIVITY_CHANGED);
         mContext.registerReceiverAsUser(mReceiver, UserHandle.ALL, preferredActivityFilter, null,
                 null);
