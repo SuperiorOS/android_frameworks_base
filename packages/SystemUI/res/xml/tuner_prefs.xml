@@ -130,6 +130,11 @@
 
     </PreferenceScreen>
 
+    <com.android.systemui.tuner.TunerSwitch
+        android:key="qs_long_press_secondary"
+        android:title="@string/tuner_long_press_secondary"
+        sysui:defValue="false" />
+
     <Preference
         android:key="nav_bar"
         android:title="@string/nav_bar"
