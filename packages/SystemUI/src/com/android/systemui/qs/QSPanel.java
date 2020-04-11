@@ -79,7 +79,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
     public static final String QS_SHOW_BRIGHTNESS_SLIDER = "qs_show_brightness_slider";
     public static final String QS_SHOW_HEADER = "qs_show_header";
     public static final String QS_SHOW_BRIGHTNESS_BUTTONS = "qs_show_brightness_buttons";
-    public static final String QS_LONG_PRESS_SECONDARY = "qs_long_press_secondary";
+    public static final String QS_LONG_PRESS_ACTION = "qs_long_press_action";
 
     private static final String TAG = "QSPanel";
 
@@ -268,7 +268,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
         tunerService.addTunable(this, QS_SHOW_AUTO_BRIGHTNESS);
         tunerService.addTunable(this, QS_SHOW_BRIGHTNESS_SLIDER);
         tunerService.addTunable(this, QS_SHOW_BRIGHTNESS_BUTTONS);
-        tunerService.addTunable(this, QS_LONG_PRESS_SECONDARY);
+        tunerService.addTunable(this, QS_LONG_PRESS_ACTION);
         if (mHost != null) {
             setTiles(mHost.getTiles());
         }
@@ -311,7 +311,7 @@ public class QSPanel extends LinearLayout implements Tunable, Callback, Brightne
             updateViewVisibilityForTuningValue(mMinBrightness, newValue);
             updateViewVisibilityForTuningValue(mMaxBrightness, newValue);
         }
-        if (QS_LONG_PRESS_SECONDARY.equals(key)) {
+        if (QS_LONG_PRESS_ACTION.equals(key)) {
             mDualTargetSecondary = newValue != null && Integer.parseInt(newValue) == 1;
             updateSettings();
         }
