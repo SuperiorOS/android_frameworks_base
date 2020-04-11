@@ -238,4 +238,7 @@
     <string name="accessibility_quick_settings_navbar_on">Navigation bar on</string>
     <string name="accessibility_quick_settings_navbar_off">Navigation bar off</string>
 
+    <!-- QS long-press actions -->
+    <string name="tuner_long_press_secondary">Show details on long press</string>
+
 </resources>
