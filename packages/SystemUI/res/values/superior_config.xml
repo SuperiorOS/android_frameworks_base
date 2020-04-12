@@ -24,9 +24,6 @@
     -->
     <integer name="hardware_ui_align">53</integer>
 
-    <!-- Whether to show HD icon in the status bar for volte -->
-    <bool name="config_display_hd_volte">false</bool>
-
     <!-- Whether to use the mask for the quicksettings icons-->
     <bool name="config_useMaskForQs">true</bool>
 
