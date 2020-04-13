@@ -43,6 +43,7 @@ import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HWKeysTile;
 import com.android.systemui.qs.tiles.LocationTile;
+import com.android.systemui.qs.tiles.LessBoringTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.RebootTile;
@@ -100,6 +101,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
     private final Provider<HWKeysTile> mHWKeysTileProvider;
     private final Provider<DataSwitchTile> mDataSwitchTileProvider;
+    private final Provider<LessBoringTile> mLessBoringTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
 
@@ -135,7 +137,8 @@ public class QSFactoryImpl implements QSFactory {
             Provider<RebootTile> rebootTileProvider,
             Provider<ScreenshotTile> screenshotTileProvider,
             Provider<HWKeysTile> hWKeysTileProvider,
-            Provider<DataSwitchTile> dataSwitchTileProvider) {
+            Provider<DataSwitchTile> dataSwitchTileProvider,
+            Provider<LessBoringTile> lessBoringTileProvider) {
 
         mQsHostLazy = qsHostLazy;
         mWifiTileProvider = wifiTileProvider;
@@ -169,6 +172,7 @@ public class QSFactoryImpl implements QSFactory {
         mScreenshotTileProvider = screenshotTileProvider;
         mHWKeysTileProvider = hWKeysTileProvider;
         mDataSwitchTileProvider = dataSwitchTileProvider;
+        mLessBoringTileProvider = lessBoringTileProvider;
     }
 
     public QSTile createTile(String tileSpec) {
@@ -242,6 +246,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mHWKeysTileProvider.get();
             case "dataswitch":
                 return mDataSwitchTileProvider.get();
+            case "boring":
+                return mLessBoringTileProvider.get();
         }
 
         // Custom tiles
