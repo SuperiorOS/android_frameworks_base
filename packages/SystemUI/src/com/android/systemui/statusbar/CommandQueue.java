@@ -132,6 +132,8 @@ public class CommandQueue extends IStatusBar.Stub implements CallbackController<
 
     private static final String SHOW_IME_SWITCHER_KEY = "showImeSwitcherKey";
 
+    private boolean mBrowserIsShowing;
+
     private final Object mLock = new Object();
     private ArrayList<Callbacks> mCallbacks = new ArrayList<>();
     private Handler mHandler = new H(Looper.getMainLooper());
@@ -353,6 +355,14 @@ public class CommandQueue extends IStatusBar.Stub implements CallbackController<
 
     public void removeCallback(Callbacks callbacks) {
         mCallbacks.remove(callbacks);
+    }
+
+    public void setBrowserIsShowing(boolean showing) {
+        mBrowserIsShowing = showing;
+    }
+    
+    public boolean isBrowserShowing() {
+        return mBrowserIsShowing;
     }
 
     public void setIcon(String slot, StatusBarIcon icon) {
