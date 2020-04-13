@@ -41,6 +41,7 @@ import com.android.systemui.qs.tiles.HotspotTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HWKeysTile;
 import com.android.systemui.qs.tiles.LocationTile;
+import com.android.systemui.qs.tiles.LessBoringTile;
 import com.android.systemui.qs.tiles.NfcTile;
 import com.android.systemui.qs.tiles.NightDisplayTile;
 import com.android.systemui.qs.tiles.RebootTile;
@@ -96,6 +97,7 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<RebootTile> mRebootTileProvider;
     private final Provider<ScreenshotTile> mScreenshotTileProvider;
     private final Provider<HWKeysTile> mHWKeysTileProvider;
+    private final Provider<LessBoringTile> mLessBoringTileProvider;
 
     private final Lazy<QSHost> mQsHostLazy;
 
@@ -128,6 +130,7 @@ public class QSFactoryImpl implements QSFactory {
             Provider<AmbientDisplayTile> ambientDisplayTileProvider,
             Provider<ScreenRecordTile> screenRecordTileProvider,
             Provider<RebootTile> rebootTileProvider,
+            Provider<LessBoringTile> lessBoringTileProvider,
             Provider<ScreenshotTile> screenshotTileProvider,
             Provider<HWKeysTile> hWKeysTileProvider) {
         mQsHostLazy = qsHostLazy;
@@ -159,6 +162,7 @@ public class QSFactoryImpl implements QSFactory {
         mSleepScreenTileProvider = sleepScreenTileProvider;
         mRebootTileProvider = rebootTileProvider;
         mScreenshotTileProvider = screenshotTileProvider;
+        mLessBoringTileProvider = lessBoringTileProvider;
         mHWKeysTileProvider = hWKeysTileProvider;
     }
 
@@ -229,6 +233,8 @@ public class QSFactoryImpl implements QSFactory {
                 return mScreenshotTileProvider.get();
             case "hwkeys":
                 return mHWKeysTileProvider.get();
+            case "boring":
+                return mLessBoringTileProvider.get();
         }
 
         // Custom tiles
