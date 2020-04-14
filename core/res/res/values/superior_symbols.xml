@@ -126,4 +126,8 @@
 
     <!-- Camera key type -->
     <java-symbol type="bool" name="config_singleStageCameraKey" />
+
+    <!-- Whether to show a custom view for FOD -->
+    <java-symbol type="bool" name="config_needCustomFODView" />
+
 </resources>
