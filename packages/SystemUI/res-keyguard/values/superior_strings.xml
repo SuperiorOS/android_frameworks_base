@@ -1,3 +1,4 @@
+<<<<<<< HEAD:packages/SystemUI/res-keyguard/values/custom_strings.xml
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /* //device/apps/common/assets/res/any/strings.xml
@@ -25,5 +26,7 @@
     <string name="clock_title_samsung_bold" translatable="false">Samsung (bold)</string>
     <string name="clock_title_spectrum" translatable="false">Spectrum</string>
     <string name="clock_title_sneeky" translatable="false">Sneeky</string>
+    <string name="clock_title_mnml_box" translatable="false">MNML\'s Box</string>
+    <string name="clock_title_mnml_minimal" translatable="false">MNML\'s Minimal</string>
 
 </resources>
