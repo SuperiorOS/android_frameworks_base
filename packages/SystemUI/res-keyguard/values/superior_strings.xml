@@ -23,6 +23,7 @@
     <string name="clock_title_default_bold" translatable="false">Default (bold)</string>
     <string name="clock_title_samsung" translatable="false">Samsung</string>
     <string name="clock_title_samsung_bold" translatable="false">Samsung (bold)</string>
-
+    <string name="clock_title_mnml_box" translatable="false">MNML Box</string>
+    <string name="clock_title_mnml_minimal" translatable="false">MNML Minimal</string>
 
 </resources>
