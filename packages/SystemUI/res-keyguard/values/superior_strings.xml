@@ -23,5 +23,9 @@
     <string name="clock_title_default_bold" translatable="false">Default (bold)</string>
     <string name="clock_title_samsung" translatable="false">Samsung</string>
     <string name="clock_title_samsung_bold" translatable="false">Samsung (bold)</string>
+    <string name="clock_title_two_line_digital" translatable="false">Vertical</string>
+    <string name="clock_title_one_line_digital" translatable="false">Digital</string>
+    <string name="clock_title_mnml_box" translatable="false">MNML\'s Box</string>
+    <string name="clock_title_mnml_minimal" translatable="false">MNML\'s Minimal</string>
 
 </resources>
