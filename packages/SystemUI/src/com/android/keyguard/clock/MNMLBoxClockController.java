@@ -38,9 +38,6 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import static com.android.systemui.statusbar.phone
-        .KeyguardClockPositionAlgorithm.CLOCK_USE_DEFAULT_Y;
-
 /**
  * Plugin for the default clock face used only to provide a preview.
  */
@@ -69,7 +66,7 @@ public class MNMLBoxClockController implements ClockPlugin {
     /**
      * Root view of clock.
      */
-    private ClockLayout mView;
+    private ClockLayout mBigClockView;
 
     /**
      * Text clock in preview view hierarchy.
@@ -100,16 +97,16 @@ public class MNMLBoxClockController implements ClockPlugin {
     }
 
     private void createViews() {
-        mView = (ClockLayout) mLayoutInflater
+        mBigClockView = (ClockLayout) mLayoutInflater
                 .inflate(R.layout.digital_mnml_box, null);
-        mClock = mView.findViewById(R.id.clock);
-        mDate = mView.findViewById(R.id.bigDate);
-        mDateDay = mView.findViewById(R.id.bigDateDay);
+        mClock = mBigClockView.findViewById(R.id.clock);
+        mDate = mBigClockView.findViewById(R.id.bigDate);
+        mDateDay = mBigClockView.findViewById(R.id.bigDateDay);
     }
 
     @Override
     public void onDestroyView() {
-        mView = null;
+        mBigClockView = null;
         mClock = null;
         mDate = null;
         mDateDay = null;
@@ -151,20 +148,20 @@ public class MNMLBoxClockController implements ClockPlugin {
 
     @Override
     public View getView() {
-        if (mView == null) {
-            createViews();
-        }
-        return mView;
-    }
-
-    @Override
-    public View getBigClockView() {
         return null;
     }
 
     @Override
+    public View getBigClockView() {
+        if (mBigClockView  == null) {
+            createViews();
+        }
+        return mBigClockView;
+    }
+
+    @Override
     public int getPreferredY(int totalHeight) {
-        return CLOCK_USE_DEFAULT_Y;
+        return totalHeight / 2;
     }
 
     @Override
@@ -182,7 +179,7 @@ public class MNMLBoxClockController implements ClockPlugin {
 
     @Override
     public void onTimeTick() {
-        mView.onTimeChanged();
+        mBigClockView.onTimeChanged();
         mClock.refreshTime();
         mDate.refreshTime();
         mDateDay.refreshTime();
@@ -190,7 +187,7 @@ public class MNMLBoxClockController implements ClockPlugin {
 
     @Override
     public void setDarkAmount(float darkAmount) {
-        mView.setDarkAmount(darkAmount);
+        mBigClockView.setDarkAmount(darkAmount);
     }
 
     @Override
