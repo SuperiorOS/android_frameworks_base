@@ -23,7 +23,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.Paint.Style;
-import android.graphics.Typeface;
 import android.icu.text.DateFormat;
 import android.icu.text.DisplayContext;
 import android.text.Html;
@@ -40,9 +39,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
-
-import static com.android.systemui.statusbar.phone
-        .KeyguardClockPositionAlgorithm.CLOCK_USE_DEFAULT_Y;
 
 /**
  * Plugin for the default clock face used only to provide a preview.
@@ -72,7 +68,7 @@ public class MNMLBoxClockController implements ClockPlugin {
     /**
      * Root view of clock.
      */
-    private ClockLayout mView;
+    private ClockLayout mBigClockView;
 
     /**
      * Text clock in preview view hierarchy.
@@ -102,16 +98,16 @@ public class MNMLBoxClockController implements ClockPlugin {
     }
 
     private void createViews() {
-        mView = (ClockLayout) mLayoutInflater
+        mBigClockView = (ClockLayout) mLayoutInflater
                 .inflate(R.layout.digital_mnml_box, null);
-        mClock = mView.findViewById(R.id.clock);
-        mDate = mView.findViewById(R.id.bigDate);
+        mClock = mBigClockView.findViewById(R.id.clock);
+        mDate = mBigClockView.findViewById(R.id.bigDate);
         onTimeTick();
     }
 
     @Override
     public void onDestroyView() {
-        mView = null;
+        mBigClockView = null;
         mClock = null;
         mDate = null;
     }
@@ -128,7 +124,7 @@ public class MNMLBoxClockController implements ClockPlugin {
 
     @Override
     public Bitmap getThumbnail() {
-        return BitmapFactory.decodeResource(mResources, R.drawable.mnmlbox_thumbnail);
+        return BitmapFactory.decodeResource(mResources, R.drawable.default_thumbnail);
     }
 
     @Override
@@ -157,20 +153,20 @@ public class MNMLBoxClockController implements ClockPlugin {
 
     @Override
     public View getView() {
-        if (mView == null) {
-            createViews();
-        }
-        return mView;
-    }
-
-    @Override
-    public View getBigClockView() {
         return null;
     }
 
     @Override
+    public View getBigClockView() {
+        if (mBigClockView  == null) {
+            createViews();
+        }
+        return mBigClockView;
+    }
+
+    @Override
     public int getPreferredY(int totalHeight) {
-        return CLOCK_USE_DEFAULT_Y;
+        return totalHeight / 2;
     }
 
     @Override
@@ -179,14 +175,6 @@ public class MNMLBoxClockController implements ClockPlugin {
     @Override
     public void setTextColor(int color) {
         mClock.setTextColor(color);
-    }
-
-    public void setDateTypeface(Typeface tf) {
-        mDate.setTypeface(tf);
-    }
-
-    public void setTypeface(Typeface tf) {
-        mClock.setTypeface(tf);
     }
 
     @Override
@@ -205,12 +193,11 @@ public class MNMLBoxClockController implements ClockPlugin {
         DateFormat dateFormat = DateFormat.getInstanceForSkeleton("EEEEMMMMd", Locale.getDefault());
         dateFormat.setContext(DisplayContext.CAPITALIZATION_FOR_STANDALONE);
         mDate.setText(dateFormat.format(mTime.getInstance().getTimeInMillis()));
-
     }
 
     @Override
     public void setDarkAmount(float darkAmount) {
-        mView.setDarkAmount(darkAmount);
+        mBigClockView.setDarkAmount(darkAmount);
     }
 
     @Override
