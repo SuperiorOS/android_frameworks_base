@@ -39,7 +39,6 @@ import com.android.systemui.qs.tiles.DataSaverTile;
 import com.android.systemui.qs.tiles.DataSwitchTile;
 import com.android.systemui.qs.tiles.DndTile;
 import com.android.systemui.qs.tiles.FlashlightTile;
-import com.android.systemui.qs.tiles.GamingModeTile;
 import com.android.systemui.qs.tiles.FPSInfoTile;
 import com.android.systemui.qs.tiles.HeadsUpTile;
 import com.android.systemui.qs.tiles.HotspotTile;
@@ -104,7 +103,6 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<WeatherTile> mWeatherTileProvider;
     private final Provider<SleepScreenTile> mSleepScreenTileProvider;
     private final Provider<DataSwitchTile> mDataSwitchTileProvider;
-    private final Provider<GamingModeTile> mGamingModeTileProvider;
     private final Provider<ImmersiveTile> mImmersiveTileProvider;
     private final Provider<FPSInfoTile> mFPSInfoTileProvider;
     private final Provider<ScreenStabilizationTile> mScreenStabilizationTileProvider;
@@ -145,7 +143,6 @@ public class QSFactoryImpl implements QSFactory {
             Provider<WeatherTile> weatherTileProvider,
             Provider<SleepScreenTile> sleepScreenTileProvider,
             Provider<DataSwitchTile> dataSwitchTileProvider,
-            Provider<GamingModeTile> gamingModeTileProvider,
             Provider<LessBoringTile> lessBoringTileProvider,
             Provider<ImmersiveTile> immersiveTileProvider,
             Provider<FPSInfoTile> fpsInfoTileProvider,
@@ -182,7 +179,6 @@ public class QSFactoryImpl implements QSFactory {
         mWeatherTileProvider = weatherTileProvider;
         mSleepScreenTileProvider = sleepScreenTileProvider;
         mDataSwitchTileProvider = dataSwitchTileProvider;
-        mGamingModeTileProvider = gamingModeTileProvider;
         mLessBoringTileProvider = lessBoringTileProvider;
         mImmersiveTileProvider = immersiveTileProvider;
         mFPSInfoTileProvider = fpsInfoTileProvider;
@@ -264,8 +260,6 @@ public class QSFactoryImpl implements QSFactory {
                 return mSleepScreenTileProvider.get();
             case "dataswitch":
                 return mDataSwitchTileProvider.get();
-            case "gaming":
-                return mGamingModeTileProvider.get();
             case "boring":
                 return mLessBoringTileProvider.get();
             case "immersive":
