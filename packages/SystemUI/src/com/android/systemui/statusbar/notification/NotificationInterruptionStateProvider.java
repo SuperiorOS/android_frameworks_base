@@ -79,7 +79,6 @@ public class NotificationInterruptionStateProvider {
     protected boolean mUseHeadsUp = false;
     private boolean mDisableNotificationAlerts;
     private boolean mLessBoringHeadsUp;
-    private boolean mSkipHeadsUp;
 
     private TelecomManager mTm;
 
@@ -376,25 +375,13 @@ public class NotificationInterruptionStateProvider {
         mLessBoringHeadsUp = lessBoring;
     }
 
-    public void setGamingPeekMode(boolean skipHeadsUp) {
-        mSkipHeadsUp = skipHeadsUp;
-    }
-
     public boolean shouldSkipHeadsUp(StatusBarNotification sbn) {
-        String notificationPackageName = sbn.getPackageName();
-
-        // Gaming mode takes precedence since messaging headsup is intrusive
-        if (mSkipHeadsUp) {
-            boolean isNonInstrusive = notificationPackageName.equals(getDefaultDialerPackage(mTm)) ||
+        boolean isImportantHeadsUp = false;
+        String notificationPackageName = sbn.getPackageName().toLowerCase();
+        isImportantHeadsUp = notificationPackageName.contains("dialer") ||
+                notificationPackageName.contains("messaging") ||
                 notificationPackageName.contains("clock");
-            return !mStatusBarStateController.isDozing() && mSkipHeadsUp && !isNonInstrusive;
-        }
-
-        boolean isLessBoring = notificationPackageName.equals(getDefaultDialerPackage(mTm)) ||
-                notificationPackageName.contains("clock") ||
-                notificationPackageName.equals(getDefaultSmsPackage(mContext));
-
-        return !mStatusBarStateController.isDozing() && mLessBoringHeadsUp && !isLessBoring;
+        return !mStatusBarStateController.isDozing() && mLessBoringHeadsUp && !isImportantHeadsUp;
     }
 
     private static String getDefaultSmsPackage(Context ctx) {
@@ -418,7 +405,7 @@ public class NotificationInterruptionStateProvider {
 
         if (mPresenter.isDeviceInVrMode() || shouldSkipHeadsUp(sbn)) {
             if (DEBUG_HEADS_UP) {
-                Log.d(TAG, "No alerting: no huns or vr mode or gaming or less boring headsup enabled");
+                Log.d(TAG, "No alerting: no huns or vr mode or less boring headsup enabled");
             }
             return false;
         }

@@ -82,14 +82,6 @@
     <!-- Screen off delay -->
     <java-symbol type="integer" name="config_screen_off_delay" />
 
-    <!-- Gaming mode -->
-    <java-symbol type="drawable" name="ic_gaming_notif" />
-    <java-symbol type="string" name="notification_channel_gaming" />
-    <java-symbol type="string" name="gaming_mode_notification_title" />
-    <java-symbol type="string" name="gaming_mode_notification_content" />
-    <java-symbol type="string" name="gaming_mode_enabled_toast" />
-    <java-symbol type="string" name="gaming_mode_disabled_toast" />
-
     <!-- Horizon Light -->
     <java-symbol type="integer" name="config_AmbientPulseLightColor" />
 
