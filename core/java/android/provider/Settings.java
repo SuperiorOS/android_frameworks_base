@@ -6190,6 +6190,14 @@ public final class Settings {
                 new SettingsValidators.InclusiveIntegerRangeValidator(-3, 1);
 
         /**
+         * Controls whether to show R style notification headers
+         * @hide
+         */
+        public static final String NOTIFICATION_HEADERS = "notification_headers";
+
+        private static final Validator NOTIFICATION_HEADERS_VALIDATOR = BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6331,6 +6339,7 @@ public final class Settings {
             ENABLE_CONDITIONS,
             ENABLE_SUGGESTIONS,
             STATUSBAR_PRIVACY_INDICATORS,
+            NOTIFICATION_HEADERS,
         };
 
         /**
@@ -6798,6 +6807,7 @@ public final class Settings {
             VALIDATORS.put(DISPLAY_COLOR_ADJUSTMENT, DISPLAY_COLOR_ADJUSTMENT_VALIDATOR);
             VALIDATORS.put(DISPLAY_PICTURE_ADJUSTMENT, DISPLAY_PICTURE_ADJUSTMENT_VALIDATOR);
             VALIDATORS.put(LIVE_DISPLAY_HINTED, LIVE_DISPLAY_HINTED_VALIDATOR);
+            VALIDATORS.put(NOTIFICATION_HEADERS, NOTIFICATION_HEADERS_VALIDATOR);
         }
 
         /**
