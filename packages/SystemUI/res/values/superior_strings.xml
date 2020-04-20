@@ -101,4 +101,10 @@
      <string name="reboot_suggestion_title">Reboot Reminder</string>
      <string name="reboot_suggestion_description">Your device has been on for over a week. Rebooting is recommended.</string>
      <string name="reboot_suggestion_now">Reboot</string>
+
+     <!-- PowerShare QS tile -->
+     <string name="quick_settings_powershare_label">Wireless PowerShare</string>
+     <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare off\nBattery saver</string>
+     <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare off\nBattery too low</string>
+     <string name="quick_settings_powershare_enabled_label">Wireless PowerShare is enabled</string>
 </resources>
