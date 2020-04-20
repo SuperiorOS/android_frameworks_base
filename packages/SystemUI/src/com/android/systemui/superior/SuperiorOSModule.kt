@@ -30,6 +30,7 @@ import com.android.systemui.qs.tiles.UsbTetherTile
 import com.android.systemui.qs.tiles.VolumeTile
 import com.android.systemui.qs.tiles.VpnTile
 import com.android.systemui.qs.tiles.WifiTile
+import com.android.systemui.qs.tiles.PowerShareTile
 
 import dagger.Binds
 import dagger.Module
@@ -116,5 +117,11 @@ interface SuperiorOSModule {
     @IntoMap
     @StringKey(WifiTile.TILE_SPEC)
     fun bindWifiTile(wifiTile: WifiTile): QSTileImpl<*>
+
+    /** Inject PowerShareTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(PowerShareTile.TILE_SPEC)
+    fun bindPowerShareTile(powerShareTile: PowerShareTile): QSTileImpl<*>
 
 }
