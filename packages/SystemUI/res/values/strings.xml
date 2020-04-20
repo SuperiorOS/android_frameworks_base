@@ -2612,4 +2612,10 @@
 
     <!-- Time format for the Dream Time Complication for 24-hour time format [CHAR LIMIT=NONE] -->
     <string name="dream_time_complication_24_hr_time_format">kk:mm</string>
+
+    <!-- PowerShare QS tile -->
+    <string name="quick_settings_powershare_label">Wireless PowerShare</string>
+    <string name="quick_settings_powershare_off_powersave_label">Wireless PowerShare off\nBattery saver</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Wireless PowerShare off\nBattery too low</string>
+    <string name="quick_settings_powershare_enabled_label">Wireless PowerShare is enabled</string>
 </resources>
