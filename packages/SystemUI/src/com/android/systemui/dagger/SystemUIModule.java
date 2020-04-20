@@ -251,7 +251,7 @@ import javax.inject.Named;
         UserModule.class,
         UtilModule.class,
         NoteTaskModule.class,
-        WalletModule.class
+        WalletModule.class,
         },
         subcomponents = {
             ComplicationComponent.class,
