@@ -106,6 +106,9 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
     private DualToneHandler mDualToneHandler;
     private boolean mIsStaticColor = false;
 
+    private final ArrayList<BatteryMeterViewCallbacks> mCallbacks = new ArrayList<>();
+
+
     private BatteryEstimateFetcher mBatteryEstimateFetcher;
 
     // for Flags.newStatusBarIcons. The unified battery icon can show percent inside
@@ -640,6 +643,9 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
             mBatteryIconView.setVisibility(View.VISIBLE);
             scaleBatteryMeterViews();
         }
+        for (int i = 0; i < mCallbacks.size(); i++) {
+            mCallbacks.get(i).onHiddenBattery(mBatteryStyle == BATTERY_STYLE_HIDDEN);
+        }
     }
 
     private Drawable getUnknownStateDrawable() {
@@ -890,6 +896,18 @@ public class BatteryMeterView extends LinearLayout implements DarkReceiver {
     public interface BatteryEstimateFetcher {
         void fetchBatteryTimeRemainingEstimate(
                 BatteryController.EstimateFetchCompletion completion);
+    }
+
+    public interface BatteryMeterViewCallbacks {
+        default void onHiddenBattery(boolean hidden) {}
+    }
+
+    public void addCallback(BatteryMeterViewCallbacks callback) {
+        mCallbacks.add(callback);
+    }
+
+    public void removeCallback(BatteryMeterViewCallbacks callbacks) {
+        mCallbacks.remove(callbacks);
     }
 }
 
