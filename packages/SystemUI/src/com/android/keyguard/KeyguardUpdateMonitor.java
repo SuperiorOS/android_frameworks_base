@@ -281,6 +281,29 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
     private static final int HAL_ERROR_RETRY_TIMEOUT = 500; // ms
     private static final int HAL_ERROR_RETRY_MAX = 10;
 
+    private boolean mKeyguardReset = false;
+
+    private PocketManager mPocketManager;
+    private boolean mIsDeviceInPocket;
+    private final IPocketCallback mPocketCallback = new IPocketCallback.Stub() {
+        @Override
+        public void onStateChanged(boolean isDeviceInPocket, int reason) {
+            boolean wasInPocket = mIsDeviceInPocket;
+            if (reason == PocketManager.REASON_SENSOR) {
+                mIsDeviceInPocket = isDeviceInPocket;
+            } else {
+                mIsDeviceInPocket = false;
+            }
+            if (wasInPocket != mIsDeviceInPocket) {
+                mHandler.sendEmptyMessage(MSG_POCKET_STATE_CHANGED);
+            }
+        }
+    };
+
+    public boolean isPocketLockVisible(){
+        return mPocketManager.isPocketLockVisible();
+    }
+
     private final Handler mHandler = new Handler(Looper.getMainLooper()) {
         @Override
         public void handleMessage(Message msg) {
@@ -1779,6 +1802,11 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
      * If face auth is allows to scan on this exact moment.
      */
     public boolean shouldListenForFace() {
+        if (mKeyguardReset){
+            mKeyguardReset = false;
+            return false;
+        }
+
         boolean awakeKeyguard = mKeyguardIsVisible && mDeviceInteractive && !mGoingToSleep;
         final int user = getCurrentUser();
         final int strongAuth = mStrongAuthTracker.getStrongAuthForUser(user);
@@ -2286,6 +2314,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         if (DEBUG) Log.d(TAG, "handleKeyguardReset");
         updateBiometricListeningState();
         mNeedsSlowUnlockTransition = resolveNeedsSlowUnlockTransition();
+        mKeyguardReset = true;
     }
 
     private boolean resolveNeedsSlowUnlockTransition() {
