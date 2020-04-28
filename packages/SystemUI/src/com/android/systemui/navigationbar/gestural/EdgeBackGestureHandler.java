@@ -1156,6 +1156,9 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
             case 13: // Kill app
                 SuperiorUtils.killForegroundApp();
                 break;
+            case 14: // Switch recent app
+                ActionUtils.switchToLastApp(mContext);
+                break;
         }
     }
 
