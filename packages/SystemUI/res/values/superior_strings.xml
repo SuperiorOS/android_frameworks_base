@@ -164,4 +164,13 @@
     <string name="qs_data_switch_toast_1">Currently only one SIM card is inserted</string>
     <string name="qs_data_switch_changed_1">Using SIM 1 for Mobile data</string>
     <string name="qs_data_switch_changed_2">Using SIM 2 for Mobile data</string>
+
+    <!-- App Lock -->
+    <string name="applock_locked">&#160;is locked</string>
+    <string name="applock_fingerprint_face">, fingerprint or your face to unlock</string>
+    <string name="applock_face">&#160;or your face to unlock</string>
+    <string name="applock_fingerprint">&#160;or your fingerprint to unlock</string>
+    <string name="applock_credential">&#160;to unlock</string>
+    <string name="applock_unlock">Unlock</string>
+
 </resources>
