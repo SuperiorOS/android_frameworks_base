@@ -48,4 +48,6 @@
     <!-- Show battery icon in the QS Panel instead of in the header -->
     <bool name="config_batteryInQSPanel">true</bool>
 
+    <!-- Allow devices to enforce the H265 encoder for screen recordings -->
+    <bool name="config_useNewScreenRecEncoder">true</bool>
 </resources>
