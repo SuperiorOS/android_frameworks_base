@@ -39,7 +39,6 @@ import com.android.systemui.qs.QSTileHost;
 import com.android.systemui.settings.CurrentUserTracker;
 import com.android.systemui.statusbar.phone.StatusBarIconController;
 import com.android.systemui.util.leak.LeakDetector;
-import com.android.systemui.volume.VolumeDialogImpl;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -63,8 +62,7 @@ public class TunerServiceImpl extends TunerService {
     // shouldn't be reset with tuner settings.
     private static final String[] RESET_BLACKLIST = new String[] {
             QSTileHost.TILES_SETTING,
-            Settings.Secure.DOZE_ALWAYS_ON,
-            VolumeDialogImpl.VOLUME_PANEL_ON_LEFT,
+            Settings.Secure.DOZE_ALWAYS_ON
     };
 
     private final Observer mObserver = new Observer();
