@@ -76,9 +76,6 @@
     <!-- Vendor mismatch fingerprint warning -->
     <java-symbol type="string" name="system_error_vendorprint" />
 
-    <!-- Whether device supports displaying volume panel on the left side-->
-    <java-symbol type="bool" name="config_audioPanelOnLeftSide" />
-
     <!-- Screen off delay -->
     <java-symbol type="integer" name="config_screen_off_delay" />
 
