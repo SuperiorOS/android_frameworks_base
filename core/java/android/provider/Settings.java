@@ -6045,7 +6045,7 @@ public final class Settings {
         public static final String STATUS_BAR_CLOCK_AUTO_HIDE = "status_bar_clock_auto_hide";
         public static final String STATUS_BAR_CLOCK_AUTO_HIDE_HDURATION = "status_bar_clock_auto_hide_hduration";
         public static final String STATUS_BAR_CLOCK_AUTO_HIDE_SDURATION = "status_bar_clock_auto_hide_sduration";
-        
+
         /**
          * Wheter to show network traffic indicator in statusbar
          * @hide
@@ -6083,6 +6083,12 @@ public final class Settings {
          * @hide
          */
          public static final String NETWORK_TRAFFIC_VIEW_LOCATION = "network_traffic_view_location";
+
+	/**
+         * Network traffic font style
+         * @hide
+         */
+        public static final String NETWORK_TRAFFIC_FONT_STYLE = "network_traffic_font_style";
 
         /**
          * @hide
