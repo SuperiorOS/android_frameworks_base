@@ -86,7 +86,7 @@
     <string name="omnijaws_service_last_update">Последнее обновление:</string>
     <!-- Advanced powermenu -->
     <string name="global_action_restart_system">Перезагрузка</string>
-    <string name="global_action_restart_advanced">Расширенная перезагрузка</string>
+    <string name="global_action_restart_advanced">Расширенная\nперезагрузка</string>
     <string name="global_action_restart_recovery">Рекавери</string>
     <string name="global_action_restart_bootloader">Загрузчик</string>
     <string name="global_action_restart_ui">Интерфейс системы</string>
