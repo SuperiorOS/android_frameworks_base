@@ -378,6 +378,9 @@ public class VolumeDialogImpl implements VolumeDialog,
         mMediaButton = mDialog.findViewById(R.id.media_button);
         mMediaTitleText = mDialog.findViewById(R.id.media_output_title);
 
+        if (mContext.getResources().getBoolean(R.bool.config_audioPanelOnLeftSide))
+            mExpandRows.setDefaultDirection(false);
+
         if (mRows.isEmpty()) {
             if (!AudioSystem.isSingleVolume(mContext)) {
                 addRow(STREAM_ACCESSIBILITY, R.drawable.ic_volume_accessibility,
