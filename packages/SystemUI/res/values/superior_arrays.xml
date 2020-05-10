@@ -19,4 +19,7 @@
     <integer-array name="fod_animation_resources">
     </integer-array>
 
+    <integer-array name="fod_icon_resources">
+    </integer-array>
+
 </resources>
