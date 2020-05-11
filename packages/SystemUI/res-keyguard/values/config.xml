@@ -24,8 +24,8 @@
     <bool name="config_disableMenuKeyInLockScreen">true</bool>
 
     <!-- Threshold in micro watts below which a charger is rated as "slow"; 0.70 A @ 4.10 V = 2.87 W -->
-    <integer name="config_chargingSlowlyThreshold">2870000</integer>
+    <integer name="config_chargingSlowlyThreshold">900</integer>
 
     <!-- Threshold in micro watts above which a charger is rated as "fast"; 1.50 A @ 4.20 V = 6.30 W  -->
-    <integer name="config_chargingFastThreshold">6300000</integer>
+    <integer name="config_chargingFastThreshold">1500</integer>
 </resources>
