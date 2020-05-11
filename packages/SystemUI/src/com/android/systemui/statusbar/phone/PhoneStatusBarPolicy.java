@@ -667,7 +667,7 @@ public class PhoneStatusBarPolicy
 
     @Override  // PrivacyItemController.Callback
     public void privacyChanged(List<PrivacyItem> privacyItems) {
-        //updatePrivacyItems(privacyItems);
+        updatePrivacyItems(privacyItems);
     }
 
     private void updatePrivacyItems(List<PrivacyItem> items) {
