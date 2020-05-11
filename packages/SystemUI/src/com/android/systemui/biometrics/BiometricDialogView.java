@@ -413,7 +413,12 @@ public abstract class BiometricDialogView extends LinearLayout {
     }
 
     protected int getAnimatingAwayDuration() {
-        return (int) ((mAppLockDialog ? 1.3f : 1f ) * (float) ANIMATION_DURATION_AWAY);
+        return ANIMATION_DURATION_AWAY;
+    }
+
+    public void setFaceAndFingerprint(boolean isFace, boolean isFingerprint) {
+        mIsFace = isFace;
+        mIsFingerprint = isFingerprint;
     }
 
     private void setDismissesDialog(View v) {
@@ -452,13 +457,13 @@ public abstract class BiometricDialogView extends LinearLayout {
             public void run() {
                 mLayout.animate()
                         .alpha(0f)
-                        .setDuration(ANIMATION_DURATION_AWAY)
+                        .setDuration(getAnimatingAwayDuration())
                         .setInterpolator(mLinearOutSlowIn)
                         .withLayer()
                         .start();
                 mDialog.animate()
                         .translationY(mAnimationTranslationOffset)
-                        .setDuration(ANIMATION_DURATION_AWAY)
+                        .setDuration(getAnimatingAwayDuration())
                         .setInterpolator(mLinearOutSlowIn)
                         .withEndAction(endActionRunnable)
                         .start();
