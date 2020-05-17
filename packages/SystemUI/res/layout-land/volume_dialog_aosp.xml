@@ -15,7 +15,7 @@
   -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:sysui="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/volume_dialog"
+    android:id="@+id/volume_dialog_aosp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="start"
@@ -23,6 +23,7 @@
     android:clipChildren="false"
     android:clipToPadding="false"
     android:gravity="start"
+    android:minWidth="@dimen/volume_dialog_aosp_panel_width"
     android:orientation="vertical"
     android:paddingBottom="@dimen/volume_dialog_panel_transparent_padding"
     android:paddingLeft="@dimen/volume_dialog_panel_transparent_padding_left_right"
@@ -40,10 +41,10 @@
 
         <FrameLayout
             android:id="@+id/ringer"
-            android:layout_width="@dimen/volume_dialog_panel_width"
-            android:layout_height="@dimen/volume_dialog_panel_width"
+            android:layout_width="@dimen/volume_dialog_aosp_panel_width"
+            android:layout_height="@dimen/volume_dialog_aosp_panel_width"
             android:layout_marginEnd="@dimen/volume_dialog_spacer"
-            android:background="@drawable/rounded_volume_background"
+            android:background="@drawable/rounded_bg_full"
             android:elevation="@dimen/volume_dialog_elevation">
 
             <com.android.keyguard.AlphaOptimizedImageButton
@@ -51,44 +52,43 @@
                 style="@style/VolumeButtons"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="16dp"
                 android:tint="?android:attr/colorAccent" />
 
             <include
-                layout="@layout/volume_dnd_icon"
+                layout="@layout/volume_dnd_icon_aosp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|top"
                 android:layout_marginStart="2dp"
                 android:layout_marginTop="2dp" />
         </FrameLayout>
 
         <LinearLayout
             android:id="@+id/expandable_indicator_container"
-            android:layout_width="@dimen/volume_dialog_panel_width"
-            android:layout_height="@dimen/volume_dialog_panel_width"
+            android:layout_width="@dimen/volume_dialog_aosp_panel_width"
+            android:layout_height="@dimen/volume_dialog_aosp_panel_width"
             android:layout_marginEnd="@dimen/volume_dialog_row_spacer"
-            android:background="@drawable/rounded_volume_background"
-            android:elevation="@dimen/volume_dialog_elevation"
+            android:background="@drawable/rounded_bg_full"
+            android:elevation="@dimen/volume_dialog_aosp_elevation"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <com.android.systemui.statusbar.phone.ExpandableIndicator
                 android:id="@+id/expandable_indicator"
                 style="@style/VolumeButtons"
-                android:layout_width="@dimen/volume_dialog_panel_width"
-                android:layout_height="match_parent"
+                android:layout_width="@dimen/volume_dialog_aosp_panel_width"
+                android:layout_height="@dimen/volume_dialog_aosp_panel_width"
                 android:contentDescription="@string/accessibility_quick_settings_expand"
                 android:rotation="90" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/media_button_view"
-            android:layout_width="@dimen/volume_dialog_panel_width"
-            android:layout_height="@dimen/volume_dialog_panel_width"
+            android:layout_width="@dimen/volume_dialog_aosp_panel_width"
+            android:layout_height="@dimen/volume_dialog_aosp_panel_width"
             android:layout_marginEnd="@dimen/volume_dialog_spacer"
             android:background="@drawable/rounded_volume_background"
-            android:elevation="@dimen/volume_dialog_elevation"
+            android:elevation="@dimen/volume_dialog_aosp_elevation"
             android:orientation="vertical"
             android:visibility="gone">
 
@@ -103,7 +103,7 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="@dimen/volume_dialog_panel_width"
+            android:layout_height="@dimen/volume_dialog_aosp_panel_width"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -111,7 +111,7 @@
                 android:id="@+id/odi_captions"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/rounded_volume_background"
+                android:background="@drawable/rounded_bg_full"
                 android:elevation="@dimen/volume_dialog_elevation"
                 android:orientation="vertical"
                 android:visibility="gone">
@@ -119,8 +119,8 @@
                 <com.android.systemui.volume.CaptionsToggleImageButton
                     android:id="@+id/odi_captions_icon"
                     style="@style/VolumeButtons"
-                    android:layout_width="@dimen/volume_dialog_panel_width"
-                    android:layout_height="match_parent"
+                    android:layout_width="@dimen/volume_dialog_aosp_panel_width"
+                    android:layout_height="@dimen/volume_dialog_aosp_panel_width"
                     android:src="@drawable/ic_volume_odi_captions_disabled"
                     sysui:optedOut="false" />
             </LinearLayout>
@@ -149,14 +149,15 @@
             android:clipChildren="false"
             android:clipToPadding="false"
             android:gravity="center"
-            android:minWidth="@dimen/volume_dialog_panel_width"
+            android:minWidth="@dimen/volume_dialog_aosp_panel_width"
+            android:background="@drawable/rounded_bg_full"
             android:orientation="horizontal">
             <!-- volume rows added and removed here! :-) -->
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/media_output_scroller"
-            android:layout_width="@dimen/volume_dialog_media_width"
+            android:layout_width="182dp"
             android:layout_height="match_parent"
             android:background="@drawable/rounded_volume_background"
             android:clipChildren="false"
@@ -209,3 +210,4 @@
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>
+

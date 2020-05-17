@@ -15,7 +15,7 @@
   -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:sysui="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/volume_dialog"
+    android:id="@+id/volume_dialog_custom"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="start"
@@ -23,6 +23,7 @@
     android:clipChildren="false"
     android:clipToPadding="false"
     android:gravity="start"
+    android:minWidth="@dimen/volume_dialog_panel_width"
     android:orientation="vertical"
     android:paddingBottom="@dimen/volume_dialog_panel_transparent_padding"
     android:paddingLeft="@dimen/volume_dialog_panel_transparent_padding_left_right"
@@ -43,7 +44,7 @@
             android:layout_width="@dimen/volume_dialog_panel_width"
             android:layout_height="@dimen/volume_dialog_panel_width"
             android:layout_marginEnd="@dimen/volume_dialog_spacer"
-            android:background="@drawable/rounded_volume_background"
+            android:background="@drawable/volume_dialog_ringer_bcg"
             android:elevation="@dimen/volume_dialog_elevation">
 
             <com.android.keyguard.AlphaOptimizedImageButton
@@ -51,8 +52,7 @@
                 style="@style/VolumeButtons"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="16dp"
-                android:tint="?android:attr/colorAccent" />
+                android:tint="@android:color/white" />
 
             <include
                 layout="@layout/volume_dnd_icon"
@@ -87,7 +87,7 @@
             android:layout_width="@dimen/volume_dialog_panel_width"
             android:layout_height="@dimen/volume_dialog_panel_width"
             android:layout_marginEnd="@dimen/volume_dialog_spacer"
-            android:background="@drawable/rounded_volume_background"
+            android:background="@drawable/volume_dialog_ringer_bcg"
             android:elevation="@dimen/volume_dialog_elevation"
             android:orientation="vertical"
             android:visibility="gone">
@@ -111,7 +111,7 @@
                 android:id="@+id/odi_captions"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/rounded_volume_background"
+                android:background="@drawable/volume_dialog_ringer_bcg"
                 android:elevation="@dimen/volume_dialog_elevation"
                 android:orientation="vertical"
                 android:visibility="gone">
@@ -156,9 +156,9 @@
 
         <LinearLayout
             android:id="@+id/media_output_scroller"
-            android:layout_width="@dimen/volume_dialog_media_width"
+            android:layout_width="182dp"
             android:layout_height="match_parent"
-            android:background="@drawable/rounded_volume_background"
+            android:background="@drawable/rounded_bg_full"
             android:clipChildren="false"
             android:clipToPadding="false"
             android:elevation="@dimen/volume_dialog_elevation"
@@ -209,3 +209,4 @@
         </LinearLayout>
     </FrameLayout>
 </LinearLayout>
+
