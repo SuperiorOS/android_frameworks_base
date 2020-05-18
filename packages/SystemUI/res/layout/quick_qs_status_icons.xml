@@ -46,9 +46,10 @@
         android:paddingEnd="@dimen/signal_cluster_battery_padding" />
 
     <com.android.systemui.BatteryMeterView
-        android:id="@+id/battery"
+        android:id="@+id/batteryRemainingIcon"
         android:layout_height="match_parent"
         android:layout_width="wrap_content"
-        android:gravity="end|end" />
+        systemui:textAppearance="@style/TextAppearance.QS.Status"
+        android:paddingEnd="2dp" />
 
 </LinearLayout>
