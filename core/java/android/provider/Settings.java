@@ -4531,7 +4531,10 @@ public final class Settings {
          *    1 - Show percentage
          * @hide
          */
-        public static final String SHOW_BATTERY_PERCENT = "dummy_show_battery_percent";
+        public static final String SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
+
+        /** @hide */
+        private static final Validator SHOW_BATTERY_PERCENT_VALIDATOR = BOOLEAN_VALIDATOR;
 
         /**
          * The time in ms to keep the button backlight on after pressing a button.
@@ -5121,44 +5124,7 @@ public final class Settings {
 
         private static final Validator LOCKSCREEN_MEDIA_BLUR_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
-        /**
-         * Display style of the status bar battery information
-         *    0: Display the battery as portrait icon (default)
-         *    1: Display the battery as dotted circle
-         *    2: Display the battery as circle
-         *    3: Display the battery as text
-         *    4: Do not display the battery
-         *    default: 0
-         * @hide
-         */
-        public static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
-
-        /**
-         * Display style of the battery information in the quick status bar header
-         *    0: Hide the battery percentage (default)
-         *    1: Display the battery percentage next to the icon
-         *    2: Display the battery percentage inside the icon
-         *    3: Display the battery estimates
-         * @hide
-         */
-        public static final String QS_BATTERY_MODE = "qs_battery_mode";
-
-        /**
-         * Whether or not to show the battery percentage in the status bar
-         *    0: Hide the battery percentage (default)
-         *    1: Display the battery percentage inside the icon
-         *    2: Display the battery percentage next to the icon
-         * @hide
-         */
-        public static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
-
-        /**
-         * Whether or not to show battery percentage when charging
-         * @hide
-         */
-        public static final String STATUS_BAR_BATTERY_TEXT_CHARGING = "status_bar_battery_text_charging";
-
-        /**
+         /**
          * Whether to display QS clock
          * @hide
          */
@@ -6256,6 +6222,7 @@ public final class Settings {
             LOCK_TO_APP_ENABLED,
             NOTIFICATION_SOUND,
             ACCELEROMETER_ROTATION,
+            SHOW_BATTERY_PERCENT,
             NOTIFICATION_VIBRATION_INTENSITY,
             RING_VIBRATION_INTENSITY,
             HAPTIC_FEEDBACK_INTENSITY,
@@ -6474,6 +6441,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(POINTER_SPEED);
             PRIVATE_SETTINGS.add(LOCK_TO_APP_ENABLED);
             PRIVATE_SETTINGS.add(EGG_MODE);
+            PRIVATE_SETTINGS.add(SHOW_BATTERY_PERCENT);
             PRIVATE_SETTINGS.add(DISPLAY_COLOR_MODE);
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_TIMEOUT);
             PRIVATE_SETTINGS.add(BUTTON_BACKLIGHT_ONLY_WHEN_PRESSED);
@@ -6684,6 +6652,7 @@ public final class Settings {
             VALIDATORS.put(WIFI_STATIC_DNS2, WIFI_STATIC_DNS2_VALIDATOR);
             VALIDATORS.put(AMBIENT_NOTIFICATION_LIGHT, AMBIENT_NOTIFICATION_LIGHT_VALIDATOR);
             VALIDATORS.put(AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC, AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC_VALIDATOR);
+            VALIDATORS.put(SHOW_BATTERY_PERCENT, SHOW_BATTERY_PERCENT_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
             VALIDATORS.put(BUTTON_BACKLIGHT_TIMEOUT, BUTTON_BACKLIGHT_TIMEOUT_VALIDATOR);
             VALIDATORS.put(BUTTON_BRIGHTNESS, BUTTON_BRIGHTNESS_VALIDATOR);
