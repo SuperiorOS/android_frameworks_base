@@ -5910,13 +5910,6 @@ public final class Settings {
         public static final String FOD_RECOGNIZING_ANIMATION = "fod_recognizing_animation";
 
         /**
-         * Gestures nav: whether left-to-right extended swipe triggers a Forward action
-         * when default browser is running
-         * @hide
-         */
-        public static final String GESTURE_NAVBAR_BROWSER_ACTION = "gesture_navbar_browser_action";
-
-        /**
          * QS blur alpha
          * @hide
          */
