@@ -230,5 +230,6 @@
     <!-- Navbar arrow keys while typing -->
     <string name="navigation_bar_accessibility_dpad_left">Cursor left</string>
     <string name="navigation_bar_accessibility_dpad_right">Cursor right</string>
-
+    <string name="navigation_bar_inverse_title">Swap buttons</string>
+    <string name="navigation_bar_inverse_summary">Swap the order of recents and back buttons</string>    
 </resources>
