@@ -63,7 +63,7 @@ public class DataUsageView extends TextView {
             SubscriptionManager.getDefaultDataSubscriptionId());
         final DataUsageController.DataUsageInfo info = mobileDataController.getDataUsageInfo();
 
-        formatedinfo = formatDataUsage(info.usageLevel) + " " + mContext.getResources().getString(R.string.usage_data);
+        formatedinfo = formatDataUsage(info.usageLevel);
         shouldUpdateDataTextView = true;
     }
 
@@ -76,10 +76,9 @@ public class DataUsageView extends TextView {
         shouldUpdateData = true;
     }
 
-    private CharSequence formatDataUsage(long byteValue) {
+    private String formatDataUsage(long byteValue) {
         final BytesResult res = Formatter.formatBytes(mContext.getResources(), byteValue,
                 Formatter.FLAG_IEC_UNITS);
-        return BidiFormatter.getInstance().unicodeWrap(mContext.getString(
-                com.android.internal.R.string.fileSizeSuffix, res.value, res.units));
+        return BidiFormatter.getInstance().unicodeWrap(res.value + res.units);
     }
 }
