@@ -42,6 +42,7 @@ import android.os.SystemClock;
 import android.net.NetworkInfo;
 import android.net.ConnectivityManager;
 import android.os.SystemProperties;
+import android.text.format.Time;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.view.IWindowManager;
@@ -74,6 +75,15 @@ public class Utils {
 
         NetworkInfo wifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
         return wifi.isConnected();
+    }
+
+	// Returns today's passed time in Millisecond
+    public static long getTodayMillis() {
+        final long passedMillis;
+        Time time = new Time();
+        time.set(System.currentTimeMillis());
+        passedMillis = ((time.hour * 60 * 60) + (time.minute * 60) + time.second) * 1000;
+        return passedMillis;
     }
 
 	// Check if device is connected to the internet
