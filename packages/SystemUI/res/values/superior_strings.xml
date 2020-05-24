@@ -238,4 +238,7 @@
     <string name="accessibility_quick_settings_navbar_on">Navigation bar on</string>
     <string name="accessibility_quick_settings_navbar_off">Navigation bar off</string>
 
+    <!-- Daily data usage -->
+    <string name="daily_data_usage_title">Today\'s usage</string>
+
 </resources>
