@@ -387,13 +387,13 @@ public class NotificationInterruptionStateProvider {
 
         // Gaming mode takes precedence since messaging headsup is intrusive
         if (mSkipHeadsUp) {
-            boolean isNonInstrusive = notificationPackageName.contains("dialer") ||
+            boolean isNonInstrusive = notificationPackageName.equals(getDefaultDialerPackage(mTm)) ||
                 notificationPackageName.contains("clock");
             return !mStatusBarStateController.isDozing() && mSkipHeadsUp && !isNonInstrusive;
         }
 
-        boolean isLessBoring = notificationPackageName.contains("dialer") ||
-                notificationPackageName.contains("messaging") ||
+        boolean isLessBoring = notificationPackageName.equals(getDefaultDialerPackage(mTm)) ||
+                notificationPackageName.equals(getDefaultSmsPackage(mContext)) ||
                 notificationPackageName.contains("clock");
 
         return !mStatusBarStateController.isDozing() && mLessBoringHeadsUp && !isLessBoring;
@@ -401,7 +401,7 @@ public class NotificationInterruptionStateProvider {
 
     private static String getDefaultSmsPackage(Context ctx) {
         return Sms.getDefaultSmsPackage(ctx);
-        // for reference, there's also a new RoleManager api with getDefaultSmsPackage(context, userid) 
+        // for reference, there's also a new RoleManager api with getDefaultSmsPackage(context, userid)
     }
 
     private static String getDefaultDialerPackage(TelecomManager tm) {
