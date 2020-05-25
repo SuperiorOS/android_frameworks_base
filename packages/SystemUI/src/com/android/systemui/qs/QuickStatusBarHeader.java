@@ -485,6 +485,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     }
 
     public void setBatteryPercentMode() {
+        mBatteryMeterView.setPercentShowMode(getBatteryPercentMode());
         mBatteryRemainingIcon.setPercentShowMode(getBatteryPercentMode());
     }
 
