@@ -116,7 +116,6 @@ import libcore.io.IoUtils;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -206,6 +205,16 @@ class SaveImageInBackgroundTask extends AsyncTask<Void, Void, Void> {
         String imageDate = new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date(mImageTime));
         mImageFileName = String.format(SCREENSHOT_FILE_NAME_TEMPLATE, imageDate);
         mScreenshotId = String.format(SCREENSHOT_ID_TEMPLATE, UUID.randomUUID());
+        CharSequence appName = getRunningActivityName(context);
+        boolean onKeyguard = context.getSystemService(KeyguardManager.class).isKeyguardLocked();
+        if (!onKeyguard && appName != null) {
+            // Replace all spaces and special chars with an underscore
+            String appNameString = appName.toString().replaceAll("[\\\\/:*?\"<>|\\s]+", "_");
+            mImageFileName = String.format(SCREENSHOT_FILE_NAME_TEMPLATE_APPNAME,
+                    imageDate, appNameString);
+        } else {
+            mImageFileName = String.format(SCREENSHOT_FILE_NAME_TEMPLATE, imageDate);
+        }
 
         // Initialize screenshot notification smart actions provider.
         mSmartActionsEnabled = DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_SYSTEMUI,
