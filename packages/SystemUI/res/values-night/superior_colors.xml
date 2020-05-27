@@ -6,6 +6,7 @@
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
+<<<<<<< HEAD
   This program is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
@@ -16,6 +17,6 @@
  -->
 <resources>
 
-    <color name="qs_background_dark_color">@android:color/black</color>
+    <color name="qs_background_dark_color">@*android:color/primary_dark_device_default_settings</color>
 
 </resources>
