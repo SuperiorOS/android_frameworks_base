@@ -481,4 +481,13 @@ public class SuperiorUtils {
         passedMillis = ((time.hour * 60 * 60) + (time.minute * 60) + time.second) * 1000;
         return passedMillis;
     }
+
+    // Check if device is connected to Wi-Fi
+    public static boolean isWiFiConnected(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        if (cm == null) return false;
+
+        NetworkInfo wifi = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+        return wifi.isConnected();
+    }
 }
