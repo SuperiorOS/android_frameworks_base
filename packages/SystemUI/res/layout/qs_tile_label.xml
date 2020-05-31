@@ -33,13 +33,14 @@
         android:orientation="horizontal">
         <Space
             android:id="@+id/expand_space"
-            android:layout_width="22dp"
+            android:layout_width="20dp"
             android:layout_height="0dp" />
 
         <TextView
             android:id="@+id/tile_label"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:clickable="false"
             android:padding="0dp"
             android:gravity="center"
@@ -57,7 +58,7 @@
 
         <ImageView
             android:id="@+id/expand_indicator"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="2dp"
             android:layout_width="18dp"
             android:layout_height="match_parent"
             android:src="@drawable/qs_dual_tile_caret"
