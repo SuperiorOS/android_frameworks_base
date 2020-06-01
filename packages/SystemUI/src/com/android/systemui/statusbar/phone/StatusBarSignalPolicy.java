@@ -18,6 +18,7 @@ package com.android.systemui.statusbar.phone;
 
 import android.content.Context;
 import android.os.Handler;
+import android.provider.Settings;
 import android.telephony.SubscriptionInfo;
 import android.util.ArraySet;
 import android.util.Log;
@@ -69,6 +70,8 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
     private ArrayList<MobileIconState> mMobileStates = new ArrayList<MobileIconState>();
     private WifiIconState mWifiIconState = new WifiIconState();
 
+    private static final String DATA_ACTIVITY_ARROW = "data_activity_arrow";
+
     public StatusBarSignalPolicy(Context context, StatusBarIconController iconController) {
         mContext = context;
 
@@ -78,7 +81,9 @@ public class StatusBarSignalPolicy implements NetworkControllerImpl.SignalCallba
         mSlotEthernet = mContext.getString(com.android.internal.R.string.status_bar_ethernet);
         mSlotVpn      = mContext.getString(com.android.internal.R.string.status_bar_vpn);
         mSlotRoaming      = mContext.getString(com.android.internal.R.string.status_bar_roaming);
-        mActivityEnabled = mContext.getResources().getBoolean(R.bool.config_showActivity);
+        mActivityEnabled = mContext.getResources().getBoolean(com.android.internal.R.bool.config_showActivity) &&
+                Settings.System.getInt(mContext.getContentResolver(),
+                DATA_ACTIVITY_ARROW, 0) != 0;
 
         mIconController = iconController;
         mNetworkController = Dependency.get(NetworkController.class);
