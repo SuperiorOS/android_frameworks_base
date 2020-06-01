@@ -6261,6 +6261,16 @@ public final class Settings {
         public static final String GESTURE_ANYWHERE_SHOW_TRIGGER = "gesture_anywhere_show_trigger";
 
         /**
+         * Whether to display data activity icon for Wi-Fi and mobile data respectively in statusbar
+         * @hide
+         */
+        public static final String DATA_ACTIVITY_ARROW = "data_activity_arrow";
+
+        /** @hide */
+        private static final Validator DATA_ACTIVITY_ARROW_VALIDATOR =
+               BOOLEAN_VALIDATOR;
+
+        /**
          * Settings to backup. This is here so that it's in the same place as the settings
          * keys and easy to update.
          *
@@ -6406,6 +6416,7 @@ public final class Settings {
             NOTIFICATION_HEADERS,
             NAVIGATION_BAR_ARROW_KEYS,
             QS_DATAUSAGE,
+            DATA_ACTIVITY_ARROW,
         };
 
         /**
@@ -6659,6 +6670,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(LIVE_DISPLAY_HINTED);
             PRIVATE_SETTINGS.add(NAVIGATION_BAR_ARROW_KEYS);
             PRIVATE_SETTINGS.add(QS_DATAUSAGE);
+            PRIVATE_SETTINGS.add(DATA_ACTIVITY_ARROW);
         }
 
         /**
@@ -6881,6 +6893,7 @@ public final class Settings {
             VALIDATORS.put(NAVIGATION_BAR_ARROW_KEYS,
                     NAVIGATION_BAR_ARROW_KEYS_VALIDATOR);
             VALIDATORS.put(QS_DATAUSAGE, QS_DATAUSAGE_VALIDATOR);
+            VALIDATORS.put(DATA_ACTIVITY_ARROW, DATA_ACTIVITY_ARROW_VALIDATOR);
         }
 
         /**
