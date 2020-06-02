@@ -26,4 +26,7 @@
      <java-symbol type="string" name="url_copy_success" />
      <java-symbol type="string" name="url_copy_failed" />
 
+     <!-- SystemUI Restart -->
+     <java-symbol type="string" name="systemui_restart_title" />
+     <java-symbol type="string" name="systemui_restart_message" />
 </resources>
