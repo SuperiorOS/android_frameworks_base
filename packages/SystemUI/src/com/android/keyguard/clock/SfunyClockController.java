@@ -114,7 +114,7 @@ public class SfunyClockController implements ClockPlugin {
 
     @Override
     public Bitmap getThumbnail() {
-        return BitmapFactory.decodeResource(mResources, R.drawable.sfuny);
+        return BitmapFactory.decodeResource(mResources, R.drawable.sfuny_thumbnail);
     }
 
     @Override

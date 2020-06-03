@@ -113,7 +113,7 @@ public class MNMLMinimalClockController implements ClockPlugin {
 
     @Override
     public Bitmap getThumbnail() {
-        return BitmapFactory.decodeResource(mResources, R.drawable.mmnl_minimal);
+        return BitmapFactory.decodeResource(mResources, R.drawable.mnmlminimal_thumbnail);
     }
 
     @Override
