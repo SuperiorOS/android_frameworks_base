@@ -122,9 +122,6 @@
     <!-- Post reset runnable for all clients -->
     <java-symbol type="bool" name="config_fingerprintPostResetRunnableForAllClients" />
 
-    <!-- Whether to send camera status intent -->
-    <java-symbol type="bool" name="config_sendCameraStatusIntent" />
-
   <!-- LiveDisplay -->
   <java-symbol type="string" name="live_display_title" />
   <java-symbol type="string" name="live_display_hint" />
