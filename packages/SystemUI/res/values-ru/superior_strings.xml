@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--  Copyright (C) 2018-2019 Superior Project
+<!--  Copyright (C) 2018-2020 Superior Project
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -17,16 +17,17 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Быстрая зарядка (<xliff:g id="charging_time_left" example="4 часа и 2 минуты">%s</xliff:g> до полной зарядки)</string>
-    <string name="keyguard_plugged_in_dash_charging">Скоростная Зарядка</string>
+    <string name="keyguard_plugged_in_dash_charging">Быстрая зарядка</string>
     <!-- Caffeine QS Tile -->
     <string name="quick_settings_caffeine_label">Запретить сон</string>
+    <string name="quick_settings_caffeine_label_off">Выкл</string>
     <string name="accessibility_quick_settings_caffeine_off">Запрет сна выключен</string>
     <string name="accessibility_quick_settings_caffeine_on">Запрет сна включен</string>
     <!-- Reboot/Recovery QS Tile -->
-    <string name="quick_settings_reboot_label">Перезагрузить</string>
+    <string name="quick_settings_reboot_label">Перезагрузка</string>
     <string name="quick_settings_reboot_recovery_label">Перезагрузка в загрузчик</string>
     <!-- Screenshot QS tile -->
-    <string name="quick_settings_screenshot_label">Фото с экрана</string>
+    <string name="quick_settings_screenshot_label">Скриншот</string>
     <string name="quick_settings_region_screenshot_label">Скриншот выбранной области экрана</string>
     <!-- Heads Up QS Tile -->
     <string name="quick_settings_heads_up_label">Всплывающие уведомления</string>
@@ -35,16 +36,16 @@
     <string name="accessibility_quick_settings_heads_up_changed_off">Всплывающие уведомления отключены.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Всплывающие уведомления включены.</string>
     <!-- HW Keys Tile -->
-    <string name="accessibility_quick_settings_hwkeys_on">Аппаратные кнопки вкл</string>
-    <string name="accessibility_quick_settings_hwkeys_off">Аппаратные кнопки выкл</string>
+    <string name="accessibility_quick_settings_hwkeys_on">Аппаратные кнопки включены</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Аппаратные кнопки выключены</string>
     <string name="quick_settings_hwkeys_label">Аппаратные кнопки</string>
     <!-- USB Tethering tile -->
     <string name="accessibility_quick_settings_usb_tether_off">USB-модем выключен</string>
     <string name="accessibility_quick_settings_usb_tether_on">USB-модем включен</string>
     <string name="accessibility_quick_settings_usb_tether_changed_off">USB-модем выключен</string>
-    <string name="accessibility_quick_settings_usb_tether_changed_on">USB-модем включен</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">USB-модем выключен</string>
     <string name="quick_settings_usb_tether_label">USB-модем</string>
-    <string name="statusbar_items_title">Значок в строке состояния</string>
+    <string name="statusbar_items_title">Иконка строки состояния</string>
     <string name="lockscreen_default">По умолчанию</string>
     <string name="lockscreen_hidden">Не показывать</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
@@ -52,6 +53,10 @@
     <!-- QS Config -->
     <string name="qs_menu_item_columns">Столбцы</string>
     <string name="qs_menu_item_columns_landscape">Столбцы (горизонтально)</string>
+    <string name="qs_menu_item_rows">Строки</string>
+    <string name="qs_menu_item_rows_landscape">Строки (горизонтально)</string>
+    <string name="qs_menu_item_columns_one">1</string>
+    <string name="qs_menu_item_columns_two">2</string>
     <string name="qs_menu_item_columns_three">3</string>
     <string name="qs_menu_item_columns_four">4</string>
     <string name="qs_menu_item_columns_five">5</string>
@@ -97,15 +102,13 @@
     <string name="quick_settings_sleepscreen_label">Режим сна</string>
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Ambient Display</string>
-    <string name="accessibility_quick_settings_ambient_display_off">Ambient Display выкл.</string>
-    <string name="accessibility_quick_settings_ambient_display_on">Ambient Display вкл.</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient Display выключен.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient display включен.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display выключен.</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient Display включен.</string>
     <!-- Kill button in notification guts -->
     <string name="force_stop_dlg_title">Остановить принудительно?</string>
     <string name="force_stop_dlg_text">Принудительное закрытие приложения может отразиться на его функциональности.</string>
-    <string name="dlg_ok">@android:string/ok</string>
-    <string name="dlg_cancel">@android:string/cancel</string>
     <string name="guts_force_close_app">Закрыть приложение</string>
     <!-- Heads up snooze toast -->
     <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> Всплывающие уведомления выключены на одну минуту.</string>
@@ -122,17 +125,78 @@
     <string name="status_bar_location">Местоположение</string>
     <!-- Name of the microphone status bar icon. -->
     <string name="status_bar_microphone">Микрофон</string>
-    <!-- Gaming mode -->
-    <string name="gaming_mode_not_enabled">Игровой режим отключён в настройках</string>
-    <string name="quick_settings_gaming_mode_label">Игровой режим</string>
-    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_disabled">Игровой режим выключен.</string>
-    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_enabled">Игровой режим включен.</string>
     <!-- Immersive tile -->
     <string name="quick_settings_immersive_tile">Полноэкранный режим</string>
-    <string name="quick_settings_immersive_tile_statusbar">Строка состояния</string>
+    <string name="quick_settings_immersive_tile_statusbar">Полноэкранная строка состояния</string>
     <string name="quick_settings_immersive_tile_navbar">Панель навигации</string>
     <string name="quick_settings_immersive_tile_full">Полностью</string>
     <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">Информация о FPS</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">Информация о FPS выключена</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">Информация о FPS включена</string>
+    <!-- Screen Stabilization -->
+    <string name="quick_settings_stabilization_label">Стабилизация изображения на экране</string>
+    <string name="quick_settings_stabilization_off">Стабилизация отключена</string>
+    <string name="quick_settings_stabilization_on">Стабилизация включена</string>
+    <string name="low_label">Низкие</string>
+    <string name="high_label">Высоко</string>
+    <string name="stabilization_velocity_friction">Скорость передвижения</string>
+    <string name="stabilization_velocity_amplitude">Амплитуда передвижения</string>
+    <string name="stabilization_position_friction">Положение трения</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <!-- Long swipe gesture actions -->
+    <string name="app_picker_dialog_title">Выберите приложение</string>
+    <string name="active_edge_app_select_title">Выбрать приложение</string>
+    <string name="active_edge_activity_select_title">Выберите действие</string>
+    <string name="recents_app_killed">Приложение остановлено</string>
+    <string name="nope_cant_kill">Лаунчер не может быть остановлен</string>
+    <!-- Mono audio QS tile -->
+    <string name="quick_settings_monotoggle_tile">Аудио режим</string>
+    <string name="quick_settings_monotoggle_tile_mono">Моно аудио</string>
+    <string name="quick_settings_monotoggle_tile_stereo">Стерео аудио</string>
+    <!-- Less Boring QS tile -->
+    <string name="quick_settings_less_boring_label">Режим \"Не надоедать\"</string>
+    <string name="accessibility_quick_settings_less_boring_off">Режим \"Не надоедать\" выключен.</string>
+    <string name="accessibility_quick_settings_less_boring_on">Режим \"Не надоедать\" выключен.</string>
+    <string name="accessibility_quick_settings_less_boring_changed_off">Режим \"Не надоедать\" переключён на выкл.</string>
+    <string name="accessibility_quick_settings_less_boring_changed_on">Режим \"Не надоедать\" переключён на вкл.</string>
+    <!-- Alerting notification header label -->
+    <string name="notification_section_header_alerting">Предупреждающие уведомления</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Режим чтения</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Режим чтения включён.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Режим чтения выключен.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Режим чтения переключён на вкл.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Режим чтения переключён на выкл.</string>
+    <!-- navbar editor -->
+    <string name="preview">Предпросмотр</string>
+    <string name="keycode">Код клавиши</string>
+    <string name="no_home_title">Кнопка \"Домой\" не найдена</string>
+    <string name="no_home_message">Кнопка \"Домой\" необходима для управления устройством. Пожалуйста добавьте кнопку \"Домой\" перед сохранением.</string>
+    <string name="clipboard_description">С помощью этой кнопки можно копировать файлы в буфер обмена и извлекать их из него.</string>
+    <string name="keycode_description">Код клавиши позволяют добавлять клавиши клавиатуры на панель навигации. При нажатии они эмулируют выбранную клавишу. Сначала нужно назначить клавишу на кнопку, затем выбрать изображение для неё.</string>
+    <string name="start">Запуск</string>
+    <string name="center">Центр</string>
+    <string name="end">Конец</string>
+    <string name="space">Пробел</string>
+    <string name="menu_ime">Меню / Переключение раскладки</string>
+    <string name="select_button">Выберите кнопку для добавления</string>
+    <string name="add_button">Добавить кнопку</string>
+    <string name="save">Сохранить</string>
+    <string name="reset">Сбросить</string>
+    <string name="select_keycode">Выберите кнопку клавиатуры</string>
+    <string name="left">Слева</string>
+    <string name="right">Справа</string>
+    <string name="navbar_editor_title">Редактор</string>
+    <string name="navbar_editor_summary">Настроить панель навигации</string>
+    <!-- Navbar arrow keys while typing -->
+    <string name="navigation_bar_accessibility_dpad_left">Курсор влево</string>
+    <string name="navigation_bar_accessibility_dpad_right">Курсор вправо</string>
+    <string name="navigation_bar_inverse_title">Поменять кнопки местами</string>
+    <string name="navigation_bar_inverse_summary">Поменять местами кнопки «Недавние» и «Назад»</string>
+    <!-- Navigation Bar tile -->
+    <string name="quick_settings_navbar_title">Панель навигации</string>
+    <string name="accessibility_quick_settings_navbar_on">Панель навигации включена</string>
+    <string name="accessibility_quick_settings_navbar_off">Панель навигации выключена</string>
 </resources>

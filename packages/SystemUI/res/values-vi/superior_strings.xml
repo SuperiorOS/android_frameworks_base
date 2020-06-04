@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--  Copyright (C) 2018-2019 Superior Project
+<!--  Copyright (C) 2018-2020 Superior Project
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -16,17 +16,18 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Đang sạc nhanh (<xliff:g id="charging_time_left" example="4 giờ và 2 phút">%s</xliff:g> đến khi đầy)</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Đang sạc (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> đến khi đầy)</string>
     <string name="keyguard_plugged_in_dash_charging">Đang sạc nhanh</string>
     <!-- Caffeine QS Tile -->
     <string name="quick_settings_caffeine_label">Khóa sáng màn hình</string>
+    <string name="quick_settings_caffeine_label_off">Off</string>
     <string name="accessibility_quick_settings_caffeine_off">Tắt Khóa sáng màn hình</string>
     <string name="accessibility_quick_settings_caffeine_on">Bật Khóa sáng màn hình</string>
     <!-- Reboot/Recovery QS Tile -->
     <string name="quick_settings_reboot_label">Khởi động lại</string>
-    <string name="quick_settings_reboot_recovery_label">Về chế độ phục hồi</string>
+    <string name="quick_settings_reboot_recovery_label">Vào chế độ phục hồi</string>
     <!-- Screenshot QS tile -->
-    <string name="quick_settings_screenshot_label">Chụp màn hình</string>
+    <string name="quick_settings_screenshot_label">Chụp ảnh màn hình</string>
     <string name="quick_settings_region_screenshot_label">Chụp một phần màn hình</string>
     <!-- Heads Up QS Tile -->
     <string name="quick_settings_heads_up_label">Thông báo nổi</string>
@@ -52,6 +53,10 @@
     <!-- QS Config -->
     <string name="qs_menu_item_columns">Cột</string>
     <string name="qs_menu_item_columns_landscape">Cột màn hình ngang</string>
+    <string name="qs_menu_item_rows">Hàng</string>
+    <string name="qs_menu_item_rows_landscape">Hàng màn hình ngang</string>
+    <string name="qs_menu_item_columns_one">1</string>
+    <string name="qs_menu_item_columns_two">2</string>
     <string name="qs_menu_item_columns_three">3</string>
     <string name="qs_menu_item_columns_four">4</string>
     <string name="qs_menu_item_columns_five">5</string>
@@ -59,9 +64,9 @@
     <string name="qs_menu_item_columns_seven">7</string>
     <string name="qs_menu_item_columns_eight">8</string>
     <string name="qs_menu_item_columns_nine">9</string>
-    <string name="qs_menu_item_reset">Cài lại</string>
+    <string name="qs_menu_item_reset">Đặt lại</string>
     <string name="qs_menu_item_titles">Hiện nhãn</string>
-    <string name="qs_menu_item_qs_columns">Cột thanh nhanh</string>
+    <string name="qs_menu_item_qs_columns">Số ô cài đặt nhanh</string>
     <string name="qs_menu_item_columns_auto">Tự động</string>
     <!-- Sound QS Tile -->
     <string name="quick_settings_sound_label">Âm thanh</string>
@@ -87,52 +92,111 @@
     <!-- Advanced powermenu -->
     <string name="global_action_restart_system">Khởi động lại</string>
     <string name="global_action_restart_advanced">Khởi động lại nâng cao</string>
-    <string name="global_action_restart_recovery">Về chế độ phục hồi</string>
-    <string name="global_action_restart_bootloader">Chế độ bootloader</string>
+    <string name="global_action_restart_recovery">Vào chế độ phục hồi</string>
+    <string name="global_action_restart_bootloader">Bộ nạp khởi động</string>
     <string name="global_action_restart_ui">Giao diện người dùng hệ thống</string>
     <string name="global_action_restart_hot">Nóng</string>
     <!-- Screenshot Delete Toast -->
-    <string name="delete_screenshot_toast">Đã xóa ảnh chụp màn hình</string>
+    <string name="delete_screenshot_toast">Ảnh màn hình đã xóa</string>
     <!-- SleepScreen QS Tile -->
-    <string name="quick_settings_sleepscreen_label">Tắt màn hình</string>
+    <string name="quick_settings_sleepscreen_label">Màn hình chờ</string>
     <!-- Ambient display QS tile -->
     <string name="quick_settings_ambient_display_label">Màn hình sáng</string>
     <string name="accessibility_quick_settings_ambient_display_off">Màn hình sáng tắt.</string>
-    <string name="accessibility_quick_settings_ambient_display_on">Bật hiển thị xung quanh.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_off">Màn hình xem nhanh đã tắt.</string>
-    <string name="accessibility_quick_settings_ambient_display_changed_on">Màn hình xung quanh đã bật.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient display on.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient display turned off.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display turned on.</string>
     <!-- Kill button in notification guts -->
-    <string name="force_stop_dlg_title">Buộc dừng?</string>
-    <string name="force_stop_dlg_text">Nếu bạn buộc dừng một app, nó có thể hoạt động sai.</string>
-    <string name="dlg_ok">@android:string/ok</string>
-    <string name="dlg_cancel">@android:string/cancel</string>
-    <string name="guts_force_close_app">Đóng App</string>
+    <string name="force_stop_dlg_title">Force stop?</string>
+    <string name="force_stop_dlg_text">If you force stop an app, it may misbehave.</string>
+    <string name="guts_force_close_app">Close App</string>
     <!-- Heads up snooze toast -->
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Thông báo nổi sẽ báo lại sau 1 phút.</string>
-    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Thông báo nổi sẽ báo lại sau <xliff:g id="number">%d</xliff:g> phút.</string>
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Peeking notifications are snoozing for 1 minute.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Peeking notifications are snoozing for <xliff:g id="number">%d</xliff:g> minutes.</string>
     <!-- DataSwitch Tile -->
-    <string name="qs_data_switch_label">Chuyển sim dữ liệu</string>
-    <string name="qs_data_switch_toast_0">Hiện tại không có thẻ SIM nào được gắn</string>
-    <string name="qs_data_switch_toast_1">Hiện tại chỉ có 1 thẻ SIM được gắn</string>
-    <string name="qs_data_switch_changed_1">Sử dụng SIM 1 cho Dữ liệu di động</string>
-    <string name="qs_data_switch_changed_2">Sử dụng SIM 2 cho Dữ liệu di động</string>
+    <string name="qs_data_switch_label">Switch data card</string>
+    <string name="qs_data_switch_toast_0">Currently no SIM card is inserted</string>
+    <string name="qs_data_switch_toast_1">Currently only one SIM card is inserted</string>
+    <string name="qs_data_switch_changed_1">Using SIM 1 for Mobile data</string>
+    <string name="qs_data_switch_changed_2">Using SIM 2 for Mobile data</string>
     <!-- Name of the camera status bar icon. -->
-    <string name="status_bar_camera">Máy ảnh</string>
+    <string name="status_bar_camera">Camera</string>
     <!-- Name of the location status bar icon. -->
-    <string name="status_bar_location">Vị trí</string>
+    <string name="status_bar_location">Location</string>
     <!-- Name of the microphone status bar icon. -->
-    <string name="status_bar_microphone">Micrô</string>
-    <!-- Gaming mode -->
-    <string name="gaming_mode_not_enabled">Chế độ trò chơi đang tắt trong cài đặt</string>
-    <string name="quick_settings_gaming_mode_label">Chế độ Chơi game</string>
-    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_disabled">Chế độ chơi game đã tắt.</string>
-    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <string name="accessibility_quick_settings_gaming_mode_enabled">Chế độ chơi game đã được bật.</string>
+    <string name="status_bar_microphone">Microphone</string>
     <!-- Immersive tile -->
-    <string name="quick_settings_immersive_tile">Chế độ toàn màn hình</string>
-    <string name="quick_settings_immersive_tile_statusbar">Ẩn thanh trạng thái</string>
-    <string name="quick_settings_immersive_tile_navbar">Ẩn thanh điều hướng</string>
-    <string name="quick_settings_immersive_tile_full">Chế độ toàn màn hình</string>
+    <string name="quick_settings_immersive_tile">Immersive mode</string>
+    <string name="quick_settings_immersive_tile_statusbar">Immersive statusbar</string>
+    <string name="quick_settings_immersive_tile_navbar">Immersive navbar</string>
+    <string name="quick_settings_immersive_tile_full">Immersive full</string>
     <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">FPS Info</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">FPS Info off</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">FPS Info on</string>
+    <!-- Screen Stabilization -->
+    <string name="quick_settings_stabilization_label">Screen Stabilization</string>
+    <string name="quick_settings_stabilization_off">Stabilization is disabled</string>
+    <string name="quick_settings_stabilization_on">Stabilization is enabled</string>
+    <string name="low_label">Low</string>
+    <string name="high_label">High</string>
+    <string name="stabilization_velocity_friction">Velocity Friction</string>
+    <string name="stabilization_velocity_amplitude">Velocity Amplitude</string>
+    <string name="stabilization_position_friction">Position Friction</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <!-- Long swipe gesture actions -->
+    <string name="app_picker_dialog_title">Select an app</string>
+    <string name="active_edge_app_select_title">Select app</string>
+    <string name="active_edge_activity_select_title">Select activity</string>
+    <string name="recents_app_killed">App killed</string>
+    <string name="nope_cant_kill">Launcher cannot be killed</string>
+    <!-- Mono audio QS tile -->
+    <string name="quick_settings_monotoggle_tile">Audio mode</string>
+    <string name="quick_settings_monotoggle_tile_mono">Mono audio</string>
+    <string name="quick_settings_monotoggle_tile_stereo">Stereo audio</string>
+    <!-- Less Boring QS tile -->
+    <string name="quick_settings_less_boring_label">Less Boring</string>
+    <string name="accessibility_quick_settings_less_boring_off">Less Boring off.</string>
+    <string name="accessibility_quick_settings_less_boring_on">Less Boring on.</string>
+    <string name="accessibility_quick_settings_less_boring_changed_off">Less Boring turned off.</string>
+    <string name="accessibility_quick_settings_less_boring_changed_on">Less Boring turned on.</string>
+    <!-- Alerting notification header label -->
+    <string name="notification_section_header_alerting">Alerting notifications</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Reading mode</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Reading mode on.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Reading mode off.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Reading mode turned on.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Reading mode turned off.</string>
+    <!-- navbar editor -->
+    <string name="preview">Preview</string>
+    <string name="keycode">Keycode</string>
+    <string name="no_home_title">No home button found</string>
+    <string name="no_home_message">A home button is required to be able to navigate this device. Please add a home button before saving.</string>
+    <string name="clipboard_description">The Clipboard allows items to be dragged directly to the clipboard. Items can also be dragged directly out of the clipboard when present.</string>
+    <string name="keycode_description">Keycode buttons allow keyboard keys to be added to the Navigation Bar. When pressed they emulate the selected keyboard key. First the key must be selected for the button, followed by an image to be shown on the button.</string>
+    <string name="start">Start</string>
+    <string name="center">Center</string>
+    <string name="end">End</string>
+    <string name="space">Spacer</string>
+    <string name="menu_ime">Menu / Keyboard Switcher</string>
+    <string name="select_button">Select button to add</string>
+    <string name="add_button">Add button</string>
+    <string name="save">Save</string>
+    <string name="reset">Reset</string>
+    <string name="select_keycode">Select Keyboard Button</string>
+    <string name="left">Left</string>
+    <string name="right">Right</string>
+    <string name="navbar_editor_title">Editor</string>
+    <string name="navbar_editor_summary">Configure navigaton bar</string>
+    <!-- Navbar arrow keys while typing -->
+    <string name="navigation_bar_accessibility_dpad_left">Cursor left</string>
+    <string name="navigation_bar_accessibility_dpad_right">Cursor right</string>
+    <string name="navigation_bar_inverse_title">Swap buttons</string>
+    <string name="navigation_bar_inverse_summary">Swap the order of recents and back buttons</string>
+    <!-- Navigation Bar tile -->
+    <string name="quick_settings_navbar_title">Navigation Bar</string>
+    <string name="accessibility_quick_settings_navbar_on">Navigation bar on</string>
+    <string name="accessibility_quick_settings_navbar_off">Navigation bar off</string>
 </resources>

@@ -16,11 +16,41 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Button that copies the url to the log of a crashed application -->
-    <string name="aerr_copy">Копіювати URL логу збою</string>
+    <string name="aerr_copy">Копіювати URL звіту про помилку</string>
     <string name="url_copy_success">URL успішно скопійовано</string>
+    <string name="url_copy_failed">Помилка під час завантаження файла звіту до dogbin</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_fakePackageSignature">Дозволити підміну підпису</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_fakePackageSignature">Дозволити додатку видавати себе за інший додаток. Небезпечні додатки можуть отримати доступ до приватних даних. Будьте обережні надаючи цей дозвіл!</string>
     <!-- Advanced reboot -->
+    <string name="reboot_title">Перезавантажити</string>
+    <string name="reboot_message">Перезавантаження системи...</string>
     <!-- Vendor mismatch fingerprint warning [CHAR LIMIT=NONE] -->
-    <!-- Gaming mode -->
+    <string name="system_error_vendorprint">Образ не відповідає системі. Будь ласка, прошийте <xliff:g id="string">%s</xliff:g> образ для вашого пристрою</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Автоматично</string>
+    <string name="live_display_auto_summary">Автоматичне підлаштування температури кольору екрана після заходу та сходу сонця</string>
+    <string name="live_display_off">Вимк</string>
+    <string name="live_display_off_summary">Вимкнути всі налаштування</string>
+    <string name="live_display_day">День</string>
+    <string name="live_display_day_summary">Використовувати лише налаштування режиму \"день\"</string>
+    <string name="live_display_night">Ніч</string>
+    <string name="live_display_night_summary">Використовувати лише налаштування режиму \"ніч\"</string>
+    <string name="live_display_outdoor">На вулиці (яскраве сонце)</string>
+    <string name="live_display_outdoor_summary">Використовувати тільки параметри «На вулиці»</string>
+    <string name="live_display_hint">LiveDisplay допоможе зменшити навантаження на зір та покращить сон. Натисніть тут, щоб спробувати його!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay вимкнений.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: автоматичний режим.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: денний режим.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: нічний режим.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: режим на вулиці.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay вимкнено.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay змінено на автоматичний режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay змінено на денний режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay змінено на нічний режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay змінено на режим \"На вулиці\"</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Перезапустити SystemUI</string>
+    <string name="systemui_restart_message">Для застосування змін потрібно перезаватажити інтерфейс системи. Перезавантажити зараз?</string>
 </resources>

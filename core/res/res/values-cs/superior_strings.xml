@@ -28,10 +28,29 @@
     <string name="reboot_message">Restartování systému...</string>
     <!-- Vendor mismatch fingerprint warning [CHAR LIMIT=NONE] -->
     <string name="system_error_vendorprint">Váš dodavatel obrazu se neshoduje se systémem. Prosím nainstalujte obraz pro vaše zařízení <xliff:g id="string">%s </xliff:g></string>
-    <!-- Gaming mode -->
-    <string name="notification_channel_gaming">Herní režim</string>
-    <string name="gaming_mode_notification_title">Herní režim povolen</string>
-    <string name="gaming_mode_notification_content">Klepněte sem pro vypnutí Herního režimu</string>
-    <string name="gaming_mode_enabled_toast">Herní režim je zapnutý</string>
-    <string name="gaming_mode_disabled_toast">Herní režim je vypnutý</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automaticky</string>
+    <string name="live_display_auto_summary">Automaticky upravit teplotu barev obrazovky po západu a východu Slunce</string>
+    <string name="live_display_off">Vyp.</string>
+    <string name="live_display_off_summary">Zakázat všechny úpravy</string>
+    <string name="live_display_day">Den</string>
+    <string name="live_display_day_summary">Nastavení pouze pro den</string>
+    <string name="live_display_night">Noc</string>
+    <string name="live_display_night_summary">Použít nastavení pouze pro noc</string>
+    <string name="live_display_outdoor">Venku (slunečno)</string>
+    <string name="live_display_outdoor_summary">Použít pouze venkovní nastavení</string>
+    <string name="live_display_hint">LiveDisplay může pomoci proti namáhání očí hlavně při používání v noci. Dotykem zde tuto funkci můžete vyzkoušet!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay vyp.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: automatický režim.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: režim ve dne.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: režim v noci.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: režim venku.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay je vypnutý.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay změněn na automatický režim.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay změněn na režim ve dne.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay změněn na režim v noci.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay změněn na režim venku.</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Restartovat SystemUI</string>
+    <string name="systemui_restart_message">Aby se projevily změny, je třeba restartovat SystemUI. Restartovat nyní?</string>
 </resources>
