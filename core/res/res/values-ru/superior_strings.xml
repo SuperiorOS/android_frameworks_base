@@ -16,22 +16,41 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Button that copies the url to the log of a crashed application -->
-    <string name="aerr_copy">Скопировать ссылку краш лога</string>
+    <string name="aerr_copy">Скопировать ссылку лога ошибки</string>
     <string name="url_copy_success">Ссылка успешно скопирована</string>
-    <string name="url_copy_failed">Произошла ошибка загрузки лога на сервис dogbin</string>
+    <string name="url_copy_failed">Во время загрузки лога на сервис dogbin произошла ошибка</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">Разрешить подмену подписи пакета</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_fakePackageSignature">Разрешать приложениям обходить систему безопасности, выдавая себя за другое приложение. Вредоносные приложения могут использовать это для доступа к частным данным. Предоставляйте это разрешение на свой страх и риск!</string>
+    <string name="permdesc_fakePackageSignature">Разрешать приложениям обходить систему безопасности, выдавая себя за другое приложение. Вредоносные приложения могут использовать это для доступа к личным данным. Предоставляйте это разрешение на свой страх и риск!</string>
     <!-- Advanced reboot -->
-    <string name="reboot_title">Перезагрузить</string>
+    <string name="reboot_title">Перезагрузка</string>
     <string name="reboot_message">Перезагрузка системы...</string>
     <!-- Vendor mismatch fingerprint warning [CHAR LIMIT=NONE] -->
-    <string name="system_error_vendorprint">Ваш образ По производителя не соответствует системе. Пожалуйста, прошейте <xliff:g id="string">%s</xliff:g> образ ПО производителя для вашего девайса</string>
-    <!-- Gaming mode -->
-    <string name="notification_channel_gaming">Игровой режим</string>
-    <string name="gaming_mode_notification_title">Игровой режим включен</string>
-    <string name="gaming_mode_notification_content">Нажмите, чтобы выключить Игровой режим</string>
-    <string name="gaming_mode_enabled_toast">Игровой режим включен</string>
-    <string name="gaming_mode_disabled_toast">Игровой режим выключен</string>
+    <string name="system_error_vendorprint">Ваш вендор не соответствует системе. Пожалуйста, прошейте <xliff:g id="string">%s</xliff:g> вендор для вашего девайса</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Автоматически</string>
+    <string name="live_display_auto_summary">Автоматическая настройка цветовой температуры экрана после захода солнца/восхода солнца</string>
+    <string name="live_display_off">Выкл</string>
+    <string name="live_display_off_summary">Отключить все улучшения</string>
+    <string name="live_display_day">День</string>
+    <string name="live_display_day_summary">Использовать только дневные настройки</string>
+    <string name="live_display_night">Ночь</string>
+    <string name="live_display_night_summary">Использовать только ночные настройки</string>
+    <string name="live_display_outdoor">Режим \"На улице\" (Яркое солнце)</string>
+    <string name="live_display_outdoor_summary">Использовать только настройки режима \"На улице\"</string>
+    <string name="live_display_hint">LiveDisplay может помочь уменьшить напряжение глаз. Нажмите здесь, чтобы попробовать!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay выключен.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: автоматический режим.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: дневной режим.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: ночной режим.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: режим \"На улице\".</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay выключен.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">Настройки LiveDisplay изменены на автоматический режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">Настройки LiveDisplay изменены на дневной режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay изменён в ночной режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay изменен на режим \"На улице\".</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Перезапустить SystemUI</string>
+    <string name="systemui_restart_message">Чтобы изменения вступили в силу, требуется перезагрузка SystemUI. Перезагрузить SystemUI сейчас?</string>
 </resources>

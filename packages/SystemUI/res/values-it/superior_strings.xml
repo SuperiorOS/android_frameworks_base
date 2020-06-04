@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--  Copyright (C) 2018-2019 Superior Project
+<!--  Copyright (C) 2018-2020 Superior Project
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -16,30 +16,187 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica rapida (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> fino al completamento)</string>
+    <string name="keyguard_plugged_in_dash_charging">Ricarica Rapida</string>
     <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">Caffeina</string>
+    <string name="quick_settings_caffeine_label_off">Off</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeina off</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeina on</string>
     <!-- Reboot/Recovery QS Tile -->
+    <string name="quick_settings_reboot_label">Riavvia</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
     <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Screenshot</string>
+    <string name="quick_settings_region_screenshot_label">Screenshot parziale</string>
     <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Notifiche fluttuanti</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notifiche fluttuanti off.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notifiche fluttuanti on.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notifiche fluttuanti disattivate.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notifiche a comparsa attivate.</string>
     <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">Tasti fisici on</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Tasti fisici off</string>
+    <string name="quick_settings_hwkeys_label">Tasti fisici</string>
     <!-- USB Tethering tile -->
+    <string name="accessibility_quick_settings_usb_tether_off">Tethering USB spento</string>
+    <string name="accessibility_quick_settings_usb_tether_on">Tethering USB acceso</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">Tethering USB disattivato</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">Tethering USB attivato</string>
+    <string name="quick_settings_usb_tether_label">Tethering USB</string>
+    <string name="statusbar_items_title">Icona barra di stato</string>
+    <string name="lockscreen_default">Predefinito</string>
+    <string name="lockscreen_hidden">Nessuno</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">Scorri sull\'icona per avviare</string>
     <!-- QS Config -->
+    <string name="qs_menu_item_columns">Colonne</string>
+    <string name="qs_menu_item_columns_landscape">Colonne (orizzontale)</string>
+    <string name="qs_menu_item_rows">Righe</string>
+    <string name="qs_menu_item_rows_landscape">Righe (orizzontale)</string>
+    <string name="qs_menu_item_columns_one">1</string>
+    <string name="qs_menu_item_columns_two">1</string>
+    <string name="qs_menu_item_columns_three">2</string>
+    <string name="qs_menu_item_columns_four">3</string>
+    <string name="qs_menu_item_columns_five">5</string>
+    <string name="qs_menu_item_columns_six">6</string>
+    <string name="qs_menu_item_columns_seven">7</string>
+    <string name="qs_menu_item_columns_eight">8</string>
+    <string name="qs_menu_item_columns_nine">9</string>
+    <string name="qs_menu_item_reset">Ripristina</string>
+    <string name="qs_menu_item_titles">Mostra etichette</string>
+    <string name="qs_menu_item_qs_columns">Colonne barra veloce</string>
+    <string name="qs_menu_item_columns_auto">Automatico</string>
     <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Suoni</string>
+    <string name="quick_settings_sound_ring">Suoneria</string>
+    <string name="quick_settings_sound_vibrate">Vibrazione</string>
+    <string name="quick_settings_sound_mute">Muto</string>
     <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc">NFC</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <string name="status_bar_data_saver">Risparmio dati</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_roaming">Roaming</string>
+    <string name="omnijaws_service_error">Errore</string>
+    <string name="omnijaws_service_unkown">Dati meteo non disponibili</string>
+    <string name="omnijaws_service_error_long">Errore durante il caricamento dei dati meteo</string>
+    <string name="omnijaws_service_disabled">Servizio disabilitato</string>
+    <string name="omnijaws_detail_header">Meteo</string>
+    <string name="omnijaws_label_default">Meteo</string>
+    <string name="omnijaws_current_text">Adesso</string>
+    <string name="omnijaws_package_not_available">OmniJaws non disponibile</string>
+    <string name="omnijaws_service_last_update">Ultimo aggiornamento:</string>
     <!-- Advanced powermenu -->
+    <string name="global_action_restart_system">Riavvia</string>
+    <string name="global_action_restart_advanced">Riavvio\nAvanzato</string>
+    <string name="global_action_restart_recovery">Recovery</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">SystemUI</string>
+    <string name="global_action_restart_hot">Veloce</string>
     <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Screenshot eliminato</string>
     <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">Spegni schermo</string>
     <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ambient Display</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambient Display spento.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambient Display acceso.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambient Display disattivato.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambient display attivo.</string>
     <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">Forzare l\'interruzione?</string>
+    <string name="force_stop_dlg_text">Se forzi l\'interruzione di un\'applicazione, la stessa potrebbe funzionare in modo anomalo.</string>
+    <string name="guts_force_close_app">Chiudi app</string>
     <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Le notifiche saranno posticipate per 1 minuto.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - Le notifiche saranno posticipate per <xliff:g id="number">%d</xliff:g> minuti.</string>
     <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Cambia Sim</string>
+    <string name="qs_data_switch_toast_0">Attualmente nessuna SIM è inserita</string>
+    <string name="qs_data_switch_toast_1">Attualmente solo una SIM è inserita</string>
+    <string name="qs_data_switch_changed_1">Utilizza SIM 1 per dati mobili</string>
+    <string name="qs_data_switch_changed_2">Utilizza SIM 2 per dati mobili</string>
     <!-- Name of the camera status bar icon. -->
+    <string name="status_bar_camera">Fotocamera</string>
     <!-- Name of the location status bar icon. -->
+    <string name="status_bar_location">Posizione</string>
     <!-- Name of the microphone status bar icon. -->
-    <!-- Gaming mode -->
-    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="status_bar_microphone">Microfono</string>
     <!-- Immersive tile -->
+    <string name="quick_settings_immersive_tile">Modalità a schermo intero</string>
+    <string name="quick_settings_immersive_tile_statusbar">Barra di stato a schermo intero</string>
+    <string name="quick_settings_immersive_tile_navbar">Barra di navigazione a schermo intero</string>
+    <string name="quick_settings_immersive_tile_full">Modalità a schermo intero per entrambi</string>
     <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">Informazioni FPS</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">Informazioni FPS disattivate</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">Informazioni FPS attivate</string>
+    <!-- Screen Stabilization -->
+    <string name="quick_settings_stabilization_label">Screen Stabilization</string>
+    <string name="quick_settings_stabilization_off">Stabilization is disabled</string>
+    <string name="quick_settings_stabilization_on">Stabilization is enabled</string>
+    <string name="low_label">Low</string>
+    <string name="high_label">High</string>
+    <string name="stabilization_velocity_friction">Velocity Friction</string>
+    <string name="stabilization_velocity_amplitude">Velocity Amplitude</string>
+    <string name="stabilization_position_friction">Position Friction</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <!-- Long swipe gesture actions -->
+    <string name="app_picker_dialog_title">Select an app</string>
+    <string name="active_edge_app_select_title">Select app</string>
+    <string name="active_edge_activity_select_title">Select activity</string>
+    <string name="recents_app_killed">App killed</string>
+    <string name="nope_cant_kill">Launcher cannot be killed</string>
+    <!-- Mono audio QS tile -->
+    <string name="quick_settings_monotoggle_tile">Audio mode</string>
+    <string name="quick_settings_monotoggle_tile_mono">Mono audio</string>
+    <string name="quick_settings_monotoggle_tile_stereo">Stereo audio</string>
+    <!-- Less Boring QS tile -->
+    <string name="quick_settings_less_boring_label">Less Boring</string>
+    <string name="accessibility_quick_settings_less_boring_off">Less Boring off.</string>
+    <string name="accessibility_quick_settings_less_boring_on">Less Boring on.</string>
+    <string name="accessibility_quick_settings_less_boring_changed_off">Less Boring turned off.</string>
+    <string name="accessibility_quick_settings_less_boring_changed_on">Less Boring turned on.</string>
+    <!-- Alerting notification header label -->
+    <string name="notification_section_header_alerting">Alerting notifications</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Reading mode</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Reading mode on.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Reading mode off.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Reading mode turned on.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Reading mode turned off.</string>
+    <!-- navbar editor -->
+    <string name="preview">Preview</string>
+    <string name="keycode">Keycode</string>
+    <string name="no_home_title">No home button found</string>
+    <string name="no_home_message">A home button is required to be able to navigate this device. Please add a home button before saving.</string>
+    <string name="clipboard_description">The Clipboard allows items to be dragged directly to the clipboard. Items can also be dragged directly out of the clipboard when present.</string>
+    <string name="keycode_description">Keycode buttons allow keyboard keys to be added to the Navigation Bar. When pressed they emulate the selected keyboard key. First the key must be selected for the button, followed by an image to be shown on the button.</string>
+    <string name="start">Start</string>
+    <string name="center">Center</string>
+    <string name="end">End</string>
+    <string name="space">Spacer</string>
+    <string name="menu_ime">Menu / Keyboard Switcher</string>
+    <string name="select_button">Select button to add</string>
+    <string name="add_button">Add button</string>
+    <string name="save">Save</string>
+    <string name="reset">Reset</string>
+    <string name="select_keycode">Select Keyboard Button</string>
+    <string name="left">Left</string>
+    <string name="right">Right</string>
+    <string name="navbar_editor_title">Editor</string>
+    <string name="navbar_editor_summary">Configure navigaton bar</string>
+    <!-- Navbar arrow keys while typing -->
+    <string name="navigation_bar_accessibility_dpad_left">Cursor left</string>
+    <string name="navigation_bar_accessibility_dpad_right">Cursor right</string>
+    <string name="navigation_bar_inverse_title">Swap buttons</string>
+    <string name="navigation_bar_inverse_summary">Swap the order of recents and back buttons</string>
+    <!-- Navigation Bar tile -->
+    <string name="quick_settings_navbar_title">Navigation Bar</string>
+    <string name="accessibility_quick_settings_navbar_on">Navigation bar on</string>
+    <string name="accessibility_quick_settings_navbar_off">Navigation bar off</string>
 </resources>

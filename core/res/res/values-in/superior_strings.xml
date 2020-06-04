@@ -17,21 +17,40 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Button that copies the url to the log of a crashed application -->
     <string name="aerr_copy">Salin URL log kerusakan</string>
-    <string name="url_copy_success">URL berhasil disalin</string>
+    <string name="url_copy_success">Tautan berhasil disalin</string>
     <string name="url_copy_failed">Terjadi kesalahan saat mengunggah log ke dogbin</string>
     <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permlab_fakePackageSignature">Memalsukan tanda tangan paket</string>
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
-    <string name="permdesc_fakePackageSignature">Mengizinkan aplikasi berpura-pura menjadi aplikasi yang berbeda. Aplikasi berbahaya mungkin dapat menggunakan ini untuk mengakses data aplikasi pribadi. Berikan izin ini dengan hati-hati!</string>
+    <string name="permdesc_fakePackageSignature">Mengizinkan aplikasi berpura-pura menjadi aplikasi yang berbeda. Aplikasi jahat mungkin dapat menggunakan ini untuk mengakses data aplikasi pribadi. Berikan izin ini hanya dengan hati-hati!</string>
     <!-- Advanced reboot -->
     <string name="reboot_title">Mulai ulang</string>
     <string name="reboot_message">Memulai ulang sistem...</string>
     <!-- Vendor mismatch fingerprint warning [CHAR LIMIT=NONE] -->
-    <string name="system_error_vendorprint">Vendor img anda tidak cocok dengan sistem. Tolong flash <xliff:g id="string">%s</xliff:g> vendor img untuk perangkat anda</string>
-    <!-- Gaming mode -->
-    <string name="notification_channel_gaming">Mode game</string>
-    <string name="gaming_mode_notification_title">Mode game hidup</string>
-    <string name="gaming_mode_notification_content">Tekan untuk mematikan mode Game</string>
-    <string name="gaming_mode_enabled_toast">Mode game dihidupkan</string>
-    <string name="gaming_mode_disabled_toast">Mode game dimatikan</string>
+    <string name="system_error_vendorprint">Gambar vendor Anda tidak cocok dengan sistem. Harap flash <xliff:g id="string">%s</xliff:g> gambar vendor untuk perangkat anda</string>
+    <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automatic</string>
+    <string name="live_display_auto_summary">Automatically adjust color temperature of screen after sunset and sunrise</string>
+    <string name="live_display_off">Off</string>
+    <string name="live_display_off_summary">Disable all adjustments</string>
+    <string name="live_display_day">Day</string>
+    <string name="live_display_day_summary">Use day settings only</string>
+    <string name="live_display_night">Night</string>
+    <string name="live_display_night_summary">Use night settings only</string>
+    <string name="live_display_outdoor">Outdoor (bright sun)</string>
+    <string name="live_display_outdoor_summary">Use outdoor settings only</string>
+    <string name="live_display_hint">LiveDisplay can help reduce eyestrain and help you sleep at night. Click here to try it out!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay off.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: auto mode.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: day mode.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: night mode.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: outdoor mode.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay turned off.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay changed to auto mode.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay changed to day mode.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay changed to night mode.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay changed to outdoor mode.</string>
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">Restart SystemUI</string>
+    <string name="systemui_restart_message">For the changes to take effect, a SystemUI restart is required. Restart SystemUI now?</string>
 </resources>

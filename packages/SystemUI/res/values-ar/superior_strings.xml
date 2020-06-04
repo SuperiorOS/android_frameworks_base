@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--  Copyright (C) 2018-2019 Superior Project
+<!--  Copyright (C) 2018-2020 Superior Project
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -16,30 +16,187 @@
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • الشحن السريع (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> حتى الامتلاء)</string>
+    <string name="keyguard_plugged_in_dash_charging">الشحن فائق السرعة</string>
     <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">الإستراحة</string>
+    <string name="quick_settings_caffeine_label_off">إيقاف</string>
+    <string name="accessibility_quick_settings_caffeine_off">الاستراحه معطلة</string>
+    <string name="accessibility_quick_settings_caffeine_on">الاستراحه مفعلة</string>
     <!-- Reboot/Recovery QS Tile -->
+    <string name="quick_settings_reboot_label">اعاده التشغيل</string>
+    <string name="quick_settings_reboot_recovery_label">وضع الاستعادة</string>
     <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">لقط الشاشة</string>
+    <string name="quick_settings_region_screenshot_label">لقطة جزئية للشاشة</string>
     <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">التنبيهات العلوية</string>
+    <string name="accessibility_quick_settings_heads_up_off">إيقاف التنبيهات العلوية.</string>
+    <string name="accessibility_quick_settings_heads_up_on">تفعيل التنبيهات العلوية.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">تم تعطيل التنبيهات العلوية.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">تم تشغيل التنبيهات العلوية.</string>
     <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">أزرار الجهاز مفعلة</string>
+    <string name="accessibility_quick_settings_hwkeys_off">أزرار الجهاز معّطلة</string>
+    <string name="quick_settings_hwkeys_label">أزرار الجهاز</string>
     <!-- USB Tethering tile -->
+    <string name="accessibility_quick_settings_usb_tether_off">‏الإنترنت عبر USB متوقف</string>
+    <string name="accessibility_quick_settings_usb_tether_on">‏الإنترنت عبر USB يعمل</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_off">تم إيقاف الانترنت عبر USB</string>
+    <string name="accessibility_quick_settings_usb_tether_changed_on">تم تشغيل الانترنت عبر USB</string>
+    <string name="quick_settings_usb_tether_label">ربط ‏الأنترنت عبر USB</string>
+    <string name="statusbar_items_title">أيقونات شريط الحالة</string>
+    <string name="lockscreen_default">الإفتراضي</string>
+    <string name="lockscreen_hidden">لا شَيْء</string>
     <!-- Shows when people have clicked on the custom lockscreen shortcut [CHAR LIMIT=60] -->
+    <string name="custom_hint">إسحب من الأيقونة للفتح</string>
     <!-- QS Config -->
+    <string name="qs_menu_item_columns">الأعمدة</string>
+    <string name="qs_menu_item_columns_landscape">الأعمدة أفقي</string>
+    <string name="qs_menu_item_rows">الصفوف</string>
+    <string name="qs_menu_item_rows_landscape">الصفوف أفقي</string>
+    <string name="qs_menu_item_columns_one">١</string>
+    <string name="qs_menu_item_columns_two">٢</string>
+    <string name="qs_menu_item_columns_three">۳</string>
+    <string name="qs_menu_item_columns_four">٤</string>
+    <string name="qs_menu_item_columns_five">٥</string>
+    <string name="qs_menu_item_columns_six">٦</string>
+    <string name="qs_menu_item_columns_seven">٧</string>
+    <string name="qs_menu_item_columns_eight">٨</string>
+    <string name="qs_menu_item_columns_nine">۹</string>
+    <string name="qs_menu_item_reset">إعادة تعيين</string>
+    <string name="qs_menu_item_titles">عرض التسميات</string>
+    <string name="qs_menu_item_qs_columns">أعمدة الشريط السريع</string>
+    <string name="qs_menu_item_columns_auto">تلقائي</string>
     <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">الصوت</string>
+    <string name="quick_settings_sound_ring">رنين</string>
+    <string name="quick_settings_sound_vibrate">إهتزاز</string>
+    <string name="quick_settings_sound_mute">كتم</string>
     <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc">NFC</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">‏الاتصالات قصيرة المدى</string>
+    <string name="status_bar_data_saver">موفر البيانات</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_roaming">التجوال</string>
+    <string name="omnijaws_service_error">خطأ</string>
+    <string name="omnijaws_service_unkown">لا توجد بيانات الطقس</string>
+    <string name="omnijaws_service_error_long">خطأ في تحميل بيانات الطقس</string>
+    <string name="omnijaws_service_disabled">تم تعطيل الخدمة</string>
+    <string name="omnijaws_detail_header">الطقس</string>
+    <string name="omnijaws_label_default">الطقس</string>
+    <string name="omnijaws_current_text">الآن</string>
+    <string name="omnijaws_package_not_available">OmniJaws غير متاح</string>
+    <string name="omnijaws_service_last_update">آخر تحديث:</string>
     <!-- Advanced powermenu -->
+    <string name="global_action_restart_system">إعادة التشغيل</string>
+    <string name="global_action_restart_advanced">\nإعادة تشغيل متقدمة</string>
+    <string name="global_action_restart_recovery">وضع الاستعادة</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">واجهة المستخدم</string>
+    <string name="global_action_restart_hot">اعادة تشغيل سريع</string>
     <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">تم حذف الصورة الملتقطة</string>
     <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">وضع سكون الشاشة</string>
     <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">إضاءة الشاشة عند وصول إشعار</string>
+    <string name="accessibility_quick_settings_ambient_display_off">ايقاف وضع إضاءة الشاشة عند وصول إشعار.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">تفعيل وضع إضاءة الشاشة عند وصول إشعار.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">ايقاف وضع إضاءة الشاشة عند وصول إشعار.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">تم تفعيل اضاءة الاشعارات.</string>
     <!-- Kill button in notification guts -->
+    <string name="force_stop_dlg_title">هل تريد فرض الإيقاف؟</string>
+    <string name="force_stop_dlg_text">في حالة فرض إيقاف التطبيق، ربما لا يعمل بشكل صحيح.</string>
+    <string name="guts_force_close_app">إغلاق التطبيق</string>
     <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - الاشعارات العائمة في وضع الغفوة لدقيقة واحدة.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%s</xliff:g> - تمرير التنبيهات العلوية للأعلى، سيدخل التطبيق المعني في غفوة لمدة <xliff:g id="number">%d</xliff:g> دقائق.</string>
     <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">تبديل بطاقة البيانات</string>
+    <string name="qs_data_switch_toast_0">لا توجد شريحة SIM حاليا</string>
+    <string name="qs_data_switch_toast_1">فقط شريحة SIM واحدة مُدخلة</string>
+    <string name="qs_data_switch_changed_1">استخدام شريحة 1 لبيانات الهاتف</string>
+    <string name="qs_data_switch_changed_2">استخدام شريحة 2 لبيانات الهاتف</string>
     <!-- Name of the camera status bar icon. -->
+    <string name="status_bar_camera">الكاميرا</string>
     <!-- Name of the location status bar icon. -->
+    <string name="status_bar_location">الموقع</string>
     <!-- Name of the microphone status bar icon. -->
-    <!-- Gaming mode -->
-    <!-- Content description of the Gaming mode tile in quick settings when disabled (not shown on the screen). [CHAR LIMIT=NONE] -->
-    <!-- Content description of the Gaming mode tile in quick settings when enabled (not shown on the screen). [CHAR LIMIT=NONE] -->
+    <string name="status_bar_microphone">الميكروفون</string>
     <!-- Immersive tile -->
+    <string name="quick_settings_immersive_tile">وضع ملء الشاشه</string>
+    <string name="quick_settings_immersive_tile_statusbar">إخفاء شريط الحالة</string>
+    <string name="quick_settings_immersive_tile_navbar">إخفاء شريط التنقل</string>
+    <string name="quick_settings_immersive_tile_full">وضع ملء الشاشة الكامل</string>
     <!-- FPS Info tile -->
+    <string name="quick_settings_fpsinfo_label">معلومات معدَّل العرضFPS</string>
+    <string name="accessibility_quick_settings_fpsinfo_off">معلومات FPS موقفة</string>
+    <string name="accessibility_quick_settings_fpsinfo_on">معلومات FPS مفعّلة</string>
+    <!-- Screen Stabilization -->
+    <string name="quick_settings_stabilization_label">تثبيت الشاشة</string>
+    <string name="quick_settings_stabilization_off">الثبات معطّل</string>
+    <string name="quick_settings_stabilization_on">الثبات مفعل</string>
+    <string name="low_label">منخفض</string>
+    <string name="high_label">مرتفع</string>
+    <string name="stabilization_velocity_friction">سرعة الاحتكاك</string>
+    <string name="stabilization_velocity_amplitude">مدى الاحتكاك</string>
+    <string name="stabilization_position_friction">موضع الاحتكاك</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">الشاشة الدائمة</string>
+    <!-- Long swipe gesture actions -->
+    <string name="app_picker_dialog_title">تحديد تطبيق</string>
+    <string name="active_edge_app_select_title">تحديد تطبيق</string>
+    <string name="active_edge_activity_select_title">حدد النشاط</string>
+    <string name="recents_app_killed">تم إنهاء التطبيق</string>
+    <string name="nope_cant_kill">لا يمكن إنهاء واجهة الجهاز</string>
+    <!-- Mono audio QS tile -->
+    <string name="quick_settings_monotoggle_tile">وضع الصوت</string>
+    <string name="quick_settings_monotoggle_tile_mono">صوت أحادي</string>
+    <string name="quick_settings_monotoggle_tile_stereo">صوت ستيريو</string>
+    <!-- Less Boring QS tile -->
+    <string name="quick_settings_less_boring_label">أقل مللا</string>
+    <string name="accessibility_quick_settings_less_boring_off">ايقاف أقل مللا.</string>
+    <string name="accessibility_quick_settings_less_boring_on">تفعيل وضع أقل مللا.</string>
+    <string name="accessibility_quick_settings_less_boring_changed_off">تم إيقاف وضع اقل مللا.</string>
+    <string name="accessibility_quick_settings_less_boring_changed_on">تم تفعيل وضع اقل مللا.</string>
+    <!-- Alerting notification header label -->
+    <string name="notification_section_header_alerting">تنبيه الإشعارات</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">وضع القراءة</string>
+    <string name="accessibility_quick_settings_reading_mode_on">وضع القراءة مفعل.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">وضع القراءة معطل.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">تم تشغيل وضع القراءة.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">تم إيقاف وضع القراءة.</string>
+    <!-- navbar editor -->
+    <string name="preview">معاينة</string>
+    <string name="keycode">رمز المفتاح</string>
+    <string name="no_home_title">لم يتم العثور على زر الصفحة الرئيسية</string>
+    <string name="no_home_message">زر الصفحة الرئيسية مطلوب لتتمكن من التنقل في هذا الجهاز. الرجاء إضافة زر الصفحة الرئيسية قبل الحفظ.</string>
+    <string name="clipboard_description">تسمح الحافظة بسحب العناصر مباشرة إلى الحافظة. يمكن أيضًا سحب العناصر مباشرة من الحافظة عند وجودها.</string>
+    <string name="keycode_description">تسمح أزرار رمز المفتاح بإضافة مفاتيح لى شريط التنقل، عند الضغط. هي محاكاة مفتاح لوحة المفاتيح المحددة. أولاً، يجب تحديد المفتاح للزر، متبوعاً بصورة يتم عرضها على الزر.</string>
+    <string name="start">بدء</string>
+    <string name="center">الوسط</string>
+    <string name="end">النهاية</string>
+    <string name="space">الفاصل</string>
+    <string name="menu_ime">القائمة/ مبدّل لوحة المفاتيح</string>
+    <string name="select_button">تحديد الزر لإضافته</string>
+    <string name="add_button">إضافة زر</string>
+    <string name="save">حفظ</string>
+    <string name="reset">إعادة تعيين</string>
+    <string name="select_keycode">تحديد زر لوحة المفاتيح</string>
+    <string name="left">اليسار</string>
+    <string name="right">اليمين</string>
+    <string name="navbar_editor_title">المحرر</string>
+    <string name="navbar_editor_summary">ضبط شريط التنقل</string>
+    <!-- Navbar arrow keys while typing -->
+    <string name="navigation_bar_accessibility_dpad_left">المؤشر إلى اليسار</string>
+    <string name="navigation_bar_accessibility_dpad_right">المؤشر الى اليمين</string>
+    <string name="navigation_bar_inverse_title">تبديل الأزرار</string>
+    <string name="navigation_bar_inverse_summary">تبديل ترتيب الأزرار لتطبيقات الحديثة والرجوع</string>
+    <!-- Navigation Bar tile -->
+    <string name="quick_settings_navbar_title">شريط التنقل</string>
+    <string name="accessibility_quick_settings_navbar_on">تشغيل شريط التنقل</string>
+    <string name="accessibility_quick_settings_navbar_off">إيقاف شريط التنقل</string>
 </resources>
