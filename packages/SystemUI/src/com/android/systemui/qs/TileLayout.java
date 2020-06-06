@@ -155,7 +155,7 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
         }
         else {
             rowsSet = Settings.System.getIntForUser(resolver,
-                    Settings.System.QS_LAYOUT_ROWS_LANDSCAPE, 3,
+                    Settings.System.QS_LAYOUT_ROWS_LANDSCAPE, 2,
                     UserHandle.USER_CURRENT);
         }
         if (mRows > rowsSet)
@@ -229,7 +229,7 @@ public class TileLayout extends ViewGroup implements QSTileLayout {
                 mContext.getContentResolver(), Settings.System.QS_LAYOUT_ROWS, defaultColumns,
                 UserHandle.USER_CURRENT);
         int rowsLandscape = Settings.System.getIntForUser(
-                mContext.getContentResolver(), Settings.System.QS_LAYOUT_ROWS_LANDSCAPE, defaultColumns,
+                mContext.getContentResolver(), Settings.System.QS_LAYOUT_ROWS_LANDSCAPE, 2,
                 UserHandle.USER_CURRENT);
         boolean showTitles = Settings.System.getIntForUser(
                 mContext.getContentResolver(), Settings.System.OMNI_QS_TILE_TITLE_VISIBILITY, 1,
