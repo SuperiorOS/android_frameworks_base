@@ -4701,6 +4701,12 @@ public final class Settings {
          */
         public static final String SCREENRECORD_VIDEO_BITRATE = "screenrecord_video_bitrate";
 
+        /**
+         * The amount of time in milliseconds before the device goes to sleep or begins
+         * to dream after a period of inactivity in the keyguard.
+         * @hide
+         */
+        public static final String LOCKSCREEN_TIMEOUT = "lockscreen_timeout";
 
         /**
          * Whether the user has already accepted MediaProjection permission for the built-in screenrecorder
