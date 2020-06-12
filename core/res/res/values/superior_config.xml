@@ -217,13 +217,6 @@
          (without "Focus" state) instead of Dual-stage. -->
     <bool name="config_singleStageCameraKey">false</bool>
 
-    <!-- Whether to show a custom view for FOD -->
-    <bool name="config_needCustomFODView">false</bool>
-
-     <!-- Whether to post reset runnable for all clients. Needed for some older
-          vendor fingerprint HAL implementations. -->
-    <bool name="config_fingerprintPostResetRunnableForAllClients">false</bool>
-
     <!-- Default values for LiveDisplay -->
     <integer name="config_dayColorTemperature">6500</integer>
     <integer name="config_nightColorTemperature">4800</integer>
