@@ -5881,18 +5881,6 @@ public final class Settings {
                 BOOLEAN_VALIDATOR;
 
         /**
-        * FOD icon picker
-        * @hide
-        */
-        public static final String FOD_ICON = "fod_icon";
-
-        /**
-         * FOD recognizing animation picker
-         * @hide
-         */
-        public static final String FOD_ANIM = "fod_anim";
-
-        /**
          * Enable/disable privacy indicators on statusbar
          * @hide
          */
@@ -5902,12 +5890,6 @@ public final class Settings {
          * @hide
          */
         private static final Validator STATUSBAR_PRIVACY_INDICATORS_VALIDATOR = BOOLEAN_VALIDATOR;
-
-        /**
-         * FOD recognizing animation
-         * @hide
-         */
-        public static final String FOD_RECOGNIZING_ANIMATION = "fod_recognizing_animation";
 
         /**
          * QS blur alpha
