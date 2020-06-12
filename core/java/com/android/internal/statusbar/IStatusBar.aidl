@@ -165,9 +165,6 @@ oneway interface IStatusBar
     void hideBiometricDialog();
     // Used to block or unblock usage of gestural navigation
     void setBlockedGesturalNavigation(boolean blocked);
-    // Used to show or hide in display fingerprint view
-    void showInDisplayFingerprintView();
-    void hideInDisplayFingerprintView();
 
     /**
      * Notifies System UI that the display is ready to show system decorations.
