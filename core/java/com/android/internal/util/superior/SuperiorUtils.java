@@ -49,6 +49,9 @@ import android.provider.MediaStore;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.text.format.Time;
+import android.util.Log;
+import android.util.TypedValue;
+import android.view.DisplayInfo;
 import android.view.IWindowManager;
 import android.view.WindowManagerGlobal;
 import android.view.InputDevice;
@@ -491,4 +494,11 @@ public class SuperiorUtils {
         NetworkInfo mobile = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
         return wifi.isConnected() || mobile.isConnected();
     }
+
+    public static int getThemeAccentColor (final Context context) {
+        final TypedValue value = new TypedValue ();
+        context.getTheme ().resolveAttribute (android.R.attr.colorAccent, value, true);
+        return value.data;
+    }
+
 }
