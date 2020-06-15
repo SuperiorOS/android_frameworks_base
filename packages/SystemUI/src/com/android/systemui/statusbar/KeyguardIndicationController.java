@@ -110,6 +110,11 @@ public class KeyguardIndicationController implements StateListener,
     private LottieAnimationView mChargingIndicationDrop;
     private LottieAnimationView mChargingIndicationExplosion;
     private LottieAnimationView mChargingIndicationWater;
+    private LottieAnimationView mChargingIndicationSplit;
+    private LottieAnimationView mChargingIndicationYellow;
+    private LottieAnimationView mChargingIndicationCovid;
+    private LottieAnimationView mChargingIndicationWash;
+    private LottieAnimationView mChargingIndicationWear;
     private int mChargingIndication;
     private int mFODPositionY = 0;
     private final UserManager mUserManager;
@@ -237,6 +242,16 @@ public class KeyguardIndicationController implements StateListener,
               R.id.charging_indication_3);
         mChargingIndicationWater = (LottieAnimationView) indicationArea.findViewById(
               R.id.charging_indication_4);
+	mChargingIndicationSplit = (LottieAnimationView) indicationArea.findViewById(
+              R.id.charging_indication_5);
+        mChargingIndicationYellow = (LottieAnimationView) indicationArea.findViewById(
+              R.id.charging_indication_6);
+        mChargingIndicationCovid = (LottieAnimationView) indicationArea.findViewById(
+              R.id.charging_indication_7);
+        mChargingIndicationWash = (LottieAnimationView) indicationArea.findViewById(
+              R.id.charging_indication_8);
+        mChargingIndicationWear = (LottieAnimationView) indicationArea.findViewById(
+              R.id.charging_indication_9);
         if (hasActiveInDisplayFp()) {
             try {
                 IFingerprintInscreen daemon = IFingerprintInscreen.getService();
@@ -519,6 +534,11 @@ public class KeyguardIndicationController implements StateListener,
                     mChargingIndicationDrop.setVisibility(View.GONE);
                     mChargingIndicationExplosion.setVisibility(View.GONE);
                     mChargingIndicationWater.setVisibility(View.GONE);
+                    mChargingIndicationSplit.setVisibility(View.GONE);
+                    mChargingIndicationYellow.setVisibility(View.GONE);
+                    mChargingIndicationCovid.setVisibility(View.GONE);
+                    mChargingIndicationWash.setVisibility(View.GONE);
+                    mChargingIndicationWear.setVisibility(View.GONE);
                     break;
                 case 1: // Flash
                     mChargingIndicationView.setVisibility(View.VISIBLE);
@@ -527,6 +547,11 @@ public class KeyguardIndicationController implements StateListener,
                     mChargingIndicationDrop.setVisibility(View.GONE);
                     mChargingIndicationExplosion.setVisibility(View.GONE);
                     mChargingIndicationWater.setVisibility(View.GONE);
+                    mChargingIndicationSplit.setVisibility(View.GONE);
+                    mChargingIndicationYellow.setVisibility(View.GONE);
+                    mChargingIndicationCovid.setVisibility(View.GONE);
+                    mChargingIndicationWash.setVisibility(View.GONE);
+                    mChargingIndicationWear.setVisibility(View.GONE);
                     break;
                 case 2: // Battery
                     mChargingIndicationBat.setVisibility(View.VISIBLE);
@@ -535,6 +560,11 @@ public class KeyguardIndicationController implements StateListener,
                     mChargingIndicationDrop.setVisibility(View.GONE);
                     mChargingIndicationExplosion.setVisibility(View.GONE);
                     mChargingIndicationWater.setVisibility(View.GONE);
+                    mChargingIndicationSplit.setVisibility(View.GONE);
+                    mChargingIndicationYellow.setVisibility(View.GONE);
+                    mChargingIndicationCovid.setVisibility(View.GONE);
+                    mChargingIndicationWash.setVisibility(View.GONE);
+                    mChargingIndicationWear.setVisibility(View.GONE);
                     break;
                 case 3: // Drop
                     mChargingIndicationDrop.setVisibility(View.VISIBLE);
@@ -543,6 +573,11 @@ public class KeyguardIndicationController implements StateListener,
                     mChargingIndicationBat.setVisibility(View.GONE);
                     mChargingIndicationExplosion.setVisibility(View.GONE);
                     mChargingIndicationWater.setVisibility(View.GONE);
+                    mChargingIndicationSplit.setVisibility(View.GONE);
+                    mChargingIndicationYellow.setVisibility(View.GONE);
+                    mChargingIndicationCovid.setVisibility(View.GONE);
+                    mChargingIndicationWash.setVisibility(View.GONE);
+                    mChargingIndicationWear.setVisibility(View.GONE);
                     break;
                 case 4: // Explosion
                     mChargingIndicationExplosion.setVisibility(View.VISIBLE);
@@ -551,6 +586,11 @@ public class KeyguardIndicationController implements StateListener,
                     mChargingIndicationBat.setVisibility(View.GONE);
                     mChargingIndicationDrop.setVisibility(View.GONE);
                     mChargingIndicationWater.setVisibility(View.GONE);
+                    mChargingIndicationSplit.setVisibility(View.GONE);
+                    mChargingIndicationYellow.setVisibility(View.GONE);
+                    mChargingIndicationCovid.setVisibility(View.GONE);
+                    mChargingIndicationWash.setVisibility(View.GONE);
+                    mChargingIndicationWear.setVisibility(View.GONE);
                     break;
                 case 5: // Water
                     mChargingIndicationWater.setVisibility(View.VISIBLE);
@@ -558,6 +598,76 @@ public class KeyguardIndicationController implements StateListener,
                     mChargingIndicationView.setVisibility(View.GONE);
                     mChargingIndicationBat.setVisibility(View.GONE);
                     mChargingIndicationDrop.setVisibility(View.GONE);
+                    mChargingIndicationExplosion.setVisibility(View.GONE);
+                    mChargingIndicationSplit.setVisibility(View.GONE);
+                    mChargingIndicationYellow.setVisibility(View.GONE);
+                    mChargingIndicationCovid.setVisibility(View.GONE);
+                    mChargingIndicationWash.setVisibility(View.GONE);
+                    mChargingIndicationWear.setVisibility(View.GONE);
+                    break;
+                case 6: // Split
+                    mChargingIndicationSplit.setVisibility(View.VISIBLE);
+                    mChargingIndicationSplit.playAnimation();
+                    mChargingIndicationDrop.setVisibility(View.GONE);
+                    mChargingIndicationExplosion.setVisibility(View.GONE);
+                    mChargingIndicationWater.setVisibility(View.GONE);
+                    mChargingIndicationView.setVisibility(View.GONE);
+                    mChargingIndicationBat.setVisibility(View.GONE);
+                    mChargingIndicationYellow.setVisibility(View.GONE);
+                    mChargingIndicationCovid.setVisibility(View.GONE);
+                    mChargingIndicationWash.setVisibility(View.GONE);
+                    mChargingIndicationWear.setVisibility(View.GONE);
+                    break;
+                case 7: // Yellow
+                    mChargingIndicationYellow.setVisibility(View.VISIBLE);
+                    mChargingIndicationYellow.playAnimation();
+                    mChargingIndicationBat.setVisibility(View.GONE);
+                    mChargingIndicationDrop.setVisibility(View.GONE);
+                    mChargingIndicationExplosion.setVisibility(View.GONE);
+                    mChargingIndicationWater.setVisibility(View.GONE);
+                    mChargingIndicationSplit.setVisibility(View.GONE);
+                    mChargingIndicationView.setVisibility(View.GONE);
+                    mChargingIndicationCovid.setVisibility(View.GONE);
+                    mChargingIndicationWash.setVisibility(View.GONE);
+                    mChargingIndicationWear.setVisibility(View.GONE);
+                    break;
+                case 8: // Covid
+                    mChargingIndicationCovid.setVisibility(View.VISIBLE);
+                    mChargingIndicationCovid.playAnimation();
+                    mChargingIndicationView.setVisibility(View.GONE);
+                    mChargingIndicationDrop.setVisibility(View.GONE);
+                    mChargingIndicationExplosion.setVisibility(View.GONE);
+                    mChargingIndicationWater.setVisibility(View.GONE);
+                    mChargingIndicationSplit.setVisibility(View.GONE);
+                    mChargingIndicationYellow.setVisibility(View.GONE);
+                    mChargingIndicationBat.setVisibility(View.GONE);
+                    mChargingIndicationWash.setVisibility(View.GONE);
+                    mChargingIndicationWear.setVisibility(View.GONE);
+                    break;
+                case 9: // Wash
+                    mChargingIndicationWash.setVisibility(View.VISIBLE);
+                    mChargingIndicationWash.playAnimation();
+                    mChargingIndicationView.setVisibility(View.GONE);
+                    mChargingIndicationBat.setVisibility(View.GONE);
+                    mChargingIndicationExplosion.setVisibility(View.GONE);
+                    mChargingIndicationWater.setVisibility(View.GONE);
+                    mChargingIndicationSplit.setVisibility(View.GONE);
+                    mChargingIndicationYellow.setVisibility(View.GONE);
+                    mChargingIndicationCovid.setVisibility(View.GONE);
+                    mChargingIndicationDrop.setVisibility(View.GONE);
+                    mChargingIndicationWear.setVisibility(View.GONE);
+                    break;
+                case 10: // Wear
+                    mChargingIndicationWear.setVisibility(View.VISIBLE);
+                    mChargingIndicationWear.playAnimation();
+                    mChargingIndicationView.setVisibility(View.GONE);
+                    mChargingIndicationBat.setVisibility(View.GONE);
+                    mChargingIndicationDrop.setVisibility(View.GONE);
+                    mChargingIndicationWater.setVisibility(View.GONE);
+                    mChargingIndicationSplit.setVisibility(View.GONE);
+                    mChargingIndicationYellow.setVisibility(View.GONE);
+                    mChargingIndicationCovid.setVisibility(View.GONE);
+                    mChargingIndicationWash.setVisibility(View.GONE);
                     mChargingIndicationExplosion.setVisibility(View.GONE);
                     break;
         }
@@ -601,6 +711,21 @@ public class KeyguardIndicationController implements StateListener,
                     ViewGroup.MarginLayoutParams paramsWat =
                             (ViewGroup.MarginLayoutParams) mChargingIndicationWater.getLayoutParams();
                     paramsWat.setMargins(0, 0, 0, animationMargin);
+                    ViewGroup.MarginLayoutParams paramsSpl =
+                            (ViewGroup.MarginLayoutParams) mChargingIndicationSplit.getLayoutParams();
+                    paramsSpl.setMargins(0, 0, 0, animationMargin);
+                    ViewGroup.MarginLayoutParams paramsYel =
+                            (ViewGroup.MarginLayoutParams) mChargingIndicationYellow.getLayoutParams();
+                    paramsYel.setMargins(0, 0, 0, animationMargin);
+                    ViewGroup.MarginLayoutParams paramsCov =
+                            (ViewGroup.MarginLayoutParams) mChargingIndicationCovid.getLayoutParams();
+                    paramsCov.setMargins(0, 0, 0, animationMargin);
+                    ViewGroup.MarginLayoutParams paramsWas =
+                            (ViewGroup.MarginLayoutParams) mChargingIndicationWash.getLayoutParams();
+                    paramsWas.setMargins(0, 0, 0, animationMargin);
+		    ViewGroup.MarginLayoutParams paramsWea =
+                            (ViewGroup.MarginLayoutParams) mChargingIndicationWear.getLayoutParams();
+                    paramsWea.setMargins(0, 0, 0, animationMargin);
                     if (mChargingIndication == 1) {
                         mChargingIndicationView.setLayoutParams(params);
                     } else if (mChargingIndication == 2) {
@@ -611,6 +736,16 @@ public class KeyguardIndicationController implements StateListener,
                         mChargingIndicationExplosion.setLayoutParams(paramsExp);
                     } else if (mChargingIndication == 5) {
                         mChargingIndicationWater.setLayoutParams(paramsWat);
+                    } else if (mChargingIndication == 6) {
+                        mChargingIndicationSplit.setLayoutParams(paramsSpl);
+                    } else if (mChargingIndication == 7) {
+                        mChargingIndicationYellow.setLayoutParams(paramsYel);
+                    } else if (mChargingIndication == 8) {
+                        mChargingIndicationCovid.setLayoutParams(paramsCov);
+                    } else if (mChargingIndication == 9) {
+                        mChargingIndicationWash.setLayoutParams(paramsWas);
+                    } else if (mChargingIndication == 10) {
+                        mChargingIndicationWear.setLayoutParams(paramsWea);
                     }
                 }
             }
@@ -620,6 +755,11 @@ public class KeyguardIndicationController implements StateListener,
             mChargingIndicationDrop.setVisibility(View.GONE);
             mChargingIndicationExplosion.setVisibility(View.GONE);
             mChargingIndicationWater.setVisibility(View.GONE);
+            mChargingIndicationSplit.setVisibility(View.GONE);
+            mChargingIndicationYellow.setVisibility(View.GONE);
+            mChargingIndicationCovid.setVisibility(View.GONE);
+            mChargingIndicationWash.setVisibility(View.GONE);
+            mChargingIndicationWear.setVisibility(View.GONE);
         }
     }
 

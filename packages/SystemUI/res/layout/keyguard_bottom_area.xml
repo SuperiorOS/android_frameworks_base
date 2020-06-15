@@ -82,6 +82,56 @@
              app:lottie_loop="true"
              android:visibility="gone" />
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/charging_indication_5"
+            android:layout_width="@dimen/keyguard_charging_indication_width"
+            android:layout_height="@dimen/keyguard_charging_indication_height"
+            android:layout_gravity="center_horizontal"
+            android:clickable="false"
+            app:lottie_fileName="Chris_Gannon_split_loader.json"
+            app:lottie_loop="true"
+            android:visibility="gone" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/charging_indication_6"
+            android:layout_width="@dimen/keyguard_charging_indication_width"
+            android:layout_height="@dimen/keyguard_charging_indication_height"
+            android:layout_gravity="center_horizontal"
+            android:clickable="false"
+            app:lottie_fileName="john_olm_yellow_animation.json"
+            app:lottie_loop="true"
+            android:visibility="gone" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/charging_indication_7"
+            android:layout_width="@dimen/keyguard_charging_indication_width"
+            android:layout_height="@dimen/keyguard_charging_indication_height"
+            android:layout_gravity="center_horizontal"
+            android:clickable="false"
+            app:lottie_fileName="lottiefiles_covid19.json"
+            app:lottie_loop="true"
+            android:visibility="gone" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/charging_indication_8"
+            android:layout_width="@dimen/keyguard_charging_indication_width"
+            android:layout_height="@dimen/keyguard_charging_indication_height"
+            android:layout_gravity="center_horizontal"
+            android:clickable="false"
+            app:lottie_fileName="lottiefiles_wash_your_hands.json"
+            app:lottie_loop="true"
+            android:visibility="gone" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/charging_indication_9"
+            android:layout_width="@dimen/keyguard_charging_indication_width"
+            android:layout_height="@dimen/keyguard_charging_indication_height"
+            android:layout_gravity="center_horizontal"
+            android:clickable="false"
+            app:lottie_fileName="lottiefiles_wear_mask.json"
+            app:lottie_loop="true"
+            android:visibility="gone" />
+
         <com.android.systemui.statusbar.phone.KeyguardIndicationTextView
             android:id="@+id/keyguard_indication_enterprise_disclosure"
             android:layout_width="match_parent"
