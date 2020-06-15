@@ -851,9 +851,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         mCommandQueue = getComponent(CommandQueue.class);
         mCommandQueue.addCallback(this);
 
-        // this will initialize Pulse and begin listening for media events
-        mMediaManager.addCallback(Dependency.get(PulseController.class));
-
         RegisterStatusBarResult result = null;
         try {
             result = mBarService.registerStatusBar(mCommandQueue);
@@ -971,6 +968,9 @@ public class StatusBar extends SystemUI implements DemoMode,
                 true, mLockscreenUserManager.getCurrentUserId());
         } catch (RemoteException ignored) {
         }
+
+        // this will initialize Pulse and begin listening for media events
+        mMediaManager.addCallback(Dependency.get(PulseController.class));
     }
 
     // ================================================================================
