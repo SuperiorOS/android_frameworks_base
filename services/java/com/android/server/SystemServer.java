@@ -253,6 +253,9 @@ import java.util.TreeSet;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Future;
 
+// LineageHardware
+import com.android.server.custom.LineageHardwareService;
+
 /**
  * Entry point to {@code system_server}.
  */
@@ -2676,6 +2679,10 @@ public final class SystemServer implements Dumpable {
             mSystemServiceManager.startService(CustomDeviceConfigService.class);
             t.traceEnd();
 
+            // LineageHardware
+            t.traceBegin("StartLineageHardwareService");
+            mSystemServiceManager.startService(LineageHardwareService.class);
+            t.traceEnd();
         }
 
         t.traceBegin("StartMediaProjectionManager");
