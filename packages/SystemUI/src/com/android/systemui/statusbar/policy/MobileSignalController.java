@@ -490,7 +490,8 @@ public class MobileSignalController extends SignalController<
             return resId;
         }
 
-        if (mCurrentState.imsRegistered && mVoLTEicon) {
+        if (mCurrentState.imsRegistered && (mCurrentState.voiceCapable ||
+                  mCurrentState.videoCapable) && mVoLTEicon) {
             switch(mVoLTEstyle) {
                 // VoLTE
                 case 1:
