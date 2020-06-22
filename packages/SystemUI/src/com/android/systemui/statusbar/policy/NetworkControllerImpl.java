@@ -1193,8 +1193,6 @@ public class NetworkControllerImpl extends BroadcastReceiver
         boolean inflateSignalStrengths = false;
         boolean alwaysShowDataRatIcon = false;
 
-        boolean showVowifiIcon = false;
-
         static Config readConfig(Context context) {
             Config config = new Config();
             Resources res = context.getResources();
@@ -1223,7 +1221,6 @@ public class NetworkControllerImpl extends BroadcastReceiver
                 config.hideLtePlus = b.getBoolean(
                         CarrierConfigManager.KEY_HIDE_LTE_PLUS_DATA_ICON_BOOL);
             }
-            config.showVowifiIcon = res.getBoolean(R.bool.config_display_vowifi);
 
             return config;
         }
