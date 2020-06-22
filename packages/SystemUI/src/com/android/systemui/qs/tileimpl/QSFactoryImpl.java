@@ -62,7 +62,6 @@ import com.android.systemui.qs.tiles.ScreenshotTile;
 import com.android.systemui.qs.tiles.UsbTetherTile;
 import com.android.systemui.qs.tiles.ScreenStabilizationTile;
 import com.android.systemui.qs.tiles.UserTile;
-import com.android.systemui.qs.tiles.WeatherTile;
 import com.android.systemui.qs.tiles.WifiTile;
 import com.android.systemui.qs.tiles.WorkModeTile;
 import com.android.systemui.util.leak.GarbageMonitor;
@@ -103,7 +102,6 @@ public class QSFactoryImpl implements QSFactory {
     private final Provider<HeadsUpTile> mHeadsUpTileProvider;
     private final Provider<HWKeysTile> mHWKeysTileProvider;
     private final Provider<UsbTetherTile> mUsbTetherTileProvider;
-    private final Provider<WeatherTile> mWeatherTileProvider;
     private final Provider<SleepScreenTile> mSleepScreenTileProvider;
     private final Provider<DataSwitchTile> mDataSwitchTileProvider;
     private final Provider<ImmersiveTile> mImmersiveTileProvider;
@@ -146,7 +144,6 @@ public class QSFactoryImpl implements QSFactory {
             Provider<HeadsUpTile> headsUpTileProvider,
             Provider<HWKeysTile> hWKeysTileProvider,
             Provider<UsbTetherTile> usbTetherTileProvider,
-            Provider<WeatherTile> weatherTileProvider,
             Provider<SleepScreenTile> sleepScreenTileProvider,
             Provider<DataSwitchTile> dataSwitchTileProvider,
             Provider<LessBoringTile> lessBoringTileProvider,
@@ -185,7 +182,6 @@ public class QSFactoryImpl implements QSFactory {
         mHeadsUpTileProvider = headsUpTileProvider;
         mHWKeysTileProvider = hWKeysTileProvider;
         mUsbTetherTileProvider = usbTetherTileProvider;
-        mWeatherTileProvider = weatherTileProvider;
         mSleepScreenTileProvider = sleepScreenTileProvider;
         mDataSwitchTileProvider = dataSwitchTileProvider;
         mLessBoringTileProvider = lessBoringTileProvider;
@@ -266,8 +262,6 @@ public class QSFactoryImpl implements QSFactory {
                 return mHWKeysTileProvider.get();
             case "usb_tether":
                 return mUsbTetherTileProvider.get();
-            case "weather":
-                return mWeatherTileProvider.get();
             case "sleepscreen":
                 return mSleepScreenTileProvider.get();
             case "dataswitch":
