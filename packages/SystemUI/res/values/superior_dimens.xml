@@ -22,8 +22,6 @@
     <!-- Padding after battery level text in status bar, QS, and Keyguard -->
     <dimen name="battery_level_padding_end">2dp</dimen>
 
-    <dimen name="current_weather_image_size">30dp</dimen>
-
     <!-- Pixel navbar -->
     <dimen name="halo_diameter">22dp</dimen>
     <dimen name="opa_diamond_translation">16dp</dimen>
