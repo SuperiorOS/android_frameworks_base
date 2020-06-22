@@ -5022,36 +5022,6 @@ public final class Settings {
          */
         public static final String SHOW_FOURG_ICON = "show_fourg_icon";
 
-	/**
-         * @hide
-
-         */
-        public static final String OMNIJAWS_WEATHER_ICON_PACK = "omnijaws_weather_icon_pack";
-
-        /** @hide */
-        private static final Validator OMNIJAWS_WEATHER_ICON_PACK_VALIDATOR =
-                ANY_STRING_VALIDATOR;
-
-        /**
-         * @hide
-         */
-        public static final String OMNI_LOCKSCREEN_WEATHER_ENABLED = "lockscreen_weather_enabled";
-
-        /** @hide */
-        private static final Validator OMNI_LOCKSCREEN_WEATHER_ENABLED_VALIDATOR =
-                BOOLEAN_VALIDATOR;
-
-        /**
-        * 0: OmniJaws Style
-        * 1: KeyguardSlice Style
-        * @hide
-        */
-        public static final String AICP_LOCKSCREEN_WEATHER_STYLE = "lockscreen_weather_style";
-
-        /** @hide */
-        private static final Validator AICP_LOCKSCREEN_WEATHER_STYLE_VALIDATOR =
-	        new SettingsValidators.InclusiveIntegerRangeValidator(0, 1);;
-
         /**
          * Three Finger Gesture from Oppo
          * @hide
@@ -6376,9 +6346,6 @@ public final class Settings {
             QS_LAYOUT_ROWS,
             DOUBLE_TAP_SLEEP_GESTURE,
             DOUBLE_TAP_SLEEP_LOCKSCREEN,
-            OMNIJAWS_WEATHER_ICON_PACK,
-            OMNI_LOCKSCREEN_WEATHER_ENABLED,
-            AICP_LOCKSCREEN_WEATHER_STYLE,
             LOCKSCREEN_MEDIA_BLUR,
             STATUS_BAR_CLOCK,
             STATUSBAR_CLOCK_STYLE,
@@ -6595,9 +6562,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(QS_LAYOUT_ROWS);
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_LOCKSCREEN);
-            PRIVATE_SETTINGS.add(OMNIJAWS_WEATHER_ICON_PACK);
-            PRIVATE_SETTINGS.add(OMNI_LOCKSCREEN_WEATHER_ENABLED);
-            PRIVATE_SETTINGS.add(AICP_LOCKSCREEN_WEATHER_STYLE);
             PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_METADATA);
             PRIVATE_SETTINGS.add(LOCKSCREEN_MEDIA_BLUR);
             PRIVATE_SETTINGS.add(STATUS_BAR_CLOCK);
@@ -6810,10 +6774,6 @@ public final class Settings {
                     DOUBLE_TAP_SLEEP_GESTURE_VALIDATOR);
             VALIDATORS.put(DOUBLE_TAP_SLEEP_LOCKSCREEN,
                     DOUBLE_TAP_SLEEP_LOCKSCREEN_VALIDATOR);
-            VALIDATORS.put(OMNIJAWS_WEATHER_ICON_PACK, OMNIJAWS_WEATHER_ICON_PACK_VALIDATOR);
-            VALIDATORS.put(OMNI_LOCKSCREEN_WEATHER_ENABLED,
-                    OMNI_LOCKSCREEN_WEATHER_ENABLED_VALIDATOR);
-            VALIDATORS.put(AICP_LOCKSCREEN_WEATHER_STYLE,AICP_LOCKSCREEN_WEATHER_STYLE_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_MEDIA_METADATA, LOCKSCREEN_MEDIA_METADATA_VALIDATOR);
             VALIDATORS.put(LOCKSCREEN_MEDIA_BLUR, LOCKSCREEN_MEDIA_BLUR_VALIDATOR);
             VALIDATORS.put(QS_LAYOUT_ROWS_LANDSCAPE,
