@@ -5659,6 +5659,15 @@ public final class Settings {
         public static final Validator VOWIFI_ICON_VALIDATOR = ANY_INTEGER_VALIDATOR;
 
         /**
+         * VoWiFi icon style
+         * @hide
+         */
+        public static final String VOWIFI_ICON_STYLE = "vowifi_icon_style";
+
+        /** @hide */
+        public static final Validator VOWIFI_ICON_STYLE_VALIDATOR = ANY_INTEGER_VALIDATOR;
+
+        /**
          * Set edge gesture Y dead zone
          * 0 - disabled - stock behavior - default
          * 1 - smaller top area of the screen
@@ -6924,6 +6933,7 @@ public final class Settings {
             VALIDATORS.put(AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC, AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC_VALIDATOR);
             VALIDATORS.put(QS_SHOW_BATTERY_PERCENT, QS_SHOW_BATTERY_PERCENT_VALIDATOR);
             VALIDATORS.put(VOWIFI_ICON, VOWIFI_ICON_VALIDATOR);
+            VALIDATORS.put(VOWIFI_ICON_STYLE, VOWIFI_ICON_STYLE_VALIDATOR);
             VALIDATORS.put(NOTIFICATION_LIGHT_PULSE, BOOLEAN_VALIDATOR);
             VALIDATORS.put(BUTTON_BACKLIGHT_TIMEOUT, BUTTON_BACKLIGHT_TIMEOUT_VALIDATOR);
             VALIDATORS.put(BUTTON_BRIGHTNESS, BUTTON_BRIGHTNESS_VALIDATOR);
