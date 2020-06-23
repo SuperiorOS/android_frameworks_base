@@ -116,6 +116,8 @@ public class MobileSignalController extends SignalController<
 
     // VoWiFi Icon
     private int mVoWiFiIcon;
+    // VoWiFi Icon Style
+    private int mVoWiFistyle;
 
     // TODO: Reduce number of vars passed in, if we have the NetworkController, probably don't
     // need listener lists anymore.
@@ -206,7 +208,10 @@ public class MobileSignalController extends SignalController<
            resolver.registerContentObserver(Settings.System.getUriFor(
                   Settings.System.VOWIFI_ICON),
                   false,this, UserHandle.USER_ALL);
-            updateSettings();
+           resolver.registerContentObserver(Settings.System.getUriFor(
+                  Settings.System.VOWIFI_ICON_STYLE),
+                  false,this, UserHandle.USER_ALL);
+           updateSettings();
         }
 
          /*
@@ -233,6 +238,10 @@ public class MobileSignalController extends SignalController<
         mVoWiFiIcon = Settings.System.getIntForUser(resolver,
                 Settings.System.VOWIFI_ICON, 0,
                 UserHandle.USER_CURRENT);
+        mVoWiFistyle = Settings.System.getIntForUser(resolver,
+                Settings.System.VOWIFI_ICON_STYLE, 0,
+                UserHandle.USER_CURRENT);
+
         mapIconSets();
         updateTelephony();
         notifyListeners();
@@ -886,7 +895,22 @@ public class MobileSignalController extends SignalController<
         if ( isVowifiAvailable() && !isCallIdle() ) {
             return TelephonyIcons.VOWIFI_CALLING;
         }else if (isVowifiAvailable()) {
-            return TelephonyIcons.VOWIFI;
+            switch(mVoWiFistyle) {
+                // OOS
+                case 1:
+                    return TelephonyIcons.VOWIFI_ONEPLUS;
+                // Motorola
+                case 2:
+                    return TelephonyIcons.VOWIFI_MOTO;
+                // ASUS
+                case 3:
+                    return TelephonyIcons.VOWIFI_ASUS;
+                // EMUI (Huawei P10)
+                case 4:
+                    return TelephonyIcons.VOWIFI_EMUI;
+                default:
+                    return TelephonyIcons.VOWIFI;
+            }
         }else {
             return null;
         }
