@@ -211,11 +211,11 @@ public class NetworkTrafficSB extends TextView implements StatusIconDisplayable 
                 if (speed < KB) {
                     return decimalFormat.format(speed) + symbol;
                 } else if (speed < MB) {
-                    return decimalFormat.format(speed / (float)KB) + "Ki" + symbol;
+                    return decimalFormat.format(speed / (float)KB) + "K" + symbol;
                 } else if (speed < GB) {
-                    return decimalFormat.format(speed / (float)MB) + "Mi" + symbol;
+                    return decimalFormat.format(speed / (float)MB) + "M" + symbol;
                 }
-                return decimalFormat.format(speed / (float)GB) + "Gi" + symbol;
+                return decimalFormat.format(speed / (float)GB) + "G" + symbol;
             } else {
                 return formatDecimal(speed);
             }
@@ -229,32 +229,32 @@ public class NetworkTrafficSB extends TextView implements StatusIconDisplayable 
             SpannableString spanSpeedString;
 
             if (speed >= GB) {
-                mUnit = "Gi";
+                mUnit = "G";
                 mDecimalFormat = new DecimalFormat("0.00");
                 formatSpeed =  mDecimalFormat.format(speed / (float)GB);
             } else if (speed >= 100 * MB) {
                 mDecimalFormat = new DecimalFormat("000");
-                mUnit = "Mi";
+                mUnit = "M";
                 formatSpeed =  mDecimalFormat.format(speed / (float)MB);
             } else if (speed >= 10 * MB) {
                 mDecimalFormat = new DecimalFormat("00.0");
-                mUnit = "Mi";
+                mUnit = "M";
                 formatSpeed =  mDecimalFormat.format(speed / (float)MB);
             } else if (speed >= MB) {
                 mDecimalFormat = new DecimalFormat("0.00");
-                mUnit = "Mi";
+                mUnit = "M";
                 formatSpeed =  mDecimalFormat.format(speed / (float)MB);
             } else if (speed >= 100 * KB) {
                 mDecimalFormat = new DecimalFormat("000");
-                mUnit = "Ki";
+                mUnit = "K";
                 formatSpeed =  mDecimalFormat.format(speed / (float)KB);
             } else if (speed >= 10 * KB) {
                 mDecimalFormat = new DecimalFormat("00.0");
-                mUnit = "Ki";
+                mUnit = "K";
                 formatSpeed =  mDecimalFormat.format(speed / (float)KB);
             } else {
                 mDecimalFormat = new DecimalFormat("0.00");
-                mUnit = "Ki";
+                mUnit = "K";
                 formatSpeed = mDecimalFormat.format(speed / (float)KB);
             }
 
