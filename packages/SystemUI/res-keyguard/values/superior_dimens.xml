@@ -1,19 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Copyright (c) 2018-2020 The Superior OS Project
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-        http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
--->
 <resources>
 
     <!-- Padding added to keyguard status area when Type clock is in use -->
@@ -23,14 +8,16 @@
          view to incorporate the FOD icon -->
     <dimen name="keyguard_security_fod_view_margin">120dp</dimen>
 
-    <!-- Binary Clock Style -->
     <dimen name="binary_clock_dot_size">8dp</dimen>
     <dimen name="binary_clock_stroke_width">2dp</dimen>
+    <dimen name="custom_clock_width">100dp</dimen>
+    <dimen name="custom_clock_height">100dp</dimen>
+    <dimen name="custom_clock_preview_width">200dp</dimen>
+    <dimen name="custom_clock_preview_height">200dp</dimen>
     <dimen name="binary_clock_width">90dp</dimen>
     <dimen name="binary_clock_height">90dp</dimen>
-
-    <dimen name="analog_clock_width">100dp</dimen>
-    <dimen name="analog_clock_height">100dp</dimen>
+    <dimen name="analog_clock_width">90dp</dimen>
+    <dimen name="analog_clock_height">90dp</dimen>
     <dimen name="digital_clock_two_line_spacing">-20dp</dimen>
     <dimen name="clock_bottom_margin">8dp</dimen>
     <dimen name="header_font_size">20dp</dimen>
