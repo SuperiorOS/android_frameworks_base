@@ -66,9 +66,10 @@ public class AnalogClockController implements ClockPlugin {
     private ClockLayout mBigClockView;
     private ImageClock mAnalogClock;
 
-    private int mHourColor;
-    private int mMinuteColor;
-    private int mBackgroundColor;
+    /**
+     * Helper to extract colors from wallpaper palette for clock face.
+     */
+    private final ClockPalette mPalette = new ClockPalette();
 
     /**
      * Create a AnalogClockController instance.
@@ -87,10 +88,6 @@ public class AnalogClockController implements ClockPlugin {
     private void createViews() {
         mBigClockView = (ClockLayout) mLayoutInflater.inflate(R.layout.analog_clock, null);
         mAnalogClock = mBigClockView.findViewById(R.id.analog_clock);
-        mHourColor = mResources.getColor(R.color.analog_clock_hour_color);
-        mMinuteColor = mResources.getColor(R.color.analog_clock_minute_color);
-        mBackgroundColor = mResources.getColor(R.color.analog_clock_bg_color);
-        mAnalogClock.setClockColors(mHourColor, mMinuteColor);
     }
 
     @Override
@@ -154,6 +151,14 @@ public class AnalogClockController implements ClockPlugin {
 
     @Override
     public void setColorPalette(boolean supportsDarkText, int[] colorPalette) {
+        mPalette.setColorPalette(supportsDarkText, colorPalette);
+        updateColor();
+    }
+
+    private void updateColor() {
+        final int primary = mPalette.getPrimaryColor();
+        final int secondary = mPalette.getSecondaryColor();
+        mAnalogClock.setClockColors(primary, secondary);
     }
 
     @Override
@@ -164,15 +169,7 @@ public class AnalogClockController implements ClockPlugin {
 
     @Override
     public void setDarkAmount(float darkAmount) {
-        int hourColor = ColorUtils.blendARGB(mHourColor, Color.WHITE, darkAmount);
-        int minuteColor = ColorUtils.blendARGB(mMinuteColor, Color.WHITE, darkAmount);
-        if (darkAmount == 1f) {
-            mAnalogClock.setBackgroundResource(R.drawable.analog_clock_background_dark);
-        } else {
-            mAnalogClock.setBackgroundResource(R.drawable.analog_clock_background);
-        }
-
-        mAnalogClock.setClockColors(hourColor, minuteColor);
+        mPalette.setDarkAmount(darkAmount);
         mBigClockView.setDarkAmount(darkAmount);
     }
 
