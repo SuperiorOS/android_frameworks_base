@@ -6434,7 +6434,6 @@ public final class Settings {
         /** @hide */
         private static final Validator ASPECT_RATIO_APPS_ENABLED_VALIDATOR = BOOLEAN_VALIDATOR;
 
-
         /**
          * SBC HD priority - whether to use dual channel for SBC by default
          * @hide
@@ -6465,6 +6464,22 @@ public final class Settings {
         * @hide
         */
         public static final String AUDIO_PANEL_VIEW_THEME = "audio_panel_view_theme";
+
+        /**
+         * System-wide switch style
+         * 0 = Default
+         * 1 = OnePlus
+         * 2 = Narrow
+         * 3 = Contained
+         * 4 = Telegram
+         * 5 = Md2
+         * 6 = Retro
+         * @hide
+         */
+        public static final String SWITCH_STYLE = "switch_style";
+        /** @hide */
+        private static final Validator SWITCH_STYLE_VALIDATOR =
+                new SettingsValidators.InclusiveIntegerRangeValidator(0, 6);
 
         /**
          * Settings to backup. This is here so that it's in the same place as the settings
@@ -6611,6 +6626,7 @@ public final class Settings {
             NAVIGATION_BAR_ARROW_KEYS,
             QS_DATAUSAGE,
             DATA_ACTIVITY_ARROW,
+            SWITCH_STYLE,
         };
 
         /**
@@ -7085,6 +7101,7 @@ public final class Settings {
                     NAVIGATION_BAR_ARROW_KEYS_VALIDATOR);
             VALIDATORS.put(QS_DATAUSAGE, QS_DATAUSAGE_VALIDATOR);
             VALIDATORS.put(DATA_ACTIVITY_ARROW, DATA_ACTIVITY_ARROW_VALIDATOR);
+            VALIDATORS.put(SWITCH_STYLE, SWITCH_STYLE_VALIDATOR);
         }
 
         /**
