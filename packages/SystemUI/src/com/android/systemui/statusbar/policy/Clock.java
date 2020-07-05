@@ -169,14 +169,14 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
     private final boolean mShowDark;
     protected boolean mQsHeader;
     private boolean mShowSeconds;
+    private Handler mHandler;
     private Handler mSecondsHandler;
     private SettingsObserver mSettingsObserver;
 
     protected boolean mClockAutoHide;
     protected int mHideDuration = HIDE_DURATION;
     protected int mShowDuration = SHOW_DURATION;
-    private Handler mHandler = new Handler();
-    
+
     /**
      * Whether we should use colors that adapt based on wallpaper/the scrim behind quick settings
      * for text.
@@ -335,6 +335,8 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
             }
             mCurrentUserTracker.startTracking();
             mCurrentUserId = mCurrentUserTracker.getCurrentUserId();
+
+            mHandler = new Handler();
         }
 
         // NOTE: It's safe to do these after registering the receiver since the receiver always runs
@@ -347,7 +349,11 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
             mSettingsObserver = new SettingsObserver(new Handler());
         }
         mSettingsObserver.observe();
-        updateStatus();
+        // Make sure we update to the current time
+        mClockFormatString = ""; // force refresh
+        if (mHandler != null) mHandler.post(() -> {
+                updateStatus();
+            });
     }
 
     @Override
@@ -369,8 +375,7 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
         @Override
         public void onReceive(Context context, Intent intent) {
             String action = intent.getAction();
-            Handler handler = getHandler();
-            if (handler == null) {
+            if (mHandler == null) {
                 Log.e(TAG,
                         "Received intent, but handler is null - still attached to window? Window "
                                 + "token: "
@@ -392,6 +397,7 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
                     if (!newLocale.equals(mLocale)) {
                         mLocale = newLocale;
                     }
+                    mClockFormatString = ""; // force refresh
                     updateStatus();
                     return;
                 });
@@ -399,9 +405,18 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
                 mScreenOn = true;
             } else if (action.equals(Intent.ACTION_SCREEN_OFF)) {
                 mScreenOn = false;
+                if (mShowSeconds && mSecondsHandler != null) {
+                    mSecondsHandler.removeCallbacks(mSecondTick);
+                }
             }
             if (mScreenOn) {
-                handler.post(() -> updateClock());
+                mHandler.post(() -> {
+                    updateClock();
+                    if (mShowSeconds && mSecondsHandler != null) {
+                        mSecondsHandler.postAtTime(mSecondTick,
+                                SystemClock.uptimeMillis() / 1000 * 1000 + 1000);
+                    }
+                });
                 if (mClockAutoHide) autoHideHandler.post(() -> updateClockVisibility());
             }
         }
@@ -419,13 +434,17 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
     public void setClockVisibleByUser(boolean visible) {
         if (mClockHideableByUser) {
             mClockVisibleByUser = visible;
-            updateClockVisibility();
+        if (mHandler != null) mHandler.post(() -> {
+                updateClockVisibility();
+            });
         }
     }
 
     public void setClockVisibilityByPolicy(boolean visible) {
         mClockVisibleByPolicy = visible;
-        updateClockVisibility();
+        if (mHandler != null) mHandler.post(() -> {
+                updateClockVisibility();
+            });
     }
 
     private boolean shouldBeVisible() {
@@ -526,13 +545,9 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
                     mSecondsHandler.postAtTime(mSecondTick,
                             SystemClock.uptimeMillis() / 1000 * 1000 + 1000);
                 }
-                IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_OFF);
-                filter.addAction(Intent.ACTION_SCREEN_ON);
-                mContext.registerReceiver(mScreenReceiver, filter);
             }
         } else {
             if (mSecondsHandler != null) {
-                mContext.unregisterReceiver(mScreenReceiver);
                 mSecondsHandler.removeCallbacks(mSecondTick);
                 mSecondsHandler = null;
                 updateClock();
@@ -699,29 +714,9 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
         }
     }
 
-    private final BroadcastReceiver mScreenReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            if (Intent.ACTION_SCREEN_OFF.equals(action)) {
-                if (mSecondsHandler != null) {
-                    mSecondsHandler.removeCallbacks(mSecondTick);
-                }
-            } else if (Intent.ACTION_SCREEN_ON.equals(action)) {
-                if (mSecondsHandler != null) {
-                    mSecondsHandler.postAtTime(mSecondTick,
-                            SystemClock.uptimeMillis() / 1000 * 1000 + 1000);
-                }
-            }
-        }
-    };
-
     private final Runnable mSecondTick = new Runnable() {
         @Override
         public void run() {
-            if (mCalendar != null) {
-                updateClock();
-            }
             mSecondsHandler.postAtTime(this, SystemClock.uptimeMillis() / 1000 * 1000 + 1000);
         }
     };
@@ -785,11 +780,13 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
                 UserHandle.USER_CURRENT);
                 
         if (mAttached) {
-            updateClockVisibility();
-            updateClock();
-            updateShowSeconds();
-            updateClockSize();
-            updateClockFontStyle();
+        if (mHandler != null) mHandler.post(() -> {
+                updateClockVisibility();
+                updateClock();
+                updateShowSeconds();
+                updateClockSize();
+                updateClockFontStyle();
+            });
         }
     }
 
