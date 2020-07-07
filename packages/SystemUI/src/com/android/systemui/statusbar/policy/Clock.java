@@ -717,6 +717,9 @@ public class Clock extends TextView implements DemoMode, CommandQueue.Callbacks,
     private final Runnable mSecondTick = new Runnable() {
         @Override
         public void run() {
+            if (mCalendar != null) {
+                updateClock();
+            }
             mSecondsHandler.postAtTime(this, SystemClock.uptimeMillis() / 1000 * 1000 + 1000);
         }
     };
