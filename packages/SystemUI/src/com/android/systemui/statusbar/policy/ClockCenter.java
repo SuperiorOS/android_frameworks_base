@@ -55,7 +55,15 @@ public class ClockCenter extends Clock {
         boolean visible = mClockStyle == STYLE_CLOCK_CENTER && mShowClock
                 && mClockVisibleByPolicy && mClockVisibleByUser;
         int visibility = visible ? View.VISIBLE : View.GONE;
+        try {
+            autoHideHandler.removeCallbacksAndMessages(null);
+        } catch (NullPointerException e) {
+            // Do nothing
+        }
         setVisibility(visibility);
+        if (mClockAutoHide && visible && mScreenOn) {
+            autoHideHandler.postDelayed(()->autoHideClock(), mShowDuration * 1000);
+        }
     }
 
     public void disable(int state1, int state2, boolean animate) {
