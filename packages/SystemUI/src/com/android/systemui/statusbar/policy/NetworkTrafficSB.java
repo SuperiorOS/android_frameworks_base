@@ -576,7 +576,7 @@ public class NetworkTrafficSB extends TextView implements StatusIconDisplayable 
                 mSystemIconVisible = false;
                 break;
         }
-        updateVisibility();
+        updateViews();
     }
 
     private void updateVisibility() {
