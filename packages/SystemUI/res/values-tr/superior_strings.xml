@@ -20,7 +20,6 @@
     <string name="keyguard_plugged_in_dash_charging">Dash Şarj Oluyor</string>
     <!-- Caffeine QS Tile -->
     <string name="quick_settings_caffeine_label">Kafein</string>
-    <string name="quick_settings_caffeine_label_off">Off</string>
     <string name="accessibility_quick_settings_caffeine_off">Kafein kapalı</string>
     <string name="accessibility_quick_settings_caffeine_on">Kafein açık</string>
     <!-- Reboot/Recovery QS Tile -->
@@ -80,15 +79,6 @@
     <string name="status_bar_data_saver">Veri tasarrufu</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="status_bar_roaming">Dolaşım</string>
-    <string name="omnijaws_service_error">Hata</string>
-    <string name="omnijaws_service_unkown">Hava durumu verileri yok</string>
-    <string name="omnijaws_service_error_long">Hava durumu bilgisi yüklenemedi</string>
-    <string name="omnijaws_service_disabled">Servis devre dışı</string>
-    <string name="omnijaws_detail_header">Hava durumu</string>
-    <string name="omnijaws_label_default">Hava durumu</string>
-    <string name="omnijaws_current_text">Şimdi</string>
-    <string name="omnijaws_package_not_available">OmniJaws mevcut değil</string>
-    <string name="omnijaws_service_last_update">Son güncelleme:</string>
     <!-- Advanced powermenu -->
     <string name="global_action_restart_system">Yeniden başlat</string>
     <string name="global_action_restart_advanced">Gelişmiş\nYeniden başlatma</string>
@@ -135,68 +125,17 @@
     <string name="accessibility_quick_settings_fpsinfo_off">FPS bilgisi kapalı</string>
     <string name="accessibility_quick_settings_fpsinfo_on">FPS bilgisi açık</string>
     <!-- Screen Stabilization -->
-    <string name="quick_settings_stabilization_label">Screen Stabilization</string>
-    <string name="quick_settings_stabilization_off">Stabilization is disabled</string>
-    <string name="quick_settings_stabilization_on">Stabilization is enabled</string>
-    <string name="low_label">Low</string>
-    <string name="high_label">High</string>
-    <string name="stabilization_velocity_friction">Velocity Friction</string>
-    <string name="stabilization_velocity_amplitude">Velocity Amplitude</string>
-    <string name="stabilization_position_friction">Position Friction</string>
     <!-- AOD QS tile -->
-    <string name="quick_settings_aod_label">AOD</string>
     <!-- Long swipe gesture actions -->
-    <string name="app_picker_dialog_title">Select an app</string>
-    <string name="active_edge_app_select_title">Select app</string>
-    <string name="active_edge_activity_select_title">Select activity</string>
-    <string name="recents_app_killed">App killed</string>
-    <string name="nope_cant_kill">Launcher cannot be killed</string>
     <!-- Mono audio QS tile -->
-    <string name="quick_settings_monotoggle_tile">Audio mode</string>
-    <string name="quick_settings_monotoggle_tile_mono">Mono audio</string>
-    <string name="quick_settings_monotoggle_tile_stereo">Stereo audio</string>
     <!-- Less Boring QS tile -->
-    <string name="quick_settings_less_boring_label">Less Boring</string>
-    <string name="accessibility_quick_settings_less_boring_off">Less Boring off.</string>
-    <string name="accessibility_quick_settings_less_boring_on">Less Boring on.</string>
-    <string name="accessibility_quick_settings_less_boring_changed_off">Less Boring turned off.</string>
-    <string name="accessibility_quick_settings_less_boring_changed_on">Less Boring turned on.</string>
     <!-- Alerting notification header label -->
-    <string name="notification_section_header_alerting">Alerting notifications</string>
     <!-- Reader mode QS tile -->
-    <string name="quick_settings_reading_mode">Reading mode</string>
-    <string name="accessibility_quick_settings_reading_mode_on">Reading mode on.</string>
-    <string name="accessibility_quick_settings_reading_mode_off">Reading mode off.</string>
-    <string name="accessibility_quick_settings_reading_mode_changed_on">Reading mode turned on.</string>
-    <string name="accessibility_quick_settings_reading_mode_changed_off">Reading mode turned off.</string>
     <!-- navbar editor -->
-    <string name="preview">Preview</string>
-    <string name="keycode">Keycode</string>
-    <string name="no_home_title">No home button found</string>
-    <string name="no_home_message">A home button is required to be able to navigate this device. Please add a home button before saving.</string>
-    <string name="clipboard_description">The Clipboard allows items to be dragged directly to the clipboard. Items can also be dragged directly out of the clipboard when present.</string>
-    <string name="keycode_description">Keycode buttons allow keyboard keys to be added to the Navigation Bar. When pressed they emulate the selected keyboard key. First the key must be selected for the button, followed by an image to be shown on the button.</string>
-    <string name="start">Start</string>
-    <string name="center">Center</string>
-    <string name="end">End</string>
-    <string name="space">Spacer</string>
-    <string name="menu_ime">Menu / Keyboard Switcher</string>
-    <string name="select_button">Select button to add</string>
-    <string name="add_button">Add button</string>
-    <string name="save">Save</string>
-    <string name="reset">Reset</string>
-    <string name="select_keycode">Select Keyboard Button</string>
-    <string name="left">Left</string>
-    <string name="right">Right</string>
-    <string name="navbar_editor_title">Editor</string>
-    <string name="navbar_editor_summary">Configure navigaton bar</string>
     <!-- Navbar arrow keys while typing -->
-    <string name="navigation_bar_accessibility_dpad_left">Cursor left</string>
-    <string name="navigation_bar_accessibility_dpad_right">Cursor right</string>
-    <string name="navigation_bar_inverse_title">Swap buttons</string>
-    <string name="navigation_bar_inverse_summary">Swap the order of recents and back buttons</string>
     <!-- Navigation Bar tile -->
-    <string name="quick_settings_navbar_title">Navigation Bar</string>
-    <string name="accessibility_quick_settings_navbar_on">Navigation bar on</string>
-    <string name="accessibility_quick_settings_navbar_off">Navigation bar off</string>
+    <!-- QS long-press actions -->
+    <!-- Running service button -->
+    <!-- Theme tile -->
+    <!-- Sync QS tile -->
 </resources>

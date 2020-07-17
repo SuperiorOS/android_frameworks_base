@@ -80,15 +80,6 @@
     <string name="status_bar_data_saver">Экономия трафика</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="status_bar_roaming">Роуминг</string>
-    <string name="omnijaws_service_error">Ошибка</string>
-    <string name="omnijaws_service_unkown">Нет данных о погоде</string>
-    <string name="omnijaws_service_error_long">Ошибка при загрузке данных о погоде</string>
-    <string name="omnijaws_service_disabled">Служба отключена</string>
-    <string name="omnijaws_detail_header">Погода</string>
-    <string name="omnijaws_label_default">Погода</string>
-    <string name="omnijaws_current_text">Сейчас</string>
-    <string name="omnijaws_package_not_available">OmniJaws недоступен</string>
-    <string name="omnijaws_service_last_update">Последнее обновление:</string>
     <!-- Advanced powermenu -->
     <string name="global_action_restart_system">Перезагрузка</string>
     <string name="global_action_restart_advanced">Расширенная\nперезагрузка</string>
@@ -199,4 +190,26 @@
     <string name="quick_settings_navbar_title">Панель навигации</string>
     <string name="accessibility_quick_settings_navbar_on">Панель навигации включена</string>
     <string name="accessibility_quick_settings_navbar_off">Панель навигации выключена</string>
+    <!-- QS long-press actions -->
+    <string name="tuner_qs_long_press_action">Не показывать панели при длительном нажатии</string>
+    <!-- Running service button -->
+    <string name="accessibility_quick_settings_running_services">Открыть окно запущенных служб</string>
+    <!-- Theme tile -->
+    <string name="system_theme_style_title">Системные темы</string>
+    <string name="quick_settings_theme_tile_title">Темы</string>
+    <string name="quick_settings_theme_tile_style_detail_title">Выбрать тему</string>
+    <string name="system_theme_style_light">Светлая</string>
+    <string name="system_theme_style_dark">Тёмная Google</string>
+    <string name="system_theme_style_solarized_dark">Соляризованная темная</string>
+    <string name="system_theme_style_baked_green">Зажаренный Зелёный</string>
+    <string name="system_theme_style_choco_x">Чоко Х</string>
+    <string name="system_theme_style_pitch_black">Глубокий Синий</string>
+    <string name="system_theme_style_dark_grey">Тёмно Серый</string>
+    <string name="system_theme_style_material_ocean">Океан</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Синхронизация</string>
+    <string name="accessibility_quick_settings_sync_off">Синхронизация выключена.</string>
+    <string name="accessibility_quick_settings_sync_on">Синхронизация включена.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Синхр отключена.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Синхр включена.</string>
 </resources>
