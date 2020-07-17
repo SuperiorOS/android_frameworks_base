@@ -81,15 +81,6 @@
     <string name="status_bar_data_saver">データセーバー</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="status_bar_roaming">ローミング</string>
-    <string name="omnijaws_service_error">エラー</string>
-    <string name="omnijaws_service_unkown">気象データがありません</string>
-    <string name="omnijaws_service_error_long">気象データの読み込みエラー</string>
-    <string name="omnijaws_service_disabled">サービスは無効です</string>
-    <string name="omnijaws_detail_header">天気</string>
-    <string name="omnijaws_label_default">天気</string>
-    <string name="omnijaws_current_text">現在</string>
-    <string name="omnijaws_package_not_available">OmniJaws は使用できません</string>
-    <string name="omnijaws_service_last_update">最終更新:</string>
     <!-- Advanced powermenu -->
     <string name="global_action_restart_system">再起動</string>
     <string name="global_action_restart_advanced">高度な再起動</string>
@@ -200,4 +191,26 @@
     <string name="quick_settings_navbar_title">ナビゲーション\nバー</string>
     <string name="accessibility_quick_settings_navbar_on">ナビゲーションバー ON</string>
     <string name="accessibility_quick_settings_navbar_off">ナビゲーションバー OFF</string>
+    <!-- QS long-press actions -->
+    <string name="tuner_qs_long_press_action">長押しでパネルを非表示</string>
+    <!-- Running service button -->
+    <string name="accessibility_quick_settings_running_services">実行中のサービスを開く</string>
+    <!-- Theme tile -->
+    <string name="system_theme_style_title">システムテーマ</string>
+    <string name="quick_settings_theme_tile_title">テーマ</string>
+    <string name="quick_settings_theme_tile_style_detail_title">テーマを選択</string>
+    <string name="system_theme_style_light">ライト</string>
+    <string name="system_theme_style_dark">Google ダーク</string>
+    <string name="system_theme_style_solarized_dark">Solarized ダーク</string>
+    <string name="system_theme_style_baked_green">Baked グリーン</string>
+    <string name="system_theme_style_choco_x">Choco X</string>
+    <string name="system_theme_style_pitch_black">Pitch Black</string>
+    <string name="system_theme_style_dark_grey">ダークグレー</string>
+    <string name="system_theme_style_material_ocean">Material Ocean</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">同期</string>
+    <string name="accessibility_quick_settings_sync_off">同期 OFF</string>
+    <string name="accessibility_quick_settings_sync_on">同期 ON</string>
+    <string name="accessibility_quick_settings_sync_changed_off">同期を OFF にしました</string>
+    <string name="accessibility_quick_settings_sync_changed_on">同期を ON にしました</string>
 </resources>

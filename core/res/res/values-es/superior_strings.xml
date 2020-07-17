@@ -24,7 +24,7 @@
     <!-- Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <string name="permdesc_fakePackageSignature">Permite que la aplicación pretenda ser una aplicación diferente. Las aplicaciones maliciosas podrían utilizar esto para acceder a datos de aplicaciones privadas. ¡Conceda este permiso con precaución!</string>
     <!-- Advanced reboot -->
-    <string name="reboot_title">Reniciar</string>
+    <string name="reboot_title">Reiniciar</string>
     <string name="reboot_message">Reiniciando sistema...</string>
     <!-- Vendor mismatch fingerprint warning [CHAR LIMIT=NONE] -->
     <string name="system_error_vendorprint">Su imagen de proveedor no coincide con el sistema. Por favor, flashee la imagen del proveedor <xliff:g id="string">%s</xliff:g> para su dispositivo</string>

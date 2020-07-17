@@ -80,15 +80,6 @@
     <string name="status_bar_data_saver">Penghemat Data</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="status_bar_roaming">Jelajah</string>
-    <string name="omnijaws_service_error">Kesalahan</string>
-    <string name="omnijaws_service_unkown">Tidak ada data cuaca</string>
-    <string name="omnijaws_service_error_long">Kesalahan memuat data cuaca</string>
-    <string name="omnijaws_service_disabled">Layanan dinonaktifkan</string>
-    <string name="omnijaws_detail_header">Cuaca</string>
-    <string name="omnijaws_label_default">Cuaca</string>
-    <string name="omnijaws_current_text">Sekarang</string>
-    <string name="omnijaws_package_not_available">OmniJaws tidak tersedia</string>
-    <string name="omnijaws_service_last_update">Pembaharuan terakhir:</string>
     <!-- Advanced powermenu -->
     <string name="global_action_restart_system">Mulai ulang</string>
     <string name="global_action_restart_advanced">Mulai ulang lanjutan</string>
@@ -118,7 +109,7 @@
     <string name="qs_data_switch_toast_0">Tidak ada kartu SIM terpasang saat ini</string>
     <string name="qs_data_switch_toast_1">Hanya satu kartu SIM terpasang saat ini</string>
     <string name="qs_data_switch_changed_1">Data seluler digunakan pada SIM 1</string>
-    <string name="qs_data_switch_changed_2">Data seluler digunakan pada SIM 2</string>
+    <string name="qs_data_switch_changed_2">Gunakan SIM 2 untuk Data seluler</string>
     <!-- Name of the camera status bar icon. -->
     <string name="status_bar_camera">Kamera</string>
     <!-- Name of the location status bar icon. -->
@@ -174,29 +165,35 @@
     <string name="keycode">Kata kunci</string>
     <string name="no_home_title">Tombol beranda tidak ditemukan</string>
     <string name="no_home_message">Tombol beranda sangat diperlukan untuk menavigasi perangkat ini. Harap tambahkan tombol beranda sebelum menyimpan.</string>
-    <string name="clipboard_description">The Clipboard allows items to be dragged directly to the clipboard. Items can also be dragged directly out of the clipboard when present.</string>
-    <string name="keycode_description">Keycode buttons allow keyboard keys to be added to the Navigation Bar. When pressed they emulate the selected keyboard key. First the key must be selected for the button, followed by an image to be shown on the button.</string>
-    <string name="start">Start</string>
-    <string name="center">Center</string>
-    <string name="end">End</string>
-    <string name="space">Spacer</string>
-    <string name="menu_ime">Menu / Keyboard Switcher</string>
-    <string name="select_button">Select button to add</string>
-    <string name="add_button">Add button</string>
-    <string name="save">Save</string>
-    <string name="reset">Reset</string>
-    <string name="select_keycode">Select Keyboard Button</string>
-    <string name="left">Left</string>
-    <string name="right">Right</string>
-    <string name="navbar_editor_title">Editor</string>
-    <string name="navbar_editor_summary">Configure navigaton bar</string>
+    <string name="clipboard_description">Papan Klip memungkinkan item untuk diseret langsung ke papan klip. Item juga dapat diseret langsung dari papan klip ketika tersedia.</string>
+    <string name="keycode_description">Tombol kode kunci memungkinkan tombol keyboard ditambahkan di panel navigasi. Ketika ditekan mereka meniru tombol keyboard yang dipilih. Pertama tombol harus dipilih, lalu diikuti oleh gambar yang akan ditampilkan pada tombol.</string>
+    <string name="start">Mulai</string>
+    <string name="center">Tengah</string>
+    <string name="end">Akhir</string>
+    <string name="space">Jarak</string>
+    <string name="menu_ime">Menu / Pengalih Keyboard</string>
+    <string name="select_button">Pilih tombol untuk menambahkan</string>
+    <string name="add_button">Tambah tombol</string>
+    <string name="save">Simpan</string>
+    <string name="reset">Setel ulang</string>
+    <string name="select_keycode">Pilih tombol Papan Ketik</string>
+    <string name="left">Kiri</string>
+    <string name="right">Kanan</string>
+    <string name="navbar_editor_title">Penyunting</string>
+    <string name="navbar_editor_summary">Konfigurasi bilah navigasi</string>
     <!-- Navbar arrow keys while typing -->
-    <string name="navigation_bar_accessibility_dpad_left">Cursor left</string>
-    <string name="navigation_bar_accessibility_dpad_right">Cursor right</string>
-    <string name="navigation_bar_inverse_title">Swap buttons</string>
-    <string name="navigation_bar_inverse_summary">Swap the order of recents and back buttons</string>
+    <string name="navigation_bar_accessibility_dpad_left">Kursor kiri</string>
+    <string name="navigation_bar_accessibility_dpad_right">Kursor kanan</string>
+    <string name="navigation_bar_inverse_title">Tukar tombol</string>
+    <string name="navigation_bar_inverse_summary">Tukar urutan tombol terkini dan kembali</string>
     <!-- Navigation Bar tile -->
-    <string name="quick_settings_navbar_title">Navigation Bar</string>
-    <string name="accessibility_quick_settings_navbar_on">Navigation bar on</string>
-    <string name="accessibility_quick_settings_navbar_off">Navigation bar off</string>
+    <string name="quick_settings_navbar_title">Bilah Navigasi</string>
+    <string name="accessibility_quick_settings_navbar_on">Bilah Navigasi aktif</string>
+    <string name="accessibility_quick_settings_navbar_off">Bilah Navigasi nonaktif</string>
+    <!-- QS long-press actions -->
+    <string name="tuner_qs_long_press_action">Jangan tampilkan panel pada tekan lama</string>
+    <!-- Running service button -->
+    <string name="accessibility_quick_settings_running_services">Buka layar Layanan yang sedang berjalan.</string>
+    <!-- Theme tile -->
+    <!-- Sync QS tile -->
 </resources>

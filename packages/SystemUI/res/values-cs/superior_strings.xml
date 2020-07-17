@@ -80,15 +80,6 @@
     <string name="status_bar_data_saver">Spořič dat</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="status_bar_roaming">Roaming</string>
-    <string name="omnijaws_service_error">Chyba</string>
-    <string name="omnijaws_service_unkown">Žádné údaje o počasí</string>
-    <string name="omnijaws_service_error_long">Chyba při načítání údajů o počasí</string>
-    <string name="omnijaws_service_disabled">Služba je zakázána</string>
-    <string name="omnijaws_detail_header">Počasí</string>
-    <string name="omnijaws_label_default">Počasí</string>
-    <string name="omnijaws_current_text">Nyní</string>
-    <string name="omnijaws_package_not_available">OmniJaws není k dispozici</string>
-    <string name="omnijaws_service_last_update">Poslední aktualizace:</string>
     <!-- Advanced powermenu -->
     <string name="global_action_restart_system">Restartovat</string>
     <string name="global_action_restart_advanced">Rozšířený\nrestart</string>
@@ -199,4 +190,26 @@
     <string name="quick_settings_navbar_title">Navigační panel</string>
     <string name="accessibility_quick_settings_navbar_on">Navigační panel zap.</string>
     <string name="accessibility_quick_settings_navbar_off">Navigační panel vyp.</string>
+    <!-- QS long-press actions -->
+    <string name="tuner_qs_long_press_action">Nezobrazovat panely při dlouhém stisku</string>
+    <!-- Running service button -->
+    <string name="accessibility_quick_settings_running_services">Otevřít obrazovku spuštěných služeb.</string>
+    <!-- Theme tile -->
+    <string name="system_theme_style_title">Motivy systému</string>
+    <string name="quick_settings_theme_tile_title">Motivy</string>
+    <string name="quick_settings_theme_tile_style_detail_title">Vybrat motiv</string>
+    <string name="system_theme_style_light">Světlý</string>
+    <string name="system_theme_style_dark">Tmavý –⁠ Google</string>
+    <string name="system_theme_style_solarized_dark">Tmavý –⁠ Solarized</string>
+    <string name="system_theme_style_baked_green">Zelený –⁠ Baked</string>
+    <string name="system_theme_style_choco_x">Choco X</string>
+    <string name="system_theme_style_pitch_black">Pitch Black</string>
+    <string name="system_theme_style_dark_grey">Tmavě šedý</string>
+    <string name="system_theme_style_material_ocean">Material Ocean</string>
+    <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Synchr.</string>
+    <string name="accessibility_quick_settings_sync_off">Synch. vyp.</string>
+    <string name="accessibility_quick_settings_sync_on">Synch. zap.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Synchronizace vypnuta.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Synchronizace zapnuta.</string>
 </resources>

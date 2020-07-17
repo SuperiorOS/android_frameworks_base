@@ -80,15 +80,6 @@
     <string name="status_bar_data_saver">Заощадження трафіку</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="status_bar_roaming">Роумінг</string>
-    <string name="omnijaws_service_error">Помилка</string>
-    <string name="omnijaws_service_unkown">Немає даних про погоду</string>
-    <string name="omnijaws_service_error_long">Помилка завантаження даних про погоду</string>
-    <string name="omnijaws_service_disabled">Службу вимкнено</string>
-    <string name="omnijaws_detail_header">Погода</string>
-    <string name="omnijaws_label_default">Погода</string>
-    <string name="omnijaws_current_text">Зараз</string>
-    <string name="omnijaws_package_not_available">OmniJaws недоступний</string>
-    <string name="omnijaws_service_last_update">Останнє оновлення:</string>
     <!-- Advanced powermenu -->
     <string name="global_action_restart_system">Перезавантажити</string>
     <string name="global_action_restart_advanced">Розширене\nперезавантаження</string>
@@ -199,4 +190,8 @@
     <string name="quick_settings_navbar_title">Панель навігації</string>
     <string name="accessibility_quick_settings_navbar_on">Панель навігації включено</string>
     <string name="accessibility_quick_settings_navbar_off">Панель навігації виключено</string>
+    <!-- QS long-press actions -->
+    <!-- Running service button -->
+    <!-- Theme tile -->
+    <!-- Sync QS tile -->
 </resources>
