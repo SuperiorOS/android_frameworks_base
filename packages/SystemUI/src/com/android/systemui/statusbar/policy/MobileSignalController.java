@@ -439,6 +439,10 @@ public class MobileSignalController extends SignalController<
                 case 5:
                     resId = R.drawable.ic_volte_miui;
                     break;
+                // OOS 10 VoLTE icon
+               case 6:
+                    resId = R.drawable.ic_volte_oos10;
+                    break;
             }
         }
         return resId;
