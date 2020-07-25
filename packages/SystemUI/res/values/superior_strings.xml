@@ -183,4 +183,7 @@
 
     <!-- Face Unlock -->
     <string name="face_unlock_recognizing">Recognizing face...</string>
+
+    <!-- DC Dimming -->
+    <string name="quick_settings_dc_dimming_label">DC Dimming</string>
 </resources>
