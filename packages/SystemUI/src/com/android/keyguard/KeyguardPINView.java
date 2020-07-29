@@ -58,13 +58,13 @@ public class KeyguardPINView extends KeyguardPinBasedInputView {
         super(context, attrs);
         mAppearAnimationUtils = new AppearAnimationUtils(context);
         mDisappearAnimationUtils = new DisappearAnimationUtils(context,
-                125, 0.6f /* translationScale */,
-                0.45f /* delayScale */, AnimationUtils.loadInterpolator(
+                10, 0.2f /* translationScale */,
+                0.2f /* delayScale */, AnimationUtils.loadInterpolator(
                         mContext, android.R.interpolator.fast_out_linear_in));
         mDisappearAnimationUtilsLocked = new DisappearAnimationUtils(context,
-                (long) (125 * KeyguardPatternView.DISAPPEAR_MULTIPLIER_LOCKED),
-                0.6f /* translationScale */,
-                0.45f /* delayScale */, AnimationUtils.loadInterpolator(
+                (long) (10 * KeyguardPatternView.DISAPPEAR_MULTIPLIER_LOCKED),
+                0.2f /* translationScale */,
+                0.2f /* delayScale */, AnimationUtils.loadInterpolator(
                         mContext, android.R.interpolator.fast_out_linear_in));
         mDisappearYTranslation = getResources().getDimensionPixelSize(
                 R.dimen.disappear_y_translation);
@@ -154,7 +154,7 @@ public class KeyguardPINView extends KeyguardPinBasedInputView {
         enableClipping(false);
         setAlpha(1f);
         setTranslationY(mAppearAnimationUtils.getStartTranslation());
-        AppearAnimationUtils.startTranslationYAnimation(this, 0 /* delay */, 500 /* duration */,
+        AppearAnimationUtils.startTranslationYAnimation(this, 0 /* delay */, 20 /* duration */,
                 0, mAppearAnimationUtils.getInterpolator());
         mAppearAnimationUtils.startAnimation2d(mViews,
                 new Runnable() {
@@ -169,7 +169,7 @@ public class KeyguardPINView extends KeyguardPinBasedInputView {
     public boolean startDisappearAnimation(final Runnable finishRunnable) {
         enableClipping(false);
         setTranslationY(0);
-        AppearAnimationUtils.startTranslationYAnimation(this, 0 /* delay */, 280 /* duration */,
+        AppearAnimationUtils.startTranslationYAnimation(this, 0 /* delay */, 20 /* duration */,
                 mDisappearYTranslation, mDisappearAnimationUtils.getInterpolator());
         DisappearAnimationUtils disappearAnimationUtils = mKeyguardUpdateMonitor
                 .needsSlowUnlockTransition()
