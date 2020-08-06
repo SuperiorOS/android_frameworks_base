@@ -193,5 +193,32 @@
     <!-- QS long-press actions -->
     <!-- Running service button -->
     <!-- Theme tile -->
+    <string name="quick_settings_theme_tile_title">Теми</string>
+    <string name="quick_settings_theme_tile_style_detail_title">Вибрати тему</string>
+    <string name="system_theme_style_light">Світла</string>
+    <string name="system_theme_style_dark">Google Темний</string>
+    <string name="system_theme_style_solarized_dark">Solarized темна</string>
+    <string name="system_theme_style_baked_green">Печена зелена</string>
+    <string name="system_theme_style_choco_x">Choco X</string>
+    <string name="system_theme_style_pitch_black">Насичена чорна</string>
+    <string name="system_theme_style_dark_grey">Темно-сірий</string>
+    <string name="system_theme_style_material_ocean">Матеріальний океан</string>
     <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Синхронізація</string>
+    <string name="accessibility_quick_settings_sync_off">Синхронізацію вимкнено.</string>
+    <string name="accessibility_quick_settings_sync_on">Синхронізацію увімкнено.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Синхронізацію вимкнено.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Синхронізацію увімкнено.</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Розумні пікселі</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Автоматичне увімкнення розумних пікселів</string>
+    <!-- LTE QS Tile -->
+    <string name="qs_lte_label">LTE</string>
+    <string name="lte_on">LTE увімк </string>
+    <string name="lte_off">LTE вимк</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Панель гучності</string>
+    <!-- Screen recorder -->
+    <!-- Power menu item for screenrecord [CHAR LIMIT=20]-->
+    <!--Screenrecord Tile-->
 </resources>

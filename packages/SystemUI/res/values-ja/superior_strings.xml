@@ -213,4 +213,10 @@
     <string name="accessibility_quick_settings_sync_on">同期 ON</string>
     <string name="accessibility_quick_settings_sync_changed_off">同期を OFF にしました</string>
     <string name="accessibility_quick_settings_sync_changed_on">同期を ON にしました</string>
+    <!-- Smart Pixels QS Tile -->
+    <!-- LTE QS Tile -->
+    <!-- Volume panel QS tile -->
+    <!-- Screen recorder -->
+    <!-- Power menu item for screenrecord [CHAR LIMIT=20]-->
+    <!--Screenrecord Tile-->
 </resources>

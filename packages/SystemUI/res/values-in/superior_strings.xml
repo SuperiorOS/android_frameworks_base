@@ -196,4 +196,10 @@
     <string name="accessibility_quick_settings_running_services">Buka layar Layanan yang sedang berjalan.</string>
     <!-- Theme tile -->
     <!-- Sync QS tile -->
+    <!-- Smart Pixels QS Tile -->
+    <!-- LTE QS Tile -->
+    <!-- Volume panel QS tile -->
+    <!-- Screen recorder -->
+    <!-- Power menu item for screenrecord [CHAR LIMIT=20]-->
+    <!--Screenrecord Tile-->
 </resources>

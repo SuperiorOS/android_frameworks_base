@@ -207,4 +207,38 @@
     <string name="system_theme_style_dark_grey">Màu xám đen</string>
     <string name="system_theme_style_material_ocean">Tối đại dương</string>
     <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Đồng bộ</string>
+    <string name="accessibility_quick_settings_sync_off">Tắt đồng bộ.</string>
+    <string name="accessibility_quick_settings_sync_on">Bật đồng bộ.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Đồng bộ đã tắt.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Đồng bộ đã bật.</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Điểm ảnh thông minh</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Tự động bật Điểm ảnh thông minh</string>
+    <!-- LTE QS Tile -->
+    <string name="qs_lte_label">LTE</string>
+    <string name="lte_on">BẬT LTE </string>
+    <string name="lte_off">TẮT LTE</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Bảng điều chỉnh âm lượng</string>
+    <!-- Screen recorder -->
+    <string name="screenrecord_dialog_title">Bắt đầu ghi?</string>
+    <string name="screenrecord_dialog_summary">Trong khi ghi, hệ thống có thể ghi tất cả thông tin nhạy cảm nào có thể nhìn thấy trên màn hình hoặc phát trên thiết bị. Bao gồm mật khẩu, thông tin thanh toán, hình ảnh, tin nhắn và âm thanh.</string>
+    <string name="screenrecord_dialog_start">Bắt đầu</string>
+    <string name="screenrecord_dialog_cancel">Hủy bỏ</string>
+    <string name="screenrecord_audio_title">Nguồn âm thanh</string>
+    <string name="screenrecord_audio_summary">Cho phép chọn đầu vào âm thanh hoặc vô hiệu hóa nó.</string>
+    <string name="screenrecord_audio_recording_internal">Hệ thống</string>
+    <string name="screenrecord_audio_recording_microphone">Micrô</string>
+    <string name="screenrecord_audio_recording_off">Đã tắt</string>
+    <string name="screenrecord_taps_title">Hiện số lần chạm</string>
+    <string name="screenrecord_taps_summary">Hiển thị phản hồi trực quan trong khi ghi</string>
+    <string name="screenrecord_stopdot_title">Hiển thị nút dừng</string>
+    <string name="screenrecord_stopdot_summary">Hiển thị một chấm đỏ để dừng ghi với một lần chạm. Nhấn và giữ nó để chuyển sang phía đối diện.</string>
+    <string name="screenrecord_video_bitrate_title">Tộc độ bit video</string>
+    <string name="screenrecord_video_bitrate_summary">Đặt bitrate video để có chất lượng video tốt hơn, với chi phí của một tệp lớn hơn.</string>
+    <!-- Power menu item for screenrecord [CHAR LIMIT=20]-->
+    <string name="global_action_screenrecord">Quay màn hình</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Quay màn hình</string>
 </resources>
