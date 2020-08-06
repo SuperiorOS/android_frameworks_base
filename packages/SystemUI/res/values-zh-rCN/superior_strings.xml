@@ -160,4 +160,10 @@
     <!-- Running service button -->
     <!-- Theme tile -->
     <!-- Sync QS tile -->
+    <!-- Smart Pixels QS Tile -->
+    <!-- LTE QS Tile -->
+    <!-- Volume panel QS tile -->
+    <!-- Screen recorder -->
+    <!-- Power menu item for screenrecord [CHAR LIMIT=20]-->
+    <!--Screenrecord Tile-->
 </resources>

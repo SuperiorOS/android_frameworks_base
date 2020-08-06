@@ -212,4 +212,33 @@
     <string name="accessibility_quick_settings_sync_on">Sincronización activada.</string>
     <string name="accessibility_quick_settings_sync_changed_off">La sincronización ha sido desactivada.</string>
     <string name="accessibility_quick_settings_sync_changed_on">La sincronización ha sido activada.</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Píxeles inteligentes</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Habilitar píxeles inteligentes automáticamente</string>
+    <!-- LTE QS Tile -->
+    <string name="qs_lte_label">LTE</string>
+    <string name="lte_on">LTE Activado </string>
+    <string name="lte_off">LTE Desactivado</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Panel de volumen</string>
+    <!-- Screen recorder -->
+    <string name="screenrecord_dialog_title">¿Empezar a grabar?</string>
+    <string name="screenrecord_dialog_summary">Durante la grabación, el sistema Android puede capturar cualquier información sensible que sea visible en tu pantalla o reproducida en tu dispositivo. Esto incluye contraseñas, información de pago, fotos, mensajes y audio.</string>
+    <string name="screenrecord_dialog_start">Iniciar</string>
+    <string name="screenrecord_dialog_cancel">Cancelar</string>
+    <string name="screenrecord_audio_title">Fuente de audio</string>
+    <string name="screenrecord_audio_summary">Permite elegir la entrada de audio o desactivarla.</string>
+    <string name="screenrecord_audio_recording_internal">Interna</string>
+    <string name="screenrecord_audio_recording_microphone">Micrófono</string>
+    <string name="screenrecord_audio_recording_off">Desactivado</string>
+    <string name="screenrecord_taps_title">Mostrar toques en pantalla</string>
+    <string name="screenrecord_taps_summary">Mostrar retroalimentación visual durante la grabación</string>
+    <string name="screenrecord_stopdot_title">Mostrar icono para detener</string>
+    <string name="screenrecord_stopdot_summary">Mostrar un punto rojo para dejar de grabar con un solo toque. Mantenga pulsado para moverlo al lado opuesto.</string>
+    <string name="screenrecord_video_bitrate_title">Frecuencia de bits del video</string>
+    <string name="screenrecord_video_bitrate_summary">Ajusta el bitrate de vídeo para una mejor calidad de vídeo, pero generando un archivo de mayor tamaño.</string>
+    <!-- Power menu item for screenrecord [CHAR LIMIT=20]-->
+    <string name="global_action_screenrecord">Grabador de Pantalla</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Grabador de Pantalla</string>
 </resources>

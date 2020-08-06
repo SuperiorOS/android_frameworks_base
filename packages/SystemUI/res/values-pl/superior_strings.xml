@@ -207,4 +207,10 @@
     <string name="system_theme_style_dark_grey">Dark Grey</string>
     <string name="system_theme_style_material_ocean">Material Ocean</string>
     <!-- Sync QS tile -->
+    <!-- Smart Pixels QS Tile -->
+    <!-- LTE QS Tile -->
+    <!-- Volume panel QS tile -->
+    <!-- Screen recorder -->
+    <!-- Power menu item for screenrecord [CHAR LIMIT=20]-->
+    <!--Screenrecord Tile-->
 </resources>

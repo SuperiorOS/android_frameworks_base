@@ -212,4 +212,33 @@
     <string name="accessibility_quick_settings_sync_on">Synch. zap.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Synchronizace vypnuta.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Synchronizace zapnuta.</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Smart Pixels</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Automaticky povolit Smart Pixels</string>
+    <!-- LTE QS Tile -->
+    <string name="qs_lte_label">LTE</string>
+    <string name="lte_on">LTE zap. </string>
+    <string name="lte_off">LTE vyp.</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Panel hlasitosti</string>
+    <!-- Screen recorder -->
+    <string name="screenrecord_dialog_title">Spustit nahrávání?</string>
+    <string name="screenrecord_dialog_summary">Během nahrávání může systém Android zachytit jakékoli citlivé informace, které jsou viditelné nebo přehrávané na obrazovce vašeho zařízení. To zahrnuje hesla, informace o platbách, fotografie, zprávy a zvuk.</string>
+    <string name="screenrecord_dialog_start">Spustit</string>
+    <string name="screenrecord_dialog_cancel">Zrušit</string>
+    <string name="screenrecord_audio_title">Zdroj zvuku</string>
+    <string name="screenrecord_audio_summary">Umožňuje vybrat zvukový vstup nebo jej vypnout.</string>
+    <string name="screenrecord_audio_recording_internal">Ze zařízení</string>
+    <string name="screenrecord_audio_recording_microphone">Mikrofon</string>
+    <string name="screenrecord_audio_recording_off">Vypnuto</string>
+    <string name="screenrecord_taps_title">Zobrazit doteky na obrazovce</string>
+    <string name="screenrecord_taps_summary">Během nahrávání zobrazit vizuální zpětnou vazbu</string>
+    <string name="screenrecord_stopdot_title">Zobrazit puntík pro zastavení</string>
+    <string name="screenrecord_stopdot_summary">Zobrazit červený puntík pro zastavení nahrávání jediným klepnutím. Dlouhým stiskem ji přesunete na opačnou stranu.</string>
+    <string name="screenrecord_video_bitrate_title">Bitrate videa</string>
+    <string name="screenrecord_video_bitrate_summary">Nastavte bitrate videa pro lepší kvalitu videa za cenu větší velikosti souboru.</string>
+    <!-- Power menu item for screenrecord [CHAR LIMIT=20]-->
+    <string name="global_action_screenrecord">Záznam obrazovky</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Záznam obrazovky</string>
 </resources>

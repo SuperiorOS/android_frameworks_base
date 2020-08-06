@@ -212,4 +212,33 @@
     <string name="accessibility_quick_settings_sync_on">Синхронизация включена.</string>
     <string name="accessibility_quick_settings_sync_changed_off">Синхр отключена.</string>
     <string name="accessibility_quick_settings_sync_changed_on">Синхр включена.</string>
+    <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Умные пиксели</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Автоматическое включение Smart Pixels</string>
+    <!-- LTE QS Tile -->
+    <string name="qs_lte_label">LTE</string>
+    <string name="lte_on">LTE вкл </string>
+    <string name="lte_off">LTE выкл</string>
+    <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Панель громкости</string>
+    <!-- Screen recorder -->
+    <string name="screenrecord_dialog_title">Начать запись?</string>
+    <string name="screenrecord_dialog_summary">Во время записи система Android может захватить любую важную информацию, которая видна на вашем экране или воспроизведена на вашем устройстве. Сюда входят пароли, платежные данные, фотографии, сообщения и аудио.</string>
+    <string name="screenrecord_dialog_start">Запуск</string>
+    <string name="screenrecord_dialog_cancel">Отмена</string>
+    <string name="screenrecord_audio_title">Источник звука</string>
+    <string name="screenrecord_audio_summary">Разрешает выбор источника звука или выключает его.</string>
+    <string name="screenrecord_audio_recording_internal">Внутренний</string>
+    <string name="screenrecord_audio_recording_microphone">Микрофон</string>
+    <string name="screenrecord_audio_recording_off">Отключено</string>
+    <string name="screenrecord_taps_title">Показать касания на экране</string>
+    <string name="screenrecord_taps_summary">Показывать касания при записи</string>
+    <string name="screenrecord_stopdot_title">Показать точку остановки</string>
+    <string name="screenrecord_stopdot_summary">Показывать красную кнопку остановки для остановки записи одним нажатием. Длительное нажатие переместит кнопку в противоположную сторону экрана.</string>
+    <string name="screenrecord_video_bitrate_title">Битрейт видео</string>
+    <string name="screenrecord_video_bitrate_summary">Задать битрейт, чтобы получить лучшее качество видео за счёт увеличения размера файла</string>
+    <!-- Power menu item for screenrecord [CHAR LIMIT=20]-->
+    <string name="global_action_screenrecord">Запись с экрана</string>
+    <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Запись с экрана</string>
 </resources>
