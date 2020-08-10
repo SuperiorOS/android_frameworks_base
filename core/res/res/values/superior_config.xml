@@ -75,4 +75,7 @@
     <!-- FOD icon dim-->
     <bool name="config_targetUsesInKernelDimming">false</bool>
 
+    <!-- NightLight FOD -->
+    <bool name="disable_fod_night_light">false</bool>
+
 </resources>

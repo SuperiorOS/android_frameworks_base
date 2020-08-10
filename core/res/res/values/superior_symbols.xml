@@ -66,4 +66,7 @@
    <!-- FOD icon dimming -->
    <java-symbol type="bool" name="config_targetUsesInKernelDimming" />
 
+   <!-- NightLight FOD -->
+   <java-symbol type="bool" name="disable_fod_night_light"/>
+
 </resources>
