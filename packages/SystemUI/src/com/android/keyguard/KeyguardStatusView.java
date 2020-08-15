@@ -266,6 +266,21 @@ public class KeyguardStatusView extends GridLayout implements
         mClockView.onTimeZoneChanged(timeZone);
     }
 
+    private int getLockDateFont() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.LOCK_DATE_FONTS, 28);
+    }
+
+    private int getOwnerInfoFont() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.LOCK_OWNERINFO_FONTS, 28);
+    }
+
+    private int getOwnerInfoSize() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.LOCKOWNER_FONT_SIZE, 18);
+    }
+
     private void refreshFormat() {
         Patterns.update(mContext);
         mClockView.setFormat12Hour(Patterns.clockView12);

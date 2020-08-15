@@ -267,8 +267,6 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mPrivacyChip = findViewById(R.id.privacy_chip);
         mPrivacyChip.setOnClickListener(this::onClick);
         mCarrierGroup = findViewById(R.id.carrier_group);
-
-
         updateResources();
 
         Rect tintArea = new Rect(0, 0, 0, 0);

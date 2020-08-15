@@ -117,11 +117,6 @@ public abstract class PanelView extends FrameLayout {
     private final VibratorHelper mVibratorHelper;
 
     /**
-     * For PanelView fling perflock call
-     */
-    private BoostFramework mPerf = null;
-
-    /**
      * Whether an instant expand request is currently pending and we are just waiting for layout.
      */
     private boolean mInstantExpanding;
@@ -229,8 +224,6 @@ public abstract class PanelView extends FrameLayout {
         mVibratorHelper = Dependency.get(VibratorHelper.class);
         mVibrateOnOpening = mContext.getResources().getBoolean(
                 R.bool.config_vibrateOnIconAnimation);
-
-        mPerf = new BoostFramework();
     }
 
     protected void loadDimens() {
@@ -792,10 +785,6 @@ public abstract class PanelView extends FrameLayout {
             if (mFixedDuration != NO_FIXED_DURATION) {
                 animator.setDuration(mFixedDuration);
             }
-        }
-        if (mPerf != null) {
-            String currentPackage = mContext.getPackageName();
-            mPerf.perfHint(BoostFramework.VENDOR_HINT_SCROLL_BOOST, currentPackage, -1, BoostFramework.Scroll.PANEL_VIEW);
         }
         animator.addListener(new AnimatorListenerAdapter() {
             private boolean mCancelled;

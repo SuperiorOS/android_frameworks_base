@@ -223,6 +223,16 @@ public class KeyguardClockSwitch extends RelativeLayout {
         setClockPlugin(null);
     }
 
+    private int getLockClockFont() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.LOCK_CLOCK_FONTS, 28);
+    }
+
+    private int getLockClockSize() {
+        return Settings.System.getInt(mContext.getContentResolver(),
+                Settings.System.LOCKCLOCK_FONT_SIZE, 54);
+    }
+
     private void setClockPlugin(ClockPlugin plugin) {
         // Disconnect from existing plugin.
         if (mClockPlugin != null) {
