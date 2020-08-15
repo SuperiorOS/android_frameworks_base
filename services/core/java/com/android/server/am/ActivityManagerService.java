@@ -299,7 +299,6 @@ import android.view.IRecentsAnimationRunner;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
-import android.util.BoostFramework;
 import android.view.autofill.AutofillManagerInternal;
 
 import com.android.internal.R;
@@ -311,7 +310,6 @@ import com.android.internal.app.IAppOpsService;
 import com.android.internal.app.ProcessMap;
 import com.android.internal.app.SystemUserHomeActivity;
 import com.android.internal.app.procstats.ProcessStats;
-import com.android.internal.app.ActivityTrigger;
 import com.android.internal.content.PackageHelper;
 import com.android.internal.messages.nano.SystemMessageProto.SystemMessage;
 import com.android.internal.notification.SystemNotificationChannels;
@@ -360,7 +358,6 @@ import com.android.server.utils.PriorityDump;
 import com.android.server.vr.VrManagerInternal;
 import com.android.server.wm.ActivityMetricsLaunchObserver;
 import com.android.server.wm.ActivityServiceConnectionsHolder;
-import com.android.server.wm.ActivityStackSupervisor;
 import com.android.server.wm.ActivityTaskManagerInternal;
 import com.android.server.wm.ActivityTaskManagerService;
 import com.android.server.wm.WindowManagerService;
@@ -551,12 +548,6 @@ public class ActivityManagerService extends IActivityManager.Stub
     private static final int NATIVE_DUMP_TIMEOUT_MS = 2000; // 2 seconds;
     private static final int JAVA_DUMP_MINIMUM_SIZE = 100; // 100 bytes.
 
-    /* Freq Aggr boost objects */
-    public static BoostFramework mPerfServiceStartHint = null;
-    /* UX perf event object */
-    public static BoostFramework mUxPerf = new BoostFramework();
-    public static boolean mForceStopKill = false;
-
     OomAdjuster mOomAdjuster;
     final LowMemDetector mLowMemDetector;
 
@@ -564,9 +555,6 @@ public class ActivityManagerService extends IActivityManager.Stub
     SystemServiceManager mSystemServiceManager;
 
     private Installer mInstaller;
-
-    /** Run all ActivityStacks through this */
-    ActivityStackSupervisor mStackSupervisor;
 
     final InstrumentationReporter mInstrumentationReporter = new InstrumentationReporter();
 
@@ -1568,19 +1556,6 @@ public class ActivityManagerService extends IActivityManager.Stub
 
     long mLastMemUsageReportTime = 0;
 
-    // Min aging threshold in milliseconds to consider a B-service
-    int mMinBServiceAgingTime =
-            SystemProperties.getInt("ro.vendor.qti.sys.fw.bservice_age", 5000);
-    // Threshold for B-services when in memory pressure
-    int mBServiceAppThreshold =
-            SystemProperties.getInt("ro.vendor.qti.sys.fw.bservice_limit", 5);
-    // Enable B-service aging propagation on memory pressure.
-    boolean mEnableBServicePropagation =
-            SystemProperties.getBoolean("ro.vendor.qti.sys.fw.bservice_enable", false);
-    // Process in same process Group keep in same cgroup
-    boolean mEnableProcessGroupCgroupFollow =
-            SystemProperties.getBoolean("ro.vendor.qti.cgroup_follow.enable",false);
-
     /**
      * Flag whether the current user is a "monkey", i.e. whether
      * the UI is driven by a UI automation tool.
@@ -2573,7 +2548,6 @@ public class ActivityManagerService extends IActivityManager.Stub
         mActivityTaskManager.initialize(mIntentFirewall, mPendingIntentController,
                 DisplayThread.get().getLooper());
         mAtmInternal = LocalServices.getService(ActivityTaskManagerInternal.class);
-        mStackSupervisor = mActivityTaskManager.mStackSupervisor;
 
         mProcessCpuThread = new Thread("CpuTracker") {
             @Override
@@ -3562,48 +3536,9 @@ public class ActivityManagerService extends IActivityManager.Stub
                     bOptions, userId);
     }
 
+    @Override
     public final int startActivityFromRecents(int taskId, Bundle bOptions) {
         return mActivityTaskManager.startActivityFromRecents(taskId, bOptions);
-    }
-
-    public int startActivityAsUserEmpty(Bundle options) {
-        ArrayList<String> pApps = options.getStringArrayList("start_empty_apps");
-        if (pApps != null && pApps.size() > 0) {
-            Iterator<String> apps_itr = pApps.iterator();
-            while (apps_itr.hasNext()) {
-                ProcessRecord empty_app = null;
-                String app_str = apps_itr.next();
-                if (app_str == null)
-                    continue;
-                synchronized (this) {
-                    Intent intent_l = null;
-                    try {
-                        intent_l = mContext.getPackageManager().getLaunchIntentForPackage(app_str);
-                        if (intent_l == null)
-                            continue;
-                        ActivityInfo aInfo = mStackSupervisor.resolveActivity(intent_l, null,
-                                                                          0, null, 0, 0);
-                        if (aInfo == null)
-                            continue;
-                        empty_app = startProcessLocked(
-                            app_str,
-                            aInfo.applicationInfo,
-                            false /* knownToBeDead */,
-                            0 /* intentFlags */,
-                           sNullHostingRecord /* hostingRecord */,
-                           false /* allowWhileBooting */,
-                           false /* isolated */,
-                           true /* keepIfLarge */);
-                        if (empty_app != null)
-                            updateOomAdjLocked(empty_app, true, OomAdjuster.OOM_ADJ_REASON_NONE);
-                    } catch (Exception e) {
-                        if (DEBUG_PROCESSES)
-                            Slog.w(TAG, "Exception raised trying to start app as empty " + e);
-                    }
-                }
-            }
-        }
-        return 1;
     }
 
     @Override
@@ -3829,12 +3764,6 @@ public class ActivityManagerService extends IActivityManager.Stub
                 mAllowLowerMemLevel = false;
                 doLowMem = false;
             }
-
-            if (mUxPerf != null && !mForceStopKill) {
-                mUxPerf.perfUXEngine_events(BoostFramework.UXE_EVENT_KILL, 0, app.processName, 0);
-                mUxPerf.perfHint(BoostFramework.VENDOR_HINT_KILL, app.processName, pid, 0);
-            }
-
             EventLog.writeEvent(EventLogTags.AM_PROC_DIED, app.userId, app.pid, app.processName,
                     app.setAdj, app.setProcState);
             if (DEBUG_CLEANUP) Slog.v(TAG_CLEANUP,
@@ -4732,10 +4661,6 @@ public class ActivityManagerService extends IActivityManager.Stub
                         + " user=" + userId + ": " + reason);
             } else {
                 Slog.i(TAG, "Force stopping u" + userId + ": " + reason);
-            }
-
-            if (mUxPerf != null) {
-                mUxPerf.perfHint(BoostFramework.VENDOR_HINT_KILL, packageName, appId, 0);
             }
 
             mAppErrors.resetProcessCrashTimeLocked(packageName == null, appId, userId);
@@ -17876,11 +17801,6 @@ public class ActivityManagerService extends IActivityManager.Stub
                 String processName, String abiOverride, int uid, Runnable crashHandler) {
             return ActivityManagerService.this.startIsolatedProcess(entryPoint, entryPointArgs,
                     processName, abiOverride, uid, crashHandler);
-        }
-
-        @Override
-        public int startActivityAsUserEmpty(Bundle options) {
-            return ActivityManagerService.this.startActivityAsUserEmpty(options);
         }
 
         @Override
