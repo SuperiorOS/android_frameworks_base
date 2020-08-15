@@ -187,7 +187,6 @@ import android.service.vr.IVrStateCallbacks;
 import android.text.format.DateUtils;
 import android.util.ArrayMap;
 import android.util.ArraySet;
-import android.util.BoostFramework;
 import android.util.DisplayMetrics;
 import android.util.EventLog;
 import android.util.Log;
@@ -295,8 +294,6 @@ public class WindowManagerService extends IWindowManager.Stub
     static final boolean PROFILE_ORIENTATION = false;
     static final boolean localLOGV = DEBUG;
 
-    static WindowState mFocusingWindow;
-    String mFocusingActivity;
     /** How much to multiply the policy's type layer, to reserve room
      * for multiple windows of the same type and Z-ordering adjustment
      * with TYPE_LAYER_OFFSET. */
@@ -392,8 +389,6 @@ public class WindowManagerService extends IWindowManager.Stub
     private static final int MIN_GESTURE_EXCLUSION_LIMIT_DP = 200;
 
     final WindowTracing mWindowTracing;
-
-    private BoostFramework mPerf = null;
 
     final private KeyguardDisableHandler mKeyguardDisableHandler;
     // TODO: eventually unify all keyguard state in a common place instead of having it spread over
@@ -3052,28 +3047,16 @@ public class WindowManagerService extends IWindowManager.Stub
         ValueAnimator.setDurationScale(scale);
     }
 
-    private float animationScalesCheck (int which) {
-        float value = -1.0f;
-        if (!mAnimationsDisabled) {
-            if (value == -1.0f) {
-                switch (which) {
-                    case WINDOW_ANIMATION_SCALE: value = mWindowAnimationScaleSetting; break;
-                    case TRANSITION_ANIMATION_SCALE: value = mTransitionAnimationScaleSetting; break;
-                    case ANIMATION_DURATION_SCALE: value = mAnimatorDurationScaleSetting; break;
-                }
-            }
-        } else {
-            value = 0;
-        }
-        return value;
-    }
-
     public float getWindowAnimationScaleLocked() {
-        return animationScalesCheck(WINDOW_ANIMATION_SCALE);
+        if (mAnimationsDisabled || mAnimationsForceDisabled)
+            return 0;
+        return mWindowAnimationScaleSetting;
     }
 
     public float getTransitionAnimationScaleLocked() {
-        return animationScalesCheck(TRANSITION_ANIMATION_SCALE);
+        if (mAnimationsDisabled || mAnimationsForceDisabled)
+            return 0;
+        return mTransitionAnimationScaleSetting;
     }
 
     @Override
