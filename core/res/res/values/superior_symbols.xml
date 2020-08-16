@@ -135,4 +135,7 @@
     <!-- App Lock -->
     <java-symbol type="string" name="lockscreen_pattern_instructions" />
 
+     <!-- Power button fingerprint -->
+     <java-symbol type="bool" name="config_powerButtonFingerprint" />
+
 </resources>
