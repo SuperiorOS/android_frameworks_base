@@ -1166,7 +1166,7 @@
     <dimen name="config_rounded_mask_size_top">@*android:dimen/rounded_corner_radius_top</dimen>
     <dimen name="config_rounded_mask_size_bottom">@*android:dimen/rounded_corner_radius_top</dimen>
 
-    <!-- Volume Panel AOSP Theme -->
+    <!-- Volume Panel Styles -->
     <dimen name="custom_volume_dialog_seekbar_width">40dip</dimen>
     <dimen name="custom_volume_dialog_seekbar_height">220dip</dimen>
     <dimen name="volume_dialog_row_icon_margintop">-58dp</dimen>
@@ -1196,5 +1196,7 @@
     <dimen name="volume_dialog_aosp_slider_margin_bottom">-10dp</dimen>
     <dimen name="volume_dialog_aosp_tap_target_size">@dimen/volume_dialog_aosp_panel_width</dimen>
     <dimen name="volume_dialog_aosp_row_margin_bottom">4dp</dimen>
+    <dimen name="volume_dialog_custom_panel_width">42dp</dimen>
+    <dimen name="volume_dialog_custom_tap_target_size">@dimen/volume_dialog_custom_panel_width</dimen>
 
 </resources>

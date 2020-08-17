@@ -18,7 +18,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:tag="row"
     android:layout_height="wrap_content"
-    android:layout_width="@dimen/volume_dialog_panel_width"
+    android:layout_width="@dimen/volume_dialog_custom_panel_width"
     android:clipChildren="false"
     android:clipToPadding="false"
     android:theme="@style/qs_theme">
