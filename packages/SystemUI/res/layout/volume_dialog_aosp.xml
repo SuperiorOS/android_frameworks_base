@@ -36,8 +36,9 @@
 
         <FrameLayout
             android:id="@+id/ringer"
-            android:layout_width="@dimen/volume_dialog_aosp_ringer_size"
-            android:layout_height="@dimen/volume_dialog_aosp_ringer_size"
+            android:layout_width="@dimen/volume_dialog_aosp_panel_width"
+            android:layout_height="@dimen/volume_dialog_aosp_panel_width"
+            android:layout_marginEnd="@dimen/volume_dialog_spacer"
             android:background="@drawable/rounded_bg_full"
             android:elevation="@dimen/volume_dialog_aosp_elevation">
 
@@ -46,7 +47,7 @@
                 style="@style/VolumeButtons"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="6dp"
+                android:padding="10dp"
                 android:tint="?android:attr/colorAccent" />
 
             <include

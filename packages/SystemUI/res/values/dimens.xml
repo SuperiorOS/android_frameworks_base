@@ -1173,7 +1173,7 @@
     <dimen name="volume_dialog_rows_padding_right">0.5dip</dimen>
     <dimen name="volume_dialog_ringer_spacing">4dip</dimen>
     <dimen name="volume_dialog_ringer_height">38dip</dimen>
-    <dimen name="volume_dialog_aosp_slider_height">170dp</dimen>
+    <dimen name="volume_dialog_aosp_slider_height">140dp</dimen>
     <dimen name="volume_dialog_aosp_row_height">252dp</dimen>
     <dimen name="volume_dialog_stream_padding">8dp</dimen>
     <dimen name="volume_tool_tip_right_margin">76dp</dimen>
@@ -1187,13 +1187,14 @@
     <dimen name="volume_dialog_aosp_panel_transparent_padding">20dp</dimen>
     <dimen name="volume_dialog_aosp_panel_width">44dp</dimen>
     <dimen name="volume_dialog_aosp_ringer_size">42dp</dimen>
+
     <dimen name="volume_dialog_aosp_ringer_icon_padding">8dp</dimen>
     <dimen name="volume_dialog_aosp_caption_size">42dp</dimen>
     <dimen name="volume_dialog_aosp_spacer">4dp</dimen>
     <dimen name="volume_dialog_aosp_elevation">9dp</dimen>
     <dimen name="volume_dialog_aosp_slider_margin_top">14dp</dimen>
-    <dimen name="volume_dialog_aosp_slider_margin_bottom">-2dp</dimen>
-    <dimen name="volume_dialog_aosp_tap_target_size">42dp</dimen>
+    <dimen name="volume_dialog_aosp_slider_margin_bottom">-10dp</dimen>
+    <dimen name="volume_dialog_aosp_tap_target_size">@dimen/volume_dialog_aosp_panel_width</dimen>
     <dimen name="volume_dialog_aosp_row_margin_bottom">4dp</dimen>
 
 </resources>
