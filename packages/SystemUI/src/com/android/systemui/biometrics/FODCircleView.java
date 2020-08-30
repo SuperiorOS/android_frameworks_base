@@ -16,6 +16,9 @@
 
 package com.android.systemui.biometrics;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -101,6 +104,7 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
     private boolean mIsBouncer;
     private boolean mIsDreaming;
     private boolean mIsCircleShowing;
+    private boolean mIsAnimating = false;
 
     private Handler mHandler;
 
@@ -245,7 +249,7 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
     @Override
     public void onTuningChanged(String key, String newValue) {
         mCurrentBrightness = newValue != null ? Integer.parseInt(newValue) : 0;
-        updateIconDim();
+        updateIconDim(false);
     }
 
     private int interpolate(int i, int i2, int i3, int i4, int i5) {
@@ -274,9 +278,31 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
         return interpolate(mCurrentBrightness, iArr[i2][0], iArr[i][0], iArr[i2][1], iArr[i][1]);
     }
 
-    public void updateIconDim() {
+    public void updateIconDim(boolean animate) {
         if (!mIsCircleShowing && mTargetUsesInKernelDimming) {
-            setColorFilter(Color.argb(getDimAlpha(), 0, 0, 0), PorterDuff.Mode.SRC_ATOP);
+            if (animate && !mIsAnimating) {
+                ValueAnimator anim = new ValueAnimator();
+                anim.setIntValues(0, getDimAlpha());
+                anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                        int progress = (Integer) valueAnimator.getAnimatedValue();
+                        setColorFilter(Color.argb(progress, 0, 0, 0),
+                                PorterDuff.Mode.SRC_ATOP);
+                    }
+                });
+                anim.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        mIsAnimating = false;
+                    }
+                });
+                anim.setDuration(1000);
+                mIsAnimating = true;
+                anim.start();
+            } else if (!mIsAnimating) {
+                setColorFilter(Color.argb(getDimAlpha(), 0, 0, 0), PorterDuff.Mode.SRC_ATOP);
+            }
         } else {
             setColorFilter(Color.argb(0, 0, 0, 0), PorterDuff.Mode.SRC_ATOP);
         }
@@ -377,7 +403,7 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
         dispatchPress();
 
         setImageDrawable(null);
-        updateIconDim();
+        updateIconDim(false);
         invalidate();
     }
 
@@ -497,6 +523,7 @@ public class FODCircleView extends ImageView implements TunerService.Tunable {
             if (mPressedView.getParent() != null) {
                 mWindowManager.removeView(mPressedView);
             }
+            updateIconDim(true);
         }
     }
 
