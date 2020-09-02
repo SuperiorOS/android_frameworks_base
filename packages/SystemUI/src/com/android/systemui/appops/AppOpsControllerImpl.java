@@ -328,7 +328,21 @@ public class AppOpsControllerImpl implements AppOpsController,
 
     @Override
     public void onOpActiveChanged(int code, int uid, String packageName, boolean active) {
-        if (updateActives(code, uid, packageName, active)) {
+        if (DEBUG) {
+            Log.w(TAG, String.format("onActiveChanged(%d,%d,%s,%s", code, uid, packageName,
+                    Boolean.toString(active)));
+        }
+        boolean activeChanged = updateActives(code, uid, packageName, active);
+        if (!activeChanged) return; // early return
+        // Check if the item is also noted, in that case, there's no update.
+        boolean alsoNoted;
+        synchronized (mNotedItems) {
+            alsoNoted = getAppOpItem(mNotedItems, code, uid, packageName) != null;
+        }
+        // If active is true, we only send the update if the op is not actively noted (already true)
+        // If active is false, we only send the update if the op is not actively noted (prevent
+        // early removal)
+        if (!alsoNoted) {
             mBGHandler.post(() -> notifySuscribers(code, uid, packageName, active));
         }
     }
@@ -340,8 +354,15 @@ public class AppOpsControllerImpl implements AppOpsController,
                     + AppOpsManager.MODE_NAMES[result] + " for package " + packageName);
         }
         if (result != AppOpsManager.MODE_ALLOWED) return;
-        addNoted(code, uid, packageName);
-        mBGHandler.post(() -> notifySuscribers(code, uid, packageName, true));
+        boolean notedAdded = addNoted(code, uid, packageName);
+        if (!notedAdded) return; // early return
+        boolean alsoActive;
+        synchronized (mActiveItems) {
+            alsoActive = getAppOpItem(mActiveItems, code, uid, packageName) != null;
+        }
+        if (!alsoActive) {
+            mBGHandler.post(() -> notifySuscribers(code, uid, packageName, true));
+        }
     }
 
     private void notifySuscribers(int code, int uid, String packageName, boolean active) {
