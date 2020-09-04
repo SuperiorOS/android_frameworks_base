@@ -552,6 +552,8 @@ public class ActivityManagerService extends IActivityManager.Stub
     private static final int NATIVE_DUMP_TIMEOUT_MS = 2000; // 2 seconds;
     private static final int JAVA_DUMP_MINIMUM_SIZE = 100; // 100 bytes.
 
+    private static final String PROP_REFRESH_TYPEFACE = "sys.refresh_typeface";
+
     OomAdjuster mOomAdjuster;
     final LowMemDetector mLowMemDetector;
 
@@ -1578,6 +1580,8 @@ public class ActivityManagerService extends IActivityManager.Stub
     // Encapsulates the global setting "hidden_api_blacklist_exemptions"
     final HiddenApiSettings mHiddenApiBlacklist;
 
+    final ZygoteTypefaceRefreshUpdate mZygoteTypefaceRefresh;
+
     PackageManagerInternal mPackageManagerInt;
 
     /**
@@ -2407,6 +2411,36 @@ public class ActivityManagerService extends IActivityManager.Stub
         }
     }
 
+    static class ZygoteTypefaceRefreshUpdate extends ContentObserver {
+
+        private final Context mContext;
+
+        public ZygoteTypefaceRefreshUpdate(Handler handler, Context context) {
+            super(handler);
+            mContext = context;
+        }
+
+        public void registerObserver() {
+            mContext.getContentResolver().registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.FONT_SCALE),
+                    false,
+                    this);
+            update();
+        }
+
+        private void update() {
+            // Check if zygote should refresh its fonts
+            if (SystemProperties.getBoolean(PROP_REFRESH_TYPEFACE, false)) {
+                SystemProperties.set(PROP_REFRESH_TYPEFACE, "false");
+                ZYGOTE_PROCESS.refreshTypeface();
+            }
+        }
+
+        public void onChange(boolean selfChange) {
+            update();
+        }
+    }
+
     @VisibleForTesting
     public ActivityManagerService(Injector injector) {
         this(injector, null /* handlerThread */);
@@ -2451,6 +2485,7 @@ public class ActivityManagerService extends IActivityManager.Stub
         mProcStartHandlerThread = null;
         mProcStartHandler = null;
         mHiddenApiBlacklist = null;
+        mZygoteTypefaceRefresh = null;
         mFactoryTest = FACTORY_TEST_OFF;
         mSwipeToScreenshotObserver = null;
     }
@@ -2588,6 +2623,7 @@ public class ActivityManagerService extends IActivityManager.Stub
         };
 
         mHiddenApiBlacklist = new HiddenApiSettings(mHandler, mContext);
+        mZygoteTypefaceRefresh = new ZygoteTypefaceRefreshUpdate(mHandler, mContext);
 
         Watchdog.getInstance().addMonitor(this);
         Watchdog.getInstance().addThread(mHandler);
@@ -8949,6 +8985,7 @@ public class ActivityManagerService extends IActivityManager.Stub
         final long waitForNetworkTimeoutMs = Settings.Global.getLong(resolver,
                 NETWORK_ACCESS_TIMEOUT_MS, NETWORK_ACCESS_TIMEOUT_DEFAULT_MS);
         mHiddenApiBlacklist.registerObserver();
+        mZygoteTypefaceRefresh.registerObserver();
 
         final long pssDeferralMs = DeviceConfig.getLong(DeviceConfig.NAMESPACE_ACTIVITY_MANAGER,
                 ACTIVITY_START_PSS_DEFER_CONFIG, 0L);

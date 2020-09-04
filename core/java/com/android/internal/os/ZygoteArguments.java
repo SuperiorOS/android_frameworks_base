@@ -119,8 +119,8 @@ class ZygoteArguments {
     /** from --package-name */
     String mPackageName;
 
-    /** from --refresh-theme */
-    boolean refreshTheme;
+    /** from --refresh-typeface */
+    boolean refreshTypeface;
 
     /**
      * Any args after and including the first non-option arg (or after a '--')
@@ -419,8 +419,9 @@ class ZygoteArguments {
                 expectRuntimeArgs = false;
             } else if (arg.startsWith(Zygote.START_AS_TOP_APP_ARG)) {
                 mIsTopApp = true;
-            } else if (arg.equals("--refresh_theme")) {
-                refreshTheme = true;
+            } else if (arg.equals("--refresh-typeface")) {
+                refreshTypeface = true;
+                expectRuntimeArgs = false;
             } else {
                 break;
             }

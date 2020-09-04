@@ -567,12 +567,11 @@ public class Process {
                                            @Nullable String packageName,
                                            int zygotePolicyFlags,
                                            boolean isTopApp,
-                                           boolean refreshTheme,
                                            @Nullable String[] zygoteArgs) {
         return ZYGOTE_PROCESS.start(processClass, niceName, uid, gid, gids,
                     runtimeFlags, mountExternal, targetSdkVersion, seInfo,
                     abi, instructionSet, appDataDir, invokeWith, packageName,
-                    zygotePolicyFlags, isTopApp, refreshTheme, zygoteArgs);
+                    zygotePolicyFlags, isTopApp, zygoteArgs);
     }
 
     /** @hide */
@@ -588,13 +587,12 @@ public class Process {
                                                   @Nullable String appDataDir,
                                                   @Nullable String invokeWith,
                                                   @Nullable String packageName,
-                                                  boolean refreshTheme,
                                                   @Nullable String[] zygoteArgs) {
         return WebViewZygote.getProcess().start(processClass, niceName, uid, gid, gids,
                     runtimeFlags, mountExternal, targetSdkVersion, seInfo,
                     abi, instructionSet, appDataDir, invokeWith, packageName,
                     /*zygotePolicyFlags=*/ ZYGOTE_POLICY_FLAG_EMPTY, /*isTopApp=*/ false,
-                    refreshTheme, zygoteArgs);
+                    zygoteArgs);
     }
 
     /**

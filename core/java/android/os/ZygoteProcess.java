@@ -344,7 +344,6 @@ public class ZygoteProcess {
                                                   @Nullable String packageName,
                                                   int zygotePolicyFlags,
                                                   boolean isTopApp,
-                                                  boolean refreshTheme,
                                                   @Nullable String[] zygoteArgs) {
         // TODO (chriswailes): Is there a better place to check this value?
         if (fetchUsapPoolEnabledPropWithMinInterval()) {
@@ -355,7 +354,7 @@ public class ZygoteProcess {
             return startViaZygote(processClass, niceName, uid, gid, gids,
                     runtimeFlags, mountExternal, targetSdkVersion, seInfo,
                     abi, instructionSet, appDataDir, invokeWith, /*startChildZygote=*/ false,
-                    packageName, zygotePolicyFlags, isTopApp, refreshTheme, zygoteArgs);
+                    packageName, zygotePolicyFlags, isTopApp, zygoteArgs);
         } catch (ZygoteStartFailedEx ex) {
             Log.e(LOG_TAG,
                     "Starting VM process through Zygote failed");
@@ -546,7 +545,8 @@ public class ZygoteProcess {
         "--set-api-blacklist-exemptions",
         "--hidden-api-log-sampling-rate",
         "--hidden-api-statslog-sampling-rate",
-        "--invoke-with"
+        "--invoke-with",
+        "--refresh-typeface"
     };
 
     /**
@@ -614,7 +614,6 @@ public class ZygoteProcess {
                                                       @Nullable String packageName,
                                                       int zygotePolicyFlags,
                                                       boolean isTopApp,
-                                                      boolean refreshTheme,
                                                       @Nullable String[] extraArgs)
                                                       throws ZygoteStartFailedEx {
         ArrayList<String> argsForZygote = new ArrayList<>();
@@ -625,9 +624,6 @@ public class ZygoteProcess {
         argsForZygote.add("--setuid=" + uid);
         argsForZygote.add("--setgid=" + gid);
         argsForZygote.add("--runtime-flags=" + runtimeFlags);
-        if (refreshTheme) {
-            argsForZygote.add("--refresh_theme");
-        }
         if (mountExternal == Zygote.MOUNT_EXTERNAL_DEFAULT) {
             argsForZygote.add("--mount-external-default");
         } else if (mountExternal == Zygote.MOUNT_EXTERNAL_READ) {
@@ -865,6 +861,13 @@ public class ZygoteProcess {
         }
     }
 
+    public void refreshTypeface() {
+        synchronized (mLock) {
+            maybeRefreshTypeface(primaryZygoteState);
+            maybeRefreshTypeface(secondaryZygoteState);
+        }
+    }
+
     @GuardedBy("mLock")
     private boolean maybeSetApiBlacklistExemptions(ZygoteState state, boolean sendIfEmpty) {
         if (state == null || state.isClosed()) {
@@ -939,6 +942,27 @@ public class ZygoteProcess {
         }
     }
 
+    @GuardedBy("mLock")
+    private void maybeRefreshTypeface(ZygoteState state) {
+        if (state == null || state.isClosed()) {
+            return;
+        }
+
+        try {
+            state.mZygoteOutputWriter.write(Integer.toString(1));
+            state.mZygoteOutputWriter.newLine();
+            state.mZygoteOutputWriter.write("--refresh-typeface");
+            state.mZygoteOutputWriter.newLine();
+            state.mZygoteOutputWriter.flush();
+            int status = state.mZygoteInputStream.readInt();
+            if (status != 0) {
+                Slog.e(LOG_TAG, "Failed to refresh USAP Pool for Typeface change status:" + status);
+            }
+        } catch (IOException ioe) {
+            Slog.e(LOG_TAG, "Failed to refresh USAP Pool for Typeface change", ioe);
+        }
+    }
+
     /**
      * Creates a ZygoteState for the primary zygote if it doesn't exist or has been disconnected.
      */
@@ -951,6 +975,7 @@ public class ZygoteProcess {
             maybeSetApiBlacklistExemptions(primaryZygoteState, false);
             maybeSetHiddenApiAccessLogSampleRate(primaryZygoteState);
             maybeSetHiddenApiAccessStatslogSampleRate(primaryZygoteState);
+            maybeRefreshTypeface(primaryZygoteState);
         }
     }
 
@@ -967,6 +992,7 @@ public class ZygoteProcess {
             maybeSetApiBlacklistExemptions(secondaryZygoteState, false);
             maybeSetHiddenApiAccessLogSampleRate(secondaryZygoteState);
             maybeSetHiddenApiAccessStatslogSampleRate(secondaryZygoteState);
+            maybeRefreshTypeface(secondaryZygoteState);
         }
     }
 
@@ -1219,7 +1245,7 @@ public class ZygoteProcess {
                     abi, instructionSet, null /* appDataDir */, null /* invokeWith */,
                     true /* startChildZygote */, null /* packageName */,
                     ZYGOTE_POLICY_FLAG_SYSTEM_PROCESS /* zygotePolicyFlags */, false /* isTopApp */,
-                    true /* refreshTheme */, extraArgs);
+                    extraArgs);
         } catch (ZygoteStartFailedEx ex) {
             throw new RuntimeException("Starting child-zygote through Zygote failed", ex);
         }
