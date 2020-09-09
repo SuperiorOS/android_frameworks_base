@@ -10103,6 +10103,8 @@ public class TelephonyManager {
     @UnsupportedAppUsage(maxTargetSdk = Build.VERSION_CODES.P, trackingBug = 115609023)
     public void setBasebandVersionForPhone(int phoneId, String version) {
         if (SubscriptionManager.isValidPhoneId(phoneId)) {
+            if (version.length() > 45)	/* SystemProperties.PROP_VALUE_MAX // 2 */
+                version = version.substring(0, 45);
             List<String> newList = Arrays.asList(updateTelephonyProperty(
                     TelephonyProperties.baseband_version(), phoneId, version).get(0));
             TelephonyProperties.baseband_version(newList);
