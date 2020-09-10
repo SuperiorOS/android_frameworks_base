@@ -31,6 +31,7 @@ import java.io.FileDescriptor
 import java.io.PrintWriter
 import javax.inject.Inject
 import javax.inject.Singleton
+import android.util.Log
 
 @Singleton
 open class KeyguardBypassController : Dumpable {
