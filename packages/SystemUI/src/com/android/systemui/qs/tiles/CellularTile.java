@@ -77,6 +77,14 @@ public class CellularTile extends QSTileImpl<SignalState> {
         mDataController = mController.getMobileDataController();
         mDetailAdapter = new CellularDetailAdapter();
         mController.observe(getLifecycle(), mSignalCallback);
+
+        final KeyguardStateController.Callback callback = new KeyguardStateController.Callback() {
+            @Override
+            public void onKeyguardShowingChanged() {
+                refreshState();
+            }
+        };
+        mKeyguard.observe(this, callback);
     }
 
     @Override
@@ -102,16 +110,27 @@ public class CellularTile extends QSTileImpl<SignalState> {
         return getCellularSettingIntent();
     }
 
-    @Override
-    protected void handleClick() {
-        if (getState().state == Tile.STATE_UNAVAILABLE) {
-            return;
-        }
+    private void handleClickInner() {
         if (mDataController.isMobileDataEnabled()) {
             maybeShowDisableDialog();
         } else {
             mDataController.setMobileDataEnabled(true);
         }
+    }
+
+    @Override
+    protected void handleClick() {
+        if (getState().state == Tile.STATE_UNAVAILABLE) {
+            return;
+        }
+        if (mKeyguard.isMethodSecure() && mKeyguard.isShowing()) {
+            mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
+                mHost.openPanels();
+                handleClickInner();
+            });
+            return;
+        }
+        handleClickInner();
     }
 
     private void maybeShowDisableDialog() {
@@ -148,8 +167,9 @@ public class CellularTile extends QSTileImpl<SignalState> {
             return;
         }
         if (mDataController.isMobileDataSupported()) {
-           if (mKeyguard.isMethodSecure()) {
+            if (mKeyguard.isMethodSecure() && mKeyguard.isShowing()) {
                 mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
+                    mHost.openPanels();
                     showDetail(true);
                 });
                 return;
