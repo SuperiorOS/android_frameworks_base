@@ -15,9 +15,6 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento Rápido (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> até Concluir)</string>
-    <string name="keyguard_plugged_in_dash_charging">Carregamento Rápido</string>
     <!-- Caffeine QS Tile -->
     <string name="quick_settings_caffeine_label">Cafeína</string>
     <string name="quick_settings_caffeine_label_off">Desativado</string>
@@ -207,10 +204,42 @@
     <string name="system_theme_style_dark_grey">Dark Grey</string>
     <string name="system_theme_style_material_ocean">Material Ocean</string>
     <!-- Sync QS tile -->
+    <string name="quick_settings_sync_label">Sincronização</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronização desativada.</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronização ativada.</string>
+    <string name="accessibility_quick_settings_sync_changed_off">A sincronização foi desativada.</string>
+    <string name="accessibility_quick_settings_sync_changed_on">A sincronização foi ativada.</string>
     <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">Pixels Inteligentes</string>
+    <string name="quick_settings_smart_pixels_on_power_save">Ativar Pixels Inteligentes automaticamente</string>
     <!-- LTE QS Tile -->
+    <string name="qs_lte_label">LTE</string>
+    <string name="lte_on">LTE ativado </string>
+    <string name="lte_off">LTE desativado</string>
     <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">Painel de volume</string>
     <!-- Screen recorder -->
+    <string name="screenrecord_dialog_title">Iniciar gravação?</string>
+    <string name="screenrecord_dialog_summary">Durante a gravação, o sistema Android pode capturar quaisquer informações confidenciais visíveis na sua tela ou reproduzidas no seu dispositivo. Isso inclui senhas, informações de pagamento, fotos, mensagens e áudio.</string>
+    <string name="screenrecord_dialog_start">Iniciar</string>
+    <string name="screenrecord_dialog_cancel">Cancelar</string>
+    <string name="screenrecord_audio_title">Fonte de áudio</string>
+    <string name="screenrecord_audio_summary">Permite escolher a entrada de áudio ou desativá-la.</string>
+    <string name="screenrecord_audio_recording_internal">Interno</string>
+    <string name="screenrecord_audio_recording_microphone">Microfone</string>
+    <string name="screenrecord_audio_recording_off">Desativado</string>
+    <string name="screenrecord_taps_title">Mostrar toques na tela</string>
+    <string name="screenrecord_taps_summary">Mostrar feedback visual durante a gravação</string>
+    <string name="screenrecord_stopdot_title">Mostrar ponto final</string>
+    <string name="screenrecord_stopdot_summary">Mostrar um ponto vermelho para parar de gravar com um único toque. Toque e segure para movê-lo para o lado oposto.</string>
+    <string name="screenrecord_video_bitrate_title">Taxa de bits do vídeo</string>
+    <string name="screenrecord_video_bitrate_summary">Defina a taxa de bits do vídeo para obter uma melhor qualidade de vídeo, ao custo de um arquivo maior.</string>
     <!-- Power menu item for screenrecord [CHAR LIMIT=20]-->
+    <string name="global_action_screenrecord">Gravação de tela</string>
     <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">Gravação de tela</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_plugged_in_dash_charging">Carregamento Rápido</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
 </resources>

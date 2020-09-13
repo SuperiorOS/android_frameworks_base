@@ -19,4 +19,17 @@
     <string name="screen_zoom_summary_smaller">Lebih kecil</string>
     <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
     <string name="screen_zoom_summary_smallest">Terkecil</string>
+    <!-- Label for estimated remaining duration of dash battery charging -->
+    <string name="power_remaining_dash_charging_duration_only">Pengisian Cepat (<xliff:g id="time">%1$s</xliff:g> tersisa hingga penuh)</string>
+    <!-- Battery use screen.  Battery status shown in chart label when charging from a dash source.  -->
+    <string name="battery_info_status_dash_charging">Pengisian Cepat</string>
+    <!-- Label for estimated remaining duration of warp battery charging -->
+    <string name="power_remaining_warp_charging_duration_only">Pengisian Warp (<xliff:g id="time">%1$s</xliff:g> tersisa hingga penuh)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
+    <string name="battery_info_status_warp_charging">Pengisian Warp</string>
+    <!-- Label for estimated remaining duration of VOOC battery charging -->
+    <string name="power_remaining_vooc_charging_duration_only">Pengisian VOOC (<xliff:g id="time">%1$s</xliff:g> tersisa sampai penuh)</string>
+    <!-- Battery use screen. Battery status shown in chart label when charging from a VOOC source.  -->
+    <string name="battery_info_status_vooc_charging">Pengisian VOOC</string>
+    <string name="battery_info_status_vooc_charging_lower">Pengisian VOOC</string>
 </resources>

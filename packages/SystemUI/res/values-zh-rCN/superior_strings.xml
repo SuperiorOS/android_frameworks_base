@@ -15,9 +15,6 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash 闪充中 (还需 <xliff:g id="charging_time_left">%s</xliff:g> 充满)</string>
-    <string name="keyguard_plugged_in_dash_charging">Dash 闪充中</string>
     <!-- Caffeine QS Tile -->
     <string name="quick_settings_caffeine_label">屏幕常亮</string>
     <string name="accessibility_quick_settings_caffeine_off">关闭屏幕常亮</string>
@@ -166,4 +163,8 @@
     <!-- Screen recorder -->
     <!-- Power menu item for screenrecord [CHAR LIMIT=20]-->
     <!--Screenrecord Tile-->
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_plugged_in_dash_charging">Dash 闪充中</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
 </resources>

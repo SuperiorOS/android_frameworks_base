@@ -15,10 +15,6 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash Charging
- (充電完了まで残り<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
-    <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
     <!-- Caffeine QS Tile -->
     <string name="quick_settings_caffeine_label">カフェイン</string>
     <string name="quick_settings_caffeine_label_off">OFF</string>
@@ -214,9 +210,41 @@
     <string name="accessibility_quick_settings_sync_changed_off">同期を OFF にしました</string>
     <string name="accessibility_quick_settings_sync_changed_on">同期を ON にしました</string>
     <!-- Smart Pixels QS Tile -->
+    <string name="quick_settings_smart_pixels">スマートピクセル</string>
+    <string name="quick_settings_smart_pixels_on_power_save">自動有効</string>
     <!-- LTE QS Tile -->
+    <string name="qs_lte_label">LTE</string>
+    <string name="lte_on">LTE ON</string>
+    <string name="lte_off">LTE OFF</string>
     <!-- Volume panel QS tile -->
+    <string name="quick_settings_volume_panel_label">音量パネル</string>
     <!-- Screen recorder -->
+    <string name="screenrecord_dialog_title">録音開始しますか?</string>
+    <string name="screenrecord_dialog_summary">録画している間、Android システムは画面に写っているプライバシー等に関わる全ての情報をキャプチャすることができます。プライバシー情報の具体的な例として、パスワードや支払い情報、写真、メッセージ、周囲の音も含みます。</string>
+    <string name="screenrecord_dialog_start">開始</string>
+    <string name="screenrecord_dialog_cancel">中止</string>
+    <string name="screenrecord_audio_title">音声ソース</string>
+    <string name="screenrecord_audio_summary">音声入力の有効化と無効化を選択する</string>
+    <string name="screenrecord_audio_recording_internal">内部</string>
+    <string name="screenrecord_audio_recording_microphone">マイク</string>
+    <string name="screenrecord_audio_recording_off">無効</string>
+    <string name="screenrecord_taps_title">タップされた位置の表示</string>
+    <string name="screenrecord_taps_summary">録画中視覚フィードバック表示する</string>
+    <string name="screenrecord_stopdot_title">停止ドットを表示</string>
+    <string name="screenrecord_stopdot_summary">シングルタップで録音を停止する赤い点を表示します。長押しして反対側に移動します。</string>
+    <string name="screenrecord_video_bitrate_title">映像ビットレート</string>
+    <string name="screenrecord_video_bitrate_summary">ファイルサイズの増加と引き換えに高品質動画を記録するために映像ビットレートを上げる</string>
     <!-- Power menu item for screenrecord [CHAR LIMIT=20]-->
+    <string name="global_action_screenrecord">画面録画</string>
     <!--Screenrecord Tile-->
+    <string name="screenrecorder_title_tile">画面録画</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time">Dash Charging (充電完了まで<xliff:g id="Charging_TIME_LEFT">%s</xliff:g>)</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash Charging</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> Warp Charging (充電完了まで残り<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g>)</string>
+    <string name="keyguard_plugged_in_warp_charging">Warp Charging</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • VOOC Charging (充電完了まで残り<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g>)</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • VOOC Charging</string>
 </resources>

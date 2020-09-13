@@ -53,4 +53,10 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Mulai ulang SystemUI</string>
     <string name="systemui_restart_message">Agar perubahan diterapkan, restart SystemUI diperlukan. Mulai ulang SystemUI sekarang?</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">mengakses pengelola font</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Izinkan aplikasi mengakses pengelola font.</string>
+    <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
+    <string name="fontservice_incompatible_font">Paket font yang Anda pasang tidak kompatibel dikarenakan hilangnya fonts.xml dalam berkasnya. Harap hubungi pengembang berkas font untuk dukungan.</string>
 </resources>

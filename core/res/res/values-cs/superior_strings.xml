@@ -53,4 +53,10 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Restartovat SystemUI</string>
     <string name="systemui_restart_message">Aby se projevily změny, je třeba restartovat SystemUI. Restartovat nyní?</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">přístup ke správci písem</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Umožňuje aplikaci přístup ke správci písem.</string>
+    <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
+    <string name="fontservice_incompatible_font">Balíček písem, který jste nainstalovali, není kompatibilní kvůli chybějícímu souboru fonts.xml. Pro podporu se obraťte na vývojáře balíčku.</string>
 </resources>

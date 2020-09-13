@@ -19,4 +19,10 @@
     <string name="screen_zoom_summary_smaller">أصغر</string>
     <!-- Description for the screen zoom level that makes interface elements smallest. [CHAR LIMIT=24] -->
     <string name="screen_zoom_summary_smallest">الأصغر</string>
+    <!-- Label for estimated remaining duration of dash battery charging -->
+    <!-- Battery use screen.  Battery status shown in chart label when charging from a dash source.  -->
+    <!-- Label for estimated remaining duration of warp battery charging -->
+    <!-- Battery use screen. Battery status shown in chart label when charging from a warp source.  -->
+    <!-- Label for estimated remaining duration of VOOC battery charging -->
+    <!-- Battery use screen. Battery status shown in chart label when charging from a VOOC source.  -->
 </resources>

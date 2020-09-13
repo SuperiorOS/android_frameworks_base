@@ -30,4 +30,7 @@
     <string name="system_error_vendorprint">您的设备固件（Vendor）与系统不匹配。请刷入 <xliff:g id="string">%s </xliff:g> 设备固件。</string>
     <!-- LiveDisplay strings -->
     <!-- SystemUI Restart -->
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
 </resources>

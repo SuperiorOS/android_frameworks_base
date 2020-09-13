@@ -53,4 +53,10 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">Riavvia SystemUI</string>
     <string name="systemui_restart_message">Per rendere effettive tutte le modifiche, è necessario un riavvio dell\'Interfaccia di sistema. Riavviare l\'Interfaccia ora?</string>
+    <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">accesso alla gestione dei caratteri</string>
+    <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Consenti ad un\'applicazione di accedere alla gestione dei caratteri.</string>
+    <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
+    <string name="fontservice_incompatible_font">Il pacchetto dei caratteri che hai installato non è compatibile a causa della mancanza di fonts.xml sui loro file. Si prega di contattare lo sviluppatore del pacchetto per il supporto.</string>
 </resources>

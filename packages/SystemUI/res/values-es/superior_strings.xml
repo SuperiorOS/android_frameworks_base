@@ -15,9 +15,6 @@
   along with this program.  If not, see <http://www.gnu.org/licenses/>.
  -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="porcentaje">%2$s</xliff:g> • Cargando Rápido (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%s</xliff:g> hasta el 100%)</string>
-    <string name="keyguard_plugged_in_dash_charging">Carga Rápida</string>
     <!-- Caffeine QS Tile -->
     <string name="quick_settings_caffeine_label">Cafeína</string>
     <string name="quick_settings_caffeine_label_off">Apagado</string>
@@ -241,4 +238,11 @@
     <string name="global_action_screenrecord">Grabador de Pantalla</string>
     <!--Screenrecord Tile-->
     <string name="screenrecorder_title_tile">Grabador de Pantalla</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time">Cargando rápidamente (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%s</xliff:g> para completarse)</string>
+    <string name="keyguard_plugged_in_dash_charging">Carga Rápida</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carga rápida Warp (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%s</xliff:g> hasta que esté llena)</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • Carga rápida</string>
 </resources>
