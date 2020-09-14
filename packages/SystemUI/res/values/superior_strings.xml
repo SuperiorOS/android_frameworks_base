@@ -194,4 +194,6 @@
     <!-- Anti flicker QS tile -->
     <string name="quick_settings_anti_flicker">Anti flicker</string>
 
+    <!-- Change clockface -->
+    <string name="change_clock_face">Swipe to change the clock face</string>
 </resources>
