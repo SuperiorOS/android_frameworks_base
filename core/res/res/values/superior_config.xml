@@ -106,4 +106,9 @@
          OnePlus 7 Pro. This HAL expects a different format for the data instead of the usual (ms)
          timing(the duration which the vibrator is expected to vibrate for). -->
     <bool name="config_hasOnePlusHapticMotor">false</bool>
+
+    <!-- The list of vendor package signatures that should also be considered
+         platform signatures, specifically for use on devices with a vendor partition. -->
+    <string-array name="config_vendorPlatformSignatures">
+    </string-array>
 </resources>
