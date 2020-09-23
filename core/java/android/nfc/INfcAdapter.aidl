@@ -78,4 +78,5 @@ interface INfcAdapter
     boolean deviceSupportsNfcSecure();
     boolean setNfcSecure(boolean enable);
 
+    IBinder getNfcAdapterVendorInterface(in String vendor);
 }
