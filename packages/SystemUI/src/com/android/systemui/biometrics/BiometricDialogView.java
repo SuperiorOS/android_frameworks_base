@@ -23,6 +23,7 @@ import static android.view.Gravity.START;
 import android.app.admin.DevicePolicyManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -90,6 +91,7 @@ public abstract class BiometricDialogView extends LinearLayout {
     private final int mErrorColor;
     private final float mDialogWidth;
     protected final DialogViewCallback mCallback;
+    private final PackageManager mPackageManager;
 
     protected final ViewGroup mLayout;
     protected final LinearLayout mDialog;
@@ -113,6 +115,8 @@ public abstract class BiometricDialogView extends LinearLayout {
     private boolean mWasForceRemoved;
     private boolean mSkipIntro;
     protected boolean mAppLockDialog;
+    private boolean mIsFingerprint;
+    private boolean mIsFace;
     protected boolean mRequireConfirmation;
     private int mUserId; // used to determine if we should show work background
 
@@ -167,6 +171,7 @@ public abstract class BiometricDialogView extends LinearLayout {
         mWindowManager = mContext.getSystemService(WindowManager.class);
         mUserManager = mContext.getSystemService(UserManager.class);
         mDevicePolicyManager = mContext.getSystemService(DevicePolicyManager.class);
+        mPackageManager = mContext.getPackageManager();
         mAnimationTranslationOffset = getResources()
                 .getDimension(R.dimen.biometric_dialog_animation_translation_offset);
         mErrorColor = getResources().getColor(R.color.biometric_dialog_error);
