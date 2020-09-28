@@ -339,7 +339,7 @@ public class GlobalScreenshot implements ViewTreeObserver.OnComputeInternalInset
 
         // Setup the Screenshot sound
         mScreenshotSound= RingtoneManager.getRingtone(mContext,
-                    Uri.parse("file://" + "/system/media/audio/ui/camera_click.ogg"));
+                    Uri.parse("file://" + "/system/product/media/audio/ui/camera_click.ogg"));
     }
 
     @Override // ViewTreeObserver.OnComputeInternalInsetsListener
