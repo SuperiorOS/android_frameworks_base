@@ -1778,7 +1778,7 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
      * If face auth is allows to scan on this exact moment.
      */
     public boolean shouldListenForFace() {
-        if (mKeyguardReset){
+        if (mFaceAuthOnlyOnSecurityView && mKeyguardReset){
             mKeyguardReset = false;
             return false;
         }
@@ -2290,7 +2290,9 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener {
         if (DEBUG) Log.d(TAG, "handleKeyguardReset");
         updateBiometricListeningState();
         mNeedsSlowUnlockTransition = resolveNeedsSlowUnlockTransition();
-        mKeyguardReset = true;
+        if (mFaceAuthOnlyOnSecurityView){
+            mKeyguardReset = true;
+        }
     }
 
     private boolean resolveNeedsSlowUnlockTransition() {
