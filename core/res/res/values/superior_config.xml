@@ -84,4 +84,10 @@
     <!-- Whether device supports in-display fingerprint when screen is turned off -->
     <bool name="config_supportScreenOffFod">false</bool>
 
+    <!-- Whether device has a physical display cutout -->
+    <bool name="config_physicalDisplayCutout">false</bool>
+
+    <!-- Whether device has a big physical display cutout -->
+    <bool name="config_bigPhysicalDisplayCutout">false</bool>
+
 </resources>
