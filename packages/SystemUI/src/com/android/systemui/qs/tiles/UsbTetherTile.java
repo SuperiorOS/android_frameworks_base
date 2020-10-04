@@ -32,6 +32,8 @@ import com.android.systemui.plugins.qs.QSTile.BooleanState;
 import com.android.systemui.qs.QSHost;
 import com.android.systemui.qs.tileimpl.QSTileImpl;
 import com.android.systemui.R;
+import com.android.systemui.plugins.ActivityStarter;
+import com.android.systemui.statusbar.policy.KeyguardStateController;
 
 import javax.inject.Inject;
 
@@ -52,10 +54,23 @@ public class UsbTetherTile extends QSTileImpl<BooleanState> {
     private boolean mUsbConnected = false;
     private boolean mUsbTetherEnabled = false;
 
+    private final ActivityStarter mActivityStarter;
+    private final KeyguardStateController mKeyguard;
+
     @Inject
-    public UsbTetherTile(QSHost host) {
+    public UsbTetherTile(QSHost host, ActivityStarter activityStarter, KeyguardStateController keyguardStateController) {
         super(host);
         mConnectivityManager = mContext.getSystemService(ConnectivityManager.class);
+
+        mActivityStarter = activityStarter;
+        mKeyguard = keyguardStateController;
+        final KeyguardStateController.Callback callback = new KeyguardStateController.Callback() {
+            @Override
+            public void onKeyguardShowingChanged() {
+                refreshState();
+            }
+        };
+        mKeyguard.observe(this, callback);
     }
 
     public BooleanState newTileState() {
@@ -77,11 +92,22 @@ public class UsbTetherTile extends QSTileImpl<BooleanState> {
         }
     }
 
-    @Override
-    protected void handleClick() {
+    private void handleClickInner() {
         if (mUsbConnected) {
             mConnectivityManager.setUsbTethering(!mUsbTetherEnabled);
         }
+    }
+
+    @Override
+    protected void handleClick() {
+        if (mKeyguard.isMethodSecure() && mKeyguard.isShowing()) {
+            mActivityStarter.postQSRunnableDismissingKeyguard(() -> {
+                mHost.openPanels();
+                handleClickInner();
+            });
+            return;
+        }
+        handleClickInner();
     }
 
     @Override
