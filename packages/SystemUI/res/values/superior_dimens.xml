@@ -38,4 +38,8 @@
     <dimen name="qs_top_brightness_margin_top">8dp</dimen>
     <dimen name="qs_top_brightness_margin_bottom">10dp</dimen>
     <dimen name="qs_bottom_brightness_margin_top">10dp</dimen>
+
+    <!-- Additional gesture navbar lengths -->
+    <dimen name="navigation_home_handle_width_medium">110dp</dimen>
+    <dimen name="navigation_home_handle_width_long">140dp</dimen>
 </resources>
