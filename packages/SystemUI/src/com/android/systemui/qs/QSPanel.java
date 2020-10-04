@@ -632,7 +632,7 @@ public class QSPanel extends LinearLayout implements Callback, BrightnessMirrorL
         boolean horizontal = shouldUseHorizontalLayout();
         if (mDivider != null) {
             if (!horizontal && mUsingMediaPlayer && mMediaHost.getVisible()) {
-                mDivider.setVisibility(View.VISIBLE);
+                mDivider.setVisibility(View.GONE);
             } else {
                 mDivider.setVisibility(View.GONE);
             }
