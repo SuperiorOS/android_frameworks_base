@@ -40,11 +40,14 @@ import android.graphics.Region;
 import android.hardware.input.InputManager;
 import android.icu.text.SimpleDateFormat;
 import android.os.Handler;
+import android.os.AsyncTask;
 import android.os.Looper;
 import android.os.RemoteException;
 import android.os.SystemClock;
 import android.os.SystemProperties;
 import android.os.Trace;
+import android.os.Vibrator;
+import android.os.VibrationEffect;
 import android.provider.DeviceConfig;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -271,6 +274,9 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
     private int mRightInset;
     private int mSysUiFlags;
 
+    private boolean mEdgeHapticEnabled;
+    private final Vibrator mVibrator;
+
     // For Tf-Lite model.
     private BackGestureTfClassifierProvider mBackGestureTfClassifierProvider;
     private Map<String, Integer> mVocab;
@@ -295,6 +301,10 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
             new NavigationEdgeBackPlugin.BackCallback() {
                 @Override
                 public void triggerBack() {
+                    if (mEdgeHapticEnabled) {
+                        vibrateBack(true /* Click */);
+                    }
+
                     // Notify FalsingManager that an intentional gesture has occurred.
                     mFalsingManager.isFalseTouch(BACK_GESTURE);
                     // Only inject back keycodes when ahead-of-time back dispatching is disabled.
@@ -411,6 +421,7 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
             FeatureFlags featureFlags,
             Provider<LightBarController> lightBarControllerProvider) {
         mContext = context;
+        mVibrator = context.getSystemService(Vibrator.class);
         mDisplayId = context.getDisplayId();
         mMainExecutor = executor;
         mMainHandler = handler;
@@ -499,6 +510,7 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
             mButtonForcedVisibleCallback.accept(mIsButtonForcedVisible);
         }
         mIsBackGestureAllowed = !mIsButtonForcedVisible;
+        mEdgeHapticEnabled = mGestureNavigationSettingsObserver.getEdgeHaptic();
 
         final DisplayMetrics dm = res.getDisplayMetrics();
         final float defaultGestureHeight = res.getDimension(
@@ -588,6 +600,12 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
         } finally {
             Trace.endSection();
         }
+    }
+
+    private void vibrateBack(boolean light) {
+            AsyncTask.execute(() ->
+                    mVibrator.vibrate(VibrationEffect.get(light ? VibrationEffect.EFFECT_CLICK :
+                        VibrationEffect.EFFECT_HEAVY_CLICK, true  /* fallback */)));
     }
 
     public void onNavBarTransientStateChanged(boolean isTransient) {
