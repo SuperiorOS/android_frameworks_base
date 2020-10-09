@@ -981,7 +981,6 @@ public class QSPanel extends LinearLayout implements Callback, BrightnessMirrorL
 
         if (mTileLayout != null) {
             mTileLayout.addTile(r);
-            configureTile(r.tile, r.tileView);
         }
 
         return r;
@@ -1318,32 +1317,9 @@ public class QSPanel extends LinearLayout implements Callback, BrightnessMirrorL
         int getNumVisibleTiles();
     }
 
-    private void configureTile(QSTile t, QSTileView v) {
-        if (mTileLayout != null) {
-            v.setHideLabel(!mTileLayout.isShowTitles());
-            if (t.isDualTarget()) {
-                if (!mTileLayout.isShowTitles()) {
-                    v.setOnLongClickListener(view -> {
-                        t.secondaryClick();
-                        return true;
-                    });
-                } else {
-                    v.setOnLongClickListener(view -> {
-                        t.longClick();
-                        return true;
-                    });
-                }
-            }
-        }
-    }
-
     public void updateSettings() {
         if (mTileLayout != null) {
             mTileLayout.updateSettings();
-
-            for (TileRecord r : mRecords) {
-                configureTile(r.tile, r.tileView);
-            }
         }
     }
 
