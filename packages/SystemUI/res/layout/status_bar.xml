@@ -63,7 +63,6 @@
                 android:id="@+id/status_bar_left_side"
                 android:layout_height="match_parent"
                 android:layout_width="match_parent"
-                android:paddingEnd="-8dp"
                 android:clipChildren="false"
             >
                 <ViewStub
@@ -98,8 +97,6 @@
         <android.widget.Space
             android:id="@+id/cutout_space_view"
             android:layout_width="0dp"
-            android:paddingStart="-12dp"
-            android:paddingEnd="-12dp"
             android:layout_height="match_parent"
             android:gravity="center_horizontal|center_vertical"
         />
