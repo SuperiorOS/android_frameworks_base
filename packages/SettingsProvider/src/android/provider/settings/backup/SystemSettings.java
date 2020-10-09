@@ -86,5 +86,6 @@ public class SystemSettings {
         Settings.System.NOTIFICATION_LIGHT_PULSE,
         Settings.System.LOCKSCREEN_SMALL_CLOCK,
         Settings.System.KEYGAURD_MEDIA_ART,
+        Settings.System.NOTIFICATION_HEADERS,
     };
 }
