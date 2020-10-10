@@ -247,4 +247,10 @@
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
     <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Sạc nhanh VOOC (<xliff:g id="charging_time_left" example="4 giờ và 2 phút">%1$s</xliff:g> nữa sẽ đầy)</string>
     <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="PERCENTAGE">%s</xliff:g> • Đang sạc nhanh</string>
+    <!-- App lock -->
+    <string name="applock_locked">&#160;đã khóa.</string>
+    <string name="applock_fingerprint_face">, vân tay và khuôn mặt để mở khóa.</string>
+    <string name="applock_face">&#160;hoặc sử dụng khuôn mặt để mở khóa.</string>
+    <string name="applock_fingerprint">&#160;hoặc sử dụng vân tay để mở khóa.</string>
+    <string name="applock_locked_notification">Đã khóa ứng dụng</string>
 </resources>

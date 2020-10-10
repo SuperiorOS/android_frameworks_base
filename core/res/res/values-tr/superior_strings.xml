@@ -29,6 +29,7 @@
     <!-- Vendor mismatch fingerprint warning [CHAR LIMIT=NONE] -->
     <string name="system_error_vendorprint">Üretici imajınız sistem ile eşleşmiyor. Cihazınız için lütfen <xliff:g id="string">%s</xliff:g> üretici imajını yükleyin</string>
     <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Otomatik</string>
     <!-- SystemUI Restart -->
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->

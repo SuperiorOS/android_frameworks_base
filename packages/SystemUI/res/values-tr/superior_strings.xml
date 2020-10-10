@@ -145,4 +145,5 @@
     <string name="keyguard_plugged_in_dash_charging">Dash Şarj Oluyor</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a warp charger. Should match keyguard_plugged_in_warp_charging [CHAR LIMIT=40]-->
     <!-- Indication on the keyguard that is shown when the device is charging with a VOOC charger. Should match keyguard_plugged_in_vooc_charging [CHAR LIMIT=40]-->
+    <!-- App lock -->
 </resources>
