@@ -85,6 +85,7 @@ public class QSPanel extends LinearLayout implements Callback, BrightnessMirrorL
     public static final String QS_SHOW_BRIGHTNESS = "qs_show_brightness";
     public static final String QS_SHOW_HEADER = "qs_show_header";
     public static final String QS_BRIGHTNESS_POSITION_BOTTOM = "qs_brightness_position_bottom";
+    public static final String QS_SHOW_AUTO_BRIGHTNESS = "qs_show_auto_brightness";
 
     private static final String TAG = "QSPanel";
 
@@ -107,6 +108,7 @@ public class QSPanel extends LinearLayout implements Callback, BrightnessMirrorL
     private boolean mBrightnessBottom;
     private boolean mBrightnessVisible;
     private View mBrightnessPlaceholder;
+    private ImageView mBrightnessIcon;
 
     private final H mHandler = new H();
     private final MetricsLogger mMetricsLogger = Dependency.get(MetricsLogger.class);
@@ -237,6 +239,9 @@ public class QSPanel extends LinearLayout implements Callback, BrightnessMirrorL
             resolver.registerContentObserver(Settings.System.getUriFor(
                     Settings.System.QS_BRIGHTNESS_POSITION_BOTTOM),
                     false, this, UserHandle.USER_ALL);
+            resolver.registerContentObserver(Settings.System.getUriFor(
+                    Settings.System.QS_SHOW_AUTO_BRIGHTNESS),
+                    false, this, UserHandle.USER_ALL);
         }
 
         void unobserve() {
@@ -254,6 +259,9 @@ public class QSPanel extends LinearLayout implements Callback, BrightnessMirrorL
             } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.QS_BRIGHTNESS_POSITION_BOTTOM))) {
                 updateBrightnessSliderPosition();
+            } else if (uri.equals(Settings.System.getUriFor(
+                    Settings.System.QS_SHOW_AUTO_BRIGHTNESS))) {
+                updateBrightnessButtonsVisibility();
             }
         }
 
@@ -263,6 +271,7 @@ public class QSPanel extends LinearLayout implements Callback, BrightnessMirrorL
                     Settings.System.QS_SHOW_BRIGHTNESS, 1,
                     UserHandle.USER_CURRENT) == 1);
             updateBrightnessSliderPosition();
+            updateBrightnessButtonsVisibility();
         }
     }
 
@@ -284,12 +293,12 @@ public class QSPanel extends LinearLayout implements Callback, BrightnessMirrorL
             R.layout.quick_settings_brightness_dialog, this, false);
         mBrightnessPlaceholder = LayoutInflater.from(mContext).inflate(
             R.layout.quick_settings_brightness_placeholder, this, false);
-        ImageView brightnessIcon = mBrightnessView.findViewById(R.id.brightness_icon);
-        brightnessIcon.setVisibility(View.VISIBLE);
+        mBrightnessIcon = mBrightnessView.findViewById(R.id.brightness_icon);
+        mBrightnessIcon.setVisibility(View.VISIBLE);
         addView(mBrightnessPlaceholder);
         addView(mBrightnessView);
         mBrightnessController = new BrightnessController(getContext(),
-                brightnessIcon, findViewById(R.id.brightness_slider), mBroadcastDispatcher);
+                mBrightnessIcon, findViewById(R.id.brightness_slider), mBroadcastDispatcher);
     }
 
     protected QSTileLayout createRegularTileLayout() {
@@ -482,6 +491,16 @@ public class QSPanel extends LinearLayout implements Callback, BrightnessMirrorL
             addView(mBrightnessView, 0);
             mBrightnessBottom = false;
         }
+    }
+
+    private void updateBrightnessButtonsVisibility() {
+        if (mBrightnessIcon == null) {
+            return;
+        }
+        boolean visible = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.QS_SHOW_AUTO_BRIGHTNESS, 1,
+                UserHandle.USER_CURRENT) == 1;
+        mBrightnessIcon.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     public void openDetails(String subPanel) {
