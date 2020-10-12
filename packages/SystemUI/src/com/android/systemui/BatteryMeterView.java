@@ -569,7 +569,7 @@ public class BatteryMeterView extends LinearLayout implements
                 || mBatteryStyle == BatteryMeterDrawableBase.BATTERY_STYLE_BIG_DOTTED_CIRCLE;
     }
 
-    public void updateColors(int foregroundColor, int backgroundColor, int singleToneColor) {
+    private void updateColors(int foregroundColor, int backgroundColor, int singleToneColor) {
         mDrawable.setColors(foregroundColor, backgroundColor, singleToneColor);
         mXDrawable.setColors(foregroundColor, backgroundColor);
         mTextColor = singleToneColor;
