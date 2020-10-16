@@ -149,4 +149,7 @@
          [CHAR LIMIT=4] -->
     <string name="status_bar_notification_info_overflow" translatable="false">\u221E</string>
 
+    <!-- QS Header data usage info -->
+    <string name="usage_data">used</string>
+
 </resources>
