@@ -78,4 +78,20 @@
      <!-- Default values for status bar DT2S gesture -->
      <bool name="config_dt2sGestureAvailable">true</bool>
      <bool name="config_dt2sGestureEnabledByDefault">true</bool>
+
+     <!-- Global Actions prefs list -->
+     <string-array translatable="false" name="custom_config_globalActionsList">
+          <item>emergency</item>
+          <item>power</item>
+          <item>restart</item>
+          <item>advanced</item>
+          <item>logout</item>
+          <item>users</item>
+          <item>silent</item>
+          <item>screenshot</item>
+          <item>airplane</item>
+          <item>settings</item>
+          <item>lockdown</item>
+          <item>devicecontrols</item>
+     </string-array>
 </resources>
