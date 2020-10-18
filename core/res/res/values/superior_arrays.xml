@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C)2022-2023 The Superior OS Project
+     Copyright (C)2022-2023 The SuperiorOS Project
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
+
+     <!-- Global Actions prefs list -->
+     <string-array translatable="false" name="custom_config_globalActionsList">
+          <item>emergency</item>
+          <item>power</item>
+          <item>restart</item>
+          <item>logout</item>
+     </string-array>
 
 </resources>
