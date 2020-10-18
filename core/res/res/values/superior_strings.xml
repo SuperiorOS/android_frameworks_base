@@ -15,19 +15,12 @@
 -->
 <resources>
 
-    <!-- Paths to the libraries that contain device specific key handlers -->
-    <string-array name="config_deviceKeyHandlerLibs" translatable="false">
-    </string-array>
+    <!-- Advenced reboot -->
+    <string name="reboot_to_recovery_title" translatable="false">Recovery</string>
+    <string name="reboot_to_recovery_message" translatable="false">Rebooting to recovery</string>
+    <string name="reboot_to_bootloader_title" translatable="false">Bootloader</string>
+    <string name="reboot_to_bootloader_message" translatable="false">Rebooting to bootloader</string>
+    <string name="reboot_title">Reboot</string>
+    <string name="reboot_message">Rebooting system</string>
 
-    <!-- Names of the key handler classes -->
-    <string-array name="config_deviceKeyHandlerClasses" translatable="false">
-    </string-array>
-
-    <!-- Global Actions prefs list -->
-    <string-array translatable="false" name="custom_config_globalActionsList">
-        <item>emergency</item>
-        <item>power</item>
-        <item>restart</item>
-        <item>logout</item>
-    </string-array>
 </resources>
