@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C)2022-2023 The Superior OS Project
+     Copyright (C)2022-2023 The SuperiorOS Project
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
@@ -59,5 +59,16 @@
 
      <!-- Proximity check on screen on default -->
      <java-symbol type="bool" name="config_proximityCheckOnWakeEnabledByDefault" />
+
+     <!-- Advanced reboot -->
+     <java-symbol type="string" name="reboot_to_recovery_title" />
+     <java-symbol type="string" name="reboot_to_recovery_message" />
+     <java-symbol type="string" name="reboot_to_bootloader_title" />
+     <java-symbol type="string" name="reboot_to_bootloader_message" />
+     <java-symbol type="string" name="reboot_title" />
+     <java-symbol type="string" name="reboot_message" />
+
+     <!-- Global Actions pref list -->
+     <java-symbol type="array" name="custom_config_globalActionsList" />
 
 </resources>
