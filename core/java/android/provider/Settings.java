@@ -6151,6 +6151,78 @@ public final class Settings {
         public static final String TORCH_POWER_BUTTON_GESTURE = "torch_power_button_gesture";
 
         /**
+         * Whether to display sound panel in the power menu
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_SOUNDPANEL = "global_actions_soundpanel";
+
+        /**
+         * Whether to display screenshot in the power menu
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_SCREENSHOT = "global_actions_screenshot";
+
+        /**
+         * Whether to display settings in the power menu
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_SETTINGS = "global_actions_settings";
+
+        /**
+         * Whether to display lock in the power menu
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_LOCKDOWN = "global_actions_lockdown";
+
+        /**
+         * Whether to display airplane in the power menu
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_AIRPLANE = "global_actions_airplane";
+
+        /**
+         * Whether to display reboot in the power menu
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_RESTART = "global_actions_restart";
+
+        /**
+         * Whether to display reboot in the power menu
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_ADVANCED = "global_actions_advanced";
+
+        /**
+         * Whether to display power in the power menu
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_POWER = "global_actions_power";
+
+        /**
+         * Whether to display the users option in the power menu
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_USERS = "global_actions_users";
+
+        /**
+         * Whether to display the users option in the power menu
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_LOGOUT = "global_actions_logout";
+
+        /**
+         * Whether to display the users option in the power menu
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_EMERGENCY = "global_actions_emergency";
+
+        /**
+         * Whether to display the Device controls option in the power menu
+         * @hide
+         */
+        public static final String GLOBAL_ACTIONS_DEVICE_CONTROLS = "global_actions_device_controls";
+
+        /**
          * These are all public system settings
          *
          * @hide
