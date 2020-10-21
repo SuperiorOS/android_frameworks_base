@@ -31,6 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:paddingTop="@dimen/status_bar_padding_top"
+        android:paddingEnd="@dimen/status_bar_padding_end"
         android:layout_alignParentEnd="true"
         android:gravity="center_vertical|end"
         android:paddingEnd="@dimen/system_icons_keyguard_padding_end" >
@@ -68,6 +69,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="@dimen/status_bar_padding_top"
+        android:paddingStart="@dimen/status_bar_padding_start"
         android:layout_marginStart="@dimen/keyguard_carrier_text_margin"
         android:layout_toStartOf="@id/system_icons_container"
         android:gravity="center_vertical"
