@@ -199,6 +199,7 @@ import com.android.internal.inputmethod.SoftInputShowHideReason;
 import com.android.internal.logging.MetricsLogger;
 import com.android.internal.logging.nano.MetricsProto;
 import com.android.internal.os.DeviceKeyHandler;
+import com.android.internal.os.AlternativeDeviceKeyHandler;
 import com.android.internal.os.RoSystemProperties;
 import com.android.internal.policy.IKeyguardDismissCallback;
 import com.android.internal.policy.IShortcutService;
@@ -236,6 +237,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Constructor;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
@@ -637,6 +639,8 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private volatile int mTopFocusedDisplayId = INVALID_DISPLAY;
 
     private int mPowerButtonSuppressionDelayMillis = POWER_BUTTON_SUPPRESSION_DELAY_DEFAULT_MILLIS;
+
+    private final List<AlternativeDeviceKeyHandler> mAlternativeDeviceKeyHandlers = new ArrayList<>();
 
     // Power long press action saved on key down that should happen on key up
     private int mResolvedLongPressOnPowerBehavior;
@@ -2105,6 +2109,30 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                     }
                 });
 
+
+        final String[] AlternativeDeviceKeyHandlerLibs = res.getStringArray(
+                com.android.internal.R.array.config_AlternativeDeviceKeyHandlerLibs);
+        final String[] AlternativeDeviceKeyHandlerClasses = res.getStringArray(
+                com.android.internal.R.array.config_AlternativeDeviceKeyHandlerClasses);
+
+        for (int i = 0;
+                i < AlternativeDeviceKeyHandlerLibs.length && i < AlternativeDeviceKeyHandlerClasses.length; i++) {
+            try {
+                PathClassLoader loader = new PathClassLoader(
+                        AlternativeDeviceKeyHandlerLibs[i], getClass().getClassLoader());
+                Class<?> klass = loader.loadClass(AlternativeDeviceKeyHandlerClasses[i]);
+                Constructor<?> constructor = klass.getConstructor(Context.class);
+                mDeviceKeyHandlers.add((DeviceKeyHandler) constructor.newInstance(mContext));
+            } catch (Exception e) {
+                Slog.w(TAG, "Could not instantiate device key handler "
+                        + AlternativeDeviceKeyHandlerLibs[i] + " from class "
+                        + AlternativeDeviceKeyHandlerClasses[i], e);
+            }
+        }
+        if (DEBUG_INPUT) {
+            Slog.d(TAG, "" + mDeviceKeyHandlers.size() + " device key handlers loaded");
+        }
+
         String deviceKeyHandlerLib = mContext.getResources().getString(
                 com.android.internal.R.string.config_deviceKeyHandlerLib);
          String deviceKeyHandlerClass = mContext.getResources().getString(
@@ -3192,6 +3220,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
 
         // Specific device key handling
+        if (dispatchKeyToKeyHandlers(event)) {
+            return -1;
+        }
+
+        // Specific device key handling
         if (mDeviceKeyHandler != null) {
             try {
                 // The device only will consume known keys.
@@ -3307,6 +3340,23 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 Slog.e(TAG, "Error taking bugreport", e);
             }
         }
+    }
+
+    private boolean dispatchKeyToKeyHandlers(KeyEvent event) {
+        for (AlternativeDeviceKeyHandler handler : mAlternativeDeviceKeyHandlers) {
+            try {
+                if (DEBUG_INPUT) {
+                    Log.d(TAG, "Dispatching key event " + event + " to handler " + handler);
+                }
+                event = handler.handleKeyEvent(event);
+                if (event == null) {
+                    return true;
+                }
+            } catch (Exception e) {
+                Slog.w(TAG, "Could not dispatch event to device key handler", e);
+            }
+        }
+        return false;
     }
 
     // TODO(b/117479243): handle it in InputPolicy
@@ -3999,6 +4049,11 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             } catch (Exception e) {
                 Slog.w(TAG, "Could not dispatch event to device key handler", e);
             }
+        }
+
+        // Specific device key handling
+        if (dispatchKeyToKeyHandlers(event)) {
+            return 0;
         }
 
         // Handle special keys.
