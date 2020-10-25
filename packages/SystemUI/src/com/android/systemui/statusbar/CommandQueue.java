@@ -171,8 +171,9 @@ public class CommandQueue extends IStatusBar.Stub implements
     private static final int MSG_SHOW_MEDIA_OUTPUT_SWITCHER = 72 << MSG_SHIFT;
     private static final int MSG_SET_BLOCKED_GESTURAL_NAVIGATION = 73 << MSG_SHIFT;
     private static final int MSG_TOGGLE_CAMERA_FLASH = 74 << MSG_SHIFT;
+    private static final int MSG_SCREEN_PINNING_STATE_CHANGED = 102 << MSG_SHIFT;
+    private static final int MSG_LEFT_IN_LANDSCAPE_STATE_CHANGED = 103 << MSG_SHIFT;
 
-    public static final int FLAG_EXCLUDE_NONE = 0;
     public static final int FLAG_EXCLUDE_SEARCH_PANEL = 1 << 0;
     public static final int FLAG_EXCLUDE_RECENTS_PANEL = 1 << 1;
     public static final int FLAG_EXCLUDE_NOTIFICATION_PANEL = 1 << 2;
@@ -504,6 +505,9 @@ public class CommandQueue extends IStatusBar.Stub implements
 
         default void setBlockedGesturalNavigation(boolean blocked) {}
         default void toggleCameraFlash() { }
+
+        default void screenPinningStateChanged(boolean enabled) {}
+        default void leftInLandscapeChanged(boolean isLeft) {}
     }
 
     @VisibleForTesting
@@ -1365,6 +1369,24 @@ public class CommandQueue extends IStatusBar.Stub implements
         }
     }
 
+    @Override
+    public void screenPinningStateChanged(boolean enabled) {
+        synchronized (mLock) {
+            mHandler.removeMessages(MSG_SCREEN_PINNING_STATE_CHANGED);
+            mHandler.obtainMessage(MSG_SCREEN_PINNING_STATE_CHANGED,
+                    enabled ? 1 : 0, 0, null).sendToTarget();
+        }
+    }
+
+    @Override
+    public void leftInLandscapeChanged(boolean isLeft) {
+        synchronized (mLock) {
+            mHandler.removeMessages(MSG_LEFT_IN_LANDSCAPE_STATE_CHANGED);
+            mHandler.obtainMessage(MSG_LEFT_IN_LANDSCAPE_STATE_CHANGED,
+                    isLeft ? 1 : 0, 0, null).sendToTarget();
+        }
+    }
+
     private final class H extends Handler {
         private H(Looper l) {
             super(l);
@@ -1828,6 +1850,16 @@ public class CommandQueue extends IStatusBar.Stub implements
                 case MSG_TOGGLE_CAMERA_FLASH:
                     for (int i = 0; i < mCallbacks.size(); i++) {
                         mCallbacks.get(i).toggleCameraFlash();
+                    }
+                    break;
+                case MSG_SCREEN_PINNING_STATE_CHANGED:
+                    for (int i = 0; i < mCallbacks.size(); i++) {
+                        mCallbacks.get(i).screenPinningStateChanged(msg.arg1 != 0);
+                    }
+                    break;
+                case MSG_LEFT_IN_LANDSCAPE_STATE_CHANGED:
+                    for (int i = 0; i < mCallbacks.size(); i++) {
+                        mCallbacks.get(i).leftInLandscapeChanged(msg.arg1 != 0);
                     }
                     break;
             }
