@@ -710,7 +710,8 @@ public class Toast {
                     try {
                         icon = pm.getApplicationIcon(packageName);
                     } catch (PackageManager.NameNotFoundException e) {
-                        // nothing to do
+                        // app not found, get default activity icon
+                        icon = pm.getDefaultActivityIcon();
                     }
                     appIcon.setImageDrawable(icon);
                 }
