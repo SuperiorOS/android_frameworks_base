@@ -7940,6 +7940,10 @@ public final class ViewRootImpl implements ViewParent,
                 mLastClickToolType = event.getToolType(event.getActionIndex());
             }
 
+            if (event.getPointerCount() == 3 && isSwipeToScreenshotGestureActive()) {
+                event.setAction(MotionEvent.ACTION_CANCEL);
+            }
+
             mAttachInfo.mUnbufferedDispatchRequested = false;
             mAttachInfo.mHandlingPointerEvent = true;
             // If the event was fully handled by the handwriting initiator, then don't dispatch it
@@ -13249,6 +13253,14 @@ public final class ViewRootImpl implements ViewParent,
                     ? infrequentUpdateCount : infrequentUpdateCount + 1;
         } else {
             mInfrequentUpdateCount = 0;
+        }
+    }
+
+    private boolean isSwipeToScreenshotGestureActive() {
+        try {
+            return ActivityManager.getService().isSwipeToScreenshotGestureActive();
+        } catch (RemoteException e) {
+            return false;
         }
     }
 }
