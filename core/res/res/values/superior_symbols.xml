@@ -110,4 +110,6 @@
     <java-symbol type="string" name="config_deviceDcDimmingEnableValue" />
     <java-symbol type="string" name="config_deviceDcDimmingDisableValue" />
 
+    <!-- Horizon Light -->
+    <java-symbol type="integer" name="config_AmbientPulseLightColor" />
 </resources>

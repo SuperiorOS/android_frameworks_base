@@ -717,6 +717,22 @@ public class NotificationStackScrollLayout extends ViewGroup implements Dumpable
         return mController.hasActiveClearableNotifications(selection);
     }
 
+    /** @hide */
+    public ExpandableNotificationRow getFirstActiveClearableNotification(@SelectedRows int selection) {
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View child = getChildAt(i);
+            if (!(child instanceof ExpandableNotificationRow)) {
+                continue;
+            }
+            final ExpandableNotificationRow row = (ExpandableNotificationRow) child;
+            if (row.getEntry().getSbn().isClearable() && matchesSelection(row, selection)) {
+                return row;
+            }
+        }
+        return null;
+    }
+
     @ShadeViewRefactor(RefactorComponent.SHADE_VIEW)
     public NotificationSwipeActionHelper getSwipeActionHelper() {
         return mSwipeHelper;
