@@ -1917,6 +1917,17 @@ public class StatusBarManagerService extends IStatusBarService.Stub implements D
         }
     }
 
+    @Override
+    public void startAssist(Bundle args) {
+        enforceStatusBarService();
+        if (mBar != null) {
+            try {
+                mBar.startAssist(args);
+            } catch (RemoteException ex) {
+            }
+        }
+    }
+
     private void checkCallingUidPackage(String packageName, int callingUid, int userId) {
         int packageUid = mPackageManagerInternal.getPackageUid(packageName, 0, userId);
         if (UserHandle.getAppId(callingUid) != UserHandle.getAppId(packageUid)) {
