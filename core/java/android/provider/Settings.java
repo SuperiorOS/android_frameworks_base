@@ -5417,6 +5417,13 @@ public final class Settings {
         public static final String VOLUME_BUTTON_MUSIC_CONTROL = "volume_button_music_control";
 
         /**
+         * Whether to pulse ambient on new music tracks
+         *
+         * @hide
+         */
+        public static final String PULSE_ON_NEW_TRACKS = "pulse_on_new_tracks";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
