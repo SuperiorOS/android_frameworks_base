@@ -722,7 +722,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             updateNavigationBar(false);
             setUseLessBoringHeadsUp();
             setFpToDismissNotifications();
-            updateQsPanelResources();
             setPulseOnNewTracks();
         }
     }
@@ -1925,6 +1924,13 @@ public class StatusBar extends SystemUI implements DemoMode,
 
     public boolean isPulsing() {
         return mDozeServiceHost.isPulsing();
+    }
+
+    public boolean isDoubleTapOnMusicTicker(float screenX, float screenY) {
+         if (mDozeServiceHost != null) {
+            return mDozeServiceHost.isDoubleTapOnMusicTicker(screenX, screenY);
+        }
+        return false;
     }
 
     public boolean hideStatusBarIconsWhenExpanded() {

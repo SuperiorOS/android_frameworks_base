@@ -66,4 +66,7 @@
     <!-- Default value for Ambiant Pulse light color -->
     <integer name="config_ambientNotificationDefaultColor">0xFF3980FF</integer>
 
+    <!-- Soli check -->
+    <bool name="config_has_Soli">false</bool>
+
 </resources>

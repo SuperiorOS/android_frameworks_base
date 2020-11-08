@@ -208,6 +208,10 @@ public class KeyguardStatusView extends GridLayout implements
 
     }
 
+    public KeyguardSliceView getKeyguardSliceView() {
+        return mKeyguardSlice;
+    }
+
     /**
      * Moves clock, adjusting margins when slice content changes.
      */
