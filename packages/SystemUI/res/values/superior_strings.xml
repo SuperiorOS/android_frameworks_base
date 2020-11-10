@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--  Copyright (C) 2022 SuperiorOS
+<!--  Copyright (C) 2022-2023 The SuperiorOS Project
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -104,5 +104,11 @@
     <string name="app_picker_dialog_title">Select an app</string>
     <string name="active_edge_app_select_title">Select app</string>
     <string name="active_edge_activity_select_title">Select activity</string>
+
+    <!-- QS Tiles -->
+    <!-- Caffeine tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine off</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine on</string>
 
 </resources>
