@@ -69,4 +69,7 @@
    <!-- NightLight FOD -->
    <java-symbol type="bool" name="disable_fod_night_light"/>
 
+   <!-- Hide FOD while Going to sleep from lockscreen to avoid HBM flicker -->
+   <java-symbol type="bool" name="config_inDisplayFingerprintFlickersGoingToSleep" />
+
 </resources>
