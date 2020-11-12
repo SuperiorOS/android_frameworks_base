@@ -35,12 +35,14 @@ import android.net.NetworkInfo;
 import android.os.BatteryManager;
 import android.os.Handler;
 import android.os.Looper;
+import android.media.AudioManager;
 import android.os.PowerManager;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemProperties;
 import android.os.ServiceManager;
 import android.os.SystemClock;
+import android.os.UserHandle;
 import android.os.Vibrator;
 import android.net.NetworkInfo;
 import android.net.ConnectivityManager;
@@ -49,6 +51,7 @@ import android.text.format.Time;
 import android.os.UserHandle;
 import android.provider.Settings;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.view.IWindowManager;
 import android.view.WindowManagerGlobal;
 import android.telephony.TelephonyManager;
@@ -56,6 +59,7 @@ import android.text.TextUtils;
 import android.view.InputDevice;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
+import android.widget.Toast;
 
 import com.android.internal.statusbar.IStatusBarService;
 
@@ -453,4 +457,25 @@ public class Utils {
         }
     }
 
+    public static void triggerHushMute(Context context) {
+        // We can't call AudioService#silenceRingerModeInternal from here, so this is a partial copy of it
+        int silenceRingerSetting = Settings.Secure.getIntForUser(context.getContentResolver(),
+                Settings.Secure.VOLUME_HUSH_GESTURE, Settings.Secure.VOLUME_HUSH_OFF,
+                UserHandle.USER_CURRENT);
+
+        int ringerMode;
+        int toastText;
+        if (silenceRingerSetting == Settings.Secure.VOLUME_HUSH_VIBRATE) {
+            ringerMode = AudioManager.RINGER_MODE_VIBRATE;
+            toastText = com.android.internal.R.string.volume_dialog_ringer_guidance_vibrate;
+        } else {
+            // VOLUME_HUSH_MUTE and VOLUME_HUSH_OFF
+            ringerMode = AudioManager.RINGER_MODE_SILENT;
+            toastText = com.android.internal.R.string.volume_dialog_ringer_guidance_silent;
+        }
+        AudioManager audioMan = (AudioManager)
+                context.getSystemService(Context.AUDIO_SERVICE);
+        audioMan.setRingerModeInternal(ringerMode);
+        Toast.makeText(context, toastText, Toast.LENGTH_SHORT).show();
+    }
 }
