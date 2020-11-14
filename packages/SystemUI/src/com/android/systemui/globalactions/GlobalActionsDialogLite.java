@@ -697,7 +697,9 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
                     mPowerItems.add(restartRecoveryAction);
                     mPowerItems.add(restartBootloaderAction);
                     mPowerItems.add(restartSystemUiAction);
-                    mPowerItems.add(restartFastbootAction);
+                    if (SystemProperties.getBoolean("ro.fastbootd.available", false)) {
+                        mPowerItems.add(restartFastbootAction);
+                    }
                     addIfShouldShowAction(tempActions, new PowerOptionsAction());
                 }
             } else if (GLOBAL_ACTION_KEY_SCREENSHOT.equals(actionKey)) {
