@@ -292,8 +292,6 @@ public class StatusBar extends SystemUI implements
     // additional instrumentation for testing purposes; intended to be left on during development
     public static final boolean CHATTY = DEBUG;
 
-    public static final boolean SHOW_LOCKSCREEN_MEDIA_ARTWORK = true;
-
     public static final String ACTION_FAKE_ARTWORK = "fake_artwork";
 
     private static final int MSG_OPEN_SETTINGS_PANEL = 1002;
