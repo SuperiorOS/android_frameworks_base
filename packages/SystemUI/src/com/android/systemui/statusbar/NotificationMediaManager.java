@@ -18,7 +18,6 @@ package com.android.systemui.statusbar;
 import static com.android.systemui.statusbar.StatusBarState.KEYGUARD;
 import static com.android.systemui.statusbar.phone.CentralSurfaces.DEBUG_MEDIA_FAKE_ARTWORK;
 import static com.android.systemui.statusbar.phone.CentralSurfaces.ENABLE_LOCKSCREEN_WALLPAPER;
-import static com.android.systemui.statusbar.phone.CentralSurfaces.SHOW_LOCKSCREEN_MEDIA_ARTWORK;
 
 import android.annotation.MainThread;
 import android.annotation.NonNull;
@@ -39,8 +38,10 @@ import android.media.session.MediaSession;
 import android.media.session.PlaybackState;
 import android.os.AsyncTask;
 import android.os.Trace;
+import android.os.UserHandle;
 import android.service.notification.NotificationStats;
 import android.service.notification.StatusBarNotification;
+import android.provider.Settings;
 import android.util.ArraySet;
 import android.util.Log;
 import android.view.Display;
@@ -130,6 +131,8 @@ public class NotificationMediaManager implements Dumpable {
     boolean mIsLockscreenLiveWallpaperEnabled;
 
     private final DelayableExecutor mMainExecutor;
+
+    private float mLockscreenMediaBlur;
 
     private final Context mContext;
     private final ArrayList<MediaListener> mMediaListeners;
@@ -543,10 +546,6 @@ public class NotificationMediaManager implements Dumpable {
         if (mIsLockscreenLiveWallpaperEnabled) return;
 
         Trace.beginSection("CentralSurfaces#updateMediaMetaData");
-        if (!SHOW_LOCKSCREEN_MEDIA_ARTWORK) {
-            Trace.endSection();
-            return;
-        }
 
         if (getBackDropView() == null) {
             Trace.endSection();
@@ -587,7 +586,8 @@ public class NotificationMediaManager implements Dumpable {
             }
             mProcessArtworkTasks.clear();
         }
-        if (artworkBitmap != null && !Utils.useQsMediaPlayer(mContext)) {
+
+        if (artworkBitmap != null) {
             mProcessArtworkTasks.add(new ProcessArtworkTask(this, metaDataChanged,
                     allowEnterAnimation).execute(artworkBitmap));
         } else {
@@ -600,11 +600,16 @@ public class NotificationMediaManager implements Dumpable {
     private void finishUpdateMediaMetaData(boolean metaDataChanged, boolean allowEnterAnimation,
             @Nullable Bitmap bmp) {
         Drawable artworkDrawable = null;
-        if (bmp != null) {
+        // set media artwork as lockscreen wallpaper if player is playing
+        boolean mediaArt = Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.KEYGAURD_MEDIA_ART, 0, UserHandle.USER_CURRENT) == 1;
+        if (bmp != null && (mediaArt || !ENABLE_LOCKSCREEN_WALLPAPER) &&
+                PlaybackState.STATE_PLAYING == getMediaControllerPlaybackState(mMediaController)) {
             artworkDrawable = new BitmapDrawable(mBackdropBack.getResources(), bmp);
         }
         boolean hasMediaArtwork = artworkDrawable != null;
         boolean allowWhenShade = false;
+        // if no media artwork, show normal lockscreen wallpaper
         if (ENABLE_LOCKSCREEN_WALLPAPER && artworkDrawable == null) {
             Bitmap lockWallpaper =
                     mLockscreenWallpaper != null ? mLockscreenWallpaper.getBitmap() : null;
@@ -766,7 +771,13 @@ public class NotificationMediaManager implements Dumpable {
     };
 
     private Bitmap processArtwork(Bitmap artwork) {
-        return mMediaArtworkProcessor.processArtwork(mContext, artwork);
+        return mMediaArtworkProcessor.processArtwork(mContext, artwork, mLockscreenMediaBlur);
+    }
+
+    public void setLockScreenMediaBlurLevel() {
+        mLockscreenMediaBlur = (float) Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.LOCKSCREEN_MEDIA_BLUR, 25,
+                UserHandle.USER_CURRENT);
     }
 
     @MainThread
