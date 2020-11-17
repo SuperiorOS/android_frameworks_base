@@ -129,14 +129,7 @@ public class FODCircleView extends ImageView {
 
         @Override
         public void onScreenTurnedOff() {
-            hide();
-        }
-
-        @Override
-        public void onScreenTurnedOn() {
-            if (mUpdateMonitor.isFingerprintDetectionRunning()) {
-                show();
-            }
+            hideCircle();
         }
     };
 
@@ -326,13 +319,8 @@ public class FODCircleView extends ImageView {
     }
 
     public void show() {
-        if (!mUpdateMonitor.isScreenOn()) {
-            // Keyguard is shown just after screen turning off
-            return;
-        }
-
-        if (mIsBouncer && !isPinOrPattern(mUpdateMonitor.getCurrentUser())) {
-            // Ignore show calls when Keyguard password screen is being shown
+        if (mIsBouncer) {
+            // Ignore show calls when Keyguard pin screen is being shown
             return;
         }
 
