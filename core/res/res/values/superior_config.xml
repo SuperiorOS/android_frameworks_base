@@ -103,4 +103,6 @@
      <string-array name="config_deviceKeyHandlerClasses" translatable="false">
      </string-array>
 
+     <!-- Whether Pixel props is enabled -->
+     <bool name="config_enablePixelProps">true</bool>
 </resources>
