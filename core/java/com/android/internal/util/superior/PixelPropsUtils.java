@@ -29,31 +29,35 @@ public class PixelPropsUtils {
     private static final boolean DEBUG = false;
 
     private static final Map<String, Object> propsToChange;
+    private static final Map<String, Object> propsToChangePixel3XL;
 
     private static final String[] packagesToChange = {
-            "com.google.android.ext.services",
-            "com.google.android.apps.pixelmigrate",
-            "com.google.android.apps.safetyhub",
+            "com.breel.wallpapers20",
+            "com.google.android.apps.customization.pixel",
+            "com.google.android.apps.fitness",
+            "com.google.android.apps.photos",
+            "com.google.android.apps.recorder",
+            "com.google.android.apps.subscriptions.red",
+            "com.google.android.apps.tachyon",
+            "com.google.android.apps.turboadapter",
+            "com.google.android.apps.wallpaper.pixel",
             "com.google.android.as",
             "com.google.android.dialer",
-            "com.google.intelligence.sense",
-            "com.android.vending",
-            "com.google.android.apps.gcs",
+            "com.google.android.gms.location.history",
+            "com.google.android.inputmethod.latin",
+            "com.google.android.soundpicker",
+            "com.google.pixel.dynamicwallpapers",
+            "com.google.pixel.livewallpaper",
+            "com.google.android.apps.safetyhub",
             "com.google.android.apps.turbo",
-            "com.google.android.apps.wellbeing",
-            "com.google.android.configupdater",
-            "com.google.android.gms",
-            "com.google.android.googlequicksearchbox",
-            "com.google.android.settings.intelligence",
-            "com.google.android.setupwizard",
-            "com.google.android.apps.nexuslauncher",
-            "com.google.android.gsf",
             "com.google.android.apps.wallpaper",
-            "com.google.android.onetimeinitializer",
-            "com.google.android.pixel.setupwizard",
-            "com.google.android.apps.messaging",
-            "com.google.android.apps.photos",
-            "com.google.android.apps.maps"
+            "com.google.android.apps.maps",
+            "com.google.android.gms",
+            "com.google.android.apps.nexuslauncher"
+    };
+
+    private static final String[] packagesToChangePixel3XL = {
+            "com.google.android.googlequicksearchbox"
     };
 
     static {
@@ -63,11 +67,14 @@ public class PixelPropsUtils {
         propsToChange.put("DEVICE", "redfin");
         propsToChange.put("PRODUCT", "redfin");
         propsToChange.put("MODEL", "Pixel 5");
-        propsToChange.put("IS_DEBUGGABLE", false);
-        propsToChange.put("IS_ENG", false);
-        propsToChange.put("IS_USERDEBUG", false);
-        propsToChange.put("IS_USER", true);
-        propsToChange.put("TYPE", "user");
+        propsToChange.put("FINGERPRINT", "google/redfin/redfin:11/RQ2A.210505.003/7255357:user/release-keys");
+        propsToChangePixel3XL = new HashMap<>();
+        propsToChangePixel3XL.put("BRAND", "google");
+        propsToChangePixel3XL.put("MANUFACTURER", "Google");
+        propsToChangePixel3XL.put("DEVICE", "crosshatch");
+        propsToChangePixel3XL.put("PRODUCT", "crosshatch");
+        propsToChangePixel3XL.put("MODEL", "Pixel 3 XL");
+        propsToChangePixel3XL.put("FINGERPRINT", "google/crosshatch/crosshatch:11/RQ2A.210505.002/7246365:user/release-keys");
     }
 
     public static void setProps(String packageName) {
@@ -81,11 +88,22 @@ public class PixelPropsUtils {
             for (Map.Entry<String, Object> prop : propsToChange.entrySet()) {
                 String key = prop.getKey();
                 Object value = prop.getValue();
-                if (packageName.equals("com.google.android.gms") && key.equals("MODEL")){
-                    value = value + "\u200b";
-                }
                 setPropValue(key, value);
             }
+        }
+        if (Arrays.asList(packagesToChangePixel3XL).contains(packageName)){
+            if (DEBUG){
+                Log.d(TAG, "Defining props for: " + packageName);
+            }
+            for (Map.Entry<String, Object> prop : propsToChangePixel3XL.entrySet()) {
+                String key = prop.getKey();
+                Object value = prop.getValue();
+                setPropValue(key, value);
+            }
+        }
+        // Set proper indexing fingerprint
+        if (packageName.equals("com.google.android.settings.intelligence")){
+            setPropValue("FINGERPRINT", Build.DATE);
         }
     }
 
