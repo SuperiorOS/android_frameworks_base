@@ -204,13 +204,14 @@ public class FODCircleView extends ImageView {
         @Override
         public void onDreamingStateChanged(boolean dreaming) {
             mIsDreaming = dreaming;
-            updateAlpha();
+            updateIconDim(false);
 
             if (dreaming) {
                 mBurnInProtectionTimer = new Timer();
                 mBurnInProtectionTimer.schedule(new BurnInProtectionTask(), 0, 60 * 1000);
             } else if (mBurnInProtectionTimer != null) {
                 mBurnInProtectionTimer.cancel();
+                mBurnInProtectionTimer = null;
                 updatePosition();
             }
         }
@@ -313,7 +314,6 @@ public class FODCircleView extends ImageView {
 
         mColorBackground = res.getColor(R.color.config_fodColorBackground);
         mPaintFingerprintBackground.setColor(mColorBackground);
-        mTargetUsesInKernelDimming = res.getBoolean(com.android.internal.R.bool.config_targetUsesInKernelDimming);
         mPaintFingerprintBackground.setAntiAlias(true);
 
         mPowerManager = context.getSystemService(PowerManager.class);
@@ -322,6 +322,7 @@ public class FODCircleView extends ImageView {
 
         mDeviceFlickersGoingToSleep = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_inDisplayFingerprintFlickersGoingToSleep);
+        mTargetUsesInKernelDimming = res.getBoolean(com.android.internal.R.bool.config_targetUsesInKernelDimming);
 
         mWindowManager = context.getSystemService(WindowManager.class);
 
@@ -461,11 +462,13 @@ public class FODCircleView extends ImageView {
                         mIsAnimating = false;
                     }
                 });
-                anim.setDuration(1000);
+                anim.setDuration(500);
                 mIsAnimating = true;
                 anim.start();
             } else if (!mIsAnimating) {
-                setColorFilter(Color.argb(getDimAlpha(), 0, 0, 0), PorterDuff.Mode.SRC_ATOP);
+                mHandler.post(() ->
+                        setColorFilter(Color.argb(getDimAlpha(), 0, 0, 0),
+                        PorterDuff.Mode.SRC_ATOP));
             }
         } else {
             setColorFilter(Color.argb(0, 0, 0, 0), PorterDuff.Mode.SRC_ATOP);
@@ -626,21 +629,16 @@ public class FODCircleView extends ImageView {
         });
     }
 
-    private void updateAlpha() {
-        setAlpha(mIsDreaming ? 0.5f : 1.0f);
-    }
-
     private void updateStyle() {
         mIsRecognizingAnimEnabled = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.FOD_RECOGNIZING_ANIMATION, 0) != 0;
         mSelectedIcon = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.FOD_ICON, 0);
-        mCurrentBrightness = Settings.System.getInt(mContext.getContentResolver(),
+        int brightness = Settings.System.getInt(mContext.getContentResolver(),
                 Settings.System.SCREEN_BRIGHTNESS, 100);
-        if (mCurrentBrightness > 95) {
+        if (mCurrentBrightness != brightness) {
+            mCurrentBrightness = brightness;
             updateIconDim(false);
-        } else {
-            updateIconDim(true);
         }
         if (mFODAnimation != null) {
             mFODAnimation.update();
