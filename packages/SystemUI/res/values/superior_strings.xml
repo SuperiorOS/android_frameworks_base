@@ -133,4 +133,7 @@
     <string name="task_helper_app_killed">%1$s force stopped</string>
     <string name="empty_app_killed">App</string>
 
+    <!-- App Select dialog -->
+    <string name="app_picker_dialog_title">Select an app</string>
+
 </resources>

@@ -33,6 +33,8 @@ import android.provider.Settings;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
 
+import com.android.internal.util.superior.Utils;
+
 import java.util.List;
 
 public final class LineageButtons {
@@ -206,6 +208,68 @@ public final class LineageButtons {
             mVolBtnMusicControls = Settings.System.getIntForUser(
                     resolver, Settings.System.VOLUME_BUTTON_MUSIC_CONTROL, 1,
                     UserHandle.USER_CURRENT) == 1;
+        }
+    }
+
+    public void triggerAction(int action, boolean leftEdge, boolean isVerticalSwipe, Context context) {
+        switch (action) {
+            case 0: // No action
+            default:
+                break;
+            case 1: // Assistant
+                Utils.startAssist();
+                break;
+            case 2: // Voice search
+                Utils.launchVoiceSearch(context);
+                break;
+            case 3: // Camera
+                Utils.launchCamera(context);
+                break;
+            case 4: // Flashlight
+                Utils.toggleCameraFlash();
+                break;
+            case 5: // Application
+                Utils.launchApp(context, leftEdge, isVerticalSwipe);
+                break;
+            case 6: // Volume panel
+                Utils.toggleVolumePanel(context);
+                break;
+            case 7: // Screen off
+                Utils.switchScreenOff(context);
+                break;
+            case 8: // Screenshot
+                Utils.takeScreenshot(true);
+                break;
+            case 9: // Notification panel
+                Utils.toggleNotifications();
+                break;
+            case 10: // QS panel
+                Utils.toggleQsPanel();
+                break;
+            case 11: // Clear notifications
+                Utils.clearAllNotifications();
+                break;
+            case 12: // Ringer modes
+                Utils.toggleRingerModes(context);
+                break;
+            case 13: // Kill app
+                Utils.killForegroundApp();
+                break;
+            case 14: // Skip song
+                skipTrack();
+                break;
+            case 15: // Previous song
+                previousTrack();
+                break;
+            case 16: // Power menu
+                Utils.showPowerMenu();
+                break;
+            case 17: // Partial screenshot
+                Utils.takeScreenshot(false);
+                break;
+            case 18: // Hush mute
+                Utils.triggerHushMute(context);
+                break;
         }
     }
 }
