@@ -81,4 +81,7 @@
     <!-- Hide FOD while Going to sleep from lockscreen to avoid HBM flicker -->
     <bool name="config_inDisplayFingerprintFlickersGoingToSleep">false</bool>
 
+    <!-- Whether device supports in-display fingerprint when screen is turned off -->
+    <bool name="config_supportScreenOffFod">false</bool>
+
 </resources>
