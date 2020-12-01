@@ -55,4 +55,6 @@
     <color name="edge_light_red">#ea4234</color>
     <color name="edge_light_yellow">#fbbc06</color>
 
+    <!-- Qs visibility -->
+    <dimen name="screenrecord_dot_size">48dp</dimen>
 </resources>
