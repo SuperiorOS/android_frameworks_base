@@ -481,15 +481,17 @@ public class QSPanel extends LinearLayout implements Callback, BrightnessMirrorL
         }
     }
 
+    public boolean isBrightnessBottom() {
+        return Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.QS_BRIGHTNESS_POSITION_BOTTOM, 0,
+                UserHandle.USER_CURRENT) == 1;
+    }
+
     private void updateBrightnessSliderPosition() {
         if (mBrightnessView == null || mBrightnessPlaceholder == null) {
             return;
         }
-        boolean bottom =
-                Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.QS_BRIGHTNESS_POSITION_BOTTOM, 0,
-                UserHandle.USER_CURRENT) == 1;
-        if (bottom) {
+        if (isBrightnessBottom()) {
             removeView(mBrightnessView);
             mBrightnessPlaceholder.setVisibility(View.VISIBLE);
             addView(mBrightnessView, getBrightnessViewPositionBottom());
