@@ -29,31 +29,39 @@
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="match_parent" 
+        android:layout_height="match_parent"
         android:layout_weight="1"
         android:orientation="horizontal"
         android:gravity="center_vertical|start" >
 
-        <com.android.systemui.statusbar.policy.Clock
-           android:id="@+id/clock"
-           android:layout_width="wrap_content"
-           android:layout_height="match_parent"
-           android:minWidth="48dp"
-           android:gravity="center_vertical|start"
-           android:paddingStart="@dimen/status_bar_left_clock_starting_padding"
-           android:paddingEnd="@dimen/status_bar_left_clock_end_padding"
-           android:singleLine="true"
-           android:textAppearance="@style/TextAppearance.StatusBar.Clock"
-           systemui:showDark="false" />
-
+    <com.android.systemui.statusbar.policy.Clock
+        android:id="@+id/clock"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:minWidth="48dp"
+        android:gravity="center_vertical|start"
+        android:paddingStart="@dimen/status_bar_left_clock_starting_padding"
+        android:paddingEnd="@dimen/status_bar_left_clock_end_padding"
+        android:singleLine="true"
+        android:textAppearance="@style/TextAppearance.StatusBar.Clock"
+        systemui:showDark="false" />
     </LinearLayout>
 
+    <android.widget.Space
+        android:id="@+id/space"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:visibility="gone" />
+
     <LinearLayout
-        android:layout_width="0dp" 
-        android:layout_height="match_parent" 
-        android:layout_weight="2" 
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:orientation="horizontal"
         android:gravity="center_vertical|end" >
+
+    <include layout="@layout/ongoing_privacy_chip" />
 
          <com.android.systemui.statusbar.policy.NetworkTraffic
             android:id="@+id/networkTraffic"

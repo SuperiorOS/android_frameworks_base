@@ -172,11 +172,14 @@ public class QSFooterImpl extends FrameLayout implements QSFooter,
         /*TextView v = findViewById(R.id.build);
         if (v == null) return;
         if (DevelopmentSettingsEnabler.isDevelopmentSettingsEnabled(mContext)) {
-            v.setText(mContext.getString(
+            mBuildText.setText(mContext.getString(
                     com.android.internal.R.string.bugreport_status,
                     Build.VERSION.RELEASE_OR_CODENAME,
                     Build.ID));
-            v.setVisibility(View.VISIBLE);
+            // Set as selected for marquee before its made visible, then it won't be announced when
+            // it's made visible.
+            mBuildText.setSelected(true);
+            mShouldShowBuildText = true;
         } else {
             v.setVisibility(View.GONE);
         }*/
