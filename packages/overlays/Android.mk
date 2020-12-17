@@ -48,11 +48,26 @@ LOCAL_REQUIRED_MODULES := \
 	AccentColorOnePlusOverlay \
 	AccentColorParanoidOverlay \
 	AccentColorPepsiOverlay \
-	AccentColorPixelBlueOverlay \
+	AccentColorPixelBlueOGOverlay \
 	AccentColorRazerOverlay \
 	AccentColorStarbucksOverlay \
 	AccentColorXboxOverlay \
 	AccentColorXiaomiOverlay \
+	AccentColorPixelBlueOverlay \
+	AccentColorGoogleBlueOverlay \
+	AccentColorGoogleRedOverlay \
+	AccentColorGoogleYellowOverlay \
+	AccentColorGoogleGreenOverlay \
+	AccentColorGoogleGrayOverlay \
+	AccentColorAppleBlueOverlay \
+	AccentColorAppleGreenOverlay \
+	AccentColorAppleIndigoOverlay \
+	AccentColorAppleOrangeOverlay \
+	AccentColorApplePinkOverlay \
+	AccentColorApplePurpleOverlay \
+	AccentColorAppleRedOverlay \
+	AccentColorAppleTealOverlay \
+	AccentColorAppleYellowOverlay \
 	DisplayCutoutEmulationCornerOverlay \
 	DisplayCutoutEmulationDoubleOverlay \
     DisplayCutoutEmulationHoleOverlay \
