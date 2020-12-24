@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--  Copyright (C) 2018-2020 SuperiorOS
+<!--  Copyright (C) 2018-2021 SuperiorOS
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -17,88 +17,95 @@
 
 <resources>
 
-    <!-- Burn-in protection -->
-    <dimen name="horizontal_max_swift">3.0dp</dimen>
-    <dimen name="vertical_max_swift">1.0dp</dimen>
+  <!-- Burn-in protection -->
+  <dimen name="horizontal_max_swift">3.0dp</dimen>
+  <dimen name="vertical_max_swift">1.0dp</dimen>
 
-    <!-- Largest size an avatar might need to be drawn in the power menu user picker -->
-    <dimen name="global_actions_avatar_size">24dp</dimen>
+  <!-- Largest size an avatar might need to be drawn in the power menu user picker -->
+  <dimen name="global_actions_avatar_size">24dp</dimen>
 
-    <dimen name="qs_tile_height_wo_label">48dp</dimen>
+  <dimen name="qs_tile_height_wo_label">48dp</dimen>
 
-    <!-- Width of the battery icon in the status bar when set to circle style. -->
-    <dimen name="status_bar_battery_icon_circle_width">14.5dp</dimen>
-    <!-- Height of the big battery circle icon in the status bar. -->
-    <dimen name="status_bar_battery_bigcircle_icon_height">20.5dp</dimen>
-     <!-- Width of the big battery circle icon in the status bar. -->
-    <dimen name="status_bar_battery_bigcircle_icon_width">20.5dp</dimen>
+  <!-- Width of the battery icon in the status bar when set to circle style. -->
+  <dimen name="status_bar_battery_icon_circle_width">14.5dp</dimen>
+  <!-- Height of the big battery circle icon in the status bar. -->
+  <dimen name="status_bar_battery_bigcircle_icon_height">20.5dp</dimen>
+  <!-- Width of the big battery circle icon in the status bar. -->
+  <dimen name="status_bar_battery_bigcircle_icon_width">20.5dp</dimen>
 
-    <dimen name="volume_dialog_panel_transparent_padding_left">4dp</dimen>
-    <dimen name="volume_dialog_panel_land_margin">68dp</dimen>
+  <dimen name="volume_dialog_panel_transparent_padding_left">4dp</dimen>
+  <dimen name="volume_dialog_panel_land_margin">68dp</dimen>
 
-    <!-- Network traffic monitor -->
-    <dimen name="net_traffic_multi_text_size">8dp</dimen>
-    <dimen name="net_traffic_txt_img_padding">2dp</dimen>
-    <dimen name="net_traffic_single_text_size_x">14dp</dimen>
+  <!-- Network traffic monitor -->
+  <dimen name="net_traffic_multi_text_size">8dp</dimen>
+  <dimen name="net_traffic_txt_img_padding">2dp</dimen>
+  <dimen name="net_traffic_single_text_size_x">14dp</dimen>
 
-    <!-- Pixel navbar -->
-    <dimen name="opa_diamond_translation">16dp</dimen>
-    <dimen name="opa_disabled_home_diameter">@dimen/navigation_icon_size</dimen>
-    <dimen name="opa_dot_diam">10dp</dimen>
-    <dimen name="opa_line_x_trans_bg">30dp</dimen>
-    <dimen name="opa_line_x_trans_ry">15dp</dimen>
-    <dimen name="opa_line_y_translation">16dp</dimen>
+  <!-- Pixel navbar -->
+  <dimen name="opa_diamond_translation">16dp</dimen>
+  <dimen name="opa_disabled_home_diameter">@dimen/navigation_icon_size</dimen>
+  <dimen name="opa_dot_diam">10dp</dimen>
+  <dimen name="opa_line_x_trans_bg">30dp</dimen>
+  <dimen name="opa_line_x_trans_ry">15dp</dimen>
+  <dimen name="opa_line_y_translation">16dp</dimen>
 
-    <!-- Color for the Assistant invocation lights -->
-    <color name="edge_light_blue">#4185f4</color>
-    <color name="edge_light_green">#3aa853</color>
-    <color name="edge_light_red">#ea4234</color>
-    <color name="edge_light_yellow">#fbbc06</color>
+  <!-- Color for the Assistant invocation lights -->
+  <color name="edge_light_blue">#4185f4</color>
+  <color name="edge_light_green">#3aa853</color>
+  <color name="edge_light_red">#ea4234</color>
+  <color name="edge_light_yellow">#fbbc06</color>
 
-    <!-- Qs visibility -->
-    <dimen name="screenrecord_dot_size">48dp</dimen>
+  <!-- Qs visibility -->
+  <dimen name="screenrecord_dot_size">48dp</dimen>
 
-    <!-- The width/height of the charging indicator view on keyguard. -->
-    <dimen name="keyguard_charging_indication_height">60dp</dimen>
-    <dimen name="keyguard_charging_indication_width">35dp</dimen>
-    <dimen name="keyguard_charging_animation_margin">30dp</dimen>
+  <!-- The width/height of the charging indicator view on keyguard. -->
+  <dimen name="keyguard_charging_indication_height">60dp</dimen>
+  <dimen name="keyguard_charging_indication_width">35dp</dimen>
+  <dimen name="keyguard_charging_animation_margin">30dp</dimen>
 
-    <!-- Bottom margin size when fingerprint in display is active -->
-    <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">30dp</dimen>
-    <dimen name="keyguard_security_fod_view_margin">140dp</dimen>
+  <!-- Bottom margin size when fingerprint in display is active -->
+  <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">30dp</dimen>
+  <dimen name="keyguard_security_fod_view_margin">140dp</dimen>
 
-    <!-- Clear all notifications button -->
-    <dimen name="dismiss_all_button_elevation">10dp</dimen>
-    <dimen name="dismiss_all_button_height">55dp</dimen>
-    <dimen name="dismiss_all_button_margin_bottom">35dp</dimen>
-    <dimen name="dismiss_all_button_width">55dp</dimen>
-    <dimen name="dismiss_all_fab_src_size">30dp</dimen>
+  <!-- Clear all notifications button -->
+  <dimen name="dismiss_all_button_elevation">10dp</dimen>
+  <dimen name="dismiss_all_button_height">55dp</dimen>
+  <dimen name="dismiss_all_button_margin_bottom">35dp</dimen>
+  <dimen name="dismiss_all_button_width">55dp</dimen>
+  <dimen name="dismiss_all_fab_src_size">30dp</dimen>
 
-    <!-- Tri-state UI -->
-    <dimen name="tri_state_down_dialog_position">850.0px</dimen>
-    <dimen name="tri_state_down_dialog_position_l">650.0px</dimen>
-    <dimen name="tri_state_middle_dialog_position">650.0px</dimen>
-    <dimen name="tri_state_middle_dialog_position_l">650.0px</dimen>
-    <dimen name="tri_state_up_dialog_position">450.0px</dimen>
-    <dimen name="tri_state_up_dialog_position_l">650.0px</dimen>
-    <dimen name="tri_state_up_dialog_position_deep">21.0px</dimen>
-    <dimen name="tri_state_up_dialog_position_deep_land">21.0px</dimen>
-    <dimen name="tri_state_dialog_elevation">4.0dip</dimen>
-    <dimen name="tri_state_dialog_icon_size">24.0dip</dimen>
-    <dimen name="tri_state_dialog_padding">8.0dip</dimen>
-    <dimen name="tri_state_down_bottom_left_radius">24.0dip</dimen>
-    <dimen name="tri_state_down_bottom_right_radius">24.0dip</dimen>
-    <dimen name="tri_state_down_top_left_radius">24.0dip</dimen>
-    <dimen name="tri_state_down_top_right_radius">0.0dip</dimen>
-    <dimen name="tri_state_mid_bottom_left_radius">24.0dip</dimen>
-    <dimen name="tri_state_mid_bottom_right_radius">24.0dip</dimen>
-    <dimen name="tri_state_mid_top_left_radius">24.0dip</dimen>
-    <dimen name="tri_state_mid_top_right_radius">24.0dip</dimen>
-    <dimen name="tri_state_up_bottom_left_radius">24.0dip</dimen>
-    <dimen name="tri_state_up_bottom_right_radius">0.0dip</dimen>
-    <dimen name="tri_state_up_top_left_radius">24.0dip</dimen>
-    <dimen name="tri_state_up_top_right_radius">24.0dip</dimen>
+  <!-- Tri-state UI -->
+  <dimen name="tri_state_down_dialog_position">850.0px</dimen>
+  <dimen name="tri_state_down_dialog_position_l">650.0px</dimen>
+  <dimen name="tri_state_middle_dialog_position">650.0px</dimen>
+  <dimen name="tri_state_middle_dialog_position_l">650.0px</dimen>
+  <dimen name="tri_state_up_dialog_position">450.0px</dimen>
+  <dimen name="tri_state_up_dialog_position_l">650.0px</dimen>
+  <dimen name="tri_state_up_dialog_position_deep">21.0px</dimen>
+  <dimen name="tri_state_up_dialog_position_deep_land">21.0px</dimen>
+  <dimen name="tri_state_dialog_elevation">4.0dip</dimen>
+  <dimen name="tri_state_dialog_icon_size">24.0dip</dimen>
+  <dimen name="tri_state_dialog_padding">8.0dip</dimen>
+  <dimen name="tri_state_down_bottom_left_radius">24.0dip</dimen>
+  <dimen name="tri_state_down_bottom_right_radius">24.0dip</dimen>
+  <dimen name="tri_state_down_top_left_radius">24.0dip</dimen>
+  <dimen name="tri_state_down_top_right_radius">0.0dip</dimen>
+  <dimen name="tri_state_mid_bottom_left_radius">24.0dip</dimen>
+  <dimen name="tri_state_mid_bottom_right_radius">24.0dip</dimen>
+  <dimen name="tri_state_mid_top_left_radius">24.0dip</dimen>
+  <dimen name="tri_state_mid_top_right_radius">24.0dip</dimen>
+  <dimen name="tri_state_up_bottom_left_radius">24.0dip</dimen>
+  <dimen name="tri_state_up_bottom_right_radius">0.0dip</dimen>
+  <dimen name="tri_state_up_top_left_radius">24.0dip</dimen>
+  <dimen name="tri_state_up_top_right_radius">24.0dip</dimen>
 
-    <!-- App Lock -->
-    <dimen name="applock_icon_dimension">54dp</dimen>
+  <!-- App Lock -->
+  <dimen name="applock_icon_dimension">54dp</dimen>
+
+  <dimen name="op_qs_footer_height">98dp</dimen>
+  <dimen name="op_qs_footer_action_layout_size">96dp</dimen>
+  <dimen name="quick_settings_top_margin_media">10dp</dimen>
+  <dimen name="quick_settings_top_margin_media_extra">14dp</dimen>
+  <dimen name="qs_media_action_button_margin_top">18dp</dimen>
+  <dimen name="qs_media_action_button_size">40dp</dimen>
 </resources>
