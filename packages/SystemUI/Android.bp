@@ -70,8 +70,7 @@ android_library {
         "SystemUI-tags",
         "SystemUI-proto",
         "dagger2-2.19",
-        "jsr330",
-        "vendor.lineage.biometrics.fingerprint.inscreen-V1.0-java",
+        "jsr330"
     ],
     manifest: "AndroidManifest.xml",
 

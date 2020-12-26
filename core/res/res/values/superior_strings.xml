@@ -21,10 +21,4 @@
     <string name="url_copy_success">URL copied successfully</string>
     <string name="url_copy_failed">An error occured while uploading the log to dogbin</string>
 
-    <!-- Whether to show a custom view for FOD -->
-    <java-symbol type="bool" name="config_needCustomFODView" />
-
-    <!-- FOD icon dimming -->
-    <java-symbol type="bool" name="config_targetUsesInKernelDimming" />
-
 </resources>
