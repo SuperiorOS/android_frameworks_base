@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2018-2020 Superior OS
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="statusbar_items_title">Iconos de la barra de estado</string>
+    <!-- Advanced restart -->
+    <string name="global_action_reboot">Reiniciar</string>
+    <string name="global_action_reboot_system">Sistema</string>
+    <string name="global_action_reboot_progress">Reiniciando\u2026</string>
+    <string name="global_action_reboot_recovery">Recuperación</string>
+    <string name="global_action_reboot_recovery_progress">Reiniciando en modo recuperación\u2026</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_reboot_bootloader_progress">Reiniciando al bootloader\u2026</string>
+    <string name="global_action_reboot_fastboot">Fastboot</string>
+    <string name="global_action_reboot_fastboot_progress">Reiniciando en modo fastboot\u2026</string>
+    <string name="global_action_restart_systemui">SystemUI</string>
+    <string name="global_action_settings">Configuración</string>
+    <string name="global_action_screenshot">Captura de pantalla</string>
+    <string name="global_action_screenrecord">Grabador de Pantalla</string>
+    <string name="global_action_flashlight">Linterna</string>
+    <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">Actual</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="porcentaje">%2$s</xliff:g> • Cargando Rápido (<xliff:g id="charging_time_left" example="4 horas y 2 minutos">%s</xliff:g> hasta el 100%)</string>
+    <string name="keyguard_plugged_in_dash_charging">Carga Rapida</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Sonido</string>
+    <string name="quick_settings_sound_ring">Timbrar</string>
+    <string name="quick_settings_sound_vibrate">Vibrar</string>
+    <string name="quick_settings_sound_mute">Silenciar</string>
+    <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">Cafeína</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cafeína desactivado</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cafeína activado</string>
+    <!-- QS Config -->
+    <string name="qs_menu_item_columns">Columnas</string>
+    <string name="qs_menu_item_columns_landscape">Columnas (horizontal)</string>
+    <string name="qs_menu_item_columns_three">3</string>
+    <string name="qs_menu_item_columns_four">4</string>
+    <string name="qs_menu_item_columns_five">5</string>
+    <string name="qs_menu_item_columns_six">6</string>
+    <string name="qs_menu_item_columns_seven">7</string>
+    <string name="qs_menu_item_columns_eight">8</string>
+    <string name="qs_menu_item_columns_nine">9</string>
+    <string name="qs_menu_item_reset">Reiniciar</string>
+    <string name="qs_menu_item_qs_columns">Columnas de ajustes rápidos</string>
+    <string name="qs_menu_item_columns_auto">Automático</string>
+    <string name="qs_menu_item_titles">Mostrar etiquetas</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Notificaciopnes Peek</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notificaciones Peek desactivadas</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notificaciones Peek activadas</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notificaciones Peek desactivadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notificaciones Peek activadas.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">Anclaje USB</string>
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">Apagar pantalla</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Captura pantalla</string>
+    <string name="quick_settings_region_screenshot_label">Captura de pantalla parcial</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Pantalla ambiente</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Pantalla ambiente desactivada.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Pantalla ambiente activada.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Pantalla ambiente desactivada.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Pantalla ambiente activada.</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">Botones fisicos encendidos</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Botones físicos desactivados</string>
+    <string name="quick_settings_hwkeys_label">Botones físicos</string>
+    <!-- Reboot/Recovery QS Tile -->
+    <string name="quick_settings_reboot_label">Reiniciar</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc">NFC</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <!-- Name of the vpn, data saver and roaming icon. -->
+    <string name="status_bar_data_saver">Ahorro de datos</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_roaming">Roaming</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD (Pantalla siempre encendida)</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD apagado\nAhorro de Batería</string>
+    <string name="quick_settings_always_on_display_label">AOD</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Captura de pantalla eliminada</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">Captura de pantalla parcial</string>
+    <string name="global_screenshot_selector_cancel_description">Captura de pantalla parcial cancelada</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Cursor izquierda</string>
+    <string name="accessibility_dpad_right">Cursor derecha</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">Abrir pantalla de Servicios en Ejecución.</string>
+    <!-- Kill app -->
+    <string name="task_helper_app_killed">%1$s se detuvo</string>
+    <string name="empty_app_killed">Aplicación</string>
+    <!-- App Select dialog -->
+    <string name="app_picker_dialog_title">Seleccione una aplicación</string>
+    <string name="active_edge_app_select_title">Seleccione una aplicación</string>
+    <string name="active_edge_activity_select_title">Seleccionar actividad</string>
+    <!-- Screenrecord QS tile -->
+    <string name="screenrecord_stopdot_label">Mostrar punto de parada\nPulsación larga para moverlo</string>
+    <string name="screenrecord_lowquality_label">Calidad baja para el tamaño de archivo más pequeño</string>
+</resources>

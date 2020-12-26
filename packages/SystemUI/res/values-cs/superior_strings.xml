@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2018-2020 Superior OS
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="statusbar_items_title">Ikona na stavovém řádku</string>
+    <!-- Advanced restart -->
+    <string name="global_action_reboot">Restartovat</string>
+    <string name="global_action_reboot_system">Systém</string>
+    <string name="global_action_reboot_progress">Restartování\u2026</string>
+    <string name="global_action_reboot_recovery">Recovery</string>
+    <string name="global_action_reboot_recovery_progress">Restartování do režimu recovery\u2026</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_reboot_bootloader_progress">Restartování do režimu bootloader\u2026</string>
+    <string name="global_action_reboot_fastboot">Fastboot</string>
+    <string name="global_action_reboot_fastboot_progress">Restartování do režimu fastboot\u2026</string>
+    <string name="global_action_restart_systemui">SystemUI</string>
+    <string name="global_action_settings">Nastavení</string>
+    <string name="global_action_screenshot">Snímek obrazovky</string>
+    <string name="global_action_screenrecord">Videozáznam obrazovky</string>
+    <string name="global_action_flashlight">Svítilna</string>
+    <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">Aktuální</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • DASH nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> do plného nabití)</string>
+    <string name="keyguard_plugged_in_dash_charging">DASH nabíjení</string>
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Zvuk</string>
+    <string name="quick_settings_sound_ring">Vyzvánění</string>
+    <string name="quick_settings_sound_vibrate">Vibrace</string>
+    <string name="quick_settings_sound_mute">Ztlumení</string>
+    <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine vyp.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine zap.</string>
+    <!-- QS Config -->
+    <string name="qs_menu_item_columns">Sloupce</string>
+    <string name="qs_menu_item_columns_landscape">Sloupce (na šířku)</string>
+    <string name="qs_menu_item_columns_three">3</string>
+    <string name="qs_menu_item_columns_four">4</string>
+    <string name="qs_menu_item_columns_five">5</string>
+    <string name="qs_menu_item_columns_six">6</string>
+    <string name="qs_menu_item_columns_seven">7</string>
+    <string name="qs_menu_item_columns_eight">8</string>
+    <string name="qs_menu_item_columns_nine">9</string>
+    <string name="qs_menu_item_reset">Resetovat</string>
+    <string name="qs_menu_item_qs_columns">Sloupce panelu QS</string>
+    <string name="qs_menu_item_columns_auto">Automaticky</string>
+    <string name="qs_menu_item_titles">Zobrazit popisky</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Prohlížení oznámení</string>
+    <string name="accessibility_quick_settings_heads_up_off">Prohlížení oznámení vyp.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Prohlížení oznámení zap.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Prohlížení oznámení je vypnuto.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Prohlížení oznámení je zapnuto.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USB tethering</string>
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">Obrazovka režimu spánku</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Snímek obrazovky</string>
+    <string name="quick_settings_region_screenshot_label">Částečný snímek obrazovky</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Ambientní displej</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambientní displej vyp.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambientní displej zap.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambientní displej je vypnutý.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambientní displej je zapnutý.</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">HW tlačítka zapnuta</string>
+    <string name="accessibility_quick_settings_hwkeys_off">HW tlačítka vypnuta</string>
+    <string name="quick_settings_hwkeys_label">HW tlačítka</string>
+    <!-- Reboot/Recovery QS Tile -->
+    <string name="quick_settings_reboot_label">Restartovat</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc">NFC</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">NFC</string>
+    <!-- Name of the vpn, data saver and roaming icon. -->
+    <string name="status_bar_data_saver">Spořič dat</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_roaming">Roaming</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD vyp.\nSpořič baterie</string>
+    <string name="quick_settings_always_on_display_label">Always on displej</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Snímek obrazovky smazán</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">Pořídit částečný snímek obrazovky</string>
+    <string name="global_screenshot_selector_cancel_description">Zrušit částečný snímek obrazovky</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Kurzor doleva</string>
+    <string name="accessibility_dpad_right">Kurzor doprava</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">Otevřít obrazovku spuštěných služeb.</string>
+    <!-- Kill app -->
+    <string name="task_helper_app_killed">Aplikace %1$s vynuceně ukončena</string>
+    <string name="empty_app_killed">Aplikace</string>
+    <!-- App Select dialog -->
+    <string name="app_picker_dialog_title">Vybrat aplikaci</string>
+    <string name="active_edge_app_select_title">Vybrat aplikaci</string>
+    <string name="active_edge_activity_select_title">Vybrat aktivitu</string>
+    <!-- Screenrecord QS tile -->
+    <string name="screenrecord_stopdot_label">Zobrazit tečku pro zastavení nahrávání\nDlouhým stiskem ji přesunete</string>
+    <string name="screenrecord_lowquality_label">Nižší kvalita pro menší velikost souboru</string>
+</resources>
