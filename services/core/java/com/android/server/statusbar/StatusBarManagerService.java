@@ -834,26 +834,6 @@ public class StatusBarManagerService extends IStatusBarService.Stub implements D
         if (mBar != null) {
             try {
                 mBar.setBlockedGesturalNavigation(blocked);
-            } catch (RemoteException ex) {}
-        }
-    }
-            
-    @Override
-    public void showInDisplayFingerprintView() {
-        if (mBar != null) {
-            try {
-                mBar.showInDisplayFingerprintView();
-            } catch (RemoteException ex) {
-                // do nothing
-            }
-        }
-    }
-
-    @Override
-    public void hideInDisplayFingerprintView() {
-        if (mBar != null) {
-            try {
-                mBar.hideInDisplayFingerprintView();
             } catch (RemoteException ex) {
                 // do nothing
             }
