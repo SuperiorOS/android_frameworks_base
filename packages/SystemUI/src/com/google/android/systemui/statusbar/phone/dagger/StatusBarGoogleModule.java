@@ -104,7 +104,6 @@ import com.android.systemui.volume.VolumeComponent;
 
 import com.android.systemui.statusbar.phone.StatusBar;
 
-import com.google.android.systemui.LiveWallpaperScrimController;
 import com.google.android.systemui.statusbar.phone.StatusBarGoogle;
 import com.google.android.systemui.smartspace.SmartSpaceController;
 
@@ -170,7 +169,7 @@ public interface StatusBarGoogleModule {
             NotificationShadeWindowController notificationShadeWindowController,
             LockscreenLockIconController lockscreenLockIconController,
             DozeParameters dozeParameters,
-            LiveWallpaperScrimController liveWallpaperScrimController,
+            ScrimController scrimController,
             @Nullable KeyguardLiftController keyguardLiftController,
             Lazy<LockscreenWallpaper> lockscreenWallpaperLazy,
             Lazy<BiometricUnlockController> biometricUnlockControllerLazy,
@@ -252,7 +251,7 @@ public interface StatusBarGoogleModule {
                 notificationShadeWindowController,
                 lockscreenLockIconController,
                 dozeParameters,
-                liveWallpaperScrimController,
+                scrimController,
                 keyguardLiftController,
                 lockscreenWallpaperLazy,
                 biometricUnlockControllerLazy,
