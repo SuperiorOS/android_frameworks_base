@@ -9966,6 +9966,13 @@ public final class Settings {
         public static final String ADVANCED_REBOOT = "advanced_reboot";
 
         /**
+         * Whether the Touch Sensitivity option is enabled.
+         *
+         * @hide
+         */
+        public static final String TOUCH_SENSITIVITY_ENABLED = "touch_sensitivity_enabled";
+
+        /**
          * Whether to vibrate when quick settings tile is pressed.
          *
          * @hide
