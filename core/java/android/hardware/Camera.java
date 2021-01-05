@@ -296,10 +296,10 @@ public class Camera {
         String packageName = ActivityThread.currentOpPackageName();
         List<String> packageList = Arrays.asList(
                 SystemProperties.get("vendor.camera.aux.packagelist", packageName).split(","));
-        List<String> packageBlacklist = Arrays.asList(
-                SystemProperties.get("vendor.camera.aux.packageblacklist", "").split(","));
+        List<String> packageExcludelist = Arrays.asList(
+                SystemProperties.get("vendor.camera.aux.packageexcludelist", "").split(","));
 
-        return packageList.contains(packageName) && !packageBlacklist.contains(packageName);
+        return packageList.contains(packageName) && !packageExcludelist.contains(packageName);
     }
 
     /**
@@ -588,16 +588,8 @@ public class Camera {
             mEventHandler = null;
         }
 
-        String packageName = ActivityThread.currentOpPackageName();
-
-        // Force HAL1 if the package name is in our 'blacklist'
-        List<String> packageList = Arrays.asList(
-                SystemProperties.get("vendor.camera.hal1.packagelist", "").split(","));
-        if (packageList.contains(packageName)) {
-            halVersion = CAMERA_HAL_API_VERSION_1_0;
-        }
-
-        return native_setup(new WeakReference<Camera>(this), cameraId, halVersion, packageName);
+        return native_setup(new WeakReference<Camera>(this), cameraId, halVersion,
+                ActivityThread.currentOpPackageName());
     }
 
     private int cameraInitNormal(int cameraId) {
