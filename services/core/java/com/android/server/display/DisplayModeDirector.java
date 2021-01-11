@@ -1163,6 +1163,7 @@ public class DisplayModeDirector {
         private boolean mShouldObserveAmbientLowChange;
         private boolean mShouldObserveDisplayHighChange;
         private boolean mShouldObserveAmbientHighChange;
+        private boolean mLoggingEnabled;
 
         private SensorManager mSensorManager;
         private Sensor mLightSensor;
@@ -1575,7 +1576,7 @@ public class DisplayModeDirector {
                 vote = Vote.forRefreshRates(mRefreshRateInHighZone, mRefreshRateInHighZone);
             }
 
-            if (DEBUG) {
+            if (mLoggingEnabled) {
                 Slog.d(TAG, "Display brightness " + mBrightness + ", ambient lux " +  mAmbientLux
                         + ", Vote " + vote);
             }
@@ -1604,6 +1605,11 @@ public class DisplayModeDirector {
 
         @VisibleForTesting
         public void setDefaultDisplayState(int state) {
+            if (mLoggingEnabled) {
+                Slog.d(TAG, "setDefaultDisplayState: mDefaultDisplayState = "
+                        + mDefaultDisplayState + ", state = " + state);
+            }
+
             if (mDefaultDisplayState != state) {
                 mDefaultDisplayState = state;
                 updateSensorStatus();
@@ -1613,6 +1619,15 @@ public class DisplayModeDirector {
         private void updateSensorStatus() {
             if (mSensorManager == null || mLightSensorListener == null) {
                 return;
+            }
+
+            if (mLoggingEnabled) {
+                Slog.d(TAG, "updateSensorStatus: mShouldObserveAmbientLowChange = "
+                        + mShouldObserveAmbientLowChange + ", mShouldObserveAmbientHighChange = "
+                        + mShouldObserveAmbientHighChange);
+                Slog.d(TAG, "updateSensorStatus: mLowPowerModeEnabled = "
+                        + mLowPowerModeEnabled + ", mRefreshRateChangeable = "
+                        + mRefreshRateChangeable);
             }
 
             if ((mShouldObserveAmbientLowChange || mShouldObserveAmbientHighChange)
@@ -1641,10 +1656,19 @@ public class DisplayModeDirector {
             final private static int INJECT_EVENTS_INTERVAL_MS = LIGHT_SENSOR_RATE_MS;
             private float mLastSensorData;
             private long mTimestamp;
+            private boolean mLoggingEnabled;
 
             public void dumpLocked(PrintWriter pw) {
                 pw.println("    mLastSensorData: " + mLastSensorData);
                 pw.println("    mTimestamp: " + formatTimestamp(mTimestamp));
+            }
+
+
+            public void setLoggingEnabled(boolean loggingEnabled) {
+                if (mLoggingEnabled == loggingEnabled) {
+                    return;
+                }
+                mLoggingEnabled = loggingEnabled;
             }
 
             @Override
