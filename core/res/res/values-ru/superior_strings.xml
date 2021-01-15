@@ -16,6 +16,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Button that copies the url to the log of a crashed application -->
-    <!-- Whether to show a custom view for FOD -->
-    <!-- FOD icon dimming -->
+    <string name="aerr_copy">Скопировать ссылку на лог ошибки</string>
+    <string name="url_copy_success">Ссылка успешно скопирована</string>
+    <string name="url_copy_failed">Произошла ошибка во время загрузки лога на dogbin</string>
 </resources>

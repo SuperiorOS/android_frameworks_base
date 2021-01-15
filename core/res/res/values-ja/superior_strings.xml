@@ -19,6 +19,4 @@
     <string name="aerr_copy">クラッシュログ URL をコピー</string>
     <string name="url_copy_success">URL を正常にコピーしました</string>
     <string name="url_copy_failed">dogbin へのログのアップロード中にエラーが発生しました</string>
-    <!-- Whether to show a custom view for FOD -->
-    <!-- FOD icon dimming -->
 </resources>

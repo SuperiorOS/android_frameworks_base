@@ -16,6 +16,4 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Button that copies the url to the log of a crashed application -->
-    <!-- Whether to show a custom view for FOD -->
-    <!-- FOD icon dimming -->
 </resources>

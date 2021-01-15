@@ -19,6 +19,4 @@
     <string name="aerr_copy">Salin URL log kerusakan</string>
     <string name="url_copy_success">Tautan berhasil disalin</string>
     <string name="url_copy_failed">Terjadi kesalahan saat mengunggah log ke dogbin</string>
-    <!-- Whether to show a custom view for FOD -->
-    <!-- FOD icon dimming -->
 </resources>
