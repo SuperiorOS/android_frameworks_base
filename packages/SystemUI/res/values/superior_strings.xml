@@ -152,4 +152,7 @@
     <!-- QS Header data usage info -->
     <string name="usage_data">used</string>
 
+    <!-- Ambient Music Ticker -->
+    <string name="ambientmusic_songinfo" formatted="false">%s by %s</string>
+
 </resources>

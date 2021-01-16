@@ -222,11 +222,13 @@ public class KeyguardSliceProvider extends SliceProvider implements
     public boolean needsMediaLocked() {
         boolean keepWhenAwake = mKeyguardBypassController != null
                 && mKeyguardBypassController.getBypassEnabled() && mDozeParameters.getAlwaysOn();
+        boolean isCenterMusicTickerEnabled = Settings.System.getIntForUser(getContext().getContentResolver(),
+                Settings.System.AMBIENT_MUSIC_TICKER, 1, UserHandle.USER_CURRENT) == 2;
         // Show header if music is playing and the status bar is in the shade state. This way, an
         // animation isn't necessary when pressing power and transitioning to AOD.
         boolean keepWhenShade = mStatusBarState == StatusBarState.SHADE && mMediaIsVisible;
         return !TextUtils.isEmpty(mMediaTitle) && mMediaIsVisible && (mDozing || keepWhenAwake
-                || keepWhenShade);
+                || keepWhenShade) && isCenterMusicTickerEnabled;
     }
 
     protected void addMediaLocked(ListBuilder listBuilder) {
