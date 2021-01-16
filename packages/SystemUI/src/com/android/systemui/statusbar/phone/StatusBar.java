@@ -3209,6 +3209,14 @@ public class StatusBar extends SystemUI implements
 
         mNotificationPanelViewController.setDozing(mDozing, animate, mWakeUpTouchLocation);
         updateQsExpansionEnabled();
+
+        if (mAmbientIndicationContainer != null) {
+            ((AmbientIndicationContainer)mAmbientIndicationContainer)
+                    .updateDozingState(mDozing);
+        } else {
+            Log.d("StatusBar", "updateDozingState -> AmbientIndicationContainer null");
+        }
+
         Trace.endSection();
     }
 
@@ -4391,7 +4399,14 @@ public class StatusBar extends SystemUI implements
                     updateScrimController();
                     mPresenter.updateMediaMetaData(false, mState != StatusBarState.KEYGUARD);
                     updateKeyguardState();
-                    Trace.endSection();
+
+                    if (mAmbientIndicationContainer != null) {
+                         ((AmbientIndicationContainer)mAmbientIndicationContainer)
+                                 .updateKeyguardState(mState == StatusBarState.KEYGUARD);
+                     } else {
+                         Log.d("StatusBar", "updateKeyguardState -> AmbientIndicationContainer null");
+                     }
+                     Trace.endSection();
                 }
 
                 @Override
