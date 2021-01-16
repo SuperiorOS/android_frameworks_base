@@ -16,10 +16,10 @@
  */
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.android.theme.color.deepred"
-          android:versionCode="1"
-          android:versionName="1.0">
+    package="com.android.theme.color.pink"
+    android:versionCode="1"
+    android:versionName="1.0">
     <overlay android:targetPackage="android" android:category="android.theme.customization.accent_color" android:priority="1"/>
 
-    <application android:label="@string/accent_color_deep_red_overlay" android:hasCode="false"/>
+    <application android:label="@string/accent_color_pink_overlay" android:hasCode="false"/>
 </manifest>
