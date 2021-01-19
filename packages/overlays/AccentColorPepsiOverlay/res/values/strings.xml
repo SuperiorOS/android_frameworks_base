@@ -17,7 +17,6 @@
  */
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Black accent color name application label. [CHAR LIMIT=50] -->
-    <string name="accent_color_red_overlay" translatable="false">Red</string>
+    <!-- Blue accent color name application label. [CHAR LIMIT=50] -->
+    <string name="accent_color_pepsi" translatable="false">Pepsi</string>
 </resources>
-
