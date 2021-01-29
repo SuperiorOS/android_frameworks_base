@@ -5596,6 +5596,12 @@ public final class Settings {
         public static final String ADAPTIVE_PLAYBACK_ENABLED = "adaptive_playback_enabled";
 
         /**
+         * Accent Color
+         * @hide
+         */
+        public static final String ACCENT_COLOR = "accent_color";
+
+        /**
          * Adaptive playback's timeout in seconds
          * @hide
          */
@@ -5811,6 +5817,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(COLOR_BUCKET_OVERLAY);
             PRIVATE_SETTINGS.add(QS_PANEL_BG_USE_NEW_TINT);
             PRIVATE_SETTINGS.add(FOOTER_TEXT_SHOW);
+            PRIVATE_SETTINGS.add(ACCENT_COLOR);
         }
 
         /**

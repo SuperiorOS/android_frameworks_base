@@ -93,5 +93,6 @@ public class SystemSettings {
         Settings.System.VOLUME_BUTTON_MUSIC_CONTROL,
         Settings.System.NAVIGATION_BAR_ARROW_KEYS,
         Settings.System.COLOR_BUCKET_OVERLAY,
+        Settings.System.ACCENT_COLOR,
     };
 }
