@@ -132,6 +132,7 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
     public void initializeView(StatusBar statusBar, Handler handler, KeyguardIndicationController keyguardIndicationController) {
         mStatusBar = statusBar;
         mKeyguardIndicationController = keyguardIndicationController;
+        initializeKGCallback();
         addInflateListener(new AmbientIndicationInflateListener(this));
         mHandler = handler;
         mCustomSettingsObserver = new CustomSettingsObserver(mHandler);
@@ -161,7 +162,11 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         mMediaManager.addCallback(this);
     }
 
-    private void updatePosition() {
+    private void initializeKGCallback() {
+        mKeyguardIndicationController.bindAmbientIndicationContainer(this);
+    }
+
+    public void updatePosition() {
         FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) this.getLayoutParams();
         if (hasInDisplayFingerprint()) {
             lp.setMargins(0, 0, 0, mFODmargin);
