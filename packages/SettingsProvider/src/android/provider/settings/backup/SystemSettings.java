@@ -87,5 +87,9 @@ public class SystemSettings {
         Settings.System.KEYGUARD_MEDIA_ART,
         Settings.System.KEYGUARD_MEDIA_ART_ENABLE_BLUR,
         Settings.System.KEYGUARD_MEDIA_ART_BLUR_RADIUS,
+        Settings.System.ARTWORK_MEDIA_BACKGROUND,
+        Settings.System.ARTWORK_MEDIA_BACKGROUND_ENABLE_BLUR,
+        Settings.System.ARTWORK_MEDIA_BACKGROUND_BLUR_RADIUS,
+        Settings.System.ARTWORK_MEDIA_BACKGROUND_ALPHA,
     };
 }
