@@ -1075,24 +1075,8 @@ public class ScreenshotController {
      * failure).
      */
     private void saveScreenshotAndToast(UserHandle owner, Consumer<Uri> finisher) {
-        switch (mAudioManager.getRingerMode()) {
-            case AudioManager.RINGER_MODE_SILENT:
-                 // do nothing
-                 break;
-            case AudioManager.RINGER_MODE_VIBRATE:
-                 if (mVibrator != null && mVibrator.hasVibrator()) {
-                     mVibrator.vibrate(VibrationEffect.createOneShot(50,
-                            VibrationEffect.DEFAULT_AMPLITUDE));
-                 }
-                 break;
-            case AudioManager.RINGER_MODE_NORMAL:
-                 if (Settings.System.getIntForUser(mContext.getContentResolver(),
-                     Settings.System.SCREENSHOT_SHUTTER_SOUND, 1, UserHandle.USER_CURRENT) == 1) {
-                     // Play the shutter sound to notify that we've taken a screenshot
-                     playCameraSound();
-                 }
-                 break;
-        }
+        // Play the shutter sound to notify that we've taken a screenshot
+        playShutterSound();
 
         saveScreenshotInWorkerThread(
                 owner,
@@ -1135,24 +1119,8 @@ public class ScreenshotController {
             });
         }
 
-        switch (mAudioManager.getRingerMode()) {
-            case AudioManager.RINGER_MODE_SILENT:
-                 // do nothing
-                 break;
-            case AudioManager.RINGER_MODE_VIBRATE:
-                 if (mVibrator != null && mVibrator.hasVibrator()) {
-                     mVibrator.vibrate(VibrationEffect.createOneShot(50,
-                            VibrationEffect.DEFAULT_AMPLITUDE));
-                 }
-                 break;
-            case AudioManager.RINGER_MODE_NORMAL:
-                 if (Settings.System.getIntForUser(mContext.getContentResolver(),
-                     Settings.System.SCREENSHOT_SHUTTER_SOUND, 1, UserHandle.USER_CURRENT) == 1) {
-                     // Play the shutter sound to notify that we've taken a screenshot
-                     playCameraSound();
-                 }
-                 break;
-        }
+        // Play the shutter sound to notify that we've taken a screenshot
+        playShutterSound();
 
         if (DEBUG_ANIM) {
             Log.d(TAG, "starting post-screenshot animation");
@@ -1416,6 +1384,27 @@ public class ScreenshotController {
                 public void onFinish() {
                 }
             };
+        }
+    }
+
+    private void playShutterSound() {
+        switch (mAudioManager.getRingerMode()) {
+            case AudioManager.RINGER_MODE_SILENT:
+                // do nothing
+                break;
+            case AudioManager.RINGER_MODE_VIBRATE:
+                if (mVibrator != null && mVibrator.hasVibrator()) {
+                    mVibrator.vibrate(VibrationEffect.createOneShot(50,
+                            VibrationEffect.DEFAULT_AMPLITUDE));
+                }
+                break;
+            case AudioManager.RINGER_MODE_NORMAL:
+                if (Settings.System.getIntForUser(mContext.getContentResolver(),
+                    Settings.System.SCREENSHOT_SHUTTER_SOUND, 1, UserHandle.USER_CURRENT) == 1) {
+                    // Play the shutter sound to notify that we've taken a screenshot
+                    playCameraSound();
+                }
+                break;
         }
     }
 }
