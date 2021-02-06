@@ -11,4 +11,6 @@
      <!-- Preferred max refresh rate at AOD & Ambient Display, if supported by the display. -->
      <integer name="config_aodMaxRefreshRate">-1</integer>
 
+     <!-- If not zero, limits the internal screen recorder's framerate to the set value. -->
+     <integer name="config_screenRecorderMaxFramerate">0</integer>
 </resources>
