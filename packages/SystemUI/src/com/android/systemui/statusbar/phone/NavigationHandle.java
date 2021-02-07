@@ -36,6 +36,9 @@ import com.android.settingslib.Utils;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class NavigationHandle extends View implements ButtonInterface {
 
     private final Paint mPaint = new Paint();
@@ -43,11 +46,30 @@ public class NavigationHandle extends View implements ButtonInterface {
     private @ColorInt final int mDarkColor;
     private final int mRadius;
     private final int mBottom;
+    private int mBurnInYOffset = 0;
     private boolean mIsDreaming = false;
     private boolean mIsKeyguard = false;
     private boolean mRequiresInvalidate;
 
     private AudioManager mAudioManager;
+
+    private Timer mBurnInProtectionTimer;
+    private class BurnInProtectionTask extends TimerTask {
+        @Override
+        public void run() {
+            int height = mRadius * 2;
+            if (getVisibility() != View.VISIBLE) return;
+            // Only move in Y axis, handle could fit there about 3 times
+            if (mBurnInYOffset == 0) {
+                mBurnInYOffset = height;
+            } else if (mBurnInYOffset == height) {
+                mBurnInYOffset = -height;
+            } else {
+                mBurnInYOffset = 0;
+            }
+            getHandler().post(() -> invalidate());
+        }
+    };
 
     private KeyguardUpdateMonitor mUpdateMonitor;
     private KeyguardUpdateMonitorCallback mMonitorCallback = new KeyguardUpdateMonitorCallback() {
@@ -121,7 +143,7 @@ public class NavigationHandle extends View implements ButtonInterface {
         int navHeight = getHeight();
         int height = mRadius * 2;
         int width = getWidth();
-        int y = (navHeight - mBottom - height);
+        int y = (navHeight - mBottom - height + mBurnInYOffset);
         canvas.drawRoundRect(0, y, width, y + height, mRadius, mRadius, mPaint);
     }
 
@@ -158,12 +180,16 @@ public class NavigationHandle extends View implements ButtonInterface {
     @Override
     public void onAttachedToWindow() {
         mUpdateMonitor.registerCallback(mMonitorCallback);
+        mBurnInProtectionTimer = new Timer();
+        mBurnInProtectionTimer.schedule(new BurnInProtectionTask(), 0, 60 * 1000);
         super.onAttachedToWindow();
     }
 
     @Override
     public void onDetachedFromWindow() {
         mUpdateMonitor.removeCallback(mMonitorCallback);
+        mBurnInProtectionTimer.cancel();
+        mBurnInProtectionTimer = null;
         super.onDetachedFromWindow();
     }
 }
