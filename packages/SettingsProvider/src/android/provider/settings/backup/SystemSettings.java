@@ -94,5 +94,6 @@ public class SystemSettings {
         Settings.System.NAVIGATION_BAR_ARROW_KEYS,
         Settings.System.COLOR_BUCKET_OVERLAY,
         Settings.System.ACCENT_COLOR,
+        Settings.System.NOTIFICATION_HEADERS,
     };
 }
