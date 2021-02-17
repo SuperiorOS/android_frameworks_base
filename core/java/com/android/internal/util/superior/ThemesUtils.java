@@ -45,6 +45,12 @@ public class ThemesUtils {
             "com.gnonymous.gvisualmod.urm_l", // 3
     };
 
+    public static final String NAVBAR_COLOR_PURP = "com.gnonymous.gvisualmod.pgm_purp";
+
+    public static final String NAVBAR_COLOR_ORCD = "com.gnonymous.gvisualmod.pgm_orcd";
+
+    public static final String NAVBAR_COLOR_OPRD = "com.gnonymous.gvisualmod.pgm_oprd";
+
     public static void updateSwitchStyle(IOverlayManager om, int userId, int switchStyle) {
         if (switchStyle == 0) {
             stockSwitchStyle(om, userId);
