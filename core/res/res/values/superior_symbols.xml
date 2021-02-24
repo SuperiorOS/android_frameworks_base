@@ -26,4 +26,6 @@
     <!-- Camera -->
     <java-symbol type="array" name="config_cameraHFRPrivAppList" />
 
+    <!-- Location indicator -->
+    <java-symbol type="drawable" name="stat_sys_location" />
 </resources>
