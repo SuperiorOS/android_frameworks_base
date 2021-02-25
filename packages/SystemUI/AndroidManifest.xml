@@ -833,6 +833,12 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name="com.android.settingslib.wifi.WifiTimeoutReceiver">
+            <intent-filter>
+                <action android:name="android.net.wifi.intent.TIMEOUT" />
+            </intent-filter>
+        </receiver>
+
         <activity
             android:name="com.android.systemui.statusbar.phone.LeftBackSwipeCustomApp"
             android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.MinWidth"
