@@ -182,9 +182,11 @@ public class QuickQSPanel extends QSPanel {
     }
 
     @Override
-    public void updateViewVisibilityForTuningValue(boolean visible) {
-        // no, no, we don't wanna show the brightness slider here, thank you
-        super.updateViewVisibilityForTuningValue(false);
+    public void onTuningChanged(String key, String newValue) {
+        if (QS_SHOW_BRIGHTNESS.equals(key)) {
+            // No Brightness or Tooltip for you!
+            super.onTuningChanged(key, "0");
+        }
     }
 
     @Override
