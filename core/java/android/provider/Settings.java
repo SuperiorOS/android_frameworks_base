@@ -5155,33 +5155,6 @@ public final class Settings {
         public static final String VOWIFI_ICON_STYLE = "vowifi_icon_style";
 
         /**
-         * Whether to show QS brightness slider
-         * @hide
-         */
-        public static final String QS_SHOW_BRIGHTNESS = "qs_show_brightness";
-
-        /**
-         * Whether to show QS brightness slider on bottom
-         * @hide
-         */
-        public static final String QS_BRIGHTNESS_POSITION_BOTTOM = "qs_brightness_position_bottom";
-
-
-
-        /**
-         * Whether to show QS brightness slider above qs footer
-         * Only applies when {@link QS_BRIGHTNESS_POSITION_BOTTOM} is enabled
-         * @hide
-         */
-        public static final String QS_SHOW_BRIGHTNESS_ABOVE_FOOTER = "qs_show_brightness_above_footer";
-
-        /**
-         * Whether to show the brighness slider auto brightness toggle
-         * @hide
-         */
-        public static final String QS_SHOW_AUTO_BRIGHTNESS = "qs_show_auto_brightness";
-
-        /**
          * Battery style
          * @hide
          */

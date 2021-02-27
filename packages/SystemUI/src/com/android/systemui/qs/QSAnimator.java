@@ -277,6 +277,21 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
         }
 
         if (mAllowFancy) {
+            // Make brightness appear static position and alpha in through second half.
+            View brightness = mQsPanel.getBrightnessView();
+            if (brightness != null) {
+                firstPageBuilder.addFloat(brightness, "translationY", heightDiff, 0);
+                mBrightnessAnimator = new TouchAnimator.Builder()
+                        .addFloat(brightness, "alpha", 0, 1)
+                        .setStartDelay(.5f)
+                        .build();
+                mAllViews.add(brightness);
+            } else {
+                mBrightnessAnimator = null;
+            }
+            mFirstPageAnimator = firstPageBuilder
+                    .setListener(this)
+                    .build();
             // Fade in the tiles/labels as we reach the final position.
             Builder builder = new Builder()
                     .setStartDelay(EXPANDED_TILE_DELAY)
@@ -288,38 +303,9 @@ public class QSAnimator implements Callback, PageListener, Listener, OnLayoutCha
             if (mQsPanel.getSecurityFooter() != null) {
                 builder.addFloat(mQsPanel.getSecurityFooter().getView(), "alpha", 0, 1);
             }
-            if (mQsPanel.getDivider() != null) {
-                builder.addFloat(mQsPanel.getDivider(), "alpha", 0, 1);
-            }
-
-            // Make brightness appear static position and alpha in through second half.
-            // If brightness is showing at the bottom fade in as we reach the final position
-            View brightness = mQsPanel.getBrightnessView();
-            if (brightness != null) {
-                if (mQsPanel.isBrightnessBottom()) {
-                    builder.addFloat(brightness, "alpha", 0, 1);
-                    mBrightnessAnimator = null;
-                } else {
-                    firstPageBuilder.addFloat(brightness, "translationY", heightDiff, 0);
-                    mBrightnessAnimator = new TouchAnimator.Builder()
-                            .addFloat(brightness, "alpha", 0, 1)
-                            .setStartDelay(.5f)
-                            .build();
-                }
-                mAllViews.add(brightness);
-            } else {
-                mBrightnessAnimator = null;
-            }
-            mFirstPageAnimator = firstPageBuilder
-                    .setListener(this)
-                    .build();
-
             mAllPagesDelayedAnimator = builder.build();
             if (mQsPanel.getSecurityFooter() != null) {
                 mAllViews.add(mQsPanel.getSecurityFooter().getView());
-            }
-            if (mQsPanel.getDivider() != null) {
-                mAllViews.add(mQsPanel.getDivider());
             }
 
             float px = 0;
