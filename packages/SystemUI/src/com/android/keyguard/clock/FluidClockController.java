@@ -34,8 +34,6 @@ import com.android.systemui.plugins.ClockPlugin;
 
 import java.util.TimeZone;
 
-import static com.android.systemui.statusbar.phone
-        .KeyguardClockPositionAlgorithm.CLOCK_USE_DEFAULT_Y;
 
 /**
  * Plugin for the default clock face used only to provide a preview.
@@ -65,7 +63,7 @@ public class FluidClockController implements ClockPlugin {
     /**
      * Root view of clock.
      */
-    private ClockLayout mView;
+    private ClockLayout mBigClockView;
 
     /**
      * Text clock in preview view hierarchy.
@@ -91,18 +89,18 @@ public class FluidClockController implements ClockPlugin {
     }
 
     private void createViews() {
-        mView = (ClockLayout) mLayoutInflater
+        mBigClockView = (ClockLayout) mLayoutInflater
                 .inflate(R.layout.digital_clock_fluid, null);
-        mTimeClock = mView.findViewById(R.id.time_clock);
-        mSecondsClock = mView.findViewById(R.id.seconds_clock);
-        mDay = mView.findViewById(R.id.clock_day);
-        mDate = mView.findViewById(R.id.clock_date);
-        mYear = mView.findViewById(R.id.clock_year);
+        mTimeClock = mBigClockViewfindViewById(R.id.time_clock);
+        mSecondsClock = mBigClockViewfindViewById(R.id.seconds_clock);
+        mDay = mBigClockViewfindViewById(R.id.clock_day);
+        mDate = mBigClockViewfindViewById(R.id.clock_date);
+        mYear = mBigClockViewfindViewById(R.id.clock_year);
     }
 
     @Override
     public void onDestroyView() {
-        mView = null;
+        mBigClockView = null;
         mTimeClock = null;
         mSecondsClock = null;
         mDay = null;
@@ -155,20 +153,20 @@ public class FluidClockController implements ClockPlugin {
 
     @Override
     public View getView() {
-        if (mView == null) {
-            createViews();
-        }
-        return mView;
-    }
-
-    @Override
-    public View getBigClockView() {
         return null;
     }
 
     @Override
+    public View getBigClockView() {
+        if (mBigClockView  == null) {
+            createViews();
+        }
+        return mBigClockView;
+    }
+
+    @Override
     public int getPreferredY(int totalHeight) {
-        return CLOCK_USE_DEFAULT_Y;
+        return totalHeight / 2;
     }
 
     @Override
@@ -193,7 +191,7 @@ public class FluidClockController implements ClockPlugin {
 
     @Override
     public void onTimeTick() {
-        mView.onTimeChanged();
+        mBigClockViewonTimeChanged();
         mTimeClock.refreshTime();
         mSecondsClock.refreshTime();
         mDay.refreshTime();
@@ -203,7 +201,7 @@ public class FluidClockController implements ClockPlugin {
 
     @Override
     public void setDarkAmount(float darkAmount) {
-        mView.setDarkAmount(darkAmount);
+        mBigClockViewsetDarkAmount(darkAmount);
     }
 
     @Override
