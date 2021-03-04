@@ -80,6 +80,7 @@ public class PixelPropsUtils {
         "com.google.android.MTCL83",
         "com.google.android.UltraCVM",
         "com.google.android.apps.cameralite"
+        "com.google.android.dialer",
         "com.google.android.youtube",
     };
 
@@ -90,7 +91,6 @@ public class PixelPropsUtils {
     static {
         propsToKeep = new HashMap<>();
         propsToKeep.put("com.google.android.settings.intelligence", new ArrayList<>(Collections.singletonList("FINGERPRINT")));
-        propsToKeep.put("com.google.android.dialer", allProps);
         propsToChangePixel6 = new HashMap<>();
         propsToChangePixel6.put("BRAND", "google");
         propsToChangePixel6.put("MANUFACTURER", "Google");
