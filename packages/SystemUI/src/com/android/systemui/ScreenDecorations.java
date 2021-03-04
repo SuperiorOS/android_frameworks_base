@@ -1085,6 +1085,13 @@ public class ScreenDecorations implements
                 mLogger.logRotationChanged(oldRotation, mRotation);
             }
             setupDecorations();
+            if (mCutoutViews != null) {
+                for (DisplayCutoutView dcv : mCutoutViews) {
+                    if (dcv != null) {
+                        dcv.updateCutout();
+                    }
+                }
+            }
             if (mOverlays != null) {
                 // Updating the layout params ensures that ViewRootImpl will call relayoutWindow(),
                 // which ensures that the forced seamless rotation will end, even if we updated
