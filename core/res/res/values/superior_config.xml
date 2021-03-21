@@ -90,11 +90,6 @@
     <!-- Whether device has a big physical display cutout -->
     <bool name="config_physicalDisplayCutoutCentered">@bool/config_physicalDisplayCutout</bool>
 
-    <!-- Should we listen for fingerprints when the screen is off?  Devices
-         with a rear-mounted sensor want this, but certain devices have
-         the sensor embedded in the power key and listening all the time
-         causes a poor experience. -->
-    <bool name="config_fingerprintWakeAndUnlock">true</bool>
 
     <!-- Enable face auth only when swiping security view -->
     <bool name="config_faceAuthOnlyOnSecurityView">false</bool>
