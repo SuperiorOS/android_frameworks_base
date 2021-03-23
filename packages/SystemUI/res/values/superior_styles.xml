@@ -16,9 +16,9 @@
 -->
 <resources>
 
-    <style name="TriStateUiText">
-        <item name="android:textSize">11.0sp</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
+    <!-- Tri-state UI -->
+    <style name="qs_theme" parent="Theme.SystemUI.QuickSettings">
+	<item name="android:windowIsFloating">true</item>
     </style>
 
 </resources>
