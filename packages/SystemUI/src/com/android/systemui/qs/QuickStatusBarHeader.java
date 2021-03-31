@@ -119,7 +119,7 @@ public class QuickStatusBarHeader extends RelativeLayout implements
     public static final int MAX_TOOLTIP_SHOWN_COUNT = 2;
 
     public static final String STATUS_BAR_CUSTOM_HEADER =
-                                Settings.System.STATUS_BAR_CUSTOM_HEADER;
+            "system:" + Settings.System.STATUS_BAR_CUSTOM_HEADER;
 
     private final Handler mHandler = new Handler();
     private final NextAlarmController mAlarmController;
@@ -460,6 +460,10 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         int qqsHeight = mContext.getResources().getDimensionPixelSize(
                 R.dimen.qs_quick_header_panel_height);
 
+        if (mHeaderImageEnabled) {
+            qqsHeight += mContext.getResources().getDimensionPixelSize(
+                    R.dimen.qs_header_image_offset);
+        }
         setMinimumHeight(sbHeight + qqsHeight);
     }
 
@@ -477,7 +481,8 @@ public class QuickStatusBarHeader extends RelativeLayout implements
         mHeaderTextContainerView.setLayoutParams(mHeaderTextContainerView.getLayoutParams());*/
 
         int topMargin = resources.getDimensionPixelSize(
-                com.android.internal.R.dimen.quick_qs_offset_height);
+                com.android.internal.R.dimen.quick_qs_offset_height) + (mHeaderImageEnabled ?
+                resources.getDimensionPixelSize(R.dimen.qs_header_image_offset) : 0);
 
         mSystemIconsView.getLayoutParams().height = topMargin;
         mSystemIconsView.setLayoutParams(mSystemIconsView.getLayoutParams());
