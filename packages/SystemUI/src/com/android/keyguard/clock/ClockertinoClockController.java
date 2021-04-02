@@ -22,8 +22,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.GradientDrawable.Orientation;
 import android.graphics.Paint.Style;
-import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -37,15 +37,12 @@ import com.android.systemui.R;
 import com.android.systemui.colorextraction.SysuiColorExtractor;
 import com.android.systemui.plugins.ClockPlugin;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Locale;
 import java.util.TimeZone;
 
 /**
  * Plugin for the default clock face used only to provide a preview.
  */
-public class OronosClockController implements ClockPlugin {
+public class ClockertinoClockController implements ClockPlugin {
 
     /**
      * Resources used to get title and thumbnail.
@@ -78,18 +75,10 @@ public class OronosClockController implements ClockPlugin {
     private ClockLayout mBigClockView;
 
     /**
-     * Text clock for both hour and minute
+     * Views for the dynamic gradient tinting
      */
-    private TextClock mHourClock;
-    private TextClock mMinuteClock;
-    private TextView mLongDate;
-
-    /**
-     * Time and calendars to check the date
-     */
-    private final Calendar mTime = Calendar.getInstance(TimeZone.getDefault());
-    private String mDescFormat;
-    private TimeZone mTimeZone;
+    private LinearLayout mTimeWidgetBase;
+    private LinearLayout mDateWidgetBase;
 
     /**
      * Create a DefaultClockController instance.
@@ -98,7 +87,7 @@ public class OronosClockController implements ClockPlugin {
      * @param inflater       Inflater used to inflate custom clock views.
      * @param colorExtractor Extracts accent color from wallpaper.
      */
-    public OronosClockController(Resources res, LayoutInflater inflater,
+    public ClockertinoClockController(Resources res, LayoutInflater inflater,
                               SysuiColorExtractor colorExtractor) {
         mResources = res;
         mLayoutInflater = inflater;
@@ -107,35 +96,31 @@ public class OronosClockController implements ClockPlugin {
 
     private void createViews() {
         mBigClockView = (ClockLayout) mLayoutInflater
-                .inflate(R.layout.oronos_clock, null);
-
-        mHourClock = mBigClockView.findViewById(R.id.clockHr);
-        mMinuteClock = mBigClockView.findViewById(R.id.clockMin);
-        mLongDate = mBigClockView.findViewById(R.id.longDate);
-        onTimeTick();
+                .inflate(R.layout.clock_clockertino, null);
+        mTimeWidgetBase = mBigClockView.findViewById(R.id.timeWidget);
+        mDateWidgetBase = mBigClockView.findViewById(R.id.dateWidget);
     }
 
     @Override
     public void onDestroyView() {
         mBigClockView = null;
-        mHourClock = null;
-        mMinuteClock = null;
-        mLongDate = null;
+        mTimeWidgetBase = null;
+        mDateWidgetBase = null;
     }
 
     @Override
     public String getName() {
-        return "oronos";
+        return "clockertino";
     }
 
     @Override
     public String getTitle() {
-        return "Oroño";
+        return "Clockertino";
     }
 
     @Override
     public Bitmap getThumbnail() {
-        return BitmapFactory.decodeResource(mResources, R.drawable.oronos_thumbnail);
+        return BitmapFactory.decodeResource(mResources, R.drawable.clockertino_thumbnail);
     }
 
     @Override
@@ -185,27 +170,13 @@ public class OronosClockController implements ClockPlugin {
     }
 
     private void updateColor() {
-        int highlightColor = mPalette.getPrimaryColor();
-        int backgroundColor = generateColorDark(highlightColor);
+        final int primary = mPalette.getPrimaryColor();
 
-        GradientDrawable hourBg = (GradientDrawable) mHourClock.getBackground();
-        GradientDrawable minBg = (GradientDrawable) mMinuteClock.getBackground();
-        GradientDrawable dateBg = (GradientDrawable) mLongDate.getBackground();
-
-        // Things that needs to be tinted with the background color
-        mHourClock.setTextColor(backgroundColor);
-        minBg.setColor(backgroundColor);
-        dateBg.setColor(backgroundColor);
-        mHourClock.setTextColor(backgroundColor);
-
-        // Things that needs to be tinted with the highlighted color
-        hourBg.setColor(highlightColor);
-        minBg.setStroke(mResources.getDimensionPixelSize(R.dimen.clock_oronos_outline_size),
-                            highlightColor);
-        dateBg.setStroke(mResources.getDimensionPixelSize(R.dimen.clock_oronos_outline_size),
-                            highlightColor);
-        mMinuteClock.setTextColor(highlightColor);
-        mLongDate.setTextColor(highlightColor);
+        int[] gradColors = {primary, generateColorDesat(primary)};
+        GradientDrawable bgTinted = new GradientDrawable(Orientation.TOP_BOTTOM, gradColors);
+        bgTinted.setGradientType(GradientDrawable.LINEAR_GRADIENT);
+        mTimeWidgetBase.setBackground(bgTinted);
+        mDateWidgetBase.setBackground(bgTinted);
     }
 
     @Override
@@ -215,16 +186,10 @@ public class OronosClockController implements ClockPlugin {
 
     @Override
     public void onTimeTick() {
-        mTime.setTimeInMillis(System.currentTimeMillis());
-        mLongDate.setText(mResources.getString(R.string.date_long_title_today, mTime.getDisplayName(
-                Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.getDefault())));
     }
 
     @Override
     public void onTimeZoneChanged(TimeZone timeZone) {
-        mTimeZone = timeZone;
-        mTime.setTimeZone(timeZone);
-        onTimeTick();
     }
 
     @Override
@@ -232,11 +197,11 @@ public class OronosClockController implements ClockPlugin {
         return false;
     }
 
-    private int generateColorDark(int color) {
+    private int generateColorDesat(int color) {
         float[] hslParams = new float[3];
         ColorUtils.colorToHSL(color, hslParams);
         // Conversion to desature the color?
-        hslParams[2] = hslParams[2]*0.3f;
+        hslParams[1] = hslParams[1]*0.64f;
         return ColorUtils.HSLToColor(hslParams);
     }
 }

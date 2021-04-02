@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2019 The Android Open Source Project
- * Copyright (C) 2021 Bootleggers ROM
+ * Copyright (C) 2021 Project 404
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,12 +21,12 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.drawable.GradientDrawable;
 import android.graphics.Paint.Style;
-import android.text.format.DateFormat;
+import android.icu.text.DateFormat;
+import android.icu.text.DisplayContext;
+import android.os.SystemProperties;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextClock;
 import android.widget.TextView;
 
@@ -42,10 +42,11 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
+
 /**
  * Plugin for the default clock face used only to provide a preview.
  */
-public class OronosClockController implements ClockPlugin {
+public class IDEJavaClockController implements ClockPlugin {
 
     /**
      * Resources used to get title and thumbnail.
@@ -78,17 +79,29 @@ public class OronosClockController implements ClockPlugin {
     private ClockLayout mBigClockView;
 
     /**
-     * Text clock for both hour and minute
+     * Text clock for time, date, day and month
      */
-    private TextClock mHourClock;
-    private TextClock mMinuteClock;
-    private TextView mLongDate;
+    private TextClock mTime;
+    private TextView mDate;
+    private TextClock mMonth;
+    private TextClock mYear;
+    private TextView mtextPackage;
+    private TextView mtextPackageSubclass;
+    private TextView mtextClassAccessMod;
+    private TextView mtextClassObject;
+    private TextView mtextStringAccessMod;
+    private TextView mtextStringClass;
+    private TextView mtextIntAccessMod;
+    private TextView mtextIntClass;
+    private TextView mtextTimeVar;
+    private TextView mtextDateVar;
+    private TextView mtextMonthVar;
+    private TextView mtextYearVar;
 
     /**
      * Time and calendars to check the date
      */
-    private final Calendar mTime = Calendar.getInstance(TimeZone.getDefault());
-    private String mDescFormat;
+    private final Calendar mTimeCal = Calendar.getInstance(TimeZone.getDefault());
     private TimeZone mTimeZone;
 
     /**
@@ -98,7 +111,7 @@ public class OronosClockController implements ClockPlugin {
      * @param inflater       Inflater used to inflate custom clock views.
      * @param colorExtractor Extracts accent color from wallpaper.
      */
-    public OronosClockController(Resources res, LayoutInflater inflater,
+    public IDEJavaClockController(Resources res, LayoutInflater inflater,
                               SysuiColorExtractor colorExtractor) {
         mResources = res;
         mLayoutInflater = inflater;
@@ -107,43 +120,67 @@ public class OronosClockController implements ClockPlugin {
 
     private void createViews() {
         mBigClockView = (ClockLayout) mLayoutInflater
-                .inflate(R.layout.oronos_clock, null);
-
-        mHourClock = mBigClockView.findViewById(R.id.clockHr);
-        mMinuteClock = mBigClockView.findViewById(R.id.clockMin);
-        mLongDate = mBigClockView.findViewById(R.id.longDate);
-        onTimeTick();
+                .inflate(R.layout.clock_ide_java_mix, null);
+        mTime = mBigClockView.findViewById(R.id.clockTimeView);
+        mDate = mBigClockView.findViewById(R.id.clockDateView);
+        mMonth = mBigClockView.findViewById(R.id.clockMonthView);
+        mYear = mBigClockView.findViewById(R.id.clockYearView);
+        mtextPackage = mBigClockView.findViewById(R.id.textPackage);
+        mtextPackageSubclass = mBigClockView.findViewById(R.id.textPackageName);
+        mtextClassAccessMod = mBigClockView.findViewById(R.id.textDeclareClass);
+        mtextClassObject = mBigClockView.findViewById(R.id.textDeclareClassType);
+        mtextStringAccessMod = mBigClockView.findViewById(R.id.textStringDeclare);
+        mtextStringClass = mBigClockView.findViewById(R.id.textStringDeclareType);
+        mtextIntAccessMod = mBigClockView.findViewById(R.id.textIntDeclare);
+        mtextIntClass = mBigClockView.findViewById(R.id.textIntDeclareType);
+        mtextTimeVar = mBigClockView.findViewById(R.id.clockTime);
+        mtextDateVar = mBigClockView.findViewById(R.id.clockDate);
+        mtextMonthVar = mBigClockView.findViewById(R.id.clockMonth);
+        mtextYearVar = mBigClockView.findViewById(R.id.clockYear);
     }
 
     @Override
     public void onDestroyView() {
         mBigClockView = null;
-        mHourClock = null;
-        mMinuteClock = null;
-        mLongDate = null;
+        mTime = null;
+        mDate = null;
+        mMonth = null;
+        mYear = null;
+        mtextPackage = null;
+        mtextPackageSubclass = null;
+        mtextClassAccessMod = null;
+        mtextClassObject = null;
+        mtextStringAccessMod = null;
+        mtextStringClass = null;
+        mtextIntAccessMod = null;
+        mtextIntClass = null;
+        mtextTimeVar = null;
+        mtextDateVar = null;
+        mtextMonthVar = null;
+        mtextYearVar = null;
     }
 
     @Override
     public String getName() {
-        return "oronos";
+        return "ide-java";
     }
 
     @Override
     public String getTitle() {
-        return "Oroño";
+        return "IDE (Java Mix)";
     }
 
     @Override
     public Bitmap getThumbnail() {
-        return BitmapFactory.decodeResource(mResources, R.drawable.oronos_thumbnail);
+        return BitmapFactory.decodeResource(mResources, R.drawable.ide_java_thumbnail);
     }
 
     @Override
     public Bitmap getPreview(int width, int height) {
-
+        setTextColor(Color.WHITE);
         View previewView = getView();
+
         // Initialize state of plugin before generating preview.
-        setDarkAmount(1f);
         ColorExtractor.GradientColors colors = mColorExtractor.getColors(
                 WallpaperManager.FLAG_LOCK);
         setColorPalette(colors.supportsDarkText(), colors.getColorPalette());
@@ -185,45 +222,46 @@ public class OronosClockController implements ClockPlugin {
     }
 
     private void updateColor() {
-        int highlightColor = mPalette.getPrimaryColor();
-        int backgroundColor = generateColorDark(highlightColor);
+        final int primary = mPalette.getPrimaryColor();
 
-        GradientDrawable hourBg = (GradientDrawable) mHourClock.getBackground();
-        GradientDrawable minBg = (GradientDrawable) mMinuteClock.getBackground();
-        GradientDrawable dateBg = (GradientDrawable) mLongDate.getBackground();
+        if (mBigClockView == null) createViews();
 
-        // Things that needs to be tinted with the background color
-        mHourClock.setTextColor(backgroundColor);
-        minBg.setColor(backgroundColor);
-        dateBg.setColor(backgroundColor);
-        mHourClock.setTextColor(backgroundColor);
+        TextView[] primaryViews = { mtextPackage, mtextClassAccessMod, mtextStringAccessMod, mtextIntAccessMod };
+        TextView[] secondaryViews = { mtextClassObject, mtextStringClass, mtextIntClass };
+        TextView[] tertiaryViews = { mtextYearVar, mtextDateVar, mtextTimeVar, mtextMonthVar };
 
-        // Things that needs to be tinted with the highlighted color
-        hourBg.setColor(highlightColor);
-        minBg.setStroke(mResources.getDimensionPixelSize(R.dimen.clock_oronos_outline_size),
-                            highlightColor);
-        dateBg.setStroke(mResources.getDimensionPixelSize(R.dimen.clock_oronos_outline_size),
-                            highlightColor);
-        mMinuteClock.setTextColor(highlightColor);
-        mLongDate.setTextColor(highlightColor);
+        for (TextView pView : primaryViews) {
+            pView.setTextColor(primary);
+        }
+        for (TextView sView : secondaryViews) {
+            sView.setTextColor(generateColorDesat(primary, 0.6f));
+        }
+        for (TextView tView : tertiaryViews) {
+            tView.setTextColor(generateColorDesat(primary, 0.4f));
+        }
     }
 
     @Override
     public void setDarkAmount(float darkAmount) {
         mPalette.setDarkAmount(darkAmount);
+        mBigClockView.setDarkAmount(darkAmount);
     }
 
     @Override
     public void onTimeTick() {
-        mTime.setTimeInMillis(System.currentTimeMillis());
-        mLongDate.setText(mResources.getString(R.string.date_long_title_today, mTime.getDisplayName(
-                Calendar.DAY_OF_WEEK, Calendar.LONG, Locale.getDefault())));
+        String buildType = SystemProperties.get("ro.modversion", "Lost");
+        mtextPackageSubclass.setText(buildType.toLowerCase());
+        DateFormat dateFormat = DateFormat.getInstanceForSkeleton("EEEEd", Locale.getDefault());
+        dateFormat.setContext(DisplayContext.CAPITALIZATION_FOR_STANDALONE);
+        mDate.setText(dateFormat.format(mTimeCal.getInstance().getTimeInMillis()));
+        mBigClockView.onTimeChanged();
+        mTime.refreshTime();
+        mMonth.refreshTime();
+        mYear.refreshTime();
     }
 
     @Override
     public void onTimeZoneChanged(TimeZone timeZone) {
-        mTimeZone = timeZone;
-        mTime.setTimeZone(timeZone);
         onTimeTick();
     }
 
@@ -232,11 +270,11 @@ public class OronosClockController implements ClockPlugin {
         return false;
     }
 
-    private int generateColorDark(int color) {
+    private int generateColorDesat(int color, float satValue) {
         float[] hslParams = new float[3];
         ColorUtils.colorToHSL(color, hslParams);
         // Conversion to desature the color?
-        hslParams[2] = hslParams[2]*0.3f;
+        hslParams[1] = hslParams[1]*satValue;
         return ColorUtils.HSLToColor(hslParams);
     }
 }

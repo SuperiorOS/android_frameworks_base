@@ -27,5 +27,16 @@
     <string name="clock_title_mnml_minimal" translatable="false">MNML Minimal</string>
     <string name="clock_title_samsung_accent" translatable="false">Samsung (colored)</string>
     <string name="date_long_title_today">Today is %s</string>
+    <string name="custom_clock_hours_title">Hours</string>
+    <string name="custom_clock_minutes_title">Minutes</string>
+    <string name="custom_clock_seconds_title">Seconds</string>
+    <string name="custom_clock_day_title">Day</string>
+    <string name="custom_clock_month_title">Month</string>
+    <string name="custom_clock_year_title">Year</string>
+    <string name="ide_java_comment">Show the date for once, the user is curious</string>
+    <string name="salute_fallback">Hello</string>
+    <string name="salute_morning">Good morning</string>
+    <string name="salute_evening">Good evening</string>
+    <string name="salute_night">Good night</string>
 
 </resources>
