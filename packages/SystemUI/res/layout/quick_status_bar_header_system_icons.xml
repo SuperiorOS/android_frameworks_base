@@ -90,7 +90,7 @@
                 android:id="@+id/daily_data_usage_icon"
                 android:layout_height="16sp"
                 android:layout_width="wrap_content"
-                android:src="@drawable/ic_data_usage"
+                android:src="@drawable/ic_data_saver_off"
                 android:visibility="gone" />
 
             <com.android.systemui.statusbar.info.DataUsageView
@@ -98,7 +98,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical|end"
-                android:textColor="?android:attr/textColorPrimary"
+                android:textAppearance="@style/TextAppearance.StatusBar.Clock"
                 android:singleLine="true"
                 android:visibility="gone" />
         </LinearLayout>

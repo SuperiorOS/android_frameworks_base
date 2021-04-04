@@ -215,7 +215,6 @@ public class SystemSettingsValidators {
         VALIDATORS.put(System.VOLUME_BUTTON_MUSIC_CONTROL, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.NAVIGATION_BAR_ARROW_KEYS, BOOLEAN_VALIDATOR);
         VALIDATORS.put(System.FOD_GESTURE, BOOLEAN_VALIDATOR);
-        VALIDATORS.put(System.ACCENT_COLOR, ANY_INTEGER_VALIDATOR);
         VALIDATORS.put(
                 System.COLOR_BUCKET_OVERLAY,
                 new Validator() {
