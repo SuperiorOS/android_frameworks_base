@@ -10,7 +10,7 @@
         android:layout_marginHorizontal="30dp"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
-        android:background="#9a000000"
+        android:background="@color/transparent"
         android:orientation="vertical"
         android:padding="16dp">
 
