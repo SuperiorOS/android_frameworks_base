@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2018-2020 Superior OS
+     Copyright 2018-2021 Superior OS
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,11 +15,36 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="statusbar_items_title">Statusleisten-Symbol</string>
     <!-- Advanced restart -->
+    <string name="global_action_reboot">Neu starten</string>
+    <string name="global_action_reboot_system">System</string>
+    <string name="global_action_reboot_progress">Wird neu gestartet\u2026</string>
+    <string name="global_action_reboot_recovery">Recovery</string>
+    <string name="global_action_reboot_recovery_progress">In Recovery-Modus neustarten\u2026</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_reboot_bootloader_progress">In Bootloader-Modus neustarten\u2026</string>
+    <string name="global_action_reboot_fastboot">Fastboot</string>
+    <string name="global_action_reboot_fastboot_progress">In Fastboot-Modus neustarten</string>
+    <string name="global_action_restart_systemui">In Fastboot neustarten</string>
+    <string name="global_action_settings">Einstellungen</string>
+    <string name="global_action_screenshot">Bildschirmfoto</string>
+    <string name="global_action_screenrecord">Bildschirmaufnahme</string>
+    <string name="global_action_flashlight">Taschenlampe</string>
     <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">Aktuell</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Schnellladen (<xliff:g id="charging_time_left" example="4 Stunden und 2 Minuten">%s</xliff:g> bis zur vollständigen Aufladung)</string>
+    <string name="keyguard_plugged_in_dash_charging">Schnelles Aufladen</string>
     <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Ton</string>
+    <string name="quick_settings_sound_ring">Klingelton</string>
+    <string name="quick_settings_sound_vibrate">Vibrieren</string>
+    <string name="quick_settings_sound_mute">Stumm</string>
     <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">Koffein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Koffein aus</string>
+    <string name="accessibility_quick_settings_caffeine_on">Koffein an</string>
     <!-- QS Config -->
     <!-- Heads Up QS Tile -->
     <!-- USB tethering QS tile -->
@@ -39,4 +64,13 @@
     <!-- Kill app -->
     <!-- App Select dialog -->
     <!-- Screenrecord QS tile -->
+    <!-- Text to use when the number in a notification info is too large
+         (greater than status_bar_notification_info_maxnum, defined in
+         values/config.xml) and must be truncated.
+         [CHAR LIMIT=4] -->
+    <!-- QS Header data usage info -->
+    <!-- Ambient Music Ticker -->
+    <!-- Biometric Dialog - Use Face -->
+    <!-- DataSwitch Tile -->
+    <!-- App Lock -->
 </resources>

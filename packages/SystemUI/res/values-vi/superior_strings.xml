@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright 2018-2020 Superior OS
+     Copyright 2018-2021 Superior OS
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -49,6 +49,12 @@
     <string name="qs_menu_item_columns">Cột</string>
     <string name="qs_menu_item_columns_landscape">Cột màn hình ngang</string>
     <string name="qs_menu_item_columns_three">3</string>
+    <string name="qs_menu_item_columns_four">4</string>
+    <string name="qs_menu_item_columns_five">5</string>
+    <string name="qs_menu_item_columns_six">6</string>
+    <string name="qs_menu_item_columns_seven">7</string>
+    <string name="qs_menu_item_columns_eight">8</string>
+    <string name="qs_menu_item_columns_nine">9</string>
     <string name="qs_menu_item_reset">Thiết lập lại</string>
     <string name="qs_menu_item_qs_columns">Số ô cài đặt nhanh</string>
     <string name="qs_menu_item_columns_auto">Tự động</string>
@@ -111,4 +117,15 @@
     <!-- Screenrecord QS tile -->
     <string name="screenrecord_stopdot_label">Hiện chấm dừng\nNhấn giữ để di chuyển nó</string>
     <string name="screenrecord_lowquality_label">Chất lượng thấp cho dung lượng nhỏ hơn</string>
+    <!-- Text to use when the number in a notification info is too large
+         (greater than status_bar_notification_info_maxnum, defined in
+         values/config.xml) and must be truncated.
+         [CHAR LIMIT=4] -->
+    <!-- QS Header data usage info -->
+    <string name="usage_data">đã sử dụng</string>
+    <!-- Ambient Music Ticker -->
+    <string name="ambientmusic_songinfo" formatted="false">%s bởi %s</string>
+    <!-- Biometric Dialog - Use Face -->
+    <!-- DataSwitch Tile -->
+    <!-- App Lock -->
 </resources>
