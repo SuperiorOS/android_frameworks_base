@@ -34,8 +34,6 @@ import com.android.internal.colorextraction.ColorExtractor;
 
 import java.util.TimeZone;
 
-import static com.android.systemui.statusbar.phone
-        .KeyguardClockPositionAlgorithm.CLOCK_USE_DEFAULT_Y;
 
 /**
  * Plugin for the default clock face used only to provide a preview.
@@ -66,7 +64,7 @@ public class ShapeShiftClockController implements ClockPlugin {
     /**
      * Root view of clock.
      */
-    private ClockLayout mView;
+    private ClockLayout mBigClockView;
 
     /**
      * Text clock in preview view hierarchy.
@@ -91,22 +89,22 @@ public class ShapeShiftClockController implements ClockPlugin {
     }
 
     private void createViews() {
-        mView = (ClockLayout) mLayoutInflater
+        mBigClockView = (ClockLayout) mLayoutInflater
                 .inflate(R.layout.digital_clock_ssos, null);
-	setViews(mView);
+	setViews(mBigClockView);
     }
 
     private void setViews(View view) {
-        mTimeClock = view.findViewById(R.id.time_clock);
-        mTimeClockAccented = view.findViewById(R.id.time_clock_accented);
-        mDay = view.findViewById(R.id.clock_day);
-        mDate = view.findViewById(R.id.timedate);
+        mTimeClock = mBigClockView.findViewById(R.id.time_clock);
+        mTimeClockAccented = mBigClockView.findViewById(R.id.time_clock_accented);
+        mDay = mBigClockView.findViewById(R.id.clock_day);
+        mDate = mBigClockView.findViewById(R.id.timedate);
     }
 
 
     @Override
     public void onDestroyView() {
-        mView = null;
+        mBigClockView = null;
         mTimeClock = null;
         mDay = null;
         mDate = null;
@@ -146,20 +144,20 @@ public class ShapeShiftClockController implements ClockPlugin {
 
     @Override
     public View getView() {
-        if (mView == null) {
-            createViews();
-        }
-        return mView;
-    }
-
-    @Override
-    public View getBigClockView() {
         return null;
     }
 
     @Override
+    public View getBigClockView() {
+        if (mBigClockView  == null) {
+            createViews();
+        }
+        return mBigClockView;
+    }
+
+    @Override
     public int getPreferredY(int totalHeight) {
-        return CLOCK_USE_DEFAULT_Y;
+        return totalHeight / 2;
     }
 
     @Override
@@ -183,8 +181,8 @@ public class ShapeShiftClockController implements ClockPlugin {
 
     @Override
     public void onTimeTick() {
-	if (mView != null)
-	    mView.onTimeChanged();
+	if (mBigClockView != null)
+	    mBigClockView.onTimeChanged();
         mTimeClock.refreshTime();
         mTimeClockAccented.refreshTime();
         mDay.refreshTime();
@@ -193,8 +191,8 @@ public class ShapeShiftClockController implements ClockPlugin {
 
     @Override
     public void setDarkAmount(float darkAmount) {
-	if (mView != null)
-	    mView.setDarkAmount(darkAmount);
+	if (mBigClockView != null)
+	    mBigClockView.setDarkAmount(darkAmount);
     }
 
     @Override
