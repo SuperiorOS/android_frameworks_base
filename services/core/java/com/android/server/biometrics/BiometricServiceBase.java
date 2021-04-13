@@ -684,6 +684,7 @@ public abstract class BiometricServiceBase extends SystemService
     @Override
     public void onStart() {
         listenForUserSwitches();
+        registerForWindowManger();
     }
 
     @Override
