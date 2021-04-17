@@ -1,5 +1,5 @@
 <!--
-   Copyright (C) 2018-2020 The SuperiorOS Project
+   Copyright (C) 2018-2021 The SuperiorOS Project
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -14,41 +14,41 @@
    limitations under the License.
 -->
 <resources>
-    <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
-    <java-symbol type="bool" name="config_cleanupUnusedFingerprints" />
+   <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
+   <java-symbol type="bool" name="config_cleanupUnusedFingerprints" />
 
-    <!-- Rotation sensor -->
-    <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
+   <!-- Rotation sensor -->
+   <java-symbol type="bool" name="config_useSystemClockforRotationSensor" />
 
-    <!-- Whether device supports an alt. ambient display -->
-    <java-symbol type="bool" name="config_alt_ambient_display"/>
+   <!-- Whether device supports an alt. ambient display -->
+   <java-symbol type="bool" name="config_alt_ambient_display"/>
 
-    <!-- App error dialog -->
-    <java-symbol type="id" name="aerr_copy" />
-    <java-symbol type="string" name="url_copy_success" />
-    <java-symbol type="string" name="url_copy_failed" />
+   <!-- App error dialog -->
+   <java-symbol type="id" name="aerr_copy" />
+   <java-symbol type="string" name="url_copy_success" />
+   <java-symbol type="string" name="url_copy_failed" />
 
-    <!-- Button backlight -->
-    <java-symbol type="dimen" name="config_buttonBrightnessSettingDefaultFloat" />
-    <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
+   <!-- Button backlight -->
+   <java-symbol type="dimen" name="config_buttonBrightnessSettingDefaultFloat" />
+   <java-symbol type="bool" name="config_deviceHasVariableButtonBrightness" />
 
-    <!-- HW keys binding -->
-    <java-symbol type="anim" name="custom_app_in" />
-    <java-symbol type="anim" name="custom_app_out" />
-    <java-symbol type="integer" name="config_deviceHardwareKeys" />
+   <!-- HW keys binding -->
+   <java-symbol type="anim" name="custom_app_in" />
+   <java-symbol type="anim" name="custom_app_out" />
+   <java-symbol type="integer" name="config_deviceHardwareKeys" />
 
-    <!-- Power menu -->
-    <java-symbol type="array" name="config_rebootActionsList" />
+   <!-- Power menu -->
+   <java-symbol type="array" name="config_rebootActionsList" />
 
-    <!-- Whether device has dash charging support -->
-    <java-symbol type="bool" name="config_hasDashCharger" />
+   <!-- Whether device has dash charging support -->
+   <java-symbol type="bool" name="config_hasDashCharger" />
 
-    <!-- Battery light customization -->
-    <java-symbol type="bool" name="config_intrusiveBatteryLed" />
-    <java-symbol type="bool" name="config_multiColorBatteryLed" />
-    <java-symbol type="bool" name="config_ledCanPulse" />
+   <!-- Battery light customization -->
+   <java-symbol type="bool" name="config_intrusiveBatteryLed" />
+   <java-symbol type="bool" name="config_multiColorBatteryLed" />
+   <java-symbol type="bool" name="config_ledCanPulse" />
 
-    <java-symbol type="array" name="config_customPermissionsList" />
+   <java-symbol type="array" name="config_customPermissionsList" />
 
    <!-- Ambient notification light color -->
    <java-symbol type="integer" name="config_ambientNotificationDefaultColor" />
@@ -80,14 +80,18 @@
    <!-- Enable face auth only when swiping security view -->
    <java-symbol type="bool" name="config_faceAuthOnlyOnSecurityView" />
 
-    <!-- Alert slider -->
-    <java-symbol type="bool" name="config_hasAlertSlider" />
-    <java-symbol type="integer" name="config_alertSliderLocation" />
+   <!-- Alert slider -->
+   <java-symbol type="bool" name="config_hasAlertSlider" />
+   <java-symbol type="integer" name="config_alertSliderLocation" />
 
-    <!-- Device has OnePlus haptic motor -->
-    <java-symbol type="bool" name="config_hasOnePlusHapticMotor" />
+   <!-- Device has OnePlus haptic motor -->
+   <java-symbol type="bool" name="config_hasOnePlusHapticMotor" />
 
-    <!-- Vendor signatures -->
-    <java-symbol type="array" name="config_vendorPlatformSignatures" />
+   <!-- Vendor signatures -->
+   <java-symbol type="array" name="config_vendorPlatformSignatures" />
+
+   <!-- Device keyhandlers -->
+   <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
+   <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
 
 </resources>
