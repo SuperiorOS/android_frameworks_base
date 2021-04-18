@@ -15,18 +15,18 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
-    <bool name="config_cleanupUnusedFingerprints">true</bool>
+     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
+     <bool name="config_cleanupUnusedFingerprints">true</bool>
 
-    <!-- Older rotation sensors are not setting event.timestamp correctly. Setting to
+     <!-- Older rotation sensors are not setting event.timestamp correctly. Setting to
          true will use SystemClock.elapsedRealtimeNanos() to set timestamp. -->
-    <bool name="config_useSystemClockforRotationSensor">false</bool>
+     <bool name="config_useSystemClockforRotationSensor">false</bool>
 
-    <!-- Button backlight -->
-    <dimen name="config_buttonBrightnessSettingDefaultFloat">1.0</dimen>
-    <bool name="config_deviceHasVariableButtonBrightness">false</bool>
+     <!-- Button backlight -->
+     <dimen name="config_buttonBrightnessSettingDefaultFloat">1.0</dimen>
+     <bool name="config_deviceHasVariableButtonBrightness">false</bool>
 
-    <!-- Hardware keys present on the device, stored as a bit field.
+     <!-- Hardware keys present on the device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
          of the following keys present:
              1 - Home
@@ -38,82 +38,84 @@
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareKeys">64</integer>
+     <integer name="config_deviceHardwareKeys">64</integer>
 
-    <!-- Whether device has dash charging support -->
-    <bool name="config_hasDashCharger">false</bool>
+     <!-- Whether device has dash charging support -->
+     <bool name="config_hasDashCharger">false</bool>
 
-    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveBatteryLed">true</bool>
+     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
+     <bool name="config_intrusiveBatteryLed">true</bool>
 
      <!-- Does the battery LED support multiple colors?
          Used to decide if the user can change the colors -->
-    <bool name="config_multiColorBatteryLed">true</bool>
+     <bool name="config_multiColorBatteryLed">true</bool>
 
      <!-- Do the battery/notification LEDs support pulsing?
          Used to decide if we show pulse settings -->
-    <bool name="config_ledCanPulse">true</bool>
+     <bool name="config_ledCanPulse">true</bool>
 
-    <string-array translatable="false" name="config_customPermissionsList">
-        <item>com.android.wallpaper.livepicker</item>
-    </string-array>
+     <string-array translatable="false" name="config_customPermissionsList">
+          <item>com.android.wallpaper.livepicker</item>
+     </string-array>
 
-    <!-- Default value for Ambiant Pulse light color -->
-    <integer name="config_ambientNotificationDefaultColor">0xFF3980FF</integer>
+     <!-- Default value for Ambiant Pulse light color -->
+     <integer name="config_ambientNotificationDefaultColor">0xFF3980FF</integer>
 
-    <!-- Soli check -->
-    <bool name="config_has_Soli">false</bool>
+     <!-- Soli check -->
+     <bool name="config_has_Soli">false</bool>
 
-    <!-- Shows the required view for in-display fingerprint -->
-    <bool name="config_supportsInDisplayFingerprint">false</bool>
+     <!-- Shows the required view for in-display fingerprint -->
+     <bool name="config_supportsInDisplayFingerprint">false</bool>
 
-    <!-- FOD icon dim-->
-    <bool name="config_targetUsesInKernelDimming">false</bool>
+     <!-- FOD icon dim-->
+     <bool name="config_targetUsesInKernelDimming">false</bool>
 
-    <!-- NightLight FOD -->
-    <bool name="disable_fod_night_light">false</bool>
+     <!-- NightLight FOD -->
+     <bool name="disable_fod_night_light">false</bool>
 
-    <!-- Hide FOD while Going to sleep from lockscreen to avoid HBM flicker -->
-    <bool name="config_inDisplayFingerprintFlickersGoingToSleep">false</bool>
+     <!-- Hide FOD while Going to sleep from lockscreen to avoid HBM flicker -->
+     <bool name="config_inDisplayFingerprintFlickersGoingToSleep">false</bool>
 
-    <!-- Whether device supports in-display fingerprint when screen is turned off -->
-    <bool name="config_supportScreenOffFod">false</bool>
+     <!-- Whether device supports in-display fingerprint when screen is turned off -->
+     <bool name="config_supportScreenOffFod">false</bool>
 
-    <!-- Whether device has a physical display cutout -->
-    <bool name="config_physicalDisplayCutout">false</bool>
+     <!-- Whether device has a physical display cutout -->
+     <bool name="config_physicalDisplayCutout">false</bool>
 
-    <!-- Whether device has a big physical display cutout -->
-    <bool name="config_physicalDisplayCutoutCentered">@bool/config_physicalDisplayCutout</bool>
+     <!-- Whether device has a big physical display cutout -->
+     <bool name="config_physicalDisplayCutoutCentered">@bool/config_physicalDisplayCutout</bool>
 
 
-    <!-- Enable face auth only when swiping security view -->
-    <bool name="config_faceAuthOnlyOnSecurityView">false</bool>
+     <!-- Enable face auth only when swiping security view -->
+     <bool name="config_faceAuthOnlyOnSecurityView">false</bool>
 
-    <!-- Whether device has physical tri state switch -->
-    <bool name="config_hasAlertSlider">false</bool>
+     <!-- Whether device has physical tri state switch -->
+     <bool name="config_hasAlertSlider">false</bool>
 
-    <!-- The location of the devices physical tri state switch
+     <!-- The location of the devices physical tri state switch
          0: Left side
          1: Right side -->
-    <integer name="config_alertSliderLocation">0</integer>
+     <integer name="config_alertSliderLocation">0</integer>
 
-    <!-- OnePlus uses a proprietary vibrator hal to utilize the new powerful motor since the
+     <!-- OnePlus uses a proprietary vibrator hal to utilize the new powerful motor since the
          OnePlus 7 Pro. This HAL expects a different format for the data instead of the usual (ms)
          timing(the duration which the vibrator is expected to vibrate for). -->
-    <bool name="config_hasOnePlusHapticMotor">false</bool>
+     <bool name="config_hasOnePlusHapticMotor">false</bool>
 
-    <!-- The list of vendor package signatures that should also be considered
+     <!-- The list of vendor package signatures that should also be considered
          platform signatures, specifically for use on devices with a vendor partition. -->
-    <string-array name="config_vendorPlatformSignatures">
-    </string-array>
+     <string-array name="config_vendorPlatformSignatures">
+     </string-array>
 
-    <!-- Paths to the libraries that contain device specific key handlers -->
-    <string-array name="config_deviceKeyHandlerLibs" translatable="false">
-    </string-array>
+     <!-- Paths to the libraries that contain device specific key handlers -->
+     <string-array name="config_deviceKeyHandlerLibs" translatable="false">
+          <item>/system/system_ext/priv-app/TouchGestures/TouchGestures.apk</item>
+     </string-array>
 
-    <!-- Names of the key handler classes -->
-    <string-array name="config_deviceKeyHandlerClasses" translatable="false">
-    </string-array>
+     <!-- Names of the key handler classes -->
+     <string-array name="config_deviceKeyHandlerClasses" translatable="false">
+          <item>com.android.touch.gestures.KeyHandler</item>
+     </string-array>
 
     <!-- Default values for LiveDisplay -->
     <bool name="config_enableLiveDisplay">true</bool>
