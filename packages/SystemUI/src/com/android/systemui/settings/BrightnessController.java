@@ -81,7 +81,6 @@ public class BrightnessController implements ToggleSlider.Listener {
     private final float mMaximumBacklightForVr;
     private final float mDefaultBacklightForVr;
 
-    private final ImageButton mIcon;
     private final Context mContext;
     private final ImageView mIcon;
     private final ToggleSlider mControl;
