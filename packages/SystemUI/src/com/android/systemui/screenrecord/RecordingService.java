@@ -569,19 +569,19 @@ public class RecordingService extends Service implements ScreenMediaRecorderList
         inflater.inflate(R.layout.screenrecord_dot, mFrameLayout);
 
         final ImageView dot = (ImageView) mFrameLayout.findViewById(R.id.dot);
-        dot.setOnClickListener(() -> {
+        dot.setOnClickListener(v -> {
             try {
                 getStopPendingIntent().send();
             } catch (PendingIntent.CanceledException e) {}
         });
 
-        dot.setOnLongClickListener(() -> {
+        dot.setOnLongClickListener(v -> {
             dot.setAnimation(null);
-            final WindowManager.LayoutParams params =
+            final WindowManager.LayoutParams layoutParams =
                     (WindowManager.LayoutParams) mFrameLayout.getLayoutParams();
-            params.gravity = Gravity.TOP | (mIsDotAtRight? Gravity.LEFT : Gravity.RIGHT);
+            layoutParams.gravity = Gravity.TOP | (mIsDotAtRight? Gravity.LEFT : Gravity.RIGHT);
             mIsDotAtRight = !mIsDotAtRight;
-            mWindowManager.updateViewLayout(mFrameLayout, params);
+            mWindowManager.updateViewLayout(mFrameLayout, layoutParams);
             dot.startAnimation(getDotAnimation());
             return true;
         });
