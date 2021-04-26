@@ -138,7 +138,6 @@ import com.android.internal.logging.UiEventLoggerImpl;
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 import com.android.internal.statusbar.IStatusBarService;
 import com.android.internal.statusbar.RegisterStatusBarResult;
-import com.android.internal.util.superior.Utils;
 import com.android.internal.util.hwkeys.ActionConstants;
 import com.android.internal.util.hwkeys.ActionUtils;
 import com.android.internal.util.hwkeys.PackageMonitor;
@@ -1440,7 +1439,6 @@ public class StatusBar extends SystemUI implements DemoMode,
         filter.addAction(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         filter.addAction(DevicePolicyManager.ACTION_SHOW_DEVICE_MONITORING_DIALOG);
-        filter.addAction(Utils.ACTION_DISMISS_KEYGUARD);
         filter.addAction(NotificationPanelViewController.CANCEL_NOTIFICATION_PULSE_ACTION);
         mBroadcastDispatcher.registerReceiver(mBroadcastReceiver, filter, null, UserHandle.ALL);
     }
@@ -3040,12 +3038,6 @@ public class StatusBar extends SystemUI implements DemoMode,
             }
             else if (NotificationPanelViewController.CANCEL_NOTIFICATION_PULSE_ACTION.equals(action)) {
                 mNotificationPanelViewController.stopNotificationPulse();
-            }
-            else if (Utils.ACTION_DISMISS_KEYGUARD.equals(action)) {
-                if (intent.hasExtra(Utils.DISMISS_KEYGUARD_EXTRA_INTENT)) {
-                    Intent launchIntent = (Intent) intent.getParcelableExtra(Utils.DISMISS_KEYGUARD_EXTRA_INTENT);
-                    startActivityDismissingKeyguard(launchIntent, true, true);
-                }
             }
         }
     };
