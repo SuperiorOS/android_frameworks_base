@@ -38,4 +38,15 @@
     <color name="chooser_chip_icon">#8AB4F8</color> <!-- Blue 300 -->
 
     <color name="personal_apps_suspension_notification_color">#8AB4F8</color>
+
+    <!-- Default user icon colors -->
+    <color name="user_icon_1">@color/accent_device_default_dark</color>
+    <color name="user_icon_2">@color/accent_device_default_dark</color> 
+    <color name="user_icon_3">@color/accent_device_default_dark</color> 
+    <color name="user_icon_4">@color/accent_device_default_dark</color> 
+    <color name="user_icon_5">@color/accent_device_default_dark</color> 
+    <color name="user_icon_6">@color/accent_device_default_dark</color> 
+    <color name="user_icon_7">@color/accent_device_default_dark</color> 
+    <color name="user_icon_8">@color/accent_device_default_dark</color>
+
 </resources>
