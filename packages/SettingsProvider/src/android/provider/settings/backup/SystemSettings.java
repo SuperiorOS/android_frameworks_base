@@ -87,5 +87,6 @@ public class SystemSettings {
         Settings.System.LOCKSCREEN_SMALL_CLOCK,
         Settings.System.KEYGAURD_MEDIA_ART,
         Settings.System.NOTIFICATION_HEADERS,
+        Settings.System.AUTO_BRIGHTNESS_ONE_SHOT,
     };
 }
