@@ -126,6 +126,29 @@
     <!-- Ambient Music Ticker -->
     <string name="ambientmusic_songinfo" formatted="false">%s tarafından %s</string>
     <!-- Biometric Dialog - Use Face -->
+    <string name="biometric_dialog_button_use_face">Yüzü kullan</string>
     <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Veri kartını değiştir</string>
+    <string name="qs_data_switch_toast_0">Şu anda SIM kart takılı değil</string>
+    <string name="qs_data_switch_toast_1">Şu anda yalnızca bir SIM kart takılı</string>
+    <string name="qs_data_switch_changed_1">Mobil veri için SIM 1 kullanılıyor</string>
+    <string name="qs_data_switch_changed_2">Mobil veri için SIM 2 kullanılıyor</string>
     <!-- App Lock -->
+    <string name="applock_locked">&#160;kilitli</string>
+    <string name="applock_fingerprint_face">, kilidi açmak için parmak izi yada yüz kilidini kullanın</string>
+    <string name="applock_face">Kilidi açmak için &#160;veya yüz kilidini kullanın</string>
+    <string name="applock_fingerprint">Kilidi açmak için &#160;veya parmak izini kullanın</string>
+    <string name="applock_credential">&#160;kilidini aç</string>
+    <string name="applock_unlock">Kilidi aç</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Bildirim pencereleri 1 dakika kadar erteleniyor.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Bildirim pencereleri <xliff:g id="number">%1$d</xliff:g> dakika erteleniyor.</string>
+    <!-- Less Boring QS tile -->
+    <string name="quick_settings_less_boring_label">Daha az bildirim</string>
+    <string name="accessibility_quick_settings_less_boring_off">Daha az bildirim kapalı.</string>
+    <string name="accessibility_quick_settings_less_boring_on">Daha az bildirim açık.</string>
+    <string name="accessibility_quick_settings_less_boring_changed_off">Daha az bildirim kapatıldı.</string>
+    <string name="accessibility_quick_settings_less_boring_changed_on">Daha az bildirim açıldı.</string>
+    <!-- Reader mode QS tile -->
+    <!-- Anti flicker QS tile -->
 </resources>

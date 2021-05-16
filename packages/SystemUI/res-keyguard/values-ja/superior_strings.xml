@@ -17,4 +17,19 @@
 ** limitations under the License.
 */
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="date_long_title_today">今日は%sです</string>
+    <string name="custom_clock_hours_title">時</string>
+    <string name="custom_clock_minutes_title">分</string>
+    <string name="custom_clock_seconds_title">秒</string>
+    <string name="custom_clock_day_title">日</string>
+    <string name="custom_clock_month_title">月</string>
+    <string name="custom_clock_year_title">年</string>
+    <string name="ide_java_comment">1度だけ日付を表示します。この設定を使用する人は珍しいです。</string>
+    <string name="salute_fallback">こんにちは</string>
+    <string name="salute_morning">おはようございます</string>
+    <string name="salute_afternoon">こんにちは</string>
+    <string name="salute_evening">こんばんは</string>
+    <string name="salute_night">おやすみなさい</string>
+    <string name="salute_sleep">寝ましょう</string>
+</resources>

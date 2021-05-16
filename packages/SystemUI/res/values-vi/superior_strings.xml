@@ -126,6 +126,29 @@
     <!-- Ambient Music Ticker -->
     <string name="ambientmusic_songinfo" formatted="false">%s bởi %s</string>
     <!-- Biometric Dialog - Use Face -->
+    <string name="biometric_dialog_button_use_face">Sử dụng khuôn mặt</string>
     <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Chuyển sim dữ liệu</string>
+    <string name="qs_data_switch_toast_0">Hiện tại không có thẻ SIM nào được gắn</string>
+    <string name="qs_data_switch_toast_1">Hiện tại chỉ có 1 thẻ SIM được gắn</string>
+    <string name="qs_data_switch_changed_1">Sử dụng SIM 1 cho Dữ liệu di động</string>
+    <string name="qs_data_switch_changed_2">Sử dụng SIM 2 cho Dữ liệu di động</string>
     <!-- App Lock -->
+    <string name="applock_locked">&#160;đã khóa</string>
+    <string name="applock_fingerprint_face">, vân tay và khuôn mặt để mở khóa</string>
+    <string name="applock_face">&#160;hoặc sử dụng khuôn mặt để mở khóa</string>
+    <string name="applock_fingerprint">&#160;hoặc sử dụng vân tay để mở khóa</string>
+    <string name="applock_credential">&#160;để mở khóa</string>
+    <string name="applock_unlock">Mở khóa</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Thông báo nổi sẽ báo lại sau 1 phút.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Thông báo nổi sẽ báo lại sau <xliff:g id="number">%1$d</xliff:g> phút.</string>
+    <!-- Less Boring QS tile -->
+    <string name="quick_settings_less_boring_label">Ít nhàm chán</string>
+    <string name="accessibility_quick_settings_less_boring_off">Tắt ít nhàm chán.</string>
+    <string name="accessibility_quick_settings_less_boring_on">Mở ít nhàm chán.</string>
+    <string name="accessibility_quick_settings_less_boring_changed_off">Đã tắt ít nhàm chán.</string>
+    <string name="accessibility_quick_settings_less_boring_changed_on">Đã mở ít nhàm chán.</string>
+    <!-- Reader mode QS tile -->
+    <!-- Anti flicker QS tile -->
 </resources>

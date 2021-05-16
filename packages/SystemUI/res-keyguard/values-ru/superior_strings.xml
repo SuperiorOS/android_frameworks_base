@@ -17,4 +17,18 @@
 ** limitations under the License.
 */
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="date_long_title_today">Сегодня %s</string>
+    <string name="custom_clock_hours_title">Часов</string>
+    <string name="custom_clock_minutes_title">Минуты</string>
+    <string name="custom_clock_seconds_title">Секунды</string>
+    <string name="custom_clock_day_title">День</string>
+    <string name="custom_clock_month_title">Месяц</string>
+    <string name="custom_clock_year_title">Год</string>
+    <string name="salute_fallback">Привет</string>
+    <string name="salute_morning">Доброе утро</string>
+    <string name="salute_afternoon">Добрый день</string>
+    <string name="salute_evening">Добрый вечер</string>
+    <string name="salute_night">Доброй ночи</string>
+    <string name="salute_sleep">Отправиться спать</string>
+</resources>

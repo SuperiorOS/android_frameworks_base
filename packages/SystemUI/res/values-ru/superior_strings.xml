@@ -124,7 +124,27 @@
     <!-- QS Header data usage info -->
     <string name="usage_data">используется</string>
     <!-- Ambient Music Ticker -->
+    <string name="ambientmusic_songinfo" formatted="false">%s от %s</string>
     <!-- Biometric Dialog - Use Face -->
+    <string name="biometric_dialog_button_use_face">Использовать лицо</string>
     <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Переключить карту данных</string>
+    <string name="qs_data_switch_toast_0">В настоящее время SIM-карта не вставлена</string>
+    <string name="qs_data_switch_toast_1">Установлена только одна SIM карта</string>
+    <string name="qs_data_switch_changed_1">Использовать SIM 1 для передачи данных</string>
+    <string name="qs_data_switch_changed_2">Использовать SIM 2 для передачи данных</string>
     <!-- App Lock -->
+    <string name="applock_locked">&#160;заблокировано</string>
+    <string name="applock_fingerprint_face">, отпечатка пальца или лицо для разблокировки</string>
+    <string name="applock_face">&#160;или ваше лицо для разблокировки</string>
+    <string name="applock_fingerprint">&#160;или ваш отпечаток пальца для разблокировки</string>
+    <string name="applock_credential">&#160;для разблокировки</string>
+    <string name="applock_unlock">Разблокировать</string>
+    <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> Всплывающие уведомления выключены на одну минуту.</string>
+    <!-- Less Boring QS tile -->
+    <string name="quick_settings_less_boring_label">Режим \"Не надоедать\"</string>
+    <string name="accessibility_quick_settings_less_boring_off">Режим \"Не надоедать\" выключен.</string>
+    <!-- Reader mode QS tile -->
+    <!-- Anti flicker QS tile -->
 </resources>

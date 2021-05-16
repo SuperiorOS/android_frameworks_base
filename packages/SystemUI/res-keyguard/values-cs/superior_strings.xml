@@ -17,4 +17,19 @@
 ** limitations under the License.
 */
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="date_long_title_today">Dnes je %s</string>
+    <string name="custom_clock_hours_title">Hod.</string>
+    <string name="custom_clock_minutes_title">Min.</string>
+    <string name="custom_clock_seconds_title">Sek.</string>
+    <string name="custom_clock_day_title">Den</string>
+    <string name="custom_clock_month_title">Měsíc</string>
+    <string name="custom_clock_year_title">Rok</string>
+    <string name="ide_java_comment">Zobrazit datum jednou, uživatel je zvědavý</string>
+    <string name="salute_fallback">Ahoj</string>
+    <string name="salute_morning">Dobré ráno</string>
+    <string name="salute_afternoon">Dobré odpoledne</string>
+    <string name="salute_evening">Dobrý večer</string>
+    <string name="salute_night">Dobrou noc</string>
+    <string name="salute_sleep">Jdi spát</string>
+</resources>

@@ -17,4 +17,19 @@
 ** limitations under the License.
 */
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="date_long_title_today">Hôm nay là %s</string>
+    <string name="custom_clock_hours_title">Giờ</string>
+    <string name="custom_clock_minutes_title">Phút</string>
+    <string name="custom_clock_seconds_title">Giây</string>
+    <string name="custom_clock_day_title">Ngày</string>
+    <string name="custom_clock_month_title">Tháng</string>
+    <string name="custom_clock_year_title">Năm</string>
+    <string name="ide_java_comment">Hiện thị ngày của một, người dùng tò mò</string>
+    <string name="salute_fallback">Xin chào</string>
+    <string name="salute_morning">Chào buổi sáng</string>
+    <string name="salute_afternoon">Chào buổi chiều</string>
+    <string name="salute_evening">Chào buổi tối</string>
+    <string name="salute_night">Chúc ngủ ngon</string>
+    <string name="salute_sleep">Khoá màn hình</string>
+</resources>
