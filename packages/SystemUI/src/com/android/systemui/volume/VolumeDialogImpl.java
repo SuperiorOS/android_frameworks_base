@@ -23,7 +23,6 @@ import static android.media.AudioManager.RINGER_MODE_VIBRATE;
 import static android.media.AudioManager.STREAM_ACCESSIBILITY;
 import static android.media.AudioManager.STREAM_ALARM;
 import static android.media.AudioManager.STREAM_MUSIC;
-import static android.media.AudioManager.STREAM_NOTIFICATION;
 import static android.media.AudioManager.STREAM_RING;
 import static android.media.AudioManager.STREAM_VOICE_CALL;
 import static android.view.View.ACCESSIBILITY_LIVE_REGION_POLITE;
@@ -67,23 +66,19 @@ import android.util.Slog;
 import android.util.SparseBooleanArray;
 import android.view.ContextThemeWrapper;
 import android.view.MotionEvent;
-import android.view.Gravity;
 import android.view.View;
 import android.view.View.AccessibilityDelegate;
 import android.view.ViewGroup;
-import android.view.ViewGroup.MarginLayoutParams;
 import android.view.ViewPropertyAnimator;
 import android.view.ViewStub;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
-import android.view.View.OnLongClickListener;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
@@ -115,7 +110,7 @@ import java.util.List;
  * Methods ending in "H" must be called on the (ui) handler.
  */
 public class VolumeDialogImpl implements VolumeDialog,
-        ConfigurationController.ConfigurationListener, OnLongClickListener {
+        ConfigurationController.ConfigurationListener {
     private static final String TAG = Util.logTag(VolumeDialogImpl.class);
 
     private static final long USER_ATTEMPT_GRACE_PERIOD = 1000;
@@ -170,9 +165,6 @@ public class VolumeDialogImpl implements VolumeDialog,
     private ViewStub mODICaptionsTooltipViewStub;
     private View mODICaptionsTooltipView = null;
 
-    private boolean mLeftVolumeRocker;
-
-    private boolean mHasAlertSlider;
     public VolumeDialogImpl(Context context) {
         mContext =
                 new ContextThemeWrapper(context, R.style.qs_theme);
@@ -184,8 +176,6 @@ public class VolumeDialogImpl implements VolumeDialog,
         mShowActiveStreamOnly = showActiveStreamOnly();
         mHasSeenODICaptionsTooltip =
                 Prefs.getBoolean(context, Prefs.Key.HAS_SEEN_ODI_CAPTIONS_TOOLTIP, false);
-        mLeftVolumeRocker = mContext.getResources().getBoolean(R.bool.config_audioPanelOnLeftSide);
-        mHasAlertSlider = mContext.getResources().getBoolean(com.android.internal.R.bool.config_hasAlertSlider);
     }
 
     @Override
@@ -212,9 +202,6 @@ public class VolumeDialogImpl implements VolumeDialog,
     }
 
     private void initDialog() {
-        int land_margin = (int) mContext.getResources().getDimension(
-                R.dimen.volume_dialog_panel_land_margin);
-
         mDialog = new CustomDialog(mContext);
 
         mConfigurableTexts = new ConfigurableTexts(mContext);
@@ -236,21 +223,16 @@ public class VolumeDialogImpl implements VolumeDialog,
         lp.format = PixelFormat.TRANSLUCENT;
         lp.setTitle(VolumeDialogImpl.class.getSimpleName());
         lp.windowAnimations = -1;
-        if(!isAudioPanelOnLeftSide()){
-            lp.gravity = Gravity.RIGHT | Gravity.CENTER_VERTICAL;
-        } else {
-            lp.gravity = Gravity.LEFT | Gravity.CENTER_VERTICAL;
-        }
+        lp.gravity = mContext.getResources().getInteger(R.integer.volume_dialog_gravity);
         mWindow.setAttributes(lp);
         mWindow.setLayout(WRAP_CONTENT, WRAP_CONTENT);
 
         mDialog.setContentView(R.layout.volume_dialog);
-
         mDialogView = mDialog.findViewById(R.id.volume_dialog);
         mDialogView.setAlpha(0);
         mDialog.setCanceledOnTouchOutside(true);
         mDialog.setOnShowListener(dialog -> {
-            if (!isLandscape()) mDialogView.setTranslationX((mDialogView.getWidth() / 2.0f)*(!isAudioPanelOnLeftSide() ? 1 : -1));
+            if (!isLandscape()) mDialogView.setTranslationX(mDialogView.getWidth() / 2.0f);
             mDialogView.setAlpha(0);
             mDialogView.animate()
                     .alpha(1)
@@ -281,53 +263,20 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (mRinger != null) {
             mRingerIcon = mRinger.findViewById(R.id.ringer_icon);
             mZenIcon = mRinger.findViewById(R.id.dnd_icon);
-            if(!isAudioPanelOnLeftSide()) {
-                mRinger.setForegroundGravity(Gravity.RIGHT);
-            } else {
-                mRinger.setForegroundGravity(Gravity.LEFT);
-            }
-            if(isLandscape() && isAudioPanelOnLeftSide()){
-                MarginLayoutParams ringerLayoutParams = (MarginLayoutParams) mRinger.getLayoutParams();
-                ringerLayoutParams.setMargins(0, 0, land_margin, 0);
-                mRinger.setLayoutParams(ringerLayoutParams);
-            }
         }
 
         mODICaptionsView = mDialog.findViewById(R.id.odi_captions);
         if (mODICaptionsView != null) {
             mODICaptionsIcon = mODICaptionsView.findViewById(R.id.odi_captions_icon);
-            if(isLandscape() && isAudioPanelOnLeftSide()){
-                MarginLayoutParams captionsLayoutParams = (MarginLayoutParams) mODICaptionsView.getLayoutParams();
-                captionsLayoutParams.setMargins(0, 0, 0, 0);
-                mODICaptionsView.setLayoutParams(captionsLayoutParams);
-            }
         }
         mODICaptionsTooltipViewStub = mDialog.findViewById(R.id.odi_captions_tooltip_stub);
         if (mHasSeenODICaptionsTooltip && mODICaptionsTooltipViewStub != null) {
             mDialogView.removeView(mODICaptionsTooltipViewStub);
             mODICaptionsTooltipViewStub = null;
-        }else if (mODICaptionsTooltipViewStub != null){
-            if(!isAudioPanelOnLeftSide()) {
-                mRinger.setForegroundGravity(Gravity.BOTTOM | Gravity.RIGHT);
-            } else {
-                mRinger.setForegroundGravity(Gravity.BOTTOM | Gravity.LEFT);
-            }
-        }
-
-        if(isLandscape() && isAudioPanelOnLeftSide()){
-            LinearLayout mainView = mDialog.findViewById(R.id.main);
-            MarginLayoutParams mainLayoutParams = (MarginLayoutParams) mainView.getLayoutParams();
-            mainLayoutParams.setMargins(0, land_margin, land_margin, 0);
-            mainView.setLayoutParams(mainLayoutParams);
         }
 
         mSettingsView = mDialog.findViewById(R.id.settings_container);
         mSettingsIcon = mDialog.findViewById(R.id.settings);
-        mSettingsIcon.setOnLongClickListener(this);
-
-        if (mHasAlertSlider) {
-            mRinger.setVisibility(View.GONE);
-        }
 
         if (mRows.isEmpty()) {
             if (!AudioSystem.isSingleVolume(mContext)) {
@@ -337,13 +286,8 @@ public class VolumeDialogImpl implements VolumeDialog,
             addRow(AudioManager.STREAM_MUSIC,
                     R.drawable.ic_volume_media, R.drawable.ic_volume_media_mute, true, true);
             if (!AudioSystem.isSingleVolume(mContext)) {
-                if (Util.isVoiceCapable(mContext)) {
-                    addRow(AudioManager.STREAM_RING, R.drawable.ic_volume_ringer,
-                            R.drawable.ic_volume_ringer_mute, true, false);
-                } else {
-                    addRow(AudioManager.STREAM_RING, R.drawable.ic_volume_notification,
-                            R.drawable.ic_volume_notification_mute, true, false);
-                }
+                addRow(AudioManager.STREAM_RING,
+                        R.drawable.ic_volume_ringer, R.drawable.ic_volume_ringer_mute, true, false);
                 addRow(STREAM_ALARM,
                         R.drawable.ic_alarm, R.drawable.ic_volume_alarm_mute, true, false);
                 addRow(AudioManager.STREAM_VOICE_CALL,
@@ -406,11 +350,7 @@ public class VolumeDialogImpl implements VolumeDialog,
         if (D.BUG) Slog.d(TAG, "Adding row for stream " + stream);
         VolumeRow row = new VolumeRow();
         initRow(row, stream, iconRes, iconMuteRes, important, defaultStream);
-        if(!isAudioPanelOnLeftSide()){
-            mDialogRowsView.addView(row.view, 0);
-        } else {
-            mDialogRowsView.addView(row.view);
-        }
+        mDialogRowsView.addView(row.view);
         mRows.add(row);
     }
 
@@ -420,11 +360,7 @@ public class VolumeDialogImpl implements VolumeDialog,
             final VolumeRow row = mRows.get(i);
             initRow(row, row.stream, row.iconRes, row.iconMuteRes, row.important,
                     row.defaultStream);
-            if(!isAudioPanelOnLeftSide()){
-                mDialogRowsView.addView(row.view, 0);
-            } else {
-                mDialogRowsView.addView(row.view);
-            }
+            mDialogRowsView.addView(row.view);
             updateVolumeRowH(row);
         }
     }
@@ -797,10 +733,6 @@ public class VolumeDialogImpl implements VolumeDialog,
     }
 
     protected void dismissH(int reason) {
-        // Avoid multiple animation calls on touch spams.
-        if (!mShowing) {
-            return;
-        }
         if (D.BUG) {
             Log.d(TAG, "mDialog.dismiss() reason: " + Events.DISMISS_REASONS[reason]
                     + " from: " + Debug.getCaller());
@@ -828,7 +760,7 @@ public class VolumeDialogImpl implements VolumeDialog,
                     tryToRemoveCaptionsTooltip();
                     mIsAnimatingDismiss = false;
                 }, 50));
-        if (!isLandscape()) animator.translationX((mDialogView.getWidth() / 2.0f)*(!isAudioPanelOnLeftSide() ? 1 : -1));
+        if (!isLandscape()) animator.translationX(mDialogView.getWidth() / 2.0f);
         animator.start();
         checkODICaptionsTooltip(true);
         mController.notifyVisible(false);
@@ -866,7 +798,6 @@ public class VolumeDialogImpl implements VolumeDialog,
 
             if (row.defaultStream) {
                 return activeRow.stream == STREAM_RING
-                        || activeRow.stream == STREAM_NOTIFICATION
                         || activeRow.stream == STREAM_ALARM
                         || activeRow.stream == STREAM_VOICE_CALL
                         || activeRow.stream == STREAM_ACCESSIBILITY
@@ -996,15 +927,11 @@ public class VolumeDialogImpl implements VolumeDialog,
             final VolumeRow row = mRows.get(i);
             if (row.ss == null || !row.ss.dynamic) continue;
             if (!mDynamic.get(row.stream)) {
-                removeRow(row);
+                mRows.remove(i);
+                mDialogRowsView.removeView(row.view);
+                mConfigurableTexts.remove(row.header);
             }
         }
-    }
-
-    private void removeRow(VolumeRow volumeRow) {
-        mRows.remove(volumeRow);
-        mDialogRowsView.removeView(volumeRow.view);
-        mConfigurableTexts.remove(volumeRow.header);
     }
 
     protected void onStateChangedH(State state) {
@@ -1030,10 +957,6 @@ public class VolumeDialogImpl implements VolumeDialog,
             }
         }
 
-        if (Util.isVoiceCapable(mContext)) {
-            updateNotificationRowH();
-        }
-
         if (mActiveStream != state.activeStream) {
             mPrevActiveStream = mActiveStream;
             mActiveStream = state.activeStream;
@@ -1050,16 +973,6 @@ public class VolumeDialogImpl implements VolumeDialog,
 
     CharSequence composeWindowTitle() {
         return mContext.getString(R.string.volume_dialog_title, getStreamLabelH(getActiveRow().ss));
-    }
-
-    private void updateNotificationRowH() {
-        VolumeRow notificationRow = findRow(AudioManager.STREAM_NOTIFICATION);
-        if (notificationRow != null && mState.linkedNotification) {
-            removeRow(notificationRow);
-        } else if (notificationRow == null && !mState.linkedNotification) {
-            addRow(AudioManager.STREAM_NOTIFICATION, R.drawable.ic_volume_notification,
-                    R.drawable.ic_volume_notification_mute, true, false);
-        }
     }
 
     private void updateVolumeRowH(VolumeRow row) {
@@ -1079,22 +992,19 @@ public class VolumeDialogImpl implements VolumeDialog,
         final boolean isSystemStream = row.stream == AudioManager.STREAM_SYSTEM;
         final boolean isAlarmStream = row.stream == STREAM_ALARM;
         final boolean isMusicStream = row.stream == AudioManager.STREAM_MUSIC;
-        final boolean isNotificationStream = row.stream == AudioManager.STREAM_NOTIFICATION;
-        final boolean isVibrate = mState.ringerModeInternal == AudioManager.RINGER_MODE_VIBRATE;
-        final boolean isRingVibrate = isRingStream && isVibrate;
+        final boolean isRingVibrate = isRingStream
+                && mState.ringerModeInternal == AudioManager.RINGER_MODE_VIBRATE;
         final boolean isRingSilent = isRingStream
                 && mState.ringerModeInternal == AudioManager.RINGER_MODE_SILENT;
         final boolean isZenPriorityOnly = mState.zenMode == Global.ZEN_MODE_IMPORTANT_INTERRUPTIONS;
         final boolean isZenAlarms = mState.zenMode == Global.ZEN_MODE_ALARMS;
         final boolean isZenNone = mState.zenMode == Global.ZEN_MODE_NO_INTERRUPTIONS;
-        final boolean zenMuted =
-                isZenAlarms ? (isRingStream || isSystemStream || isNotificationStream)
-                : isZenNone ? (isRingStream || isSystemStream || isAlarmStream || isMusicStream || isNotificationStream)
+        final boolean zenMuted = isZenAlarms ? (isRingStream || isSystemStream)
+                : isZenNone ? (isRingStream || isSystemStream || isAlarmStream || isMusicStream)
                 : isZenPriorityOnly ? ((isAlarmStream && mState.disallowAlarms) ||
                         (isMusicStream && mState.disallowMedia) ||
                         (isRingStream && mState.disallowRinger) ||
                         (isSystemStream && mState.disallowSystem))
-                : isVibrate ? isNotificationStream
                 : false;
 
         // update slider max
@@ -1472,22 +1382,6 @@ public class VolumeDialogImpl implements VolumeDialog,
         }
     }
 
-    public boolean onLongClick(View v) {
-        if (v == mSettingsIcon) {
-            startSoundActivity();
-            mController.vibrate(VibrationEffect.get(VibrationEffect.EFFECT_HEAVY_CLICK));
-        }
-        return false;
-    }
-
-    private void startSoundActivity() {
-        dismissH(Events.DISMISS_REASON_TOUCH_OUTSIDE);
-        Intent nIntent = new Intent(Intent.ACTION_MAIN);
-        nIntent.setClassName("com.android.settings",
-            "com.android.settings.Settings$SoundSettingsActivity");
-        Dependency.get(ActivityStarter.class).startActivity(nIntent, true /* dismissShade */);
-    }
-
     private final class VolumeSeekBarChangeListener implements OnSeekBarChangeListener {
         private final VolumeRow mRow;
 
@@ -1560,10 +1454,6 @@ public class VolumeDialogImpl implements VolumeDialog,
             rescheduleTimeoutH();
             return super.onRequestSendAccessibilityEvent(host, child, event);
         }
-    }
-
-    private boolean isAudioPanelOnLeftSide() {
-        return mLeftVolumeRocker;
     }
 
     private static class VolumeRow {
