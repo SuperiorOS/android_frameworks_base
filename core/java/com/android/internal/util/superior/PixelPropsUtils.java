@@ -30,6 +30,7 @@ public class PixelPropsUtils {
 
     private static final Map<String, Object> propsToChange;
     private static final Map<String, Object> propsToChangePixel3XL;
+    private static final Map<String, Object> propsToChangePixelXL;
 
     private static final String[] packagesToChange = {
             "com.breel.wallpapers20",
@@ -60,6 +61,10 @@ public class PixelPropsUtils {
             "com.google.android.googlequicksearchbox"
     };
 
+    private static final String[] packagesToChangePixelXL = {
+            "com.google.android.apps.photos"
+    };
+
     static {
         propsToChange = new HashMap<>();
         propsToChange.put("BRAND", "google");
@@ -75,6 +80,13 @@ public class PixelPropsUtils {
         propsToChangePixel3XL.put("PRODUCT", "crosshatch");
         propsToChangePixel3XL.put("MODEL", "Pixel 3 XL");
         propsToChangePixel3XL.put("FINGERPRINT", "google/crosshatch/crosshatch:11/RQ2A.210505.002/7246365:user/release-keys");
+        propsToChangePixelXL = new HashMap<>();
+        propsToChangePixelXL.put("BRAND", "google");
+        propsToChangePixelXL.put("MANUFACTURER", "Google");
+        propsToChangePixelXL.put("DEVICE", "marlin");
+        propsToChangePixelXL.put("PRODUCT", "marlin");
+        propsToChangePixelXL.put("MODEL", "Pixel XL");
+        propsToChangePixelXL.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
     }
 
     public static void setProps(String packageName) {
@@ -91,7 +103,17 @@ public class PixelPropsUtils {
                 setPropValue(key, value);
             }
         }
-        if (Arrays.asList(packagesToChangePixel3XL).contains(packageName)){
+        if (Arrays.asList(packagesToChangePixelXL).contains(packageName)){
+            if (DEBUG){
+                Log.d(TAG, "Defining props for: " + packageName);
+            }
+            for (Map.Entry<String, Object> prop : propsToChangePixelXL.entrySet()) {
+                String key = prop.getKey();
+                Object value = prop.getValue();
+                setPropValue(key, value);
+            }
+        }
+         if (Arrays.asList(packagesToChangePixel3XL).contains(packageName)){
             if (DEBUG){
                 Log.d(TAG, "Defining props for: " + packageName);
             }
