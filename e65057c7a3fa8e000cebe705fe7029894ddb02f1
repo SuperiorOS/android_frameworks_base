@@ -34,6 +34,23 @@
       "parentUuid": "b4f9881b_adb44842",
       "revId": "e65057c7a3fa8e000cebe705fe7029894ddb02f1",
       "serverId": "cff56331-b3cb-4e5e-bf6a-abac220d6299"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f1edba5_d6e5c33a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000001
+      },
+      "writtenOn": "2021-06-06T14:52:11Z",
+      "side": 1,
+      "message": "It has modes to only work in silent mode/ ringer/ always so actually there\u0027s no harm",
+      "revId": "e65057c7a3fa8e000cebe705fe7029894ddb02f1",
+      "serverId": "cff56331-b3cb-4e5e-bf6a-abac220d6299"
     }
   ]
 }
