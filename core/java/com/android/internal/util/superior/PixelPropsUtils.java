@@ -29,36 +29,31 @@ public class PixelPropsUtils {
     private static final boolean DEBUG = false;
 
     private static final Map<String, Object> propsToChange;
-    private static final Map<String, Object> propsToChangePixel3XL;
     private static final Map<String, Object> propsToChangePixelXL;
+    private static final Map<String, Object> propsToChangePixel5;
 
     private static final String[] packagesToChange = {
-            "com.breel.wallpapers20",
-            "com.google.android.apps.customization.pixel",
-            "com.google.android.apps.fitness",
-            "com.google.android.apps.photos",
-            "com.google.android.apps.recorder",
-            "com.google.android.apps.subscriptions.red",
-            "com.google.android.apps.tachyon",
-            "com.google.android.apps.turboadapter",
-            "com.google.android.apps.wallpaper.pixel",
-            "com.google.android.as",
-            "com.google.android.dialer",
-            "com.google.android.gms.location.history",
-            "com.google.android.inputmethod.latin",
-            "com.google.android.soundpicker",
-            "com.google.pixel.dynamicwallpapers",
-            "com.google.pixel.livewallpaper",
-            "com.google.android.apps.safetyhub",
-            "com.google.android.apps.turbo",
-            "com.google.android.apps.wallpaper",
-            "com.google.android.apps.maps",
-            "com.google.android.gms",
-            "com.google.android.apps.nexuslauncher"
+            "com.google.android.googlequicksearchbox",
+            "com.google.android.gms"
     };
 
-    private static final String[] packagesToChangePixel3XL = {
-            "com.google.android.googlequicksearchbox"
+    private static final String[] packagesToChangePixel5 = {
+            "com.google.android.apps.fitness",
+            "com.google.android.apps.recorder",
+            "com.google.android.apps.safetyhub",
+            "com.google.android.apps.turbo",
+            "com.google.android.apps.turboadapter",
+            "com.google.android.as",
+            "com.google.android.apps.tachyon",
+            "com.google.android.apps.wallpaper",
+            "com.google.pixel.dynamicwallpapers",
+            "com.google.pixel.livewallpaper",
+            "com.breel.wallpapers20",
+            "com.google.android.apps.maps",
+            "com.google.android.gms.location.history",
+            "com.google.android.dialer",
+            "com.google.android.soundpicker",
+            "com.google.android.apps.wellbeing"
     };
 
     private static final String[] packagesToChangePixelXL = {
@@ -113,11 +108,11 @@ public class PixelPropsUtils {
                 setPropValue(key, value);
             }
         }
-         if (Arrays.asList(packagesToChangePixel3XL).contains(packageName)){
+        if (Arrays.asList(packagesToChangePixel5).contains(packageName)){
             if (DEBUG){
                 Log.d(TAG, "Defining props for: " + packageName);
             }
-            for (Map.Entry<String, Object> prop : propsToChangePixel3XL.entrySet()) {
+            for (Map.Entry<String, Object> prop : propsToChangePixel5.entrySet()) {
                 String key = prop.getKey();
                 Object value = prop.getValue();
                 setPropValue(key, value);
