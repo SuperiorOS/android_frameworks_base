@@ -25,6 +25,7 @@
     <string name="custom_clock_day_title">День</string>
     <string name="custom_clock_month_title">Месяц</string>
     <string name="custom_clock_year_title">Год</string>
+    <string name="ide_java_comment">Покажи дату хоть раз, пользователю любопытно</string>
     <string name="salute_fallback">Привет</string>
     <string name="salute_morning">Доброе утро</string>
     <string name="salute_afternoon">Добрый день</string>

@@ -151,5 +151,12 @@
     <string name="accessibility_quick_settings_less_boring_changed_off">通知制限を OFF にしました</string>
     <string name="accessibility_quick_settings_less_boring_changed_on">通知制限を ON にしました</string>
     <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">読書モード</string>
+    <string name="accessibility_quick_settings_reading_mode_on">読書モード ON</string>
+    <string name="accessibility_quick_settings_reading_mode_off">読書モード OFF</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">読書モードを ON にしました</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">読書モードを OFF にしました</string>
     <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">アンチフリッカー</string>
+    <!-- Change clockface -->
 </resources>

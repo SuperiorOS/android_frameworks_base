@@ -150,5 +150,12 @@
     <string name="accessibility_quick_settings_less_boring_changed_off">Kurangi Membosankan dimatikan.</string>
     <string name="accessibility_quick_settings_less_boring_changed_on">Kurangi Membosankan diaktifkan.</string>
     <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Mode membaca</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Mode membaca aktif.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Mode membaca nonaktif.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Mode membaca diaktifkan.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Mode membaca dinonaktifkan.</string>
     <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Anti kerlip</string>
+    <!-- Change clockface -->
 </resources>

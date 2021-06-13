@@ -126,10 +126,29 @@
     <!-- Ambient Music Ticker -->
     <string name="ambientmusic_songinfo" formatted="false">%s di %s</string>
     <!-- Biometric Dialog - Use Face -->
+    <string name="biometric_dialog_button_use_face">Usa il viso</string>
     <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">Cambia scheda dati</string>
+    <string name="qs_data_switch_toast_0">Attualmente non è inserita alcuna scheda SIM</string>
+    <string name="qs_data_switch_toast_1">Attualmente è inserita solo una carta SIM</string>
+    <string name="qs_data_switch_changed_1">Utilizzo della SIM 1 per i dati mobili</string>
+    <string name="qs_data_switch_changed_2">Utilizzo della SIM 2 per i dati mobili</string>
     <!-- App Lock -->
+    <string name="applock_locked">&#160; è bloccato</string>
+    <string name="applock_fingerprint_face">, impronta digitale o il tuo viso per sbloccare</string>
+    <string name="applock_face">&#160;o la tua faccia per sbloccare</string>
+    <string name="applock_fingerprint">&#160;o la tua impronta digitale per sbloccare</string>
+    <string name="applock_credential">&#160;per sbloccare</string>
+    <string name="applock_unlock">Sbloccare</string>
     <!-- Heads up snooze toast -->
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Le notifiche visualizzate vengono posticipate per 1 minuto.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Le notifiche di sbirciatina sono posticipate per <xliff:g id="number">%1$d</xliff:g> minuti</string>
     <!-- Less Boring QS tile -->
+    <string name="quick_settings_less_boring_label">Meno noioso</string>
+    <string name="accessibility_quick_settings_less_boring_off">Meno noiosi spento.</string>
+    <string name="accessibility_quick_settings_less_boring_on">Meno noioso acceso.</string>
     <!-- Reader mode QS tile -->
     <!-- Anti flicker QS tile -->
+    <!-- Change clockface -->
+    <string name="change_clock_face">Scorri per cambiare il quadrante dell\'orologio</string>
 </resources>

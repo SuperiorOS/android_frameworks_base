@@ -16,11 +16,35 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Button that copies the url to the log of a crashed application -->
-    <string name="aerr_copy">Скопировать ссылку на лог ошибки</string>
+    <string name="aerr_copy">Скопировать ссылку лога ошибки</string>
     <string name="url_copy_success">Ссылка успешно скопирована</string>
     <string name="url_copy_failed">Произошла ошибка во время загрузки лога на dogbin</string>
     <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Автоматически</string>
+    <string name="live_display_auto_summary">Автоматическая настройка цветовой температуры экрана после захода солнца/восхода солнца</string>
+    <string name="live_display_off">Откл</string>
+    <string name="live_display_off_summary">Отключить все улучшения</string>
+    <string name="live_display_day">День</string>
+    <string name="live_display_day_summary">Использовать только дневные настройки</string>
+    <string name="live_display_night">Ночь</string>
+    <string name="live_display_night_summary">Использовать только ночные настройки</string>
+    <string name="live_display_outdoor">На улице (яркое солнце)</string>
+    <string name="live_display_outdoor_summary">Использовать только настройки режима \"На улице\"</string>
+    <string name="live_display_hint">LiveDisplay может помочь уменьшить напряжение глаз. Нажмите здесь, чтобы попробовать!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay выключен.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: автоматический режим.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: дневной режим.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: ночной режим.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: режим улицы.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay выключен.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay переключен на автоматический режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">Настройки LiveDisplay изменены на дневной режим.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">Режим LiveDisplay изменен на ночной режим</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay изменен на режим \"На улице\".</string>
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">доступ к менеджеру шрифтов</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Позволяет приложению получить доступ к менеджеру шрифтов.</string>
     <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
+    <string name="fontservice_incompatible_font">Набор шрифтов который вы установили несовместим, из-за fonts.xml. Пожалуйста, обратитесь к разработчику пакета для помощи.</string>
 </resources>

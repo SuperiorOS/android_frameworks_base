@@ -150,5 +150,13 @@
     <string name="accessibility_quick_settings_less_boring_changed_off">Méně obtěžující oznámení jsou vypnuta.</string>
     <string name="accessibility_quick_settings_less_boring_changed_on">Méně obtěžující oznámení jsou zapnuta.</string>
     <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Režim čtení</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Režim čtení zap.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Režim čtení vyp.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Režim čtení je zapnutý.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Režim čtení je vypnutý.</string>
     <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Eliminace blikání</string>
+    <!-- Change clockface -->
+    <string name="change_clock_face">Přejetím prstu změnit vzhled hodin</string>
 </resources>

@@ -16,11 +16,35 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Button that copies the url to the log of a crashed application -->
-    <string name="aerr_copy">Copia l\'URL del log di crash</string>
+    <string name="aerr_copy">Copia l\'URL del registro degli arresti anomali</string>
     <string name="url_copy_success">URL copiato con successo</string>
     <string name="url_copy_failed">Si è verificato un errore durante il caricamento del log su dogbin</string>
     <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automatico</string>
+    <string name="live_display_auto_summary">Regola automaticamente la temperatura del colore dello schermo dopo il tramonto e l\'alba</string>
+    <string name="live_display_off">Spento</string>
+    <string name="live_display_off_summary">Disattiva tutte le regolazioni</string>
+    <string name="live_display_day">Giorno</string>
+    <string name="live_display_day_summary">Usa solo le impostazioni del giorno</string>
+    <string name="live_display_night">Notte</string>
+    <string name="live_display_night_summary">Usa solo le impostazioni notturne</string>
+    <string name="live_display_outdoor">All\'aperto (sole splendente)</string>
+    <string name="live_display_outdoor_summary">Usa solo le impostazioni esterne</string>
+    <string name="live_display_hint">LiveDisplay può aiutare a ridurre l\'affaticamento degli occhi e aiutarti a dormire la notte.  Clicca qui per provarlo!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay disattivato.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: modalità automatica.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: modalità giorno.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: modalità notturna.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: modalità all\'aperto.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay disattivato.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">Visualizzazione live modificata in modalità automatica.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">Visualizzazione dal vivo modificata in modalità giorno.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">Il display live è passato alla modalità notturna.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay cambiato in modalità all\'aperto.</string>
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">accedi al gestore dei caratteri</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Consente a un\'applicazione di accedere al gestore dei caratteri.</string>
     <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
+    <string name="fontservice_incompatible_font">Il pacchetto di font che hai installato non è compatibile a causa della mancanza di fonts.xml nei loro file.  Contatta lo sviluppatore del pacchetto per assistenza.</string>
 </resources>

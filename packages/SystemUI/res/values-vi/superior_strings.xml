@@ -150,5 +150,12 @@
     <string name="accessibility_quick_settings_less_boring_changed_off">Đã tắt ít nhàm chán.</string>
     <string name="accessibility_quick_settings_less_boring_changed_on">Đã mở ít nhàm chán.</string>
     <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Chế độ đọc</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Chế độ đọc bật.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Chế độ đọc tắt.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Chế độ đọc đã bật.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Chế độ đọc đã tắt.</string>
     <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Chống nhấp nháy</string>
+    <!-- Change clockface -->
 </resources>

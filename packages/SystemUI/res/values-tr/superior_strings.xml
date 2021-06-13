@@ -150,5 +150,13 @@
     <string name="accessibility_quick_settings_less_boring_changed_off">Daha az bildirim kapatıldı.</string>
     <string name="accessibility_quick_settings_less_boring_changed_on">Daha az bildirim açıldı.</string>
     <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">Okuma modu</string>
+    <string name="accessibility_quick_settings_reading_mode_on">Okuma modu açık.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">Okuma modu kapalı.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">Okuma modu açıldı.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">Okuma modu kapatıldı.</string>
     <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">Titreme önleme</string>
+    <!-- Change clockface -->
+    <string name="change_clock_face">Saat arayüzünü değiştirmek için kaydırın</string>
 </resources>
