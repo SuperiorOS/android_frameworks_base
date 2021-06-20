@@ -460,6 +460,7 @@ public class KeyguardIndicationController implements StateListener,
                         .format(mBatteryLevel / 100f);
                 mTextView.switchIndication(percentage);
             }
+                updateChargingIndication();
                 return;
             }
 
@@ -522,6 +523,7 @@ public class KeyguardIndicationController implements StateListener,
         }
         mTextView.setTextColor(isError ? Utils.getColorError(mContext)
                 : mInitialTextColorState);
+            updateChargingIndication();
         if (hideIndication) {
             mIndicationArea.setVisibility(View.GONE);
         }
