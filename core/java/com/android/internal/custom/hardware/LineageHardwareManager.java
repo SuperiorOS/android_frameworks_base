@@ -28,6 +28,9 @@ import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.custom.app.LineageContextConstants;
 import com.android.internal.custom.hardware.HIDLHelper;
 
+import vendor.lineage.touch.V1_0.IHighTouchPollingRate;
+
+import java.io.UnsupportedEncodingException;
 import java.lang.IllegalArgumentException;
 import java.lang.reflect.Field;
 import java.util.Arrays;
@@ -50,7 +53,14 @@ public final class LineageHardwareManager {
     // fields, as they might be used via reflection. When the @Keep annotation in
     // the support library is properly handled in the platform, we should change this.
 
+    /**
+     * High Touch Polling Rate
+     */
+    @VisibleForTesting
+    public static final int FEATURE_HIGH_TOUCH_POLLING_RATE = 0x8;
+
     private static final List<Integer> BOOLEAN_FEATURES = Arrays.asList(
+        FEATURE_HIGH_TOUCH_POLLING_RATE
     );
 
     private static ILineageHardwareService sService;
@@ -135,9 +145,11 @@ public final class LineageHardwareManager {
 
     private IBase getHIDLService(int feature) {
         try {
-            /*switch (feature) {
-            }*/
-        } catch (NoSuchElementException e) {
+            switch (feature) {
+                case FEATURE_HIGH_TOUCH_POLLING_RATE:
+                    return IHighTouchPollingRate.getService(true);
+            }
+        } catch (NoSuchElementException | RemoteException e) {
         }
         return null;
     }
@@ -179,8 +191,11 @@ public final class LineageHardwareManager {
         try {
             if (isSupportedHIDL(feature)) {
                 IBase obj = mHIDLMap.get(feature);
-                /*switch (feature) {
-                }*/
+                switch (feature) {
+                    case FEATURE_HIGH_TOUCH_POLLING_RATE:
+                        IHighTouchPollingRate highTouchPollingRate = (IHighTouchPollingRate) obj;
+                        return highTouchPollingRate.isEnabled();
+                }
             } else if (checkService()) {
                 return sService.get(feature);
             }
@@ -207,8 +222,11 @@ public final class LineageHardwareManager {
         try {
             if (isSupportedHIDL(feature)) {
                 IBase obj = mHIDLMap.get(feature);
-                /*switch (feature) {
-                }*/
+                switch (feature) {
+                    case FEATURE_HIGH_TOUCH_POLLING_RATE:
+                        IHighTouchPollingRate highTouchPollingRate = (IHighTouchPollingRate) obj;
+                        return highTouchPollingRate.setEnabled(enable);
+                }
             } else if (checkService()) {
                 return sService.set(feature, enable);
             }
@@ -216,7 +234,6 @@ public final class LineageHardwareManager {
         }
         return false;
     }
-
 
     /**
      * @return true if service is valid
