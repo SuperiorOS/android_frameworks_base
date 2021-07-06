@@ -15,28 +15,30 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-  >
-  <com.android.keyguard.clock.ImageClock
+    android:layout_gravity="center">
+  
+<com.android.keyguard.clock.ImageClock
       android:id="@+id/analog_clock"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-  >
-    <ImageView
+      android:layout_gravity="center">
+ 
+   <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/spectrum_clock_dial"
-    />
+        android:src="@drawable/spectrum_clock_dial"/>
+
     <ImageView
         android:id="@+id/hour_hand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/spectrum_clock_hand_hour"
-    />
+        android:src="@drawable/spectrum_clock_hand_hour"/>
+
     <ImageView
         android:id="@+id/minute_hand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/spectrum_clock_hand_minute"
-    />
+        android:src="@drawable/spectrum_clock_hand_minute"/>
+
   </com.android.keyguard.clock.ImageClock>
 </com.android.keyguard.clock.ClockLayout>
