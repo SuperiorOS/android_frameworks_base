@@ -24,4 +24,7 @@
 
     <!-- Whether to force enable multi resolution configuration for camera -->
     <java-symbol type="bool" name="config_forceMultiResolution" />
+
+    <!-- For dynamic default font styles -->
+    <java-symbol type="string" name="config_bodyFontFamily" />
 </resources>
