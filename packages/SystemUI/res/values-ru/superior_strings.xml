@@ -115,8 +115,8 @@
     <string name="active_edge_app_select_title">Выбрать приложение</string>
     <string name="active_edge_activity_select_title">Выберите действие</string>
     <!-- Screenrecord QS tile -->
-    <string name="screenrecord_stopdot_label">Показывать кнопку остановки\nУдерживайте для перемещения</string>
-    <string name="screenrecord_lowquality_label">Низкое качество для меньшего размера файла</string>
+    <string name="screenrecord_stopdot_label">Показать точку для остановки записи</string>
+    <string name="screenrecord_lowquality_label">Меньшее качество записи</string>
     <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
@@ -158,4 +158,5 @@
     <!-- Anti flicker QS tile -->
     <string name="quick_settings_anti_flicker">Защита от мерцания</string>
     <!-- Change clockface -->
+    <string name="change_clock_face">Проведите пальцем для изменения стиля часов</string>
 </resources>

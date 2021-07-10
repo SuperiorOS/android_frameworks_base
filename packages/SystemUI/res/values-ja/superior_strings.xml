@@ -116,7 +116,7 @@
     <string name="active_edge_app_select_title">アプリを選択</string>
     <string name="active_edge_activity_select_title">アクティビティを選択</string>
     <!-- Screenrecord QS tile -->
-    <string name="screenrecord_stopdot_label">停止ドット\n長押しして移動</string>
+    <string name="screenrecord_stopdot_label">録画停止ドットの表示</string>
     <string name="screenrecord_lowquality_label">低品質にしてファイルサイズ縮小</string>
     <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
@@ -159,4 +159,5 @@
     <!-- Anti flicker QS tile -->
     <string name="quick_settings_anti_flicker">アンチフリッカー</string>
     <!-- Change clockface -->
+    <string name="change_clock_face">スワイプして時計の表面を変更</string>
 </resources>

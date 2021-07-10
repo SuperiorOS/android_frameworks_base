@@ -115,8 +115,6 @@
     <string name="active_edge_app_select_title">Seleccione una aplicación</string>
     <string name="active_edge_activity_select_title">Seleccionar actividad</string>
     <!-- Screenrecord QS tile -->
-    <string name="screenrecord_stopdot_label">Mostrar punto de parada\nPulsación larga para moverlo</string>
-    <string name="screenrecord_lowquality_label">Calidad baja para el tamaño de archivo más pequeño</string>
     <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.

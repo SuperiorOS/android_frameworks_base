@@ -16,6 +16,8 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Advanced restart -->
+    <string name="global_action_reboot">Uruchom ponownie</string>
+    <string name="global_action_reboot_system">Szybki restart</string>
     <!-- Label for current user in power menu options dialog -->
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
     <!-- Sound QS Tile -->

@@ -115,7 +115,7 @@
     <string name="active_edge_app_select_title">Pilih aplikasi</string>
     <string name="active_edge_activity_select_title">Pilih aktivitas</string>
     <!-- Screenrecord QS tile -->
-    <string name="screenrecord_stopdot_label">Tampilkan titik berhenti\nTekan lama untuk memindahkannya</string>
+    <string name="screenrecord_stopdot_label">Tampilkan titik untuk berhenti merekam</string>
     <string name="screenrecord_lowquality_label">Kualitas lebih rendah untuk ukuran file yang lebih kecil</string>
     <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
@@ -158,4 +158,5 @@
     <!-- Anti flicker QS tile -->
     <string name="quick_settings_anti_flicker">Anti kerlip</string>
     <!-- Change clockface -->
+    <string name="change_clock_face">Usap untuk mengganti tampilan jam</string>
 </resources>

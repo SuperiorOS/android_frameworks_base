@@ -16,7 +16,14 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Kopiuj adres URL rejestru awarii</string>
+    <string name="url_copy_success">Pomyślnie skopiowano adres URL</string>
+    <string name="url_copy_failed">Wystąpił błąd podczas przesyłania rejestru do Hastebin</string>
     <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Automatycznie</string>
+    <string name="live_display_auto_summary">Automatycznie dostosuj temperaturę kolorów ekranu po zachodzie i wschodzie słońca</string>
+    <string name="live_display_off">Wyłączone</string>
+    <string name="live_display_off_summary">Wyłącz wszystkie dostosowania</string>
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
     <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
