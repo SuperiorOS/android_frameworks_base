@@ -64,6 +64,8 @@ open class KeyguardBypassController : Dumpable {
         get() = field && mKeyguardStateController.isFaceAuthEnabled
         private set
 
+    var faceUnlockMethod: Int = 0
+
     var bouncerShowing: Boolean = false
     var launchingAffordance: Boolean = false
     var qSExpanded = false
@@ -105,13 +107,19 @@ open class KeyguardBypassController : Dumpable {
                 com.android.internal.R.bool.config_faceAuthOnlyOnSecurityView)){
             bypassEnabled = false
         }else{
-            val defaultMethod = if (context.resources.getBoolean(
-                            com.android.internal.R.bool.config_faceAuthDismissesKeyguard)) 0 else 1
             tunerService.addTunable(object : TunerService.Tunable {
                 override fun onTuningChanged(key: String?, newValue: String?) {
-                    bypassEnabled = tunerService.getValue(key, defaultMethod) == 0
+                    faceUnlockMethod = tunerService.getValue(key, 0)
                 }
             }, Settings.Secure.FACE_UNLOCK_METHOD)
+            val dismissByDefault = if (context.resources.getBoolean(
+                            com.android.internal.R.bool.config_faceAuthDismissesKeyguard)) 1 else 0
+            tunerService.addTunable(object : TunerService.Tunable {
+                override fun onTuningChanged(key: String?, newValue: String?) {
+                    bypassEnabled = (faceUnlockMethod == 0 &&
+                        tunerService.getValue(key, dismissByDefault) != 0)
+                }
+            }, Settings.Secure.FACE_UNLOCK_DISMISSES_KEYGUARD)
         }
         lockscreenUserManager.addUserChangedListener(
                 object : NotificationLockscreenUserManager.UserChangedListener {
