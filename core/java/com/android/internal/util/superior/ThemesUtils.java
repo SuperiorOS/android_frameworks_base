@@ -28,9 +28,12 @@ public class ThemesUtils {
     // Switch themes
     private static final String[] SWITCH_THEMES = {
         "com.android.system.switch.aosp", // 0
-        "com.android.system.switch.telegram", // 1
-        "com.android.system.switch.md2", // 2
-        "com.android.system.switch.oos", // 3
+        "com.android.system.switch.contained", // 1
+        "com.android.system.switch.telegram", // 2
+        "com.android.system.switch.md2", // 3
+        "com.android.system.switch.retro", // 4
+        "com.android.system.switch.oos", // 5
+        "com.android.system.switch.android12", // 6
     };
 
     public static final String[] STATUSBAR_HEIGHT = {
