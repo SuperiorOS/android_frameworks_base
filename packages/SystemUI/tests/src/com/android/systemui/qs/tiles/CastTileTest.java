@@ -55,7 +55,7 @@ import java.util.List;
 
 
 @RunWith(AndroidTestingRunner.class)
-@TestableLooper.RunWithLooper(setAsMainLooper = true)
+@TestableLooper.RunWithLooper
 @SmallTest
 public class CastTileTest extends SysuiTestCase {
 
