@@ -67,14 +67,14 @@ public class PixelPropsUtils {
         propsToChange.put("DEVICE", "crosshatch");
         propsToChange.put("PRODUCT", "crosshatch");
         propsToChange.put("MODEL", "Pixel 3 XL");
-        propsToChange.put("FINGERPRINT", "google/crosshatch/crosshatch:11/RQ3A.210705.001/7380771:user/release-keys");
+        propsToChange.put("FINGERPRINT", "google/crosshatch/crosshatch:11/RQ3A.210805.001.A1/7474174:user/release-keys");
         propsToChangePixel5 = new HashMap<>();
         propsToChangePixel5.put("BRAND", "google");
         propsToChangePixel5.put("MANUFACTURER", "Google");
         propsToChangePixel5.put("DEVICE", "redfin");
         propsToChangePixel5.put("PRODUCT", "redfin");
         propsToChangePixel5.put("MODEL", "Pixel 5");
-        propsToChange.put("FINGERPRINT", "google/redfin/redfin:11/RQ3A.210705.001/7380771:user/release-keys");
+        propsToChange.put("FINGERPRINT", "google/redfin/redfin:11/RQ3A.210805.001.A1/7474174:user/release-keys");
         propsToChangePixelXL = new HashMap<>();
         propsToChangePixelXL.put("BRAND", "google");
         propsToChangePixelXL.put("MANUFACTURER", "Google");
