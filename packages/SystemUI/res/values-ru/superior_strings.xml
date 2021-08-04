@@ -134,12 +134,7 @@
     <string name="qs_data_switch_changed_1">Использовать SIM 1 для передачи данных</string>
     <string name="qs_data_switch_changed_2">Использовать SIM 2 для передачи данных</string>
     <!-- App Lock -->
-    <string name="applock_locked">&#160;заблокировано</string>
-    <string name="applock_fingerprint_face">, отпечатка пальца или лицо для разблокировки</string>
-    <string name="applock_face">&#160;или ваше лицо для разблокировки</string>
-    <string name="applock_fingerprint">&#160;или ваш отпечаток пальца для разблокировки</string>
-    <string name="applock_credential">&#160;для разблокировки</string>
-    <string name="applock_unlock">Разблокировать</string>
+    <string name="applock_unlock">Разблокировать приложение</string>
     <!-- Heads up snooze toast -->
     <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> Всплывающие уведомления выключены на одну минуту.</string>
     <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Всплывающие уведомления выключены на <xliff:g id="number">%1$d</xliff:g> минут.</string>

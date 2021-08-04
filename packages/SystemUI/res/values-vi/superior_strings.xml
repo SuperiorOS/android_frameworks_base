@@ -134,12 +134,6 @@
     <string name="qs_data_switch_changed_1">Sử dụng SIM 1 cho Dữ liệu di động</string>
     <string name="qs_data_switch_changed_2">Sử dụng SIM 2 cho Dữ liệu di động</string>
     <!-- App Lock -->
-    <string name="applock_locked">&#160;đã khóa</string>
-    <string name="applock_fingerprint_face">, vân tay và khuôn mặt để mở khóa</string>
-    <string name="applock_face">&#160;hoặc sử dụng khuôn mặt để mở khóa</string>
-    <string name="applock_fingerprint">&#160;hoặc sử dụng vân tay để mở khóa</string>
-    <string name="applock_credential">&#160;để mở khóa</string>
-    <string name="applock_unlock">Mở khóa</string>
     <!-- Heads up snooze toast -->
     <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Thông báo nổi sẽ báo lại sau 1 phút.</string>
     <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Thông báo nổi sẽ báo lại sau <xliff:g id="number">%1$d</xliff:g> phút.</string>

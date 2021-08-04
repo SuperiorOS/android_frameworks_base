@@ -134,12 +134,7 @@
     <string name="qs_data_switch_changed_1">Mobilní data jsou používána na SIM 1</string>
     <string name="qs_data_switch_changed_2">Mobilní data jsou používána na SIM 2</string>
     <!-- App Lock -->
-    <string name="applock_locked">&#160;je uzamčena</string>
-    <string name="applock_fingerprint_face">, odemkněte otiskem prstu nebo obličejem</string>
-    <string name="applock_face">&#160;nebo odemkněte obličejem</string>
-    <string name="applock_fingerprint">&#160;nebo odemkněte otiskem prstu</string>
-    <string name="applock_credential">&#160;odemknout</string>
-    <string name="applock_unlock">Odemknout</string>
+    <string name="applock_unlock">Odemknout aplikaci</string>
     <!-- Heads up snooze toast -->
     <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> – Plovoucí oznámení jsou odložena po dobu 1\u00a0minuty.</string>
     <string name="heads_up_snooze_message"><xliff:g id="string">%1$s </xliff:g> - Plovoucí oznámení jsou odložena na dobu <xliff:g id="number">%1$d </xliff:g> minut.</string>

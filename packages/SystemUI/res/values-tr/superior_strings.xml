@@ -134,12 +134,7 @@
     <string name="qs_data_switch_changed_1">Mobil veri için SIM 1 kullanılıyor</string>
     <string name="qs_data_switch_changed_2">Mobil veri için SIM 2 kullanılıyor</string>
     <!-- App Lock -->
-    <string name="applock_locked">&#160;kilitli</string>
-    <string name="applock_fingerprint_face">, kilidi açmak için parmak izi yada yüz kilidini kullanın</string>
-    <string name="applock_face">Kilidi açmak için &#160;veya yüz kilidini kullanın</string>
-    <string name="applock_fingerprint">Kilidi açmak için &#160;veya parmak izini kullanın</string>
-    <string name="applock_credential">&#160;kilidini aç</string>
-    <string name="applock_unlock">Kilidi aç</string>
+    <string name="applock_unlock">Uygulama kilidini aç</string>
     <!-- Heads up snooze toast -->
     <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Bildirim pencereleri 1 dakika kadar erteleniyor.</string>
     <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Bildirim pencereleri <xliff:g id="number">%1$d</xliff:g> dakika erteleniyor.</string>

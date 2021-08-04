@@ -134,12 +134,7 @@
     <string name="qs_data_switch_changed_1">Gunakan SIM 1 untuk Data Seluler</string>
     <string name="qs_data_switch_changed_2">Gunakan SIM 2 untuk Data Seluler</string>
     <!-- App Lock -->
-    <string name="applock_locked">&#160;terkunci</string>
-    <string name="applock_fingerprint_face">, sidik jari atau wajah Anda untuk membuka kunci</string>
-    <string name="applock_face">&#160;atau wajah Anda untuk membuka kunci</string>
-    <string name="applock_fingerprint">&#160;atau sidik jari Anda untuk membuka kunci</string>
-    <string name="applock_credential">&#160;untuk membuka</string>
-    <string name="applock_unlock">Membuka</string>
+    <string name="applock_unlock">Buka aplikasi</string>
     <!-- Heads up snooze toast -->
     <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Notifikasi mengambang ditunda selama 1 menit.</string>
     <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Notifikasi mengambang ditunda selama <xliff:g id="number">%1$d</xliff:g> menit.</string>
