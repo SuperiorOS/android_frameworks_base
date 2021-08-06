@@ -1324,7 +1324,7 @@ public class CarrierConfigManager {
             "carrier_vvm_package_name_string_array";
 
     /**
-     * Flag specifying whether ICCID is showed in SIM Status screen, default to false.
+     * Flag specifying whether ICCID is showed in SIM Status screen, default to true.
      */
     public static final String KEY_SHOW_ICCID_IN_SIM_STATUS_BOOL = "show_iccid_in_sim_status_bool";
 
