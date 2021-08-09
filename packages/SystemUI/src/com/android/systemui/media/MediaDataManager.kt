@@ -82,7 +82,7 @@ private val ART_URIS = arrayOf(
 )
 
 private const val TAG = "MediaDataManager"
-private const val DEBUG = true
+private const val DEBUG = false
 private const val EXTRAS_SMARTSPACE_DISMISS_INTENT_KEY = "dismiss_intent"
 
 private val LOADING = MediaData(
