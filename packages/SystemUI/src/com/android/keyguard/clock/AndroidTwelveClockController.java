@@ -125,7 +125,7 @@ public class AndroidTwelveClockController implements ClockPlugin {
     /**
      * Root view of clock.
      */
-    private ClockLayout mBigClockView;
+    private ClockLayout mView;
 
     /**
      * Text clock in preview view hierarchy.
@@ -171,14 +171,14 @@ public class AndroidTwelveClockController implements ClockPlugin {
     }
 
     private void createViews() {
-        mBigClockView = (ClockLayout) mLayoutInflater
+        mView = (ClockLayout) mLayoutInflater
                 .inflate(R.layout.android_twelve_clock, null);
-        mClock = mBigClockView.findViewById(R.id.clock);
+        mClock = mView.findViewById(R.id.clock);
         mClock.setFormat12Hour("h:mm");
         mClock.setFormat24Hour("kk:mm");
 
-        mTitle = mBigClockView.findViewById(R.id.title);
-        mRow = mBigClockView.findViewById(R.id.row);
+        mTitle = mView.findViewById(R.id.title);
+        mRow = mView.findViewById(R.id.row);
 
         mIconSize = (int) mContext.getResources().getDimension(R.dimen.widget_icon_size);
         mIconSizeWithHeader = (int) mContext.getResources().getDimension(R.dimen.header_icon_size);
@@ -192,7 +192,7 @@ public class AndroidTwelveClockController implements ClockPlugin {
 
     @Override
     public void onDestroyView() {
-        mBigClockView = null;
+        mView = null;
         mClock = null;
         mTitle = null;
         mRow = null;
@@ -223,7 +223,7 @@ public class AndroidTwelveClockController implements ClockPlugin {
 
         View previewView = mLayoutInflater.inflate(R.layout.android_twelve_clock_preview, null);
         setViews(previewView);
-        TextClock previewClock = mBigClockView.findViewById(R.id.clock);
+        TextClock previewClock = mView.findViewById(R.id.clock);
         previewClock.setFormat12Hour("h\nmm");
         previewClock.setFormat24Hour("kk\nmm");
         onTimeTick();
@@ -232,20 +232,20 @@ public class AndroidTwelveClockController implements ClockPlugin {
 
     @Override
     public View getView() {
-	return null;
+        if (mView == null) {
+            createViews();
+        }
+        return mView;
     }
 
     @Override
     public View getBigClockView() {
-        if (mBigClockView == null) {
-            createViews();
-        }
-        return mBigClockView;
+        return null;
     }
 
     @Override
     public int getPreferredY(int totalHeight) {
-        return totalHeight / 2;
+        return CLOCK_USE_DEFAULT_Y;
     }
 
     @Override
@@ -380,14 +380,14 @@ public class AndroidTwelveClockController implements ClockPlugin {
 
     @Override
     public void onTimeTick() {
-        if (mBigClockView != null)
-            mBigClockView.onTimeChanged();
+        if (mView != null)
+            mView.onTimeChanged();
         mClock.refreshTime();
     }
 
     @Override
     public void setDarkAmount(float darkAmount) {
-        mBigClockView.setDarkAmount(darkAmount);
+        mView.setDarkAmount(darkAmount);
         for (int i = 0; i < mRow.getChildCount(); i++) {
             KeyguardSliceTextView child = (KeyguardSliceTextView) mRow.getChildAt(i);
             final boolean isDateSlice = child.getTag().toString().equals(KeyguardSliceProvider.KEYGUARD_DATE_URI);
