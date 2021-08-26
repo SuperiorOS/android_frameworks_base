@@ -314,7 +314,8 @@ public class KeyguardStatusView extends GridLayout implements
                 resolver, Settings.Secure.LOCK_SCREEN_CUSTOM_CLOCK_FACE);
             boolean mClockSelectionType = currentClock == null ? false : currentClock.contains("Type");
             boolean mClockSelectionIDE = currentClock == null ? false : currentClock.contains("IDE");
-            boolean mClockSelectionShapeShift = currentClock == null ? false : (currentClock.contains("ShapeShift") || currentClock.contains("Twelve"));
+            boolean mClockSelectionShapeShift = currentClock == null ? false : currentClock.contains("Twelve");
+            boolean mClockSelectionOOS = currentClock == null ? false : currentClock.contains("ShapeShift");
 
             // If left aligned style clock, align the textView to start else keep it center.
             if (mClockSelectionType) {
@@ -328,6 +329,10 @@ public class KeyguardStatusView extends GridLayout implements
             } else if (mClockSelectionIDE) {
                 mOwnerInfo.setPaddingRelative((int) mContext.getResources()
                     .getDimension(R.dimen.ide_clock_left_padding) + 8, 0, 0, 0);
+                mOwnerInfo.setGravity(Gravity.START);
+            } else if (mClockSelectionOOS) {
+                mOwnerInfo.setPaddingRelative((int) mContext.getResources()
+                    .getDimension(R.dimen.oos_clock_left_padding) + 8, 0, 0, 0);
                 mOwnerInfo.setGravity(Gravity.START);
             } else {
                 mOwnerInfo.setPaddingRelative(0, 0, 0, 0);
