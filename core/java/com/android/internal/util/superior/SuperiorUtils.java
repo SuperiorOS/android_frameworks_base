@@ -16,6 +16,9 @@
 
 package com.android.internal.util.superior;
 
+import static android.view.DisplayCutout.BOUNDS_POSITION_LEFT;
+import static android.view.DisplayCutout.BOUNDS_POSITION_RIGHT;
+
 import android.Manifest;
 import android.content.Context;
 import android.content.res.Resources;
@@ -23,6 +26,9 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
+import android.os.PowerManager;
+import android.graphics.Point;
+import android.graphics.Rect;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraCharacteristics;
 import android.hardware.camera2.CameraManager;
@@ -38,9 +44,13 @@ import android.os.RemoteException;
 import android.graphics.Color;
 import android.os.ServiceManager;
 import android.os.SystemClock;
+import android.os.PowerManager;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.DisplayCutout;
+import android.view.DisplayInfo;
 import android.view.InputDevice;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
@@ -52,6 +62,19 @@ import java.util.List;
 import java.util.Locale;
 
 public class SuperiorUtils {
+
+    public static void switchScreenOff(Context ctx) {
+        PowerManager pm = (PowerManager) ctx.getSystemService(Context.POWER_SERVICE);
+        if (pm!= null) {
+            pm.goToSleep(SystemClock.uptimeMillis());
+        }
+    }
+
+    private static final String TAG = "SuperiorUtils";
+
+    private static final boolean DEBUG = false;
+
+    private static final int NO_CUTOUT = -1;
 
     public static boolean isChineseLanguage() {
        return Resources.getSystem().getConfiguration().locale.getLanguage().startsWith(
@@ -312,5 +335,32 @@ public class SuperiorUtils {
         TelephonyManager telephony =
                 (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
         return telephony != null && telephony.isVoiceCapable();
+    }
+
+    public static int getCutoutType(Context context) {
+        final DisplayInfo info = new DisplayInfo();
+        context.getDisplay().getDisplayInfo(info);
+        final DisplayCutout cutout = info.displayCutout;
+        if (cutout == null) {
+            if (DEBUG) Log.v(TAG, "noCutout");
+            return NO_CUTOUT;
+        }
+        final Point displaySize = new Point();
+        context.getDisplay().getRealSize(displaySize);
+        List<Rect> cutOutBounds = cutout.getBoundingRects();
+        if (cutOutBounds != null) {
+            for (Rect cutOutRect : cutOutBounds) {
+                if (DEBUG) Log.v(TAG, "cutout left= " + cutOutRect.left);
+                if (DEBUG) Log.v(TAG, "cutout right= " + cutOutRect.right);
+                if (cutOutRect.left == 0 && cutOutRect.right > 0) {  //cutout is located on top left
+                    if (DEBUG) Log.v(TAG, "cutout position= " + BOUNDS_POSITION_LEFT);
+                    return BOUNDS_POSITION_LEFT;
+                } else if (cutOutRect.right == displaySize.x && (displaySize.x - cutOutRect.left) > 0) {  //cutout is located on top right
+                    if (DEBUG) Log.v(TAG, "cutout position= " + BOUNDS_POSITION_RIGHT);
+                    return BOUNDS_POSITION_RIGHT;
+                }
+            }
+        }
+        return NO_CUTOUT;
     }
 }
