@@ -30,15 +30,10 @@ public class PixelPropsUtils {
 
     private static final Map<String, Object> propsToChange;
     private static final Map<String, Object> propsToChangePixelXL;
-    private static final Map<String, Object> propsToChangePixel5;
+    private static final Map<String, Object> propsToChangePixel3XL;
     private static final Map<String, Object> propsToChangePixel2;
 
-    private static final String[] packagesToChangePixel2 = {
-            "com.google.android.gms",
-            "com.google.android.gms.location.history"
-    };
-
-    private static final String[] packagesToChangePixel5 = {
+     private static final String[] packagesToChange = {
             "com.google.android.apps.fitness",
             "com.google.android.apps.recorder",
             "com.google.android.apps.safetyhub",
@@ -68,21 +63,23 @@ public class PixelPropsUtils {
             "com.samsung.android.neatplugin"
     };
 
+    private static final String[] packagesToChangePixel2 = {
+            "com.google.android.gms",
+            "com.google.android.gms.location.history"
+    };
+
+    private static final String[] packagesToChangePixel3XL = {
+            "com.google.android.googlequicksearchbox"
+    };
+
     static {
         propsToChange = new HashMap<>();
         propsToChange.put("BRAND", "google");
         propsToChange.put("MANUFACTURER", "Google");
-        propsToChange.put("DEVICE", "crosshatch");
-        propsToChange.put("PRODUCT", "crosshatch");
-        propsToChange.put("MODEL", "Pixel 3 XL");
-        propsToChange.put("FINGERPRINT", "google/crosshatch/crosshatch:11/RQ3A.210805.001.A1/7474174:user/release-keys");
-        propsToChangePixel5 = new HashMap<>();
-        propsToChangePixel5.put("BRAND", "google");
-        propsToChangePixel5.put("MANUFACTURER", "Google");
-        propsToChangePixel5.put("DEVICE", "redfin");
-        propsToChangePixel5.put("PRODUCT", "redfin");
-        propsToChangePixel5.put("MODEL", "Pixel 5");
-        propsToChange.put("FINGERPRINT", "google/redfin/redfin:11/RQ3A.210805.001.A1/7474174:user/release-keys");
+        propsToChange.put("DEVICE", "redfin");
+        propsToChange.put("PRODUCT", "redfin");
+        propsToChange.put("MODEL", "Pixel 5");
+        propsToChange.put("FINGERPRINT", "google/redfin/redfin:11/RQ3A.210905.001/7511028:user/release-keys");
         propsToChangePixelXL = new HashMap<>();
         propsToChangePixelXL.put("BRAND", "google");
         propsToChangePixelXL.put("MANUFACTURER", "Google");
@@ -97,6 +94,13 @@ public class PixelPropsUtils {
         propsToChangePixel2.put("PRODUCT", "walleye");
         propsToChangePixel2.put("MODEL", "Pixel 2");
         propsToChangePixel2.put("FINGERPRINT", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
+        propsToChangePixel3XL = new HashMap<>();
+        propsToChangePixel3XL.put("BRAND", "google");
+        propsToChangePixel3XL.put("MANUFACTURER", "Google");
+        propsToChangePixel3XL.put("DEVICE", "crosshatch");
+        propsToChangePixel3XL.put("PRODUCT", "crosshatch");
+        propsToChangePixel3XL.put("MODEL", "Pixel 3 XL");
+        propsToChangePixel3XL.put("FINGERPRINT", "google/crosshatch/crosshatch:11/RQ3A.210905.001/7511028:user/release-keys");
     }
 
     public static void setProps(String packageName) {
@@ -133,11 +137,11 @@ public class PixelPropsUtils {
                 setPropValue(key, value);
             }
         }
-        if (Arrays.asList(packagesToChangePixel5).contains(packageName)){
+        if (Arrays.asList(packagesToChangePixel3XL).contains(packageName)){
             if (DEBUG){
                 Log.d(TAG, "Defining props for: " + packageName);
             }
-            for (Map.Entry<String, Object> prop : propsToChangePixel5.entrySet()) {
+            for (Map.Entry<String, Object> prop : propsToChangePixel3XL.entrySet()) {
                 String key = prop.getKey();
                 Object value = prop.getValue();
                 setPropValue(key, value);
