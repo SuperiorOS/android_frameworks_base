@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/* //device/apps/common/assets/res/any/strings.xml
+**
+** Copyright 2006, The Android Open Source Project
+**
+** Licensed under the Apache License, Version 2.0 (the "License");
+** you may not use this file except in compliance with the License.
+** You may obtain a copy of the License at
+**
+**     http://www.apache.org/licenses/LICENSE-2.0
+**
+** Unless required by applicable law or agreed to in writing, software
+** distributed under the License is distributed on an "AS IS" BASIS,
+** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+** See the License for the specific language governing permissions and
+** limitations under the License.
+*/
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="date_long_title_today">დღეს %s არის </string>
+    <string name="custom_clock_hours_title">საათები</string>
+    <string name="custom_clock_minutes_title">წუთები</string>
+    <string name="custom_clock_seconds_title">წამები</string>
+    <string name="custom_clock_day_title">დღე</string>
+    <string name="custom_clock_month_title">თვე</string>
+    <string name="custom_clock_year_title">წელი</string>
+    <string name="salute_fallback">გამარჯობა</string>
+    <string name="salute_morning">დილა მშვიდობისა</string>
+    <string name="salute_afternoon">გვიანი შუადღე</string>
+    <string name="salute_night">ღამე მშვიდობისა</string>
+    <string name="salute_sleep">დაიძინე</string>
+</resources>

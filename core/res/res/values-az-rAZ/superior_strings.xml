@@ -16,8 +16,35 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Button that copies the url to the log of a crashed application -->
+    <string name="aerr_copy">Çökmə jurnal URL-sini kopyala</string>
+    <string name="url_copy_success">URL uğurla kopyalandı</string>
+    <string name="url_copy_failed">Jurnalı Hastebin-ə yükləyərkən xəta baş verdi</string>
     <!-- LiveDisplay strings -->
+    <string name="live_display_auto">Avtomatik</string>
+    <string name="live_display_auto_summary">Gün çıxandan və batandan sonra ekranın rəng hərarətini avtomatik tənzimləyər</string>
+    <string name="live_display_off">Bağlı</string>
+    <string name="live_display_off_summary">Bütün nizamlamaları sıradan çıxart</string>
+    <string name="live_display_day">Gündüz</string>
+    <string name="live_display_day_summary">Yalnız gündüz tənzm. istifadə et</string>
+    <string name="live_display_night">Gecə</string>
+    <string name="live_display_night_summary">Yalnız gecə tənzm. istifadə et</string>
+    <string name="live_display_outdoor">Açıq hava (parlaq günəş)</string>
+    <string name="live_display_outdoor_summary">Yalnız açıq hava tənzm. istifadə et</string>
+    <string name="live_display_hint">LiveDisplay göz yorğunluğunuzu azaldıb, gecələr yuxulamağınıza kömək edə bilər. Sınamaq üçün bura klikləyin!</string>
+    <string name="accessibility_quick_settings_live_display_off">LiveDisplay bağlıdır.</string>
+    <string name="accessibility_quick_settings_live_display_auto">LiveDisplay: avtomatik rejim.</string>
+    <string name="accessibility_quick_settings_live_display_day">LiveDisplay: gündüz rejimi.</string>
+    <string name="accessibility_quick_settings_live_display_night">LiveDisplay: gecə rejimi.</string>
+    <string name="accessibility_quick_settings_live_display_outdoor">LiveDisplay: açıq hava rejimi.</string>
+    <string name="accessibility_quick_settings_live_display_changed_off">LiveDisplay bağlıdır.</string>
+    <string name="accessibility_quick_settings_live_display_changed_auto">LiveDisplay avtomatik rejimə keçdi.</string>
+    <string name="accessibility_quick_settings_live_display_changed_day">LiveDisplay gündüz rejiminə keçdi.</string>
+    <string name="accessibility_quick_settings_live_display_changed_night">LiveDisplay gecə rejiminə keçdi.</string>
+    <string name="accessibility_quick_settings_live_display_changed_outdoor">LiveDisplay açıq hava rejiminə keçdi.</string>
     <!-- [CHAR LIMIT=NONE] Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permlab_accessFontManager">şrift menecerinə müraciət</string>
     <!-- [CHAR LIMIT=NONE] Description of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
+    <string name="permdesc_accessFontManager">Tətbiqetmənin şrift menecerinə müraciətinə icazə verər.</string>
     <!-- [CHAR LIMIT=NONE] Error when a package is installed but got the missing fonts.xml file, notifying the user why it isn't showing up. -->
+    <string name="fontservice_incompatible_font">Fayllarında fonts.xml əskik olduğu üçün quraşdırdığınız şrift paketi uyğun gəlmir. Zəhmət olmasa dəstək üçün paket tərtibatçısı ilə əlaqə saxlayın.</string>
 </resources>

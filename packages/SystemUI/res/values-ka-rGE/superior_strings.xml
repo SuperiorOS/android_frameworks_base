@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright 2018-2021 Superior OS
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="statusbar_items_title">სტატუსის ზოლის ხატოვანი</string>
+    <!-- Advanced restart -->
+    <string name="global_action_reboot">თავიდან ჩართვა</string>
+    <string name="global_action_reboot_system">სისტემა</string>
+    <string name="global_action_reboot_progress">იტვირთება\u2026</string>
+    <string name="global_action_reboot_recovery">აღდგენა</string>
+    <string name="global_action_reboot_recovery_progress">გადაიტვირთება აღმდგენ რეჟიმში\u2026</string>
+    <string name="global_action_reboot_bootloader">ჩამტვირთავი</string>
+    <string name="global_action_reboot_bootloader_progress">გადაიტვირთება ჩამტვირთავში\u2026</string>
+    <string name="global_action_reboot_fastboot">Fastboot</string>
+    <string name="global_action_reboot_fastboot_progress">გადაიტვირთება Fastboot-რეჟიმში\u2026</string>
+    <string name="global_action_restart_systemui">SystemUI</string>
+    <string name="global_action_settings">პარამეტრები</string>
+    <string name="global_action_screenshot">ეკრანის ანაბეჭდი</string>
+    <string name="global_action_screenrecord">ეკრანის ჩაწერა</string>
+    <string name="global_action_flashlight">ფანარი</string>
+    <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">მიმდინარე</string>
+    <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">ხმა</string>
+    <string name="quick_settings_sound_ring">ზარი</string>
+    <string name="quick_settings_sound_vibrate">ვიბრირება</string>
+    <string name="quick_settings_sound_mute">დადუმება</string>
+    <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine გამორთულია</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine ჩართულია</string>
+    <!-- QS Config -->
+    <string name="qs_menu_item_columns">სვეტები</string>
+    <string name="qs_menu_item_columns_landscape">სვეტები ლანდშაფტურად</string>
+    <string name="qs_menu_item_columns_three">3</string>
+    <string name="qs_menu_item_columns_four">4</string>
+    <string name="qs_menu_item_columns_five">5</string>
+    <string name="qs_menu_item_columns_six">6</string>
+    <string name="qs_menu_item_columns_seven">7</string>
+    <string name="qs_menu_item_columns_eight">8</string>
+    <string name="qs_menu_item_columns_nine">9</string>
+    <string name="qs_menu_item_reset">ქარხნულ პარამეტრებზე დაბრუნება</string>
+    <string name="qs_menu_item_qs_columns">სწრაფი ზოლის სვეტები</string>
+    <string name="qs_menu_item_columns_auto">ავტომატური</string>
+    <string name="qs_menu_item_titles">წარწერების ჩვენება</string>
+    <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">შეტყობინებების დათვალიერება</string>
+    <string name="accessibility_quick_settings_heads_up_off">შეტყობინებების დათვალიერება უარყოფილია.</string>
+    <string name="accessibility_quick_settings_heads_up_on">შეტყობინებების დათვალიერება ნებადართულია.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">შეტყობინებების დათვალიერება გამორთულია.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">შეტყობინებების დათვალიერება ჩართულია.</string>
+    <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USB–მოდემი</string>
+    <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">ეკრანის დაძინება</string>
+    <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">ეკრანის ანაბეჭდი</string>
+    <string name="quick_settings_region_screenshot_label">ნაწილობრივი ანაბეჭდი</string>
+    <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">ურთიერთქმედი ეკრანი</string>
+    <string name="accessibility_quick_settings_ambient_display_off">ურთიერთქმედი ეკრანი გამორთ.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">ურთიერთქმედი ეკრანი ჩართ.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">ურთიერთქმედი ეკრანი გამორთულია.</string>
+    <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">აპარატ. ღილაკები ჩართ.</string>
+    <string name="accessibility_quick_settings_hwkeys_off">აპარატ. ღილაკები გამორთ.</string>
+    <string name="quick_settings_hwkeys_label">აპარატ. ღილაკები</string>
+    <!-- Reboot/Recovery QS Tile -->
+    <string name="quick_settings_reboot_label">გადატვირთვა</string>
+    <string name="quick_settings_reboot_recovery_label">აღდგენა</string>
+    <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc">NFC</string>
+    <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <!-- Name of the vpn, data saver and roaming icon. -->
+    <string name="status_bar_data_saver">მონაცემთა დამზოგველი</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_roaming">როუმინგი</string>
+    <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">მუდმივმოქმედი ეკრანი</string>
+    <string name="quick_settings_aod_off_powersave_label">მუდმივი ეკრანი გამორთ.\nბატარეის დამზოგი</string>
+    <string name="quick_settings_always_on_display_label">ყოველთვის აჩვენე</string>
+    <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">ეკრანის ანაბეჭდი წაიშალა</string>
+    <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">ნაწილობრივი ეკრანის ანაბეჭდის გადაღება</string>
+    <string name="global_screenshot_selector_cancel_description">ნაწილობრივი ეკრანის ანაბეჭდის გაუქმება</string>
+    <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">კურსორი მარცხნივ</string>
+    <string name="accessibility_dpad_right">კურსორი მარჯვნივ</string>
+    <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">გახსენი გაშვებული სერვისების ეკრანი.</string>
+    <!-- Kill app -->
+    <string name="task_helper_app_killed">%1$s იძულებით შეწყდა</string>
+    <string name="empty_app_killed">აპლიკაცია</string>
+    <!-- App Select dialog -->
+    <string name="app_picker_dialog_title">აირჩიეთ აპლიკაცია</string>
+    <string name="active_edge_app_select_title">აპლიკაციის მონიშვნა</string>
+    <string name="active_edge_activity_select_title">აირჩიეთ მოქმედება</string>
+    <!-- Screenrecord QS tile -->
+    <string name="screenrecord_stopdot_label">აჩვენე წერტილი ჩაწერის შესაწყვეტად</string>
+    <string name="screenrecord_lowquality_label">ჩაწერის ხარისხის შემცირება</string>
+    <!-- Text to use when the number in a notification info is too large
+         (greater than status_bar_notification_info_maxnum, defined in
+         values/config.xml) and must be truncated.
+         [CHAR LIMIT=4] -->
+    <!-- QS Header data usage info -->
+    <string name="usage_data">გამოყენებულია</string>
+    <!-- Ambient Music Ticker -->
+    <string name="ambientmusic_songinfo" formatted="false">%s მიერ %s</string>
+    <!-- Biometric Dialog - Use Face -->
+    <string name="biometric_dialog_button_use_face">სახის გამოყენება</string>
+    <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_label">გადართე მონაცემის ბარათი</string>
+    <string name="qs_data_switch_toast_0">ამჟამად SIM ბარათი არ არის მოთავსებული</string>
+    <string name="qs_data_switch_toast_1">ამჟამად მხოლოდ ერთი SIM ბარათია მოთავსებული</string>
+    <string name="qs_data_switch_changed_1">გამოიყენება SIM 1 მონაცემებისთვის</string>
+    <string name="qs_data_switch_changed_2">გამოიყენება SIM 2 მონაცემებისთვის</string>
+    <!-- App Lock -->
+    <string name="applock_unlock">აპლიკაციის განბლოკვა</string>
+    <!-- Heads up snooze toast -->
+    <!-- Less Boring QS tile -->
+    <string name="quick_settings_less_boring_label">ნაკლებად მოსაწყენი</string>
+    <string name="accessibility_quick_settings_less_boring_off">ნაკლებად მოსაწყენი გამორთ.</string>
+    <string name="accessibility_quick_settings_less_boring_on">ნაკლებად მოსაწყენი ჩართ.</string>
+    <string name="accessibility_quick_settings_less_boring_changed_off">ნაკლებად მოსაწყენი გამორთულია</string>
+    <string name="accessibility_quick_settings_less_boring_changed_on">ნაკლებად მოსაწყენი ჩართულია</string>
+    <!-- Reader mode QS tile -->
+    <string name="quick_settings_reading_mode">კითხვის რეჟიმი</string>
+    <string name="accessibility_quick_settings_reading_mode_on">კითხვის რეჟიმი ჩართ.</string>
+    <string name="accessibility_quick_settings_reading_mode_off">კითხვის რეჟიმი გამორთ.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_on">კითხვის რეჟიმი ჩართულია.</string>
+    <string name="accessibility_quick_settings_reading_mode_changed_off">კითხვის რეჟიმი გამორთულია.</string>
+    <!-- Anti flicker QS tile -->
+    <string name="quick_settings_anti_flicker">ციმციმის საწინააღმდეგო</string>
+    <!-- Change clockface -->
+</resources>

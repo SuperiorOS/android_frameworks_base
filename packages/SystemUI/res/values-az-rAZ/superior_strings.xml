@@ -15,30 +15,108 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="statusbar_items_title">Vəziyyət sətri nişanı</string>
     <!-- Advanced restart -->
+    <string name="global_action_reboot">Yenidən başlat</string>
+    <string name="global_action_reboot_system">Sistem</string>
+    <string name="global_action_reboot_progress">Yenidən başladılır\u2026</string>
+    <string name="global_action_reboot_recovery">Bərpa rejimi</string>
+    <string name="global_action_reboot_recovery_progress">Bərpa rejimində yenidən başladılır\u2026</string>
+    <string name="global_action_reboot_bootloader">Önyükləyici</string>
+    <string name="global_action_reboot_bootloader_progress">Önyükləyici rejimində yenidən başladılır\u2026</string>
+    <string name="global_action_reboot_fastboot">Fastboot</string>
+    <string name="global_action_reboot_fastboot_progress">Fastboot rejimində yenidən başladılır\u2026</string>
+    <string name="global_action_restart_systemui">Sistem interfeysi</string>
+    <string name="global_action_settings">Tənzimləmələr</string>
+    <string name="global_action_screenshot">Ekran şəkli</string>
+    <string name="global_action_screenrecord">Ekran videoyazma</string>
+    <string name="global_action_flashlight">Fənər</string>
     <!-- Label for current user in power menu options dialog -->
+    <string name="global_action_current_user">Hazırkı</string>
     <!-- Indication on the keyguard that is shown when the device is charging with a dash charger. Should match keyguard_plugged_in_dash_charging [CHAR LIMIT=40]-->
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Dash enerji yığır (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash enerji yığır</string>
     <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Səs</string>
+    <string name="quick_settings_sound_ring">Zəng səsi</string>
+    <string name="quick_settings_sound_vibrate">Titrəmə</string>
+    <string name="quick_settings_sound_mute">Səsi kəs</string>
     <!-- Caffeine QS Tile -->
+    <string name="quick_settings_caffeine_label">Kofein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofein bağlıdır</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofein açıqdır</string>
     <!-- QS Config -->
+    <string name="qs_menu_item_columns">Sütunlar</string>
+    <string name="qs_menu_item_columns_landscape">Sütunlar üfuqi</string>
+    <string name="qs_menu_item_columns_three">3</string>
+    <string name="qs_menu_item_columns_four">4</string>
+    <string name="qs_menu_item_columns_five">5</string>
+    <string name="qs_menu_item_columns_six">6</string>
+    <string name="qs_menu_item_columns_seven">7</string>
+    <string name="qs_menu_item_columns_eight">8</string>
+    <string name="qs_menu_item_columns_nine">9</string>
+    <string name="qs_menu_item_reset">Sıfırla</string>
+    <string name="qs_menu_item_qs_columns">Cəld tənzimləmələr sütunları</string>
+    <string name="qs_menu_item_columns_auto">Avtomatik</string>
+    <string name="qs_menu_item_titles">Etiketləri göstər</string>
     <!-- Heads Up QS Tile -->
+    <string name="quick_settings_heads_up_label">Ani bildirişlər</string>
+    <string name="accessibility_quick_settings_heads_up_off">Ani bildirişlər sıradan çıxarıldı.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Ani bildirişlərə icazə verildi.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Ani bildirişlər söndürüldü.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Ani bildirişlər işə salındı.</string>
     <!-- USB tethering QS tile -->
+    <string name="quick_settings_usb_tether_label">USB internet paylaşımı</string>
     <!-- SleepScreen QS Tile -->
+    <string name="quick_settings_sleepscreen_label">Ekranı söndür</string>
     <!-- Screenshot QS tile -->
+    <string name="quick_settings_screenshot_label">Ekran şəkli</string>
+    <string name="quick_settings_region_screenshot_label">Qismən ekran şəkli</string>
     <!-- Ambient display QS tile -->
+    <string name="quick_settings_ambient_display_label">Bildiriş ekranı</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Bildiriş ekranı bağlıdır.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Bildiriş ekranı açıqdır.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Bildiriş ekranı söndürüldü.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Bildiriş ekranı işə salındı.</string>
     <!-- HW Keys Tile -->
+    <string name="accessibility_quick_settings_hwkeys_on">Avadanlıq düymələri açıqdır</string>
+    <string name="accessibility_quick_settings_hwkeys_off">Avadanlıq düymələri bağlıdır</string>
+    <string name="quick_settings_hwkeys_label">Avadanlıq düymələri</string>
     <!-- Reboot/Recovery QS Tile -->
+    <string name="quick_settings_reboot_label">Yenidən başlat</string>
+    <string name="quick_settings_reboot_recovery_label">Bərpa</string>
     <!-- Name of the nfc status bar icon. -->
+    <string name="status_bar_nfc">NFC</string>
     <!-- Accessibility label for nfc icon (not shown on screen) [CHAR LIMIT=NONE] -->
+    <string name="accessibility_status_bar_nfc">Nfc</string>
     <!-- Name of the vpn, data saver and roaming icon. -->
+    <string name="status_bar_data_saver">Verilənlərə qənaət</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_roaming">Roaminq</string>
     <!-- AOD QS tile -->
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD bağlıdır\nBatereyaya qənaət</string>
+    <string name="quick_settings_always_on_display_label">Always on display</string>
     <!-- Screenshot Delete Toast -->
+    <string name="delete_screenshot_toast">Ekran şəkli silindi</string>
     <!-- Partial screenshot -->
+    <string name="global_screenshot_selector_capture_description">Qismən ekran şəklini çək</string>
+    <string name="global_screenshot_selector_cancel_description">Qismən ekran şəklindən imtina</string>
     <!-- Navigation bar dpad -->
+    <string name="accessibility_dpad_left">Sol kursor</string>
+    <string name="accessibility_dpad_right">Sağ kursor</string>
     <!-- accessibility label for button to open running apps prefscreen [CHAR LIMIT=NONE] -->
+    <string name="accessibility_quick_settings_running_services">İşləyən Xidmətlər ekranını aç.</string>
     <!-- Kill app -->
+    <string name="task_helper_app_killed">%1$s məcburi dayandırıldı</string>
+    <string name="empty_app_killed">Tətbiq</string>
     <!-- App Select dialog -->
+    <string name="app_picker_dialog_title">Bir tətbiq seçin</string>
+    <string name="active_edge_app_select_title">Tətbiq seçin</string>
+    <string name="active_edge_activity_select_title">Faəliyyət seç</string>
     <!-- Screenrecord QS tile -->
+    <string name="screenrecord_stopdot_label">Yazını dayandırmaq üçün nöqtə göstər</string>
+    <string name="screenrecord_lowquality_label">Daha aşağı keyfiyyətli yazma</string>
     <!-- Text to use when the number in a notification info is too large
          (greater than status_bar_notification_info_maxnum, defined in
          values/config.xml) and must be truncated.
@@ -47,7 +125,10 @@
     <!-- Ambient Music Ticker -->
     <!-- Biometric Dialog - Use Face -->
     <!-- DataSwitch Tile -->
+    <string name="qs_data_switch_changed_1">Mobil verilənlər üçün SIM 1 istifadə olunur</string>
+    <string name="qs_data_switch_changed_2">Mobil verilənlər üçün SIM 2 istifadə olunur</string>
     <!-- App Lock -->
+    <string name="applock_unlock">Tətbiq kilidini aç</string>
     <!-- Heads up snooze toast -->
     <!-- Less Boring QS tile -->
     <!-- Reader mode QS tile -->

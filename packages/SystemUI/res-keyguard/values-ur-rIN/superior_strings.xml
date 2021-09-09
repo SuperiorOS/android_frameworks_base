@@ -17,12 +17,4 @@
 ** limitations under the License.
 */
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="date_long_title_today">Bu gün %s</string>
-    <string name="custom_clock_hours_title">Saat</string>
-    <string name="custom_clock_minutes_title">Dəqiqə</string>
-    <string name="custom_clock_seconds_title">Saniyə</string>
-    <string name="custom_clock_day_title">Gün</string>
-    <string name="custom_clock_month_title">Ay</string>
-    <string name="custom_clock_year_title">İl</string>
-</resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>

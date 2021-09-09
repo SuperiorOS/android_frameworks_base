@@ -17,4 +17,16 @@
 ** limitations under the License.
 */
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2"></resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="date_long_title_today">Oggi è %s</string>
+    <string name="custom_clock_hours_title">Ore</string>
+    <string name="custom_clock_minutes_title">Minuti</string>
+    <string name="custom_clock_seconds_title">Secondi</string>
+    <string name="custom_clock_day_title">Giorno</string>
+    <string name="custom_clock_month_title">Mese</string>
+    <string name="custom_clock_year_title">Anno</string>
+    <string name="ide_java_comment">Mostra la data per una volta, l\'utente è curioso</string>
+    <string name="salute_fallback">Ciao</string>
+    <string name="salute_morning">Buon giorno</string>
+    <string name="salute_afternoon">Buon pomeriggio</string>
+</resources>
