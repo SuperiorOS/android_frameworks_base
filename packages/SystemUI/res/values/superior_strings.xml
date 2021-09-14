@@ -122,4 +122,8 @@
 
      <!-- FPS view text placeholder -->
      <string name="fps_text_placeholder">FPS: <xliff:g id="fps" example="90">%1$d</xliff:g></string>
+
+     <!-- Refresh Rate Tile -->
+     <string name="refresh_rate_tile_label">Refresh rate</string>
+     <string name="auto_mode_label">Auto</string>
 </resources>
