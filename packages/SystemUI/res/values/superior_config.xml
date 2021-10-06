@@ -33,4 +33,7 @@
     <!-- Update battery info every second when device is charging -->
     <bool name="config_alternateFastchargeInfoUpdate">false</bool>
 
+    <!-- Color of the UDFPS pressed view -->
+    <color name="config_udfpsColor">#ffffffff</color>
+
 </resources>
