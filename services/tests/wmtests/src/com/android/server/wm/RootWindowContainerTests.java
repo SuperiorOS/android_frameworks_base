@@ -49,6 +49,7 @@ import android.app.WindowConfiguration;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.os.UserHandle;
 import android.platform.test.annotations.Presubmit;
 
 import androidx.test.filters.SmallTest;
