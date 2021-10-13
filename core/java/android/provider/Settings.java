@@ -5781,6 +5781,12 @@ public final class Settings {
          */
         public static final String VOLTE_VOWIFI_OVERRIDE = "volte_vowifi_override";
 
+	/**
+	 * Whether to use the custom quick unlock screen control
+	 * @hide
+	 */
+	public static final String LOCKSCREEN_QUICK_UNLOCK_CONTROL =
+		"lockscreen_quick_unlock_control";
 
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
@@ -5986,6 +5992,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_STYLE);
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_FORMAT);
             PRIVATE_SETTINGS.add(STATUSBAR_CLOCK_DATE_POSITION);
+            PRIVATE_SETTINGS.add(LOCKSCREEN_QUICK_UNLOCK_CONTROL);
         }
 
         /**

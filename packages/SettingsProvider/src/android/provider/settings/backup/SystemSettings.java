@@ -93,5 +93,6 @@ public class SystemSettings {
         Settings.System.LOCKSCREEN_BATTERY_INFO,
         Settings.System.ENABLE_RIPPLE_EFFECT,
         Settings.System.QS_SHOW_BATTERY_ESTIMATE,
+        Settings.System.LOCKSCREEN_QUICK_UNLOCK_CONTROL,
     };
 }
