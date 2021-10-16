@@ -39,7 +39,7 @@
 
     <!-- QuickSettings: InternetDialog: Summary for how many devices are connected to the hotspot
     [CHAR LIMIT=NONE] -->
-    <string name="quick_settings_internet_hotspot_summary_num_devices">{count, plural,
+    <string name="quick_settings_internet_hotspot_summary_num_devices" translatable="false">{count, plural,
         =1 {# device connected}
         other {# devices connected}
         }</string>
@@ -51,4 +51,10 @@
 
     <!-- DataSwitch Tile -->
     <string name="qs_data_switch_label">Switch data card</string>
+
+    <!-- Sound QS Tile -->
+    <string name="quick_settings_sound_label">Sound</string>
+    <string name="quick_settings_sound_ring">Ring</string>
+    <string name="quick_settings_sound_vibrate">Vibrate</string>
+    <string name="quick_settings_sound_silent">Silent</string>
 </resources>
