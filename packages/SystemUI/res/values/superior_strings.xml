@@ -75,4 +75,11 @@
      <string name="vpn_credentials_username">Username</string>
      <string name="vpn_credentials_password">Password</string>
      <string name="vpn_credentials_dialog_connect">Connect</string>
+
+     <!-- Sound QS Tile -->
+     <string name="quick_settings_sound_label">Sound</string>
+     <string name="quick_settings_sound_ring">Ring</string>
+     <string name="quick_settings_sound_vibrate">Vibrate</string>
+     <string name="quick_settings_sound_mute">Mute</string>
+
 </resources>
