@@ -61,7 +61,7 @@ android_library {
         "res-product",
         "res-keyguard",
         "res",
-        "pixel-framework-res",
+        "res-pixel",
     ],
     static_libs: [
         "WindowManager-Shell",
