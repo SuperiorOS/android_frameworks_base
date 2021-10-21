@@ -202,6 +202,8 @@ public interface CentralSurfaces extends Dumpable, LifecycleOwner {
 
     void togglePanel();
 
+    void toggleCameraFlash();
+
     void start();
 
     boolean updateIsKeyguard();
