@@ -91,5 +91,6 @@ public class SystemSettings {
         Settings.System.NOTIFICATION_LIGHT_PULSE,
         Settings.System.ENABLE_RIPPLE_EFFECT,
         Settings.System.USE_OLD_MOBILETYPE,
+        Settings.System.TORCH_POWER_BUTTON_GESTURE,
     };
 }
