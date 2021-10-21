@@ -366,7 +366,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces {
         return mQSPanelController;
     }
 
-    /** */
+    @Override
     public void toggleCameraFlash() {
         mCommandQueueCallbacks.toggleCameraFlash();
     }
