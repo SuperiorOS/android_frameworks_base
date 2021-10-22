@@ -191,5 +191,6 @@ public class SecureSettings {
         Settings.Secure.LOCATION_TIME_ZONE_DETECTION_ENABLED,
         Settings.Secure.LOCKSCREEN_SHOW_CONTROLS,
         Settings.Secure.LOCKSCREEN_SHOW_WALLET,
+        Settings.Secure.QUICK_SETTINGS_TILES_VIBRATE_DURATION,
     };
 }
