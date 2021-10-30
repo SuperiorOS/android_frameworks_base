@@ -21,11 +21,20 @@ import android.app.WallpaperColors
 import android.app.WallpaperManager
 import android.content.Context
 import android.content.om.FabricatedOverlay
+import android.database.ContentObserver
+import android.net.Uri
 import android.os.Handler
+import android.os.UserHandle
 import android.os.UserManager
 import android.provider.Settings
+import android.provider.Settings.Secure.MONET_ENGINE_COLOR_OVERRIDE
+import android.provider.Settings.Secure.MONET_ENGINE_CHROMA_FACTOR
+import android.provider.Settings.Secure.MONET_ENGINE_ACCURATE_SHADES
+import android.provider.Settings.Secure.MONET_ENGINE_LINEAR_LIGHTNESS
+import android.provider.Settings.Secure.MONET_ENGINE_WHITE_LUMINANCE
 import android.util.Log
 import android.util.TypedValue
+
 import com.android.systemui.broadcast.BroadcastDispatcher
 import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.dagger.qualifiers.Background
@@ -38,6 +47,7 @@ import com.android.systemui.statusbar.policy.DeviceProvisionedController
 import com.android.systemui.theme.ThemeOverlayApplier
 import com.android.systemui.theme.ThemeOverlayController
 import com.android.systemui.util.settings.SecureSettings
+
 import dev.kdrag0n.colorkt.Color
 import dev.kdrag0n.colorkt.cam.Zcam
 import dev.kdrag0n.colorkt.conversion.ConversionGraph.convert
@@ -47,8 +57,11 @@ import dev.kdrag0n.colorkt.tristimulus.CieXyzAbs.Companion.toAbs
 import dev.kdrag0n.colorkt.ucs.lab.CieLab
 import dev.kdrag0n.monet.theme.DynamicColorScheme
 import dev.kdrag0n.monet.theme.MaterialYouTargets
+
 import java.util.concurrent.Executor
+
 import javax.inject.Inject
+
 import kotlin.math.log10
 import kotlin.math.pow
 
@@ -60,7 +73,7 @@ class CustomThemeOverlayController @Inject constructor(
     @Main mainExecutor: Executor,
     @Background bgExecutor: Executor,
     themeOverlayApplier: ThemeOverlayApplier,
-    secureSettings: SecureSettings,
+    private val secureSettings: SecureSettings,
     wallpaperManager: WallpaperManager,
     userManager: UserManager,
     deviceProvisionedController: DeviceProvisionedController,
@@ -84,20 +97,65 @@ class CustomThemeOverlayController @Inject constructor(
     featureFlags,
     wakefulnessLifecycle,
 ) {
-    private val cond: Zcam.ViewingConditions
-    private val targets: MaterialYouTargets
+    private val settingsObserver: ContentObserver
 
-    private val colorOverride = Settings.Secure.getString(mContext.contentResolver, PREF_COLOR_OVERRIDE)
-    private val chromaFactor = Settings.Secure.getFloat(mContext.contentResolver, PREF_CHROMA_FACTOR, 1.0f).toDouble()
-    private val accurateShades = Settings.Secure.getInt(mContext.contentResolver, PREF_ACCURATE_SHADES, 1) != 0
+    private var colorOverride: String?
+    private var chromaFactor: Double
+    private var accurateShades: Boolean
+    private var whiteLuminance: Double
+    private var linearLightness: Boolean
+    private var cond: Zcam.ViewingConditions
+    private var targets: MaterialYouTargets
 
     init {
-        val whiteLuminance = parseWhiteLuminanceUser(
-            Settings.Secure.getInt(mContext.contentResolver, PREF_WHITE_LUMINANCE, WHITE_LUMINANCE_USER_DEFAULT)
-        )
-        val linearLightness = Settings.Secure.getInt(mContext.contentResolver, PREF_LINEAR_LIGHTNESS, 0) != 0
+        settingsObserver = object: ContentObserver(bgHandler) {
+            override fun onChange(selfChange: Boolean, uri: Uri) {
+                if (DEBUG) Log.d(TAG, "onChange ${uri.getLastPathSegment()}")
+                when (uri.lastPathSegment) {
+                    MONET_ENGINE_ACCURATE_SHADES -> accurateShades = useAccurateShades()
+                    MONET_ENGINE_CHROMA_FACTOR -> chromaFactor = getChromaFactor()
+                    MONET_ENGINE_COLOR_OVERRIDE -> colorOverride = getColorOverride()
+                    MONET_ENGINE_LINEAR_LIGHTNESS -> {
+                        linearLightness = useLinearLightness()
+                        targets = getMaterialYouTargets()
+                    }
+                    MONET_ENGINE_WHITE_LUMINANCE -> {
+                        whiteLuminance = parseWhiteLuminanceUser(secureSettings)
+                        cond = getViewingConditions()
+                        targets = getMaterialYouTargets()
+                    }
+                }
+                if (DEBUG) Log.d(TAG, "updating theme")
+                // Call super class method to reload system theme with updated
+                // monet engine parameters
+                reevaluateSystemTheme(true /* forceReload */)
+            }
+        }
 
-        cond = Zcam.ViewingConditions(
+        with(secureSettings) {
+            registerContentObserverForUser(MONET_ENGINE_ACCURATE_SHADES,
+                settingsObserver, UserHandle.USER_ALL)
+            registerContentObserverForUser(MONET_ENGINE_CHROMA_FACTOR,
+                settingsObserver, UserHandle.USER_ALL)
+            registerContentObserverForUser(MONET_ENGINE_COLOR_OVERRIDE,
+                settingsObserver, UserHandle.USER_ALL)
+            registerContentObserverForUser(MONET_ENGINE_LINEAR_LIGHTNESS,
+                settingsObserver, UserHandle.USER_ALL)
+            registerContentObserverForUser(MONET_ENGINE_WHITE_LUMINANCE,
+                settingsObserver, UserHandle.USER_ALL)
+        }
+
+        colorOverride = getColorOverride()
+        chromaFactor = getChromaFactor()
+        accurateShades = useAccurateShades()
+        whiteLuminance = parseWhiteLuminanceUser(secureSettings)
+        linearLightness = useLinearLightness()
+        cond = getViewingConditions()
+        targets = getMaterialYouTargets()
+    }
+
+    private fun getViewingConditions() =
+        Zcam.ViewingConditions(
             surroundFactor = Zcam.ViewingConditions.SURROUND_AVERAGE,
             // sRGB
             adaptingLuminance = 0.4 * whiteLuminance,
@@ -110,12 +168,28 @@ class CustomThemeOverlayController @Inject constructor(
             referenceWhite = Illuminants.D65.toAbs(whiteLuminance),
         )
 
-        targets = MaterialYouTargets(
+    private fun getMaterialYouTargets() =
+        MaterialYouTargets(
             chromaFactor = chromaFactor,
             useLinearLightness = linearLightness,
             cond = cond,
         )
-    }
+
+    private fun useAccurateShades() =
+        secureSettings.getIntForUser(MONET_ENGINE_ACCURATE_SHADES,
+            1, UserHandle.USER_CURRENT) != 0
+
+    private fun getChromaFactor() =
+        secureSettings.getFloatForUser(MONET_ENGINE_CHROMA_FACTOR,
+            1.0f, UserHandle.USER_CURRENT).toDouble()
+
+    private fun getColorOverride(): String? =
+        secureSettings.getStringForUser(MONET_ENGINE_COLOR_OVERRIDE,
+            UserHandle.USER_CURRENT)
+
+    private fun useLinearLightness() =
+        secureSettings.getIntForUser(MONET_ENGINE_LINEAR_LIGHTNESS,
+            0, UserHandle.USER_CURRENT) != 0
 
     // Seed colors
     override fun getNeutralColor(colors: WallpaperColors) = colors.primaryColor.toArgb()
@@ -125,7 +199,8 @@ class CustomThemeOverlayController @Inject constructor(
         // Generate color scheme
         val colorScheme = DynamicColorScheme(
             targets = targets,
-            seedColor = if (colorOverride != null) Srgb(colorOverride) else Srgb(primaryColor),
+            seedColor = colorOverride?.takeIf { it.isNotEmpty() }
+                ?.let { Srgb(it) } ?: Srgb(primaryColor),
             chromaFactor = chromaFactor,
             cond = cond,
             accurateShades = accurateShades,
@@ -163,20 +238,16 @@ class CustomThemeOverlayController @Inject constructor(
 
     companion object {
         private const val TAG = "CustomThemeOverlayController"
-
-        private const val PREF_PREFIX = "monet_engine"
-        private const val PREF_COLOR_OVERRIDE = "${PREF_PREFIX}_color_override"
-        private const val PREF_CHROMA_FACTOR = "${PREF_PREFIX}_chroma_factor"
-        private const val PREF_ACCURATE_SHADES = "${PREF_PREFIX}_accurate_shades"
-        private const val PREF_LINEAR_LIGHTNESS = "${PREF_PREFIX}_linear_lightness"
-        private const val PREF_WHITE_LUMINANCE = "${PREF_PREFIX}_white_luminance_user"
+        private const val DEBUG = false
 
         private const val WHITE_LUMINANCE_MIN = 1.0
         private const val WHITE_LUMINANCE_MAX = 10000.0
         private const val WHITE_LUMINANCE_USER_MAX = 1000
         private const val WHITE_LUMINANCE_USER_DEFAULT = 425 // ~200.0 divisible by step (decoded = 199.526)
 
-        private fun parseWhiteLuminanceUser(userValue: Int): Double {
+        private fun parseWhiteLuminanceUser(secureSettings: SecureSettings): Double {
+            val userValue = secureSettings.getIntForUser(MONET_ENGINE_WHITE_LUMINANCE,
+                WHITE_LUMINANCE_USER_DEFAULT, UserHandle.USER_CURRENT)
             val userSrc = userValue.toDouble() / WHITE_LUMINANCE_USER_MAX
             val userInv = 1.0 - userSrc
             return (10.0).pow(userInv * log10(WHITE_LUMINANCE_MAX))
