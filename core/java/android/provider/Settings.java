@@ -5976,6 +5976,11 @@ public final class Settings {
          */
         public static final String SMART_5G = "smart_5g";
 
+        /**
+         * @hide
+         */
+        public static final String LOCKSCREEN_WEATHER_ENABLED = "lockscreen_weather_enabled";
+
        /**
          * These are all public system settings
          *
