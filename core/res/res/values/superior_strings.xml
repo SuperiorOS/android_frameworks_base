@@ -22,5 +22,7 @@
     <string name="reboot_to_bootloader_message" translatable="false">Rebooting to bootloader</string>
     <string name="reboot_title">Reboot</string>
     <string name="reboot_message">Rebooting system</string>
+    <string name="reboot_to_fastboot_title" translatable="false">Fastbootd</string>
+    <string name="reboot_to_fastboot_message">Rebooting to fastbootd</string>
 
 </resources>

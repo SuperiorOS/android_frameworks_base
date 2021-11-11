@@ -180,6 +180,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
     private static final int RESTART_RECOVERY_BUTTON = 1;
     private static final int RESTART_BOOTLOADER_BUTTON = 2;
     private static final int RESTART_UI_BUTTON = 3;
+    private static final int RESTART_FASTBOOT_BUTTON = 4;
 
     private final Context mContext;
     private final GlobalActionsManager mWindowManagerFuncs;
@@ -610,6 +611,21 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
             }
         };
 
+        AdvancedAction restartFastbootAction = new AdvancedAction(
+                RESTART_FASTBOOT_BUTTON,
+                com.android.systemui.R.drawable.ic_restart_fastboot,
+                com.android.systemui.R.string.global_action_restart_fastboot,
+                mWindowManagerFuncs, mHandler) {
+
+            public boolean showDuringKeyguard() {
+                return true;
+            }
+
+            public boolean showBeforeProvisioning() {
+                return true;
+            }
+        };
+
         ArraySet<String> addedKeys = new ArraySet<>();
         List<Action> tempActions = new ArrayList<>();
         CurrentUserProvider currentUser = new CurrentUserProvider();
@@ -681,6 +697,7 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
                     mPowerItems.add(restartRecoveryAction);
                     mPowerItems.add(restartBootloaderAction);
                     mPowerItems.add(restartSystemUiAction);
+                    mPowerItems.add(restartFastbootAction);
                     addIfShouldShowAction(tempActions, new PowerOptionsAction());
                 }
             } else if (GLOBAL_ACTION_KEY_SCREENSHOT.equals(actionKey)) {
@@ -2041,6 +2058,10 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
                 */
                 funcs.onGlobalActionsHidden();
                 restartSystemUI(ctx);
+                break;
+            case RESTART_FASTBOOT_BUTTON:
+                h.sendEmptyMessage(MESSAGE_DISMISS);
+                funcs.advancedReboot(PowerManager.REBOOT_FASTBOOT);
                 break;
             default:
                 break;
