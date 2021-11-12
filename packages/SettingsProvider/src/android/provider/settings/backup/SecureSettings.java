@@ -192,5 +192,6 @@ public class SecureSettings {
         Settings.Secure.LOCKSCREEN_SHOW_CONTROLS,
         Settings.Secure.LOCKSCREEN_SHOW_WALLET,
         Settings.Secure.QUICK_SETTINGS_TILES_VIBRATE_DURATION,
+        Settings.Secure.SHOW_COMBINED_STATUS_BAR_SIGNAL_ICONS,
     };
 }
