@@ -18,9 +18,7 @@ package com.android.systemui.globalactions;
 
 import static com.android.systemui.util.leak.RotationUtils.ROTATION_NONE;
 
-import android.content.ContentResolver;
 import android.content.Context;
-import android.provider.Settings;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +26,6 @@ import android.view.ViewGroup;
 import androidx.constraintlayout.helper.widget.Flow;
 
 import com.android.internal.annotations.VisibleForTesting;
-import com.android.systemui.globalactions.GlobalActionsDialogLite;
 import com.android.systemui.HardwareBgDrawable;
 import com.android.systemui.R;
 
@@ -41,15 +38,10 @@ public class GlobalActionsLayoutLite extends GlobalActionsLayout {
 
     public GlobalActionsLayoutLite(Context context, AttributeSet attrs) {
         super(context, attrs);
-        if (GlobalActionsDialogLite.isRebootMenu()) {
-            mMaxColumns = 2;
-            mMaxRows = 2;
-        } else {
-            mMaxColumns = Settings.System.getInt(context.getContentResolver(),
-                    Settings.System.GLOBAL_ACTIONS_MAX_COLUMNS, 2);
-            mMaxRows = Settings.System.getInt(context.getContentResolver(),
-                    Settings.System.GLOBAL_ACTIONS_MAX_ROWS, 4);
-        }
+        mMaxColumns = getResources().getInteger(
+                com.android.systemui.R.integer.power_menu_lite_max_columns);
+        mMaxRows = getResources().getInteger(
+                com.android.systemui.R.integer.power_menu_lite_max_rows);
         setOnClickListener(v -> { }); // Prevent parent onClickListener from triggering
     }
 
