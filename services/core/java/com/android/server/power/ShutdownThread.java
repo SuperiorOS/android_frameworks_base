@@ -83,7 +83,6 @@ public final class ShutdownThread extends Thread {
     private static boolean sIsStarted = false;
 
     private static boolean mReboot;
-    private static boolean mRebootCustom;
     private static boolean mRebootSafeMode;
     private static boolean mRebootHasProgressBar;
     private static String mReason;
@@ -147,7 +146,6 @@ public final class ShutdownThread extends Thread {
      */
     public static void shutdown(final Context context, String reason, boolean confirm) {
         mReboot = false;
-        mRebootCustom = false;
         mRebootSafeMode = false;
         mReason = reason;
         shutdownInner(context, confirm);
@@ -240,23 +238,6 @@ public final class ShutdownThread extends Thread {
      */
     public static void reboot(final Context context, String reason, boolean confirm) {
         mReboot = true;
-        mRebootCustom = false;
-        mRebootSafeMode = false;
-        mRebootHasProgressBar = false;
-        mReason = reason;
-        shutdownInner(context, confirm);
-    }
-
-    /**
-     * Request reboot system, reboot recovery or reboot bootloader
-     *
-     * @param context Context used to display the shutdown progress dialog.
-     * @param reason code to pass to the kernel (e.g. "recovery", "bootloader"), or null.
-     * @param confirm true if user confirmation is needed before rebooting.
-     */
-    public static void rebootCustom(final Context context, String reason, boolean confirm) {
-        mReboot = true;
-        mRebootCustom = true;
         mRebootSafeMode = false;
         mRebootHasProgressBar = false;
         mReason = reason;
@@ -278,7 +259,6 @@ public final class ShutdownThread extends Thread {
         }
 
         mReboot = true;
-        mRebootCustom = false;
         mRebootSafeMode = true;
         mRebootHasProgressBar = false;
         mReason = null;
@@ -335,7 +315,7 @@ public final class ShutdownThread extends Thread {
                             com.android.internal.R.string.reboot_to_update_reboot));
             }
         } else if (mReason != null && mReason.equals(PowerManager.REBOOT_RECOVERY)) {
-            if (mRebootCustom && showSysuiReboot()) {
+            if (showSysuiReboot()) {
                 return null;
             } else if (RescueParty.isAttemptingFactoryReset()) {
                 // We're not actually doing a factory reset yet; we're rebooting
@@ -371,7 +351,7 @@ public final class ShutdownThread extends Thread {
         try {
             StatusBarManagerInternal service = LocalServices.getService(
                     StatusBarManagerInternal.class);
-            if (service.showShutdownUi(mReboot, mReason, mRebootCustom)) {
+            if (service.showShutdownUi(mReboot, mReason)) {
                 // Sysui will handle shutdown UI.
                 Log.d(TAG, "SysUI handling shutdown UI");
                 return true;
