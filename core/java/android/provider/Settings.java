@@ -11068,6 +11068,13 @@ public final class Settings {
         public static final String VOLUME_LINK_NOTIFICATION = "volume_link_notification";
 
         /**
+         * Enable udfps detection even when screen is off
+         * Default value is 0
+         * @hide
+         */
+        public static final String SCREEN_OFF_UDFPS_ENABLED = "screen_off_udfps_enabled";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
