@@ -54,4 +54,13 @@
     <!-- Bluetooth dialog -->
     <dimen name="bluetooth_dialog_active_device_bottom_margin">4dp</dimen>
 
+    <!-- Width of the battery icon in the status bar when set to circle style. -->
+    <dimen name="status_bar_battery_icon_circle_width">13.5dp</dimen>
+
+    <!-- Height of the big battery circle icon in the status bar. -->
+    <dimen name="status_bar_battery_bigcircle_icon_height">20.5dp</dimen>
+
+    <!-- Width of the big battery circle icon in the status bar. -->
+    <dimen name="status_bar_battery_bigcircle_icon_width">20.5dp</dimen>
+
 </resources>
