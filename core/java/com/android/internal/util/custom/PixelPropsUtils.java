@@ -16,6 +16,7 @@
 package com.android.internal.util.custom;
 
 import android.os.Build;
+import android.os.SystemProperties;
 import android.util.Log;
 
 import java.util.Arrays;
@@ -27,12 +28,15 @@ import java.util.Map;
 public class PixelPropsUtils {
 
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
+    private static final boolean PRODUCT_SUPPORT_HIGH_FPS =
+            SystemProperties.getBoolean("ro.device.support_high_fps", false);
+    private static final boolean PRODUCT_SUPPORT_CONTENT_REFRESH =
+            SystemProperties.getBoolean("ro.surface_flinger.use_content_detection_for_refresh_rate", false);
     private static final boolean DEBUG = false;
 
+    private static final Map<String, Object> propsToChange;
     private static final Map<String, Object> propsToChangePUBG;
     private static final Map<String, Object> propsToChangeCOD;
-
-    private static final Map<String, Object> propsToChange;
     private static final Map<String, ArrayList<String>> propsToKeep;
     private static final String[] extraPackagesToChange = {
         "com.android.chrome",
@@ -87,31 +91,31 @@ public class PixelPropsUtils {
                 setPropValue(key, value);
             }
         }
-
-        if (Arrays.asList(packagesToChangePUBG).contains(packageName)){
-            if (DEBUG){
-                Log.d(TAG, "Defining props for: " + packageName);
-            }
-            for (Map.Entry<String, Object> prop : propsToChangePUBG.entrySet()) {
-                String key = prop.getKey();
-                Object value = prop.getValue();
-                setPropValue(key, value);
-            }
-        }
-        if (Arrays.asList(packagesToChangeCOD).contains(packageName)){
-            if (DEBUG){
-                Log.d(TAG, "Defining props for: " + packageName);
-            }
-            for (Map.Entry<String, Object> prop : propsToChangeCOD.entrySet()) {
-                String key = prop.getKey();
-                Object value = prop.getValue();
-                setPropValue(key, value);
-            }
-        }
-
-       // Set proper indexing fingerprint
+        // Set proper indexing fingerprint
         if (packageName.equals("com.google.android.settings.intelligence")){
             setPropValue("FINGERPRINT", Build.VERSION.INCREMENTAL);
+        }
+        if (PRODUCT_SUPPORT_HIGH_FPS || PRODUCT_SUPPORT_CONTENT_REFRESH) {
+            if (Arrays.asList(packagesToChangePUBG).contains(packageName)){
+                if (DEBUG){
+                    Log.d(TAG, "Defining props for: " + packageName);
+                }
+                for (Map.Entry<String, Object> prop : propsToChangePUBG.entrySet()) {
+                    String key = prop.getKey();
+                    Object value = prop.getValue();
+                    setPropValue(key, value);
+                }
+            }
+            if (Arrays.asList(packagesToChangeCOD).contains(packageName)){
+                if (DEBUG){
+                    Log.d(TAG, "Defining props for: " + packageName);
+                }
+                for (Map.Entry<String, Object> prop : propsToChangeCOD.entrySet()) {
+                    String key = prop.getKey();
+                    Object value = prop.getValue();
+                    setPropValue(key, value);
+                }
+            }
         }
     }
 
