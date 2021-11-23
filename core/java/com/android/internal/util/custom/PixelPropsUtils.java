@@ -61,9 +61,12 @@ public class PixelPropsUtils {
         "com.gameloft.android.ANMP.GloftA9HM" // Asphalt 9
     };
 
+    private static ArrayList<String> allProps = new ArrayList<>(Arrays.asList("BRAND", "MANUFACTURER", "DEVICE", "PRODUCT", "MODEL", "FINGERPRINT"));
+
     static {
         propsToKeep = new HashMap<>();
         propsToKeep.put("com.google.android.settings.intelligence", new ArrayList<String>(Arrays.asList("FINGERPRINT")));
+        propsToKeep.put("com.google.android.GoogleCamera", allProps);
         propsToChange = new HashMap<>();
         propsToChange.put("BRAND", "google");
         propsToChange.put("MANUFACTURER", "Google");
