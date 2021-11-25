@@ -89,5 +89,6 @@ public class SystemSettings {
         Settings.System.NOTIFICATION_HEADERS,
         Settings.System.AUTO_BRIGHTNESS_ONE_SHOT,
         Settings.System.ENABLE_RIPPLE_EFFECT,
+        Settings.System.FULLSCREEN_GESTURES,
     };
 }
