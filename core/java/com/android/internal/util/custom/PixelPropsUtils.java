@@ -56,6 +56,20 @@ public class PixelPropsUtils {
         "com.activision.callofduty.shooter"
     };
 
+    private static final String[] packagesToKeep = {
+        "com.google.android.GoogleCamera",
+        "com.google.android.GoogleCamera.Cameight",
+        "com.google.android.GoogleCamera.Go",
+        "com.google.android.GoogleCamera.Urnyx",
+        "com.google.android.GoogleCameraAsp",
+        "com.google.android.GoogleCameraCVM",
+        "com.google.android.GoogleCameraEng",
+        "com.google.android.GoogleCameraEng2",
+        "com.google.android.MTCL83",
+        "com.google.android.UltraCVM",
+        "com.google.android.apps.cameralite"
+    };
+
     private static final String[] packagesToChangePUBG = {
         "com.tencent.ig",
         "com.pubg.krmobile",
@@ -71,7 +85,6 @@ public class PixelPropsUtils {
     static {
         propsToKeep = new HashMap<>();
         propsToKeep.put("com.google.android.settings.intelligence", new ArrayList<String>(Arrays.asList("FINGERPRINT")));
-        propsToKeep.put("com.google.android.GoogleCamera", allProps);
         propsToChangePixel6 = new HashMap<>();
         propsToChangePixel6.put("BRAND", "google");
         propsToChangePixel6.put("MANUFACTURER", "Google");
@@ -99,7 +112,8 @@ public class PixelPropsUtils {
         if (packageName.equals(PACKAGE_GMS)) {
             sIsGms = true;
         }
-        if (packageName.startsWith("com.google.") || Arrays.asList(extraPackagesToChange).contains(packageName)) {
+        if ((packageName.startsWith("com.google.") && !Arrays.asList(packagesToKeep).contains(packageName))
+                || Arrays.asList(extraPackagesToChange).contains(packageName)) {
             Map<String, Object> propsToChange = propsToChangePixel6;
 
             if (Arrays.asList(packagesToChangePixelXL).contains(packageName)) {
