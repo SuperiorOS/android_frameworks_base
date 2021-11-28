@@ -58,6 +58,7 @@ applications that come with the platform
     <privapp-permissions package="com.android.launcher3">
         <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
         <permission name="android.permission.READ_SYSTEM_GRAMMATICAL_GENDER"/>
+        <permission name="android.permission.FORCE_STOP_PACKAGES"/>
     </privapp-permissions>
 
     <privapp-permissions package="com.android.location.fused">
