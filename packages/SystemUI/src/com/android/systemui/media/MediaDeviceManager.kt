@@ -75,7 +75,7 @@ class MediaDeviceManager @Inject constructor(
             oldEntry?.stop()
         }
         var entry = entries[key]
-        if (entry == null || entry?.token != data.token) {
+        if (entry == null || entry.token != data.token) {
             entry?.stop()
             val controller = data.token?.let {
                 controllerFactory.create(it)
@@ -103,7 +103,7 @@ class MediaDeviceManager @Inject constructor(
             entries.forEach {
                 key, entry ->
                 println("  key=$key")
-                entry.dump(fd, pw, args)
+                entry.dump(pw)
             }
         }
     }
@@ -163,7 +163,7 @@ class MediaDeviceManager @Inject constructor(
             localMediaManager.unregisterCallback(this)
         }
 
-        fun dump(fd: FileDescriptor, pw: PrintWriter, args: Array<String>) {
+        fun dump(pw: PrintWriter) {
             val routingSession = controller?.let {
                 mr2manager.getRoutingSessionForMediaController(it)
             }

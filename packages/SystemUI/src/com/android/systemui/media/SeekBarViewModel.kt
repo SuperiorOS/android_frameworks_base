@@ -226,7 +226,7 @@ class SeekBarViewModel @Inject constructor(
 
     @WorkerThread
     private fun checkPlaybackPosition() {
-        val duration = _data.duration ?: -1
+        val duration = _data.duration
         val currentPosition = playbackState?.computePosition(duration.toLong())?.toInt()
         if (currentPosition != null && _data.elapsedTime != currentPosition) {
             _data = _data.copy(elapsedTime = currentPosition)

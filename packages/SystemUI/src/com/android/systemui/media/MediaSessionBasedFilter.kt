@@ -129,7 +129,7 @@ class MediaSessionBasedFilter @Inject constructor(
             } else {
                 // Filtering this event because the app is casting and the loaded events is for a
                 // local session.
-                Log.d(TAG, "filtering key=$key local=${data.token} remote=${remote?.sessionToken}")
+                Log.d(TAG, "filtering key=$key local=${data.token} remote=${remote.sessionToken}")
                 // If the local session uses a different notification key, then lets go a step
                 // farther and dismiss the media data so that media controls for the local session
                 // don't hang around while casting.

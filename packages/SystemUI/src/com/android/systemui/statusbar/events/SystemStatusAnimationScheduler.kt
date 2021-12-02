@@ -191,26 +191,26 @@ class SystemStatusAnimationScheduler @Inject constructor(
                 systemAnimator.addListener(systemAnimatorAdapter)
                 systemAnimator.addUpdateListener(systemUpdateListener)
 
-                val chipAnimator = ValueAnimator.ofFloat(1f, 0f)
-                chipAnimator.duration = CHIP_ANIM_LENGTH
+                val animOutChipAnimator = ValueAnimator.ofFloat(1f, 0f)
+                animOutChipAnimator.duration = CHIP_ANIM_LENGTH
                 val endState = if (hasPersistentDot) {
                     SHOWING_PERSISTENT_DOT
                 } else {
                     IDLE
                 }
-                chipAnimator.addListener(
+                animOutChipAnimator.addListener(
                     ChipAnimatorAdapter(endState, scheduledEvent!!.viewCreator))
-                chipAnimator.addUpdateListener(chipUpdateListener)
+                animOutChipAnimator.addUpdateListener(chipUpdateListener)
 
-                val aSet2 = AnimatorSet()
+                val snimatorSet = AnimatorSet()
 
-                aSet2.play(chipAnimator).before(systemAnimator)
+                snimatorSet.play(animOutChipAnimator).before(systemAnimator)
                 if (hasPersistentDot) {
                     val dotAnim = notifyTransitionToPersistentDot()
-                    if (dotAnim != null) aSet2.playTogether(systemAnimator, dotAnim)
+                    if (dotAnim != null) snimatorSet.playTogether(systemAnimator, dotAnim)
                 }
 
-                aSet2.start()
+                snimatorSet.start()
 
                 statusBarWindowController.setForceStatusBarVisible(false)
                 scheduledEvent = null

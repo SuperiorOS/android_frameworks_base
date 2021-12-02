@@ -21,10 +21,6 @@ import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Point
 import android.graphics.Rect
-import android.renderscript.Allocation
-import android.renderscript.Element
-import android.renderscript.RenderScript
-import android.renderscript.ScriptIntrinsicBlur
 import android.util.Log
 import android.util.MathUtils
 import com.android.internal.graphics.ColorUtils
@@ -38,6 +34,7 @@ private const val BLUR_RADIUS = 25f
 private const val DOWNSAMPLE = 6
 
 @SysUISingleton
+@Suppress("DEPRECATION")
 class MediaArtworkProcessor @Inject constructor() {
 
     private val mTmpSize = Point()
@@ -47,10 +44,11 @@ class MediaArtworkProcessor @Inject constructor() {
         if (mArtworkCache != null) {
             return mArtworkCache
         }
-        val renderScript = RenderScript.create(context)
-        val blur = ScriptIntrinsicBlur.create(renderScript, Element.U8_4(renderScript))
-        var input: Allocation? = null
-        var output: Allocation? = null
+        val renderScript = android.renderscript.RenderScript.create(context)
+        val blur = android.renderscript.ScriptIntrinsicBlur.create(renderScript,
+            android.renderscript.Element.U8_4(renderScript))
+        var input: android.renderscript.Allocation? = null
+        var output: android.renderscript.Allocation? = null
         var inBitmap: Bitmap? = null
         try {
             @Suppress("DEPRECATION")

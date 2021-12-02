@@ -75,9 +75,9 @@ class ChargingRippleView(context: Context?, attrs: AttributeSet?) : View(context
         }
         val animator = ValueAnimator.ofFloat(0f, 1f)
         animator.duration = duration
-        animator.addUpdateListener { animator ->
-            val now = animator.currentPlayTime
-            val progress = animator.animatedValue as Float
+        animator.addUpdateListener {
+            val now = it.currentPlayTime
+            val progress = it.animatedValue as Float
             rippleShader.progress = progress
             rippleShader.distortionStrength = 1 - progress
             rippleShader.time = now.toFloat()

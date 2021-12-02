@@ -58,7 +58,7 @@ class ControlActionCoordinatorImpl @Inject constructor(
     private val controlsMetricsLogger: ControlsMetricsLogger
 ) : ControlActionCoordinator {
     private var dialog: Dialog? = null
-    private val vibrator = context.getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+    private val vibrator = context.getSystemService(Vibrator::class.java)
     private var pendingAction: Action? = null
     private var actionsInProgress = mutableSetOf<String>()
     private val isLocked: Boolean
@@ -145,6 +145,7 @@ class ControlActionCoordinatorImpl @Inject constructor(
         }
 
     @VisibleForTesting
+    @Suppress("DEPRECATION")
     fun bouncerOrRun(action: Action) {
         if (keyguardStateController.isShowing()) {
             if (isLocked) {

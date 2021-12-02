@@ -69,16 +69,15 @@ class PeopleNotificationIdentifierImpl @Inject constructor(
 ) : PeopleNotificationIdentifier {
 
     @PeopleNotificationType
-    override fun getPeopleNotificationType(entry: NotificationEntry): Int =
-            when (val type = entry.ranking.personTypeInfo) {
-                TYPE_IMPORTANT_PERSON -> TYPE_IMPORTANT_PERSON
-                else -> {
-                    when (val type = upperBound(type, extractPersonTypeInfo(entry.sbn))) {
-                        TYPE_IMPORTANT_PERSON -> TYPE_IMPORTANT_PERSON
-                        else -> upperBound(type, getPeopleTypeOfSummary(entry))
-                    }
-                }
-            }
+    override fun getPeopleNotificationType(entry: NotificationEntry): Int {
+        var type = entry.ranking.personTypeInfo
+        if (type == TYPE_IMPORTANT_PERSON) {
+            return TYPE_IMPORTANT_PERSON
+        }
+        type = upperBound(type, extractPersonTypeInfo(entry.sbn))
+        return if (type == TYPE_IMPORTANT_PERSON) TYPE_IMPORTANT_PERSON
+            else upperBound(type, getPeopleTypeOfSummary(entry))
+    }
 
     override fun compareTo(
         @PeopleNotificationType a: Int,

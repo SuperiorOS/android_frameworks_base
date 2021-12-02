@@ -205,7 +205,7 @@ class MediaResumeListener @Inject constructor(
                 }
                 if (inf != null && inf.size > 0) {
                     backgroundExecutor.execute {
-                        tryUpdateResumptionList(key, inf!!.get(0).componentInfo.componentName)
+                        tryUpdateResumptionList(key, inf.get(0).componentInfo.componentName)
                     }
                 } else {
                     // No service found

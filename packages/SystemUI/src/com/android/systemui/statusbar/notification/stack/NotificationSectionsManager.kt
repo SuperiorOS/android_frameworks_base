@@ -103,6 +103,7 @@ class NotificationSectionsManager @Inject internal constructor(
         configurationController.addCallback(configurationListener)
     }
 
+    @Suppress("UNCHECKED_CAST")
     private fun <T : ExpandableView> reinflateView(
         view: T?,
         layoutInflater: LayoutInflater,

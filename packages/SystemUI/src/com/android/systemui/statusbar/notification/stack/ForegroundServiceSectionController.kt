@@ -54,7 +54,9 @@ class ForegroundServiceSectionController @Inject constructor(
 
     init {
         if (featureController.isForegroundServiceDismissalEnabled()) {
-            entryManager.addNotificationRemoveInterceptor(this::shouldInterceptRemoval)
+            entryManager.addNotificationRemoveInterceptor { _, entry, reason ->
+                shouldInterceptRemoval(entry, reason)
+            }
 
             entryManager.addNotificationEntryListener(object : NotificationEntryListener {
                 override fun onPostEntryUpdated(entry: NotificationEntry) {
@@ -69,14 +71,12 @@ class ForegroundServiceSectionController @Inject constructor(
     }
 
     private fun shouldInterceptRemoval(
-        key: String,
         entry: NotificationEntry?,
         reason: Int
     ): Boolean {
         Assert.isMainThread()
         val isClearAll = reason == REASON_CANCEL_ALL
         val isUserDismiss = reason == REASON_CANCEL || reason == REASON_CLICK
-        val isAppCancel = reason == REASON_APP_CANCEL || reason == REASON_APP_CANCEL_ALL
         val isSummaryCancel = reason == REASON_GROUP_SUMMARY_CANCELED
 
         if (entry == null) return false

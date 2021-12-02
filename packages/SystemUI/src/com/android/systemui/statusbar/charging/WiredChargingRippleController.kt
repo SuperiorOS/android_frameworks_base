@@ -22,6 +22,7 @@ import android.graphics.PixelFormat
 import android.graphics.PointF
 import android.os.SystemProperties
 import android.util.DisplayMetrics
+import android.provider.Settings
 import android.view.View
 import android.view.WindowManager
 import com.android.internal.annotations.VisibleForTesting
@@ -67,6 +68,7 @@ class WiredChargingRippleController @Inject constructor(
             R.dimen.physical_charger_port_location_normalized_x)
     private var normalizedPortPosY: Float = context.resources.getFloat(
             R.dimen.physical_charger_port_location_normalized_y)
+    @Suppress("DEPRECATION")
     private val windowLayoutParams = WindowManager.LayoutParams().apply {
         width = WindowManager.LayoutParams.MATCH_PARENT
         height = WindowManager.LayoutParams.MATCH_PARENT
@@ -171,10 +173,9 @@ class WiredChargingRippleController @Inject constructor(
     }
 
     private fun layoutRipple() {
-        val displayMetrics = DisplayMetrics()
-        context.display.getRealMetrics(displayMetrics)
-        val width = displayMetrics.widthPixels
-        val height = displayMetrics.heightPixels
+        val bounds = windowManager.currentWindowMetrics.bounds
+        val width = bounds.width()
+        val height = bounds.height()
         rippleView.radius = Integer.max(width, height).toFloat()
         rippleView.origin = when (RotationUtils.getRotation(context)) {
             RotationUtils.ROTATION_LANDSCAPE -> {

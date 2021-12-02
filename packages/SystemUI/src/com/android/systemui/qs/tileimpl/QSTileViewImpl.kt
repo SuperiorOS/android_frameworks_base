@@ -238,8 +238,8 @@ open class QSTileViewImpl @JvmOverloads constructor(
 
     override fun init(tile: QSTile) {
         init(
-                { v: View? -> tile.click(this) },
-                { view: View? ->
+                { tile.click(this) },
+                {
                     tile.longClick(this)
                     true
                 }

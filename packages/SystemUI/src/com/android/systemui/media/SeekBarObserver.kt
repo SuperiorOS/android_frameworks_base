@@ -61,7 +61,7 @@ class SeekBarObserver(private val holder: PlayerViewHolder) : Observer<SeekBarVi
             setVerticalPadding(seekBarEnabledVerticalPadding)
         }
 
-        data.duration?.let {
+        data.duration.let {
             holder.seekBar.setMax(it)
             holder.totalTimeView.setText(DateUtils.formatElapsedTime(
                     it / DateUtils.SECOND_IN_MILLIS))

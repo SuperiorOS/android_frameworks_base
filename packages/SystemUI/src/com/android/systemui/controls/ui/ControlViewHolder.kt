@@ -254,7 +254,7 @@ class ControlViewHolder(
         clazz: KClass<out Behavior>,
         offset: Int = 0
     ): Behavior {
-        val behavior = if (existingBehavior == null || existingBehavior!!::class != clazz) {
+        val behavior = if (existingBehavior == null || existingBehavior::class != clazz) {
             // Behavior changes can signal a change in template from the app or
             // first time setup
             val newBehavior = clazz.java.newInstance()

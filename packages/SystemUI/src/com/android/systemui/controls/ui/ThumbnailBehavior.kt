@@ -58,7 +58,7 @@ class ThumbnailBehavior : Behavior {
         cvh.context.resources.getValue(R.dimen.controls_thumbnail_shadow_radius, outValue, true)
         shadowRadius = outValue.getFloat()
 
-        shadowColor = cvh.context.resources.getColor(R.color.control_thumbnail_shadow_color)
+        shadowColor = cvh.context.resources.getColor(R.color.control_thumbnail_shadow_color, null)
         cvh.layout.setOnClickListener(View.OnClickListener() {
             cvh.controlActionCoordinator.touch(cvh, template.getTemplateId(), control)
         })
@@ -86,7 +86,7 @@ class ThumbnailBehavior : Behavior {
                         .getDimensionPixelSize(R.dimen.control_corner_radius).toFloat()
                     clipLayer.setDrawable(CornerDrawable(drawable, radius))
                     clipLayer.setColorFilter(BlendModeColorFilter(cvh.context.resources
-                        .getColor(R.color.control_thumbnail_tint), BlendMode.LUMINOSITY))
+                        .getColor(R.color.control_thumbnail_tint, null), BlendMode.LUMINOSITY))
                     cvh.applyRenderInfo(enabled, colorOffset)
                 }
             }

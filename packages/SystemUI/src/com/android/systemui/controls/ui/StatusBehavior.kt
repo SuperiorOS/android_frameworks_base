@@ -75,6 +75,7 @@ class StatusBehavior : Behavior {
                 DialogInterface.OnClickListener { dialog, _ ->
                     try {
                         cws.control?.getAppIntent()?.send()
+                        @Suppress("DEPRECATION")
                         context.sendBroadcast(Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS))
                     } catch (e: PendingIntent.CanceledException) {
                         cvh.setErrorStatus()
