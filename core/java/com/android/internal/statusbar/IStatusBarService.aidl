@@ -226,4 +226,7 @@ interface IStatusBarService
 
     /** Unregisters a nearby media devices provider. */
     void unregisterNearbyMediaDevicesProvider(in INearbyMediaDevicesProvider provider);
+
+    /** Used to block or unblock usage of gestural navigation. */
+    void setBlockedGesturalNavigation(boolean blocked);
 }
