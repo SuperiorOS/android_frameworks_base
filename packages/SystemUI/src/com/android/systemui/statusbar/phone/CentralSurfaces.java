@@ -538,6 +538,8 @@ public interface CentralSurfaces extends Dumpable, ActivityStarter, LifecycleOwn
 
     void extendDozePulse();
 
+    void setBlockedGesturalNavigation(boolean blocked);
+
     public static class KeyboardShortcutsMessage {
         final int mDeviceId;
 
