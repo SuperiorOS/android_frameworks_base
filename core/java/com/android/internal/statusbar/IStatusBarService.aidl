@@ -229,4 +229,7 @@ interface IStatusBarService
 
     /** Shows rear display educational dialog */
     void showRearDisplayDialog(int currentBaseState);
+
+    /** Used to block or unblock usage of gestural navigation. */
+    void setBlockedGesturalNavigation(boolean blocked);
 }
