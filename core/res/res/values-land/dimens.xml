@@ -30,7 +30,7 @@
     <!-- Height of the status bar -->
     <dimen name="status_bar_height">@dimen/status_bar_height_landscape</dimen>
     <!-- Height of area above QQS where battery/time go -->
-    <dimen name="quick_qs_offset_height">48dp</dimen>
+    <dimen name="quick_qs_offset_height">120dp</dimen>
     <!-- Default height of an action bar. -->
     <dimen name="action_bar_default_height">40dip</dimen>
     <!-- Vertical padding around action bar icons. -->

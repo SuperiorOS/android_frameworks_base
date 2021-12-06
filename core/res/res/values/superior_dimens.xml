@@ -15,6 +15,6 @@
 <resources>
 
     <!-- Total height of QQS (quick_qs_offset_height + 128) -->
-    <dimen name="quick_qs_total_height">176dp</dimen>
+    <dimen name="quick_qs_total_height">248dp</dimen>
 
 </resources>
