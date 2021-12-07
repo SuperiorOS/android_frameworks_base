@@ -88,4 +88,5 @@ public class SystemSettings {
         Settings.System.ALARM_ALERT,
         Settings.System.NOTIFICATION_LIGHT_PULSE,
         Settings.System.USE_OLD_MOBILETYPE,
+        Settings.System.FULLSCREEN_GESTURES,
 }
