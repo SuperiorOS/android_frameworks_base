@@ -404,6 +404,7 @@ public interface StatusBarIconController {
         }
 
         public void onSetIcon(int viewIndex, StatusBarIcon icon) {
+            if (!(mGroup.getChildAt(viewIndex) instanceof StatusBarIconView)) return;
             StatusBarIconView view = (StatusBarIconView) mGroup.getChildAt(viewIndex);
             view.set(icon);
         }
