@@ -100,7 +100,7 @@ public class HotspotTile extends SecureQSTile<BooleanState> {
 
     @Override
     public Intent getLongClickIntent() {
-        return new Intent(Settings.ACTION_TETHER_SETTINGS);
+        return new Intent(Settings.ACTION_WIFI_TETHER_SETTING);
     }
 
     @Override
