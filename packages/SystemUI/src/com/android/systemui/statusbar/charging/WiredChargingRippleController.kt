@@ -21,8 +21,6 @@ import android.content.res.Configuration
 import android.graphics.PixelFormat
 import android.graphics.PointF
 import android.os.SystemProperties
-import android.util.DisplayMetrics
-import android.provider.Settings
 import android.view.View
 import android.view.WindowManager
 import com.android.internal.annotations.VisibleForTesting
