@@ -77,7 +77,7 @@ class MediaDataFilter @Inject constructor(
         userTracker = object : CurrentUserTracker(broadcastDispatcher) {
             override fun onUserSwitched(newUserId: Int) {
                 // Post this so we can be sure lockscreenUserManager already got the broadcast
-                executor.execute { handleUserSwitched() }
+                executor.execute { handleUserSwitched(newUserId) }
             }
         }
         userTracker.startTracking()
@@ -196,7 +196,8 @@ class MediaDataFilter @Inject constructor(
         listeners.forEach { it.onSmartspaceMediaDataRemoved(key, immediately) }
     }
 
-    internal fun handleUserSwitched() {
+    @VisibleForTesting
+    internal fun handleUserSwitched(id: Int) {
         // If the user changes, remove all current MediaData objects and inform listeners
         val listenersCopy = listeners
         val keyCopy = userEntries.keys.toMutableList()

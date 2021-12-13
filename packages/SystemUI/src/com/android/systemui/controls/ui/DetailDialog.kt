@@ -133,7 +133,6 @@ class DetailDialog(
                 // startActivity() below is called.
                 removeDetailTask()
                 dismiss()
-                @Suppress("DEPRECATION")
                 context.sendBroadcast(Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS))
                 v.context.startActivity(intent)
             }

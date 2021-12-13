@@ -120,7 +120,7 @@ class ControlsUiControllerImpl @Inject constructor (
     private val onSeedingComplete = Consumer<Boolean> {
         accepted ->
             if (accepted) {
-                selectedStructure = controlsController.get().getFavorites().maxByOrNull {
+                selectedStructure = controlsController.get().getFavorites().maxBy {
                     it.controls.size
                 } ?: EMPTY_STRUCTURE
                 updatePreferences(selectedStructure)
@@ -168,10 +168,10 @@ class ControlsUiControllerImpl @Inject constructor (
         selectedStructure = getPreferredStructure(allStructures)
 
         if (controlsController.get().addSeedingFavoritesCallback(onSeedingComplete)) {
-            listingCallback = createCallback { _ -> showSeedingView() }
+            listingCallback = createCallback(::showSeedingView)
         } else if (selectedStructure.controls.isEmpty() && allStructures.size <= 1) {
             // only show initial view if there are really no favorites across any structure
-            listingCallback = createCallback { _ -> showInitialSetupView() }
+            listingCallback = createCallback(::showInitialSetupView)
         } else {
             selectedStructure.controls.map {
                 ControlWithState(selectedStructure.componentName, it, null)
@@ -209,14 +209,14 @@ class ControlsUiControllerImpl @Inject constructor (
         fadeAnim.start()
     }
 
-    private fun showSeedingView() {
+    private fun showSeedingView(items: List<SelectionItem>) {
         val inflater = LayoutInflater.from(context)
         inflater.inflate(R.layout.controls_no_favorites, parent, true)
         val subtitle = parent.requireViewById<TextView>(R.id.controls_subtitle)
         subtitle.setText(context.resources.getString(R.string.controls_seeding_in_progress))
     }
 
-    private fun showInitialSetupView() {
+    private fun showInitialSetupView(items: List<SelectionItem>) {
         startProviderSelectorActivity()
         onDismiss.run()
     }

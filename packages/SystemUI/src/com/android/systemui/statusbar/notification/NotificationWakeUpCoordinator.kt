@@ -234,7 +234,7 @@ class NotificationWakeUpCoordinator @Inject constructor(
     }
 
     override fun onDozeAmountChanged(linear: Float, eased: Float) {
-        if (overrideDozeAmountIfAnimatingScreenOff()) {
+        if (overrideDozeAmountIfAnimatingScreenOff(linear)) {
             return
         }
 
@@ -275,7 +275,7 @@ class NotificationWakeUpCoordinator @Inject constructor(
             }
         }
 
-        if (overrideDozeAmountIfAnimatingScreenOff()) {
+        if (overrideDozeAmountIfAnimatingScreenOff(mLinearDozeAmount)) {
             return
         }
 
@@ -331,7 +331,7 @@ class NotificationWakeUpCoordinator @Inject constructor(
      * @return Whether the doze amount was overridden because we are playing the screen off
      * animation. If true, the original doze amount should be ignored.
      */
-    private fun overrideDozeAmountIfAnimatingScreenOff(): Boolean {
+    private fun overrideDozeAmountIfAnimatingScreenOff(linearDozeAmount: Float): Boolean {
         if (unlockedScreenOffAnimationController.isScreenOffAnimationPlaying()) {
             setDozeAmount(1f, 1f)
             return true

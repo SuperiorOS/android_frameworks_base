@@ -54,10 +54,10 @@ class BatteryEvent : StatusEvent {
     override var contentDescription: String? = ""
 
     override val viewCreator: (context: Context) -> View = { context ->
-        ImageView(context).apply {
-            setImageDrawable(ThemedBatteryDrawable(context, Color.WHITE))
-            setBackground(ColorDrawable(Color.GREEN))
-        }
+        val iv = ImageView(context)
+        iv.setImageDrawable(ThemedBatteryDrawable(context, Color.WHITE))
+        iv.setBackgroundDrawable(ColorDrawable(Color.GREEN))
+        iv
     }
 
     override fun toString(): String {

@@ -86,7 +86,6 @@ public class DeviceControlsControllerImpl @Inject constructor(
      * [Callback#onControlsUpdate], once per user. Otherwise the calculated position may be
      * incorrect.
      */
-    @Suppress("DEPRECATION")
     override fun setCallback(callback: Callback) {
         // Treat any additional call as a reset before recalculating
         removeCallback()

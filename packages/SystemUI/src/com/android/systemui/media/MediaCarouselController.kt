@@ -361,8 +361,8 @@ class MediaCarouselController @Inject constructor(
                     val previousVisibleIndex = MediaPlayerData.playerKeys()
                             .indexOfFirst { key -> it == key }
                     mediaCarouselScrollHandler
-                        .scrollToPlayer(previousVisibleIndex, activeMediaIndex)
-                } ?: run {
+                            .scrollToPlayer(previousVisibleIndex, activeMediaIndex)
+                } ?: {
                     mediaCarouselScrollHandler.scrollToPlayer(destIndex = activeMediaIndex)
                 }
             }

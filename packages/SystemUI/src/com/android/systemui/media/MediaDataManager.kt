@@ -543,8 +543,10 @@ class MediaDataManager(
         if (artWorkIcon != null) {
             // If we have art, get colors from that
             if (artworkBitmap == null) {
-                if (artWorkIcon.type != Icon.TYPE_BITMAP &&
-                        artWorkIcon.type != Icon.TYPE_ADAPTIVE_BITMAP) {
+                if (artWorkIcon.type == Icon.TYPE_BITMAP ||
+                        artWorkIcon.type == Icon.TYPE_ADAPTIVE_BITMAP) {
+                    artworkBitmap = artWorkIcon.bitmap
+                } else {
                     val drawable: Drawable = artWorkIcon.loadDrawable(context)
                     artworkBitmap = Bitmap.createBitmap(
                             drawable.intrinsicWidth,
@@ -626,7 +628,7 @@ class MediaDataManager(
 
         val isLocalSession = mediaController.playbackInfo?.playbackType ==
             MediaController.PlaybackInfo.PLAYBACK_TYPE_LOCAL
-        val isPlaying = mediaController.playbackState?.let { isPlayingState(it.state) }
+        val isPlaying = mediaController.playbackState?.let { isPlayingState(it.state) } ?: null
         val lastActive = systemClock.elapsedRealtime()
         foregroundExecutor.execute {
             val resumeAction: Runnable? = mediaEntries[key]?.resumeAction
@@ -688,7 +690,7 @@ class MediaDataManager(
         val source = ImageDecoder.createSource(context.getContentResolver(), uri)
         return try {
             ImageDecoder.decodeBitmap(source) {
-                decoder, _, _ -> decoder.allocator = ImageDecoder.ALLOCATOR_SOFTWARE
+                decoder, info, source -> decoder.allocator = ImageDecoder.ALLOCATOR_SOFTWARE
             }
         } catch (e: IOException) {
             Log.e(TAG, "Unable to load bitmap", e)
@@ -760,7 +762,7 @@ class MediaDataManager(
     fun onNotificationRemoved(key: String) {
         Assert.isMainThread()
         val removed = mediaEntries.remove(key)
-        if (useMediaResumption && removed?.resumeAction != null && removed.isLocalSession) {
+        if (useMediaResumption && removed?.resumeAction != null && removed?.isLocalSession) {
             Log.d(TAG, "Not removing $key because resumable")
             // Move to resume key (aka package name) if that key doesn't already exist.
             val resumeAction = getResumeMediaAction(removed.resumeAction!!)

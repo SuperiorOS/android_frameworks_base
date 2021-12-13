@@ -573,8 +573,8 @@ class MediaCarouselScrollHandler(
         if (sourceIndex >= 0 && sourceIndex < mediaContent.childCount) {
             scrollView.relativeScrollX = sourceIndex * playerWidthPlusPadding
         }
-        val newDestIndex = Math.min(mediaContent.getChildCount() - 1, destIndex)
-        val view = mediaContent.getChildAt(newDestIndex)
+        val destIndex = Math.min(mediaContent.getChildCount() - 1, destIndex)
+        val view = mediaContent.getChildAt(destIndex)
         // We need to post this to wait for the active player becomes visible.
         mainExecutor.executeDelayed({
             scrollView.smoothScrollTo(view.left, scrollView.scrollY)

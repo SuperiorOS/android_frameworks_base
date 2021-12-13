@@ -38,8 +38,7 @@ class NotificationLaunchAnimatorController(
     private val notificationShadeWindowViewController: NotificationShadeWindowViewController,
     private val notificationListContainer: NotificationListContainer,
     private val headsUpManager: HeadsUpManagerPhone,
-    private val notification: ExpandableNotificationRow,
-    override var launchContainer: ViewGroup = notification.rootView as ViewGroup,
+    private val notification: ExpandableNotificationRow
 ) : ActivityLaunchAnimator.Controller {
 
     companion object {
@@ -48,6 +47,12 @@ class NotificationLaunchAnimatorController(
 
     private val notificationEntry = notification.entry
     private val notificationKey = notificationEntry.sbn.key
+
+    override var launchContainer: ViewGroup
+        get() = notification.rootView as ViewGroup
+        set(ignored) {
+            // Do nothing. Notifications are always animated inside their rootView.
+        }
 
     override fun createAnimatorState(): ActivityLaunchAnimator.State {
         // If the notification panel is collapsed, the clip may be larger than the height.
