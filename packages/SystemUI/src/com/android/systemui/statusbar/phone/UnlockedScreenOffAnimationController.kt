@@ -52,7 +52,7 @@ class UnlockedScreenOffAnimationController @Inject constructor(
     private val keyguardStateController: KeyguardStateController,
     private val dozeParameters: dagger.Lazy<DozeParameters>,
     private val globalSettings: GlobalSettings,
-    @Main private val handler: Handler
+    @Main private val handler: Handler,
 ) : WakefulnessLifecycle.Observer {
 
     private lateinit var statusBar: StatusBar
