@@ -67,9 +67,10 @@ class MediaArtworkProcessor @Inject constructor() {
             val outBitmap = Bitmap.createBitmap(inBitmap.width, inBitmap.height,
                     Bitmap.Config.ARGB_8888)
 
-            input = Allocation.createFromBitmap(renderScript, inBitmap,
-                    Allocation.MipmapControl.MIPMAP_NONE, Allocation.USAGE_GRAPHICS_TEXTURE)
-            output = Allocation.createFromBitmap(renderScript, outBitmap)
+            input = android.renderscript.Allocation.createFromBitmap(renderScript, inBitmap,
+                    android.renderscript.Allocation.MipmapControl.MIPMAP_NONE,
+                    android.renderscript.Allocation.USAGE_GRAPHICS_TEXTURE)
+            output = android.renderscript.Allocation.createFromBitmap(renderScript, outBitmap)
 
             blur.setRadius(BLUR_RADIUS)
             blur.setInput(input)
