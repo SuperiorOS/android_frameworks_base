@@ -16,7 +16,6 @@
 
 package com.android.systemui.media
 
-import android.content.Context
 import android.os.SystemProperties
 import android.util.Log
 import com.android.internal.annotations.VisibleForTesting
@@ -33,8 +32,6 @@ import kotlin.collections.LinkedHashMap
 
 private const val TAG = "MediaDataFilter"
 private const val DEBUG = true
-private const val EXPORTED_SMARTSPACE_TRAMPOLINE_ACTIVITY_NAME = ("com.google" +
-        ".android.apps.gsa.staticplugins.opa.smartspace.ExportedSmartspaceTrampolineActivity")
 private const val RESUMABLE_MEDIA_MAX_AGE_SECONDS_KEY = "resumable_media_max_age_seconds"
 
 /**
@@ -54,7 +51,6 @@ internal val SMARTSPACE_MAX_AGE = SystemProperties
  * background users (e.g. timeouts).
  */
 class MediaDataFilter @Inject constructor(
-    private val context: Context,
     private val broadcastDispatcher: BroadcastDispatcher,
     private val mediaResumeListener: MediaResumeListener,
     private val lockscreenUserManager: NotificationLockscreenUserManager,
@@ -232,18 +228,6 @@ class MediaDataFilter @Inject constructor(
             mediaDataManager.setTimedOut(it, timedOut = true, forceUpdate = true)
         }
         if (smartspaceMediaData.isActive) {
-            val dismissIntent = smartspaceMediaData.dismissIntent
-            if (dismissIntent == null) {
-                Log.w(TAG, "Cannot create dismiss action click action: " +
-                        "extras missing dismiss_intent.")
-            } else if (dismissIntent.getComponent() != null &&
-                    dismissIntent.getComponent().getClassName()
-                    == EXPORTED_SMARTSPACE_TRAMPOLINE_ACTIVITY_NAME) {
-                // Dismiss the card Smartspace data through Smartspace trampoline activity.
-                context.startActivity(dismissIntent)
-            } else {
-                context.sendBroadcast(dismissIntent)
-            }
             smartspaceMediaData = EMPTY_SMARTSPACE_MEDIA_DATA.copy(
                 targetId = smartspaceMediaData.targetId, isValid = smartspaceMediaData.isValid)
         }
