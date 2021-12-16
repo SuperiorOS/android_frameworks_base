@@ -25,4 +25,8 @@
     <bool name="config_statusBarBurnInProtection">true</bool>
     <integer name="config_shift_interval">60</integer>
 
+    <!-- SystemUI Google -->
+    <bool name="flag_monet">true</bool>
+    <bool name="flag_smartspace">true</bool>
+
 </resources>
