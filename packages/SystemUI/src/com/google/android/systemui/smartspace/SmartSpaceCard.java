@@ -319,11 +319,11 @@ public class SmartSpaceCard {
         if (i == 1) {
             intent.addFlags(268435456);
             intent.setPackage("com.google.android.googlequicksearchbox");
-            return PendingIntent.getBroadcast(mContext, mRequestCode, intent, PendingIntent.FLAG_IMMUTABLE);
+            return PendingIntent.getBroadcast(mContext, mRequestCode, intent, 0);
         } else if (i != 2) {
             return null;
         } else {
-            return PendingIntent.getActivity(mContext, mRequestCode, intent, PendingIntent.FLAG_IMMUTABLE);
+            return PendingIntent.getActivity(mContext, mRequestCode, intent, 0);
         }
     }
 }
