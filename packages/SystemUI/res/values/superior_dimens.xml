@@ -50,4 +50,8 @@
     <!-- BurnIn Protection -->
     <dimen name="burnin_protection_horizontal_shift">1dp</dimen>
     <dimen name="burnin_protection_vertical_shift">1dp</dimen>
+
+    <!-- Udfps fingerprint animation -->
+    <dimen name="udfps_animation_size">280dp</dimen>
+    <dimen name="udfps_animation_offset">0dp</dimen>
 </resources>
