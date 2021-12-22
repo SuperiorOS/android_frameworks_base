@@ -82,7 +82,7 @@ public class QSPanelController extends QSPanelControllerBase<QSPanel> {
             FalsingManager falsingManager,
             StatusBarKeyguardViewManager statusBarKeyguardViewManager) {
         super(view, qsHost, qsCustomizerController, usingMediaPlayer, mediaHost,
-                metricsLogger, uiEventLogger, qsLogger, dumpManager);
+                metricsLogger, uiEventLogger, qsLogger, dumpManager, tunerService);
         mTunerService = tunerService;
         mQsCustomizerController = qsCustomizerController;
         mQsTileRevealControllerFactory = qsTileRevealControllerFactory;
@@ -115,6 +115,8 @@ public class QSPanelController extends QSPanelControllerBase<QSPanel> {
         mTunerService.addTunable(mView, QSPanel.QS_SHOW_BRIGHTNESS_SLIDER);
         mTunerService.addTunable(mView, QSPanel.QS_SHOW_AUTO_BRIGHTNESS);
         mTunerService.addTunable(mView, QSPanel.QS_BRIGHTNESS_SLIDER_POSITION);
+        mTunerService.addTunable(mView, QSPanel.QS_LAYOUT_COLUMNS);
+        mTunerService.addTunable(mView, QSPanel.QS_LAYOUT_COLUMNS_LANDSCAPE);
 
         mView.setBrightnessRunnable(() -> {
             mView.updateResources();
