@@ -12823,6 +12823,13 @@ public final class Settings {
         public static final String DOZE_SINGLE_TAP_GESTURE_AMBIENT = "doze_single_tap_gesture_ambient";
 
         /**
+         * Whether to allow sensitive qs tiles on keyguard
+         * @hide
+         */
+        @Readable
+        public static final String QSTILE_REQUIRES_UNLOCKING = "qstile_requires_unlocking";
+
+        /**
          * These entries are considered common between the personal and the managed profile,
          * since the managed profile doesn't get to change them.
          */
