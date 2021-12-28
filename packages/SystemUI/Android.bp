@@ -83,6 +83,7 @@ android_library {
     resource_dirs: [
         "res-product",
         "res-keyguard",
+        "res-smartspace",
         "res",
     ],
     static_libs: [
@@ -122,6 +123,9 @@ android_library {
         "faceunlock_framework",
         "colorkt",
         "themelib",
+        "backgesture-google",
+        "smartspace-google",
+        "tensorflowlite_java",
     ],
     manifest: "AndroidManifest.xml",
 
@@ -230,6 +234,10 @@ android_app {
     static_libs: [
         "SystemUI-core",
     ],
+    jni_libs: [
+        "libtensorflowlite_jni",
+    ],
+    use_embedded_native_libs: true,
     resource_dirs: [],
 
     platform_apis: true,
