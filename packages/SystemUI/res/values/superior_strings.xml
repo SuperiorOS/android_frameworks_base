@@ -117,4 +117,10 @@
     <!-- Now playing lockscreen music Ticker -->
     <string name="ambientmusic_songinfo" formatted="false">%s by %s</string>
 
+    <!-- Increase Touch Sensitivity QS tile -->
+    <string name="quick_settings_increase_touch_sensitivity_label">Increase Touch Sensitivity</string>
+    <string name="accessibility_quick_settings_increase_touch_sensitivity_off">Increase Touch Sensitivity off</string>
+    <string name="accessibility_quick_settings_increase_touch_sensitivity_on">Increase Touch Sensitivity on</string>
+    <string name="accessibility_quick_settings_increase_touch_sensitivity_changed_off">Increase Touch Sensitivity turned off.</string>
+    <string name="accessibility_quick_settings_increase_touch_sensitivity_changed_on">Increase Touch Sensitivity turned on.</string>
 </resources>
