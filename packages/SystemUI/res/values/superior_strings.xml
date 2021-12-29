@@ -119,4 +119,11 @@
 
     <!-- Face Unlock -->
     <string name="face_unlock_recognizing">Recognizing face...</string>
+
+    <!-- Increase Touch Sensitivity QS tile -->
+    <string name="quick_settings_increase_touch_sensitivity_label">Increase Touch Sensitivity</string>
+    <string name="accessibility_quick_settings_increase_touch_sensitivity_off">Increase Touch Sensitivity off</string>
+    <string name="accessibility_quick_settings_increase_touch_sensitivity_on">Increase Touch Sensitivity on</string>
+    <string name="accessibility_quick_settings_increase_touch_sensitivity_changed_off">Increase Touch Sensitivity turned off.</string>
+    <string name="accessibility_quick_settings_increase_touch_sensitivity_changed_on">Increase Touch Sensitivity turned on.</string>
 </resources>
