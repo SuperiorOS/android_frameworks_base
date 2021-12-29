@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "8aa5a9df_32184bec",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/IncreaseTouchSensitivityTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000005
+      },
+      "writtenOn": "2021-12-29T16:03:55Z",
+      "side": 1,
+      "message": "Need to change the config to config_show_touch_sensitivity",
+      "revId": "0eafc14effddd4f512c8792087c339c9fcc139fb",
+      "serverId": "b9a0dee7-7ab9-42ad-a458-8be6c09e459e",
+      "unresolved": true
+    }
+  ]
+}
