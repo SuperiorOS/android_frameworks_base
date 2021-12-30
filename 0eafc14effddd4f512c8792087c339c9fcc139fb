@@ -16,6 +16,24 @@
       "revId": "0eafc14effddd4f512c8792087c339c9fcc139fb",
       "serverId": "b9a0dee7-7ab9-42ad-a458-8be6c09e459e",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "f2ce41e3_fdf85272",
+        "filename": "packages/SystemUI/src/com/android/systemui/qs/tiles/IncreaseTouchSensitivityTile.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000005
+      },
+      "writtenOn": "2021-12-30T15:01:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8aa5a9df_32184bec",
+      "revId": "0eafc14effddd4f512c8792087c339c9fcc139fb",
+      "serverId": "b9a0dee7-7ab9-42ad-a458-8be6c09e459e",
+      "unresolved": false
     }
   ]
 }
