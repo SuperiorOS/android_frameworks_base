@@ -28,80 +28,100 @@ import java.util.Map;
 public class PixelPropsUtils {
 
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
-    private static final boolean PRODUCT_SUPPORT_HIGH_FPS =
-            SystemProperties.getBoolean("ro.device.support_high_fps", false);
-    private static final boolean PRODUCT_SUPPORT_CONTENT_REFRESH =
-            SystemProperties.getBoolean("ro.surface_flinger.use_content_detection_for_refresh_rate", false);
+    private static final boolean PRODUCT_SUPPORT_HIGH_FPS = SystemProperties.getBoolean("ro.device.support_high_fps",
+            false);
+    private static final boolean PRODUCT_SUPPORT_CONTENT_REFRESH = SystemProperties
+            .getBoolean("ro.surface_flinger.use_content_detection_for_refresh_rate", false);
     private static final boolean DEBUG = false;
 
     private static volatile boolean sIsGms = false;
     public static final String PACKAGE_GMS = "com.google.android.gms";
 
-    private static final Map<String, Object> propsToChange;
+    private static final Map<String, Object> propsToChangePixel6;
     private static final Map<String, Object> propsToChangePUBG;
     private static final Map<String, Object> propsToChangeCOD;
+    private static final Map<String, Object> propsToChangePixelXL;
+    private static final String[] packagesToChangePixelXL = {
+            "com.google.android.apps.photos"
+    };
+
     private static final Map<String, ArrayList<String>> propsToKeep;
     private static final String[] extraPackagesToChange = {
-        "com.android.chrome",
-        "com.android.vending",
-        "com.breel.wallpapers20"
+            "com.android.chrome",
+            "com.android.vending",
+            "com.breel.wallpapers20"
     };
 
     private static final String[] packagesToChangeCOD = {
-        "com.activision.callofduty.shooter"
+            "com.activision.callofduty.shooter"
     };
 
     private static final String[] packagesToChangePUBG = {
-        "com.tencent.ig",
-        "com.pubg.krmobile",
-        "com.vng.pubgmobile",
-        "com.rekoo.pubgm",
-        "com.pubg.imobile",
-        "com.pubg.newstate",
-        "com.gameloft.android.ANMP.GloftA9HM" // Asphalt 9
+            "com.tencent.ig",
+            "com.pubg.krmobile",
+            "com.vng.pubgmobile",
+            "com.rekoo.pubgm",
+            "com.pubg.imobile",
+            "com.pubg.newstate",
+            "com.gameloft.android.ANMP.GloftA9HM" // Asphalt 9
     };
 
-    private static ArrayList<String> allProps = new ArrayList<>(Arrays.asList("BRAND", "MANUFACTURER", "DEVICE", "PRODUCT", "MODEL", "FINGERPRINT"));
+    private static ArrayList<String> allProps = new ArrayList<>(
+            Arrays.asList("BRAND", "MANUFACTURER", "DEVICE", "PRODUCT", "MODEL", "FINGERPRINT"));
 
     static {
         propsToKeep = new HashMap<>();
         propsToKeep.put("com.google.android.settings.intelligence", new ArrayList<String>(Arrays.asList("FINGERPRINT")));
         propsToKeep.put("com.google.android.GoogleCamera", allProps);
-        propsToChange = new HashMap<>();
-        propsToChange.put("BRAND", "google");
-        propsToChange.put("MANUFACTURER", "Google");
-        propsToChange.put("DEVICE", "raven");
-        propsToChange.put("PRODUCT", "raven");
-        propsToChange.put("MODEL", "Pixel 6 Pro");
-        propsToChange.put("FINGERPRINT", "google/raven/raven:12/SQ1D.220105.007/8030436:user/release-keys");
+        propsToChangePixel6 = new HashMap<>();
+        propsToChangePixel6.put("BRAND", "google");
+        propsToChangePixel6.put("MANUFACTURER", "Google");
+        propsToChangePixel6.put("DEVICE", "raven");
+        propsToChangePixel6.put("PRODUCT", "raven");
+        propsToChangePixel6.put("MODEL", "Pixel 6 Pro");
+        propsToChangePixel6.put("FINGERPRINT", "google/raven/raven:12/SQ1D.220105.007/8030436:user/release-keys");
         propsToChangePUBG = new HashMap<>();
         propsToChangePUBG.put("MODEL", "GM1917");
         propsToChangeCOD = new HashMap<>();
         propsToChangeCOD.put("MODEL", "SO-52A");
+        propsToChangePixelXL = new HashMap<>();
+        propsToChangePixelXL.put("BRAND", "google");
+        propsToChangePixelXL.put("MANUFACTURER", "Google");
+        propsToChangePixelXL.put("DEVICE", "marlin");
+        propsToChangePixelXL.put("PRODUCT", "marlin");
+        propsToChangePixelXL.put("MODEL", "Pixel XL");
+        propsToChangePixelXL.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
     }
 
-    public static void setProps(String packageName) {
-        if (packageName == null){
-            return;
+    public staticagName ==null){
+
+    rn;
         }
         if (packageName.equals(PACKAGE_GMS)) {
             sIsGms = true;
         }
-        if (packageName.startsWith("com.google.") || Arrays.asList(extraPackagesToChange).contains(packageName)){
-            if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
-            for (Map.Entry<String, Object> prop : propsToChange.entrySet()) {
-                String key = prop.getKey();
-                Object value = prop.getValue();
-                if (propsToKeep.containsKey(packageName) && propsToKeep.get(packageName).contains(key)){
-                    if (DEBUG) Log.d(TAG, "Not defining " + key + " prop for: " + packageName);
-                    continue;
-                }
-                if (DEBUG) Log.d(TAG, "Defining " + key + " prop for: " + packageName);
-                setPropValue(key, value);
+        if (packageName.startsWith("com.google.") || Arrays.asList(extraPackagesToChange).contains(packageName)) {
+            Map<String, Object> propsToChange = propsToChangePixel6;
+
+            if (Arrays.asList(packagesToChangePixelXL).contains(packageName)) {
+             }
+
+    
+         
+            G) Log.d(TAG, "Defining props for: " + packageNam
+        (
+        String key = prop.getKey();
+            ct value = prop.getValue();
+            propsToKeep.containsKey(package
+            if (DEBUG) Log.d(TAG, "No
+         
+     
+                 setPropValue(key, value);
             }
-        }
+        } 
         // Set proper indexing fingerprint
-        if (packageName.equals("com.google.android.settings.intelligence")){
+        if (packageNam
+                .equals("com.google.android.settings.intelligence")){
             setPropValue("FINGERPRINT", Build.VERSION.INCREMENTAL);
         }
         if (PRODUCT_SUPPORT_HIGH_FPS || PRODUCT_SUPPORT_CONTENT_REFRESH) {
