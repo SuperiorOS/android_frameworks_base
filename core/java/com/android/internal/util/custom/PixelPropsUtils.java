@@ -37,9 +37,14 @@ public class PixelPropsUtils {
     private static volatile boolean sIsGms = false;
     public static final String PACKAGE_GMS = "com.google.android.gms";
 
-    private static final Map<String, Object> propsToChange;
+    private static final Map<String, Object> propsToChangePixel6;
     private static final Map<String, Object> propsToChangePUBG;
     private static final Map<String, Object> propsToChangeCOD;
+    private static final Map<String, Object> propsToChangePixelXL;
+    private static final String[] packagesToChangePixelXL = {
+            "com.google.android.apps.photos"
+    };
+
     private static final Map<String, ArrayList<String>> propsToKeep;
     private static final String[] extraPackagesToChange = {
         "com.android.chrome",
@@ -67,17 +72,24 @@ public class PixelPropsUtils {
         propsToKeep = new HashMap<>();
         propsToKeep.put("com.google.android.settings.intelligence", new ArrayList<String>(Arrays.asList("FINGERPRINT")));
         propsToKeep.put("com.google.android.GoogleCamera", allProps);
-        propsToChange = new HashMap<>();
-        propsToChange.put("BRAND", "google");
-        propsToChange.put("MANUFACTURER", "Google");
-        propsToChange.put("DEVICE", "raven");
-        propsToChange.put("PRODUCT", "raven");
-        propsToChange.put("MODEL", "Pixel 6 Pro");
-        propsToChange.put("FINGERPRINT", "google/raven/raven:12/SQ1D.220105.007/8030436:user/release-keys");
+        propsToChangePixel6 = new HashMap<>();
+        propsToChangePixel6.put("BRAND", "google");
+        propsToChangePixel6.put("MANUFACTURER", "Google");
+        propsToChangePixel6.put("DEVICE", "raven");
+        propsToChangePixel6.put("PRODUCT", "raven");
+        propsToChangePixel6.put("MODEL", "Pixel 6 Pro");
+        propsToChangePixel6.put("FINGERPRINT", "google/raven/raven:12/SQ1D.220105.007/8030436:user/release-keys");
         propsToChangePUBG = new HashMap<>();
         propsToChangePUBG.put("MODEL", "GM1917");
         propsToChangeCOD = new HashMap<>();
         propsToChangeCOD.put("MODEL", "SO-52A");
+        propsToChangePixelXL = new HashMap<>();
+        propsToChangePixelXL.put("BRAND", "google");
+        propsToChangePixelXL.put("MANUFACTURER", "Google");
+        propsToChangePixelXL.put("DEVICE", "marlin");
+        propsToChangePixelXL.put("PRODUCT", "marlin");
+        propsToChangePixelXL.put("MODEL", "Pixel XL");
+        propsToChangePixelXL.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
     }
 
     public static void setProps(String packageName) {
@@ -87,7 +99,12 @@ public class PixelPropsUtils {
         if (packageName.equals(PACKAGE_GMS)) {
             sIsGms = true;
         }
-        if (packageName.startsWith("com.google.") || Arrays.asList(extraPackagesToChange).contains(packageName)){
+        if (packageName.startsWith("com.google.") || Arrays.asList(extraPackagesToChange).contains(packageName)) {
+            Map<String, Object> propsToChange = propsToChangePixel6;
+
+            if (Arrays.asList(packagesToChangePixelXL).contains(packageName)) {
+                propsToChange = propsToChangePixelXL;
+            }
             if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
             for (Map.Entry<String, Object> prop : propsToChange.entrySet()) {
                 String key = prop.getKey();
