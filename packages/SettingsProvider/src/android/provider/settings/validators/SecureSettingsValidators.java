@@ -337,5 +337,6 @@ public class SecureSettingsValidators {
             return true;
         });
         VALIDATORS.put(Secure.ODI_CAPTIONS_VOLUME_UI_ENABLED, BOOLEAN_VALIDATOR);
+        VALIDATORS.put(Secure.TETHERING_ALLOW_VPN_UPSTREAMS, BOOLEAN_VALIDATOR);
     }
 }
