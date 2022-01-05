@@ -76,4 +76,7 @@
      <!-- Custom headers -->
      <dimen name="qs_header_image_height">142dp</dimen>
      <dimen name="qs_header_image_fade_size">80dp</dimen>
+
+     <!-- FPS Info tile -->
+     <dimen name="fps_info_text_padding">4dp</dimen>
 </resources>
