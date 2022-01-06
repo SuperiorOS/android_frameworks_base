@@ -4203,6 +4203,7 @@
 
   <!-- The max scale for the wallpaper when it's zoomed in -->
   <java-symbol type="dimen" name="config_wallpaperMaxScale"/>
+  <java-symbol type="dimen" name="config_wallpaperMaxScaleEnabled"/>
 
   <!-- Set to true to enable the user switcher on the keyguard. -->
   <java-symbol type="bool" name="config_keyguardUserSwitcher" />

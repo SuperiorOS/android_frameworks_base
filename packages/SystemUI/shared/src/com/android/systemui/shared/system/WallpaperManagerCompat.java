@@ -20,6 +20,9 @@ import android.app.WallpaperManager;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.IBinder;
+import android.content.Context;
+import android.os.UserHandle;
+import android.provider.Settings;
 
 /**
  * @see WallpaperManager
@@ -41,11 +44,21 @@ public class WallpaperManagerCompat {
     /**
      * @return the max scale for the wallpaper when it's fully zoomed out
      */
-    public static float getWallpaperZoomOutMaxScale(Context context) {
+    public float getWallpaperZoomOutMaxScale(Context context) {
+    boolean UseWpZoom = Settings.System.getIntForUser(context.getContentResolver(),
+            Settings.System.USE_WP_ZOOM, 0, UserHandle.USER_CURRENT) == 1;
+        if (UseWpZoom) {
         return context.getResources()
                 .getFloat(Resources.getSystem().getIdentifier(
-                        /* name= */ "config_wallpaperMaxScale",
+                        /* name= */ "config_wallpaperMaxScaleEnabled",
                         /* defType= */ "dimen",
                         /* defPackage= */ "android"));
-    }
+         } else {
+         return context.getResources()
+                .getFloat(Resources.getSystem().getIdentifier( 
+                        /* name= */ "config_wallpaperMaxScaleEnabled",
+                        /* defType= */ "dimen",
+                        /* defPackage= */ "android"));
+         }
+     }
 }
