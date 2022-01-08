@@ -111,7 +111,7 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
     }
 
     private boolean shouldShow() {
-        return mKeyguard && !mDozing && mNpInfoAvailable;
+        return (mKeyguard || mDozing) && mNpInfoAvailable;
     }
 
     /**
