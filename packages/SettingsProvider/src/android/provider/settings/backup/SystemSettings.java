@@ -89,5 +89,6 @@ public class SystemSettings {
         Settings.System.VIBRATE_ON_DISCONNECT,
         Settings.System.KEYGAURD_MEDIA_ART,
         Settings.System.LOCKSCREEN_BATTERY_INFO,
+        Settings.System.ENABLE_RIPPLE_EFFECT,
     };
 }
