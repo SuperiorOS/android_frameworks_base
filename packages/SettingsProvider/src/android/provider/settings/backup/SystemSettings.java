@@ -88,5 +88,6 @@ public class SystemSettings {
         Settings.System.KEYGAURD_MEDIA_ART,
         Settings.System.NOTIFICATION_HEADERS,
         Settings.System.AUTO_BRIGHTNESS_ONE_SHOT,
+        Settings.System.ENABLE_RIPPLE_EFFECT,
     };
 }
