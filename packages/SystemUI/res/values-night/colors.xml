@@ -107,4 +107,7 @@
     <color name="udfps_enroll_progress">#7DA7F1</color>
     <color name="udfps_enroll_progress_help">#607DA7F1</color>
     <color name="udfps_enroll_progress_help_with_talkback">#FFEE675C</color>
+
+    <!-- Volume panel -->
+    <color name="volume_seekbar_bg">@android:color/system_accent2_700</color>
 </resources>
