@@ -221,4 +221,6 @@
     <color name="edge_light_green">#ff3aa853</color>
     <color name="edge_light_red">#ffea4234</color>
     <color name="edge_light_yellow">#fffbbc06</color>
+
+    <color name="volume_seekbar_bg">@android:color/system_accent2_100</color>
 </resources>
