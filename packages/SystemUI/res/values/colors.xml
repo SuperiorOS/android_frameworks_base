@@ -254,4 +254,7 @@
     <!-- Rear Display Education -->
     <color name="rear_display_overlay_animation_background_color">#1E1B17</color>
     <color name="rear_display_overlay_dialog_background_color">#1E1B17</color>
+
+    <!-- Volume panel -->
+    <color name="volume_seekbar_bg">@android:color/system_accent2_100</color>
 </resources>
