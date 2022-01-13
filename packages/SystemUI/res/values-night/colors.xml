@@ -101,4 +101,6 @@
     <color name="accessibility_floating_menu_background">#B3000000</color> <!-- 70% -->
 
     <color name="people_tile_background">@color/material_dynamic_secondary20</color>
+
+    <color name="volume_seekbar_bg">@android:color/system_accent2_700</color>
 </resources>
