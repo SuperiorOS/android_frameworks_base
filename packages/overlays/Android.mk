@@ -33,6 +33,9 @@ LOCAL_REQUIRED_MODULES := \
 	NavigationBarModeGesturalOverlayWideBack \
 	NavigationBarModeGesturalOverlayExtraWideBack \
         OneHandedModeGesturalOverlay \
+	PitchSystemOverlay \
+	PitchSettingsOverlay \
+	PitchSystemUIOverlay \
 	preinstalled-packages-platform-overlays.xml
 
 include $(BUILD_PHONY_PACKAGE)

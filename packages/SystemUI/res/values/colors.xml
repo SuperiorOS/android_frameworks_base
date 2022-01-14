@@ -294,4 +294,8 @@
     <color name="settingslib_track_off_color">@color/settingslib_track_off</color>
     <color name="connected_network_primary_color">#191C18</color>
     <color name="connected_network_secondary_color">#41493D</color>
+    <color name="offstateSystemUI">@*android:color/surface_light</color>
+    <color name="bgSysMain">@android:color/system_neutral1_50</color>
+    <color name="bgSys100">@android:color/system_neutral1_100</color>
+
 </resources>
