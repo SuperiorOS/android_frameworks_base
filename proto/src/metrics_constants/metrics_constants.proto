@@ -7440,5 +7440,8 @@ message MetricsEvent {
 
     // Superior Metrics constant
     SUPERIOR = 2499;
+    // OPEN: Settings > Display > Full screen apps
+    // OS: T
+    DISPLAY_CUTOUT_FORCE_FULLSCREEN = 1999;
   }
 }
