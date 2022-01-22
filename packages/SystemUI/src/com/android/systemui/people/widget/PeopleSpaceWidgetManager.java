@@ -393,7 +393,7 @@ public class PeopleSpaceWidgetManager {
         }
 
         if (mIPeopleManager == null || mLauncherApps == null) {
-            Log.d(TAG, "System services are null");
+            if (DEBUG) Log.d(TAG, "System services are null");
             return null;
         }
         try {
@@ -462,7 +462,7 @@ public class PeopleSpaceWidgetManager {
                     new ComponentName(mContext, PeopleSpaceWidgetProvider.class)
             );
             if (widgetIds.length == 0) {
-                Log.d(TAG, "No app widget ids returned");
+                if (DEBUG) Log.d(TAG, "No app widget ids returned");
                 return;
             }
             synchronized (mLock) {
@@ -960,7 +960,7 @@ public class PeopleSpaceWidgetManager {
                     UserHandle.of(key.getUserId()),
                     LauncherApps.FLAG_CACHE_PEOPLE_TILE_SHORTCUTS);
         } catch (Exception e) {
-            Log.d(TAG, "failed to uncache shortcut", e);
+            Log.e(TAG, "Exception uncaching shortcut:" + e);
         }
     }
 
