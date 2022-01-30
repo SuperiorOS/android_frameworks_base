@@ -970,6 +970,11 @@ final class DefaultPermissionGrantPolicy {
             grantPermissionsToSystemPackage(pm, pkg, userId, NOTIFICATION_PERMISSIONS);
         }
 
+        // Google App
+        grantPermissionsToPackage(pm, "com.google.android.googlequicksearchbox", userId,
+                false /* ignoreSystemPackage */, true /* whitelistRestrictedPermissions */,
+                PHONE_PERMISSIONS);
+
         // ContactsProvider2
         grantSystemFixedPermissionsToSystemPackage(pm,
                 getDefaultProviderAuthorityPackage("com.android.providers.contacts.ContactsProvider2", userId), userId,
