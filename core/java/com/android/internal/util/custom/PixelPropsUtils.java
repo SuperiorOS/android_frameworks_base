@@ -80,11 +80,12 @@ public class PixelPropsUtils {
         "com.google.android.GoogleCameraGood",
         "com.google.android.MTCL83",
         "com.google.android.UltraCVM",
-        "com.google.android.apps.cameralite"
+        "com.google.android.apps.cameralite",
         "com.google.android.dialer",
         "com.google.android.youtube",
         "com.google.android.apps.youtube.kids",
-        "com.google.android.apps.youtube.music"
+        "com.google.android.apps.youtube.music",
+        "com.google.android.apps.wearables.maestro.companion"
     };
 
     private static ArrayList<String> allProps = new ArrayList<>(Arrays.asList("BRAND", "MANUFACTURER", "DEVICE", "PRODUCT", "MODEL", "FINGERPRINT"));
