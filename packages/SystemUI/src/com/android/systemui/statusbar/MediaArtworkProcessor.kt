@@ -28,6 +28,11 @@ import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.statusbar.notification.MediaNotificationProcessor
 import javax.inject.Inject
 
+private const val TAG = "MediaArtworkProcessor"
+private const val COLOR_ALPHA = (255 * 0.6f).toInt()
+private const val BLUR_RADIUS = 20f
+private const val DOWNSAMPLE = 5
+
 @SysUISingleton
 @Suppress("DEPRECATION")
 class MediaArtworkProcessor @Inject constructor() {
@@ -35,13 +40,7 @@ class MediaArtworkProcessor @Inject constructor() {
     private val mTmpSize = Point()
     private var mArtworkCache: Bitmap? = null
 
-    @JvmOverloads
-    fun processArtwork(
-        context: Context,
-        artwork: Bitmap,
-        radius: Float = BLUR_RADIUS,
-        withSwatchOverlay: Boolean = true,
-    ): Bitmap? {
+    fun processArtwork(context: Context, artwork: Bitmap): Bitmap? {
         if (mArtworkCache != null) {
             return mArtworkCache
         }
@@ -73,17 +72,15 @@ class MediaArtworkProcessor @Inject constructor() {
                     android.renderscript.Allocation.USAGE_GRAPHICS_TEXTURE)
             output = android.renderscript.Allocation.createFromBitmap(renderScript, outBitmap)
 
-            blur.setRadius(radius)
+            blur.setRadius(BLUR_RADIUS)
             blur.setInput(input)
             blur.forEach(output)
             output.copyTo(outBitmap)
 
-            if (withSwatchOverlay) {
-                val swatch = MediaNotificationProcessor.findBackgroundSwatch(artwork)
+            val swatch = MediaNotificationProcessor.findBackgroundSwatch(artwork)
 
-                val canvas = Canvas(outBitmap)
-                canvas.drawColor(ColorUtils.setAlphaComponent(swatch.rgb, COLOR_ALPHA))
-            }
+            val canvas = Canvas(outBitmap)
+            canvas.drawColor(ColorUtils.setAlphaComponent(swatch.rgb, COLOR_ALPHA))
             return outBitmap
         } catch (ex: IllegalArgumentException) {
             Log.e(TAG, "error while processing artwork", ex)
@@ -99,12 +96,5 @@ class MediaArtworkProcessor @Inject constructor() {
     fun clearCache() {
         mArtworkCache?.recycle()
         mArtworkCache = null
-    }
-
-    companion object {
-        private const val TAG = "MediaArtworkProcessor"
-        private const val COLOR_ALPHA = 178 // 255 * 0.7
-        private const val BLUR_RADIUS = 25f
-        private const val DOWNSAMPLE = 6
     }
 }

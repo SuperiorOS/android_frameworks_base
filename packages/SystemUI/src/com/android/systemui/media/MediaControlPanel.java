@@ -28,8 +28,6 @@ import android.content.res.ColorStateList;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Rect;
-import android.graphics.Outline;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.Icon;
 import android.media.session.MediaController;
@@ -40,8 +38,6 @@ import android.text.Layout;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.provider.Settings;
-import android.view.ViewOutlineProvider;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -52,7 +48,6 @@ import androidx.annotation.UiThread;
 import androidx.constraintlayout.widget.ConstraintSet;
 
 import com.android.internal.jank.InteractionJankMonitor;
-import com.android.settingslib.Utils;
 import com.android.settingslib.widget.AdaptiveIcon;
 import com.android.systemui.R;
 import com.android.systemui.animation.ActivityLaunchAnimator;
@@ -61,7 +56,6 @@ import com.android.systemui.dagger.qualifiers.Background;
 import com.android.systemui.media.dialog.MediaOutputDialogFactory;
 import com.android.systemui.plugins.ActivityStarter;
 import com.android.systemui.shared.system.SysUiStatsLog;
-import com.android.systemui.statusbar.MediaArtworkProcessor;
 import com.android.systemui.statusbar.phone.KeyguardDismissUtil;
 import com.android.systemui.util.animation.TransitionLayout;
 
@@ -106,15 +100,15 @@ public class MediaControlPanel {
     protected final Executor mBackgroundExecutor;
     private final ActivityStarter mActivityStarter;
 
-    private final Context mContext;
+    private Context mContext;
     private PlayerViewHolder mPlayerViewHolder;
     private RecommendationViewHolder mRecommendationViewHolder;
     private String mKey;
-    private final MediaViewController mMediaViewController;
+    private MediaViewController mMediaViewController;
     private MediaSession.Token mToken;
     private MediaController mController;
-    private final KeyguardDismissUtil mKeyguardDismissUtil;
-    private final Lazy<MediaDataManager> mMediaDataManagerLazy;
+    private KeyguardDismissUtil mKeyguardDismissUtil;
+    private Lazy<MediaDataManager> mMediaDataManagerLazy;
     private int mBackgroundColor;
     private int mDevicePadding;
     private int mAlbumArtSize;
@@ -123,14 +117,8 @@ public class MediaControlPanel {
     // Uid for the media app.
     protected int mUid = Process.INVALID_UID;
     private int mSmartspaceMediaItemsCount;
-    private final MediaCarouselController mMediaCarouselController;
+    private MediaCarouselController mMediaCarouselController;
     private final MediaOutputDialogFactory mMediaOutputDialogFactory;
-    private final MediaArtworkProcessor mMediaArtworkProcessor;
-    private int mAlbumArtRadius;
-    private boolean mBackgroundArtwork;
-    private boolean mBackgroundBlur;
-    private float mBlurRadius;
-    private int mBackgroundAlpha;
 
     /**
      * Initialize a new control panel
@@ -143,8 +131,7 @@ public class MediaControlPanel {
             ActivityStarter activityStarter, MediaViewController mediaViewController,
             SeekBarViewModel seekBarViewModel, Lazy<MediaDataManager> lazyMediaDataManager,
             KeyguardDismissUtil keyguardDismissUtil, MediaOutputDialogFactory
-            mediaOutputDialogFactory, MediaCarouselController mediaCarouselController,
-            MediaArtworkProcessor mediaArtworkProcessor) {
+            mediaOutputDialogFactory, MediaCarouselController mediaCarouselController) {
         mContext = context;
         mBackgroundExecutor = backgroundExecutor;
         mActivityStarter = activityStarter;
@@ -154,7 +141,6 @@ public class MediaControlPanel {
         mKeyguardDismissUtil = keyguardDismissUtil;
         mMediaOutputDialogFactory = mediaOutputDialogFactory;
         mMediaCarouselController = mediaCarouselController;
-        mMediaArtworkProcessor = mediaArtworkProcessor;
         loadDimens();
 
         mSeekBarViewModel.setLogSmartspaceClick(() -> {
@@ -174,8 +160,6 @@ public class MediaControlPanel {
     }
 
     private void loadDimens() {
-        mAlbumArtRadius = mContext.getResources().getDimensionPixelSize(
-                Utils.getThemeAttr(mContext, android.R.attr.dialogCornerRadius));
         mAlbumArtSize = mContext.getResources().getDimensionPixelSize(R.dimen.qs_media_album_size);
         mDevicePadding = mContext.getResources()
                 .getDimensionPixelSize(R.dimen.qs_media_album_device_padding);
@@ -220,14 +204,6 @@ public class MediaControlPanel {
      */
     public void setListening(boolean listening) {
         mSeekBarViewModel.setListening(listening);
-    }
-
-    public void updateBgArtworkParams(boolean backgroundArtwork, boolean backgroundBlur,
-            float blurRadius, int backgroundAlpha) {
-        mBackgroundArtwork = backgroundArtwork;
-        mBackgroundBlur = backgroundBlur;
-        mBlurRadius = blurRadius;
-        mBackgroundAlpha = backgroundAlpha;
     }
 
     /**
@@ -341,34 +317,9 @@ public class MediaControlPanel {
         ImageView albumView = mPlayerViewHolder.getAlbumView();
         boolean hasArtwork = data.getArtwork() != null;
         if (hasArtwork) {
-            if (mBackgroundArtwork) {
-                BitmapDrawable drawable = (BitmapDrawable) data.getArtwork().loadDrawable(mContext);
-                if (mBackgroundBlur) {
-                    drawable = new BitmapDrawable(mContext.getResources(),
-                        mMediaArtworkProcessor.processArtwork(mContext,
-                            drawable.getBitmap(), mBlurRadius, false));
-                }
-                final ImageView backgroundImage = mPlayerViewHolder.getPlayer()
-                    .findViewById(R.id.bg_album_art);
-                backgroundImage.setImageDrawable(drawable);
-                backgroundImage.setImageAlpha(mBackgroundAlpha);
-                backgroundImage.setClipToOutline(true);
-                backgroundImage.setOutlineProvider(new ViewOutlineProvider() {
-                    @Override
-                    public void getOutline(View view, Outline outline) {
-                        outline.setRoundRect(0, 0, backgroundImage.getWidth(),
-                            backgroundImage.getHeight(), mAlbumArtRadius);
-                    }
-                });
-                setVisibleAndAlpha(collapsedSet, R.id.bg_album_art, true);
-                setVisibleAndAlpha(expandedSet, R.id.bg_album_art, true);
-            } else {
-                Drawable artwork = scaleDrawable(data.getArtwork());
-                albumView.setPadding(0, 0, 0, 0);
-                albumView.setImageDrawable(artwork);
-                setVisibleAndAlpha(collapsedSet, R.id.album_art, true);
-                setVisibleAndAlpha(expandedSet, R.id.album_art, true);
-            }
+            Drawable artwork = scaleDrawable(data.getArtwork());
+            albumView.setPadding(0, 0, 0, 0);
+            albumView.setImageDrawable(artwork);
         } else {
             Drawable deviceIcon;
             if (data.getDevice() != null && data.getDevice().getIcon() != null) {
@@ -379,29 +330,24 @@ public class MediaControlPanel {
             deviceIcon.setTintList(ColorStateList.valueOf(mBackgroundColor));
             albumView.setPadding(mDevicePadding, mDevicePadding, mDevicePadding, mDevicePadding);
             albumView.setImageDrawable(deviceIcon);
-            setVisibleAndAlpha(collapsedSet, R.id.album_art, true);
-            setVisibleAndAlpha(expandedSet, R.id.album_art, true);
         }
 
         // App icon
         ImageView appIconView = mPlayerViewHolder.getAppIcon();
-        if (!mBackgroundArtwork) {
-            setVisibleAndAlpha(collapsedSet, R.id.icon, true);
-            appIconView.clearColorFilter();
-            if (data.getAppIcon() != null && !data.getResumption()) {
-                appIconView.setImageIcon(data.getAppIcon());
-                int color = mContext.getColor(android.R.color.system_accent2_900);
-                appIconView.setColorFilter(color);
-            } else {
-                appIconView.setColorFilter(getGrayscaleFilter());
-                try {
-                    Drawable icon = mContext.getPackageManager().getApplicationIcon(
-                            data.getPackageName());
-                    appIconView.setImageDrawable(icon);
-                } catch (PackageManager.NameNotFoundException e) {
-                    Log.w(TAG, "Cannot find icon for package " + data.getPackageName(), e);
-                    appIconView.setImageResource(R.drawable.ic_music_note);
-                }
+        appIconView.clearColorFilter();
+        if (data.getAppIcon() != null && !data.getResumption()) {
+            appIconView.setImageIcon(data.getAppIcon());
+            int color = mContext.getColor(android.R.color.system_accent2_900);
+            appIconView.setColorFilter(color);
+        } else {
+            appIconView.setColorFilter(getGrayscaleFilter());
+            try {
+                Drawable icon = mContext.getPackageManager().getApplicationIcon(
+                        data.getPackageName());
+                appIconView.setImageDrawable(icon);
+            } catch (PackageManager.NameNotFoundException e) {
+                Log.w(TAG, "Cannot find icon for package " + data.getPackageName(), e);
+                appIconView.setImageResource(R.drawable.ic_music_note);
             }
         }
 
