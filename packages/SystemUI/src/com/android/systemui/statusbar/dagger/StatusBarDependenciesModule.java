@@ -66,7 +66,6 @@ import com.android.systemui.statusbar.policy.RemoteInputUriController;
 import com.android.systemui.tracing.ProtoTracer;
 import com.android.systemui.util.DeviceConfigProxy;
 import com.android.systemui.util.concurrency.DelayableExecutor;
-import com.android.systemui.util.settings.SystemSettings;
 import com.android.systemui.util.time.SystemClock;
 import com.android.wm.shell.bubbles.Bubbles;
 
@@ -127,8 +126,7 @@ public interface StatusBarDependenciesModule {
             FeatureFlags featureFlags,
             @Main DelayableExecutor mainExecutor,
             DeviceConfigProxy deviceConfigProxy,
-            MediaDataManager mediaDataManager,
-            SystemSettings systemSettings) {
+            MediaDataManager mediaDataManager) {
         return new NotificationMediaManager(
                 context,
                 statusBarLazy,
@@ -141,8 +139,7 @@ public interface StatusBarDependenciesModule {
                 featureFlags,
                 mainExecutor,
                 deviceConfigProxy,
-                mediaDataManager,
-                systemSettings);
+                mediaDataManager);
     }
 
     /** */

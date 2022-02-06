@@ -5607,48 +5607,6 @@ public final class Settings {
         public static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
 
         /**
-         * Whether to show media album art on keyguard
-         * @hide
-         */
-        public static final String KEYGUARD_MEDIA_ART = "keyguard_media_art";
-
-        /**
-         * Whether to enable blur for media album art on keyguard
-         * @hide
-         */
-        public static final String KEYGUARD_MEDIA_ART_ENABLE_BLUR = "keyguard_media_art_enable_blur";
-
-        /**
-         * Adjust blur radius for media album art on keyguard
-         * @hide
-         */
-        public static final String KEYGUARD_MEDIA_ART_BLUR_RADIUS = "keyguard_media_art_blur_radius";
-
-        /**
-         * Enable and disable Artwork on background media notification
-         * @hide
-         */
-        public static final String ARTWORK_MEDIA_BACKGROUND = "artwork_media_background";
-
-        /**
-         * Whether to enable artwork blur
-         * @hide
-         */
-        public static final String ARTWORK_MEDIA_BACKGROUND_ENABLE_BLUR = "artwork_media_background_enable_blur";
-
-        /**
-         * Adjust blur radius for background media
-         * @hide
-         */
-        public static final String ARTWORK_MEDIA_BACKGROUND_BLUR_RADIUS = "artwork_media_background_blur_radius";
-
-        /**
-         * Adjust alpha for background media
-         * @hide
-         */
-        public static final String ARTWORK_MEDIA_BACKGROUND_ALPHA = "artwork_media_background_alpha";
-
-        /**
          * Applications list where heasdup should't show
          *
          * @hide
@@ -5725,7 +5683,6 @@ public final class Settings {
         public static final String[] LEGACY_RESTORE_SETTINGS = {
         };
 
-
         /**
          * @hide
          */
@@ -5736,6 +5693,13 @@ public final class Settings {
          * @hide
          */
         public static final String LOCKSCREEN_SMALL_CLOCK = "lockscreen_small_clock";
+
+        /**
+         * Whether to show media album art on keyguard
+         * @hide
+         */
+        @Readable
+        public static final String KEYGAURD_MEDIA_ART = "keygaurd_media_art";
 
         /**
          * These are all public system settings
