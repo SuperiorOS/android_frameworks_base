@@ -78,4 +78,6 @@
     <string name="tristate_rotation_90">Landscape (90°)</string>
     <string name="tristate_rotation_270">Landscape (270°)</string>
 
+    <!-- Google Lens Screenshot string -->
+    <string name="lensss">Lens</string>
 </resources>
