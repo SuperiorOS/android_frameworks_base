@@ -38,4 +38,7 @@
 
     <!-- Bottom margin size when fingerprint in display is active -->
     <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">@dimen/keyguard_indication_margin_bottom</dimen>
+
+    <!-- Dialog margin -->
+    <dimen name="rdnt_margin_dialog">12dp</dimen>
 </resources>
