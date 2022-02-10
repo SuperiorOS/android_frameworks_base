@@ -173,6 +173,7 @@ java_library_static {
         "overlayable_policy_aidl-java",
         "com.android.sysprop.watchdog",
         "vendor.aac.hardware.richtap.vibrator",
+        "faceunlock_framework",
     ],
     javac_shard_size: 50,
 }
