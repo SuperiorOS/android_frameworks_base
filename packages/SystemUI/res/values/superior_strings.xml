@@ -117,4 +117,6 @@
     <!-- Now playing lockscreen music Ticker -->
     <string name="ambientmusic_songinfo" formatted="false">%s by %s</string>
 
+    <!-- Face Unlock -->
+    <string name="face_unlock_recognizing">Recognizing face...</string>
 </resources>
