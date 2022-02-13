@@ -45,4 +45,9 @@
         of waking the screen while the screen is off or in lpm. -->
     <bool name="config_pulseOnFingerDown">false</bool>
 
+    <!-- Media output -->
+    <color name="media_dialog_background">@android:color/system_neutral1_100</color>
+    <color name="media_dialog_inactive_item_main_content">@android:color/system_accent1_600</color>
+    <color name="media_dialog_item_background">@android:color/system_accent2_50</color>
+    <color name="media_dialog_item_status">@android:color/system_accent1_900</color>
 </resources>
