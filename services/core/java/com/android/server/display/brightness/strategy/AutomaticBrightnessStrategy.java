@@ -352,7 +352,9 @@ public class AutomaticBrightnessStrategy {
 
     @VisibleForTesting
     void putAutoBrightnessAdjustmentSetting(float adjustment) {
-        if (mDisplayId == Display.DEFAULT_DISPLAY && !Float.isNaN(adjustment)) {
+        if (Float.isNaN(adjustment))
+            return;
+        if (mDisplayId == Display.DEFAULT_DISPLAY) {
             mAutoBrightnessAdjustment = adjustment;
             Settings.System.putFloatForUser(mContext.getContentResolver(),
                     Settings.System.SCREEN_AUTO_BRIGHTNESS_ADJ, adjustment,
