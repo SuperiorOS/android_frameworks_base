@@ -36,6 +36,6 @@
     <bool name="config_audioPanelOnLeftSide">false</bool>
 
     <!-- StatusBar burn-in protection -->
-    <bool name="config_statusBarBurnInProtection">false</bool>
+    <bool name="config_disableStatusBarBurnInProtection">false</bool>
     <integer name="config_shift_interval">60</integer>
 </resources>
