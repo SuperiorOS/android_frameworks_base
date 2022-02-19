@@ -540,12 +540,12 @@ class MediaDataManager(
 
         // Foreground and Background colors computed from album art
         val notif: Notification = sbn.notification
-        var artworkBitmap = metadata?.getBitmap(MediaMetadata.METADATA_KEY_ART)
+        var artworkBitmap = metadata?.let { loadBitmapFromUri(it) }
+        if (artworkBitmap == null) {
+            artworkBitmap = metadata?.getBitmap(MediaMetadata.METADATA_KEY_ART)
+        }
         if (artworkBitmap == null) {
             artworkBitmap = metadata?.getBitmap(MediaMetadata.METADATA_KEY_ALBUM_ART)
-        }
-        if (artworkBitmap == null && metadata != null) {
-            artworkBitmap = loadBitmapFromUri(metadata)
         }
         val artWorkIcon = if (artworkBitmap == null) {
             notif.getLargeIcon()
