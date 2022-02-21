@@ -14,9 +14,12 @@
 
 package com.android.systemui.ambientmusic;
 
+import android.app.WallpaperColors;
+import android.app.WallpaperManager;
 import android.content.Context;
 import android.database.ContentObserver;
 import android.graphics.Color;
+import android.graphics.Rect;
 import android.media.MediaMetadata;
 import android.media.session.PlaybackState;
 import android.net.Uri;
@@ -31,11 +34,15 @@ import com.android.systemui.AutoReinflateContainer;
 import com.android.systemui.Dependency;
 import com.android.systemui.R;
 import com.android.systemui.ambientmusic.AmbientIndicationInflateListener;
+import com.android.systemui.colorextraction.SysuiColorExtractor;
+import com.android.systemui.plugins.DarkIconDispatcher;
+import com.android.systemui.plugins.DarkIconDispatcher.DarkReceiver;
 import com.android.systemui.statusbar.NotificationLockscreenUserManager;
 import com.android.systemui.statusbar.NotificationMediaManager;
 import com.android.systemui.statusbar.phone.StatusBar;
 
 public class AmbientIndicationContainer extends AutoReinflateContainer implements
+        DarkIconDispatcher.DarkReceiver,
         NotificationMediaManager.MediaListener {
 
     //private final int mFODmargin;
@@ -45,6 +52,7 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
     private boolean mKeyguard;
     private StatusBar mStatusBar;
     private TextView mText;
+    private ImageView mIcon;
     private Context mContext;
 
     private String mMediaTitle;
@@ -55,12 +63,16 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
 
     protected NotificationMediaManager mMediaManager;
 
+    private final DarkIconDispatcher mDarkIconDispatcher;
+
     public AmbientIndicationContainer(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         mContext = context;
         mMediaManager = Dependency.get(NotificationMediaManager.class);
         mMediaManager.addCallback(this);
         mTrackInfoSeparator = getResources().getString(R.string.ambientmusic_songinfo);
+        mDarkIconDispatcher = Dependency.get(DarkIconDispatcher.class);
+        mDarkIconDispatcher.addDarkReceiver(this);
         /*mHasInDisplayFingerprint = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_needCustomFODView);*/
         /*mFODmargin = mContext.getResources().getDimensionPixelSize(
@@ -76,6 +88,7 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
     public void updateAmbientIndicationView(View view) {
         mAmbientIndication = findViewById(R.id.ambient_indication);
         mText = (TextView)findViewById(R.id.ambient_indication_text);
+        mIcon = (ImageView)findViewById(R.id.ambient_indication_icon);
     }
 
     /*private void updatePosition() {
@@ -104,10 +117,33 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
         if (mVisible != shouldShow) {
             mVisible = shouldShow;
             mAmbientIndication.setVisibility(shouldShow ? View.VISIBLE : View.GONE);
+            if (shouldShow) setAmbientTextColor();
             /*if (mHasInDisplayFingerprint && shouldShow) {
                 updatePosition();
             }*/
         }
+    }
+
+    @Override
+    public void onDarkChanged(Rect area, float darkIntensity, int tint) {
+        if (mText == null || !shouldShow()) return;
+        setAmbientTextColor();
+    }
+
+    private void setAmbientTextColor() {
+        // Apply black text color only when using light wallpaper image and when
+        // music ticker is shown on the keyguard. In the other case (AoD/ambient
+        // or when using dark wallpaper) apply white text color.
+        int color = (!mDozing && supportsDarkText()) ? Color.BLACK : Color.WHITE;
+        mText.setTextColor(color);
+        mIcon.setColorFilter(color);
+    }
+
+    private boolean supportsDarkText() {
+        final SysuiColorExtractor mColorExtractor = Dependency.get(SysuiColorExtractor.class);
+        WallpaperColors systemColors = mColorExtractor.getWallpaperColors(WallpaperManager.FLAG_SYSTEM);
+        final int hints = systemColors.getColorHints();
+        return (hints & WallpaperColors.HINT_SUPPORTS_DARK_TEXT) != 0;
     }
 
     private boolean shouldShow() {
