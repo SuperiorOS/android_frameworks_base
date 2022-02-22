@@ -48,4 +48,7 @@
          the sensor embedded in the power key and listening all the time
          causes a poor experience. -->
     <bool name="config_fingerprintWakeAndUnlock">true</bool>
+
+    <!-- Whether show refresh rate QS tile -->
+    <bool name="config_showRefreshRateQsTile">false</bool>
 </resources>
