@@ -82,6 +82,8 @@ public class PixelPropsUtils {
         "com.google.android.apps.cameralite"
         "com.google.android.dialer",
         "com.google.android.youtube",
+        "com.google.android.apps.youtube.kids",
+        "com.google.android.apps.youtube.music",
     };
 
     private static ArrayList<String> allProps = new ArrayList<>(Arrays.asList("BRAND", "MANUFACTURER", "DEVICE", "PRODUCT", "MODEL", "FINGERPRINT"));
