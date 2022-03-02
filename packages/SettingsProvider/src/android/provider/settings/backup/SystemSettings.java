@@ -90,5 +90,6 @@ public class SystemSettings {
         Settings.System.ALARM_ALERT,
         Settings.System.NOTIFICATION_LIGHT_PULSE,
         Settings.System.ENABLE_RIPPLE_EFFECT,
+        Settings.System.USE_OLD_MOBILETYPE,
     };
 }
