@@ -4884,10 +4884,6 @@ public class StatusBar extends SystemUI implements DemoMode,
                     Settings.System.STATUS_BAR_QUICK_QS_PULLDOWN))) {
                 setStatusBarWindowViewOptions();
             } else if (uri.equals(Settings.System.getUriFor(
-                    Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL)) ||
-                uri.equals(Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS_MODE))) {
-                setScreenBrightnessMode();
-            } else if (uri.equals(Settings.System.getUriFor(
                     Settings.System.HEADS_UP_STOPLIST_VALUES))) {
                 setHeadsUpStoplist();
             } else if (uri.equals(Settings.System.getUriFor(
