@@ -6089,7 +6089,13 @@ public final class Settings {
          * @hide
          */
         public static final String ALERT_SLIDER_NOTIFICATIONS = "alert_slider_notifications";
-        
+
+        /**
+         * Navbar style
+         * @hide
+         */
+        public static final String NAVBAR_STYLE = "navbar_style";
+
         /**
          * These are all public system settings
          *
