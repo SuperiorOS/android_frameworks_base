@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2021 The SuperiorOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_caffeine_label">Caffeina</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeina disattiva</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeina attiva</string>
+    <string name="quick_settings_sync_label">Sincronizza</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronizzazione disattiva</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronizzazione attiva</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sincronizzazione disattivata</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sincronizzazione attivata</string>
+    <string name="quick_settings_sound_label">Suono</string>
+    <string name="quick_settings_sound_ring">Suoneria</string>
+    <string name="quick_settings_sound_vibrate">Vibrazione</string>
+    <string name="quick_settings_sound_mute">Silenzioso</string>
+    <string name="screenshot_delete_label">Elimina</string>
+    <string name="screenshot_delete_description">Elimina screenshot</string>
+    <string name="global_action_restart_advanced">Avanzate</string>
+    <string name="global_action_restart_recovery">Recupero</string>
+    <string name="global_action_restart_bootloader">Bootloader</string>
+    <string name="global_action_restart_ui">Sistema UI</string>
+    <string name="global_action_restart_fastboot">Fastboot</string>
+    <string name="task_helper_app_killed">%1$s arrestata forzatamente </string>
+    <string name="empty_app_killed">Applicazione</string>
+    <string name="app_picker_dialog_title">Seleziona un Applicazione</string>
+    <string name="active_edge_app_select_title">Selezione un\'applicazione</string>
+    <string name="active_edge_activity_select_title">Seleziona attività</string>
+    <string name="qs_data_switch_label">Cambia scheda dati</string>
+    <string name="qs_data_switch_changed_1">Utilizzo della SIM 1 per i dati mobili</string>
+    <string name="qs_data_switch_changed_2">Utilizzo della SIM 2 per i dati mobili</string>
+    <string name="quick_settings_location_secondary_battery_saving">Risparmio batteria</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Segnalazione della posizione: modalità risparmio batteria.</string>
+    <string name="quick_settings_location_secondary_gps_only">Solo sensori</string>
+    <string name="accessibility_quick_settings_location_gps_only">Segnalazione posizione: modalità solo sensori.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Alta precisione</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Segnalazione della posizione: modalità ad alta precisione.</string>
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica Rapida  (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> fino al completo)</string>
+    <string name="keyguard_plugged_in_dash_charging">Ricarica Rapida</string>
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carica di curvatura (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> fino al completo)</string>
+    <string name="keyguard_plugged_in_warp_charging">Carica di curvatura</string>
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica VOOC (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> fino al completo)</string>
+    <string name="keyguard_plugged_in_vooc_charging">Ricarica VOOC</string>
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Ricarica Intelligente (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> fino al completo)</string>
+    <string name="keyguard_plugged_in_superdart_charging">Ricarica Intelligente</string>
+    <string name="quick_settings_ambient_display_label">Esposizione ambientale</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Display ambiente disattivato</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Visualizzazione ambiente attivata</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Display ambientale disattivato.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Display ambiente attivato.</string>
+    <string name="quick_settings_aod_label">Schemo sempre attivo</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD disattivato\nRisparmio batteria</string>
+    <string name="quick_settings_heads_up_label">Notifiche Fluttuanti</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notifiche Fluttuanti disattivate.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notifiche Fluttuanti attive.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notifiche Fluttuanti disattive.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notifiche a comparsa attivata.</string>
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Le notifiche di sbirciatina vengono posticipate per 1 minuto.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Le notifiche di sbirciatina sono in attesa <xliff:g id="number">%2$d</xliff:g> minuti.</string>
+    <string name="statusbar_items_title">Icone della barra di stato</string>
+    <string name="status_bar_call_strength">Intensità Chiamata</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="ambientmusic_songinfo" formatted="false">%s di %s</string>
+</resources>
