@@ -16,9 +16,6 @@ package com.android.systemui.qs;
 
 import static android.app.StatusBarManager.DISABLE2_QUICK_SETTINGS;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
-import static com.android.systemui.BatteryMeterView.BATTERY_STYLE_CIRCLE;
-import static com.android.systemui.BatteryMeterView.BATTERY_STYLE_DOTTED_CIRCLE;
-import static com.android.systemui.BatteryMeterView.BATTERY_STYLE_FULL_CIRCLE;
 
 import android.content.Context;
 import android.content.Intent;
@@ -120,6 +117,10 @@ public class QuickStatusBarHeader extends FrameLayout implements
     private boolean mUseCombinedQSHeader;
     private final ActivityStarter mActivityStarter;
     private final Vibrator mVibrator;
+
+    private static final int BATTERY_STYLE_CIRCLE = 1;
+    private static final int BATTERY_STYLE_DOTTED_CIRCLE = 2;
+    private static final int BATTERY_STYLE_FULL_CIRCLE = 3;
 
     public QuickStatusBarHeader(Context context, AttributeSet attrs) {
         super(context, attrs);
