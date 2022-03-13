@@ -165,10 +165,8 @@ public interface StatusBarIconController {
 
         @Override
         public void onSetIcon(int viewIndex, StatusBarIcon icon) {
-            View view = mGroup.getChildAt(viewIndex);
-            if (view instanceof StatusBarIconView) {
-                ((StatusBarIconView) view).set(icon);
-            }
+            super.onSetIcon(viewIndex, icon);
+            mDarkIconDispatcher.applyDark((DarkReceiver) mGroup.getChildAt(viewIndex));
         }
 
         @Override
@@ -359,7 +357,6 @@ public interface StatusBarIconController {
         private NetworkTrafficSB onCreateNetworkTraffic(String slot) {
             NetworkTrafficSB view = new NetworkTrafficSB(mContext);
             view.setPadding(2, 0, 2, 0);
-            view.setGravity(Gravity.RIGHT | Gravity.CENTER_VERTICAL);
             return view;
         }
 
@@ -404,7 +401,6 @@ public interface StatusBarIconController {
         }
 
         public void onSetIcon(int viewIndex, StatusBarIcon icon) {
-            if (!(mGroup.getChildAt(viewIndex) instanceof StatusBarIconView)) return;
             StatusBarIconView view = (StatusBarIconView) mGroup.getChildAt(viewIndex);
             view.set(icon);
         }
@@ -487,6 +483,14 @@ public interface StatusBarIconController {
             return Settings.System.getIntForUser(mContext.getContentResolver(),
                     Settings.System.USE_OLD_MOBILETYPE, 0,
                     UserHandle.USER_CURRENT) != 0;
+        }
+
+        public void setKeyguardShowing(boolean showing) {
+            for (int i = 0; i < mGroup.getChildCount(); i++) {
+                if (mGroup.getChildAt(i) instanceof NetworkTrafficSB) {
+                    ((NetworkTrafficSB)mGroup.getChildAt(i)).setKeyguardShowing(showing);
+                }
+            }
         }
     }
 }
