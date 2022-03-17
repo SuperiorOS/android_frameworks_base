@@ -121,6 +121,7 @@ public class AmbientIndicationContainer extends AutoReinflateContainer implement
     @Override
     public void onPrimaryMetadataOrStateChanged(MediaMetadata metadata,
             @PlaybackState.State int state) {
+        if (mText == null) return;
         CharSequence npTitle = mMediaManager.getNowPlayingTrack();
         boolean nowPlayingAvailable = npTitle != null;
 
