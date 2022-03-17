@@ -145,6 +145,7 @@ public class KeyguardSliceProvider extends SliceProvider implements
     protected boolean mDozing;
     private int mStatusBarState;
     private boolean mMediaIsVisible;
+    private boolean mNowPlayingAvailable;
     private boolean mPulseOnNewTracks;
     private static final String PULSE_ACTION = "com.android.systemui.doze.pulse";
     private SystemUIAppComponentFactory.ContextAvailableCallback mContextAvailableCallback;
@@ -230,7 +231,7 @@ public class KeyguardSliceProvider extends SliceProvider implements
         // animation isn't necessary when pressing power and transitioning to AOD.
         boolean keepWhenShade = mStatusBarState == StatusBarState.SHADE && mMediaIsVisible;
         return !TextUtils.isEmpty(mMediaTitle) && mMediaIsVisible && (mDozing || keepWhenAwake
-                || keepWhenShade);
+                || keepWhenShade) && !mNowPlayingAvailable;
     }
 
     protected void addMediaLocked(ListBuilder listBuilder) {
@@ -480,7 +481,7 @@ public class KeyguardSliceProvider extends SliceProvider implements
         boolean nextVisible = NotificationMediaManager.isPlayingState(state);
         // Get track info from Now Playing notification, if available, and only if there's no playing media notification
         CharSequence npTitle = mMediaManager.getNowPlayingTrack();
-        boolean nowPlayingAvailable = !nextVisible && npTitle != null;
+        mNowPlayingAvailable = !nextVisible && npTitle != null;
 
         // Get track info from player media notification, if available
         CharSequence title = null;
@@ -494,20 +495,20 @@ public class KeyguardSliceProvider extends SliceProvider implements
                 MediaMetadata.METADATA_KEY_ARTIST);
 
         // If Now playing is available, and there's no playing media notification, get Now Playing title
-        title = nowPlayingAvailable ? npTitle : title;
+        title = mNowPlayingAvailable ? npTitle : title;
 
         if (nextVisible == mMediaIsVisible && TextUtils.equals(title, mMediaTitle)
                 && TextUtils.equals(artist, mMediaArtist)) {
             return;
         }
-        if (nowPlayingAvailable == mMediaIsVisible && TextUtils.equals(title, mMediaTitle)) {
+        if (mNowPlayingAvailable == mMediaIsVisible && TextUtils.equals(title, mMediaTitle)) {
             return;
         }
 
         // Set new track info from playing media notification
         mMediaTitle = title;
-        mMediaArtist = nowPlayingAvailable ? null : artist;
-        mMediaIsVisible = nextVisible || nowPlayingAvailable;
+        mMediaArtist = mNowPlayingAvailable ? null : artist;
+        mMediaIsVisible = nextVisible || mNowPlayingAvailable;
 
         notifyChange();
         // if AoD is disabled, the device is not already dozing and we get a new track, trigger an ambient pulse event
