@@ -74,7 +74,7 @@ private fun PlaybackState.computePosition(duration: Long): Long {
 class SeekBarViewModel @Inject constructor(
     @Background private val bgExecutor: RepeatableExecutor
 ) {
-    private var _data = Progress(false, false, false, null, 0)
+    private var _data = Progress(false, false, false, false, null, 0)
         set(value) {
             field = value
             _progress.postValue(value)
@@ -127,6 +127,7 @@ class SeekBarViewModel @Inject constructor(
             if (field != value) {
                 field = value
                 checkIfPollingNeeded()
+                _data = _data.copy(scrubbing = value)
             }
         }
 
@@ -198,7 +199,7 @@ class SeekBarViewModel @Inject constructor(
         val enabled = if (playbackState == null ||
                 playbackState?.getState() == PlaybackState.STATE_NONE ||
                 (duration <= 0)) false else true
-        _data = Progress(enabled, seekAvailable, playing, position, duration)
+        _data = Progress(enabled, seekAvailable, playing, scrubbing, position, duration)
         checkIfPollingNeeded()
     }
 
@@ -416,6 +417,7 @@ class SeekBarViewModel @Inject constructor(
         val enabled: Boolean,
         val seekAvailable: Boolean,
         val playing: Boolean,
+        val scrubbing: Boolean,
         val elapsedTime: Int?,
         val duration: Int
     )
