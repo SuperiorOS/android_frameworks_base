@@ -64,7 +64,8 @@ public class PixelPropsUtils {
     private static final String[] extraPackagesToChange = {
             "com.android.chrome",
             "com.android.vending",
-            "com.breel.wallpapers20"
+            "com.breel.wallpapers20",
+            "com.nhs.online.nhsonline"
     };
 
     private static final String[] packagesToKeep = {
@@ -83,7 +84,7 @@ public class PixelPropsUtils {
         "com.google.android.dialer",
         "com.google.android.youtube",
         "com.google.android.apps.youtube.kids",
-        "com.google.android.apps.youtube.music",
+        "com.google.android.apps.youtube.music"
     };
 
     private static ArrayList<String> allProps = new ArrayList<>(Arrays.asList("BRAND", "MANUFACTURER", "DEVICE", "PRODUCT", "MODEL", "FINGERPRINT"));
