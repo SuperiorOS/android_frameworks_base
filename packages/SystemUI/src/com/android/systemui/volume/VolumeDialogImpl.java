@@ -321,6 +321,8 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
     // Number of animating rows
     private int mAnimatingRows = 0;
 
+    private FrameLayout mRoundedBorderBottom;
+
     @VisibleForTesting
     final int mVolumeRingerIconDrawableId = R.drawable.ic_speaker_on;
     @VisibleForTesting
@@ -332,11 +334,6 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
     private @DevicePostureController.DevicePostureInt int mDevicePosture;
     private int mOrientation;
     private final FeatureFlags mFeatureFlags;
-
-    // Variable to track the default row with which the panel is initially shown
-    private VolumeRow mDefaultRow = null;
-
-    private FrameLayout mRoundedBorderBottom;
 
     public VolumeDialogImpl(
             Context context,
@@ -1375,10 +1372,10 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
     }
 
     private void initSettingsH(int lockTaskModeState) {
-        if (mRoundedBorderBottom != null){
-            mRoundedBorderBottom.setVisibility(!mDeviceProvisionedController.isCurrentUserSetup() ||
-                    lockTaskModeState != LOCK_TASK_MODE_NONE
-                    ? VISIBLE : GONE);
+        final boolean showSettings = mDeviceProvisionedController.isCurrentUserSetup()
+                && lockTaskModeState == LOCK_TASK_MODE_NONE;
+        if (mRoundedBorderBottom != null) {
+            mRoundedBorderBottom.setVisibility(!showSettings ? VISIBLE : GONE);
         }
         if (mSettingsView != null) {
             mSettingsView.setVisibility(
