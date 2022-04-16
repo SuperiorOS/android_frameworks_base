@@ -43,6 +43,7 @@ import com.android.systemui.dump.DumpManager
 import com.android.systemui.flags.FeatureFlags
 import com.android.systemui.keyguard.WakefulnessLifecycle
 import com.android.systemui.settings.UserTracker
+import com.android.systemui.statusbar.policy.ConfigurationController
 import com.android.systemui.statusbar.policy.DeviceProvisionedController
 import com.android.systemui.theme.ThemeOverlayApplier
 import com.android.systemui.theme.ThemeOverlayController
@@ -81,6 +82,7 @@ class SuperiorThemeOverlayController @Inject constructor(
     dumpManager: DumpManager,
     featureFlags: FeatureFlags,
     wakefulnessLifecycle: WakefulnessLifecycle,
+    configurationController: ConfigurationController,
 ) : ThemeOverlayController(
     context,
     broadcastDispatcher,
@@ -96,6 +98,7 @@ class SuperiorThemeOverlayController @Inject constructor(
     dumpManager,
     featureFlags,
     wakefulnessLifecycle,
+    configurationController,
 ) {
     private val settingsObserver: ContentObserver
 
