@@ -12568,6 +12568,12 @@ public final class Settings {
         public static final String PULSE_ON_NEW_TRACKS = "pulse_on_new_tracks";
 
         /**
+         * Whether to turn on black theme
+         * @hide
+         */
+        public static final String SYSTEM_BLACK_THEME = "system_black_theme";
+
+        /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
          *
@@ -12886,12 +12892,6 @@ public final class Settings {
          * @hide
          */
         public static final String DOZE_SINGLE_TAP_GESTURE_AMBIENT = "doze_single_tap_gesture_ambient";
-
-        /**
-         * Whether to turn on black theme
-         * @hide
-         */
-        public static final String SYSTEM_BLACK_THEME = "system_black_theme";
 
         /**
          * These entries are considered common between the personal and the managed profile,
