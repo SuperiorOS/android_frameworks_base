@@ -188,23 +188,13 @@ class LockscreenSmartspaceController @Inject constructor(
 
         val ssView = plugin.getView(parent)
         ssView.registerDataProvider(plugin)
-
         ssView.setIntentStarter(object : BcSmartspaceDataPlugin.IntentStarter {
-            override fun startIntent(view: View, intent: Intent, showOnLockscreen: Boolean) {
-                activityStarter.startActivity(
-                    intent,
-                    true, /* dismissShade */
-                    null, /* launch animator - looks bad with the transparent smartspace bg */
-                    showOnLockscreen
-                )
+            override fun startIntent(v: View?, i: Intent?) {
+                activityStarter.startActivity(i, true /* dismissShade */)
             }
 
-            override fun startPendingIntent(pi: PendingIntent, showOnLockscreen: Boolean) {
-                if (showOnLockscreen) {
-                    pi.send()
-                } else {
-                    activityStarter.startPendingIntentDismissingKeyguard(pi)
-                }
+            override fun startPendingIntent(pi: PendingIntent?) {
+                activityStarter.startPendingIntentDismissingKeyguard(pi)
             }
         })
         ssView.setFalsingManager(falsingManager)
@@ -240,10 +230,6 @@ class LockscreenSmartspaceController @Inject constructor(
         configurationController.addCallback(configChangeListener)
         statusBarStateController.addCallback(statusBarStateListener)
 
-        plugin.registerSmartspaceEventNotifier {
-                e -> session?.notifySmartspaceEvent(e)
-        }
-
         reloadSmartspace()
     }
 
@@ -269,7 +255,6 @@ class LockscreenSmartspaceController @Inject constructor(
         statusBarStateController.removeCallback(statusBarStateListener)
         session = null
 
-        plugin?.registerSmartspaceEventNotifier(null)
         plugin?.onTargetsAvailable(emptyList())
         Log.d(TAG, "Ending smartspace session for lockscreen")
     }
