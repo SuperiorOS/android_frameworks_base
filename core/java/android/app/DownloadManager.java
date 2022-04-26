@@ -1134,8 +1134,10 @@ public class DownloadManager {
         }
         ContentValues values = request.toContentValues(mPackageName);
         Uri downloadUri = mResolver.insert(Downloads.Impl.CONTENT_URI, values);
-        long id = Long.parseLong(downloadUri.getLastPathSegment());
-        return id;
+        if (downloadUri == null) {
+            return -1;
+        }
+        return Long.parseLong(downloadUri.getLastPathSegment());
     }
 
     /**
