@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022 The SuperiorOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="aerr_copy">Çökme günlüğü URL\' sini kopyala</string>
+    <string name="url_copy_success">URL başarıyla kopyalandı</string>
+    <string name="url_copy_failed">Günlük Memochō\'ya yüklenirken bir hata oluştu</string>
+    <string name="reboot_to_bootloader_title">Ön yükleyici</string>
+    <string name="reboot_to_bootloader_message">Ön yükleyicide başlatılıyor\u2026</string>
+    <string name="reboot_to_recovery_title">Kurtarma</string>
+    <string name="reboot_to_recovery_message">Kurtarmada başlatılıyor\u2026</string>
+    <string name="reboot_system_title">Sistem</string>
+    <string name="reboot_system_message">Sistem yeniden başlatılıyor\u2026</string>
+</resources>

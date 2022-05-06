@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2021 The SuperiorOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine vyp.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine zap.</string>
+    <string name="quick_settings_sync_label">Synchr.</string>
+    <string name="accessibility_quick_settings_sync_off">Synch. vypnuta</string>
+    <string name="accessibility_quick_settings_sync_on">Synch. zapnuta</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Synchronizace byla vypnuta</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Synchronizace byla zapnuta</string>
+    <string name="quick_settings_sound_label">Zvuk</string>
+    <string name="quick_settings_sound_ring">Vyzvánění</string>
+    <string name="quick_settings_sound_vibrate">Vibrace</string>
+    <string name="quick_settings_sound_mute">Ztlumení</string>
+    <string name="screenshot_delete_label">Odstranit</string>
+    <string name="screenshot_delete_description">Odstranit snímek obrazovky</string>
+    <string name="statusbar_items_title">Ikony na stavovém řádku</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="quick_settings_location_secondary_battery_saving">Úspora baterie</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Hlášení polohy: úspora baterie.</string>
+    <string name="quick_settings_location_secondary_gps_only">Pouze GPS</string>
+    <string name="accessibility_quick_settings_location_gps_only">Hlášení polohy: pouze GPS.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Vysoká přesnost</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Hlášení polohy: vysoká přesnost.</string>
+    <string name="ambientmusic_songinfo" formatted="false">%s od %s</string>
+    <string name="quick_settings_ambient_display_label">Ambientní displej</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Ambientní displej vyp.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Ambientní displej zap.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ambientní displej je vypnutý.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ambientní displej je zapnutý.</string>
+    <string name="quick_settings_usb_tether_label">USB tethering</string>
+    <string name="quick_settings_heads_up_label">Plovoucí oznámení</string>
+    <string name="accessibility_quick_settings_heads_up_off">Plovoucí oznámení vyp.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Plovoucí oznámení zap.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Plovoucí oznámení byla vypnuta.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Plovoucí oznámení byla zapnuta.</string>
+    <string name="status_bar_call_strength">Síla signálu hovoru</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD vyp.\nSpořič baterie</string>
+    <string name="quick_settings_volume_panel_label">Panel hlasitosti</string>
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> – Plovoucí oznámení jsou odložena po dobu 1\u00a0minuty.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s </xliff:g> - Plovoucí oznámení jsou odložena po dobu <xliff:g id="number">%2$d </xliff:g> minut.</string>
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • DASH nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> do plného nabití)</string>
+    <string name="keyguard_plugged_in_dash_charging">DASH nabíjení</string>
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Warp nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> do plného nabití)</string>
+    <string name="keyguard_plugged_in_warp_charging">Warp nabíjení</string>
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • VOOC nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> do plného nabití)</string>
+    <string name="keyguard_plugged_in_vooc_charging">VOOC nabíjení</string>
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • SuperDart nabíjení (zbývá <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> do plného nabití)</string>
+    <string name="keyguard_plugged_in_superdart_charging">SuperDart nabíjení</string>
+    <string name="screenrecord_delete_label">Odstranit</string>
+    <string name="screenrecord_delete_description">Záznam obrazovky byl odstraněn</string>
+    <string name="screenrecord_stopdot_label">Zobrazit tečku pro zastavení nahrávání\nDlouhým stiskem ji přesunete</string>
+    <string name="screenrecord_lowquality_label">Nižší kvalita pro zajištění menší velikosti souboru</string>
+    <string name="screenrecord_longer_timeout_switch_label">Omezení větší velikosti souborů\nOmezení velikosti záznamu na 15\u00a0GiB</string>
+    <string name="face_unlock_recognizing">Rozpoznávání obličeje...</string>
+    <string name="global_action_reboot">Restartovat</string>
+    <string name="global_action_reboot_more">Pokročilé</string>
+    <string name="global_action_reboot_sub">Systém</string>
+    <string name="global_action_reboot_recovery">Recovery</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_reboot_systemui">SystemUI</string>
+    <string name="global_action_settings">Nastavení</string>
+    <string name="usage_data">využito dnes</string>
+    <string name="usage_data_default_suffix">Data</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <string name="qs_data_switch_label">Přepnout SIM pro data</string>
+    <string name="qs_data_switch_toast_0">Momentálně není vložena žádná SIM karta</string>
+    <string name="qs_data_switch_toast_1">Momentálně je vložena pouze jedna SIM karta</string>
+    <string name="qs_data_switch_text_1">SIM 1</string>
+    <string name="qs_data_switch_text_2">SIM 2</string>
+    <string name="qs_data_switch_changed_1">Přepnout datovou kartu na SIM 1.</string>
+    <string name="qs_data_switch_changed_2">Přepnout datovou kartu na SIM 2.</string>
+    <string name="task_helper_app_killed">Aplikace %1$s vynuceně ukončena</string>
+    <string name="empty_app_killed">Aplikace</string>
+    <string name="app_picker_dialog_title">Vybrat aplikaci</string>
+    <string name="active_edge_app_select_title">Vybrat aplikaci</string>
+    <string name="active_edge_activity_select_title">Vybrat aktivitu</string>
+</resources>

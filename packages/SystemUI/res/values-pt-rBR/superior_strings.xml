@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2021 The SuperiorOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_caffeine_label">Cafeína</string>
+    <string name="accessibility_quick_settings_caffeine_off">Modo cafeína desativado</string>
+    <string name="accessibility_quick_settings_caffeine_on">Modo cafeína ativado</string>
+    <string name="quick_settings_sync_label">Sincronizar</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronização desativada</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronização ativada</string>
+    <string name="accessibility_quick_settings_sync_changed_off">A sincronização foi desativada</string>
+    <string name="accessibility_quick_settings_sync_changed_on">A sincronização foi ativada</string>
+    <string name="quick_settings_sound_label">Som</string>
+    <string name="quick_settings_sound_ring">Toque</string>
+    <string name="quick_settings_sound_vibrate">Vibrar</string>
+    <string name="quick_settings_sound_mute">Mutar</string>
+    <string name="screenshot_delete_label">Excluir</string>
+    <string name="screenshot_delete_description">Excluir captura de tela</string>
+    <string name="statusbar_items_title">Ícones da barra de status</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="quick_settings_location_secondary_battery_saving">Economia de bateria</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Localização: modo de economia de bateria.</string>
+    <string name="quick_settings_location_secondary_gps_only">Somente Sensores</string>
+    <string name="accessibility_quick_settings_location_gps_only">Modo de localização: somente sensores.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Alta Precisão</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Modo de localização: alta precisão.</string>
+    <string name="ambientmusic_songinfo" formatted="false">%s por %s</string>
+    <string name="quick_settings_ambient_display_label">Tela Ambiente</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Tela ambiente desativado.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Tela ambiente ativada.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Tela ambiente foi desligada.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Tela Ambiente foi ligado.</string>
+    <string name="quick_settings_usb_tether_label">Ancoragem USB</string>
+    <string name="quick_settings_heads_up_label">Notificações pop-up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notificações pop-up desativadas.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notificações pop-up ativadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">As notificações pop-up foram desativadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">As notificações pop-up foram ativadas.</string>
+    <string name="status_bar_call_strength">Intensidade do sinal para chamadas</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD desligado\nEconomia de bateria</string>
+    <string name="quick_settings_volume_panel_label">Painel de Volume</string>
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> -As notificações flutuantes vão parar por 1 minuto.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - As notificações foram silenciadas por <xliff:g id="number">%2$d</xliff:g> minutos.</string>
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento Rápido (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> até Concluir)</string>
+    <string name="keyguard_plugged_in_dash_charging">Carregamento Rápido</string>
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento Turbo (<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%s</xliff:g> até concluir)</string>
+    <string name="keyguard_plugged_in_warp_charging">Carregamento Turbo</string>
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento VOOC (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até concluir)</string>
+    <string name="keyguard_plugged_in_vooc_charging">Carregamento VOOC</string>
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento SuperDart (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até concluir)</string>
+    <string name="keyguard_plugged_in_superdart_charging">Carregamento SuperDart</string>
+    <string name="screenrecord_delete_label">Excluir</string>
+    <string name="screenrecord_delete_description">Gravação de tela excluída</string>
+    <string name="screenrecord_stopdot_label">Mostrar ponto de parada\nPressionamento longo para movê-lo</string>
+    <string name="screenrecord_lowquality_label">Baixa qualidade para tamanho de arquivo menor</string>
+    <string name="screenrecord_longer_timeout_switch_label">Limite maior para arquivo\nLimitar o tamanho de gravação para 15Gb</string>
+    <string name="face_unlock_recognizing">Reconhecendo rosto...</string>
+    <string name="global_action_reboot">Reiniciar</string>
+    <string name="global_action_reboot_more">Avançado</string>
+    <string name="global_action_reboot_sub">Sistema</string>
+    <string name="global_action_reboot_recovery">Recovery</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_reboot_systemui">Interface do sistema</string>
+    <string name="global_action_settings">Configurações</string>
+    <string name="usage_data">usado hoje</string>
+    <string name="usage_data_default_suffix">Dados</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <string name="qs_data_switch_label">Alterar chip de dados</string>
+    <string name="qs_data_switch_toast_0">Atualmente, nenhum cartão SIM está inserido</string>
+    <string name="qs_data_switch_toast_1">Atualmente, apenas um cartão SIM está inserido</string>
+    <string name="qs_data_switch_text_1">SIM 1</string>
+    <string name="qs_data_switch_text_2">SIM 2</string>
+    <string name="qs_data_switch_changed_1">Mude o cartão SIM para SIM 1.</string>
+    <string name="qs_data_switch_changed_2">Mude o cartão SIM para SIM 2.</string>
+    <string name="task_helper_app_killed">%1$s força parada</string>
+    <string name="empty_app_killed">App</string>
+    <string name="app_picker_dialog_title">Selecione um app</string>
+    <string name="active_edge_app_select_title">Selecionar app</string>
+    <string name="active_edge_activity_select_title">Selecionar atividade</string>
+</resources>

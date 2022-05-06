@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2021 The SuperiorOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_caffeine_label">Mode Kafein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Mode Kafein mati</string>
+    <string name="accessibility_quick_settings_caffeine_on">Mode Kafein aktif</string>
+    <string name="quick_settings_sync_label">Sinkronisasi</string>
+    <string name="accessibility_quick_settings_sync_off">Sinkronisasi nonaktif</string>
+    <string name="accessibility_quick_settings_sync_on">Sinkronisasi aktif</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sinkronisasi dinonaktifkan</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sinkronisasi diaktifkan</string>
+    <string name="quick_settings_sound_label">Suara</string>
+    <string name="quick_settings_sound_ring">Berdering</string>
+    <string name="quick_settings_sound_vibrate">Getar</string>
+    <string name="quick_settings_sound_mute">Senyap</string>
+    <string name="screenshot_delete_label">Hapus</string>
+    <string name="screenshot_delete_description">Hapus tangkapan layar</string>
+    <string name="statusbar_items_title">Ikon bilah status</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="quick_settings_location_secondary_battery_saving">Hemat Baterai</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Laporan Lokasi: mode hemat baterai.</string>
+    <string name="quick_settings_location_secondary_gps_only">Hanya Sensor</string>
+    <string name="accessibility_quick_settings_location_gps_only">Laporan Lokasi: hanya mode sensor.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Akurasi Tinggi</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Laporan Lokasi: mode akurasi tinggi.</string>
+    <string name="ambientmusic_songinfo" formatted="false">%s oleh %s</string>
+    <string name="quick_settings_ambient_display_label">Tampilan Ambien</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Tampilan Ambien nonaktif.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Tampilan Ambientaktif.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Tampilan Ambien dinonaktifkan.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Tampilan Ambien diaktifkan.</string>
+    <string name="quick_settings_usb_tether_label">Tethering USB</string>
+    <string name="quick_settings_heads_up_label">Notifikasi mengambang</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notifikasi mengambang nonaktif.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notifikasi mengambang aktif.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Notifikasi mengambang dinonaktifkan.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Notifikasi mengambang diaktifkan.</string>
+    <string name="status_bar_call_strength">Kekuatan panggilan</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD nonaktif\nPenghemat baterai</string>
+    <string name="quick_settings_volume_panel_label">Panel volume</string>
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Notifikasi mengambang ditunda selama 1 menit.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Notifikasi mengambang ditunda selama <xliff:g id="number">%2$d</xliff:g> menit.</string>
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="pesentase">%2$s</xliff:g> • Pengisian Cepat (<xliff:g id="charging_time_left" example="4 jam 2 menit">%s</xliff:g> hingga penuh)</string>
+    <string name="keyguard_plugged_in_dash_charging">Pengisian Cepat</string>
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Pengisian Warp (<xliff:g id="charging_time_left" example="4 jam 2 menit">%s</xliff:g> hingga penuh)</string>
+    <string name="keyguard_plugged_in_warp_charging">Pengisian Warp</string>
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Pengisian VOOC (<xliff:g id="charging_time_left" example="4 jam 2 menit">%1$s</xliff:g> hingga penuh)</string>
+    <string name="keyguard_plugged_in_vooc_charging">Pengisian VOOC</string>
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Pengisian SuperDart (<xliff:g id="charging_time_left" example="4 jam 2 menit">%1$s</xliff:g> hingga penuh)</string>
+    <string name="keyguard_plugged_in_superdart_charging">Pengisian SuperDart</string>
+    <string name="screenrecord_delete_label">Hapus</string>
+    <string name="screenrecord_delete_description">Rekaman layar dihapus</string>
+    <string name="screenrecord_stopdot_label">Tampilkan titik berhenti\nTekan lama untuk memindahkannya</string>
+    <string name="screenrecord_lowquality_label">Kualitas lebih rendah untuk ukuran file yang lebih kecil</string>
+    <string name="screenrecord_longer_timeout_switch_label">Batas ukuran file lebih besar\nBatasi ukuran perekaman hingga 15GB</string>
+    <string name="face_unlock_recognizing">Mengenali wajah...</string>
+    <string name="global_action_reboot">Mulai ulang</string>
+    <string name="global_action_reboot_more">Lanjutan</string>
+    <string name="global_action_reboot_sub">Sistem</string>
+    <string name="global_action_reboot_recovery">Recovery</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_reboot_systemui">Sistem UI</string>
+    <string name="global_action_settings">Setelan</string>
+    <string name="usage_data">digunakan hari ini</string>
+    <string name="usage_data_default_suffix">Data</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <string name="qs_data_switch_label">Ubah kartu data</string>
+    <string name="qs_data_switch_toast_0">Tidak ada kartu SIM yang terpasang saat ini</string>
+    <string name="qs_data_switch_toast_1">Hanya satu kartu SIM yang terpasang saat ini</string>
+    <string name="qs_data_switch_text_1">SIM 1</string>
+    <string name="qs_data_switch_text_2">SIM 2</string>
+    <string name="qs_data_switch_changed_1">Ubah kartu data ke SIM 1.</string>
+    <string name="qs_data_switch_changed_2">Ubah kartu data ke SIM 2.</string>
+    <string name="task_helper_app_killed">%1$s paksa berhenti</string>
+    <string name="empty_app_killed">Aplikasi</string>
+    <string name="app_picker_dialog_title">Pilih satu aplikasi</string>
+    <string name="active_edge_app_select_title">Pilih aplikasi</string>
+    <string name="active_edge_activity_select_title">Pilih aktivitas</string>
+</resources>
