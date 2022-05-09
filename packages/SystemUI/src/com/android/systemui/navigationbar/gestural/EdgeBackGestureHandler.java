@@ -65,6 +65,7 @@ import android.view.WindowManager;
 import android.view.WindowMetrics;
 
 import com.android.internal.util.hwkeys.ActionUtils;
+import com.android.internal.util.hwkeys.ActionHandler;
 import com.android.internal.util.superior.SuperiorUtils;
 import com.android.internal.config.sysui.SystemUiDeviceConfigFlags;
 import com.android.internal.policy.GestureNavigationSettingsObserver;
@@ -1023,6 +1024,9 @@ public class EdgeBackGestureHandler extends CurrentUserTracker
                 break;
             case 14: // Switch recent app
                 ActionUtils.switchToLastApp(mContext);
+                break;
+            case 15: // Recent apps
+                ActionHandler.toggleRecentApps();
                 break;
         }
     }
