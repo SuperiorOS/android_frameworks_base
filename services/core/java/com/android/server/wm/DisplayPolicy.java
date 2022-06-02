@@ -2003,6 +2003,11 @@ public class DisplayPolicy {
         final Resources res = getCurrentUserResources();
         final int portraitRotation = displayRotation.getPortraitRotation();
 
+        final InsetsPolicy policy = mDisplayContent.getInsetsPolicy();
+        if (policy != null) {
+            policy.updateLockedStatus();
+        }
+
         if (hasStatusBar()) {
             mDisplayCutoutTouchableRegionSize = res.getDimensionPixelSize(
                     R.dimen.display_cutout_touchable_region_size);
@@ -2351,7 +2356,7 @@ public class DisplayPolicy {
         if (controlTarget.canShowTransient()) {
             // Show transient bars if they are hidden; restore position if they are visible.
             mDisplayContent.getInsetsPolicy().showTransient(SHOW_TYPES_FOR_SWIPE,
-                    isGestureOnSystemBar);
+                    isGestureOnSystemBar, swipeTarget == mStatusBar);
             controlTarget.showInsets(restorePositionTypes, false);
         } else {
             // Restore visibilities and positions of system bars.
@@ -3079,5 +3084,9 @@ public class DisplayPolicy {
      */
     boolean shouldAttachNavBarToAppDuringTransition() {
         return mShouldAttachNavBarToAppDuringTransition && mNavigationBar != null;
+    }
+
+    public Context getUiContext() {
+        return mUiContext;
     }
 }
