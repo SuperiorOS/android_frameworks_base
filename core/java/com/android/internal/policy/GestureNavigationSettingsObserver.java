@@ -159,6 +159,9 @@ public class GestureNavigationSettingsObserver extends ContentObserver {
                 runnable -> mMainHandler.post(runnable),
                 mOnPropertiesChangedListener);
         r.registerContentObserver(
+                Settings.System.getUriFor(Settings.System.LOCK_GESTURE_STATUS),
+                false, this, UserHandle.USER_ALL);
+        r.registerContentObserver(
                 Settings.System.getUriFor(Settings.System.LONG_BACK_SWIPE_TIMEOUT),
                 false, this, UserHandle.USER_ALL);
         r.registerContentObserver(
