@@ -96,4 +96,7 @@
 
      <!-- Whether key handler sends intent when changing slider position -->
      <java-symbol type="string" name="config_alertSliderIntent" />
+
+     <!-- Lock gesture -->
+     <java-symbol type="string" name="gesture_locked_warning" />
 </resources>
