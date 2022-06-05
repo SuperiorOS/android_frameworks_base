@@ -58,6 +58,7 @@ public class ScreenRecordDialog extends SystemUIDialog {
     private static final String PREF_LONGER = "use_longer_timeout";
     private static final String PREF_AUDIO = "use_audio";
     private static final String PREF_AUDIO_SOURCE = "audio_source";
+    private static final String PREF_SKIP = "skip_timer";
 
     private final RecordingController mController;
     private final UserContextProvider mUserContextProvider;
@@ -155,6 +156,7 @@ public class ScreenRecordDialog extends SystemUIDialog {
         Prefs.putInt(userContext, PREFS + PREF_LONGER, mLongerSwitch.isChecked() ? 1 : 0);
         Prefs.putInt(userContext, PREFS + PREF_AUDIO, mAudioSwitch.isChecked() ? 1 : 0);
         Prefs.putInt(userContext, PREFS + PREF_AUDIO_SOURCE, mOptions.getSelectedItemPosition());
+        Prefs.putInt(userContext, PREFS + PREF_SKIP, mSkipSwitch.isChecked() ? 1 : 0);
     }
 
     private void loadPrefs() {
@@ -164,5 +166,6 @@ public class ScreenRecordDialog extends SystemUIDialog {
         mLongerSwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_LONGER, 0) == 1);
         mAudioSwitch.setChecked(Prefs.getInt(userContext, PREFS + PREF_AUDIO, 0) == 1);
         mOptions.setSelection(Prefs.getInt(userContext, PREFS + PREF_AUDIO_SOURCE, 0));
+        mSkipSwitch.setChecked(Prefs.getInt(mUserContext, PREFS + PREF_SKIP, 0) == 1);
     }
 }
