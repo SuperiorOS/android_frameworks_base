@@ -24,7 +24,7 @@
     <string name="accessibility_quick_settings_sync_changed_off">Synchronizácia bola vypnutá</string>
     <string name="accessibility_quick_settings_sync_changed_on">Synchronizácia bola zapnutá</string>
     <string name="quick_settings_sound_label">Zvuk</string>
-    <string name="quick_settings_sound_ring">Vyzváňanie</string>
+    <string name="quick_settings_sound_ring">Zvonenie</string>
     <string name="quick_settings_sound_vibrate">Vibrácie</string>
     <string name="quick_settings_sound_mute">Stlmiť</string>
     <string name="screenshot_delete_label">Odstrániť</string>
@@ -50,19 +50,19 @@
     <string name="accessibility_quick_settings_heads_up_changed_off">Plávajúce oznámenia boli vypnuté.</string>
     <string name="accessibility_quick_settings_heads_up_changed_on">Plávajúce oznámenia boli zapnuté.</string>
     <string name="status_bar_call_strength">Sila signálu hovoru</string>
-    <string name="quick_settings_aod_label">Aktívny displej</string>
+    <string name="quick_settings_aod_label">AOD</string>
     <string name="quick_settings_aod_off_powersave_label">AOD vyp.\nŠetrenie batérie</string>
     <string name="quick_settings_volume_panel_label">Panel hlasitosti</string>
-    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Pozerané oznámenia sú odložené po dobu 1 minúty.</string>
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> • Plávajúce upozornenia sú odložené na 1 minútu.</string>
     <string name="heads_up_snooze_message"><xliff:g id="string">%1$s </xliff:g> - Plávajúce oznámenia sú odložené po dobu<xliff:g id="number">%2$d </xliff:g> minut.</string>
     <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • DASH nabíjanie (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> do plného nabitia)</string>
-    <string name="keyguard_plugged_in_dash_charging">Rýchle nabíjanie</string>
-    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percent">%2$s</xliff:g> • Warp Nabíjanie (<xliff:g id="charging_time_left" príklad="4 hodiny a 2 minúty">%1$s</xliff:g> do nabitia)</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash nabíjanie</string>
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Warp nabíjanie (zostáva <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> do plného nabitia)</string>
     <string name="keyguard_plugged_in_warp_charging">Warp nabíjanie</string>
     <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • VOOC nabíjanie (zostáva <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> do úplného nabitia)</string>
     <string name="keyguard_plugged_in_vooc_charging">VOOC nabíjanie</string>
     <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • SuperDart nabíjanie (ostáva <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> do plného nabitia)</string>
-    <string name="keyguard_plugged_in_superdart_charging">SuperDart nabíjení</string>
+    <string name="keyguard_plugged_in_superdart_charging">SuperDart nabíjanie</string>
     <string name="screenrecord_delete_label">Odstrániť</string>
     <string name="screenrecord_delete_description">Záznam obrazovky bol odstránený</string>
     <string name="screenrecord_stopdot_label">Zobraziť bodku pre zastavenie nahrávania\nDlhým stlačením ju presuniete</string>
@@ -77,7 +77,7 @@
     <string name="global_action_reboot_systemui">SystemUI</string>
     <string name="global_action_settings">Nastavenie</string>
     <string name="usage_data">Využité dnes</string>
-    <string name="usage_data_default_suffix">Data</string>
+    <string name="usage_data_default_suffix">Dáta</string>
     <string name="usage_wifi_default_suffix">Wi-Fi</string>
     <string name="qs_data_switch_label">Prepnúť SIM pre dáta</string>
     <string name="qs_data_switch_toast_0">Momentálne nie je vložená žiadna SIM karta</string>

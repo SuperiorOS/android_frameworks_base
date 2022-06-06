@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2021 The SuperiorOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine ki</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine be</string>
+    <string name="quick_settings_sync_label">Szinkr.</string>
+    <string name="accessibility_quick_settings_sync_off">Szink. ki</string>
+    <string name="accessibility_quick_settings_sync_on">Szinkr. be</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Szinkronizálás kikapcsolva</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Szinkronizálás bekapcsolva</string>
+    <string name="quick_settings_sound_label">Hang</string>
+    <string name="quick_settings_sound_ring">Csörgés</string>
+    <string name="quick_settings_sound_vibrate">Rezgés</string>
+    <string name="quick_settings_sound_mute">Némít</string>
+    <string name="screenshot_delete_label">Törlés</string>
+    <string name="screenshot_delete_description">Képernyőkép törlése</string>
+    <string name="statusbar_items_title">Állapotsor ikonok</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="quick_settings_location_secondary_battery_saving">Akkumulátorkímélő</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Helymeghatározás: energiatakarékos mód.</string>
+    <string name="quick_settings_location_secondary_gps_only">Csak szenzorok használata</string>
+    <string name="accessibility_quick_settings_location_gps_only">Helymeghatározás: csak GPS.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Nagy pontosságú</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Helymeghatározás: nagy pontosságú.</string>
+    <string name="ambientmusic_songinfo" formatted="false">%s, %s</string>
+    <string name="quick_settings_ambient_display_label">Ambient display</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Környezeti kijelző ki.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Környezeti kijelző be.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Környezeti kijelző kikapcsolva.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Környezeti kijelző bekapcsolva.</string>
+    <string name="quick_settings_usb_tether_label">USB internetmegosztás</string>
+    <string name="quick_settings_heads_up_label">Lebegő értesítések</string>
+    <string name="accessibility_quick_settings_heads_up_off">Lebegő értesítések ki.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Lebegő értesítések be.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Lebegő értesítések kikapcsolva.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Lebegő értesítések bekapcsolva.</string>
+    <string name="status_bar_call_strength">Híváserősség</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD ki\nAkkukímélő</string>
+    <string name="quick_settings_volume_panel_label">Hangerő panel</string>
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> lebegő értesítések 1 percig szüneteltetve.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - lebegő értesítések <xliff:g id="number">%2$d</xliff:g> percig elhalasztásra kerülnek.</string>
+    <string name="keyguard_plugged_in_dash_charging">Gyorstöltés</string>
+    <string name="keyguard_plugged_in_warp_charging">Gyorstöltés</string>
+    <string name="keyguard_plugged_in_vooc_charging">VOOC töltés</string>
+    <string name="keyguard_plugged_in_superdart_charging">SuperDart töltés</string>
+    <string name="screenrecord_delete_label">Törlés</string>
+    <string name="screenrecord_delete_description">Képernyőfelvétel törölve</string>
+    <string name="screenrecord_stopdot_label">Látható megállítógomb\nHosszan nyomva áthelyezhető</string>
+    <string name="screenrecord_lowquality_label">Gyengébb minőség kisebb fájlméretért</string>
+    <string name="screenrecord_longer_timeout_switch_label">A fájlméret felső határa\n15GB lehet a legnagyobb méret</string>
+    <string name="face_unlock_recognizing">Arcfelismerés...</string>
+    <string name="global_action_reboot">Újraindítás</string>
+    <string name="global_action_reboot_more">Haladó</string>
+    <string name="global_action_reboot_sub">Rendszer</string>
+    <string name="global_action_reboot_recovery">Recovery</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_reboot_systemui">SystemUI</string>
+    <string name="global_action_settings">Beállítások</string>
+    <string name="usage_data">ma használva</string>
+    <string name="usage_data_default_suffix">Adat</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <string name="qs_data_switch_label">Adat-kártya váltása</string>
+    <string name="qs_data_switch_toast_0">Jelenleg nincs SIM-kártya behelyezve</string>
+    <string name="qs_data_switch_toast_1">Jelenleg csak egy SIM-kártya van behelyezve</string>
+    <string name="qs_data_switch_text_1">SIM 1</string>
+    <string name="qs_data_switch_text_2">SIM 2</string>
+    <string name="qs_data_switch_changed_1">SIM 1 lesz az adatkártya.</string>
+    <string name="qs_data_switch_changed_2">SIM 2 lesz az adatkártya.</string>
+    <string name="task_helper_app_killed">%1$s kilőve</string>
+    <string name="empty_app_killed">Alkalmazás</string>
+    <string name="app_picker_dialog_title">Alkalmazás kiválasztása</string>
+    <string name="active_edge_app_select_title">Alkalmazás kiválasztása</string>
+    <string name="active_edge_activity_select_title">Tevékenység kiválasztása</string>
+</resources>

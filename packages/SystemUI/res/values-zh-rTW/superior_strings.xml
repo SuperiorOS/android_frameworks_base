@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2021 The SuperiorOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_caffeine_label">螢幕常亮</string>
+    <string name="accessibility_quick_settings_caffeine_off">螢幕常亮已關閉</string>
+    <string name="accessibility_quick_settings_caffeine_on">螢幕常亮已開啟</string>
+    <string name="quick_settings_sync_label">同步</string>
+    <string name="quick_settings_sound_ring">響鈴</string>
+    <string name="quick_settings_sound_vibrate">震動</string>
+    <string name="quick_settings_sound_mute">靜音</string>
+    <string name="screenshot_delete_label">刪除</string>
+    <string name="screenshot_delete_description">螢幕截圖已刪除</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="quick_settings_location_secondary_battery_saving">省電模式</string>
+    <string name="quick_settings_location_secondary_gps_only">僅用感應器</string>
+    <string name="quick_settings_location_secondary_high_accuracy">高準確度</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">位置回報：高精確度</string>
+    <string name="ambientmusic_songinfo" formatted="false">%s 來自 %s</string>
+    <string name="quick_settings_ambient_display_label">微光螢幕</string>
+    <string name="accessibility_quick_settings_ambient_display_off">微光螢幕關閉。</string>
+    <string name="accessibility_quick_settings_ambient_display_on">微光螢幕開啟。</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">微光螢幕已關閉。</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">微光螢幕已開啟。</string>
+    <string name="quick_settings_usb_tether_label">USB 網路共用</string>
+    <string name="quick_settings_heads_up_label">浮動通知</string>
+    <string name="status_bar_call_strength">訊號強度</string>
+    <string name="quick_settings_aod_off_powersave_label">關閉 AOD\n省電模式</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash 閃充</string>
+    <string name="keyguard_plugged_in_warp_charging">Warp閃充</string>
+    <string name="keyguard_plugged_in_vooc_charging">VOOC閃充</string>
+    <string name="keyguard_plugged_in_superdart_charging">SuperDart 超級閃充中</string>
+</resources>
