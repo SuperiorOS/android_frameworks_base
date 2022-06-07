@@ -83,7 +83,6 @@ android_library {
     resource_dirs: [
         "res-product",
         "res-keyguard",
-        "res-smartspace",
         "res",
         "res-hwkeys",
     ],
@@ -122,6 +121,7 @@ android_library {
         "jsr330",
         "lottie",
         "faceunlock_framework",
+        "bcsmartspace-res",
         "colorkt",
         "themelib",
         "backgesture-google",
