@@ -73,6 +73,11 @@ public class SuperiorUtils {
     private static final boolean DEBUG = false;
     private static final int NO_CUTOUT = -1;
 
+    // Check to see if device is WiFi only
+    public static boolean isWifiOnly(Context context) {
+	return !context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_TELEPHONY);
+    }
+
 	// Check if device is connected to Wi-Fi
     public static boolean isWiFiConnected(Context context) {
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
