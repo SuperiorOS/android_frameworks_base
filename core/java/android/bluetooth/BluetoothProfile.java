@@ -213,55 +213,12 @@ public interface BluetoothProfile {
     int LE_AUDIO = 22;
 
     /**
-     * Group Operation Profile (Client Role)
-     * @hide
-     */
-    public int GROUP_CLIENT = 23;
-
-    /**
-     * Broadcast
-     * @hide
-     */
-    public int BROADCAST = 24;
-
-    /**
-     * VCP
-     * @hide
-     */
-    public static final int VCP = 25;
-
-   /**
-     * BC_PROFILE
-     * @hide
-     */
-    public static final int BC_PROFILE = 26;
-
-    /**
-   /**
-     * PC_PROFILE
-     * @hide
-     */
-    public static final int PC_PROFILE = 27;
-
-   /**
-     * CC_SERVER
-     * @hide
-     */
-    public static final int CC_SERVER = 28;
-
-   /**
-     * MCP_SERVER
-     * @hide
-     */
-    public static final int MCP_SERVER = 29;
-
-    /**
      * Max profile ID. This value should be updated whenever a new profile is added to match
      * the largest value assigned to a profile.
      *
      * @hide
      */
-    int MAX_PROFILE_ID = 29;
+    int MAX_PROFILE_ID = 22;
 
     /**
      * Default priority for devices that we try to auto-connect to and
@@ -459,10 +416,6 @@ public interface BluetoothProfile {
                 return "OPP";
             case HEARING_AID:
                 return "HEARING_AID";
-            case BROADCAST:
-                return "BROADCAST";
-            case VCP:
-                return "VCP";
             default:
                 return "UNKNOWN_PROFILE";
         }

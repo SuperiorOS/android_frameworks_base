@@ -270,13 +270,6 @@ public final class BluetoothHeadset implements BluetoothProfile {
     public static final String VENDOR_SPECIFIC_HEADSET_EVENT_XEVENT_BATTERY_LEVEL = "BATTERY";
 
     /**
-     * Headset state when SCO audio is disconnecting.
-     *
-     * @hide
-     */
-    public static final int STATE_AUDIO_DISCONNECTING = 13;
-
-    /**
      * Headset state when SCO audio is not connected.
      * This state can be one of
      * {@link #EXTRA_STATE} or {@link #EXTRA_PREVIOUS_STATE} of
@@ -299,41 +292,6 @@ public final class BluetoothHeadset implements BluetoothProfile {
      * {@link #ACTION_AUDIO_STATE_CHANGED} intent.
      */
     public static final int STATE_AUDIO_CONNECTED = 12;
-
-    /**
-     * Intent used to broadcast the Battery status of TWS+ devices
-     *
-     * <p>This intent will have 2 extras:
-     * <ul>
-     * <li> {@link #EXTRA_HF_TWSP_BATTERY_STATE} - Current Battey state of TWS+
-     *      device. 0 for Discharging, 1 for Charging
-     * <\li>
-     * <li> {@link #EXTRA_HF_TWSP_BATTERY_LEVEL} - Current Battey charging level
-     *      in percentage of TWS+ device.
-     * <\li>
-     *
-     * @hide
-     */
-    public static final String ACTION_HF_TWSP_BATTERY_STATE_CHANGED =
-            "android.bluetooth.headset.action.HF_TWSP_BATTERY_STATE_CHANGED";
-
-    /**
-     * A int extra field in {@link #EXTRA_HF_TWSP_BATTERY_STATE}
-     * intents that contains the battery state of TWS+ device
-     *
-     * @hide
-     */
-    public static final String EXTRA_HF_TWSP_BATTERY_STATE =
-            "android.bluetooth.headset.extra.HF_TWSP_BATTERY_STATE";
-
-    /**
-     * A int extra field in {@link #EXTRA_HF_TWSP_BATTERY_LEVEL}
-     * intents that contains the value of battery level in percentage for TWS+ device
-     * @hide
-     */
-    public static final String EXTRA_HF_TWSP_BATTERY_LEVEL =
-            "android.bluetooth.headset.extra.HF_TWSP_BATTERY_LEVEL";
-
 
     /**
      * Intent used to broadcast the headset's indicator status

@@ -1,39 +1,4 @@
 /*
- * Copyright (C) 2017, The Linux Foundation. All rights reserved.
- * Not a Contribution.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted (subject to the limitations in the
- * disclaimer below) provided that the following conditions are met:
- *
- * * Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *
- * * Redistributions in binary form must reproduce the above
- *     copyright notice, this list of conditions and the following
- *     disclaimer in the documentation and/or other materials provided
- *     with the distribution.
- *
- * * Neither the name of The Linux Foundation nor the names of its
- *     contributors may be used to endorse or promote products derived
- *     from this software without specific prior written permission.
- *
- * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE
- * GRANTED BY THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT
- * HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED
- * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
- * MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
- * IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
- * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
- * GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
- * IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
- * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
- * IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
-
-/*
  * Copyright (C) 2009 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -253,18 +218,6 @@ public final class BluetoothDevice implements Parcelable, Attributable {
     public static final String ACTION_BOND_STATE_CHANGED =
             "android.bluetooth.device.action.BOND_STATE_CHANGED";
 
-     /**
-     * Broadcast Action: Broadcast details of IOT device when an IOT
-     * related issue is observed.
-     * <p>Always contains the extra fields {@link #EXTRA_NAME}.
-     * <p>Requires {@link android.Manifest.permission#BLUETOOTH} to receive.
-     * @hide
-     **/
-
-    @SdkConstant(SdkConstantType.BROADCAST_INTENT_ACTION)
-    public static final String ACTION_REMOTE_ISSUE_OCCURRED  =
-            "org.codeaurora.intent.bluetooth.action.REMOTE_ISSUE_OCCURRED";
-
     /**
      * Broadcast Action: Indicates the battery level of a remote device has
      * been retrieved for the first time, or changed since the last retrieval
@@ -306,17 +259,6 @@ public final class BluetoothDevice implements Parcelable, Attributable {
     public static final int BATTERY_LEVEL_BLUETOOTH_OFF = -100;
 
     /**
-     * Broadcast Action: Indicates the remote devices are TWS plus earbuds pair.
-     * <p>Always contains the extra fields {@link #EXTRA_TWS_PLUS_DEVICE1},
-     * {@link #EXTRA_TWS_PLUS_DEVICE2}.
-     * <p>Requires {@link android.Manifest.permission#BLUETOOTH} to receive.
-     * @hide
-     */
-    @SdkConstant(SdkConstantType.BROADCAST_INTENT_ACTION)
-    public static final String ACTION_TWS_PLUS_DEVICE_PAIR =
-            "android.bluetooth.device.action.TWS_PLUS_DEVICE_PAIR";
-
-    /**
      * Used as a Parcelable {@link BluetoothDevice} extra field in every intent
      * broadcast by this class. It contains the {@link BluetoothDevice} that
      * the intent applies to.
@@ -328,76 +270,6 @@ public final class BluetoothDevice implements Parcelable, Attributable {
      * #ACTION_FOUND} intents. It contains the friendly Bluetooth name.
      */
     public static final String EXTRA_NAME = "android.bluetooth.device.extra.NAME";
-
-    /**
-     * Used as a Parcelable {@link BluetoothQualityReport} extra field in
-     * {@link #ACTION_REMOTE_ISSUE_OCCURRED} intent. It contains the {@link BluetoothQualityReport}.
-     * @hide
-     */
-    public static final String EXTRA_BQR = "android.bluetooth.qti.extra.EXTRA_BQR";
-
-    /**
-     * Used as a String extra field in {@link #ACTION_REMOTE_ISSUE_OCCURRED}
-     * intents. It contains the type of IOT issue that occurred.
-     * @hide
-     */
-    public static final String EXTRA_ISSUE_TYPE = "android.bluetooth.qti.extra.ERROR_TYPE";
-
-    /**
-     * Used as a String extra field in {@link #ACTION_REMOTE_ISSUE_OCCURRED} intents.
-     * It contains the details of details of the issue.
-     * @hide
-     */
-    public static final String EXTRA_ERROR_CODE = "android.bluetooth.qti.extra.ERROR_CODE";
-
-    /**
-     * Used as a String extra field in {@link #ACTION_REMOTE_ISSUE_OCCURRED} intents.
-     * It contains the SoC event mask when issue occurred.
-     * @hide
-     */
-    public static final String EXTRA_ERROR_EVENT_MASK = "android.bluetooth.qti.extra.ERROR_EVENT_MASK";
-
-    /**
-     * Used as a String extra field in {@link #ACTION_REMOTE_ISSUE_OCCURRED} intents.
-     * It contains the LMP Version of IOT device.
-     * @hide
-     */
-    public static final String EXTRA_LMP_VERSION = "android.bluetooth.qti.extra.EXTRA_LMP_VERSION";
-
-    /**
-     * Used as a String extra field in {@link #ACTION_REMOTE_ISSUE_OCCURRED} intents.
-     * It contains the LMP Sub Version of IOT device.
-     * @hide
-     */
-    public static final String EXTRA_LMP_SUBVER = "android.bluetooth.qti.extra.EXTRA_LMP_SUBVER";
-
-    /**
-     * Used as a String extra field in {@link #ACTION_REMOTE_ISSUE_OCCURRED} intents.
-     * It contains the Manufacturer ID of IOT device.
-     * @hide
-     */
-    public static final String EXTRA_MANUFACTURER = "android.bluetooth.qti.extra.EXTRA_MANUFACTURER";
-
-    /**
-     * Used as a String extra field in {@link #ACTION_REMOTE_ISSUE_OCCURRED} intents.
-     * It contains the Power level.
-     * @hide
-     */
-    public static final String EXTRA_POWER_LEVEL = "android.bluetooth.qti.extra.EXTRA_POWER_LEVEL";
-
-    /**
-     * Used as a String extra field in {@link #ACTION_REMOTE_ISSUE_OCCURRED} intents.
-     * It contains the Link Quality of the connection.
-     * @hide
-     */
-    public static final String EXTRA_LINK_QUALITY = "android.bluetooth.qti.extra.EXTRA_LINK_QUALITY";
-
-    /**
-     * Used as a String extra field in {@link #ACTION_REMOTE_ISSUE_OCCURRED} intents.
-     * It contains the coutnt of glitches occured since last broadcast.
-     * @hide
-     */
-    public static final String EXTRA_GLITCH_COUNT = "android.bluetooth.qti.extra.EXTRA_GLITCH_COUNT";
 
     /**
      * Used as an optional short extra field in {@link #ACTION_FOUND} intents.
@@ -431,23 +303,6 @@ public final class BluetoothDevice implements Parcelable, Attributable {
      */
     public static final String EXTRA_PREVIOUS_BOND_STATE =
             "android.bluetooth.device.extra.PREVIOUS_BOND_STATE";
-
-    /**
-     * Used as a String extra field in {@link #ACTION_TWS+_DEVICE_PAIR}
-     * intents. It contains the first TWS+ earbud address of pair.
-     * @hide
-     */
-    public static final String EXTRA_TWS_PLUS_DEVICE1 =
-            "android.bluetooth.device.extra.EXTRA_TWS_PLUS_DEVICE1";
-
-    /**
-     * Used as a String extra field in {@link #ACTION_TWS+_DEVICE_PAIR}
-     * intents. It contains the second TWS+ earbud address of pair.
-     * @hide
-     */
-    public static final String EXTRA_TWS_PLUS_DEVICE2 =
-            "android.bluetooth.device.extra.EXTRA_TWS_PLUS_DEVICE2";
-
     /**
      * Indicates the remote device is not bonded (paired).
      * <p>There is no shared link key with the remote device, so communication
@@ -1641,13 +1496,6 @@ public final class BluetoothDevice implements Parcelable, Attributable {
             Log.w(TAG, "BT not enabled, createBondOutOfBand failed");
             return false;
         }
-        BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
-        if (adapter != null && (transport == TRANSPORT_LE && !adapter.isLeEnabled())
-                || (transport == TRANSPORT_BREDR && !isBluetoothEnabled())) {
-            Log.w(TAG, "creatBond() initiated in improper adapter state : " + adapter.getState()
-                    + " transport = " + transport);
-            return false;
-        }
         try {
             return service.createBond(
                     this, transport, remoteP192Data, remoteP256Data, mAttributionSource);
@@ -1680,25 +1528,6 @@ public final class BluetoothDevice implements Parcelable, Attributable {
             Log.e(TAG, "", e);
         }
         return false;
-    }
-
-    /** @hide */
-    @UnsupportedAppUsage
-    @RequiresLegacyBluetoothPermission
-    @RequiresBluetoothConnectPermission
-    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
-    public void setBondingInitiatedLocally(boolean localInitiated) {
-        final IBluetooth service = sService;
-        if (service == null) {
-            Log.w(TAG, "BT not enabled, setBondingInitiatedLocally failed");
-            return;
-        }
-        try {
-            service.setBondingInitiatedLocally(this, localInitiated, mAttributionSource);
-        } catch (RemoteException e) {
-            Log.e(TAG, "", e);
-        }
-        return;
     }
 
     /**
@@ -1743,13 +1572,6 @@ public final class BluetoothDevice implements Parcelable, Attributable {
             Log.e(TAG, "BT not enabled. Cannot remove Remote Device bond");
             return false;
         }
-        BluetoothAdapter adapter = BluetoothAdapter.getDefaultAdapter();
-        if (adapter != null && !adapter.isLeEnabled()) {
-            Log.w(TAG, "removeBond() initiated in improper adapter state : "
-                    + adapter.getState());
-            return false;
-        }
-
         try {
             Log.i(TAG, "removeBond() for device " + getAddress()
                     + " called by pid: " + Process.myPid()
@@ -2014,47 +1836,6 @@ public final class BluetoothDevice implements Parcelable, Attributable {
             Log.e(TAG, "", e);
         }
         return false;
-    }
-
-    /**
-     * Returns whether if the device is TWS+ device.
-     *
-     * @return True if the devcie is TWS+ device.
-     * @hide
-     */
-    @RequiresLegacyBluetoothPermission
-    @RequiresBluetoothConnectPermission
-    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
-    public boolean isTwsPlusDevice() {
-         if (sService == null) {
-             Log.e(TAG, "BT not enabled. Cannot query remote device sdp records");
-             return false;
-         }
-         try {
-             return sService.isTwsPlusDevice(this, mAttributionSource);
-         } catch (RemoteException e) {Log.e(TAG, "", e);}
-         return false;
-    }
-
-    /**
-     * Get the TWS+ peer address of the remote device.
-     *
-     * @return the TWS+ peer address of the remote device if available, otherwise
-     * null.
-     * @hide
-     */
-    @RequiresLegacyBluetoothPermission
-    @RequiresBluetoothConnectPermission
-    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
-    public String getTwsPlusPeerAddress() {
-        if (sService == null) {
-            Log.e(TAG, "BT not enabled. Cannot get Remote Device name");
-            return null;
-        }
-        try {
-            return sService.getTwsPlusPeerAddress(this, mAttributionSource);
-        } catch (RemoteException e) {Log.e(TAG, "", e);}
-        return null;
     }
 
     /**
@@ -2920,43 +2701,4 @@ public final class BluetoothDevice implements Parcelable, Attributable {
     public static @MetadataKey int getMaxMetadataKey() {
         return METADATA_UNTETHERED_CASE_LOW_BATTERY_THRESHOLD;
     }
-
-    /**
-     * Returns Device type.
-     *
-     * @return device type.
-     * @hide
-     */
-    @RequiresPermission(allOf = {
-            android.Manifest.permission.BLUETOOTH_CONNECT,
-            android.Manifest.permission.BLUETOOTH_PRIVILEGED,
-    })
-    public int getDeviceType() {
-        if (sService == null) {
-            Log.e(TAG, "getDeviceType query remote device info failed");
-            return -1;
-        }
-        try {
-            return sService.getDeviceType(this, mAttributionSource);
-        } catch (RemoteException e) {
-            Log.e(TAG, "getDeviceType fail ", e);
-        }
-        return -1;
-    }
-
-    /**
-     * Used as a String extra field in {@link #ACTION_BOND_STATE_CHANGED} intents.
-     * It contains the Group ID of IOT device.
-     * @hide
-     */
-    public static final String EXTRA_GROUP_ID = "android.bluetooth.qti.extra.GROUP_ID";
-
-    /**
-     * Used as a String extra field in {@link #ACTION_BOND_STATE_CHANGED} intents.
-     * It contains the IGNORE DEVICE flag of IOT device.
-     * @hide
-     */
-    public static final String EXTRA_IS_PRIVATE_ADDRESS =
-            "android.bluetooth.qti.extra.IS_PRIVATE_ADDRESS";
-
 }

@@ -234,8 +234,6 @@
     <string name="bluetooth_profile_headset">Phone calls</string>
     <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the OPP profile. -->
     <string name="bluetooth_profile_opp">File transfer</string>
-    <!-- Bluetooth settings.  The user-visible string that is used whenever referring to the Broadcast profile. -->
-    <string name="bluetooth_profile_broadcast">Broadcast</string>
     <!-- Bluetooth settings. The user-visible string that is used whenever referring to the HID profile. -->
     <string name="bluetooth_profile_hid">Input device</string>
     <!-- Bluetooth settings. The user-visible string that is used whenever referring to the PAN profile (accessing Internet through remote device). [CHAR LIMIT=40] -->
@@ -250,9 +248,6 @@
     <string name="bluetooth_profile_map">Text Messages</string>
     <!-- Bluetooth settings. The user-visible string that is used whenever referring to the SAP profile (sharing SIM card). -->
     <string name="bluetooth_profile_sap">SIM Access</string>
-    <!-- Bluetooth settings. The user-visible string that is used
-         whenever referring to the vcp profile. -->
-    <string name="bluetooth_profile_vcp">Volume control</string>
 
     <!-- Bluetooth settings. The user-visible string for the setting controlling whether to use a high-quality codec if the device supports it, along with the name of the codec (eg AAC, LDAC, aptX) -->
     <string name="bluetooth_profile_a2dp_high_quality">HD audio: <xliff:g id="codec_name">%1$s</xliff:g></string>
@@ -336,9 +331,6 @@
 
     <!-- Message for telling the user the kind of BT device being displayed in list. [CHAR LIMIT=30 BACKUP_MESSAGE_ID=551146170554589119] -->
     <string name="bluetooth_talkback_imaging">Imaging</string>
-
-    <!-- Message for telling the user the kind of BT device being displayed. [CHAR LIMIT=30] -->
-    <string name="bluetooth_talkback_group">Group Devices</string>
 
     <!-- Message for telling the user the kind of BT device being displayed in list. [CHAR LIMIT=30 BACKUP_MESSAGE_ID=26580326066627664] -->
     <string name="bluetooth_talkback_headphone">Headphone</string>

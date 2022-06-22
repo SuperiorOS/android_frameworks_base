@@ -84,9 +84,6 @@ import java.util.WeakHashMap;
 import java.util.concurrent.Executor;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-import java.lang.reflect.Method;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 
 /**
  * Represents the local device Bluetooth adapter. The {@link BluetoothAdapter}
@@ -1057,10 +1054,7 @@ public final class BluetoothAdapter {
                 @SuppressLint("AndroidFrameworkRequiresPermission")
                 protected Integer recompute(Void query) {
                     try {
-                        if (mService != null) {
-                            return mService.getState();
-                        }
-                        return BluetoothAdapter.STATE_OFF;
+                        return mService.getState();
                     } catch (RemoteException e) {
                         throw e.rethrowFromSystemServer();
                     }
@@ -2010,21 +2004,6 @@ public final class BluetoothAdapter {
         return false;
     }
 
-    /** @hide */
-    @RequiresPermission(android.Manifest.permission.BLUETOOTH_CONNECT)
-    public boolean isBroadcastActive() {
-        try {
-            mServiceLock.readLock().lock();
-            if (mService != null) {
-                return mService.isBroadcastActive(mAttributionSource);
-            }
-        } catch (RemoteException e) {
-            Log.e(TAG, "", e);
-        } finally {
-            mServiceLock.readLock().unlock();
-        }
-        return false;
-    }
     /**
      * Connects all enabled and supported bluetooth profiles between the local and remote device.
      * Connection is asynchronous and you should listen to each profile's broadcast intent
@@ -3008,92 +2987,6 @@ public final class BluetoothAdapter {
         return null;
     }
 
-    private void closeBCProfile(BluetoothProfile proxy) {
-        Class<?> bshClass = null;
-        Method bshClose = null;
-        try {
-            bshClass = Class.forName("android.bluetooth.BluetoothSyncHelper");
-        } catch (ClassNotFoundException ex) {
-            Log.e(TAG, "no BSH: exists");
-            bshClass = null;
-        }
-        if (bshClass != null) {
-            Log.d(TAG, "Able to get BSH class handle");
-            try {
-                bshClose =  bshClass.getDeclaredMethod("close", null);
-            } catch (NoSuchMethodException e) {
-                Log.e(TAG, "no BSH:isSupported method exists");
-            }
-            if (bshClose != null) {
-                try {
-                   bshClose.invoke(proxy, null);
-                } catch(IllegalAccessException e) {
-                   Log.e(TAG, "bshClose IllegalAccessException");
-                } catch (InvocationTargetException e) {
-                   Log.e(TAG, "bshClose InvocationTargetException");
-                }
-            }
-        }
-        Log.d(TAG, "CloseBCProfile returns");
-    }
-
-    private boolean getBCProfile(Context context, BluetoothProfile.ServiceListener sl) {
-        boolean ret = true;
-        boolean isProfileSupported = false;
-        Class<?> bshClass = null;
-        Method bshSupported = null;
-        Constructor bshCons = null;
-        Object bshObj = null;
-        try {
-            bshClass = Class.forName("android.bluetooth.BluetoothSyncHelper");
-        } catch (ClassNotFoundException ex) {
-            Log.e(TAG, "no BSH: exists");
-            bshClass = null;
-        }
-        if (bshClass != null) {
-            Log.d(TAG, "Able to get BSH class handle");
-            try {
-                bshSupported =  bshClass.getDeclaredMethod("isSupported", null);
-            } catch (NoSuchMethodException e) {
-                Log.e(TAG, "no BSH:isSupported method exists: gdm");
-            }
-            try {
-                bshCons =
-                  bshClass.getDeclaredConstructor(
-                    new Class[]{Context.class,
-                        BluetoothProfile.ServiceListener.class});
-            } catch (NoSuchMethodException ex) {
-                Log.e(TAG, "bshCons: NoSuchMethodException: gdm" + ex);
-            }
-        }
-        if (bshClass != null && bshSupported != null && bshCons != null) {
-            try {
-                isProfileSupported = (boolean)bshSupported.invoke(null, null);
-            } catch(IllegalAccessException e) {
-                Log.e(TAG, "BSH:isSupported IllegalAccessException");
-            } catch (InvocationTargetException e) {
-                Log.e(TAG, "BSH:isSupported InvocationTargetException");
-            }
-            if (isProfileSupported) {
-                try {
-                    bshObj = bshCons.newInstance(
-                                       context, sl);
-                } catch (InstantiationException ex) {
-                    Log.e(TAG, "bshCons InstantiationException:" + ex);
-                } catch (IllegalAccessException ex) {
-                    Log.e(TAG, "bshCons InstantiationException:" + ex);
-                } catch (InvocationTargetException ex) {
-                    Log.e(TAG, "bshCons InvocationTargetException:" + ex);
-                }
-             }
-        }
-        if (bshObj == null) {
-            ret = false;
-        }
-        Log.d(TAG, "getBCService returns" + ret);
-        return ret;
-    }
-
     /**
      * Get the profile proxy object associated with the profile.
      *
@@ -3163,10 +3056,6 @@ public final class BluetoothAdapter {
         } else if (profile == BluetoothProfile.HID_DEVICE) {
             BluetoothHidDevice hidDevice = new BluetoothHidDevice(context, listener, this);
             return true;
-        } else if (profile == BluetoothProfile.BROADCAST) {
-            return getBroadcastProfile(context, listener);
-        } else if (profile == BluetoothProfile.BC_PROFILE) {
-            return getBCProfile(context, listener);
         } else if (profile == BluetoothProfile.HEARING_AID) {
             if (isHearingAidProfileSupported()) {
                 BluetoothHearingAid hearingAid = new BluetoothHearingAid(context, listener, this);
@@ -3175,12 +3064,6 @@ public final class BluetoothAdapter {
             return false;
         } else if (profile == BluetoothProfile.LE_AUDIO) {
             BluetoothLeAudio leAudio = new BluetoothLeAudio(context, listener, this);
-            return true;
-        } else if (profile == BluetoothProfile.GROUP_CLIENT) {
-            BluetoothDeviceGroup groupClient = new BluetoothDeviceGroup(context, listener);
-            return true;
-        } else if (profile == BluetoothProfile.VCP) {
-            BluetoothVcp vcp = new BluetoothVcp(context, listener);
             return true;
         } else {
             return false;
@@ -3267,11 +3150,6 @@ public final class BluetoothAdapter {
                 BluetoothHidDevice hidDevice = (BluetoothHidDevice) proxy;
                 hidDevice.close();
                 break;
-            case BluetoothProfile.BROADCAST:
-                closeBroadcastProfile(proxy);
-            case BluetoothProfile.BC_PROFILE:
-                closeBCProfile(proxy);
-                break;
             case BluetoothProfile.HEARING_AID:
                 BluetoothHearingAid hearingAid = (BluetoothHearingAid) proxy;
                 hearingAid.close();
@@ -3279,74 +3157,9 @@ public final class BluetoothAdapter {
             case BluetoothProfile.LE_AUDIO:
                 BluetoothLeAudio leAudio = (BluetoothLeAudio) proxy;
                 leAudio.close();
-                break;
-            case BluetoothProfile.GROUP_CLIENT:
-                BluetoothDeviceGroup groupClient = (BluetoothDeviceGroup) proxy;
-                groupClient.close();
-                break;
-            case BluetoothProfile.VCP:
-                BluetoothVcp vcp = (BluetoothVcp) proxy;
-                vcp.close();
-                break;
         }
     }
 
-    private boolean getBroadcastProfile(Context context,
-                                      BluetoothProfile.ServiceListener listener) {
-        boolean ret = true;
-        Class<?> broadcastClass = null;
-        Constructor bcastConstructor = null;
-        Object broadcastObj = null;
-        try {
-            broadcastClass = Class.forName("android.bluetooth.BluetoothBroadcast");
-        } catch (ClassNotFoundException ex) {
-            Log.e(TAG, "no BluetoothBroadcast: exists");
-        }
-        if (broadcastClass != null) {
-            try {
-               bcastConstructor =
-                            broadcastClass.getDeclaredConstructor(new Class[]{Context.class,
-                                                  BluetoothProfile.ServiceListener.class});
-            } catch (NoSuchMethodException ex) {
-               Log.e(TAG, "bcastConstructor: NoSuchMethodException: gdm" + ex);
-            }
-        }
-        if (bcastConstructor != null) {
-            try {
-                broadcastObj = bcastConstructor.newInstance(context, listener);
-            } catch (InstantiationException | IllegalAccessException |
-                InvocationTargetException ex) {
-                ex.printStackTrace();
-            }
-        }
-        if (broadcastObj == null) {
-            return false;
-        }
-        return true;
-    }
-    private void closeBroadcastProfile(BluetoothProfile proxy) {
-        Class<?> broadcastClass = null;
-        Method broadcastClose = null;
-        try {
-            broadcastClass = Class.forName("android.bluetooth.BluetootBroadcast");
-        } catch (ClassNotFoundException ex) {
-            Log.e(TAG, "no BluetoothBroadcast: exists");
-        }
-        if (broadcastClass != null) {
-            try {
-                broadcastClose =  broadcastClass.getDeclaredMethod("close", null);
-            } catch (NoSuchMethodException e) {
-                Log.e(TAG, "no Broadcast:close method exists");
-            }
-            if (broadcastClose != null) {
-                try {
-                    broadcastClose.invoke(proxy, null);
-                } catch(IllegalAccessException | InvocationTargetException ex) {
-                    ex.printStackTrace();
-                }
-            }
-        }
-    }
     private static final IBluetoothManagerCallback sManagerCallback =
             new IBluetoothManagerCallback.Stub() {
                 public void onBluetoothServiceUp(IBluetooth bluetoothService) {
@@ -3681,22 +3494,6 @@ public final class BluetoothAdapter {
         @Override
         public void onBluetoothStateChange(boolean on) {
             mCallback.onBluetoothStateChange(on);
-        }
-    }
-
-    /**
-     * @hide
-     */
-    public void unregisterAdapter() {
-        try {
-            //mServiceLock.writeLock().lock();
-            if (mManagerService != null){
-                mManagerService.unregisterAdapter(mManagerCallback);
-            }
-        } catch (RemoteException e) {
-            Log.e(TAG, "", e);
-        } finally {
-            //mServiceLock.writeLock().unlock();
         }
     }
 

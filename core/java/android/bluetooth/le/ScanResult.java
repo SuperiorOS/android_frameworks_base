@@ -93,7 +93,6 @@ public final class ScanResult implements Parcelable, Attributable {
     private int mAdvertisingSid;
     private int mTxPower;
     private int mPeriodicAdvertisingInterval;
-    private int mAddressType;
 
     /**
      * Constructs a new ScanResult.
@@ -118,7 +117,6 @@ public final class ScanResult implements Parcelable, Attributable {
         mAdvertisingSid = SID_NOT_PRESENT;
         mTxPower = 127;
         mPeriodicAdvertisingInterval = 0;
-        mAddressType = -1;
     }
 
     /**
@@ -148,42 +146,6 @@ public final class ScanResult implements Parcelable, Attributable {
         mPeriodicAdvertisingInterval = periodicAdvertisingInterval;
         mScanRecord = scanRecord;
         mTimestampNanos = timestampNanos;
-        mAddressType = -1;
-    }
-
-    /**
-     * Constructs a new ScanResult.
-     *
-     * @param device Remote Bluetooth device found.
-     * @param addressType addressType for the Scan result
-     * @param eventType Event type.
-     * @param primaryPhy Primary advertising phy.
-     * @param secondaryPhy Secondary advertising phy.
-     * @param advertisingSid Advertising set ID.
-     * @param txPower Transmit power.
-     * @param rssi Received signal strength.
-     * @param periodicAdvertisingInterval Periodic advertising interval.
-     * @param scanRecord Scan record including both advertising data and scan response data.
-     * @param timestampNanos Timestamp at which the scan result was observed.
-     * @param addressType addressType for the Scan result
-     *
-     *@hide
-     */
-    public ScanResult(BluetoothDevice device, int addressType, int eventType, int primaryPhy,
-            int secondaryPhy,
-            int advertisingSid, int txPower, int rssi, int periodicAdvertisingInterval,
-            ScanRecord scanRecord, long timestampNanos) {
-        mDevice = device;
-        mEventType = eventType;
-        mPrimaryPhy = primaryPhy;
-        mSecondaryPhy = secondaryPhy;
-        mAdvertisingSid = advertisingSid;
-        mTxPower = txPower;
-        mRssi = rssi;
-        mPeriodicAdvertisingInterval = periodicAdvertisingInterval;
-        mScanRecord = scanRecord;
-        mTimestampNanos = timestampNanos;
-        mAddressType = addressType;
     }
 
     private ScanResult(Parcel in) {
@@ -212,7 +174,6 @@ public final class ScanResult implements Parcelable, Attributable {
         dest.writeInt(mAdvertisingSid);
         dest.writeInt(mTxPower);
         dest.writeInt(mPeriodicAdvertisingInterval);
-        dest.writeInt(mAddressType);
     }
 
     private void readFromParcel(Parcel in) {
@@ -230,7 +191,6 @@ public final class ScanResult implements Parcelable, Attributable {
         mAdvertisingSid = in.readInt();
         mTxPower = in.readInt();
         mPeriodicAdvertisingInterval = in.readInt();
-        mAddressType = in.readInt();
     }
 
     @Override
@@ -348,14 +308,6 @@ public final class ScanResult implements Parcelable, Attributable {
         return mPeriodicAdvertisingInterval;
     }
 
-    /**
-     *
-     *@hide
-     */
-    public int getAddressType() {
-        return mAddressType;
-    }
-
     @Override
     public int hashCode() {
         return Objects.hash(mDevice, mRssi, mScanRecord, mTimestampNanos,
@@ -381,8 +333,7 @@ public final class ScanResult implements Parcelable, Attributable {
                 && mSecondaryPhy == other.mSecondaryPhy
                 && mAdvertisingSid == other.mAdvertisingSid
                 && mTxPower == other.mTxPower
-                && mPeriodicAdvertisingInterval == other.mPeriodicAdvertisingInterval
-                && mAddressType == other.mAddressType;
+                && mPeriodicAdvertisingInterval == other.mPeriodicAdvertisingInterval;
     }
 
     @Override

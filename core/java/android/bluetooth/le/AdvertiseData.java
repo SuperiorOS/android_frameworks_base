@@ -51,22 +51,19 @@ public final class AdvertiseData implements Parcelable {
     private final Map<ParcelUuid, byte[]> mServiceData;
     private final boolean mIncludeTxPowerLevel;
     private final boolean mIncludeDeviceName;
-    private final byte[] mTransportDiscoveryData;
 
     private AdvertiseData(List<ParcelUuid> serviceUuids,
             List<ParcelUuid> serviceSolicitationUuids,
             SparseArray<byte[]> manufacturerData,
             Map<ParcelUuid, byte[]> serviceData,
             boolean includeTxPowerLevel,
-            boolean includeDeviceName,
-            byte[] transportDiscoveryData) {
+            boolean includeDeviceName) {
         mServiceUuids = serviceUuids;
         mServiceSolicitationUuids = serviceSolicitationUuids;
         mManufacturerSpecificData = manufacturerData;
         mServiceData = serviceData;
         mIncludeTxPowerLevel = includeTxPowerLevel;
         mIncludeDeviceName = includeDeviceName;
-        mTransportDiscoveryData = transportDiscoveryData;
     }
 
     /**
@@ -115,20 +112,12 @@ public final class AdvertiseData implements Parcelable {
     }
 
     /**
-     * Returns an array of Transport Discovery data.
-     * @hide
-     */
-    public byte[] getTransportDiscoveryData() {
-        return mTransportDiscoveryData;
-    }
-
-    /**
      * @hide
      */
     @Override
     public int hashCode() {
         return Objects.hash(mServiceUuids, mServiceSolicitationUuids, mManufacturerSpecificData,
-                mServiceData, mIncludeDeviceName, mIncludeTxPowerLevel, mTransportDiscoveryData);
+                mServiceData, mIncludeDeviceName, mIncludeTxPowerLevel);
     }
 
     /**
@@ -149,8 +138,7 @@ public final class AdvertiseData implements Parcelable {
                     other.mManufacturerSpecificData)
                 && BluetoothLeUtils.equals(mServiceData, other.mServiceData)
                 && mIncludeDeviceName == other.mIncludeDeviceName
-                && mIncludeTxPowerLevel == other.mIncludeTxPowerLevel
-                && BluetoothLeUtils.equals(mTransportDiscoveryData, other.mTransportDiscoveryData);
+                && mIncludeTxPowerLevel == other.mIncludeTxPowerLevel;
     }
 
     @Override
@@ -160,8 +148,7 @@ public final class AdvertiseData implements Parcelable {
                 + BluetoothLeUtils.toString(mManufacturerSpecificData) + ", mServiceData="
                 + BluetoothLeUtils.toString(mServiceData)
                 + ", mIncludeTxPowerLevel=" + mIncludeTxPowerLevel + ", mIncludeDeviceName="
-                + mIncludeDeviceName + ", mTransportDiscoveryData="
-                + BluetoothLeUtils.toString(mTransportDiscoveryData)+ "]";
+                + mIncludeDeviceName + "]";
     }
 
     @Override
@@ -188,10 +175,6 @@ public final class AdvertiseData implements Parcelable {
         }
         dest.writeByte((byte) (getIncludeTxPowerLevel() ? 1 : 0));
         dest.writeByte((byte) (getIncludeDeviceName() ? 1 : 0));
-        dest.writeInt(mTransportDiscoveryData != null ? mTransportDiscoveryData.length : 0);
-        if (mTransportDiscoveryData != null) {
-            dest.writeByteArray(mTransportDiscoveryData);
-        }
     }
 
     public static final @android.annotation.NonNull Parcelable.Creator<AdvertiseData> CREATOR =
@@ -228,11 +211,6 @@ public final class AdvertiseData implements Parcelable {
                     }
                     builder.setIncludeTxPowerLevel(in.readByte() == 1);
                     builder.setIncludeDeviceName(in.readByte() == 1);
-                    int transportDiscoveryDataSize = in.readInt();
-                    if (transportDiscoveryDataSize > 0) {
-                        byte[] transportDiscoveryData = in.createByteArray();
-                        builder.addTransportDiscoveryData(transportDiscoveryData);
-                    }
                     return builder.build();
                 }
             };
@@ -249,7 +227,6 @@ public final class AdvertiseData implements Parcelable {
         private Map<ParcelUuid, byte[]> mServiceData = new ArrayMap<ParcelUuid, byte[]>();
         private boolean mIncludeTxPowerLevel;
         private boolean mIncludeDeviceName;
-        private byte[] mTransportDiscoveryData;
 
         /**
          * Add a service UUID to advertise data.
@@ -338,24 +315,12 @@ public final class AdvertiseData implements Parcelable {
         }
 
         /**
-         * Add Transport Discovery data
-         * @hide
-         */
-        public Builder addTransportDiscoveryData(byte[] transportDiscoveryData) {
-            if ((transportDiscoveryData == null) || (transportDiscoveryData.length == 0)) {
-                throw new IllegalArgumentException("transportDiscoveryData is null");
-            }
-            mTransportDiscoveryData = transportDiscoveryData;
-            return this;
-        }
-
-        /**
          * Build the {@link AdvertiseData}.
          */
         public AdvertiseData build() {
             return new AdvertiseData(mServiceUuids, mServiceSolicitationUuids,
                     mManufacturerSpecificData, mServiceData, mIncludeTxPowerLevel,
-                    mIncludeDeviceName, mTransportDiscoveryData);
+                    mIncludeDeviceName);
         }
     }
 }
