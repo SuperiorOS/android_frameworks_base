@@ -15,6 +15,9 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_caffeine_label">Koffein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Koffein aus</string>
+    <string name="accessibility_quick_settings_caffeine_on">Koffein an</string>
     <string name="quick_settings_sync_label">Synchronisieren</string>
     <string name="accessibility_quick_settings_sync_off">Synchronisierung aus</string>
     <string name="accessibility_quick_settings_sync_on">Synchronisierung an</string>
@@ -26,14 +29,66 @@
     <string name="quick_settings_sound_mute">Stumm schalten</string>
     <string name="screenshot_delete_label">Löschen</string>
     <string name="screenshot_delete_description">Screenshot löschen</string>
+    <string name="statusbar_items_title">Statusleisten Symbole</string>
     <string name="status_bar_vpn">VPN</string>
     <string name="quick_settings_location_secondary_battery_saving">Energiesparmodus</string>
+    <string name="accessibility_quick_settings_location_battery_saving">Standortmeldung: Batteriesparmodus.</string>
+    <string name="quick_settings_location_secondary_gps_only">Nur Sensoren</string>
+    <string name="accessibility_quick_settings_location_gps_only">Standortmeldung: Nur Sensoren.</string>
+    <string name="quick_settings_location_secondary_high_accuracy">Hohe Genauigkeit</string>
+    <string name="accessibility_quick_settings_location_high_accuracy">Standortmeldung: Hoher Genauigkeit.</string>
+    <string name="ambientmusic_songinfo" formatted="false">%s von %s</string>
+    <string name="quick_settings_ambient_display_label">Inaktivitätsdisplay</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Inaktivitätsdisplay aus.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Inaktivitätsdisplay an.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Inaktivitätsdisplay wurde ausgeschaltet.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Inaktivitätsdisplay wurde eingeschaltet.</string>
+    <string name="quick_settings_usb_tether_label">USB Tethering</string>
+    <string name="quick_settings_heads_up_label">Pop-Up-Benachrichtigungen</string>
+    <string name="accessibility_quick_settings_heads_up_off">Pop-up-Benachrichtigungen aus.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Pop-Up an.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Pop-Up ausgeschaltet.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Pop-Up eingeschaltet.</string>
+    <string name="status_bar_call_strength">Anruf-Signalstärke</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD aus\nEnergiesparmodus</string>
+    <string name="quick_settings_volume_panel_label">Lautstärkeregler</string>
+    <string name="heads_up_snooze_message_one_minute"><xliff:g id="string">%s</xliff:g> - Pop-Up Benachrichtigungen sind für 1 Minute deaktiviert.</string>
+    <string name="heads_up_snooze_message"><xliff:g id="string">%1$s</xliff:g> - Pop-Up-Benachrichtigungen sind für <xliff:g id="number">%2$d</xliff:g> Minuten deaktiviert.</string>
+    <string name="keyguard_indication_dash_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Dash-Schnellladen (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> bis zur vollständigen Aufladung)</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash Aufladung</string>
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Warp Aufladung (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> until full)</string>
+    <string name="keyguard_plugged_in_warp_charging">Warp Aufladung</string>
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • VOOC Aufladung (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> until full)</string>
+    <string name="keyguard_plugged_in_vooc_charging">VOOC Aufladen</string>
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • SuperDart Aufladung (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> until full)</string>
+    <string name="keyguard_plugged_in_superdart_charging">SuperDart Aufladen</string>
     <string name="screenrecord_delete_label">Löschen</string>
     <string name="screenrecord_delete_description">Bildschirmaufnahme gelöscht</string>
+    <string name="screenrecord_stopdot_label">Stoppunkt\nanzeigen, langes Drücken, um es zu verschieben</string>
     <string name="screenrecord_lowquality_label">Qualität verringern für kleinere Dateigröße</string>
+    <string name="screenrecord_longer_timeout_switch_label">Größere Dateigröße\nBegrenzung der Aufnahmegröße auf 15 GB</string>
     <string name="face_unlock_recognizing">Gesicht wird erkannt...</string>
     <string name="global_action_reboot">Neustarten</string>
     <string name="global_action_reboot_more">Erweitert</string>
+    <string name="global_action_reboot_sub">System</string>
+    <string name="global_action_reboot_recovery">Recovery</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_reboot_systemui">SystemUI</string>
     <string name="global_action_settings">Einstellungen</string>
+    <string name="usage_data">heute verbraucht</string>
+    <string name="usage_data_default_suffix">Daten</string>
     <string name="usage_wifi_default_suffix">WLAN</string>
+    <string name="qs_data_switch_label">Daten-SIM wechseln</string>
+    <string name="qs_data_switch_toast_0">Derzeit ist keine SIM-Karte eingelegt</string>
+    <string name="qs_data_switch_toast_1">Derzeit ist nur eine SIM-Karte eingelegt</string>
+    <string name="qs_data_switch_text_1">SIM 1</string>
+    <string name="qs_data_switch_text_2">SIM 2</string>
+    <string name="qs_data_switch_changed_1">Zur Datennutzung auf SIM 1 wechseln.</string>
+    <string name="qs_data_switch_changed_2">Zur Datennutzung auf SIM 2 wechseln.</string>
+    <string name="task_helper_app_killed">%1$s erzwungen beendet</string>
+    <string name="empty_app_killed">App</string>
+    <string name="app_picker_dialog_title">Wähle eine App</string>
+    <string name="active_edge_app_select_title">App auswählen</string>
+    <string name="active_edge_activity_select_title">Aktivität auswählen</string>
 </resources>

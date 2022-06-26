@@ -15,7 +15,13 @@
      limitations under the License.
 -->
 <resources>
+    <string name="aerr_copy">URL des Absturzberichts kopieren</string>
     <string name="url_copy_success">URL erfolgreich kopiert</string>
+    <string name="url_copy_failed">Beim Hochladen des Protokolls auf Memochō ist ein Fehler aufgetreten</string>
+    <string name="reboot_to_bootloader_title">Neustart in den Bootloader</string>
+    <string name="reboot_to_bootloader_message">Neustart ins Bootloader\u2026</string>
+    <string name="reboot_to_recovery_title">Neustart in Recovery</string>
+    <string name="reboot_to_recovery_message">Neustart ins Recovery\u2026</string>
     <string name="reboot_system_title">System neu starten</string>
     <string name="reboot_system_message">System wird neu gestartet\u2026</string>
 </resources>
