@@ -211,6 +211,9 @@ public class QuickStatusBarHeader extends FrameLayout implements
 
     void setIsSingleCarrier(boolean isSingleCarrier) {
         mIsSingleCarrier = isSingleCarrier;
+        if (mIsSingleCarrier) {
+            mIconContainer.removeIgnoredSlots(mRssiIgnoredSlots);
+        }
         updateAlphaAnimator();
     }
 
