@@ -27,7 +27,7 @@ BlurShader::BlurShader(float radiusX, float radiusY, Shader* inputShader, SkTile
             SkImageFilters::Blur(
                     Blur::convertRadiusToSigma(radiusX),
                     Blur::convertRadiusToSigma(radiusY),
-                    edgeTreatment,
+                    SkTileMode::kMirror,
                     inputShader ? inputShader->asSkImageFilter() : nullptr,
                     nullptr)
             ) { }
