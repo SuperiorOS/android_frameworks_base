@@ -68,6 +68,8 @@
     <string name="screenrecord_stopdot_label">Показывать кнопку остановки\nУдерживайте для перемещения</string>
     <string name="screenrecord_lowquality_label">Низкое качество для меньшего размера файла</string>
     <string name="screenrecord_longer_timeout_switch_label">Больший размер файла\nОграничение размера записи до 15 Гб</string>
+    <string name="screenrecord_skip_time_label">Пропустить таймер</string>
+    <string name="screenrecord_skip_time_summary">Убрать 3 секунды ожидания</string>
     <string name="face_unlock_recognizing">Распознавание лица...</string>
     <string name="global_action_reboot">Перезапуск</string>
     <string name="global_action_reboot_more">Дополнительно</string>

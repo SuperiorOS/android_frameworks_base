@@ -68,6 +68,8 @@
     <string name="screenrecord_stopdot_label">Durma noktasını göster\nTaşımak için uzun basın</string>
     <string name="screenrecord_lowquality_label">Daha küçük dosya boyutu için daha düşük kalite</string>
     <string name="screenrecord_longer_timeout_switch_label">Daha büyük dosya boyutu sınırı\nKayıt boyutunu 15 GB ile sınırlayın</string>
+    <string name="screenrecord_skip_time_label">Zamanlayıcıyı atla</string>
+    <string name="screenrecord_skip_time_summary">3 saniye beklemeyi kaldır</string>
     <string name="face_unlock_recognizing">Yüz tanınıyor...</string>
     <string name="global_action_reboot">Yeniden başlat</string>
     <string name="global_action_reboot_more">Gelişmiş</string>

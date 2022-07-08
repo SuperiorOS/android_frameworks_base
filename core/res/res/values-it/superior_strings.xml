@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022 The SuperiorOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources>
+    <string name="aerr_copy">Copia l\'URL del registro di arresto anomalo</string>
+    <string name="url_copy_success">URL copiato correttamente</string>
+    <string name="url_copy_failed">Si è verificato un errore durante il caricamento del registro su Memochō</string>
+    <string name="reboot_to_bootloader_title">Riavvia il bootloader</string>
+    <string name="reboot_to_bootloader_message">Riavvio al bootloader\u2026</string>
+    <string name="reboot_to_recovery_title">Riavvia il ripristino</string>
+</resources>
