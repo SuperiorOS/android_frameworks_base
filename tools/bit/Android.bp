@@ -42,6 +42,7 @@ cc_binary_host {
     cflags: [
         "-Wall",
         "-Werror",
+	"-O3",
     ],
 
     static_libs: [
