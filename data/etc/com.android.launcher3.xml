@@ -26,5 +26,6 @@
         <permission name="android.permission.STOP_APP_SWITCHES"/>
         <permission name="android.permission.PACKAGE_USAGE_STATS" />
         <permission name="android.permission.FORCE_STOP_PACKAGES"/>
+        <permission name="android.permission.ACCESS_SURFACE_FLINGER"/>
     </privapp-permissions>
 </permissions>
