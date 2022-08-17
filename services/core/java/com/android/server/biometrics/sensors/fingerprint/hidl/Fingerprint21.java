@@ -397,6 +397,7 @@ public class Fingerprint21 implements IHwBinder.DeathRecipient, ServiceProvider 
             @NonNull GestureAvailabilityDispatcher gestureAvailabilityDispatcher) {
         final BiometricScheduler<IBiometricsFingerprint, AidlSession> scheduler =
                 new BiometricScheduler<>(
+                        context,
                         BiometricScheduler.sensorTypeFromFingerprintProperties(sensorProps),
                         gestureAvailabilityDispatcher);
         final HalResultController controller = new HalResultController(sensorProps.sensorId,
