@@ -24,4 +24,7 @@
         <item>reboot_sysui</item>
     </string-array>
 
+    <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
+    <java-symbol type="bool" name="config_cleanupUnusedFingerprints" />
+
 </resources>
