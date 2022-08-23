@@ -4,36 +4,36 @@
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
-    <!-- Device keyhandlers -->
-    <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
-    <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
+     <!-- Device keyhandlers -->
+     <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
+     <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
 
-    <!-- Package Manager -->
-    <java-symbol type="array" name="config_deviceDisabledComponents" />
-    <java-symbol type="array" name="config_globallyDisabledComponents" />
-    <java-symbol type="array" name="config_forceEnabledComponents" />
+     <!-- Package Manager -->
+     <java-symbol type="array" name="config_deviceDisabledComponents" />
+     <java-symbol type="array" name="config_globallyDisabledComponents" />
+     <java-symbol type="array" name="config_forceEnabledComponents" />
 
-    <!-- App error dialog -->
-    <java-symbol type="id" name="aerr_copy" />
-    <java-symbol type="string" name="url_copy_success" />
-    <java-symbol type="string" name="url_copy_failed" />
+     <!-- App error dialog -->
+     <java-symbol type="id" name="aerr_copy" />
+     <java-symbol type="string" name="url_copy_success" />
+     <java-symbol type="string" name="url_copy_failed" />
 
-    <!-- Camera -->
-    <java-symbol type="array" name="config_cameraAuxPackageAllowList" />
-    <java-symbol type="array" name="config_cameraAuxPackageExcludeList" />
+     <!-- Camera -->
+     <java-symbol type="array" name="config_cameraAuxPackageAllowList" />
+     <java-symbol type="array" name="config_cameraAuxPackageExcludeList" />
 
-    <!-- Whether to force enable multi resolution configuration for camera -->
-    <java-symbol type="bool" name="config_forceMultiResolution" />
+     <!-- Whether to force enable multi resolution configuration for camera -->
+     <java-symbol type="bool" name="config_forceMultiResolution" />
 
-    <!-- For dynamic default font styles -->
-    <java-symbol type="string" name="config_bodyFontFamily" />
+     <!-- For dynamic default font styles -->
+     <java-symbol type="string" name="config_bodyFontFamily" />
 
-    <!-- Light / Regular style fonts -->
-    <java-symbol type="string" name="config_lightFontFamily" />
-    <java-symbol type="string" name="config_regularFontFamily" />
+     <!-- Light / Regular style fonts -->
+     <java-symbol type="string" name="config_lightFontFamily" />
+     <java-symbol type="string" name="config_regularFontFamily" />
 
-    <!-- Whether to use Richtap vibration -->
-    <java-symbol type="bool" name="config_usesRichtapVibration" />
+     <!-- Whether to use Richtap vibration -->
+     <java-symbol type="bool" name="config_usesRichtapVibration" />
 
      <!-- Whether device supports an alt. ambient display -->
      <java-symbol type="bool" name="config_alt_ambient_display" />
@@ -42,4 +42,12 @@
      <java-symbol type="string" name="systemui_restart_title" />
      <java-symbol type="string" name="systemui_restart_message" />
 
+     <!-- Device model (Build.MODEL) to spoof for netflix, if not empty -->
+     <java-symbol type="string" name="config_netflixSpoofModel" />
+
+     <!-- Whether Pixel props is enabled -->
+     <java-symbol type="bool" name="config_enablePixelProps" />
+
+     <!-- Build properties from a GMS certified device -->
+     <java-symbol type="array" name="config_certifiedBuildProperties" />
 </resources>
