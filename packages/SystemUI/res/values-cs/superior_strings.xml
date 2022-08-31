@@ -88,6 +88,21 @@
     <string name="qs_data_switch_text_2">SIM 2</string>
     <string name="qs_data_switch_changed_1">Přepnout datovou kartu na SIM 1.</string>
     <string name="qs_data_switch_changed_2">Přepnout datovou kartu na SIM 2.</string>
+    <string name="quick_settings_compass_label">Kompas</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">Spouštění\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">Kompas vyp.</string>
+    <string name="accessibility_quick_settings_compass_on">Kompas zap.</string>
+    <string name="accessibility_quick_settings_compass_changed_off">Kompas je vypnutý</string>
+    <string name="accessibility_quick_settings_compass_changed_on">Kompas je zapnutý</string>
+    <string name="quick_settings_compass_N">S</string>
+    <string name="quick_settings_compass_NE">SV</string>
+    <string name="quick_settings_compass_E">V</string>
+    <string name="quick_settings_compass_SE">JV</string>
+    <string name="quick_settings_compass_S">J</string>
+    <string name="quick_settings_compass_SW">JZ</string>
+    <string name="quick_settings_compass_W">Z</string>
+    <string name="quick_settings_compass_NW">SZ</string>
     <string name="task_helper_app_killed">Aplikace %1$s vynuceně ukončena</string>
     <string name="empty_app_killed">Aplikace</string>
     <string name="app_picker_dialog_title">Vybrat aplikaci</string>

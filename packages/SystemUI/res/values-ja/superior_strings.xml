@@ -89,6 +89,21 @@
     <string name="qs_data_switch_text_2">SIM 2</string>
     <string name="qs_data_switch_changed_1">SIM 1 をデータ通信に使用します</string>
     <string name="qs_data_switch_changed_2">SIM 2 をデータ通信に使用します</string>
+    <string name="quick_settings_compass_label">コンパス</string>
+    <string name="quick_settings_compass_value"><xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g></string>
+    <string name="quick_settings_compass_init">初期化中\u2026</string>
+    <string name="accessibility_quick_settings_compass_off">コンパス OFF</string>
+    <string name="accessibility_quick_settings_compass_on">コンパス ON</string>
+    <string name="accessibility_quick_settings_compass_changed_off">コンパスを OFF にしました</string>
+    <string name="accessibility_quick_settings_compass_changed_on">コンパスを ON にしました</string>
+    <string name="quick_settings_compass_N">北</string>
+    <string name="quick_settings_compass_NE">北東</string>
+    <string name="quick_settings_compass_E">東</string>
+    <string name="quick_settings_compass_SE">南東</string>
+    <string name="quick_settings_compass_S">南</string>
+    <string name="quick_settings_compass_SW">南西</string>
+    <string name="quick_settings_compass_W">西</string>
+    <string name="quick_settings_compass_NW">北西</string>
     <string name="task_helper_app_killed">%1$s を強制停止しました</string>
     <string name="empty_app_killed">アプリ</string>
     <string name="app_picker_dialog_title">アプリを選択</string>
