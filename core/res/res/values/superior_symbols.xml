@@ -60,4 +60,7 @@
      <!-- SystemUI restart dialog -->
      <java-symbol type="string" name="systemui_restart_title" />
      <java-symbol type="string" name="systemui_restart_message" />
+
+     <!-- Cycle through ringer modes -->
+     <java-symbol type="string" name="volume_dialog_ringer_guidance_normal" />
 </resources>
