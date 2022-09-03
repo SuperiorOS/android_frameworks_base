@@ -40,4 +40,7 @@
     <string name="reboot_system_title">Restart system</string>
     <string name="reboot_system_message">Restarting system\u2026</string>
 
+    <!-- Cycle through ringer modes -->
+    <string name="volume_dialog_ringer_guidance_normal">Calls and notifications will ring</string>
+
 </resources>
