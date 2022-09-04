@@ -23,4 +23,7 @@
     <string-array name="config_deviceKeyHandlerClasses" translatable="false">
     </string-array>
 
+    <!-- Wether to handle audio direction changes between major call states -->
+    <bool name="config_handleAudioDirectionChangesBetweenCallStateChanges">true</bool>
+
 </resources>
