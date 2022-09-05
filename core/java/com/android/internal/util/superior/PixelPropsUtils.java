@@ -33,7 +33,7 @@ public class PixelPropsUtils {
 
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
     private static final boolean DEBUG = false;
-
+    public static final String PACKAGE_NETFLIX = "com.netflix.mediaclient";
     private static volatile boolean sIsGms = false;
     public static final String PACKAGE_GMS = "com.google.android.gms";
     private static final boolean PRODUCT_SUPPORT_HIGH_FPS =
@@ -48,7 +48,8 @@ public class PixelPropsUtils {
     private static final Map<String, ArrayList<String>> propsToKeep;
     private static final String[] extraPackagesToChange = {
         "com.android.chrome",
-        "com.breel.wallpapers20"
+        "com.breel.wallpapers20",
+        PACKAGE_NETFLIX
 
     };
 
@@ -99,7 +100,11 @@ public class PixelPropsUtils {
         "com.google.android.dialer",
         "com.google.ar.core"
     };
-
+    
+    private static ArrayList<String> allProps = new ArrayList<>(Arrays.asList("BRAND", "MANUFACTURER", "DEVICE", "PRODUCT", "MODEL", "FINGERPRINT"));
+    
+    private static volatile boolean sIsGms = false;
+    
     static {
         propsToKeep = new HashMap<>();
         propsToKeep.put("com.google.android.settings.intelligence", new ArrayList<>(Collections.singletonList("FINGERPRINT")));
@@ -129,7 +134,7 @@ public class PixelPropsUtils {
         propsToChangePixelXL.put("MODEL", "Pixel XL");
         propsToChangePixelXL.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
     }
-
+     
     public static void setProps(String packageName) {
         if (packageName == null) {
             return;
@@ -139,6 +144,11 @@ public class PixelPropsUtils {
                 if (processName.equals("com.google.android.gms.unstable")) {
                     sIsGms = true;
                 }
+        }
+        if (packageName.equals(PACKAGE_NETFLIX) && !SystemProperties.getBoolean(
+                "persist.pixelpropsutils.spoof_netflix", true)) {
+            if (DEBUG) Log.d(TAG, "Netflix spoofing disabled by system prop");
+            return;
         }
         if (Arrays.asList(packagesToKeep).contains(packageName)) {
             return;
