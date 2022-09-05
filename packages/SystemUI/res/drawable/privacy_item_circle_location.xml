@@ -17,8 +17,8 @@
 
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@id/background"
-          android:gravity="center"
-          >
+        android:gravity="center"
+    >
         <shape android:shape="oval">
             <size
                 android:height="@dimen/ongoing_appops_dialog_circle_size"
@@ -28,9 +28,9 @@
         </shape>
     </item>
     <item android:id="@id/icon"
-          android:gravity="center"
-          android:width="@dimen/ongoing_appops_dialog_icon_size"
-          android:height="@dimen/ongoing_appops_dialog_icon_size"
-          android:drawable="@*android:drawable/perm_group_location"
+        android:gravity="center"
+        android:width="@dimen/ongoing_appops_dialog_icon_size"
+        android:height="@dimen/ongoing_appops_dialog_icon_size"
+        android:drawable="@*android:drawable/stat_sys_location"
     />
 </layer-list>
