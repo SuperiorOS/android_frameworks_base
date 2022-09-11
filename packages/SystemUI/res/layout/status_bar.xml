@@ -95,14 +95,14 @@
                         systemui:isStatusBar="true"
                     />
 
-                    <include layout="@layout/ongoing_call_chip" />
-
                     <com.android.systemui.statusbar.AlphaOptimizedFrameLayout
                         android:id="@+id/notification_icon_area"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
+                        android:layout_gravity="center_vertical"
                         android:clipChildren="false"/>
+
+                    <include layout="@layout/ongoing_call_chip" />
 
                 </LinearLayout>
             </FrameLayout>
