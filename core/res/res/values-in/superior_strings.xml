@@ -14,7 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">Salin URL log kerusakan</string>
     <string name="url_copy_success">URL berhasil disalin</string>
     <string name="url_copy_failed">Terjadi kesalahan saat mengunggah log ke Memochō</string>
@@ -24,4 +24,5 @@
     <string name="reboot_to_recovery_message">Memulai ulang ke recovery\u2026</string>
     <string name="reboot_system_title">Mulai ulang sistem</string>
     <string name="reboot_system_message">Memulai ulang sistem\u2026</string>
+    <string name="unlock_application">Buka <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>

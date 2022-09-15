@@ -14,7 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">ക്രാഷ് ലോഗിന്റെ ലിങ്ക് പകർത്തുക</string>
     <string name="url_copy_success">ലിങ്ക് വിജയകരമായി പകർത്തി</string>
     <string name="url_copy_failed">ലോഗ് അപ്‌ലോഡു ചെയ്യുന്നതിനിടയിൽ ഒരു പിശക് സംഭവിച്ചു</string>

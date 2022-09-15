@@ -14,7 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">クラッシュログ URL をコピー</string>
     <string name="url_copy_success">URL を正常にコピーしました</string>
     <string name="url_copy_failed">Memochō へのログのアップロード中にエラーが発生しました</string>
@@ -24,4 +24,5 @@
     <string name="reboot_to_recovery_message">リカバリーへ再起動中\u2026</string>
     <string name="reboot_system_title">システムの再起動</string>
     <string name="reboot_system_message">再起動しています\u2026</string>
+    <string name="unlock_application"><xliff:g id="label" example="Telegram">%1$s</xliff:g>をロック解除</string>
 </resources>

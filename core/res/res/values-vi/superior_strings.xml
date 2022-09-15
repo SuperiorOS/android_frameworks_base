@@ -14,7 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">Sao chép URL sự cố</string>
     <string name="url_copy_success">Đã sao chép URL thành công</string>
     <string name="url_copy_failed">Đã xảy ra lỗi khi tải log lên chương trình dogbin</string>

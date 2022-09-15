@@ -14,7 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">Copiar o URL do registo da falha</string>
     <string name="url_copy_success">URL copiado com sucesso</string>
 </resources>

@@ -14,7 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">Copiar URL do registro de falhas</string>
     <string name="url_copy_success">URL copiado com sucesso</string>
     <string name="url_copy_failed">Ocorreu um erro ao fazer o upload do log para o Memochō</string>

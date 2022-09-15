@@ -14,7 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">Çökme günlüğü URL\' sini kopyala</string>
     <string name="url_copy_success">URL başarıyla kopyalandı</string>
     <string name="url_copy_failed">Günlük Memochō\'ya yüklenirken bir hata oluştu</string>
@@ -24,4 +24,5 @@
     <string name="reboot_to_recovery_message">Kurtarmada başlatılıyor\u2026</string>
     <string name="reboot_system_title">Sistem</string>
     <string name="reboot_system_message">Sistem yeniden başlatılıyor\u2026</string>
+    <string name="unlock_application">Kilidi aç <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>

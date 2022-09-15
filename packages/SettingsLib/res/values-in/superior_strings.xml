@@ -16,4 +16,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="status_deep_sleep">(Tidur nyenyak: %1$d%2$s)</string>
+    <string name="power_remaining_dash_charging_duration_only">Pengisian Cepat (<xliff:g id="time">%1$s</xliff:g> tersisa hingga penuh)</string>
+    <string name="battery_info_status_dash_charging">Pengisian Cepat</string>
+    <string name="power_remaining_warp_charging_duration_only">Pengisian Warp (<xliff:g id="time">%1$s</xliff:g> tersisa hingga penuh)</string>
+    <string name="battery_info_status_warp_charging">Pengisian Warp</string>
+    <string name="screen_zoom_summary_smaller">Lebih kecil</string>
+    <string name="screen_zoom_summary_smallest">Terkecil</string>
 </resources>

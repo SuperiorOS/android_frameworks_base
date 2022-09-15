@@ -16,4 +16,10 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="status_deep_sleep">(Hluboký spánek: %1$d%2$s)</string>
+    <string name="power_remaining_dash_charging_duration_only">DASH nabíjení (zbývá <xliff:g id="time">%1$s</xliff:g> do plného nabití)</string>
+    <string name="battery_info_status_dash_charging">DASH nabíjení</string>
+    <string name="power_remaining_warp_charging_duration_only">Warp nabíjení (zbývá <xliff:g id="time">%1$s</xliff:g> do plného nabití)</string>
+    <string name="battery_info_status_warp_charging">Warp nabíjení</string>
+    <string name="screen_zoom_summary_smaller">Menší</string>
+    <string name="screen_zoom_summary_smallest">Nejmenší</string>
 </resources>

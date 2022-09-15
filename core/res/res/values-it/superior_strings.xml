@@ -14,7 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">Copia l\'URL del registro di arresto anomalo</string>
     <string name="url_copy_success">URL copiato correttamente</string>
     <string name="url_copy_failed">Si è verificato un errore durante il caricamento del registro su Memochō</string>

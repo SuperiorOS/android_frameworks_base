@@ -14,7 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">Kopírovať URL adresu záznamu o chybe</string>
     <string name="url_copy_success">URL úspešne skopírovaná</string>
     <string name="url_copy_failed">Pri nahrávaní protokolu o zlyhaní na Memochō došlo k chybe</string>
@@ -24,4 +24,5 @@
     <string name="reboot_to_recovery_message">Reštartovanie do Recovery\u2026</string>
     <string name="reboot_system_title">Reštartovať systém</string>
     <string name="reboot_system_message">Reštartovanie Systému\u2026</string>
+    <string name="unlock_application">Odomknúť <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>

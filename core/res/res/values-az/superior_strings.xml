@@ -14,7 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">Çökmə jurnal URL-sini kopyala</string>
     <string name="url_copy_success">URL uğurla kopyalandı</string>
     <string name="url_copy_failed">Jurnalı Memochō-ya yükləyərkən xəta baş verdi</string>
@@ -24,4 +24,5 @@
     <string name="reboot_to_recovery_message">Recovery rejimində başladılır\u2026</string>
     <string name="reboot_system_title">Sistemi yenidən başlat</string>
     <string name="reboot_system_message">Sistem yenidən başladılır\u2026</string>
+    <string name="unlock_application"><xliff:g id="label" example="Telegram">%1$s</xliff:g> kilidini aç</string>
 </resources>

@@ -14,7 +14,7 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<resources>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <string name="aerr_copy">Копировать URL журнала сбоев</string>
     <string name="url_copy_success">URL скопирован успешно</string>
     <string name="url_copy_failed">Произошла ошибка при загрузке лога на Memochō</string>
@@ -24,4 +24,5 @@
     <string name="reboot_to_recovery_message">Перезагрузка в рекавери\u2026</string>
     <string name="reboot_system_title">Система</string>
     <string name="reboot_system_message">Перезагрузка системы\u2026</string>
+    <string name="unlock_application">Разблокировать <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>
