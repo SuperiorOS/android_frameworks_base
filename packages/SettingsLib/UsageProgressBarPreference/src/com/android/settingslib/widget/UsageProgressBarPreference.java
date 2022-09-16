@@ -16,15 +16,14 @@
 
 package com.android.settingslib.widget;
 
-import android.animation.ValueAnimator;
 import android.content.Context;
-import android.content.res.Resources;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.AbsoluteSizeSpan;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -42,13 +41,27 @@ import java.util.regex.Pattern;
 public class UsageProgressBarPreference extends Preference {
 
     private final Pattern mNumberPattern = Pattern.compile("[\\d]*[\\.,]?[\\d]+");
-    private static final int ANIM_DURATION = 1200;
 
     private CharSequence mUsageSummary;
     private CharSequence mTotalSummary;
     private CharSequence mBottomSummary;
     private ImageView mCustomImageView;
     private int mPercent = -1;
+
+    /**
+     * Perform inflation from XML and apply a class-specific base style.
+     *
+     * @param context  The {@link Context} this is associated with, through which it can
+     *                 access the current theme, resources, {@link SharedPreferences}, etc.
+     * @param attrs    The attributes of the XML tag that is inflating the preference
+     * @param defStyle An attribute in the current theme that contains a reference to a style
+     *                 resource that supplies default values for the view. Can be 0 to not
+     *                 look for defaults.
+     */
+    public UsageProgressBarPreference(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        setLayoutResource(R.layout.preference_usage_progress_bar);
+    }
 
     /**
      * Perform inflation from XML and apply a class-specific base style.
@@ -142,7 +155,6 @@ public class UsageProgressBarPreference extends Preference {
     @Override
     public void onBindViewHolder(PreferenceViewHolder holder) {
         super.onBindViewHolder(holder);
-        final Context context = getContext();
 
         holder.setDividerAllowedAbove(false);
         holder.setDividerAllowedBelow(false);
@@ -164,33 +176,21 @@ public class UsageProgressBarPreference extends Preference {
         }
 
         final ProgressBar progressBar = (ProgressBar) holder.findViewById(android.R.id.progress);
-        final ValueAnimator animator = ValueAnimator.ofInt(0, mPercent);
-        if (mPercent > 0) {
+        if (mPercent < 0) {
+            progressBar.setIndeterminate(true);
+        } else {
             progressBar.setIndeterminate(false);
-            // Animate our new progress layout
-            animator.setDuration(ANIM_DURATION);
-            animator.addUpdateListener(animation -> {
-                int animProgress = (Integer) animation.getAnimatedValue();
-                progressBar.setProgress(animProgress);
-            });
-            animator.start();
+            progressBar.setProgress(mPercent);
         }
 
-        if (mPercent >= 90) {
-            progressBar.setProgressTintList(context.getColorStateList(R.color.battery_full));
-            progressBar.setProgressBackgroundTintList(context.getColorStateList(R.color.battery_full));
-        } else if (mPercent >= 75) {
-            progressBar.setProgressTintList(context.getColorStateList(R.color.battery_70));
-            progressBar.setProgressBackgroundTintList(context.getColorStateList(R.color.battery_70));
-        } else if (mPercent >= 50) {
-            progressBar.setProgressTintList(context.getColorStateList(R.color.battery_50));
-            progressBar.setProgressBackgroundTintList(context.getColorStateList(R.color.battery_50));
-        } else if (mPercent >= 35) {
-            progressBar.setProgressTintList(context.getColorStateList(R.color.battery_35));
-            progressBar.setProgressBackgroundTintList(context.getColorStateList(R.color.battery_35));
-        } else if (mPercent >= 25 || mPercent >= 0) {
-            progressBar.setProgressTintList(context.getColorStateList(R.color.battery_low));
-            progressBar.setProgressBackgroundTintList(context.getColorStateList(R.color.battery_low));
+        final FrameLayout customLayout = (FrameLayout) holder.findViewById(R.id.custom_content);
+        if (mCustomImageView == null) {
+            customLayout.removeAllViews();
+            customLayout.setVisibility(View.GONE);
+        } else {
+            customLayout.removeAllViews();
+            customLayout.addView(mCustomImageView);
+            customLayout.setVisibility(View.VISIBLE);
         }
     }
 
