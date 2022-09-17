@@ -390,6 +390,10 @@ public class InternetDialog extends SystemUIDialog implements
                         isChecked, false);
             }
         });
+        mMobileNetworkLayout.setOnLongClickListener(v -> {
+                mInternetDialogController.launchMobileNetworkSetting(v);
+                return true;
+        });
         mHotspotLayout.setOnClickListener(mInternetDialogController::launchHotspotSetting);
         mHotspotToggle.setOnCheckedChangeListener(
                 (buttonView, isChecked) -> mInternetDialogController.setHotspotEnabled(isChecked));
