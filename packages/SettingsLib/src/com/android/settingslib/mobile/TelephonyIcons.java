@@ -43,7 +43,7 @@ public class TelephonyIcons {
     public static final int ICON_5G_E = R.drawable.ic_5g_e_mobiledata;
     public static final int ICON_1X = R.drawable.ic_1x_mobiledata;
     public static final int ICON_5G = R.drawable.stat_sys_5g_mobiledata;
-    public static final int ICON_5G_PLUS = R.drawable.ic_5g_plus_mobiledata;
+    public static final int ICON_5G_PLUS = R.drawable.stat_sys_5g_plus_mobiledata;
     public static final int ICON_CWF = R.drawable.ic_carrier_wifi;
 
     public static final MobileIconGroup CARRIER_NETWORK_CHANGE = new MobileIconGroup(
