@@ -50,6 +50,13 @@
                 android:visibility="gone"
                 />
         </FrameLayout>
+
+        <Space
+            android:id="@+id/mobile_type_space"
+            android:layout_height="match_parent"
+            android:layout_width="1.5dp"
+            android:visibility="gone"
+        />
         <ImageView
             android:id="@+id/mobile_type"
             android:layout_height="wrap_content"
