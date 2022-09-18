@@ -50,7 +50,6 @@
                 android:visibility="gone"
                 />
         </FrameLayout>
-
         <Space
             android:id="@+id/mobile_type_space"
             android:layout_height="match_parent"
@@ -63,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_gravity="center_vertical"
             android:paddingStart="2.5dp"
-            android:paddingEnd="1dp"
+            android:paddingEnd="1.5dp"
             android:visibility="gone" />
         <Space
             android:id="@+id/mobile_roaming_space"
