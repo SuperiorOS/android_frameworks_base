@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2023 The SuperiorOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+
+    <color name="footer_actions_bg">@android:color/system_neutral1_900</color>
+</resources>
