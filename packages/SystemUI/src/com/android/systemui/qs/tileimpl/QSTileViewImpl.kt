@@ -633,7 +633,6 @@ open class QSTileViewImpl @JvmOverloads constructor(
             }
         }
     }
-
     private fun getLabelColorForState(state: Int, disabledByPolicy: Boolean = false): Int {
         return when {
             state == Tile.STATE_UNAVAILABLE || disabledByPolicy -> colorLabelUnavailable
