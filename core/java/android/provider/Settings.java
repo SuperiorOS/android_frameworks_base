@@ -11140,10 +11140,10 @@ public final class Settings {
         public static final String ADAPTIVE_CONNECTIVITY_ENABLED = "adaptive_connectivity_enabled";
 
         /**
-         * Whether to turn on black theme
+         * Whether to turn on custom theme
          * @hide
          */
-        public static final String SYSTEM_BLACK_THEME = "system_black_theme";
+        public static final String SYSTEM_CUSTOM_THEME = "system_custom_theme";
 
         /**
          * Boolean value whether to link ringtone and notification volume
