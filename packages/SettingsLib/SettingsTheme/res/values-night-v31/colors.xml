@@ -37,7 +37,7 @@
 
     <color name="settingslib_colorSurfaceVariant">@android:color/system_neutral1_700</color>
 
-    <color name="settingslib_colorSurfaceHeader">@android:color/system_neutral1_700</color>
+    <color name="settingslib_colorSurfaceHeader">@android:color/system_neutral1_900</color>
 
     <!-- copy from accent_primary_variant_dark_device_default-->
     <color name="settingslib_accent_primary_variant">@android:color/system_accent1_300</color>
