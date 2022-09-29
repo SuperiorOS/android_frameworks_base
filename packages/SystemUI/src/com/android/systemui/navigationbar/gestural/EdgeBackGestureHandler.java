@@ -1156,7 +1156,7 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
                 ActionUtils.switchScreenOff(mContext);
                 break;
             case 7: // Screenshot
-                ActionUtils.takeScreenshot(true);
+                SuperiorUtils.takeScreenshot(true);
                 break;
             case 8: // Notification panel
                 ActionUtils.toggleNotifications();
