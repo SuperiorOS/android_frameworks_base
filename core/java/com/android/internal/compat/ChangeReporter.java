@@ -90,14 +90,6 @@ public final class ChangeReporter {
      * @param state    of the reported change - enabled/disabled/only logged
      */
     public void reportChange(int uid, long changeId, int state) {
-        if (shouldWriteToStatsLog(uid, changeId, state)) {
-            FrameworkStatsLog.write(FrameworkStatsLog.APP_COMPATIBILITY_CHANGE_REPORTED, uid,
-                    changeId, state, mSource);
-        }
-        if (shouldWriteToDebug(uid, changeId, state)) {
-            debugLog(uid, changeId, state);
-        }
-        markAsReported(uid, new ChangeReport(changeId, state));
     }
 
     /**
