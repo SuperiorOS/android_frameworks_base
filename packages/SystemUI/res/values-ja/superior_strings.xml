@@ -44,11 +44,11 @@
     <string name="accessibility_quick_settings_ambient_display_changed_off">アンビエント表示を OFF にしました</string>
     <string name="accessibility_quick_settings_ambient_display_changed_on">アンビエント表示を ON にしました</string>
     <string name="quick_settings_usb_tether_label">USB テザリング</string>
-    <string name="quick_settings_heads_up_label">Heads Up</string>
-    <string name="accessibility_quick_settings_heads_up_off">Heads Up OFF</string>
-    <string name="accessibility_quick_settings_heads_up_on">Heads Up ON</string>
-    <string name="accessibility_quick_settings_heads_up_changed_off">Heads Up を OFF にしました</string>
-    <string name="accessibility_quick_settings_heads_up_changed_on">Heads Up を ON にしました</string>
+    <string name="quick_settings_heads_up_label">ヘッドアップ通知</string>
+    <string name="accessibility_quick_settings_heads_up_off">ヘッドアップ通知 OFF</string>
+    <string name="accessibility_quick_settings_heads_up_on">ヘッドアップ通知 ON</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">ヘッドアップっ通知を OFF にしました</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">ヘッドアップ通知を ON にしました</string>
     <string name="status_bar_call_strength">電波強度</string>
     <string name="quick_settings_aod_label">Always On Display</string>
     <string name="quick_settings_aod_off_powersave_label">AOD OFF\nバッテリー節約</string>
