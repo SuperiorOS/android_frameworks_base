@@ -674,6 +674,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
     };
 
     private final SysUiState mSysUiState;
+    private final DeviceStateManager mDeviceStateManager;
 
     /**
      * Public constructor for CentralSurfaces.
@@ -853,6 +854,7 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         mCameraLauncherLazy = cameraLauncherLazy;
         mTunerService = tunerService;
         mSysUiState = sysUiState;
+        mDeviceStateManager = deviceStateManager;
 
         mLockscreenShadeTransitionController = lockscreenShadeTransitionController;
         mStartingSurfaceOptional = startingSurfaceOptional;
@@ -886,8 +888,6 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         mMessageRouter.subscribeTo(MSG_LAUNCH_TRANSITION_TIMEOUT,
                 id -> onLaunchTransitionTimeout());
 
-        deviceStateManager.registerCallback(mMainExecutor,
-                new FoldStateListener(mContext, this::onFoldedStateChanged));
         wiredChargingRippleController.registerCallbacks();
 
         mLightRevealScrimViewModelLazy = lightRevealScrimViewModelLazy;
@@ -1590,6 +1590,9 @@ public class CentralSurfacesImpl implements CoreStartable, CentralSurfaces, Tune
         mNotificationShelfController = mCentralSurfacesComponent.getNotificationShelfController();
         mAuthRippleController = mCentralSurfacesComponent.getAuthRippleController();
         mAuthRippleController.init();
+
+        mDeviceStateManager.registerCallback(mMainExecutor,
+                new FoldStateListener(mContext, this::onFoldedStateChanged));
 
         mHeadsUpManager.addListener(mCentralSurfacesComponent.getStatusBarHeadsUpChangeListener());
 
