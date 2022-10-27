@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C)2022-2023 The Superior OS Project
+     Copyright (C)2022-2023 The SuperiorOS Project
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources>
@@ -9,4 +9,6 @@
      <!-- Maximum vertical offset of statusbar for burn-in protection -->
      <dimen name="status_bar_offset_max_y">4dp</dimen>
 
+     <!-- Bluetooth dialog -->
+     <dimen name="bluetooth_dialog_active_device_bottom_margin">4dp</dimen>
 </resources>

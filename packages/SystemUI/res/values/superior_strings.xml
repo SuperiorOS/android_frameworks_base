@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C)2022-2023 The Superior OS Project
+     Copyright (C)2022-2023 The SuperiorOS Project
      SPDX-License-Identifier: Apache-2.0
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
@@ -43,4 +43,9 @@
         =1 {# device connected}
         other {# devices connected}
         }</string>
+
+    <!-- Bluetooth dialog -->
+    <string name="turn_on_bluetooth">Use Bluetooth</string>
+    <string name="bluetooth_is_off">Bluetooth is off</string>
+    <string name="tap_a_device_to_connect">Tap a device to connect / disconnect</string>
 </resources>
