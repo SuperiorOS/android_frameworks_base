@@ -83,4 +83,7 @@
      <!-- Whether Pixel props is enabled -->
      <java-symbol type="bool" name="config_enablePixelProps" />
 
+     <!-- Camera -->
+     <java-symbol type="array" name="config_cameraAuxPackageAllowList" />
+     <java-symbol type="array" name="config_cameraAuxPackageExcludeList" />
 </resources>
