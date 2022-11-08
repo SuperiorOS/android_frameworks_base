@@ -105,7 +105,7 @@ public class KeyguardPasswordViewController
                     if (entry.size() > MINIMUM_PASSWORD_LENGTH_BEFORE_REPORT
                             && kpvCheckPassword(entry)) {
                         mKeyguardSecurityCallback.reportUnlockAttempt(userId, true, 0);
-                        mKeyguardSecurityCallback.dismiss(true, userId);
+                        mKeyguardSecurityCallback.dismiss(true, userId, SecurityMode.Password);
                         mView.resetPasswordText(true, true);
                     }
                 }

@@ -118,7 +118,7 @@ public class KeyguardPinViewController
                     && kpvCheckPassword(password)) {
                 mPasswordEntry.setEnabled(false);
                 getKeyguardSecurityCallback().reportUnlockAttempt(userId, true, 0);
-                getKeyguardSecurityCallback().dismiss(true, userId);
+                getKeyguardSecurityCallback().dismiss(true, userId, SecurityMode.PIN);
                 mView.resetPasswordText(true, true);
             }
         }
