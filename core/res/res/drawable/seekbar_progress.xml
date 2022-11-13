@@ -25,4 +25,10 @@
             <corners android:radius="10dp" />
         </shape>
     </item>
+    <item android:gravity="end|center" android:end="4dp" android:height="12dp">
+        <shape android:tint="?android:attr/colorBackground" android:shape="oval">
+            <size android:width="12dp" android:height="12dp" />
+            <solid android:color="#80626161" />
+        </shape>
+    </item>
 </layer-list>
