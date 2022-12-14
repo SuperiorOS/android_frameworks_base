@@ -416,7 +416,7 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
             return false;
         }
 
-        if (shouldSkipHeadsUp(sbn)) {
+        if (mLessBoringHeadsUp && shouldSkipHeadsUp(sbn)) {
             // mLogger.logNoHeadsUpShouldSkipPackage(sbn);
             return false;
         }
@@ -543,13 +543,14 @@ public class NotificationInterruptStateProviderImpl implements NotificationInter
     }
 
     public boolean shouldSkipHeadsUp(StatusBarNotification sbn) {
+        if (mStatusBarStateController.isDozing()) return false;
         String notificationPackageName = sbn.getPackageName();
 
         boolean isLessBoring = notificationPackageName.equals(getDefaultDialerPackage(mTm))
                 || notificationPackageName.equals(getDefaultSmsPackage(mContext))
                 || notificationPackageName.toLowerCase().contains("clock");
 
-        return !mStatusBarStateController.isDozing() && mLessBoringHeadsUp && !isLessBoring;
+        return !isLessBoring;
     }
 
     private static String getDefaultSmsPackage(Context ctx) {
