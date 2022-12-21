@@ -81,7 +81,7 @@ public final class SQLiteDebug {
         /**
          * Whether to add detailed information to slow query log.
          */
-        public static final boolean DEBUG_LOG_DETAILED = Build.IS_DEBUGGABLE
+        public static final boolean DEBUG_LOG_DETAILED = Build.IS_ENG
                 && SystemProperties.getBoolean("db.log.detailed", false);
     }
 
