@@ -99,7 +99,7 @@ class WindowMagnificationController implements View.OnTouchListener, SurfaceHold
 
     private static final String TAG = "WindowMagnificationController";
     @SuppressWarnings("isloggabletaglength")
-    private static final boolean DEBUG = Log.isLoggable(TAG, Log.DEBUG) || Build.IS_DEBUGGABLE;
+    private static final boolean DEBUG = Log.isLoggable(TAG, Log.DEBUG) || Build.IS_ENG;
     // Delay to avoid updating state description too frequently.
     private static final int UPDATE_STATE_DESCRIPTION_DELAY_MS = 100;
     // It should be consistent with the value defined in WindowMagnificationGestureHandler.

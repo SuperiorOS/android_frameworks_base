@@ -1234,7 +1234,7 @@ public class StatusBarManagerService extends IStatusBarService.Stub implements D
     }
 
     void runGcForTest() {
-        if (!Build.IS_DEBUGGABLE) {
+        if (!Build.IS_ENG) {
             throw new SecurityException("runGcForTest requires a debuggable build");
         }
 

@@ -6009,13 +6009,13 @@ public class ActivityManagerService extends IActivityManager.Stub
     }
 
     private void enforceDebuggable(ProcessRecord proc) {
-        if (!Build.IS_DEBUGGABLE && !proc.isDebuggable()) {
+        if (!Build.IS_ENG && !proc.isDebuggable()) {
             throw new SecurityException("Process not debuggable: " + proc.info.packageName);
         }
     }
 
     private void enforceDebuggable(ApplicationInfo info) {
-        if (!Build.IS_DEBUGGABLE && (info.flags & ApplicationInfo.FLAG_DEBUGGABLE) == 0) {
+        if (!Build.IS_ENG && (info.flags & ApplicationInfo.FLAG_DEBUGGABLE) == 0) {
             throw new SecurityException("Process not debuggable: " + info.packageName);
         }
     }
@@ -7361,7 +7361,7 @@ public class ActivityManagerService extends IActivityManager.Stub
     void setProfileApp(ApplicationInfo app, String processName, ProfilerInfo profilerInfo,
             ApplicationInfo sdkSandboxClientApp) {
         synchronized (mAppProfiler.mProfilerLock) {
-            if (!Build.IS_DEBUGGABLE) {
+            if (!Build.IS_ENG) {
                 boolean isAppDebuggable = (app.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
                 boolean isAppProfileable = app.isProfileableByShell();
 
@@ -15924,7 +15924,7 @@ public class ActivityManagerService extends IActivityManager.Stub
             } catch (RemoteException e) {
             }
             if (match < 0 && match != PackageManager.SIGNATURE_FIRST_NOT_SIGNED) {
-                if (Build.IS_DEBUGGABLE && (callingUid == Process.ROOT_UID)
+                if (Build.IS_ENG && (callingUid == Process.ROOT_UID)
                         && (flags & INSTR_FLAG_ALWAYS_CHECK_SIGNATURE) == 0) {
                     Slog.w(TAG, "Instrumentation test " + ii.packageName
                             + " doesn't have a signature matching the target " + ii.targetPackage
@@ -17681,7 +17681,7 @@ public class ActivityManagerService extends IActivityManager.Stub
             return false;
         }
 
-        return Build.IS_DEBUGGABLE || process.isDebuggable();
+        return Build.IS_ENG || process.isDebuggable();
     }
 
     public boolean startBinderTracking() throws RemoteException {
@@ -20559,7 +20559,7 @@ public class ActivityManagerService extends IActivityManager.Stub
         int callerUid = Binder.getCallingUid();
 
         // Only system can toggle the freezer state
-        if (callerUid == SYSTEM_UID || Build.IS_DEBUGGABLE) {
+        if (callerUid == SYSTEM_UID || Build.IS_ENG) {
             return mOomAdjuster.mCachedAppOptimizer.enableFreezer(enable);
         } else {
             throw new SecurityException("Caller uid " + callerUid + " cannot set freezer state ");

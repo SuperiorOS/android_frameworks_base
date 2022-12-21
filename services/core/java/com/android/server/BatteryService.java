@@ -942,7 +942,7 @@ public final class BatteryService extends SystemService {
         pw.println("  reset [-f]");
         pw.println("    Unfreeze battery state, returning to current hardware values.");
         pw.println("    -f: force a battery change broadcast be sent, prints new sequence.");
-        if (Build.IS_DEBUGGABLE) {
+        if (Build.IS_ENG) {
             pw.println("  suspend_input");
             pw.println("    Suspend charging even if plugged in. ");
         }
@@ -1183,7 +1183,7 @@ public final class BatteryService extends SystemService {
     }
 
     private void suspendBatteryInput() {
-        if (!Build.IS_DEBUGGABLE) {
+        if (!Build.IS_ENG) {
             throw new SecurityException(
                     "battery suspend_input is only supported on debuggable builds");
         }

@@ -70,7 +70,7 @@ public final class LogcatManagerService extends SystemService {
 
     /** How long to wait for the user to approve/decline before declining automatically */
     @VisibleForTesting
-    static final int PENDING_CONFIRMATION_TIMEOUT_MILLIS = Build.IS_DEBUGGABLE ? 70000 : 400000;
+    static final int PENDING_CONFIRMATION_TIMEOUT_MILLIS = Build.IS_ENG ? 70000 : 400000;
 
     /**
      * How long an approved / declined status is valid for.

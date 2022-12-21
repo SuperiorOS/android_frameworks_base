@@ -111,7 +111,7 @@ public final class UserTypeFactory {
         builders.put(USER_TYPE_PROFILE_CLONE, getDefaultTypeProfileClone());
         builders.put(USER_TYPE_PROFILE_COMMUNAL, getDefaultTypeProfileCommunal());
         builders.put(USER_TYPE_PROFILE_PRIVATE, getDefaultTypeProfilePrivate());
-        if (Build.IS_DEBUGGABLE) {
+        if (Build.IS_ENG) {
             builders.put(USER_TYPE_PROFILE_TEST, getDefaultTypeProfileTest());
         }
 
