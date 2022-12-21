@@ -692,8 +692,7 @@ public interface StatusBarIconController {
                 // ModernStatusBarWifiView will automatically apply state based on its callbacks, so
                 // we don't need to call applyWifiState.
             } else {
-                throw new IllegalStateException("View at " + viewIndex + " must be of type "
-                        + "StatusBarWifiView or ModernStatusBarWifiView");
+                return;
             }
 
             if (mIsInDemoMode) {
