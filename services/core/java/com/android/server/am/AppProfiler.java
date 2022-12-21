@@ -808,7 +808,7 @@ public class AppProfiler {
         if (check != null) {
             if ((pss * 1024) >= check && profile.getThread() != null
                     && mMemWatchDumpProcName == null) {
-                if (Build.IS_DEBUGGABLE || proc.isDebuggable()) {
+                if (Build.IS_ENG || proc.isDebuggable()) {
                     Slog.w(TAG, "Process " + proc + " exceeded pss limit " + check + "; reporting");
                     startHeapDumpLPf(profile, false);
                 } else {
@@ -1475,7 +1475,7 @@ public class AppProfiler {
         // and the app that died was not running instrumentation,
         // then tell everyone we are now low on memory.
         if (!mService.mProcessList.haveBackgroundProcessLOSP()) {
-            boolean doReport = Build.IS_DEBUGGABLE;
+            boolean doReport = Build.IS_ENG;
             final long now = SystemClock.uptimeMillis();
             if (doReport) {
                 if (now < (mLastMemUsageReportTime + 5 * 60 * 1000)) {

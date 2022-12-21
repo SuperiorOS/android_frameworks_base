@@ -1612,7 +1612,7 @@ public final class ActivityThread extends ClientTransactionHandler
             if (dumpUnreachable) {
                 boolean showContents = ((mBoundApplication != null)
                     && ((mBoundApplication.appInfo.flags&ApplicationInfo.FLAG_DEBUGGABLE) != 0))
-                    || android.os.Build.IS_DEBUGGABLE;
+                    || android.os.Build.IS_ENG;
                 pw.println(" ");
                 pw.println(" Unreachable memory");
                 pw.print(Debug.getUnreachableMemory(100, showContents));
@@ -1741,7 +1741,7 @@ public final class ActivityThread extends ClientTransactionHandler
             if (dumpUnreachable) {
                 int flags = mBoundApplication == null ? 0 : mBoundApplication.appInfo.flags;
                 boolean showContents = (flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0
-                        || android.os.Build.IS_DEBUGGABLE;
+                        || android.os.Build.IS_ENG;
                 proto.write(MemInfoDumpProto.AppData.UNREACHABLE_MEMORY,
                         Debug.getUnreachableMemory(100, showContents));
             }
@@ -5118,7 +5118,7 @@ public final class ActivityThread extends ClientTransactionHandler
         }
 
         if (r.isTopResumedActivity == onTop) {
-            if (!Build.IS_DEBUGGABLE) {
+            if (!Build.IS_ENG) {
                 Slog.w(TAG, "Activity top position already set to onTop=" + onTop);
                 return;
             }
@@ -6848,17 +6848,17 @@ public final class ActivityThread extends ClientTransactionHandler
         boolean isAppDebuggable = (data.appInfo.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0;
         boolean isAppProfileable = isAppDebuggable || data.appInfo.isProfileable();
         Trace.setAppTracingAllowed(isAppProfileable);
-        if ((isAppProfileable || Build.IS_DEBUGGABLE) && data.enableBinderTracking) {
+        if ((isAppProfileable || Build.IS_ENG) && data.enableBinderTracking) {
             Binder.enableStackTracking();
         }
 
         // Initialize heap profiling.
-        if (isAppProfileable || Build.IS_DEBUGGABLE) {
+        if (isAppProfileable || Build.IS_ENG) {
             nInitZygoteChildHeapProfiling();
         }
 
         // Allow renderer debugging features if we're debuggable.
-        HardwareRenderer.setDebuggingEnabled(isAppDebuggable || Build.IS_DEBUGGABLE);
+        HardwareRenderer.setDebuggingEnabled(isAppDebuggable || Build.IS_ENG);
         HardwareRenderer.setPackageName(data.appInfo.packageName);
 
         // Pass the current context to HardwareRenderer

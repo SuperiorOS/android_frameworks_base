@@ -109,7 +109,7 @@ public class LatencyTester implements CoreStartable {
 
     private void updateEnabled() {
         boolean wasEnabled = mEnabled;
-        mEnabled = Build.IS_DEBUGGABLE
+        mEnabled = Build.IS_ENG
                 && mDeviceConfigProxy.getBoolean(DeviceConfig.NAMESPACE_LATENCY_TRACKER,
                 LatencyTracker.SETTINGS_ENABLED_KEY, DEFAULT_ENABLED);
         if (mEnabled != wasEnabled) {

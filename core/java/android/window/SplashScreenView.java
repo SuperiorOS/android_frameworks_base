@@ -77,7 +77,7 @@ import java.util.function.LongConsumer;
  */
 public final class SplashScreenView extends FrameLayout {
     private static final String TAG = SplashScreenView.class.getSimpleName();
-    private static final boolean DEBUG = Build.IS_DEBUGGABLE;
+    private static final boolean DEBUG = Build.IS_ENG;
 
     private boolean mNotCopyable;
     private boolean mIsCopied;

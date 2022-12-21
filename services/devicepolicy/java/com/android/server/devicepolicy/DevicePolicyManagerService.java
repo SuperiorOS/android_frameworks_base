@@ -1791,7 +1791,7 @@ public class DevicePolicyManagerService extends IDevicePolicyManager.Stub {
         }
 
         boolean isBuildDebuggable() {
-            return Build.IS_DEBUGGABLE;
+            return Build.IS_ENG;
         }
 
         LockPatternUtils newLockPatternUtils() {

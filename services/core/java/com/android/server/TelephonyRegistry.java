@@ -4259,12 +4259,12 @@ public class TelephonyRegistry extends ITelephonyRegistry.Stub {
      * package names on user builds as it's considered an information leak.
      */
     private static String pii(String packageName) {
-        return Build.IS_DEBUGGABLE ? packageName : "***";
+        return Build.IS_ENG ? packageName : "***";
     }
 
     /** Redacts an entire list of package names if necessary. */
     private static String pii(List<String> packageNames) {
-        if (packageNames.isEmpty() || Build.IS_DEBUGGABLE) return packageNames.toString();
+        if (packageNames.isEmpty() || Build.IS_ENG) return packageNames.toString();
         return "[***, size=" + packageNames.size() + "]";
     }
 }
