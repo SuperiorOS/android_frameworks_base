@@ -2637,7 +2637,7 @@ public abstract class ContentProvider implements ContentInterface, ComponentCall
                 mSystemUserOnly = (info.flags & ProviderInfo.FLAG_SYSTEM_USER_ONLY) != 0;
                 setAuthorities(info.authority);
             }
-            if (Build.IS_DEBUGGABLE) {
+            if (Build.IS_ENG) {
                 setTransportLoggingEnabled(Log.isLoggable(getClass().getSimpleName(),
                         Log.VERBOSE));
             }

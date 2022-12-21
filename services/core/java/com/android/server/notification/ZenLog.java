@@ -39,7 +39,7 @@ import java.util.List;
 
 public class ZenLog {
 
-    private static final int SIZE = Build.IS_DEBUGGABLE ? 200 : 100;
+    private static final int SIZE = Build.IS_ENG ? 200 : 100;
 
     private static final LocalLog STATE_CHANGES = new LocalLog(SIZE);
     private static final LocalLog INTERCEPTION_EVENTS = new LocalLog(SIZE);

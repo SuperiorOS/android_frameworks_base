@@ -90,7 +90,7 @@ public class MetricsLogger {
     /** Logs an OPEN event on the category.
      *  Equivalent to write(new LogMaker(category).setType(MetricsEvent.TYPE_OPEN)) */
     public void visible(int category) throws IllegalArgumentException {
-        if (Build.IS_DEBUGGABLE && category == VIEW_UNKNOWN) {
+        if (Build.IS_ENG && category == VIEW_UNKNOWN) {
             throw new IllegalArgumentException("Must define metric category");
         }
         saveLog(new LogMaker(category).setType(MetricsEvent.TYPE_OPEN));
@@ -99,7 +99,7 @@ public class MetricsLogger {
     /** Logs a CLOSE event on the category.
      *  Equivalent to write(new LogMaker(category).setType(MetricsEvent.TYPE_CLOSE)) */
     public void hidden(int category) throws IllegalArgumentException {
-        if (Build.IS_DEBUGGABLE && category == VIEW_UNKNOWN) {
+        if (Build.IS_ENG && category == VIEW_UNKNOWN) {
             throw new IllegalArgumentException("Must define metric category");
         }
         saveLog(new LogMaker(category).setType(MetricsEvent.TYPE_CLOSE));
@@ -150,7 +150,7 @@ public class MetricsLogger {
      * Equivalent to write(new LogMaker(category).setType(MetricsEvent.TYPE_ACTION)
                            .setPackageName(value ? 1 : 0) */
     public void action(int category, String pkg) {
-        if (Build.IS_DEBUGGABLE && category == VIEW_UNKNOWN) {
+        if (Build.IS_ENG && category == VIEW_UNKNOWN) {
             throw new IllegalArgumentException("Must define metric category");
         }
         saveLog(new LogMaker(category).setType(MetricsEvent.TYPE_ACTION).setPackageName(pkg));
