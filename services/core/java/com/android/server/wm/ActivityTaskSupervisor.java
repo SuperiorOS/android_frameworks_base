@@ -696,7 +696,7 @@ public class ActivityTaskSupervisor implements RecentTasks.Callbacks {
                     | START_FLAG_NATIVE_DEBUGGING | START_FLAG_TRACK_ALLOCATION)) != 0;
             final boolean requestProfile = profilerInfo != null;
             if (requestDebug || requestProfile) {
-                final boolean debuggable = (Build.IS_DEBUGGABLE
+                final boolean debuggable = (Build.IS_ENG
                         || (aInfo.applicationInfo.flags & ApplicationInfo.FLAG_DEBUGGABLE) != 0)
                         && !aInfo.processName.equals("system");
                 if ((requestDebug && !debuggable) || (requestProfile

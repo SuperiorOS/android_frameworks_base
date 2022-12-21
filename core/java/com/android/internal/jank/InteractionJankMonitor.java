@@ -175,7 +175,7 @@ public class InteractionJankMonitor {
             "trace_threshold_frame_time_millis";
     private static final String SETTINGS_DEBUG_OVERLAY_ENABLED_KEY = "debug_overlay_enabled";
     /** Default to being enabled on debug builds. */
-    private static final boolean DEFAULT_ENABLED = Build.IS_DEBUGGABLE;
+    private static final boolean DEFAULT_ENABLED = Build.IS_ENG;
     /** Default to collecting data for all CUJs. */
     private static final int DEFAULT_SAMPLING_INTERVAL = 1;
     /** Default to triggering trace if 3 frames are missed OR a frame takes at least 64ms */

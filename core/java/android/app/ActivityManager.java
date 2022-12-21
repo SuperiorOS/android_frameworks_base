@@ -184,7 +184,7 @@ public class ActivityManager {
     public static final int INSTR_FLAG_NO_RESTART = 1 << 3;
     /**
      * Force the check that instrumentation and the target package are signed with the same
-     * certificate even if {@link Build#IS_DEBUGGABLE} is {@code true}.
+     * certificate even if {@link Build.IS_ENG} is {@code true}.
      * @hide
      */
     public static final int INSTR_FLAG_ALWAYS_CHECK_SIGNATURE = 1 << 4;
@@ -1473,7 +1473,7 @@ public class ActivityManager {
     @UnsupportedAppUsage
     public static boolean isLowRamDeviceStatic() {
         return RoSystemProperties.CONFIG_LOW_RAM ||
-                (Build.IS_DEBUGGABLE && DEVELOPMENT_FORCE_LOW_RAM);
+                (Build.IS_ENG && DEVELOPMENT_FORCE_LOW_RAM);
     }
 
     /**

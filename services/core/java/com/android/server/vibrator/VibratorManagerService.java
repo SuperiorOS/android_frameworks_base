@@ -1359,7 +1359,7 @@ public class VibratorManagerService extends IVibratorManagerService.Stub {
                 if (DEBUG) {
                     Slog.d(TAG, "Processing VibrationThread released callback");
                 }
-                if (Build.IS_DEBUGGABLE && mCurrentVibration != null
+                if (Build.IS_ENG && mCurrentVibration != null
                         && mCurrentVibration.getVibration().id != vibrationId) {
                     Slog.wtf(TAG, TextUtils.formatSimple(
                             "VibrationId mismatch on release. expected=%d, released=%d",

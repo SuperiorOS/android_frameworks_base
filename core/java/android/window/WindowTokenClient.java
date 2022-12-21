@@ -96,7 +96,7 @@ public class WindowTokenClient extends IWindowToken.Stub {
             throw new IllegalStateException("Context is already attached.");
         }
         mContextRef = new WeakReference<>(context);
-        mShouldDumpConfigForIme = Build.IS_DEBUGGABLE
+        mShouldDumpConfigForIme = Build.IS_ENG
                 && context instanceof AbstractInputMethodService;
     }
 
