@@ -236,7 +236,7 @@ class InstallationAsyncTask extends AsyncTask<String, Long, Throwable> {
                 (pdbManager != null)
                         && (pdbManager.getFlashLockState()
                                 == PersistentDataBlockManager.FLASH_LOCK_UNLOCKED);
-        mWantScratchPartition = Build.IS_DEBUGGABLE;
+        mWantScratchPartition = Build.IS_ENG;
     }
 
     @Override

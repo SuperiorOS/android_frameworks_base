@@ -2845,7 +2845,7 @@ public class AlarmManagerService extends SystemService {
      * <b> Note: This should not be called with {@link #mLock} held.</b>
      */
     boolean isExemptFromExactAlarmPermissionNoLock(int uid) {
-        if (Build.IS_DEBUGGABLE && Thread.holdsLock(mLock)) {
+        if (Build.IS_ENG && Thread.holdsLock(mLock)) {
             Slog.wtfStack(TAG, "Alarm lock held while calling into DeviceIdleController");
         }
         return (UserHandle.isSameApp(mSystemUiUid, uid)

@@ -143,7 +143,7 @@ import java.util.zip.GZIPInputStream;
 public class PackageManagerServiceUtils {
     private static final long MAX_CRITICAL_INFO_DUMP_SIZE = 3 * 1000 * 1000; // 3MB
 
-    private static final boolean DEBUG = Build.IS_DEBUGGABLE;
+    private static final boolean DEBUG = Build.IS_ENG;
 
     // Skip APEX which doesn't have a valid UID
     public static final Predicate<PackageStateInternal> REMOVE_IF_APEX_PKG =
@@ -1013,7 +1013,7 @@ public class PackageManagerServiceUtils {
         if (!downgradeRequested) {
             return false;
         }
-        final boolean isDebuggable = Build.IS_DEBUGGABLE || isAppDebuggable;
+        final boolean isDebuggable = Build.IS_ENG || isAppDebuggable;
         if (isDebuggable) {
             return true;
         }

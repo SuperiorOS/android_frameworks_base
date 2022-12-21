@@ -342,7 +342,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
     public static final boolean DEBUG_PACKAGE_SCANNING = false;
     static final boolean DEBUG_VERIFY = false;
     public static final boolean DEBUG_PERMISSIONS = false;
-    public static final boolean DEBUG_COMPRESSION = Build.IS_DEBUGGABLE;
+    public static final boolean DEBUG_COMPRESSION = Build.IS_ENG;
     public static final boolean TRACE_SNAPSHOTS = false;
     private static final boolean DEBUG_PER_UID_READ_TIMEOUTS = false;
 
@@ -352,7 +352,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
     public static final boolean DEBUG_DEXOPT = false;
 
     static final boolean DEBUG_ABI_SELECTION = false;
-    public static final boolean DEBUG_INSTANT = Build.IS_DEBUGGABLE;
+    public static final boolean DEBUG_INSTANT = Build.IS_ENG;
 
     static final String SHELL_PACKAGE_NAME = "com.android.shell";
 
@@ -2684,7 +2684,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
     @Nullable ComponentName getInstantAppResolver(@NonNull Computer snapshot) {
         final String[] packageArray =
                 mContext.getResources().getStringArray(R.array.config_ephemeralResolverPackage);
-        if (packageArray.length == 0 && !Build.IS_DEBUGGABLE) {
+        if (packageArray.length == 0 && !Build.IS_ENG) {
             if (DEBUG_INSTANT) {
                 Slog.d(TAG, "Ephemeral resolver NOT found; empty package list");
             }
@@ -2695,7 +2695,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
         final int resolveFlags =
                 MATCH_DIRECT_BOOT_AWARE
                 | MATCH_DIRECT_BOOT_UNAWARE
-                | (!Build.IS_DEBUGGABLE ? MATCH_SYSTEM_ONLY : 0);
+                | (!Build.IS_ENG ? MATCH_SYSTEM_ONLY : 0);
         final Intent resolverIntent = new Intent(Intent.ACTION_RESOLVE_INSTANT_APP_PACKAGE);
         List<ResolveInfo> resolvers = snapshot.queryIntentServicesInternal(resolverIntent, null,
                 resolveFlags, UserHandle.USER_SYSTEM, callingUid, false /*includeInstantApps*/);
@@ -2716,7 +2716,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
             }
 
             final String packageName = info.serviceInfo.packageName;
-            if (!possiblePackages.contains(packageName) && !Build.IS_DEBUGGABLE) {
+            if (!possiblePackages.contains(packageName) && !Build.IS_ENG) {
                 if (DEBUG_INSTANT) {
                     Slog.d(TAG, "Ephemeral resolver not in allowed package list;"
                             + " pkg: " + packageName + ", info:" + info);
@@ -5134,7 +5134,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
 
         @Override
         public IBinder getHoldLockToken() {
-            if (!Build.IS_DEBUGGABLE) {
+            if (!Build.IS_ENG) {
                 throw new SecurityException("getHoldLockToken requires a debuggable build");
             }
 
@@ -7421,7 +7421,7 @@ public class PackageManagerService implements PackageSender, TestUtilityService 
 
     @Override
     public void verifyHoldLockToken(IBinder token) {
-        if (!Build.IS_DEBUGGABLE) {
+        if (!Build.IS_ENG) {
             throw new SecurityException("holdLock requires a debuggable build");
         }
 

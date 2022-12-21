@@ -93,7 +93,7 @@ import java.util.Set;
  */
 class AttestationVerificationPeerDeviceVerifier {
     private static final String TAG = "AVF";
-    private static final boolean DEBUG = Build.IS_DEBUGGABLE && Log.isLoggable(TAG, Log.VERBOSE);
+    private static final boolean DEBUG = Build.IS_ENG && Log.isLoggable(TAG, Log.VERBOSE);
     private static final int MAX_PATCH_AGE_MONTHS = 12;
 
     /**
