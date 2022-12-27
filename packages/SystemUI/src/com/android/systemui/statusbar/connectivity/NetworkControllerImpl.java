@@ -141,6 +141,8 @@ public class NetworkControllerImpl extends BroadcastReceiver
     private final LogBuffer mLogBuffer;
     private final MobileSignalControllerFactory mMobileFactory;
 
+    private boolean mSwap = false;
+
     private TelephonyCallback.ActiveDataSubscriptionIdListener mPhoneStateListener;
     private int mActiveMobileDataSubscription = INVALID_SUBSCRIPTION_ID;
 
@@ -404,7 +406,6 @@ public class NetworkControllerImpl extends BroadcastReceiver
                         .toString();
                 recordLastNetworkCallback(callback);
                 updateConnectivity();
-                updateImsIcon();
             }
 
             @Override
@@ -441,7 +442,6 @@ public class NetworkControllerImpl extends BroadcastReceiver
                         .toString();
                 recordLastNetworkCallback(callback);
                 updateConnectivity();
-                updateImsIcon();
             }
         };
         // Even though this callback runs on the receiver handler thread which also processes the
@@ -467,7 +467,6 @@ public class NetworkControllerImpl extends BroadcastReceiver
                 }
                 mActiveMobileDataSubscription = subId;
                 doUpdateMobileControllers();
-                updateImsIcon();
             });
         };
 
@@ -480,7 +479,6 @@ public class NetworkControllerImpl extends BroadcastReceiver
         if (DEBUG) Log.d(TAG, ": mClearForceValidated");
         mForceCellularValidated = false;
         updateConnectivity();
-        updateImsIcon();
     };
 
     boolean isInGroupDataSwitch(int subId1, int subId2) {
@@ -815,9 +813,9 @@ public class NetworkControllerImpl extends BroadcastReceiver
         if (volte1 && volte2) {
             return R.drawable.stat_sys_volte_slot12;
         } else if (volte1) {
-           return R.drawable.stat_sys_volte_slot1;
+            return mSwap ? R.drawable.stat_sys_volte_slot2 : R.drawable.stat_sys_volte_slot1;
         } else if (volte2) {
-            return R.drawable.stat_sys_volte_slot2;
+            return mSwap ? R.drawable.stat_sys_volte_slot1 : R.drawable.stat_sys_volte_slot2;
         }
         return 0;
     }
@@ -826,9 +824,9 @@ public class NetworkControllerImpl extends BroadcastReceiver
         if (vowifi1 && vowifi2) {
             return R.drawable.stat_sys_vowifi_slot12;
         } else if (vowifi1) {
-            return R.drawable.stat_sys_vowifi_slot1;
+            return mSwap ? R.drawable.stat_sys_vowifi_slot2 : R.drawable.stat_sys_vowifi_slot1;
         } else if (vowifi2) {
-            return R.drawable.stat_sys_vowifi_slot2;
+            return mSwap ? R.drawable.stat_sys_vowifi_slot1 : R.drawable.stat_sys_vowifi_slot2;
         }
         return 0;
     }
@@ -853,7 +851,6 @@ public class NetworkControllerImpl extends BroadcastReceiver
         mCurrentUserId = newUserId;
         mAccessPoints.onUserSwitched(newUserId);
         updateConnectivity();
-        updateImsIcon();
     }
 
     @Override
@@ -876,7 +873,6 @@ public class NetworkControllerImpl extends BroadcastReceiver
         switch (action) {
             case ConnectivityManager.CONNECTIVITY_ACTION:
                 updateConnectivity();
-                updateImsIcon();
                 break;
             case Intent.ACTION_AIRPLANE_MODE_CHANGED:
                 refreshLocale();
@@ -969,7 +965,6 @@ public class NetworkControllerImpl extends BroadcastReceiver
             return;
         }
         doUpdateMobileControllers();
-        updateImsIcon();
     }
 
     private void filterMobileSubscriptionInSameGroup(List<SubscriptionInfo> subscriptions) {
@@ -1019,6 +1014,7 @@ public class NetworkControllerImpl extends BroadcastReceiver
         }
         updateNoSims();
         recalculateEmergency();
+        updateImsIcon();
     }
 
     @VisibleForTesting
@@ -1044,6 +1040,14 @@ public class NetworkControllerImpl extends BroadcastReceiver
         return false;
     }
 
+    private boolean isSwap(final @Nullable List<SubscriptionInfo> list) {
+        if (list != null && list.size() == 2) {
+            if (list.get(0).getSubscriptionId() > list.get(1).getSubscriptionId())
+                return true;
+        }
+        return false;
+    }
+
     @GuardedBy("mLock")
     @VisibleForTesting
     void setCurrentSubscriptionsLocked(List<SubscriptionInfo> subscriptions) {
@@ -1055,6 +1059,7 @@ public class NetworkControllerImpl extends BroadcastReceiver
                         : lhs.getSimSlotIndex() - rhs.getSimSlotIndex();
             }
         });
+        mSwap = isSwap(subscriptions);
         Log.i(
                 TAG,
                 String.format(
@@ -1246,6 +1251,7 @@ public class NetworkControllerImpl extends BroadcastReceiver
                 && !mConnectedTransports.get(NetworkCapabilities.TRANSPORT_ETHERNET);
         mCallbackHandler.setConnectivityStatus(mNoDefaultNetwork, !mInetCondition,
                 mNoNetworksAvailable);
+        updateImsIcon();
     }
 
     /**
