@@ -16,6 +16,10 @@
 */
 -->
 <resources>
+    <!-- Ambient indication -->
+    <dimen name="ambient_indication_icon_size">20.0dip</dimen>
+    <dimen name="ambient_indication_note_icon_size">14.0dip</dimen>
+
     <!-- Recommended minimum clickable element dimension -->
     <dimen name="min_clickable_item_size">48dp</dimen>
 
