@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (C) 2022 SuperiorOS
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_sound_label">音声</string>
+    <string name="quick_settings_sound_ring">着信</string>
+    <string name="quick_settings_sound_vibrate">振動</string>
+    <string name="quick_settings_sound_mute">消音</string>
+    <string name="face_unlock_recognizing">顔を認識中...</string>
+    <string name="statusbar_items_title">ステータスバーのアイコン</string>
+    <string name="status_bar_data_saver">データセーバー</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_call_strength">電波強度</string>
+    <string name="status_bar_roaming">ローミング表示</string>
+    <string name="global_action_reboot">再起動</string>
+    <string name="global_action_reboot_more">再起動\u2026</string>
+    <string name="global_action_reboot_sub">システム</string>
+    <string name="global_action_reboot_recovery">リカバリー</string>
+    <string name="global_action_reboot_bootloader">ブートローダー</string>
+    <string name="global_action_reboot_systemui">システム UI</string>
+    <string name="global_action_settings">設定</string>
+    <string name="screenrecord_delete_label">削除</string>
+    <string name="screenrecord_delete_description">画面録画を削除しました</string>
+    <string name="screenshot_delete_label">削除</string>
+    <string name="screenshot_delete_description">スクリーンショットを削除</string>
+    <string name="status_bar_nfc">NFC</string>
+    <string name="accessibility_status_bar_nfc">NFC</string>
+    <string name="usage_data">使用中</string>
+    <string name="usage_data_default_suffix">データ</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <string name="delete_screenshot_toast">スクリーンショットを削除しました</string>
+    <string name="quick_settings_caffeine_label">カフェイン</string>
+    <string name="accessibility_quick_settings_caffeine_off">カフェイン OFF</string>
+    <string name="accessibility_quick_settings_caffeine_on">カフェイン ON</string>
+    <string name="qs_data_switch_label">データ SIM の変更</string>
+    <string name="qs_data_switch_toast_0">現在 SIM カードは挿入されていません</string>
+    <string name="qs_data_switch_toast_1">現在1枚のみ SIM カードは挿入されています</string>
+    <string name="qs_data_switch_text_1">SIM 1</string>
+    <string name="qs_data_switch_text_2">SIM 2</string>
+    <string name="qs_data_switch_changed_1">SIM 1 をデータ通信に使用します</string>
+    <string name="qs_data_switch_changed_2">SIM 2 をデータ通信に使用します</string>
+    <string name="quick_settings_poweroff_label">電源を切る</string>
+    <string name="quick_settings_reboot_label">再起動</string>
+    <string name="quick_settings_reboot_recovery_label">リカバリー</string>
+    <string name="quick_settings_reboot_bootloader_label">ブートローダー</string>
+    <string name="turn_on_bluetooth">Bluetooth を使用</string>
+    <string name="bluetooth_is_off">Bluetooth は OFF です</string>
+    <string name="tap_a_device_to_connect">端末をタップして接続</string>
+    <string name="clock">時計</string>
+    <string name="screenrecord_stopdot_label">停止ドットを表示</string>
+    <string name="screenrecord_stopdot_summary">長押しで移動します</string>
+    <string name="screenrecord_lowquality_label">低品質にする</string>
+    <string name="screenrecord_lowquality_summary">ファイルサイズを小さくして低品質にする</string>
+    <string name="screenrecord_longer_timeout_switch_label">ファイルサイズの上限を大きくする</string>
+    <string name="screenrecord_longer_timeout_switch_summary">録画サイズを15GBに制限します</string>
+    <string name="screenrecord_skip_time_label">タイマーをスキップ</string>
+    <string name="screenrecord_skip_time_summary">3秒間の待機を削除する</string>
+</resources>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022 The SuperiorOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="permlab_fakePackageSignature">パッケージ署名を偽装</string>
+    <string name="permdesc_fakePackageSignature">アプリが別のアプリのふりをすることを許可します。悪意のあるアプリがこの機能を使ってプライベートなアプリデータにアクセスする可能性があります。正しい使い方は、エミュレーターがエミュレートする目的での使用などです。注意してこの権限を許可して下さい!</string>
+    <string name="permgrouplab_fake_package_signature">パッケージ署名を偽装</string>
+    <string name="permgroupdesc_fake_package_signature">パッケージ署名の偽装を許可</string>
+    <string name="permgrouprequest_fake_package_signature">&lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt;のパッケージ署名の偽装を許可しますか?</string>
+    <string name="aerr_copy">クラッシュログ URL をコピー</string>
+    <string name="url_copy_success">URL を正常にコピーしました</string>
+    <string name="url_copy_failed">Memochō へのログのアップロード中にエラーが発生しました</string>
+    <string name="face_unlock_disabled_idle">顔認証によるロック解除は無効中です</string>
+    <string name="reboot_to_bootloader_title">ブートローダーへ再起動</string>
+    <string name="reboot_to_bootloader_message">ブートローダーへ再起動中\u2026</string>
+    <string name="reboot_to_recovery_title">リカバリーへ再起動</string>
+    <string name="reboot_to_recovery_message">リカバリーへ再起動中\u2026</string>
+    <string name="reboot_system_title">システムの再起動</string>
+    <string name="reboot_system_message">再起動しています\u2026</string>
+    <string name="volume_dialog_ringer_guidance_normal">通話と通知を着信します</string>
+</resources>

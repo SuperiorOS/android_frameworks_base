@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022 The SuperiorOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="permlab_fakePackageSignature">Palsukan tanda tangan paket</string>
+    <string name="permdesc_fakePackageSignature">Mengizinkan aplikasi berpura-pura menjadi aplikasi yang berbeda. Aplikasi jahat mungkin dapat menggunakan ini untuk mengakses data aplikasi pribadi. Penggunaan yang sah termasuk emulator yang berpura-pura seperti apa yang ditiru. Berikan izin ini hanya dengan hati-hati!</string>
+    <string name="permgrouplab_fake_package_signature">Palsukan tanda tangan paket</string>
+    <string name="permgroupdesc_fake_package_signature">izinkan untuk memalsukan tanda tangan paket</string>
+    <string name="permgrouprequest_fake_package_signature">Izinkan
+        &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; untuk memalsukan tanda tangan paket?</string>
+    <string name="aerr_copy">Salin URL log kerusakan</string>
+    <string name="url_copy_success">URL berhasil disalin</string>
+    <string name="url_copy_failed">Terjadi kesalahan saat mengunggah log ke Memochō</string>
+    <string name="face_unlock_disabled_idle">Face unlock dinonaktifkan karena tidak ada aktivitas</string>
+    <string name="reboot_to_bootloader_title">Mulai ulang ke bootloader</string>
+    <string name="reboot_to_bootloader_message">Memulai ulang ke bootloader\u2026</string>
+    <string name="reboot_to_recovery_title">Mulai ulang ke recovery</string>
+    <string name="reboot_to_recovery_message">Memulai ulang ke recovery\u2026</string>
+    <string name="reboot_system_title">Mulai ulang sistem</string>
+    <string name="reboot_system_message">Memulai ulang sistem\u2026</string>
+    <string name="volume_dialog_ringer_guidance_normal">Panggilan dan notifikasi akan berdering</string>
+</resources>

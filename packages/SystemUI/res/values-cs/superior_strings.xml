@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (C) 2022 SuperiorOS
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_sound_label">Zvuk</string>
+    <string name="quick_settings_sound_ring">Vyzvánění</string>
+    <string name="quick_settings_sound_vibrate">Vibrace</string>
+    <string name="quick_settings_sound_mute">Ztlumení</string>
+    <string name="face_unlock_recognizing">Rozpoznávání obličeje...</string>
+    <string name="statusbar_items_title">Ikony na stavovém řádku</string>
+    <string name="status_bar_data_saver">Spořič dat</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_call_strength">Síla signálu hovoru</string>
+    <string name="status_bar_roaming">Indikátor roamingu</string>
+    <string name="global_action_reboot">Restartovat</string>
+    <string name="global_action_reboot_more">Restartování\u2026</string>
+    <string name="global_action_reboot_sub">Systém</string>
+    <string name="global_action_reboot_recovery">Recovery</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_reboot_systemui">SystemUI</string>
+    <string name="global_action_settings">Nastavení</string>
+    <string name="screenrecord_delete_label">Odstranit</string>
+    <string name="screenrecord_delete_description">Záznam obrazovky byl odstraněn</string>
+    <string name="screenshot_delete_label">Odstranit</string>
+    <string name="screenshot_delete_description">Odstranit snímek obrazovky</string>
+    <string name="status_bar_nfc">NFC</string>
+    <string name="accessibility_status_bar_nfc">NFC</string>
+    <string name="usage_data">použito</string>
+    <string name="usage_data_default_suffix">Data</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <string name="delete_screenshot_toast">Snímek obrazovky odstraněn</string>
+    <string name="quick_settings_caffeine_label">Caffeine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caffeine vyp.</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caffeine zap.</string>
+    <string name="qs_data_switch_label">Přepnout SIM pro data</string>
+    <string name="qs_data_switch_toast_0">Momentálně není vložena žádná SIM karta</string>
+    <string name="qs_data_switch_toast_1">Momentálně je vložena pouze jedna SIM karta</string>
+    <string name="qs_data_switch_text_1">SIM 1</string>
+    <string name="qs_data_switch_text_2">SIM 2</string>
+    <string name="qs_data_switch_changed_1">Přepnout datovou kartu na SIM 1.</string>
+    <string name="qs_data_switch_changed_2">Přepnout datovou kartu na SIM 2.</string>
+    <string name="quick_settings_poweroff_label">Vypnout</string>
+    <string name="quick_settings_reboot_label">Restartovat</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="quick_settings_reboot_bootloader_label">Bootloader</string>
+    <string name="turn_on_bluetooth">Použít Bluetooth</string>
+    <string name="bluetooth_is_off">Bluetooth je vypnuto</string>
+    <string name="tap_a_device_to_connect">Klepnutím na zařízení se připojíte</string>
+    <string name="clock">Hodiny</string>
+    <string name="screenrecord_stopdot_label">Zobrazit puntík pro zastavení</string>
+    <string name="screenrecord_stopdot_summary">Dlouhým stiskem přesunout</string>
+    <string name="screenrecord_lowquality_label">Nižší kvalita</string>
+    <string name="screenrecord_lowquality_summary">Pro menší velikost souboru</string>
+    <string name="screenrecord_longer_timeout_switch_label">Omezení větší velikosti souborů</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Omezit velikost nahrávání na 15 GB</string>
+    <string name="screenrecord_skip_time_label">Časovač přeskočení</string>
+    <string name="screenrecord_skip_time_summary">Odstranit 3 sekundy čekání</string>
+</resources>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022 The SuperiorOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="permlab_fakePackageSignature">Imiter la signature de paquet</string>
+    <string name="permdesc_fakePackageSignature">Autorise l\'application à se faire passer pour une autre. Des applications malveillantes peuvent l\'utiliser pour accéder à vos données privées. Accordez cette autorisation avec prudence !</string>
+    <string name="permgrouplab_fake_package_signature">Imiter la signature du paquet</string>
+    <string name="permgroupdesc_fake_package_signature">autoriser l\'usurpation de la signature du paquet</string>
+    <string name="permgrouprequest_fake_package_signature">Autoriser
+        &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; à usurper la signature du paquet ?</string>
+    <string name="aerr_copy">Copier l\'URL du rapport d\'erreur</string>
+    <string name="url_copy_success">URL copiée avec succès</string>
+    <string name="url_copy_failed">Une erreur s\'est produite lors de l\'envoi du rapport d\'erreurs</string>
+    <string name="face_unlock_disabled_idle">Déverrouillage par reconnaissance faciale désactivé en raison de l\'inactivité</string>
+    <string name="reboot_to_bootloader_title">Redémarrage en mode bootloader</string>
+    <string name="reboot_to_bootloader_message">Redémarrage en mode Bootloader\u2026</string>
+    <string name="reboot_to_recovery_title">Redémarrer en mode Recovery</string>
+    <string name="reboot_to_recovery_message">Redémarrage en mode recovery\u2026</string>
+    <string name="reboot_system_title">Redémarrer le système</string>
+    <string name="reboot_system_message">Redémarrage du système\u2026</string>
+    <string name="volume_dialog_ringer_guidance_normal">Sonnerie activée pour les notifications et les appels</string>
+</resources>

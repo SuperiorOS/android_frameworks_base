@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022 The SuperiorOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="permlab_fakePackageSignature">Разрешить подмену подписи пакета</string>
+    <string name="permdesc_fakePackageSignature">Разрешать приложениям обходить систему безопасности, выдавая себя за другое приложение. Вредоносные приложения могут использовать это для доступа к частным данным. Предоставляйте это разрешение на свой страх и риск!</string>
+    <string name="permgrouplab_fake_package_signature">Разрешить подмену подписи пакета</string>
+    <string name="permgroupdesc_fake_package_signature">разрешить подмену подписи пакета</string>
+    <string name="permgrouprequest_fake_package_signature">Разрешить
+        &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; подмену подписи пакета?</string>
+    <string name="aerr_copy">Скопировать ссылку лога ошибки</string>
+    <string name="url_copy_success">Ссылка успешно скопирована</string>
+    <string name="url_copy_failed">Произошла ошибка при загрузке лога на Memochō</string>
+    <string name="reboot_to_bootloader_title">Перезагрузить в загрузчика</string>
+    <string name="reboot_to_bootloader_message">Перезагрузка в загрузчик\u2026</string>
+    <string name="reboot_to_recovery_title">Перезагрузить в рекавери</string>
+    <string name="reboot_to_recovery_message">Перезагрузка в рекавери\u2026</string>
+    <string name="reboot_system_title">Перезапустить систему</string>
+    <string name="reboot_system_message">Перезагрузка системы\u2026</string>
+    <string name="volume_dialog_ringer_guidance_normal">Звуковой сигнал для звонков и уведомлений</string>
+</resources>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (C) 2022 SuperiorOS
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_sound_label">Son</string>
+    <string name="quick_settings_sound_ring">Sonnerie</string>
+    <string name="quick_settings_sound_vibrate">Vibreur</string>
+    <string name="quick_settings_sound_mute">Silence</string>
+    <string name="face_unlock_recognizing">Reconaissance faciale...</string>
+    <string name="statusbar_items_title">Icônes de la barre d\'état</string>
+    <string name="status_bar_data_saver">Économiseur de données</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_call_strength">Puissance du réseau</string>
+    <string name="status_bar_roaming">Indicateur d\'itinérance</string>
+    <string name="global_action_reboot">Redémarrer</string>
+    <string name="global_action_reboot_more">Redémarrer\u2026</string>
+    <string name="global_action_reboot_sub">Système</string>
+    <string name="global_action_reboot_recovery">Recovery</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_reboot_systemui">Interface utilisateur</string>
+    <string name="global_action_settings">Paramètres</string>
+    <string name="screenrecord_delete_label">Supprimer</string>
+    <string name="screenrecord_delete_description">Enregistrement d\'écran supprimé</string>
+    <string name="screenshot_delete_label">Supprimer</string>
+    <string name="screenshot_delete_description">Supprimer la capture d\'écran</string>
+    <string name="status_bar_nfc">NFC</string>
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <string name="usage_data">utilisé</string>
+    <string name="usage_data_default_suffix">Données</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <string name="delete_screenshot_toast">Capture d\'écran supprimée</string>
+    <string name="quick_settings_caffeine_label">Caféine</string>
+    <string name="accessibility_quick_settings_caffeine_off">Caféine désactivée</string>
+    <string name="accessibility_quick_settings_caffeine_on">Caféine activée</string>
+    <string name="qs_data_switch_label">Changer de carte</string>
+    <string name="qs_data_switch_toast_0">Actuellement, aucune carte SIM n\'est insérée</string>
+    <string name="qs_data_switch_toast_1">Actuellement, une seule carte SIM est insérée</string>
+    <string name="qs_data_switch_text_1">SIM 1</string>
+    <string name="qs_data_switch_text_2">SIM 2</string>
+    <string name="qs_data_switch_changed_1">Changer la carte mémoire sur SIM 1.</string>
+    <string name="qs_data_switch_changed_2">Changer la carte mémoire sur SIM 2.</string>
+    <string name="quick_settings_poweroff_label">Éteindre</string>
+    <string name="quick_settings_reboot_label">Redémarrer</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="quick_settings_reboot_bootloader_label">Bootloader</string>
+    <string name="turn_on_bluetooth">Utiliser le Bluetooth</string>
+    <string name="bluetooth_is_off">Le Bluetooth est désactivé</string>
+    <string name="tap_a_device_to_connect">Sélectionnez un périphérique à connecter</string>
+</resources>
