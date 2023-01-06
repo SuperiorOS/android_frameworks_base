@@ -1327,10 +1327,10 @@ public class VolumeDialogImpl implements VolumeDialog, Dumpable,
     }
 
     private boolean isBluetoothA2dpConnected() {
-        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        return mBluetoothAdapter != null && mBluetoothAdapter.isEnabled()
-                && mBluetoothAdapter.getProfileConnectionState(BluetoothProfile.A2DP)
-                == BluetoothProfile.STATE_CONNECTED;
+        final BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        return mBluetoothAdapter != null && mBluetoothAdapter.isEnabled() &&
+                mBluetoothAdapter.getProfileConnectionState(BluetoothProfile.A2DP)
+                        == BluetoothProfile.STATE_CONNECTED;
     }
 
     private void initSettingsH(int lockTaskModeState) {
