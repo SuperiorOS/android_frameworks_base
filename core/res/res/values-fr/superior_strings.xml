@@ -31,5 +31,7 @@
     <string name="reboot_to_recovery_message">Redémarrage en mode recovery\u2026</string>
     <string name="reboot_system_title">Redémarrer le système</string>
     <string name="reboot_system_message">Redémarrage du système\u2026</string>
+    <string name="alert_slider_state_path"/>
+    <string name="alert_slider_uevent_match_path"/>
     <string name="volume_dialog_ringer_guidance_normal">Sonnerie activée pour les notifications et les appels</string>
 </resources>

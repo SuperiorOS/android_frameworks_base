@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022 The SuperiorOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="permlab_fakePackageSignature">Spoof package signature</string>
+    <string name="permdesc_fakePackageSignature">Allows the app to pretend to be a different app. Malicious applications might be able to use this to access private application data. Legitimate uses include an emulator pretending to be what it emulates. Grant this permission with caution only!</string>
+    <string name="permgrouplab_fake_package_signature">Spoof package signature</string>
+    <string name="permgroupdesc_fake_package_signature">allow to spoof package signature</string>
+    <string name="permgrouprequest_fake_package_signature">Allow
+        &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; to spoof package signature?</string>
+    <string name="aerr_copy">Copy crash log URL</string>
+    <string name="url_copy_success">URL copied successfully</string>
+    <string name="url_copy_failed">An error occured while uploading the log to Memochō</string>
+    <string name="face_unlock_disabled_idle">Face unlock disabled due to inactivity</string>
+    <string name="reboot_to_bootloader_title">Reboot bootloader</string>
+    <string name="reboot_to_bootloader_message">Rebooting to bootloader\u2026</string>
+    <string name="reboot_to_recovery_title">Reboot recovery</string>
+    <string name="reboot_to_recovery_message">Rebooting to recovery\u2026</string>
+    <string name="reboot_system_title">Restart system</string>
+    <string name="reboot_system_message">Restarting system\u2026</string>
+    <string name="alert_slider_state_path"/>
+    <string name="alert_slider_uevent_match_path"/>
+    <string name="volume_dialog_ringer_guidance_normal">Calls and notifications will ring</string>
+</resources>

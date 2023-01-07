@@ -31,5 +31,7 @@
     <string name="reboot_to_recovery_message">Memulai ulang ke recovery\u2026</string>
     <string name="reboot_system_title">Mulai ulang sistem</string>
     <string name="reboot_system_message">Memulai ulang sistem\u2026</string>
+    <string name="alert_slider_state_path"/>
+    <string name="alert_slider_uevent_match_path"/>
     <string name="volume_dialog_ringer_guidance_normal">Panggilan dan notifikasi akan berdering</string>
 </resources>

@@ -30,5 +30,7 @@
     <string name="reboot_to_recovery_message">Recovery rejimində başladılır\u2026</string>
     <string name="reboot_system_title">Sistemi yenidən başlat</string>
     <string name="reboot_system_message">Sistem yenidən başladılır\u2026</string>
+    <string name="alert_slider_state_path"/>
+    <string name="alert_slider_uevent_match_path"/>
     <string name="volume_dialog_ringer_guidance_normal">Zənglər və bildirişlər çalacaq</string>
 </resources>

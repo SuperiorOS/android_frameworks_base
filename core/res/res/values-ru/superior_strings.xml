@@ -24,11 +24,14 @@
     <string name="aerr_copy">Скопировать ссылку лога ошибки</string>
     <string name="url_copy_success">Ссылка успешно скопирована</string>
     <string name="url_copy_failed">Произошла ошибка при загрузке лога на Memochō</string>
+    <string name="face_unlock_disabled_idle">Разблокировка по лицу отключена из-за бездействия</string>
     <string name="reboot_to_bootloader_title">Перезагрузить в загрузчика</string>
     <string name="reboot_to_bootloader_message">Перезагрузка в загрузчик\u2026</string>
     <string name="reboot_to_recovery_title">Перезагрузить в рекавери</string>
     <string name="reboot_to_recovery_message">Перезагрузка в рекавери\u2026</string>
     <string name="reboot_system_title">Перезапустить систему</string>
     <string name="reboot_system_message">Перезагрузка системы\u2026</string>
+    <string name="alert_slider_state_path"/>
+    <string name="alert_slider_uevent_match_path"/>
     <string name="volume_dialog_ringer_guidance_normal">Звуковой сигнал для звонков и уведомлений</string>
 </resources>

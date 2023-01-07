@@ -24,11 +24,14 @@
     <string name="aerr_copy">Копіювати URL звіту про помилку</string>
     <string name="url_copy_success">URL успішно скопійовано</string>
     <string name="url_copy_failed">Помилка під час завантаження файла звіту до dogbin</string>
+    <string name="face_unlock_disabled_idle">Face unlock disabled due to inactivity</string>
     <string name="reboot_to_bootloader_title">Перезавантажити в завантажувач</string>
     <string name="reboot_to_bootloader_message">Перезавантаження у завантажувач\u2026</string>
     <string name="reboot_to_recovery_title">Перезавантаження в Режим відновлення</string>
     <string name="reboot_to_recovery_message">Перезавантаження у режим відновлення\u2026</string>
     <string name="reboot_system_title">Перезавантажити систему</string>
     <string name="reboot_system_message">Перезавантаження системи\u2026</string>
+    <string name="alert_slider_state_path"/>
+    <string name="alert_slider_uevent_match_path"/>
     <string name="volume_dialog_ringer_guidance_normal">Звуковий сигнал для викликів і сповіщень увімкнено</string>
 </resources>

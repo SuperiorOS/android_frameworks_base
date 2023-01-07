@@ -62,7 +62,7 @@
     <string name="clock">Jam</string>
     <string name="screenrecord_stopdot_label">Tampilkan titik berhenti</string>
     <string name="screenrecord_stopdot_summary">Tekan lama untuk memindahkannya</string>
-    <string name="screenrecord_lowquality_label">Kualitas lebih rendah untuk ukuran file yang lebih kecil</string>
+    <string name="screenrecord_lowquality_label">Kualitas rendah</string>
     <string name="screenrecord_lowquality_summary">Untuk ukuran file yang lebih kecil</string>
     <string name="screenrecord_longer_timeout_switch_label">Batas ukuran file lebih besar</string>
     <string name="screenrecord_longer_timeout_switch_summary">Batasi ukuran perekaman hanya 15 GB</string>

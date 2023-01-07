@@ -30,5 +30,7 @@
     <string name="reboot_to_recovery_message">リカバリーへ再起動中\u2026</string>
     <string name="reboot_system_title">システムの再起動</string>
     <string name="reboot_system_message">再起動しています\u2026</string>
+    <string name="alert_slider_state_path"/>
+    <string name="alert_slider_uevent_match_path"/>
     <string name="volume_dialog_ringer_guidance_normal">通話と通知を着信します</string>
 </resources>
