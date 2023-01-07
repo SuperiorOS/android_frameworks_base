@@ -11,7 +11,6 @@ import androidx.constraintlayout.widget.ConstraintSet.END
 import androidx.constraintlayout.widget.ConstraintSet.PARENT_ID
 import androidx.constraintlayout.widget.ConstraintSet.START
 import androidx.constraintlayout.widget.ConstraintSet.TOP
-import com.android.internal.policy.SystemBarUtils
 import com.android.systemui.R
 import com.android.systemui.dagger.qualifiers.Main
 import com.android.systemui.flags.FeatureFlags
@@ -48,7 +47,6 @@ class NotificationsQSContainerController @Inject constructor(
                 mView.invalidate()
             }
         }
-
     private var splitShadeEnabled = false
     private var isQSDetailShowing = false
     private var isQSCustomizing = false
@@ -63,7 +61,6 @@ class NotificationsQSContainerController @Inject constructor(
     private var bottomCutoutInsets = 0
     private var panelMarginHorizontal = 0
     private var topMargin = 0
-    private var qsTopMargin = 0
 
     private val useCombinedQSHeaders = featureFlags.isEnabled(Flags.COMBINED_QS_HEADERS)
 
@@ -136,12 +133,6 @@ class NotificationsQSContainerController @Inject constructor(
             largeScreenShadeHeaderHeight
         } else {
             resources.getDimensionPixelSize(R.dimen.notification_panel_margin_top)
-        }
-        qsTopMargin = if (largeScreenShadeHeaderActive || !useCombinedQSHeaders) {
-            topMargin
-        } else {
-            SystemBarUtils.getQuickQsOffsetHeight(mView.context) -
-                SystemBarUtils.getStatusBarHeight(mView.context)
         }
         updateConstraints()
 
@@ -259,7 +250,7 @@ class NotificationsQSContainerController @Inject constructor(
             connect(R.id.qs_frame, END, endConstraintId, END)
             setMargin(R.id.qs_frame, START, if (splitShadeEnabled) 0 else panelMarginHorizontal)
             setMargin(R.id.qs_frame, END, if (splitShadeEnabled) 0 else panelMarginHorizontal)
-            setMargin(R.id.qs_frame, TOP, qsTopMargin)
+            setMargin(R.id.qs_frame, TOP, topMargin)
         }
     }
 

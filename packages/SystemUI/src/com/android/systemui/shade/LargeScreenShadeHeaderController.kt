@@ -141,7 +141,6 @@ class LargeScreenShadeHeaderController @Inject constructor(
     private var lastInsets: WindowInsets? = null
     private var textColorPrimary = Color.TRANSPARENT
 
-    private var isSingleCarrier = false
     private var qsDisabled = false
     private var visible = false
         set(value) {
@@ -163,19 +162,6 @@ class LargeScreenShadeHeaderController @Inject constructor(
             }
             field = value
             onShadeExpandedChanged()
-        }
-
-    /**
-     * Whether the QS is expanding or collapsing, in order to make changes to layout when
-     * the header elements are hidden at half progress (0.5f).
-     */
-    var qsExpanding = false
-        set(value) {
-            if (field == value) {
-                return
-            }
-            field = value
-            updateCarrierIcons()
         }
 
     /**
@@ -318,8 +304,9 @@ class LargeScreenShadeHeaderController @Inject constructor(
         dumpManager.registerDumpable(this)
         configurationController.addCallback(configurationControllerListener)
 
+        updateVisibility()
+        updateTransition()
         updateResources()
-        onHeaderStateChanged()
     }
 
     override fun onViewDetached() {
@@ -463,7 +450,6 @@ class LargeScreenShadeHeaderController @Inject constructor(
                 "position: $qsExpandedFraction"
             )
             header.progress = qsExpandedFraction
-            qsExpanding = qsExpandedFraction > 0.5f
         }
     }
 
@@ -480,22 +466,10 @@ class LargeScreenShadeHeaderController @Inject constructor(
     }
 
     private fun updateSingleCarrier(singleCarrier: Boolean) {
-        isSingleCarrier = singleCarrier
         if (singleCarrier) {
             iconContainer.removeIgnoredSlots(carrierIconSlots)
         } else {
-            updateCarrierIcons()
-        }
-    }
-
-    private fun updateCarrierIcons() {
-        if (isSingleCarrier) {
-            return
-        }
-        if (qsExpanding) {
             iconContainer.addIgnoredSlots(carrierIconSlots)
-        } else {
-            iconContainer.removeIgnoredSlots(carrierIconSlots)
         }
     }
 
