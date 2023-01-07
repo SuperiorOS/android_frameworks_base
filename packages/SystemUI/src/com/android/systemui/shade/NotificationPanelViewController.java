@@ -3650,6 +3650,9 @@ public final class NotificationPanelViewController implements Dumpable {
                 && !mKeyguardBypassController.getBypassEnabled()) {
             alpha *= mClockPositionResult.clockAlpha;
         }
+        if (mQsExpandImmediate && !mQsFullyExpanded) {
+            alpha = 0f;
+        }
         mNotificationStackScrollLayoutController.setAlpha(alpha);
     }
 
