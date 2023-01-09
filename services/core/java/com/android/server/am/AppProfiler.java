@@ -68,6 +68,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.ParcelFileDescriptor;
+import android.os.Process;
 import android.os.RemoteException;
 import android.os.ServiceManager;
 import android.os.SystemClock;
@@ -170,6 +171,21 @@ public class AppProfiler {
      */
     private static final String EXTRA_HEAP_DUMP_REPORT_PACKAGE =
             "com.android.internal.extra.heap_dump.REPORT_PACKAGE";
+
+    private static final int LOW_MEM_FACTOR = 10;
+    private static final int[] MEMINFO_FORMAT = {
+            Process.PROC_SPACE_TERM | Process.PROC_COMBINE,
+            Process.PROC_SPACE_TERM | Process.PROC_OUT_LONG,
+            Process.PROC_NEWLINE_TERM,
+
+            Process.PROC_SPACE_TERM | Process.PROC_COMBINE,
+            Process.PROC_SPACE_TERM | Process.PROC_OUT_LONG,
+            Process.PROC_NEWLINE_TERM,
+
+            Process.PROC_SPACE_TERM | Process.PROC_COMBINE,
+            Process.PROC_SPACE_TERM | Process.PROC_OUT_LONG,
+            Process.PROC_NEWLINE_TERM,
+    };
 
     /**
      * How long we defer PSS gathering while activities are starting, in milliseconds.
@@ -1243,12 +1259,28 @@ public class AppProfiler {
         }
     }
 
+    private boolean isSystemLowMem() {
+        long[] longs = new long[3];
+        if (!Process.readProcFile("/proc/meminfo", MEMINFO_FORMAT, null, longs, null)) {
+            Slog.e(TAG, "Read file /proc/meminfo failed!");
+            return false;
+        }
+        final long memAvailableKb = longs[2];
+        if (memAvailableKb == 0) {
+            Slog.e(TAG, "MemAvailable is 0! This should never happen!");
+            return false;
+        }
+        final long memTotalKb = longs[0];
+        // Return true if no more than 1/LOW_MEM_FACTOR mem available.
+        // MemAvailable shown in /proc/meminfo contains all available mem for starting new
+        // applications without swapping. For more details please refer to kernel doc:
+        // https://elixir.bootlin.com/linux/latest/source/Documentation/filesystems/proc.rst
+        return memTotalKb / memAvailableKb >= LOW_MEM_FACTOR;
+    }
+
     @GuardedBy("mService")
     final void doLowMemReportIfNeededLocked(ProcessRecord dyingProc) {
-        // If there are no longer any background processes running,
-        // and the app that died was not running instrumentation,
-        // then tell everyone we are now low on memory.
-        if (!mService.mProcessList.haveBackgroundProcessLOSP()) {
+        if (isSystemLowMem()) {
             boolean doReport = Build.IS_DEBUGGABLE;
             final long now = SystemClock.uptimeMillis();
             if (doReport) {
