@@ -11306,12 +11306,6 @@ public final class Settings {
         public static final String WINDOW_IGNORE_SECURE = "window_ignore_secure";
 
         /**
-         * List of ; separated apps to be hidden from launcher.
-         * @hide
-         */
-        public static final String LAUNCHER_HIDDEN_APPS = "launcher_hidden_apps";
-
-        /**
          * Whether to show the brightness slider in quick settings panel.
          * @hide
          */

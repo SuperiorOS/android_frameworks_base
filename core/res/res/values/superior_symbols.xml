@@ -60,4 +60,7 @@
     <java-symbol type="string" name="alert_slider_uevent_match_path" />
     <java-symbol type="bool" name="config_hasAlertSlider" />
 
+    <!-- App lock -->
+    <java-symbol type="string" name="unlock_application" />
+    <java-symbol type="array" name="config_appLockAllowedSystemApps" />
 </resources>
