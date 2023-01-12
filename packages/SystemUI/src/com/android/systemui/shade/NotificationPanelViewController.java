@@ -4529,11 +4529,11 @@ public final class NotificationPanelViewController implements Dumpable {
             switch (key) {
                 case DOUBLE_TAP_SLEEP_GESTURE:
 		    mDoubleTapToSleepEnabled =
-                    TunerService.parseIntegerSwitch(newValue, true);
+                    TunerService.parseIntegerSwitch(newValue, false);
                     break;
                 case DOUBLE_TAP_SLEEP_LOCKSCREEN:
                     mIsLockscreenDoubleTapEnabled =
-                    TunerService.parseIntegerSwitch(newValue, true);
+                    TunerService.parseIntegerSwitch(newValue, false);
                     break;
                 default:
                     break;
