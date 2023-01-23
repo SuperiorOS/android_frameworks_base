@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright (C) 2021 The AospExtended Project
+  ~ Copyright (C) 2022-2023 The LibreMobileOS Foundation
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
   ~ you may not use this file except in compliance with the License.
@@ -18,17 +19,37 @@
     xmlns:priv-android="http://schemas.android.com/apk/prv/res/android"
     android:autoMirrored="true">
     <item android:height="20dp">
-        <shape android:tint="?android:attr/colorAccent" android:shape="rectangle">
-            <size android:height="20dp" />
-            <stroke android:width="1dp" android:color="#ffffffff" />
-            <solid android:color="#ffffffff" />
-            <corners android:radius="10dp" />
-        </shape>
+        <selector>
+            <item android:state_enabled="false">
+                <shape android:tint="?android:attr/colorAccent" android:shape="rectangle">
+                    <size android:height="20dp" />
+                    <solid android:color="#80ffffff" />
+                    <corners android:radius="10dp" />
+                </shape>
+            </item>
+            <item android:state_enabled="true">
+                <shape android:tint="?android:attr/colorAccent" android:shape="rectangle">
+                    <size android:height="20dp" />
+                    <solid android:color="#ffffffff" />
+                    <corners android:radius="10dp" />
+                </shape>
+            </item>
+        </selector>
     </item>
     <item android:gravity="end|center" android:end="4dp" android:height="12dp">
-        <shape android:tint="?android:attr/colorBackground" android:shape="oval">
-            <size android:width="12dp" android:height="12dp" />
-            <solid android:color="#80626161" />
-        </shape>
+        <selector>
+            <item android:state_enabled="false">
+                <shape android:tint="?android:attr/colorBackground" android:shape="oval">
+                    <size android:width="12dp" android:height="12dp" />
+                    <solid android:color="#40626161" />
+                </shape>
+            </item>
+            <item android:state_enabled="true">
+                <shape android:tint="?android:attr/colorBackground" android:shape="oval">
+                    <size android:width="12dp" android:height="12dp" />
+                    <solid android:color="#80626161" />
+                </shape>
+            </item>
+        </selector>
     </item>
 </layer-list>
