@@ -27,6 +27,7 @@
     android:elegantTextHeight="false"
     android:ellipsize="none"
     android:singleLine="true"
+    android:textAlignment="center"
     android:fontFeatureSettings="pnum"
     chargeAnimationDelay="350"
     dozeWeight="200"
