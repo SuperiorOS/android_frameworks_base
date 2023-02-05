@@ -3188,7 +3188,10 @@ public class PermissionManagerServiceImpl implements PermissionManagerServiceInt
                 }
                 if (bp.isRuntime()) {
 
-                    if (!(newPerm.equals(Manifest.permission.ACTIVITY_RECOGNITION)
+		    // com.google.android.gms.permission.ACTIVITY_RECOGNITION is not checked here 
+		    // causing illegal state exception when removing a permission that an app
+		    // used to be declared when updating ownership
+                    if (!(newPerm.contains(".permission.ACTIVITY_RECOGNITION")
                             || READ_MEDIA_AURAL_PERMISSIONS.contains(newPerm)
                             || READ_MEDIA_VISUAL_PERMISSIONS.contains(newPerm))) {
                         ps.updatePermissionFlags(bp,
@@ -3199,11 +3202,17 @@ public class PermissionManagerServiceImpl implements PermissionManagerServiceInt
 
                     if (!origPs.hasPermissionState(sourcePerms)) {
                         boolean inheritsFromInstallPerm = false;
+                        boolean permIsActivityRecognition = false;
                         for (int sourcePermNum = 0; sourcePermNum < sourcePerms.size();
                                 sourcePermNum++) {
                             final String sourcePerm = sourcePerms.valueAt(sourcePermNum);
                             Permission sourceBp = mRegistry.getPermission(sourcePerm);
-                            if (sourceBp == null) {
+                            if (sourcePerm.contains(".permission.ACTIVITY_RECOGNITION")) {
+                            	permIsActivityRecognition = true;
+                            }
+                            // Extra check for Line 3175 since user IDs were updated at Line 3175 skip the illegal state exception for 
+                            // com.google.android.gms.permission.ACTIVITY_RECOGNITION/android.permission.ACTIVITY_RECOGNITION 
+                            if (sourceBp == null && !permIsActivityRecognition) {
                                 throw new IllegalStateException("Unknown source permission in split"
                                         + " permission: " + sourcePerm);
                             }
