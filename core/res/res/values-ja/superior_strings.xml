@@ -23,14 +23,13 @@
     <string name="aerr_copy">クラッシュログ URL をコピー</string>
     <string name="url_copy_success">URL を正常にコピーしました</string>
     <string name="url_copy_failed">Memochō へのログのアップロード中にエラーが発生しました</string>
-    <string name="face_unlock_disabled_idle">顔認証によるロック解除は無効中です</string>
+    <string name="face_unlock_disabled_idle">非アクティブ中の顔認証によるロック解除は無効です</string>
     <string name="reboot_to_bootloader_title">ブートローダーへ再起動</string>
     <string name="reboot_to_bootloader_message">ブートローダーへ再起動中\u2026</string>
     <string name="reboot_to_recovery_title">リカバリーへ再起動</string>
     <string name="reboot_to_recovery_message">リカバリーへ再起動中\u2026</string>
     <string name="reboot_system_title">システムの再起動</string>
     <string name="reboot_system_message">再起動しています\u2026</string>
-    <string name="alert_slider_state_path"/>
-    <string name="alert_slider_uevent_match_path"/>
-    <string name="volume_dialog_ringer_guidance_normal">通話と通知を着信します</string>
+    <string name="volume_dialog_ringer_guidance_normal">通話と通知をお知らせします</string>
+    <string name="unlock_application"><xliff:g id="label" example="Telegram">%1$s</xliff:g>をロック解除</string>
 </resources>

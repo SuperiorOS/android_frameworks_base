@@ -15,23 +15,22 @@
      limitations under the License.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="permlab_fakePackageSignature">Spoof package signature</string>
-    <string name="permdesc_fakePackageSignature">Allows the app to pretend to be a different app. Malicious applications might be able to use this to access private application data. Legitimate uses include an emulator pretending to be what it emulates. Grant this permission with caution only!</string>
-    <string name="permgrouplab_fake_package_signature">Spoof package signature</string>
-    <string name="permgroupdesc_fake_package_signature">allow to spoof package signature</string>
-    <string name="permgrouprequest_fake_package_signature">Allow
-        &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; to spoof package signature?</string>
-    <string name="aerr_copy">Copy crash log URL</string>
-    <string name="url_copy_success">URL copied successfully</string>
-    <string name="url_copy_failed">An error occured while uploading the log to Memochō</string>
-    <string name="face_unlock_disabled_idle">Face unlock disabled due to inactivity</string>
-    <string name="reboot_to_bootloader_title">Reboot bootloader</string>
-    <string name="reboot_to_bootloader_message">Rebooting to bootloader\u2026</string>
-    <string name="reboot_to_recovery_title">Reboot recovery</string>
-    <string name="reboot_to_recovery_message">Rebooting to recovery\u2026</string>
-    <string name="reboot_system_title">Restart system</string>
-    <string name="reboot_system_message">Restarting system\u2026</string>
-    <string name="alert_slider_state_path"/>
-    <string name="alert_slider_uevent_match_path"/>
-    <string name="volume_dialog_ringer_guidance_normal">Calls and notifications will ring</string>
+    <string name="permlab_fakePackageSignature">Falsifică semnătura pachetului</string>
+    <string name="permdesc_fakePackageSignature">Permite aplicației să pretindă că este o aplicație diferită. Aplicațiile rău-intenționate ar putea să utilizeze aceasta pentru a accesa datele aplicațiilor private. Acordați această permisiune numai cu prudență!</string>
+    <string name="permgrouplab_fake_package_signature">Falsifică semnătura pachetului</string>
+    <string name="permgroupdesc_fake_package_signature">permite falsificarea semnăturii pachetului</string>
+    <string name="permgrouprequest_fake_package_signature">Permiți ca
+        &lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; să falsifice semnătura pachetului?</string>
+    <string name="aerr_copy">Copiază URL-ul jurnalului de erori</string>
+    <string name="url_copy_success">URL copiat cu succes</string>
+    <string name="url_copy_failed">A apărut o eroare la încărcarea jurnalului în Memochō</string>
+    <string name="face_unlock_disabled_idle">Deblocarea facială a fost dezactivată din cauza inactivității</string>
+    <string name="reboot_to_bootloader_title">Repornire în bootloader</string>
+    <string name="reboot_to_bootloader_message">Repornire în bootloader\u2026</string>
+    <string name="reboot_to_recovery_title">Repornire în recuperare</string>
+    <string name="reboot_to_recovery_message">Repornire în recuperare\u2026</string>
+    <string name="reboot_system_title">Repornire sistem</string>
+    <string name="reboot_system_message">Repornire sistem\u2026</string>
+    <string name="volume_dialog_ringer_guidance_normal">Apelurile și notificările vor suna</string>
+    <string name="unlock_application">Deblocare <xliff:g id="label" example="Telegram">%1$s</xliff:g></string>
 </resources>
