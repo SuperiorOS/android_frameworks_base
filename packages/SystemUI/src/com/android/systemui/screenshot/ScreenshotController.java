@@ -170,7 +170,7 @@ public class ScreenshotController {
     /**
      * Structure returned by the SaveImageInBackgroundTask
      */
-    static class SavedImageData {
+    public static class SavedImageData {
         public Uri uri;
         public Supplier<ActionTransition> shareTransition;
         public Supplier<ActionTransition> editTransition;
@@ -1054,6 +1054,8 @@ public class ScreenshotController {
                 } else {
                     doPostAnimation(imageData);
                 }
+                mNotificationsController.showPostActionNotification(
+                    imageData, mScreenBitmap);
             });
         }
     }
