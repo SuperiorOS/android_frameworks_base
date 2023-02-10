@@ -25,6 +25,7 @@
     <string name="status_bar_vpn">VPN</string>
     <string name="status_bar_call_strength">Síla signálu hovoru</string>
     <string name="status_bar_roaming">Indikátor roamingu</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="global_action_reboot">Restartovat</string>
     <string name="global_action_reboot_more">Restartování\u2026</string>
     <string name="global_action_reboot_sub">Systém</string>
@@ -68,4 +69,8 @@
     <string name="screenrecord_longer_timeout_switch_summary">Omezit velikost nahrávání na 15 GB</string>
     <string name="screenrecord_skip_time_label">Časovač přeskočení</string>
     <string name="screenrecord_skip_time_summary">Odstranit 3 sekundy čekání</string>
+    <string name="quick_settings_powershare_label">Reverzní nabíjení</string>
+    <string name="quick_settings_powershare_off_powersave_label">Reverzní nabíjení\nSpořič baterie</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Reverzní nabíjení\nNízký stav baterie</string>
+    <string name="quick_settings_powershare_enabled_label">Reverzní nabíjení je povoleno</string>
 </resources>

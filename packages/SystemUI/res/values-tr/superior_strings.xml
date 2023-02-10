@@ -25,6 +25,7 @@
     <string name="status_bar_vpn">VPN</string>
     <string name="status_bar_call_strength">Arama gücü</string>
     <string name="status_bar_roaming">Dolaşım göstergesi</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="global_action_reboot">Yeniden başlat</string>
     <string name="global_action_reboot_more">Yeniden başlatılıyor\u2026</string>
     <string name="global_action_reboot_sub">Sistem</string>
@@ -68,4 +69,8 @@
     <string name="screenrecord_longer_timeout_switch_summary">Kayıt boyutunu 15 GB ile sınırlayın</string>
     <string name="screenrecord_skip_time_label">Zamanlayıcıyı atla</string>
     <string name="screenrecord_skip_time_summary">3 saniye beklemeyi kaldır</string>
+    <string name="quick_settings_powershare_label">Pil Aktarımı</string>
+    <string name="quick_settings_powershare_off_powersave_label">Pil Aktarımı kapalı\nPil tasarrufu modu</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Pil Aktarımı kapalı\nPil çok düşük</string>
+    <string name="quick_settings_powershare_enabled_label">Pil Aktarımı etkin</string>
 </resources>

@@ -25,6 +25,7 @@
     <string name="status_bar_vpn">VPN</string>
     <string name="status_bar_call_strength">Intensidade do sinal para chamadas</string>
     <string name="status_bar_roaming">Indicador de Roaming</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
     <string name="global_action_reboot">Reiniciar</string>
     <string name="global_action_reboot_more">Reiniciar\u2026</string>
     <string name="global_action_reboot_sub">Sistema</string>
@@ -68,4 +69,8 @@
     <string name="screenrecord_longer_timeout_switch_summary">Limitar o tamanho de gravação para 15 GB</string>
     <string name="screenrecord_skip_time_label">Pule o cronômetro</string>
     <string name="screenrecord_skip_time_summary">Remover espera de 3 segundos</string>
+    <string name="quick_settings_powershare_label">Carregamento reverso</string>
+    <string name="quick_settings_powershare_off_powersave_label">Carregamento reverso desativado\n Economia de bateria</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Carregamento reverso desativado\n Bateria fraca</string>
+    <string name="quick_settings_powershare_enabled_label">Carregamento reverso ativado</string>
 </resources>
