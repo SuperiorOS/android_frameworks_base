@@ -39,13 +39,13 @@
     <item android:gravity="end|center" android:end="4dp" android:height="12dp">
         <selector>
             <item android:state_enabled="false">
-                <shape android:tint="?android:attr/colorBackground" android:shape="oval">
+                <shape android:tint="@color/seekbar_progress_thumb" android:shape="oval">
                     <size android:width="12dp" android:height="12dp" />
                     <solid android:color="#40626161" />
                 </shape>
             </item>
             <item android:state_enabled="true">
-                <shape android:tint="?android:attr/colorBackground" android:shape="oval">
+                <shape android:tint="@color/seekbar_progress_thumb" android:shape="oval">
                     <size android:width="12dp" android:height="12dp" />
                     <solid android:color="#80626161" />
                 </shape>
