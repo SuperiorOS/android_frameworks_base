@@ -95,4 +95,7 @@
     <!-- Paths to OP warp charging status file -->
     <java-symbol type="string" name="config_opWarpChargerStatusPaths" />
 
+    <!-- Boost Framework -->
+    <java-symbol type="bool" name="config_supportsBoostFramework" />
+
 </resources>
