@@ -172,6 +172,7 @@ java_library_static {
         "netd-client",
         "overlayable_policy_aidl-java",
         "com.android.sysprop.watchdog",
+        "vendor.aac.hardware.richtap.vibrator",
     ],
     javac_shard_size: 50,
 }
