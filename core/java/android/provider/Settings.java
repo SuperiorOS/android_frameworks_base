@@ -5734,14 +5734,6 @@ public final class Settings {
                 "high_touch_sensitivity_enable";
 
         /**
-         * Whether the HighTouchPollingRate is activated or not.
-         * 0 = off, 1 = on
-         * @hide
-         */
-        public static final String HIGH_TOUCH_POLLING_RATE_ENABLE =
-                "high_touch_polling_rate_enable";
-
-        /**
          * Double tap on lockscreen to sleep
          * @hide
          */
@@ -5990,7 +5982,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(DOUBLE_TAP_SLEEP_GESTURE);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
             PRIVATE_SETTINGS.add(HIGH_TOUCH_SENSITIVITY_ENABLE);
-            PRIVATE_SETTINGS.add(HIGH_TOUCH_POLLING_RATE_ENABLE);
             PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT);
             PRIVATE_SETTINGS.add(AMBIENT_NOTIFICATION_LIGHT_AUTOMATIC);
         }
