@@ -6,7 +6,6 @@ import android.app.smartspace.SmartspaceTarget;
 import android.app.smartspace.SmartspaceTargetEvent;
 import android.app.smartspace.uitemplatedata.TapAction;
 import android.content.ActivityNotFoundException;
-import android.content.ComponentName;
 import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
@@ -24,9 +23,6 @@ import com.google.android.systemui.smartspace.logging.BcSmartspaceCardLogger;
 import com.google.android.systemui.smartspace.logging.BcSmartspaceCardLoggingInfo;
 
 public final class BcSmartSpaceUtil {
-    private static final String GSA_PACKAGE = "com.google.android.googlequicksearchbox";
-    private static final String GSA_WEATHER_ACTIVITY = "com.google.android.apps.search.weather.WeatherExportedActivity";
-
     public static FalsingManager sFalsingManager;
     public static BcSmartspaceDataPlugin.IntentStarter sIntentStarter;
 
@@ -50,7 +46,7 @@ public final class BcSmartSpaceUtil {
                             }
                             BcSmartspaceCardLogger.log(BcSmartspaceEvent.SMARTSPACE_CARD_CLICK, bcSmartspaceCardLoggingInfo);
                         }
-                        if (!z2 && !hijackIntent(smartspaceTarget, intentStarter2, v)) {
+                        if (!z2) {
                             intentStarter2.startFromAction(smartspaceAction, v, z);
                         }
                         if (smartspaceEventNotifier == null) {
@@ -85,7 +81,7 @@ public final class BcSmartSpaceUtil {
                             intentStarter = new SmartspaceIntentStarter(str);
                         }
                         boolean z = tapAction == null || (tapAction.getIntent() == null && tapAction.getPendingIntent() == null);
-                        if (!z && !hijackIntent(smartspaceTarget, intentStarter, view2)) {
+                        if (!z) {
                             intentStarter.startFromAction(tapAction, view2, shouldShowOnLockscreen);
                         }
                         if (smartspaceEventNotifier == null) {
@@ -132,21 +128,6 @@ public final class BcSmartSpaceUtil {
 
     public static Intent getOpenCalendarIntent() {
         return new Intent("android.intent.action.VIEW").setData(ContentUris.appendId(CalendarContract.CONTENT_URI.buildUpon().appendPath("time"), System.currentTimeMillis()).build()).addFlags(270532608);
-    }
-
-    // Workaround for Google weather
-    private static boolean hijackIntent(SmartspaceTarget smartspaceTarget, BcSmartspaceDataPlugin.IntentStarter intentStarter, View v) {
-        if (v instanceof IcuDateTextView) {
-            // Ensure we don't change date view
-            return false;
-        }
-        if (smartspaceTarget.getFeatureType() == SmartspaceTarget.FEATURE_WEATHER) {
-            Intent intent = new Intent().setComponent(new ComponentName(GSA_PACKAGE, GSA_WEATHER_ACTIVITY))
-                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intentStarter.startIntent(v, intent, true);
-            return true;
-        }
-        return false;
     }
 
     /* renamed from: com.google.android.systemui.smartspace.BcSmartSpaceUtil$AnonymousClass1  reason: case insensitive filesystem */
