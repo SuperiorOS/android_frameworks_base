@@ -137,7 +137,8 @@ class PulsingGestureListener @Inject constructor(
                 centralSurfaces.wakeUpIfDozing(
                         SystemClock.uptimeMillis(),
                         notificationShadeWindowView,
-                        "PULSING_DOUBLE_TAP")
+                        "PULSING_DOUBLE_TAP",
+                        PowerManager.WAKE_REASON_TAP)
                 return true
             } else if (!statusBarStateController.isDozing &&
                 doubleTapToSleepEnabled &&
