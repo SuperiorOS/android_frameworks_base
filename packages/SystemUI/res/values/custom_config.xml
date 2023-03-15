@@ -1,0 +1,6 @@
+<resources>
+
+    <!-- Color of the UDFPS pressed view -->
+    <color name="config_udfpsColor">#ffffffff</color>
+
+</resources>
