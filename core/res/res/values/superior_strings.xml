@@ -46,4 +46,8 @@
     <!-- SystemUI Restart -->
     <string name="systemui_restart_title">SystemUI restart required</string>
     <string name="systemui_restart_message">For all changes to take effect, a SystemUI restart is required. Restart SystemUI now?</string>
+    
+    <!-- Title & summary of notification letting users know that battery saver is now on [CHAR_LIMIT=80] -->
+    <string name="battery_saver_on_notification_title">Battery Saver turned on</string>
+    <string name="battery_saver_on_notification_summary">By schedule. Press to review settings.</string>
 </resources>
