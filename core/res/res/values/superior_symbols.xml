@@ -96,5 +96,9 @@
     <java-symbol type="anim" name="custom_app_in" />
     <java-symbol type="anim" name="custom_app_out" />
     <java-symbol type="integer" name="config_deviceHardwareKeys" />
+    
+    <!-- Title & summary of notification letting users know that battery saver is now on -->
+    <java-symbol type="string" name="battery_saver_on_notification_title" />
+    <java-symbol type="string" name="battery_saver_on_notification_summary" />
 
 </resources>

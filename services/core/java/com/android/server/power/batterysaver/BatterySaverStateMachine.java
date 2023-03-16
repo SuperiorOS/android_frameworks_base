@@ -97,6 +97,7 @@ public class BatterySaverStateMachine {
     private static final String BATTERY_SAVER_NOTIF_CHANNEL_ID = "battery_saver_channel";
     private static final int DYNAMIC_MODE_NOTIFICATION_ID = 1992;
     private static final int STICKY_AUTO_DISABLED_NOTIFICATION_ID = 1993;
+    private static final int PERCENTAGE_NOTIFICATION_ID = 1994;
     private final Object mLock;
 
     private static final boolean DEBUG = BatterySaverPolicy.DEBUG;
@@ -804,8 +805,11 @@ public class BatterySaverStateMachine {
         // Handle triggering the notification to show/hide when appropriate
         if (intReason == BatterySaverController.REASON_DYNAMIC_POWER_SAVINGS_AUTOMATIC_ON) {
             triggerDynamicModeNotification();
+        } else if (intReason == BatterySaverController.REASON_PERCENTAGE_AUTOMATIC_ON) {
+            triggerPercentageNotification();
         } else if (!enable) {
             hideDynamicModeNotification();
+            hidePercentageNotification();
         }
 
         if (DEBUG) {
@@ -831,6 +835,27 @@ public class BatterySaverStateMachine {
                             Intent.ACTION_POWER_USAGE_SUMMARY),
                     UserHandle.ALL);
         });
+    }
+
+    private void triggerPercentageNotification() {
+        // The current lock is the PowerManager lock, which sits very low in the service lock
+        // hierarchy. We shouldn't call out to NotificationManager with the PowerManager lock.
+        runOnBgThread(() -> {
+            NotificationManager manager = mContext.getSystemService(NotificationManager.class);
+            ensureNotificationChannelExists(manager, BATTERY_SAVER_NOTIF_CHANNEL_ID,
+                    R.string.battery_saver_notification_channel_name);
+
+            manager.notifyAsUser(TAG, PERCENTAGE_NOTIFICATION_ID,
+                    buildNotification(BATTERY_SAVER_NOTIF_CHANNEL_ID,
+                            R.string.battery_saver_on_notification_title,
+                            R.string.battery_saver_on_notification_summary,
+                            Settings.ACTION_BATTERY_SAVER_SETTINGS),
+                    UserHandle.ALL);
+        });
+    }
+
+    private void hidePercentageNotification() {
+        hideNotification(PERCENTAGE_NOTIFICATION_ID);
     }
 
     @VisibleForTesting
