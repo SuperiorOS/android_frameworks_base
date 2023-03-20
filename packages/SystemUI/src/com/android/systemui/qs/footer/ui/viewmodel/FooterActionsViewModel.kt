@@ -166,7 +166,7 @@ class FooterActionsViewModel(
                 iconTint =
                     Utils.getColorAttrDefaultColor(
                         context,
-                        com.android.internal.R.attr.textColorOnAccent,
+                        com.android.internal.R.attr.textColorPrimaryInverse,
                     ),
                 backgroundColor = com.android.internal.R.attr.colorAccent,
                 this::onPowerButtonClicked,
