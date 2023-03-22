@@ -36,6 +36,7 @@ public class PixelPropsUtils {
     private static final String DEVICE = "ro.product.device";
     private static final boolean DEBUG = false;
 
+    private static final Map<String, Object> propsToChangeGeneric;
     private static final Map<String, Object> propsToChangePixel5;
     private static final Map<String, Object> propsToChangePixel7Pro;
     private static final Map<String, Object> propsToChangePixel6Pro;
@@ -111,6 +112,9 @@ public class PixelPropsUtils {
     static {
         propsToKeep = new HashMap<>();
         propsToKeep.put("com.google.android.settings.intelligence", new ArrayList<>(Collections.singletonList("FINGERPRINT")));
+        propsToChangeGeneric = new HashMap<>();
+        propsToChangeGeneric.put("TYPE", "user");
+        propsToChangeGeneric.put("TAGS", "release-keys");
         propsToChangePixel7Pro = new HashMap<>();
         propsToChangePixel7Pro.put("BRAND", "google");
         propsToChangePixel7Pro.put("MANUFACTURER", "Google");
@@ -147,6 +151,8 @@ public class PixelPropsUtils {
     }
 
     public static void setProps(String packageName) {
+        propsToChangeGeneric.forEach((k, v) -> setPropValue(k, v));
+
         if (packageName == null || packageName.isEmpty()) {
             return;
         }
@@ -160,6 +166,7 @@ public class PixelPropsUtils {
                 || Arrays.asList(extraPackagesToChange).contains(packageName)) {
 
             Map<String, Object> propsToChange = new HashMap<>();
+
             boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
 
             if (packageName.equals("com.google.android.apps.photos")) {
