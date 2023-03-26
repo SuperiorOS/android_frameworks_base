@@ -26,12 +26,14 @@ public class SuperiorServices extends VendorServices {
     private final ArrayList<Object> mServices = new ArrayList<>();
     private final AlarmManager mAlarmManager;
     private final CentralSurfaces mCentralSurfaces;
+    private final Context mContext;
 
     @Inject
     public SuperiorServices(Context context, AlarmManager alarmManager, CentralSurfaces centralSurfaces) {
-        super(context);
+        super();
         mAlarmManager = alarmManager;
         mCentralSurfaces = centralSurfaces;
+        mContext = context;
     }
 
     @Override

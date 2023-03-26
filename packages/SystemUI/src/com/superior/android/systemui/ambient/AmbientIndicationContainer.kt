@@ -13,6 +13,7 @@ import android.graphics.drawable.DrawableWrapper
 import android.media.MediaMetadata
 import android.os.Handler
 import android.os.Looper
+import android.os.PowerManager
 import android.os.SystemClock
 import android.text.TextUtils
 import android.util.AttributeSet
@@ -216,7 +217,7 @@ class AmbientIndicationContainer(private val context: Context, attrs: AttributeS
             bottomMarginPx = marginBottom
             (layoutParams as FrameLayout.LayoutParams).bottomMargin = bottomMarginPx
         }
-        centralSurfaces.panelController.setAmbientIndicationTop(top, textView.visibility == View.VISIBLE)
+        centralSurfaces.notificationPanelViewController.setAmbientIndicationTop(top, textView.visibility == View.VISIBLE)
     }
 
     public fun hideAmbientMusic() {
@@ -225,7 +226,7 @@ class AmbientIndicationContainer(private val context: Context, attrs: AttributeS
 
     fun onTextClick(view: View) {
         openIntent?.let {
-            centralSurfaces.wakeUpIfDozing(SystemClock.uptimeMillis(), view, "AMBIENT_MUSIC_CLICK")
+            centralSurfaces.wakeUpIfDozing(SystemClock.uptimeMillis(), view, "AMBIENT_MUSIC_CLICK", PowerManager.WAKE_REASON_GESTURE)
             if (ambientSkipUnlock) {
                 sendBroadcastWithoutDismissingKeyguard(it)
             } else {
@@ -236,7 +237,7 @@ class AmbientIndicationContainer(private val context: Context, attrs: AttributeS
 
     fun onIconClick(view: View) {
         favoritingIntent?.let {
-            centralSurfaces.wakeUpIfDozing(SystemClock.uptimeMillis(), view, "AMBIENT_MUSIC_CLICK")
+            centralSurfaces.wakeUpIfDozing(SystemClock.uptimeMillis(), view, "AMBIENT_MUSIC_CLICK", PowerManager.WAKE_REASON_GESTURE)
             sendBroadcastWithoutDismissingKeyguard(it)
             return
         }
@@ -269,7 +270,7 @@ class AmbientIndicationContainer(private val context: Context, attrs: AttributeS
         textColorAnimator = ValueAnimator.ofArgb(defaultColor, dozeColor)
         textColorAnimator!!.interpolator = Interpolators.LINEAR_OUT_SLOW_IN
         textColorAnimator!!.duration = 500L
-        textColorAnimator!!.addUpdateListener({_ -> 
+        textColorAnimator!!.addUpdateListener({_ ->
             textView.setTextColor(textColorAnimator!!.animatedValue as Int)
             iconView.imageTintList = ColorStateList.valueOf(textColorAnimator!!.animatedValue as Int)
         })
