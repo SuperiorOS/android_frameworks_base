@@ -5793,6 +5793,125 @@ public final class Settings {
          */
         public static final String UDFPS_ICON = "udfps_icon";
 
+        /** @hide */
+        public static final String BACK_GESTURE_HAPTIC = "back_gesture_haptic";
+
+        /**
+         * Gestures nav: left long back swipe action
+         * @hide
+         */
+        public static final String LEFT_LONG_BACK_SWIPE_ACTION = "left_long_back_swipe_action";
+
+        /**
+         * Gestures nav: left long back swipe app action
+         * @hide
+         */
+        public static final String LEFT_LONG_BACK_SWIPE_APP_ACTION = "left_long_back_swipe_app_action";
+
+        /**
+         * Display friendly name of custom application launched when
+         * using the long left back swipe app action
+         * @hide
+         */
+        public static final String LEFT_LONG_BACK_SWIPE_APP_FR_ACTION = "left_long_back_swipe_app_fr_action";
+
+        /**
+         * Launch custom activity when using the long left back swipe app action
+         *
+         * @hide
+         */
+        public static final String LEFT_LONG_BACK_SWIPE_APP_ACTIVITY_ACTION = "left_long_back_swipe_app_activity_action";
+
+        /**
+         * Gestures nav: right long back swipe action
+         * @hide
+         */
+        public static final String RIGHT_LONG_BACK_SWIPE_ACTION = "right_long_back_swipe_action";
+
+        /**
+         * Gestures nav: right long back swipe app action
+         * @hide
+         */
+        public static final String RIGHT_LONG_BACK_SWIPE_APP_ACTION = "right_long_back_swipe_app_action";
+
+        /**
+         * Display friendly name of custom application launched when
+         * using the long right back swipe app action
+         * @hide
+         */
+        public static final String RIGHT_LONG_BACK_SWIPE_APP_FR_ACTION = "right_long_back_swipe_app_fr_action";
+
+        /**
+         * Launch custom activity when using the long right back swipe app action
+         *
+         * @hide
+         */
+        public static final String RIGHT_LONG_BACK_SWIPE_APP_ACTIVITY_ACTION = "right_long_back_swipe_app_activity_action";
+
+        /**
+         * Gestures nav: long back swipe timeout
+         * @hide
+         */
+        public static final String LONG_BACK_SWIPE_TIMEOUT = "long_back_swipe_timeout";
+
+        /**
+         * Gestures nav: whether to use extended swipe instead of timeout to trigger custom actions
+         * @hide
+         */
+        public static final String BACK_SWIPE_EXTENDED = "back_swipe_extended";
+
+        /**
+         * Gestures nav: left long back swipe action
+         * @hide
+         */
+        public static final String LEFT_VERTICAL_BACK_SWIPE_ACTION = "left_vertical_back_swipe_action";
+
+        /**
+         * Gestures nav: left long back swipe app action
+         * @hide
+         */
+        public static final String LEFT_VERTICAL_BACK_SWIPE_APP_ACTION = "left_vertical_back_swipe_app_action";
+
+        /**
+         * Display friendly name of custom application launched when
+         * using the long left back swipe app action
+         * @hide
+         */
+        public static final String LEFT_VERTICAL_BACK_SWIPE_APP_FR_ACTION = "left_vertical_back_swipe_app_fr_action";
+
+        /**
+         * Launch custom activity when using the long left back swipe app action
+         *
+         * @hide
+         */
+        public static final String LEFT_VERTICAL_BACK_SWIPE_APP_ACTIVITY_ACTION = "left_vertical_back_swipe_app_activity_action";
+
+        /**
+         * Gestures nav: right long back swipe action
+         * @hide
+         */
+        public static final String RIGHT_VERTICAL_BACK_SWIPE_ACTION = "right_vertical_back_swipe_action";
+
+        /**
+         * Gestures nav: right long back swipe app action
+         * @hide
+         */
+        public static final String RIGHT_VERTICAL_BACK_SWIPE_APP_ACTION = "right_vertical_back_swipe_app_action";
+
+        /**
+         * Display friendly name of custom application launched when
+         * using the long right back swipe app action
+         * @hide
+         */
+        public static final String RIGHT_VERTICAL_BACK_SWIPE_APP_FR_ACTION = "right_vertical_back_swipe_app_fr_action";
+
+        /**
+         * Launch custom activity when using the long right back swipe app action
+         *
+         * @hide
+         */
+        public static final String RIGHT_VERTICAL_BACK_SWIPE_APP_ACTIVITY_ACTION = "right_vertical_back_swipe_app_activity_action";
+
         /**
          * Keys we no longer back up under the current schema, but want to continue to
          * process when restoring historical backup datasets.
@@ -5937,6 +6056,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(HIGH_TOUCH_SENSITIVITY_ENABLE);
             PRIVATE_SETTINGS.add(TOUCHSCREEN_GESTURE_HAPTIC_FEEDBACK);
             PRIVATE_SETTINGS.add(HIGH_TOUCH_POLLING_RATE_ENABLE);
+            PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
         }
 
         /**

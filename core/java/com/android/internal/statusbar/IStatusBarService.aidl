@@ -49,6 +49,7 @@ interface IStatusBarService
     @UnsupportedAppUsage
     void collapsePanels();
     void togglePanel();
+    void toggleSettingsPanel();
     @UnsupportedAppUsage
     void disable(int what, IBinder token, String pkg);
     void disableForUser(int what, IBinder token, String pkg, int userId);
@@ -236,4 +237,10 @@ interface IStatusBarService
     /** Extra additions. */
     void toggleCameraFlash();
     void screenPinningStateChanged(boolean enabled);
+    void killForegroundApp();
+    void toggleRecentApps();
+    void toggleSplitScreen();
+    void preloadRecentApps();
+    void cancelPreloadRecentApps();
+    void startAssist(in Bundle args);
 }

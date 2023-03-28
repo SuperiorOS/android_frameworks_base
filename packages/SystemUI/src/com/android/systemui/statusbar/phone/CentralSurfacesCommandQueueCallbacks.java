@@ -68,6 +68,7 @@ import com.android.systemui.statusbar.policy.FlashlightController;
 import com.android.systemui.statusbar.policy.HeadsUpManager;
 import com.android.systemui.statusbar.policy.KeyguardStateController;
 import com.android.systemui.statusbar.policy.RemoteInputQuickSettingsDisabler;
+import com.android.systemui.statusbar.policy.TaskHelper;
 
 import java.util.Optional;
 
@@ -105,6 +106,7 @@ public class CentralSurfacesCommandQueueCallbacks implements CommandQueue.Callba
     private final VibrationEffect mCameraLaunchGestureVibrationEffect;
     private final SystemBarAttributesListener mSystemBarAttributesListener;
     private final Lazy<CameraLauncher> mCameraLauncherLazy;
+    private final TaskHelper mTaskHelper;
 
     private static final VibrationAttributes HARDWARE_FEEDBACK_VIBRATION_ATTRIBUTES =
             VibrationAttributes.createForUsage(VibrationAttributes.USAGE_HARDWARE_FEEDBACK);
@@ -136,7 +138,9 @@ public class CentralSurfacesCommandQueueCallbacks implements CommandQueue.Callba
             DisableFlagsLogger disableFlagsLogger,
             @DisplayId int displayId,
             SystemBarAttributesListener systemBarAttributesListener,
-            Lazy<CameraLauncher> cameraLauncherLazy) {
+            Lazy<CameraLauncher> cameraLauncherLazy,
+            TaskHelper taskHelper) {
+
         mCentralSurfaces = centralSurfaces;
         mContext = context;
         mShadeController = shadeController;
@@ -161,6 +165,7 @@ public class CentralSurfacesCommandQueueCallbacks implements CommandQueue.Callba
         mDisableFlagsLogger = disableFlagsLogger;
         mDisplayId = displayId;
         mCameraLauncherLazy = cameraLauncherLazy;
+        mTaskHelper = taskHelper;
 
         mVibrateOnOpening = resources.getBoolean(R.bool.config_vibrateOnIconAnimation);
         mCameraLaunchGestureVibrationEffect = getCameraGestureVibrationEffect(
@@ -564,6 +569,15 @@ public class CentralSurfacesCommandQueueCallbacks implements CommandQueue.Callba
     @Override
     public void setBlockedGesturalNavigation(boolean blocked) {
         mCentralSurfaces.setBlockedGesturalNavigation(blocked);
+    }
+
+    @Override
+    public void toggleSettingsPanel() {
+        if (mCentralSurfaces.isPanelExpanded()) {
+            mShadeController.animateCollapseShade();
+        } else {
+            animateExpandSettingsPanel(null);
+        }
     }
 
     private boolean isGoingToSleep() {
