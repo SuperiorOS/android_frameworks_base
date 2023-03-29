@@ -1027,7 +1027,7 @@ public class UdfpsController implements DozeReceiver, Dumpable {
                 false /* isAod */);
     }
 
-    private void onFingerDown(
+    private synchronized void onFingerDown(
             long requestId,
             int pointerId,
             float x,
@@ -1121,7 +1121,7 @@ public class UdfpsController implements DozeReceiver, Dumpable {
                 false /* isAod */);
     }
 
-    private void onFingerUp(
+    private synchronized void onFingerUp(
             long requestId,
             @NonNull UdfpsView view,
             int pointerId,
