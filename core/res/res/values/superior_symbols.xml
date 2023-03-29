@@ -71,4 +71,11 @@
      <!-- Global Actions pref list -->
      <java-symbol type="array" name="custom_config_globalActionsList" />
 
+     <!-- Settings Restart -->
+     <java-symbol type="string" name="settings_restart_title" />
+     <java-symbol type="string" name="settings_restart_message" />
+
+     <!-- Soft restart dialog -->
+     <java-symbol type="string" name="system_restart_title" />
+     <java-symbol type="string" name="system_restart_message" />
 </resources>
