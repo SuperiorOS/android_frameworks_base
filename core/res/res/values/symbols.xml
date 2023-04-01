@@ -3844,6 +3844,8 @@
   <java-symbol type="string" name="config_headlineFontFamilyMedium" />
   <java-symbol type="string" name="config_bodyFontFamily" />
   <java-symbol type="string" name="config_bodyFontFamilyMedium" />
+  
+  <java-symbol type="string" name="config_clockFontFamily" />
 
   <java-symbol type="drawable" name="stat_sys_vitals" />
 
