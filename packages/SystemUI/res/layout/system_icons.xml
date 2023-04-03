@@ -39,4 +39,30 @@
         android:clipToPadding="false"
         android:clipChildren="false"
         systemui:textAppearance="@style/TextAppearance.StatusBar.Clock" />
+
+    <com.android.keyguard.AlphaOptimizedLinearLayout
+        android:id="@+id/right_clock_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        >
+
+        <com.android.systemui.statusbar.policy.Clock
+            android:id="@+id/clock_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textAppearance="@style/TextAppearance.StatusBar.Clock"
+            android:singleLine="true"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="2dp"
+            android:paddingStart="@dimen/status_bar_clock_starting_padding"
+            android:paddingEnd="@dimen/status_bar_clock_end_padding"
+            android:gravity="center_vertical|start"
+            android:visibility="gone"
+            systemui:isStatusBar="true"
+        />
+    </com.android.keyguard.AlphaOptimizedLinearLayout>
 </LinearLayout>
