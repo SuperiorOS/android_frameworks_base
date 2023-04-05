@@ -2083,7 +2083,6 @@ final class DisplayPowerController implements AutomaticBrightnessController.Call
             newEvent.setAdjustmentFlags(brightnessAdjustmentFlags);
             newEvent.setFlags(newEvent.getFlags() | (userSetBrightnessChanged
                     ? BrightnessEvent.FLAG_USER_SET : 0));
-            Slog.i(mTag, newEvent.toString(/* includeTime= */ false));
 
             if (userSetBrightnessChanged
                     || newEvent.getReason().getReason() != BrightnessReason.REASON_TEMPORARY) {
