@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (C) 2022 SuperiorOS
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_sound_label">Suara</string>
+    <string name="quick_settings_sound_ring">Dering</string>
+    <string name="quick_settings_sound_vibrate">Getar</string>
+    <string name="quick_settings_sound_mute">Senyap</string>
+    <string name="face_unlock_recognizing">Mengenali wajah...</string>
+    <string name="statusbar_items_title">Ikon bilah status</string>
+    <string name="status_bar_data_saver">Penghemat data</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_call_strength">Kekuatan panggilan</string>
+    <string name="status_bar_roaming">Indikator Roaming</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="global_action_reboot">Mulai ulang</string>
+    <string name="global_action_reboot_more">Memulai ulang\u2026</string>
+    <string name="global_action_reboot_sub">Sistem</string>
+    <string name="global_action_reboot_recovery">Mode Pemulihan</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_reboot_systemui">Sistem UI</string>
+    <string name="global_action_settings">Setelan</string>
+    <string name="screenrecord_delete_label">Hapus</string>
+    <string name="screenrecord_delete_description">Rekaman layar dihapus</string>
+    <string name="screenshot_delete_label">Hapus</string>
+    <string name="screenshot_delete_description">Hapus tangkapan layar</string>
+    <string name="status_bar_nfc">NFC</string>
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <string name="usage_data">digunakan</string>
+    <string name="usage_data_default_suffix">Data</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <string name="delete_screenshot_toast">Tangkapan layar dihapus</string>
+    <string name="quick_settings_caffeine_label">Mode Kafein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Mode Kafein nonaktif</string>
+    <string name="accessibility_quick_settings_caffeine_on">Mode Kafein aktif</string>
+    <string name="qs_data_switch_label">Ubah kartu data</string>
+    <string name="qs_data_switch_toast_0">Tidak ada kartu SIM yang terpasang saat ini</string>
+    <string name="qs_data_switch_toast_1">Hanya satu kartu SIM yang terpasang saat ini</string>
+    <string name="qs_data_switch_text_1">SIM 1</string>
+    <string name="qs_data_switch_text_2">SIM 2</string>
+    <string name="qs_data_switch_changed_1">Ubah kartu data ke SIM 1.</string>
+    <string name="qs_data_switch_changed_2">Ubah kartu data ke SIM 2.</string>
+    <string name="quick_settings_poweroff_label">Matikan daya</string>
+    <string name="quick_settings_reboot_label">Mulai ulang</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="quick_settings_reboot_bootloader_label">Bootloader</string>
+    <string name="turn_on_bluetooth">Gunakan Bluetooth</string>
+    <string name="bluetooth_is_off">Bluetooth nonaktif</string>
+    <string name="tap_a_device_to_connect">Ketuk perangkat untuk menghubungkan</string>
+    <string name="clock">Jam</string>
+    <string name="screenrecord_stopdot_label">Tampilkan titik berhenti</string>
+    <string name="screenrecord_stopdot_summary">Tekan lama untuk memindahkannya</string>
+    <string name="screenrecord_lowquality_label">Kualitas rendah</string>
+    <string name="screenrecord_lowquality_summary">Untuk ukuran file yang lebih kecil</string>
+    <string name="screenrecord_longer_timeout_switch_label">Batas ukuran file lebih besar</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Batasi ukuran perekaman hingga 15 GB</string>
+    <string name="screenrecord_skip_time_label">Lewati penghitung waktu</string>
+    <string name="screenrecord_skip_time_summary">Hapus 3 detik menunggu</string>
+    <string name="screenrecord_hevc_switch_label">Aktifkan HEVC</string>
+    <string name="screenrecord_hevc_switch_summary">Gunakan enkode video HEVC yang lebih efisien</string>
+    <string name="quick_settings_powershare_label">Berbagi Baterai</string>
+    <string name="quick_settings_powershare_off_powersave_label">Berbagi Baterai nonaktif\nPenghemat baterai</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Berbagi Baterai nonaktif\nBaterai lemah</string>
+    <string name="quick_settings_powershare_enabled_label">Berbagi Baterai diaktifkan</string>
+    <string name="keyguard_indication_dash_charging_time">Pengisian Cepat (<xliff:g id="charging_time_left" example="4 jam dan 2 menit">%s</xliff:g> hingga penuh)</string>
+    <string name="keyguard_plugged_in_dash_charging">Pengisian Cepat</string>
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Pengisian Warp (<xliff:g id="charging_time_left" example="4 jam 2 menit">%s</xliff:g> hingga penuh)</string>
+    <string name="keyguard_plugged_in_warp_charging">Pengisian Warp</string>
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Pengisian VOOC (<xliff:g id="charging_time_left" example="4 jam 2 menit">%1$s</xliff:g> hingga penuh)</string>
+    <string name="keyguard_plugged_in_vooc_charging">Pengisian VOOC</string>
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Pengisian SuperDart (<xliff:g id="charging_time_left" example="4 jam 2 menit">%1$s</xliff:g> hingga penuh)</string>
+    <string name="keyguard_plugged_in_superdart_charging">Pengisian SuperDart</string>
+    <string name="refresh_rate_tile_label">Kecepatan refresh</string>
+    <string name="refresh_rate_auto_mode_placeholder">Otomatis (<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> Hz)
+    </string>
+    <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g> Hz</string>
+    <string name="quick_settings_dc_dimming_label">Peredupan DC</string>
+    <string name="task_helper_app_killed">%1$s paksa berhenti</string>
+    <string name="empty_app_killed">Aplikasi</string>
+    <string name="app_picker_dialog_title">Pilih aplikasi</string>
+    <string name="active_edge_app_select_title">Pilih aplikasi</string>
+    <string name="active_edge_activity_select_title">Pilih aktivitas</string>
+</resources>

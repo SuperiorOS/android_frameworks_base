@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (C) 2022 SuperiorOS
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="quick_settings_sound_label">Səs</string>
+    <string name="quick_settings_sound_ring">Zəng səsi</string>
+    <string name="quick_settings_sound_vibrate">Titrəmə</string>
+    <string name="quick_settings_sound_mute">Səsi kəs</string>
+    <string name="face_unlock_recognizing">Üz tanınır...</string>
+    <string name="statusbar_items_title">Vəziyyət sətri nişanları</string>
+    <string name="status_bar_data_saver">İnternetə qənaət</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_call_strength">Zəng gücü</string>
+    <string name="status_bar_roaming">Roaminq göstəricisi</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="global_action_reboot">Yenidən başlat</string>
+    <string name="global_action_reboot_more">Yenidən başlat\u2026</string>
+    <string name="global_action_reboot_sub">Sistem</string>
+    <string name="global_action_reboot_recovery">Recovery</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_reboot_systemui">Sistem interfeysi</string>
+    <string name="global_action_settings">Tənzimləmələr</string>
+    <string name="screenrecord_delete_label">Sil</string>
+    <string name="screenrecord_delete_description">Ekran videoyazması silindi</string>
+    <string name="screenshot_delete_label">Sil</string>
+    <string name="screenshot_delete_description">Ekran şəklini sil</string>
+    <string name="status_bar_nfc">NFC</string>
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <string name="usage_data">istifadə edilib</string>
+    <string name="usage_data_default_suffix">İnternet</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <string name="delete_screenshot_toast">Ekran şəkli silindi</string>
+    <string name="quick_settings_caffeine_label">Kofein</string>
+    <string name="accessibility_quick_settings_caffeine_off">Kofein bağlıdır</string>
+    <string name="accessibility_quick_settings_caffeine_on">Kofein açıqdır</string>
+    <string name="qs_data_switch_label">İnternet kartını dəyişdir</string>
+    <string name="qs_data_switch_toast_0">Hal-hazırda taxılı SIM kart yoxdur</string>
+    <string name="qs_data_switch_toast_1">Hal-hazırda sadəcə bir ədəd taxılı SIM kart var</string>
+    <string name="qs_data_switch_text_1">SIM 1</string>
+    <string name="qs_data_switch_text_2">SIM 2</string>
+    <string name="qs_data_switch_changed_1">İnternet kartı SIM 1-ə dəyişdirildi.</string>
+    <string name="qs_data_switch_changed_2">İnternet kartı SIM 2-yə dəyişdirildi.</string>
+    <string name="quick_settings_poweroff_label">Söndür</string>
+    <string name="quick_settings_reboot_label">Yenidən başlat</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="quick_settings_reboot_bootloader_label">Bootloader</string>
+    <string name="turn_on_bluetooth">Bluetooth istifadə et</string>
+    <string name="bluetooth_is_off">Bluetooth bağlıdır</string>
+    <string name="tap_a_device_to_connect">Bağlantı qurmaq üçün bir cihaza toxunun</string>
+    <string name="clock">Saat</string>
+    <string name="screenrecord_stopdot_label">Dayandırma nöqtəsini göstər</string>
+    <string name="screenrecord_stopdot_summary">Daşımaq üçün uzun basın</string>
+    <string name="screenrecord_lowquality_label">Aşağı keyfiyyət</string>
+    <string name="screenrecord_lowquality_summary">Daha kiçik fayl ölçüsü üçün</string>
+    <string name="screenrecord_longer_timeout_switch_label">Daha böyük fayl ölçü limiti</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Yazma ölçüsünü 15 GB-la məhdudlaşdır</string>
+    <string name="screenrecord_skip_time_label">Taymeri ötür</string>
+    <string name="screenrecord_skip_time_summary">3 saniyə gözləməyi sil</string>
+    <string name="screenrecord_hevc_switch_label">HEVC-i fəallaşdır</string>
+    <string name="screenrecord_hevc_switch_summary">Daha səmərəli HEVC video kodlaşdırması istifadə et</string>
+    <string name="quick_settings_powershare_label">Batareya Paylaşma</string>
+    <string name="quick_settings_powershare_off_powersave_label">Batareya Paylaşma bağlıdır\nBatareyaya qənaət</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Batareya Paylaşma bağlıdır\nBatareya səviyyəsi aşağıdır</string>
+    <string name="quick_settings_powershare_enabled_label">Batareya Paylaşma fəaldır</string>
+    <string name="keyguard_indication_dash_charging_time">Dash enerji yığır (tam dolmasına <xliff:g id="charging_time_left" example="4 saat 2 dəqiqə">%s</xliff:g> qaldı)</string>
+    <string name="keyguard_plugged_in_dash_charging">Dash enerji yığır</string>
+    <string name="keyguard_indication_warp_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Warp Enerji Yığır (Dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%s</xliff:g> qalıb)</string>
+    <string name="keyguard_plugged_in_warp_charging">Warp enerji yığır</string>
+    <string name="keyguard_indication_vooc_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • VOOC enerji yığır(Dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> qalıb)</string>
+    <string name="keyguard_plugged_in_vooc_charging">VOOC enerji yığır</string>
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • SuperDart Enerji Yığır (Dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> qalıb)</string>
+    <string name="keyguard_plugged_in_superdart_charging">SuperDart enerji yığır</string>
+    <string name="refresh_rate_tile_label">Yeniləmə tezliyi</string>
+    <string name="refresh_rate_auto_mode_placeholder">        Avto (<xliff:g id="min_refresh_rate" example="60">%1$d</xliff:g> - <xliff:g id="max_refresh_rate" example="60">%2$d</xliff:g> Hz)
+    </string>
+    <string name="refresh_rate_forced_mode_placeholder"><xliff:g id="refresh_rate" example="60">%1$d</xliff:g> Hz</string>
+    <string name="quick_settings_dc_dimming_label">DC Qaraltması</string>
+    <string name="task_helper_app_killed">%1$s məcburi dayandırıldı</string>
+    <string name="empty_app_killed">Tətbiq</string>
+    <string name="app_picker_dialog_title">Bir tətbiq seçin</string>
+    <string name="active_edge_app_select_title">Tətbiq seçin</string>
+    <string name="active_edge_activity_select_title">Faəliyyət seçin</string>
+</resources>
