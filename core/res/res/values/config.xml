@@ -203,7 +203,7 @@
          is true (in that case this is assumed true as well).  It can allow you to tune down
          your device's memory use without going to the point of causing applications to turn
          off features. -->
-    <bool name="config_avoidGfxAccel">false</bool>
+    <bool name="config_avoidGfxAccel">true</bool>
 
     <!-- Device configuration setting the minfree tunable in the lowmemorykiller in the kernel.
          A high value will cause the lowmemorykiller to fire earlier, keeping more memory
