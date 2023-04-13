@@ -32,7 +32,7 @@ import com.android.settingslib.Utils
 import com.android.systemui.animation.Interpolators
 import com.android.systemui.surfaceeffects.ripple.RippleShader
 
-private const val RIPPLE_SPARKLE_STRENGTH: Float = 0.4f
+private const val RIPPLE_SPARKLE_STRENGTH: Float = 0.8f
 
 /**
  * Handles two ripple effects: dwell ripple and unlocked ripple
@@ -76,7 +76,7 @@ class AuthRippleView(context: Context?, attrs: AttributeSet?) : View(context, at
         }
     private var radius: Float = 0f
         set(value) {
-            rippleShader.setMaxSize(value * 2f, value * 2f)
+            rippleShader.setMaxSize(value * 2.2f, value * 2.2f)
             field = value
         }
     private var origin: Point = Point()
@@ -93,7 +93,7 @@ class AuthRippleView(context: Context?, attrs: AttributeSet?) : View(context, at
 
         dwellShader.color = 0xffffffff.toInt() // default color
         dwellShader.progress = 0f
-        dwellShader.distortionStrength = .4f
+        dwellShader.distortionStrength = .8f
         dwellPaint.shader = dwellShader
         visibility = GONE
     }
@@ -107,7 +107,7 @@ class AuthRippleView(context: Context?, attrs: AttributeSet?) : View(context, at
         origin = location
         radius = maxOf(location.x, location.y, width - location.x, height - location.y).toFloat()
         dwellOrigin = location
-        dwellRadius = sensorRadius * 1.5f
+        dwellRadius = sensorRadius * 1.7f
     }
 
     fun setAlphaInDuration(duration: Long) {
