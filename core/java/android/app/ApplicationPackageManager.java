@@ -857,6 +857,11 @@ public class ApplicationPackageManager extends PackageManager {
         if (Arrays.asList(featuresP21).contains(name) &&
                 !Arrays.asList(p21Codenames).contains(SystemProperties.get("ro.product.device"))) {
             return false;
+        } else if (packageName != null &&
+                packageName.contains("com.google.android.as") &&
+                (name.contains("PIXEL_2022_EXPERIENCE") ||
+                name.contains("PIXEL_2022_MIDYEAR_EXPERIENCE"))) {
+            return false;
         }
         return mHasSystemFeatureCache.query(new HasSystemFeatureQuery(name, version));
     }
