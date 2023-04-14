@@ -205,7 +205,7 @@
         style="@style/MediaPlayer.SessionAction.Secondary"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="@dimen/qs_media_action_spacing"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="@dimen/qs_media_padding"
         android:layout_marginTop="0dp"
@@ -220,7 +220,7 @@
         style="@style/MediaPlayer.ScrubbingTime"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:layout_marginStart="4dp"
+        android:layout_marginStart="@dimen/qs_media_action_spacing"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="@dimen/qs_media_padding"
         android:layout_marginTop="0dp"
@@ -285,7 +285,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="@dimen/qs_media_action_spacing"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="@dimen/qs_media_action_spacing"
         android:layout_marginBottom="@dimen/qs_media_padding"
         android:layout_marginTop="0dp" />
 
@@ -295,7 +295,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="@dimen/qs_media_action_spacing"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="@dimen/qs_media_action_spacing"
         android:layout_marginBottom="@dimen/qs_media_padding"
         android:layout_marginTop="0dp" />
 
@@ -305,7 +305,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="@dimen/qs_media_action_spacing"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="@dimen/qs_media_action_spacing"
         android:layout_marginBottom="@dimen/qs_media_padding"
         android:layout_marginTop="0dp" />
 
@@ -315,7 +315,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="@dimen/qs_media_action_spacing"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="@dimen/qs_media_action_spacing"
         android:layout_marginBottom="@dimen/qs_media_padding"
         android:layout_marginTop="0dp" />
 
