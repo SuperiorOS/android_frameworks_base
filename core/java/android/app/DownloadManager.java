@@ -1198,9 +1198,7 @@ public class DownloadManager {
     public Uri getUriForDownloadedFile(long id) {
         // to check if the file is in cache, get its destination from the database
         Query query = new Query().setFilterById(id);
-        Cursor cursor = null;
-        try {
-            cursor = query(query);
+        try (Cursor cursor = query(query)) {
             if (cursor == null) {
                 return null;
             }
@@ -1209,10 +1207,6 @@ public class DownloadManager {
                 if (DownloadManager.STATUS_SUCCESSFUL == status) {
                     return ContentUris.withAppendedId(Downloads.Impl.ALL_DOWNLOADS_CONTENT_URI, id);
                 }
-            }
-        } finally {
-            if (cursor != null) {
-                cursor.close();
             }
         }
         // downloaded file not found or its status is not 'successfully completed'
@@ -1229,18 +1223,12 @@ public class DownloadManager {
      */
     public String getMimeTypeForDownloadedFile(long id) {
         Query query = new Query().setFilterById(id);
-        Cursor cursor = null;
-        try {
-            cursor = query(query);
+        try (Cursor cursor = query(query)) {
             if (cursor == null) {
                 return null;
             }
-            while (cursor.moveToFirst()) {
+            if (cursor.moveToFirst()) {
                 return cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_MEDIA_TYPE));
-            }
-        } finally {
-            if (cursor != null) {
-                cursor.close();
             }
         }
         // downloaded file not found or its status is not 'successfully completed'
