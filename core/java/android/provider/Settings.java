@@ -11429,6 +11429,12 @@ public final class Settings {
          */
         public static final String POWER_MENU_HIDE_ON_SECURE = "power_menu_hide_on_secure";
 
+	/**
+         * Boolean value whether to link ringtone and notification volume
+         * @hide
+         */
+        public static final String VOLUME_LINK_NOTIFICATION = "volume_link_notification";
+
         /**
          * Whether to show media art on lockscreen
          * Boolean setting. 0 = off, 1 = on.
