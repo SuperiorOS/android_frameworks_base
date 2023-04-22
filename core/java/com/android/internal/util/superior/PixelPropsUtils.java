@@ -39,20 +39,19 @@ public class PixelPropsUtils {
     private static final Map<String, Object> propsToChangeGeneric;
     private static final Map<String, Object> propsToChangePixel5;
     private static final Map<String, Object> propsToChangePixel7Pro;
-    private static final Map<String, Object> propsToChangePixel6Pro;
     private static final Map<String, Object> propsToChangePixelXL;
     private static final Map<String, ArrayList<String>> propsToKeep;
 
     private static final String[] packagesToChangePixel7Pro = {
+            "com.google.android.apps.googleassistant",
+            "com.google.android.gms",
             "com.google.android.apps.privacy.wildlife",
             "com.google.android.apps.wallpaper.pixel",
-            "com.google.android.apps.wallpaper"
-    };
-
-   private static final String[] packagesToChangePixel5 = {
-            "com.google.android.tts",
-            "com.google.android.apps.tachyon",
-            "com.google.android.apps.wellbeing"
+            "com.google.android.apps.wallpaper",
+            "com.google.android.apps.subscriptions.red",
+            "com.google.android.as",
+            "com.google.android.googlequicksearchbox",
+            "com.google.android.inputmethod.latin"
     };
 
     private static final String[] packagesToChangePixelXL = {
@@ -65,16 +64,17 @@ public class PixelPropsUtils {
             "com.samsung.android.gearnplugin",
             "com.samsung.android.modenplugin",
             "com.samsung.android.neatplugin",
-            "com.samsung.android.waterplugin"
+            "com.samsung.android.waterplugin",
+            "com.snapchat.android"
     };
 
     private static final String[] extraPackagesToChange = {
             "com.android.chrome",
+            "com.android.vending",
             "com.breel.wallpapers20",
             "com.nhs.online.nhsonline",
             "com.netflix.mediaclient",
-            "com.nothing.smartcenter",
-            "com.snapchat.android"
+            "com.nothing.smartcenter"
     };
 
     private static final String[] customGoogleCameraPackages = {
@@ -111,7 +111,8 @@ public class PixelPropsUtils {
 
     static {
         propsToKeep = new HashMap<>();
-        propsToKeep.put("com.google.android.settings.intelligence", new ArrayList<>(Collections.singletonList("FINGERPRINT")));
+        propsToKeep.put("com.google.android.settings.intelligence",
+                new ArrayList<>(Collections.singletonList("FINGERPRINT")));
         propsToChangeGeneric = new HashMap<>();
         propsToChangeGeneric.put("TYPE", "user");
         propsToChangeGeneric.put("TAGS", "release-keys");
@@ -121,14 +122,8 @@ public class PixelPropsUtils {
         propsToChangePixel7Pro.put("DEVICE", "cheetah");
         propsToChangePixel7Pro.put("PRODUCT", "cheetah");
         propsToChangePixel7Pro.put("MODEL", "Pixel 7 Pro");
-        propsToChangePixel7Pro.put("FINGERPRINT", "google/cheetah/cheetah:13/TQ2A.230405.003.E1/9802792:user/release-keys");
-        propsToChangePixel6Pro = new HashMap<>();
-        propsToChangePixel6Pro.put("BRAND", "google");
-        propsToChangePixel6Pro.put("MANUFACTURER", "Google");
-        propsToChangePixel6Pro.put("DEVICE", "raven");
-        propsToChangePixel6Pro.put("PRODUCT", "raven");
-        propsToChangePixel6Pro.put("MODEL", "Pixel 6 Pro");
-        propsToChangePixel6Pro.put("FINGERPRINT", "google/raven/raven:13/TQ2A.230405.003.E1/9802792:user/release-keys");
+        propsToChangePixel7Pro.put("FINGERPRINT",
+                "google/cheetah/cheetah:13/TQ2A.230405.003.E1/9802792:user/release-keys");
         propsToChangePixel5 = new HashMap<>();
         propsToChangePixel5.put("BRAND", "google");
         propsToChangePixel5.put("MANUFACTURER", "Google");
@@ -145,9 +140,9 @@ public class PixelPropsUtils {
         propsToChangePixelXL.put("FINGERPRINT", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
     }
 
-    private static boolean isGoogleCameraPackage(String packageName){
+    private static boolean isGoogleCameraPackage(String packageName) {
         return packageName.startsWith("com.google.android.GoogleCamera") ||
-            Arrays.asList(customGoogleCameraPackages).contains(packageName);
+                Arrays.asList(customGoogleCameraPackages).contains(packageName);
     }
 
     public static void setProps(String packageName) {
@@ -173,7 +168,8 @@ public class PixelPropsUtils {
                 if (SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
                     propsToChange.putAll(propsToChangePixelXL);
                 } else {
-                    if (isPixelDevice) return;
+                    if (isPixelDevice)
+                        return;
                     propsToChange.putAll(propsToChangePixel5);
                 }
             } else if (isPixelDevice) {
@@ -186,22 +182,23 @@ public class PixelPropsUtils {
                     propsToChange.putAll(propsToChangePixel7Pro);
                 } else if (Arrays.asList(packagesToChangePixelXL).contains(packageName)) {
                     propsToChange.putAll(propsToChangePixelXL);
-                } else if (Arrays.asList(packagesToChangePixel5).contains(packageName)) {
-                    propsToChange.putAll(propsToChangePixel5);
                 } else {
-                    propsToChange.putAll(propsToChangePixel6Pro);
+                    propsToChange.putAll(propsToChangePixel5);
                 }
             }
 
-            if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
+            if (DEBUG)
+                Log.d(TAG, "Defining props for: " + packageName);
             for (Map.Entry<String, Object> prop : propsToChange.entrySet()) {
                 String key = prop.getKey();
                 Object value = prop.getValue();
                 if (propsToKeep.containsKey(packageName) && propsToKeep.get(packageName).contains(key)) {
-                    if (DEBUG) Log.d(TAG, "Not defining " + key + " prop for: " + packageName);
+                    if (DEBUG)
+                        Log.d(TAG, "Not defining " + key + " prop for: " + packageName);
                     continue;
                 }
-                if (DEBUG) Log.d(TAG, "Defining " + key + " prop for: " + packageName);
+                if (DEBUG)
+                    Log.d(TAG, "Defining " + key + " prop for: " + packageName);
                 setPropValue(key, value);
             }
             if (packageName.equals("com.google.android.gms")) {
@@ -221,7 +218,8 @@ public class PixelPropsUtils {
 
     static void setPropValue(String key, Object value) {
         try {
-            if (DEBUG) Log.d(TAG, "Defining prop " + key + " to " + value.toString());
+            if (DEBUG)
+                Log.d(TAG, "Defining prop " + key + " to " + value.toString());
             Field field = Build.class.getDeclaredField(key);
             field.setAccessible(true);
             field.set(null, value);
@@ -264,7 +262,8 @@ public class PixelPropsUtils {
     }
 
     private static void spoofBuildGms() {
-        // Alter build parameters to pixel 2 for avoiding hardware attestation enforcement
+        // Alter build parameters to pixel 2 for avoiding hardware attestation
+        // enforcement
         setBuildField("DEVICE", "walleye");
         setBuildField("FINGERPRINT", "google/walleye/walleye:8.1.0/OPM1.171019.011/4448085:user/release-keys");
         setBuildField("MODEL", "Pixel 2");
@@ -288,8 +287,9 @@ public class PixelPropsUtils {
             throw new UnsupportedOperationException();
         }
     }
-    
-     static void dlog(String msg) {
-      if (DEBUG) Log.d(TAG, msg);
+
+    static void dlog(String msg) {
+        if (DEBUG)
+            Log.d(TAG, msg);
     }
 }
