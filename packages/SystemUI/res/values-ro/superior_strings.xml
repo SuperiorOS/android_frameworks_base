@@ -26,8 +26,8 @@
     <string name="status_bar_call_strength">Putere apel</string>
     <string name="status_bar_roaming">Indicator roaming</string>
     <string name="status_bar_ims">VoLTE/VoWiFi</string>
-    <string name="global_action_reboot">Repornire</string>
-    <string name="global_action_reboot_more">Se repornește\u2026</string>
+    <string name="global_action_reboot">Repornește</string>
+    <string name="global_action_reboot_more">Repornește\u2026</string>
     <string name="global_action_reboot_sub">Sistem</string>
     <string name="global_action_reboot_recovery">Recuperare</string>
     <string name="global_action_reboot_bootloader">Bootloader</string>
@@ -54,7 +54,7 @@
     <string name="qs_data_switch_changed_1">S-a schimbat cardul de date la SIM 1.</string>
     <string name="qs_data_switch_changed_2">S-a schimbat cardul de date la SIM 2.</string>
     <string name="quick_settings_poweroff_label">Oprire</string>
-    <string name="quick_settings_reboot_label">Repornire</string>
+    <string name="quick_settings_reboot_label">Repornește</string>
     <string name="quick_settings_reboot_recovery_label">Recuperare</string>
     <string name="quick_settings_reboot_bootloader_label">Bootloader</string>
     <string name="turn_on_bluetooth">Utilizare Bluetooth</string>
