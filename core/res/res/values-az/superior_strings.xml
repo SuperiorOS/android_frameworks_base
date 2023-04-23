@@ -34,4 +34,11 @@
     <string name="unlock_application"><xliff:g id="label" example="Telegram">%1$s</xliff:g> kilidini aç</string>
     <string name="systemui_restart_title">Sistem interfeysi yenidən başladılmalıdır</string>
     <string name="systemui_restart_message">Bütün dəyişikliklərin effektiv olması üçün Sistem İnterfeysi yenidən başladılmalıdır. Başladılsın?</string>
+    <string name="battery_saver_on_notification_title">Batareyaya Qənaət işə salındı</string>
+    <string name="battery_saver_on_notification_summary">Proqrama görə. Ayarları incələmək üçün basın.</string>
+    <string name="pocket_lock_message_long_press">Kilidi açmaq üçün güc düyməsinə basılı saxlayın</string>
+    <string name="pocket_view_title">Cib rejimi açıqdır</string>
+    <string name="pocket_view_title_cancel">Telefonunu istifadə etmək üçün:</string>
+    <string name="pocket_view_top_tag_cancel">Telefonun mavi hissəsində hər hansı tozun olub olmadığını yoxlayın və əgər varsa onları təmizləyin.</string>
+    <string name="pocket_view_top_tag_cancel2">Cib rejimindən çıxmağa məcbur etmək üçün güc düyməsinə uzun basın.</string>
 </resources>
