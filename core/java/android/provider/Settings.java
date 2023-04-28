@@ -5952,6 +5952,11 @@ public final class Settings {
          * @hide
          */
         public static final String OMNIJAWS_WEATHER_ICON_PACK = "omnijaws_weather_icon_pack";
+        
+        /**
+         * @hide
+         */
+        public static final String LOCKSCREEN_WEATHER_STYLE = "lockscreen_weather_style";
 
        /**
          * These are all public system settings
