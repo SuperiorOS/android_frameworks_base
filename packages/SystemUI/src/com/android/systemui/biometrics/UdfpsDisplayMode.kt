@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.RemoteException
 import android.os.Trace
 import android.util.Log
+import com.android.systemui.R
 import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.util.concurrency.Execution
 import javax.inject.Inject
@@ -27,6 +28,13 @@ constructor(
     private var currentRequest: Request? = null
 
     override fun enable(onEnabled: Runnable?) {
+
+        val enableOptimalRefreshRate = context.resources.getBoolean(R.bool.config_udfpsOptimalRefreshRate)
+        if (!enableOptimalRefreshRate) {
+            Log.w(TAG, "Optimal refresh rate for UDFPS disabled by config")
+            return
+        }
+
         execution.isMainThread()
         Log.v(TAG, "enable")
 
