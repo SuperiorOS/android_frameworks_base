@@ -38,4 +38,7 @@
 
     <!-- Udfps vendor code -->
     <integer name="config_udfpsVendorCode">0</integer>
+
+    <!-- Whether to find optimal display refresh rate when using udfps -->
+    <bool name="config_udfpsOptimalRefreshRate">true</bool>
 </resources>
