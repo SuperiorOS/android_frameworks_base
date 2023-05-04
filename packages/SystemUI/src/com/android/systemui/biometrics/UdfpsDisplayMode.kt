@@ -29,11 +29,7 @@ constructor(
 
     override fun enable(onEnabled: Runnable?) {
 
-        val enableOptimalRefreshRate = context.resources.getBoolean(R.bool.config_udfpsOptimalRefreshRate)
-        if (!enableOptimalRefreshRate) {
-            Log.w(TAG, "Optimal refresh rate for UDFPS disabled by config")
-            return
-        }
+	val enableOptimalRefreshRate = context.resources.getBoolean(R.bool.config_udfpsOptimalRefreshRate)
 
         execution.isMainThread()
         Log.v(TAG, "enable")
@@ -56,8 +52,13 @@ constructor(
         try {
             // This method is a misnomer. It has nothing to do with HBM, its purpose is to set
             // the appropriate display refresh rate.
-            authController.udfpsHbmListener!!.onHbmEnabled(request.displayId)
-            Log.v(TAG, "enable | requested optimal refresh rate for UDFPS")
+            if (enableOptimalRefreshRate) {
+                authController.udfpsHbmListener!!.onHbmEnabled(request.displayId)
+                Log.v(TAG, "enable | requested optimal refresh rate for UDFPS")
+            }
+            else {
+                Log.w(TAG, "enable | optimal refresh rate for UDFPS disabled by config")
+            }
         } catch (e: RemoteException) {
             Log.e(TAG, "enable", e)
         }
