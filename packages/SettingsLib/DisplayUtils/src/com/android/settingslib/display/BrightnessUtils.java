@@ -21,7 +21,6 @@ import android.util.MathUtils;
 
 import com.android.internal.display.BrightnessSynchronizer;
 
-/** Utility methods for calculating the display brightness. */
 public class BrightnessUtils {
 
     public static final boolean sysUseLowGamma = Boolean.parseBoolean(
