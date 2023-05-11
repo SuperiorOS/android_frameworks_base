@@ -910,7 +910,8 @@ public class AudioService extends IAudioService.Stub
             "android",
             "com.android.systemui",
             "com.android.keyguard",
-            "com.google.android.googlequicksearchbox"
+            "com.google.android.googlequicksearchbox",
+            "com.pixys.glyph"
     };
 
     private boolean mVisualizerLocked;
