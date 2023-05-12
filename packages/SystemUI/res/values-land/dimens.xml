@@ -62,7 +62,6 @@
 
     <dimen name="large_dialog_width">348dp</dimen>
 
-    <dimen name="qs_panel_padding_top">@dimen/qqs_layout_margin_top</dimen>
 
     <dimen name="controls_header_horizontal_padding">12dp</dimen>
     <dimen name="controls_content_margin_horizontal">16dp</dimen>
@@ -70,4 +69,9 @@
     <!-- Bouncer user switcher margins -->
     <dimen name="bouncer_user_switcher_view_mode_user_switcher_bottom_margin">0dp</dimen>
     <dimen name="bouncer_user_switcher_view_mode_view_flipper_bottom_margin">0dp</dimen>
+
+    <dimen name="qs_panel_padding_top">12dp</dimen>
+    <dimen name="qs_panel_padding_top_combined_headers">12dp</dimen>
+    
+    <dimen name="qs_header_system_icons_area_height">12dp</dimen>
 </resources>
