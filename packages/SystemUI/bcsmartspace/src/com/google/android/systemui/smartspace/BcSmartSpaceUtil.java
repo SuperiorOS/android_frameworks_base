@@ -140,7 +140,7 @@ public final class BcSmartSpaceUtil {
             // Ensure we don't change date view
             return false;
         }
-        if (smartspaceTarget.getFeatureType() == SmartspaceTarget.FEATURE_WEATHER) {
+        if (smartspaceTarget != null && smartspaceTarget.getFeatureType() == SmartspaceTarget.FEATURE_WEATHER) {
             Intent intent = new Intent().setComponent(new ComponentName(GSA_PACKAGE, GSA_WEATHER_ACTIVITY))
                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intentStarter.startIntent(v, intent, true);
