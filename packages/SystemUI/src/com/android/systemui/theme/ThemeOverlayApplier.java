@@ -274,6 +274,19 @@ public class ThemeOverlayApplier implements Dumpable {
         mIsBlackTheme = black;
     }
 
+    public boolean shouldApplyBlackThemeNow() {
+        OverlayInfo info = null;
+        try {
+            info = mOverlayManager.getOverlayInfo("com.android.system.theme.black", UserHandle.SYSTEM);
+        } catch (Exception e) { }
+        if ((info != null && info.isEnabled() && !mIsBlackTheme) 
+                || (info != null && !info.isEnabled() && mIsBlackTheme)) {
+            return true;
+        } else {
+            return false;
+        } 
+    }
+
     public void applyBlackTheme(boolean enable) {
         mBgExecutor.execute(() -> {
             try {
