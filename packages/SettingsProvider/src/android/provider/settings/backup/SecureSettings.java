@@ -261,6 +261,7 @@ public class SecureSettings {
         Settings.Secure.SYSTEM_BLACK_THEME,
         Settings.Secure.TETHERING_ALLOW_VPN_UPSTREAMS,
         Settings.Secure.DOZE_DOUBLE_TAP_GESTURE_AMBIENT,
-        Settings.Secure.DOZE_PICK_UP_GESTURE_AMBIENT
+        Settings.Secure.DOZE_PICK_UP_GESTURE_AMBIENT,
+        Settings.Secure.DOZE_SINGLE_TAP_GESTURE_AMBIENT,
     };
 }
