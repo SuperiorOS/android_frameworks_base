@@ -43,4 +43,15 @@ public final class LineageContextConstants {
      */
     public static final String LINEAGE_HARDWARE_SERVICE = "lineagehardware";
 
+    /**
+     * Use with {@link android.content.Context#getSystemService} to retrieve a
+     * {@link lineageos.health.HealthInterface} to access the Health interface.
+     *
+     * @see android.content.Context#getSystemService
+     * @see lineageos.health.HealthInterface
+     *
+     * @hide
+     */
+    public static final String LINEAGE_HEALTH_INTERFACE = "lineagehealth";
+
 }
