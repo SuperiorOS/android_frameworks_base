@@ -15,127 +15,145 @@
 -->
 <resources>
 
-    <!-- Device keyhandlers -->
-    <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
-    <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
+     <!-- Device keyhandlers -->
+     <java-symbol type="array" name="config_deviceKeyHandlerLibs" />
+     <java-symbol type="array" name="config_deviceKeyHandlerClasses" />
 
-    <!-- Wether to handle audio direction changes between major call states -->
-    <java-symbol type="bool" name="config_handleAudioDirectionChangesBetweenCallStateChanges" />
+     <!-- Wether to handle audio direction changes between major call states -->
+     <java-symbol type="bool" name="config_handleAudioDirectionChangesBetweenCallStateChanges" />
 
-    <!-- App error dialog -->
-    <java-symbol type="id" name="aerr_copy" />
-    <java-symbol type="string" name="url_copy_success" />
-    <java-symbol type="string" name="url_copy_failed" />
+     <!-- App error dialog -->
+     <java-symbol type="id" name="aerr_copy" />
+     <java-symbol type="string" name="url_copy_success" />
+     <java-symbol type="string" name="url_copy_failed" />
 
-    <!-- Whether to cancel fingerprint operation if not idle -->
-    <java-symbol type="bool" name="config_fpCancelIfNotIdle" />
+     <!-- Whether to cancel fingerprint operation if not idle -->
+     <java-symbol type="bool" name="config_fpCancelIfNotIdle" />
 
-    <!-- Power Menu Reboot -->
-    <java-symbol name="reboot_to_bootloader_title" type="string" />
-    <java-symbol name="reboot_to_bootloader_message" type="string" />
-    <java-symbol name="reboot_to_recovery_title" type="string" />
-    <java-symbol name="reboot_to_recovery_message" type="string" />
-    <java-symbol name="reboot_system_title" type="string" />
-    <java-symbol name="reboot_system_message" type="string" />
-    <java-symbol type="array" name="config_rebootActionsList" />
+     <!-- Power Menu Reboot -->
+     <java-symbol name="reboot_to_bootloader_title" type="string" />
+     <java-symbol name="reboot_to_bootloader_message" type="string" />
+     <java-symbol name="reboot_to_recovery_title" type="string" />
+     <java-symbol name="reboot_to_recovery_message" type="string" />
+     <java-symbol name="reboot_system_title" type="string" />
+     <java-symbol name="reboot_system_message" type="string" />
+     <java-symbol type="array" name="config_rebootActionsList" />
 
-    <!-- Light / Regular style fonts -->
-    <java-symbol type="string" name="config_lightFontFamily" />
-    <java-symbol type="string" name="config_regularFontFamily" />
+     <!-- Light / Regular style fonts -->
+     <java-symbol type="string" name="config_lightFontFamily" />
+     <java-symbol type="string" name="config_regularFontFamily" />
 
-    <!-- Whether device supports an alt. ambient display -->
-    <java-symbol type="bool" name="config_alt_ambient_display"/>
+     <!-- Whether device supports an alt. ambient display -->
+     <java-symbol type="bool" name="config_alt_ambient_display" />
 
-    <!-- Cycle through ringer modes -->
-    <java-symbol type="string" name="volume_dialog_ringer_guidance_normal" />
+     <!-- Cycle through ringer modes -->
+     <java-symbol type="string" name="volume_dialog_ringer_guidance_normal" />
 
-    <!-- Battery Leds -->
-    <java-symbol type="bool" name="config_intrusiveBatteryLed" />
+     <!-- Battery Leds -->
+     <java-symbol type="bool" name="config_intrusiveBatteryLed" />
 
-    <!-- Alert slider -->
-    <java-symbol type="string" name="alert_slider_state_path" />
-    <java-symbol type="string" name="alert_slider_uevent_match_path" />
-    <java-symbol type="bool" name="config_hasAlertSlider" />
-    <java-symbol type="integer" name="config_alertSliderLocation" />
+     <!-- Alert slider -->
+     <java-symbol type="string" name="alert_slider_state_path" />
+     <java-symbol type="string" name="alert_slider_uevent_match_path" />
+     <java-symbol type="bool" name="config_hasAlertSlider" />
+     <java-symbol type="integer" name="config_alertSliderLocation" />
 
-    <!-- Display color inversion availability -->
-    <java-symbol type="bool" name="config_displayInversionAvailable" />
+     <!-- Display color inversion availability -->
+     <java-symbol type="bool" name="config_displayInversionAvailable" />
 
-    <!-- SystemUI Restart -->
-    <java-symbol type="string" name="systemui_restart_title" />
-    <java-symbol type="string" name="systemui_restart_message" />
+     <!-- SystemUI Restart -->
+     <java-symbol type="string" name="systemui_restart_title" />
+     <java-symbol type="string" name="systemui_restart_message" />
 
-    <!-- Boost Framework -->
-    <java-symbol type="bool" name="config_supportsBoostFramework" />
+     <!-- Boost Framework -->
+     <java-symbol type="bool" name="config_supportsBoostFramework" />
 
-    <!-- Whether device has dash charging support -->
-    <java-symbol type="bool" name="config_hasDashCharger" />
+     <!-- Whether device has dash charging support -->
+     <java-symbol type="bool" name="config_hasDashCharger" />
 
-    <!-- Whether device has warp charging support -->
-    <java-symbol type="bool" name="config_hasWarpCharger" />
+     <!-- Whether device has warp charging support -->
+     <java-symbol type="bool" name="config_hasWarpCharger" />
 
-    <!-- Whether device has VOOC charging support -->
-    <java-symbol type="bool" name="config_hasVoocCharger" />
+     <!-- Whether device has VOOC charging support -->
+     <java-symbol type="bool" name="config_hasVoocCharger" />
 
-    <!-- Whether device has SuperDart charging support -->
-    <java-symbol type="bool" name="config_hasSuperDartCharger" />
+     <!-- Whether device has SuperDart charging support -->
+     <java-symbol type="bool" name="config_hasSuperDartCharger" />
 
-    <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
-    <java-symbol type="string" name="config_oemFastChargerStatusPath" />
+     <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
+     <java-symbol type="string" name="config_oemFastChargerStatusPath" />
 
-    <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
-    <java-symbol type="string" name="config_oemFastChargerStatusPath2" />
+     <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
+     <java-symbol type="string" name="config_oemFastChargerStatusPath2" />
 
-    <!-- Expected value from fast charging status file -->
-    <java-symbol type="string" name="config_oemFastChargerStatusValue" />
+     <!-- Expected value from fast charging status file -->
+     <java-symbol type="string" name="config_oemFastChargerStatusValue" />
 
-    <!-- Paths to OP warp charging status file -->
-    <java-symbol type="string" name="config_opWarpChargerStatusPaths" />
+     <!-- Paths to OP warp charging status file -->
+     <java-symbol type="string" name="config_opWarpChargerStatusPaths" />
 
-    <!-- HW keys binding -->
-    <java-symbol type="anim" name="custom_app_in" />
-    <java-symbol type="anim" name="custom_app_out" />
-    <java-symbol type="integer" name="config_deviceHardwareKeys" />
-    
-    <!-- Title & summary of notification letting users know that battery saver is now on -->
-    <java-symbol type="string" name="battery_saver_on_notification_title" />
-    <java-symbol type="string" name="battery_saver_on_notification_summary" />
+     <!-- HW keys binding -->
+     <java-symbol type="anim" name="custom_app_in" />
+     <java-symbol type="anim" name="custom_app_out" />
+     <java-symbol type="integer" name="config_deviceHardwareKeys" />
 
-    <!-- Pocket Lock -->
-    <java-symbol type="layout" name="pocket_lock_view" />
-    <java-symbol type="bool" name="config_pocketModeSupported" />
+     <!-- Title & summary of notification letting users know that battery saver is now on -->
+     <java-symbol type="string" name="battery_saver_on_notification_title" />
+     <java-symbol type="string" name="battery_saver_on_notification_summary" />
 
-    <!-- Pocket bridge -->
-    <java-symbol type="string" name="config_pocketBridgeSysfsInpocket" />
-    <!-- Pocket Service -->
-    <java-symbol type="string" name="config_pocketJudgeVendorSensorName" />
+     <!-- Pocket Lock -->
+     <java-symbol type="layout" name="pocket_lock_view" />
+     <java-symbol type="bool" name="config_pocketModeSupported" />
 
-    <!-- Package Manager -->
-    <java-symbol type="array" name="config_deviceDisabledComponents" />
-    <java-symbol type="array" name="config_globallyDisabledComponents" />
-    <java-symbol type="array" name="config_forceEnabledComponents" />
+     <!-- Pocket bridge -->
+     <java-symbol type="string" name="config_pocketBridgeSysfsInpocket" />
+     <!-- Pocket Service -->
+     <java-symbol type="string" name="config_pocketJudgeVendorSensorName" />
 
-    <!-- Lock gesture -->
-    <java-symbol type="string" name="gesture_locked_warning" />
+     <!-- Package Manager -->
+     <java-symbol type="array" name="config_deviceDisabledComponents" />
+     <java-symbol type="array" name="config_globallyDisabledComponents" />
+     <java-symbol type="array" name="config_forceEnabledComponents" />
 
-    <!-- Whether to use Richtap vibration -->
-    <java-symbol type="bool" name="config_usesRichtapVibration" />
+     <!-- Lock gesture -->
+     <java-symbol type="string" name="gesture_locked_warning" />
 
-    <!-- Whether devices suports in-display fingerprint when screen is off -->
-    <java-symbol type="bool" name="config_supportScreenOffUdfps" />
+     <!-- Whether to use Richtap vibration -->
+     <java-symbol type="bool" name="config_usesRichtapVibration" />
 
-    <!-- Enable face auth only when swiping security view -->
-    <java-symbol type="bool" name="config_faceAuthOnlyOnSecurityView" />
+     <!-- Whether devices suports in-display fingerprint when screen is off -->
+     <java-symbol type="bool" name="config_supportScreenOffUdfps" />
 
-    <!-- Camera -->
-    <java-symbol type="array" name="config_cameraAuxPackageAllowList" />
-    <java-symbol type="array" name="config_cameraAuxPackageExcludeList" />
-    <java-symbol type="array" name="config_cameraHFRPrivAppList" />
+     <!-- Enable face auth only when swiping security view -->
+     <java-symbol type="bool" name="config_faceAuthOnlyOnSecurityView" />
 
-    <!-- App lock -->
-    <java-symbol type="string" name="unlock_application" />
-    <java-symbol type="array" name="config_appLockAllowedSystemApps" />
+     <!-- Camera -->
+     <java-symbol type="array" name="config_cameraAuxPackageAllowList" />
+     <java-symbol type="array" name="config_cameraAuxPackageExcludeList" />
+     <java-symbol type="array" name="config_cameraHFRPrivAppList" />
 
-    <!-- For dynamic default font styles -->
-    <java-symbol type="string" name="config_bodyFontFamily" />
+     <!-- App lock -->
+     <java-symbol type="string" name="unlock_application" />
+     <java-symbol type="array" name="config_appLockAllowedSystemApps" />
+
+     <!-- For dynamic default font styles -->
+     <java-symbol type="string" name="config_bodyFontFamily" />
+
+     <!-- Health interface -->
+     <java-symbol type="bool" name="config_chargingControlEnabled" />
+     <java-symbol type="integer" name="config_defaultChargingControlMode" />
+     <java-symbol type="integer" name="config_defaultChargingControlStartTime" />
+     <java-symbol type="integer" name="config_defaultChargingControlTargetTime" />
+     <java-symbol type="integer" name="config_defaultChargingControlLimit" />
+     <java-symbol type="drawable" name="ic_charging_control" />
+     <java-symbol type="integer" name="config_chargingControlTimeMargin" />
+     <java-symbol type="integer" name="config_chargingControlBatteryRechargeMargin" />
+     <java-symbol type="string" name="charging_control_notification_channel" />
+     <java-symbol type="string" name="charging_control_notification_title" />
+     <java-symbol type="string" name="charging_control_notification_cancel_once" />
+     <java-symbol type="string" name="charging_control_notification_content_limit" />
+     <java-symbol type="string" name="charging_control_notification_content_limit_reached" />
+     <java-symbol type="string" name="charging_control_notification_content_target" />
+     <java-symbol type="string" name="charging_control_notification_content_target_reached" />
+
 </resources>

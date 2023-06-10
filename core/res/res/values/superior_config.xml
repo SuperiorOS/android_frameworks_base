@@ -15,75 +15,76 @@
 -->
 <resources>
 
-    <!-- Paths to the libraries that contain device specific key handlers -->
-    <string-array name="config_deviceKeyHandlerLibs" translatable="false">
-    </string-array>
+     <!-- Paths to the libraries that contain device specific key handlers -->
+     <string-array name="config_deviceKeyHandlerLibs" translatable="false">
+     </string-array>
 
-    <!-- Names of the key handler classes -->
-    <string-array name="config_deviceKeyHandlerClasses" translatable="false">
-    </string-array>
+     <!-- Names of the key handler classes -->
+     <string-array name="config_deviceKeyHandlerClasses" translatable="false">
+     </string-array>
 
-    <!-- Wether to handle audio direction changes between major call states -->
-    <bool name="config_handleAudioDirectionChangesBetweenCallStateChanges">true</bool>
+     <!-- Wether to handle audio direction changes between major call states -->
+     <bool name="config_handleAudioDirectionChangesBetweenCallStateChanges">true</bool>
 
-    <!-- Whether to cancel fingerprint operation if not idle -->
-    <bool name="config_fpCancelIfNotIdle">false</bool>
+     <!-- Whether to cancel fingerprint operation if not idle -->
+     <bool name="config_fpCancelIfNotIdle">false</bool>
 
-    <!-- Name of a font family to use as light font. For theming purpose. -->
-    <string name="config_lightFontFamily" translatable="false">sans-serif-light</string>
+     <!-- Name of a font family to use as light font. For theming purpose. -->
+     <string name="config_lightFontFamily" translatable="false">sans-serif-light</string>
 
-    <!-- Name of a font family to use as regular font. For theming purpose. -->
-    <string name="config_regularFontFamily" translatable="false">sans-serif-regular</string>
+     <!-- Name of a font family to use as regular font. For theming purpose. -->
+     <string name="config_regularFontFamily" translatable="false">sans-serif-regular</string>
 
-    <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
-    <bool name="config_cleanupUnusedFingerprints">true</bool>
+     <!-- Whether to cleanup fingerprints upon connection to the daemon and when user switches -->
+     <bool name="config_cleanupUnusedFingerprints">true</bool>
 
-    <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
-    <bool name="config_intrusiveBatteryLed">false</bool>
+     <!-- Is the battery LED intrusive? Used to decide if there should be a disable option -->
+     <bool name="config_intrusiveBatteryLed">false</bool>
 
-    <!-- Whether device has physical tri state switch -->
-    <bool name="config_hasAlertSlider">false</bool>
+     <!-- Whether device has physical tri state switch -->
+     <bool name="config_hasAlertSlider">false</bool>
 
-    <!-- Alert slider proc nodes paths -->
-    <string name="alert_slider_state_path"></string>
-    <string name="alert_slider_uevent_match_path"></string>
+     <!-- Alert slider proc nodes paths -->
+     <string name="alert_slider_state_path"></string>
+     <string name="alert_slider_uevent_match_path"></string>
 
-    <!-- The location of the device's alert slider:
+     <!-- The location of the device's alert slider:
          0: Left side
          1: Right side -->
-         <integer name="config_alertSliderLocation">0</integer>
+     <integer name="config_alertSliderLocation">0</integer>
 
-    <!-- Display color inversion availability -->
-    <bool name="config_displayInversionAvailable">true</bool>
+     <!-- Display color inversion availability -->
+     <bool name="config_displayInversionAvailable">true</bool>
 
-    <!-- Boost Framework -->
-    <bool name="config_supportsBoostFramework">false</bool>
+     <!-- Boost Framework -->
+     <bool name="config_supportsBoostFramework">false</bool>
 
-    <!-- Whether device has dash charging support -->
-    <bool name="config_hasDashCharger">false</bool>
+     <!-- Whether device has dash charging support -->
+     <bool name="config_hasDashCharger">false</bool>
 
-    <!-- Whether device has warp charging support -->
-    <bool name="config_hasWarpCharger">false</bool>
+     <!-- Whether device has warp charging support -->
+     <bool name="config_hasWarpCharger">false</bool>
 
-    <!-- Whether device has VOOC charging support -->
-    <bool name="config_hasVoocCharger">false</bool>
+     <!-- Whether device has VOOC charging support -->
+     <bool name="config_hasVoocCharger">false</bool>
 
-    <!-- Whether device has SuperDart charging support -->
-    <bool name="config_hasSuperDartCharger">false</bool>
+     <!-- Whether device has SuperDart charging support -->
+     <bool name="config_hasSuperDartCharger">false</bool>
 
-    <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
-    <string name="config_oemFastChargerStatusPath" translatable="false"></string>
+     <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
+     <string name="config_oemFastChargerStatusPath" translatable="false"></string>
 
-    <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
-    <string name="config_oemFastChargerStatusPath2" translatable="false"></string>
+     <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
+     <string name="config_oemFastChargerStatusPath2" translatable="false"></string>
 
-    <!-- Expected value from fast charging status file  -->
-    <string name="config_oemFastChargerStatusValue" translatable="false"></string>
+     <!-- Expected value from fast charging status file  -->
+     <string name="config_oemFastChargerStatusValue" translatable="false"></string>
 
-    <!-- Paths to OP warp charging status file -->
-    <string name="config_opWarpChargerStatusPaths" translatable="false">/sys/class/power_supply/battery/fastchg_status</string>
+     <!-- Paths to OP warp charging status file -->
+     <string name="config_opWarpChargerStatusPaths" translatable="false">
+          /sys/class/power_supply/battery/fastchg_status</string>
 
-    <!-- Hardware keys present on the device, stored as a bit field.
+     <!-- Hardware keys present on the device, stored as a bit field.
          This integer should equal the sum of the corresponding value for each
          of the following keys present:
              1 - Home
@@ -95,56 +96,91 @@
             64 - Volume rocker
          For example, a device with Home, Back and Menu keys would set this
          config to 7. -->
-    <integer name="config_deviceHardwareKeys">64</integer>
-    
-    <!-- Defines the sysfs attribute path used by pocket bridge
+     <integer name="config_deviceHardwareKeys">64</integer>
+
+     <!-- Defines the sysfs attribute path used by pocket bridge
         to communicate pocket state to the pocket judge kernel driver. -->
-    <string name="config_pocketBridgeSysfsInpocket"></string>
+     <string name="config_pocketBridgeSysfsInpocket"></string>
 
-    <!-- Pocket Lock -->
-    <bool name="config_pocketModeSupported">false</bool>
+     <!-- Pocket Lock -->
+     <bool name="config_pocketModeSupported">false</bool>
 
-    <!-- Defines custom OEM sensor for pocket detection. -->
-    <string name="config_pocketJudgeVendorSensorName"></string>
+     <!-- Defines custom OEM sensor for pocket detection. -->
+     <string name="config_pocketJudgeVendorSensorName"></string>
 
-    <!-- The list of components which should be automatically disabled for a specific device.
+     <!-- The list of components which should be automatically disabled for a specific device.
          Note: this MUST not be used to randomly disable components, ask for approval first! -->
-    <string-array name="config_deviceDisabledComponents" translatable="false">
-    </string-array>
+     <string-array name="config_deviceDisabledComponents" translatable="false">
+     </string-array>
 
-    <!-- The list of components which should be automatically disabled for all devices. -->
-    <string-array name="config_globallyDisabledComponents" translatable="false">
-    </string-array>
+     <!-- The list of components which should be automatically disabled for all devices. -->
+     <string-array name="config_globallyDisabledComponents" translatable="false">
+     </string-array>
 
-    <!-- The list of components which should be forced to be enabled. -->
-    <string-array name="config_forceEnabledComponents" translatable="false">
-    </string-array>
+     <!-- The list of components which should be forced to be enabled. -->
+     <string-array name="config_forceEnabledComponents" translatable="false">
+     </string-array>
 
-    <!-- Whether to use Richtap vibration -->
-    <bool name="config_usesRichtapVibration">false</bool>
+     <!-- Whether to use Richtap vibration -->
+     <bool name="config_usesRichtapVibration">false</bool>
 
-    <!-- Whether devices suports in-display fingerprint when screen is off -->
-    <bool name="config_supportScreenOffUdfps">false</bool>
+     <!-- Whether devices suports in-display fingerprint when screen is off -->
+     <bool name="config_supportScreenOffUdfps">false</bool>
 
-    <!-- Enable face auth only when swiping security view -->
-    <bool name="config_faceAuthOnlyOnSecurityView">false</bool>
+     <!-- Enable face auth only when swiping security view -->
+     <bool name="config_faceAuthOnlyOnSecurityView">false</bool>
 
-    <!-- Array containing custom error messages from vendor. -->
-    <string-array name="face_error_vendor" translatable="false">
-        <item>@string/face_unlock_disabled_idle</item>
-    </string-array>
+     <!-- Array containing custom error messages from vendor. -->
+     <string-array name="face_error_vendor" translatable="false">
+          <item>@string/face_unlock_disabled_idle</item>
+     </string-array>
 
-    <!-- The list of package IDs that are allowed to use aux cameras.
+     <!-- The list of package IDs that are allowed to use aux cameras.
          NOTE: If this list is empty then all apps will be able to use aux cameras. -->
-    <string-array name="config_cameraAuxPackageAllowList" translatable="false" />
+     <string-array name="config_cameraAuxPackageAllowList" translatable="false" />
 
-    <!-- The list of package IDs that are not allowed to use aux cameras. -->
-    <string-array name="config_cameraAuxPackageExcludeList" translatable="false" />
+     <!-- The list of package IDs that are not allowed to use aux cameras. -->
+     <string-array name="config_cameraAuxPackageExcludeList" translatable="false" />
 
-    <!-- The list of package IDs that are allowed to skip camera high frame rate checks. -->
-    <string-array name="config_cameraHFRPrivAppList" translatable="false" />
+     <!-- The list of package IDs that are allowed to skip camera high frame rate checks. -->
+     <string-array name="config_cameraHFRPrivAppList" translatable="false" />
 
-    <!-- List of system apps that are allowed to be locked with app lock.
+     <!-- List of system apps that are allowed to be locked with app lock.
         Use with extreme caution. -->
-    <string-array name="config_appLockAllowedSystemApps" translatable="false" />
+     <string-array name="config_appLockAllowedSystemApps" translatable="false" />
+
+     <!-- Whether charging control should be enabled by default -->
+     <bool name="config_chargingControlEnabled">false</bool>
+
+     <!-- Default charging control mode.
+         This integer should be set to:
+         1 - auto - Use the alarm to calculate the time range when to activate charging control
+         2 - custom - Use time range when the device is usually charging for hours
+         3 - limit - Just limit charging -->
+     <integer name="config_defaultChargingControlMode">1</integer>
+
+     <!-- Default time when charging control is activated.
+         Represented as seconds from midnight (e.g. 79200 == 10pm). -->
+     <integer name="config_defaultChargingControlStartTime">79200</integer>
+
+     <!-- Default time when battery will be fully charged.
+         Represented as seconds from midnight (e.g. 21600 == 6am). -->
+     <integer name="config_defaultChargingControlTargetTime">21600</integer>
+
+     <!-- Default charging limit. -->
+     <integer name="config_defaultChargingControlLimit">80</integer>
+
+     <!-- Considering the fact that the system might have an incorrect estimation of the time to
+         full. Set a time margin to make the device fully charged before the target time arrives.
+         The unit is minutes and the default value is 30 minutes. If you find that it is not enough
+         to make the device to be fully charged at the target time, increase the value
+    -->
+     <integer name="config_chargingControlTimeMargin">30</integer>
+
+     <!-- For a device that cannot bypass battery when charging stops (that is, the battery current
+         is 0mA when charging stops), the battery will gradually discharge. So we need to make it
+         recharge when the battery level is lower than a threshold. Set this so that the device
+         will be charged between (limit - val) and limit. -->
+     <integer name="config_chargingControlBatteryRechargeMargin">10</integer>
+
 </resources>
