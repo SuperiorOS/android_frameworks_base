@@ -5708,6 +5708,39 @@ public final class Settings {
                 "high_touch_polling_rate_enable";
 
         /**
+         * Whether charging control should be enabled.
+         * The value is boolean (1 or 0).
+         * @hide
+         */
+        public static final String CHARGING_CONTROL_ENABLED = "charging_control_enabled";
+
+        /**
+         * Charging control mode, one of AUTO (1; default), CUSTOM (2), or LIMIT (3).
+         * @hide
+         */
+        public static final String CHARGING_CONTROL_MODE = "charging_control_mode";
+
+        /**
+         * Time when charging control is automatically activated in CUSTOM mode.
+         * The value is represented as seconds from midnight.
+         * @hide
+         */
+        public static final String CHARGING_CONTROL_START_TIME = "charging_control_start_time";
+
+        /**
+         * Target time when battery is fully charged in CUSTOM mode.
+         * The value is represented as seconds from midnight.
+         * @hide
+         */
+        public static final String CHARGING_CONTROL_TARGET_TIME = "charging_control_target_time";
+
+        /**
+         * Limit to stop charging.
+         * @hide
+         */
+        public static final String CHARGING_CONTROL_LIMIT = "charging_control_charging_limit";
+
+        /**
          * Enable/disable Bluetooth Battery bar
          * @hide
          */
@@ -5915,7 +5948,6 @@ public final class Settings {
          * @hide
          */
         public static final String ENABLE_RIPPLE_EFFECT = "enable_ripple_effect";
-
         /**
          * Whether to enable fingerprint wake-and-unlock.
          * @hide
