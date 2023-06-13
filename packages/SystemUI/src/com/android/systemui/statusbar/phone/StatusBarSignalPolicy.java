@@ -130,6 +130,7 @@ public class StatusBarSignalPolicy implements SignalCallback,
         mTunerService.removeTunable(this);
         mNetworkController.removeCallback(this);
         mSecurityController.removeCallback(this);
+        mInitialized = false;
     }
 
     private void updateVpn() {
