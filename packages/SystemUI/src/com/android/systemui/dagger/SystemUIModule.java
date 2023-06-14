@@ -324,7 +324,6 @@ public abstract class SystemUIModule {
     @Binds
     abstract LargeScreenShadeInterpolator largeScreensShadeInterpolator(
             LargeScreenShadeInterpolatorImpl impl);
-        }
 
     @Provides
     @SysUISingleton
