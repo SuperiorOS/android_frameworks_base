@@ -209,7 +209,6 @@ public class UdfpsController implements DozeReceiver, Dumpable {
     private boolean mIsPerfLockAcquired = false;
     private static final int BOOST_DURATION_TIMEOUT = 2000;
     private final AmbientDisplayConfiguration mAmbientDisplayConfiguration;
-    private final SecureSettings mSecureSettings;
     private boolean mScreenOffFod;
 
     private UdfpsAnimation mUdfpsAnimation;
@@ -843,7 +842,6 @@ public class UdfpsController implements DozeReceiver, Dumpable {
         mUdfpsVendorCode = mContext.getResources().getInteger(R.integer.config_udfpsVendorCode);
 
         mAmbientDisplayConfiguration = new AmbientDisplayConfiguration(mContext);
-        mSecureSettings = secureSettings;
         updateScreenOffFodState();
         mSecureSettings.registerContentObserver(Settings.Secure.SCREEN_OFF_UDFPS_ENABLED,
             new ContentObserver(mainHandler) {

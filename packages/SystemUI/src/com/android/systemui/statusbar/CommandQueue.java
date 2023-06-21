@@ -176,6 +176,7 @@ public class CommandQueue extends IStatusBar.Stub implements
     private static final int MSG_KILL_FOREGROUND_APP = 101 << MSG_SHIFT;
     private static final int MSG_TOGGLE_SETTINGS_PANEL = 104 << MSG_SHIFT;
 
+    public static final int FLAG_EXCLUDE_NONE = 0;
     public static final int FLAG_EXCLUDE_SEARCH_PANEL = 1 << 0;
     public static final int FLAG_EXCLUDE_RECENTS_PANEL = 1 << 1;
     public static final int FLAG_EXCLUDE_NOTIFICATION_PANEL = 1 << 2;

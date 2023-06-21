@@ -28,6 +28,7 @@ import com.android.keyguard.KeyguardUpdateMonitor
 import com.android.keyguard.KeyguardUpdateMonitorCallback
 import com.android.keyguard.logging.KeyguardLogger
 import com.android.settingslib.Utils
+import android.provider.Settings
 import com.android.systemui.R
 import com.android.systemui.animation.Interpolators
 import com.android.systemui.flags.FeatureFlags

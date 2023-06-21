@@ -179,15 +179,6 @@ public class ThemeOverlayController implements CoreStartable, Dumpable, TunerSer
     private boolean mCustomBgColor;
     private int mBgColorOverride;
 
-    private final ConfigurationListener mConfigurationListener =
-            new ConfigurationListener() {
-                @Override
-                public void onUiModeChanged() {
-                    Log.i(TAG, "Re-applying theme on UI change");
-                    reevaluateSystemTheme(true /* forceReload */);
-                }
-            };
-
     private final DeviceProvisionedListener mDeviceProvisionedListener =
             new DeviceProvisionedListener() {
                 @Override
@@ -649,7 +640,7 @@ public class ThemeOverlayController implements CoreStartable, Dumpable, TunerSer
         boolean nightMode = (mResources.getConfiguration().uiMode
                 & Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES;
 
-        mColorScheme = new ColorScheme(color, isNightMode(), mCustomColor ? Style.TONAL_SPOT : style,
+        mColorScheme = new ColorScheme(color, nightMode, mCustomColor ? Style.TONAL_SPOT : style,
                     mLuminanceFactor, mChromaFactor, mTintBackground,
                     mCustomColor ? mColorOverride : null,
                     mCustomBgColor ? mBgColorOverride : null);

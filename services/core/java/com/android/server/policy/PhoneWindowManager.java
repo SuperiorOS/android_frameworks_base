@@ -2137,7 +2137,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             @Override
             public void onSwipeThreeFinger() {
                 interceptScreenshotChord(
-                        TAKE_SCREENSHOT_FULLSCREEN, SCREENSHOT_KEY_OTHER, 0 /*pressDelay*/);
+                        SCREENSHOT_KEY_OTHER, 0 /*pressDelay*/);
             }
         });
         mWakeGestureListener = new MyWakeGestureListener(mContext, mHandler);
@@ -6149,7 +6149,7 @@ public class PhoneWindowManager implements WindowManagerPolicy {
                 mContext.enforceCallingOrSelfPermission(Manifest.permission.ACCESS_SURFACE_FLINGER,
                         TAG + "sendCustomAction permission denied");
                 interceptScreenshotChord(
-                        TAKE_SCREENSHOT_FULLSCREEN, SCREENSHOT_KEY_OTHER, 0 /*pressDelay*/);
+                        SCREENSHOT_KEY_OTHER, 0 /*pressDelay*/);
             }
         }
     }

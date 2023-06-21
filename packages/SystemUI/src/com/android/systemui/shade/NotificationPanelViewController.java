@@ -370,7 +370,6 @@ public final class NotificationPanelViewController implements Dumpable {
     private final NotificationGutsManager mGutsManager;
     private final AlternateBouncerInteractor mAlternateBouncerInteractor;
     private final QuickSettingsController mQsController;
-    private final InteractionJankMonitor mInteractionJankMonitor;
     private final TouchHandler mTouchHandler = new TouchHandler();
 
     private long mDownTime;
@@ -2537,9 +2536,6 @@ public final class NotificationPanelViewController implements Dumpable {
         if (mBarState == KEYGUARD && !mHintAnimationRunning
                 && !mKeyguardBypassController.getBypassEnabled()) {
             alpha *= mClockPositionResult.clockAlpha;
-        }
-        if (mQsExpandImmediate && !mQsFullyExpanded) {
-            alpha = 0f;
         }
         float finalAlpha = alpha > 0.84f ? alpha : 0f;
         mNotificationStackScrollLayoutController.setAlpha(finalAlpha);
