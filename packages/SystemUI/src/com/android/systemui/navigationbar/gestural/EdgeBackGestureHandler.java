@@ -1104,9 +1104,6 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
         final MotionEvent ev = MotionEvent.obtain(now, now,
                 MotionEvent.ACTION_CANCEL, 0.0f, 0.0f, 0);
         cancelGesture(ev);
-        if (mEdgeHapticEnabled) {
-            vibrateBack(false /* HEAVY_CLICK */);
-        }
     }
 
     private void triggerAction(boolean isVertical) {
