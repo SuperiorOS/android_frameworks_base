@@ -5748,9 +5748,6 @@ public final class Settings {
          */
         public static final String UDFPS_ICON = "udfps_icon";
 
-        /** @hide */
-        public static final String BACK_GESTURE_HAPTIC = "back_gesture_haptic";
-
         /**
          * Gestures nav: left long back swipe action
          * @hide
@@ -6070,7 +6067,6 @@ public final class Settings {
             PRIVATE_SETTINGS.add(HIGH_TOUCH_SENSITIVITY_ENABLE);
             PRIVATE_SETTINGS.add(TOUCHSCREEN_GESTURE_HAPTIC_FEEDBACK);
             PRIVATE_SETTINGS.add(HIGH_TOUCH_POLLING_RATE_ENABLE);
-            PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
             PRIVATE_SETTINGS.add(POCKET_JUDGE);
         }
 
