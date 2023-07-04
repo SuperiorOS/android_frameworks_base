@@ -5985,6 +5985,11 @@ public final class Settings {
          * @hide
          */
         public static final String LOCKSCREEN_WEATHER_LOCATION = "lockscreen_weather_location";
+        
+        /**
+         * @hide
+         */
+        public static final String OMNIJAWS_WEATHER_ICON_PACK = "omnijaws_weather_icon_pack";
 
        /**
          * These are all public system settings
@@ -6107,6 +6112,7 @@ public final class Settings {
             PRIVATE_SETTINGS.add(HIGH_TOUCH_POLLING_RATE_ENABLE);
             PRIVATE_SETTINGS.add(POCKET_JUDGE);
             PRIVATE_SETTINGS.add(BACK_GESTURE_HAPTIC);
+            PRIVATE_SETTINGS.add(OMNIJAWS_WEATHER_ICON_PACK);
         }
 
         /**
