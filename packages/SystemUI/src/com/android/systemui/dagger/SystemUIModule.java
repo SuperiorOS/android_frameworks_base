@@ -86,6 +86,7 @@ import com.android.systemui.shade.transition.LargeScreenShadeInterpolator;
 import com.android.systemui.shade.transition.LargeScreenShadeInterpolatorImpl;
 import com.android.systemui.shared.condition.Monitor;
 import com.android.systemui.smartspace.dagger.SmartspaceModule;
+import com.android.systemui.superior.SuperiorOSModule;
 import com.android.systemui.statusbar.CommandQueue;
 import com.android.systemui.statusbar.NotificationLockscreenUserManager;
 import com.android.systemui.statusbar.NotificationShadeWindowController;
@@ -203,6 +204,7 @@ import javax.inject.Named;
             SettingsUtilModule.class,
             SmartRepliesInflationModule.class,
             SmartspaceModule.class,
+            SuperiorOSModule.class,
             StatusBarPipelineModule.class,
             StatusBarPolicyModule.class,
             StatusBarWindowModule.class,
