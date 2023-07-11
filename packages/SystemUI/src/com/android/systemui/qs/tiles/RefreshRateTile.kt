@@ -1,6 +1,7 @@
 /*
  * Copyright (C) 2020 The Android Open Source Project
  *               2021 AOSP-Krypton Project
+ *               2023 the RisingOS android Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,12 +32,12 @@ import android.service.quicksettings.Tile
 import android.util.Log
 import android.view.Display
 import android.view.View
-
 import com.android.internal.logging.nano.MetricsProto.MetricsEvent
 import com.android.internal.logging.MetricsLogger
 import com.android.systemui.R
 import com.android.systemui.dagger.qualifiers.Background
 import com.android.systemui.dagger.qualifiers.Main
+import com.android.systemui.plugins.qs.QSTile
 import com.android.systemui.plugins.qs.QSTile.Icon
 import com.android.systemui.plugins.qs.QSTile.State
 import com.android.systemui.plugins.statusbar.StatusBarStateController
@@ -46,7 +47,6 @@ import com.android.systemui.qs.logging.QSLogger
 import com.android.systemui.qs.tileimpl.QSTileImpl
 import com.android.systemui.qs.QSHost
 import com.android.systemui.util.settings.SystemSettings
-
 import javax.inject.Inject
 
 class RefreshRateTile @Inject constructor(
@@ -59,7 +59,7 @@ class RefreshRateTile @Inject constructor(
     activityStarter: ActivityStarter,
     qsLogger: QSLogger,
     private val systemSettings: SystemSettings,
-): QSTileImpl<State>(
+) : QSTileImpl<State>(
     host,
     backgroundLooper,
     mainHandler,
@@ -69,7 +69,6 @@ class RefreshRateTile @Inject constructor(
     activityStarter,
     qsLogger,
 ) {
-
     private val settingsObserver: SettingsObserver
     private val tileLabel: String
     private val autoModeLabel: String
@@ -80,53 +79,51 @@ class RefreshRateTile @Inject constructor(
     private var peakRefreshRate = DEFAULT_REFRESH_RATE
 
     init {
-        with (mContext.resources) {
+        with(mContext.resources) {
             tileLabel = getString(R.string.refresh_rate_tile_label)
             autoModeLabel = getString(R.string.auto_mode_label)
-            defaultPeakRefreshRate = getDefaultPeakRefreshRate(getInteger(
-                com.android.internal.R.integer.config_defaultPeakRefreshRate).toFloat())
+            defaultPeakRefreshRate =
+                getDefaultPeakRefreshRate(getInteger(com.android.internal.R.integer.config_defaultPeakRefreshRate).toFloat())
         }
 
-        val display: Display? = mContext.getSystemService(
-                DisplayManager::class.java).getDisplay(Display.DEFAULT_DISPLAY)
-        display?.let {
-            it.getSupportedModes().forEach({ mode ->
-                mode.refreshRate.let { rr ->
-                    if (rr > peakRefreshRate) peakRefreshRate = rr
-                }
-            })
-        } ?: run { Log.w(TAG, "No valid default display") }
+        val display: Display? =
+            mContext.getSystemService(DisplayManager::class.java)?.getDisplay(Display.DEFAULT_DISPLAY)
+        peakRefreshRate = display?.supportedModes?.maxByOrNull { it.refreshRate }?.refreshRate ?: DEFAULT_REFRESH_RATE
         logD("peakRefreshRate = $peakRefreshRate, defaultPeakRefreshRate = $defaultPeakRefreshRate")
         settingsObserver = SettingsObserver()
     }
 
     override fun newTileState() =
-        State().also {
-            it.icon = icon
-            it.state = Tile.STATE_ACTIVE
+        State().apply {
+            icon = Companion.icon
+            state = Tile.STATE_ACTIVE
         }
 
-    override fun getLongClickIntent() = displaySettingsIntent
+    override fun getLongClickIntent() = Companion.displaySettingsIntent
 
-    override fun isAvailable() = peakRefreshRate > DEFAULT_REFRESH_RATE
+    override fun isAvailable() = mContext.getSystemService(DisplayManager::class.java)
+        ?.getDisplay(Display.DEFAULT_DISPLAY)
+        ?.supportedModes
+        ?.any { it.refreshRate > 60f }
+        ?: false
 
     override fun getTileLabel(): CharSequence = tileLabel
 
-    override protected fun handleInitialize() {
+    override fun handleInitialize() {
         logD("handleInitialize")
         updateMode()
         settingsObserver.observe()
     }
 
-    override protected fun handleClick(view: View?) {
+    override fun handleClick(view: View?) {
         logD("handleClick")
-        refreshRateMode = getNextMode(refreshRateMode)
+        refreshRateMode = Mode.values()[(refreshRateMode.ordinal + 1) % Mode.values().size]
         logD("refreshRateMode = $refreshRateMode")
         updateRefreshRateForMode(refreshRateMode)
         refreshState()
     }
 
-    override protected fun handleUpdateState(state: State, arg: Any?) {
+    override fun handleUpdateState(state: State, arg: Any?) {
         if (state.label == null) {
             state.label = tileLabel
             state.contentDescription = tileLabel
@@ -148,43 +145,29 @@ class RefreshRateTile @Inject constructor(
         val maxRate = systemSettings.getFloat(PEAK_REFRESH_RATE, defaultPeakRefreshRate)
         logD("minRate = $minRate, maxRate = $maxRate")
 
-        if (minRate == maxRate) {
-            if (minRate == DEFAULT_REFRESH_RATE) refreshRateMode = Mode.MIN
-            else refreshRateMode = Mode.MAX
-        } else {
-            refreshRateMode = Mode.AUTO
+        refreshRateMode = when {
+            minRate == maxRate && minRate == DEFAULT_REFRESH_RATE -> Mode.MIN
+            minRate == maxRate && minRate != DEFAULT_REFRESH_RATE -> Mode.MAX
+            else -> Mode.AUTO
         }
         logD("refreshRateMode = $refreshRateMode")
     }
 
     private fun getDefaultPeakRefreshRate(def: Float): Float {
-        return DeviceConfig.getFloat(DeviceConfig.NAMESPACE_DISPLAY_MANAGER,
-            DisplayManager.DeviceConfig.KEY_PEAK_REFRESH_RATE_DEFAULT, def)
-    }
+        val displayManager = mContext.getSystemService(DisplayManager::class.java)
+        val defaultDisplay = displayManager?.getDisplay(Display.DEFAULT_DISPLAY)
 
-    private fun getNextMode(mode: Mode) =
-        when (mode) {
-            Mode.AUTO -> Mode.MIN
-            Mode.MIN -> Mode.MAX
-            Mode.MAX -> Mode.AUTO
-        }
+        val highestRefreshRate = defaultDisplay?.supportedModes?.maxByOrNull { it.refreshRate }?.refreshRate
+
+        return highestRefreshRate ?: def
+    }
 
     private fun updateRefreshRateForMode(mode: Mode) {
         logD("updateRefreshRateForMode, mode = $mode")
-        var minRate: Float; var maxRate: Float
-        when (mode) {
-            Mode.AUTO -> {
-                minRate = DEFAULT_REFRESH_RATE
-                maxRate = peakRefreshRate
-            }
-            Mode.MAX -> {
-                minRate = peakRefreshRate
-                maxRate = peakRefreshRate
-            }
-            Mode.MIN -> {
-                minRate = DEFAULT_REFRESH_RATE
-                maxRate = DEFAULT_REFRESH_RATE
-            }   
+        val (minRate, maxRate) = when (mode) {
+            Mode.AUTO -> DEFAULT_REFRESH_RATE to peakRefreshRate
+            Mode.MAX -> peakRefreshRate to peakRefreshRate
+            Mode.MIN -> DEFAULT_REFRESH_RATE to DEFAULT_REFRESH_RATE
         }
         ignoreSettingsChange = true
         systemSettings.putFloat(MIN_REFRESH_RATE, minRate)
@@ -195,17 +178,11 @@ class RefreshRateTile @Inject constructor(
     private fun getTitleForMode(mode: Mode) =
         when (mode) {
             Mode.AUTO -> autoModeLabel
-            Mode.MAX -> peakRefreshRate.toInt().toString() + "Hz"
-            Mode.MIN -> DEFAULT_REFRESH_RATE.toInt().toString() + "Hz"
+            Mode.MAX -> "${peakRefreshRate.toInt()}Hz"
+            Mode.MIN -> "${DEFAULT_REFRESH_RATE.toInt()}Hz"
         }
 
-    private enum class Mode {
-        MIN,
-        MAX,
-        AUTO,
-    }
-
-    private inner class SettingsObserver: ContentObserver(mainHandler) {
+    private inner class SettingsObserver : ContentObserver(mainHandler) {
         private var isObserving = false
 
         override fun onChange(selfChange: Boolean, uri: Uri) {
@@ -234,11 +211,17 @@ class RefreshRateTile @Inject constructor(
         private const val DEFAULT_REFRESH_RATE = 60f
 
         private val icon: Icon = ResourceIcon.get(R.drawable.ic_refresh_rate)
-        private val displaySettingsIntent = Intent().setComponent(ComponentName("com.android.settings",
-            "com.android.settings.Settings\$DisplaySettingsActivity"))
-        
+        private val displaySettingsIntent =
+            Intent().setComponent(ComponentName("com.android.settings", "com.android.settings.Settings\$DisplaySettingsActivity"))
+
         private fun logD(msg: String?) {
             if (DEBUG) Log.d(TAG, msg)
         }
+    }
+
+    private enum class Mode {
+        MIN,
+        MAX,
+        AUTO,
     }
 }
