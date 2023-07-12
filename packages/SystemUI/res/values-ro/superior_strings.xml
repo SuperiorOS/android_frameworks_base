@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (C) 2022-2023 The SuperiorOS Project
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="statusbar_items_title">Pictograme bară de stare</string>
+    <string name="status_bar_data_saver">Economisire date</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_roaming">Indicator roaming</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="global_action_reboot">Repornește</string>
+    <string name="global_action_reboot_more">Repornește\u2026</string>
+    <string name="global_action_reboot_sub">Sistem</string>
+    <string name="global_action_reboot_recovery">Recuperare</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_reboot_systemui">Interfață sistem</string>
+    <string name="global_action_settings">Setări</string>
+    <string name="screenrecord_delete_label">Șterge</string>
+    <string name="screenrecord_delete_description">Înregistrare ecran ștearsă</string>
+    <string name="screenshot_delete_label">Șterge</string>
+    <string name="screenshot_delete_description">Ștergere captură de ecran</string>
+    <string name="status_bar_nfc">NFC</string>
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <string name="usage_data">utilizați</string>
+    <string name="usage_data_default_suffix">Date</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <string name="delete_screenshot_toast">Captură de ecran ștearsă</string>
+    <string name="turn_on_bluetooth">Utilizare Bluetooth</string>
+    <string name="bluetooth_is_off">Bluetooth este oprit</string>
+    <string name="tap_a_device_to_connect">Atinge un dispozitiv pentru conectare</string>
+    <string name="screenrecord_stopdot_label">Se afișează punctul Stop</string>
+    <string name="screenrecord_stopdot_summary">Apasă lung pentru a muta</string>
+    <string name="screenrecord_lowquality_label">Calitate scăzută</string>
+    <string name="screenrecord_lowquality_summary">Pentru o dimensiune mai mică a fișierului</string>
+    <string name="screenrecord_longer_timeout_switch_label">Limita mai mare a dimensiunii fișierului</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Limitează dimensiunea înregistrării la 15 GB</string>
+    <string name="screenrecord_skip_time_label">Omite cronometrul</string>
+    <string name="screenrecord_skip_time_summary">Elimină cele 3 secunde de așteptare</string>
+    <string name="screenrecord_hevc_switch_label">Activează HEVC</string>
+    <string name="screenrecord_hevc_switch_summary">Utilizează o codificare video HEVC mai eficientă</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Încărcare Dash (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> până la finalizare)</string>
+    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Încărcare Dash</string>
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Încărcare Warp (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> până la finalizare)</string>
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Încărcare Warp</string>
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Încărcare VOOC (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> până la finalizare)</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • Încărcare VOOC</string>
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Încărcare SuperDart (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> până la finalizare)</string>
+    <string name="keyguard_plugged_in_superdart_charging">Încărcare SuperDart</string>
+    <string name="task_helper_app_killed">%1$s oprită forțat</string>
+    <string name="empty_app_killed">Aplicație</string>
+    <string name="app_picker_dialog_title">Selectează o aplicație</string>
+    <string name="active_edge_app_select_title">Selectează aplicația</string>
+    <string name="active_edge_activity_select_title">Selectează activitatea</string>
+    <string name="quick_settings_caffeine_label">Cofeină</string>
+    <string name="accessibility_quick_settings_caffeine_off">Cofeină oprită</string>
+    <string name="accessibility_quick_settings_caffeine_on">Cofeină pornită</string>
+    <string name="quick_settings_ambient_display_label">Afișaj ambiental</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Afișaj ambiental oprit.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Afișaj ambiental pornit.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Ecranul Ambiental a fost dezactivat.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Ecranul Ambiental a fost activat.</string>
+    <string name="quick_settings_usb_tether_label">Tethering prin USB</string>
+    <string name="quick_settings_sync_label">Sincronizare</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronizare oprită</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronizare pornită</string>
+    <string name="accessibility_quick_settings_sync_changed_off">Sincronizarea este dezactivată</string>
+    <string name="accessibility_quick_settings_sync_changed_on">Sincronizarea este activată</string>
+    <string name="quick_settings_sound_label">Sunet</string>
+    <string name="quick_settings_sound_ring">Sonerie</string>
+    <string name="quick_settings_sound_vibrate">Vibrații</string>
+    <string name="quick_settings_sound_mute">Silențios</string>
+    <string name="quick_settings_heads_up_label">Atenționări</string>
+    <string name="accessibility_quick_settings_heads_up_off">Atenționări dezactivate.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Atenționări activate.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">Atenționările au fost oprite.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">Atenționările au fost pornite.</string>
+    <string name="quick_settings_poweroff_label">Oprire</string>
+    <string name="quick_settings_reboot_label">Repornire</string>
+    <string name="quick_settings_reboot_recovery_label">Recuperare</string>
+    <string name="quick_settings_reboot_bootloader_label">Bootloader</string>
+    <string name="quick_settings_volume_panel_label">Panou de volum</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Conectare la\u2026</string>
+    <string name="vpn_credentials_hint">Introdu datele pentru conectare la <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Nume de utilizator</string>
+    <string name="vpn_credentials_password">Parolă</string>
+    <string name="vpn_credentials_dialog_connect">Conectare</string>
+    <string name="qs_data_switch_label">Comutare cartelă de date</string>
+    <string name="quick_settings_aod_label">Afișaj ambiental</string>
+    <string name="quick_settings_aod_off_powersave_label">Afișaj ambiental oprit\nEconomisire energie</string>
+    <string name="quick_settings_powershare_label">Încărcare wireless a altui dispozitiv</string>
+    <string name="quick_settings_powershare_off_powersave_label">Încărcarea wireless a altui dispozitiv oprită\nEconomisire baterie</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Încărcarea wireless a altui dispozitiv oprită \nPrea puțină baterie</string>
+    <string name="quick_settings_powershare_enabled_label">Încărcarea wireless a altui dispozitiv pornită</string>
+    <string name="quick_settings_preferred_network_label">Rețea preferată</string>
+    <string name="quick_settings_preferred_network_lte">4G / LTE</string>
+    <string name="quick_settings_preferred_network_nr">5G / NR</string>
+    <string name="quick_settings_preferred_network_unsupported">Neacceptat</string>
+    <string name="refresh_rate_tile_label">Rata de reîmprospătare</string>
+    <string name="auto_mode_label">Automat</string>
+</resources>

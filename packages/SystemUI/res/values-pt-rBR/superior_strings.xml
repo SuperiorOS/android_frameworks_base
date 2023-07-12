@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  Copyright (C) 2022-2023 The SuperiorOS Project
+
+  This program is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation, either version 3 of the License, or
+  (at your option) any later version.
+
+  This program is distributed in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY; without even the implied warranty of
+  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License
+  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ -->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="statusbar_items_title">Ícones da barra de status</string>
+    <string name="status_bar_data_saver">Economia de dados</string>
+    <string name="status_bar_vpn">VPN</string>
+    <string name="status_bar_roaming">Indicador de Roaming</string>
+    <string name="status_bar_ims">VoLTE/VoWiFi</string>
+    <string name="global_action_reboot">Reiniciar</string>
+    <string name="global_action_reboot_more">Reiniciar\u2026</string>
+    <string name="global_action_reboot_sub">Sistema</string>
+    <string name="global_action_reboot_recovery">Recovery</string>
+    <string name="global_action_reboot_bootloader">Bootloader</string>
+    <string name="global_action_reboot_systemui">Interface do sistema</string>
+    <string name="global_action_settings">Configurações</string>
+    <string name="screenrecord_delete_label">Excluir</string>
+    <string name="screenrecord_delete_description">Gravação de tela excluída</string>
+    <string name="screenshot_delete_label">Excluir</string>
+    <string name="screenshot_delete_description">Excluir captura de tela</string>
+    <string name="status_bar_nfc">NFC</string>
+    <string name="accessibility_status_bar_nfc">Nfc</string>
+    <string name="usage_data">usado</string>
+    <string name="usage_data_default_suffix">Dados</string>
+    <string name="usage_wifi_default_suffix">Wi-Fi</string>
+    <string name="delete_screenshot_toast">Captura de tela excluída</string>
+    <string name="turn_on_bluetooth">Usar Bluetooth</string>
+    <string name="bluetooth_is_off">Bluetooth desativado</string>
+    <string name="tap_a_device_to_connect">Toque em um dispositivo para conectar-se</string>
+    <string name="screenrecord_stopdot_label">Mostrar ponto de parada</string>
+    <string name="screenrecord_stopdot_summary">Pressione e segure para movê-lo</string>
+    <string name="screenrecord_lowquality_label">Qualidade mais baixa</string>
+    <string name="screenrecord_lowquality_summary">Para tamanho de arquivo menor</string>
+    <string name="screenrecord_longer_timeout_switch_label">Limite de tamanho de arquivo maior</string>
+    <string name="screenrecord_longer_timeout_switch_summary">Limitar o tamanho de gravação para 15 GB</string>
+    <string name="screenrecord_skip_time_label">Pular cronômetro</string>
+    <string name="screenrecord_skip_time_summary">Remover espera de 3 segundos</string>
+    <string name="screenrecord_hevc_switch_label">Ativar HEVC</string>
+    <string name="screenrecord_hevc_switch_summary">Usar codificação de vídeo HEVC mais eficiente</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento Dash (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até concluir)</string>
+    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="porcentagem">%s</xliff:g> • Carregamento Dash</string>
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento Warp (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até concluir)</string>
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="Percentage">%s</xliff:g> • Carregando rapidamente</string>
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="porcentagem">%2$s</xliff:g> • Carregamento rápido (<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%1$s</xliff:g> até concluir)</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • Carregamento VOOC</string>
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento SuperDart (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até concluir)</string>
+    <string name="keyguard_plugged_in_superdart_charging">Carregamento super Dart</string>
+    <string name="task_helper_app_killed">%1$s forçar parada</string>
+    <string name="empty_app_killed">App</string>
+    <string name="app_picker_dialog_title">Selecionar um aplicativo</string>
+    <string name="active_edge_app_select_title">Selecione aplicativo</string>
+    <string name="active_edge_activity_select_title">Selecionar atividade</string>
+    <string name="quick_settings_caffeine_label">Modo cafeína</string>
+    <string name="accessibility_quick_settings_caffeine_off">Modo cafeína desativado</string>
+    <string name="accessibility_quick_settings_caffeine_on">Modo cafeína ativado</string>
+    <string name="quick_settings_ambient_display_label">Tela Ambiente</string>
+    <string name="accessibility_quick_settings_ambient_display_off">Tela ambiente desativada.</string>
+    <string name="accessibility_quick_settings_ambient_display_on">Tela ambiente ativada.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_off">Tela ambiente foi desligada.</string>
+    <string name="accessibility_quick_settings_ambient_display_changed_on">Tela ambiente foi ligada.</string>
+    <string name="quick_settings_usb_tether_label">Ancoragem USB</string>
+    <string name="quick_settings_sync_label">Sincronização</string>
+    <string name="accessibility_quick_settings_sync_off">Sincronização desativada</string>
+    <string name="accessibility_quick_settings_sync_on">Sincronização ativada</string>
+    <string name="accessibility_quick_settings_sync_changed_off">A sincronização foi desativada</string>
+    <string name="accessibility_quick_settings_sync_changed_on">A sincronização foi ativada</string>
+    <string name="quick_settings_sound_label">Som</string>
+    <string name="quick_settings_sound_ring">Toque</string>
+    <string name="quick_settings_sound_vibrate">Vibrar</string>
+    <string name="quick_settings_sound_mute">Silenciar</string>
+    <string name="quick_settings_heads_up_label">Notificações pop-up</string>
+    <string name="accessibility_quick_settings_heads_up_off">Notificações pop-up desativadas.</string>
+    <string name="accessibility_quick_settings_heads_up_on">Notificações pop-up ativadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_off">As notificações pop-up foram desativadas.</string>
+    <string name="accessibility_quick_settings_heads_up_changed_on">As notificações pop-up foram ativadas.</string>
+    <string name="quick_settings_poweroff_label">Desligar</string>
+    <string name="quick_settings_reboot_label">Reiniciar</string>
+    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="quick_settings_reboot_bootloader_label">Bootloader</string>
+    <string name="quick_settings_volume_panel_label">Painel de Volume</string>
+    <string name="quick_settings_vpn_label">VPN</string>
+    <string name="quick_settings_vpn_connect_dialog_title">Conectar ao\u2026</string>
+    <string name="vpn_credentials_hint">Por favor, insira as suas credenciais para conectar-se a <xliff:g id="name">%s</xliff:g></string>
+    <string name="vpn_credentials_username">Nome de usuário</string>
+    <string name="vpn_credentials_password">Senha</string>
+    <string name="vpn_credentials_dialog_connect">Conectar</string>
+    <string name="qs_data_switch_label">Trocar cartão de dados</string>
+    <string name="quick_settings_aod_label">AOD</string>
+    <string name="quick_settings_aod_off_powersave_label">AOD desligado\nEconomia de bateria</string>
+    <string name="quick_settings_powershare_label">Compartilhamento de energia sem fio</string>
+    <string name="quick_settings_powershare_off_powersave_label">Compartilhamento de Energia sem fio desligado\nEconomia de bateria</string>
+    <string name="quick_settings_powershare_off_low_battery_label">Compartilhamento sem fio desligado\nBateria muito fraca</string>
+    <string name="quick_settings_powershare_enabled_label">Compartilhamento de Energia sem fio está ativado</string>
+    <string name="quick_settings_preferred_network_label">Redes preferenciais</string>
+    <string name="quick_settings_preferred_network_lte">4g / LTE</string>
+    <string name="quick_settings_preferred_network_nr">5g / NR</string>
+    <string name="quick_settings_preferred_network_unsupported">Não suportado</string>
+    <string name="refresh_rate_tile_label">Taxa de atualização</string>
+    <string name="auto_mode_label">Automático</string>
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022 The SuperiorOS Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="permlab_fakePackageSignature">Saxta paket imzası</string>
+    <string name="permdesc_fakePackageSignature">Tətbiqin özünü başqa bir tətbiq kimi göstərməsinə icazə verir. Zərərli tətbiqlər bundan faydalanaraq özəl tətbiq verilənlərinə müraciət edə bilər. Qanuni istifadəyə təqlid edildiyi kimi görünən bir emulyator da daxildir. İcazə verərkən diqqətli olun!</string>
+    <string name="permgrouplab_fake_package_signature">Saxta paket imzası</string>
+    <string name="permgroupdesc_fake_package_signature">paket imzasını təqlid etməyə icazə ver</string>
+    <string name="permgrouprequest_fake_package_signature">&lt;b&gt;<xliff:g id="app_name" example="Gmail">%1$s</xliff:g>&lt;/b&gt; paket imzasını təqlid etməyə icazə verilsin?</string>
+    <string name="aerr_copy">Çökmə jurnal URL-sini kopyala</string>
+    <string name="url_copy_success">URL uğurla kopyalandı</string>
+    <string name="url_copy_failed">Jurnalı Memochō-ya yükləyərkən xəta baş verdi</string>
+    <string name="reboot_to_bootloader_title">Bootloader rejimində başlat</string>
+    <string name="reboot_to_bootloader_message">Bootloader rejimində başladılır\u2026</string>
+    <string name="reboot_to_recovery_title">Recovery rejimində başlat</string>
+    <string name="reboot_to_recovery_message">Recovery rejimində başladılır\u2026</string>
+    <string name="reboot_system_title">Sistemi yenidən başlat</string>
+    <string name="reboot_system_message">Sistem yenidən başladılır\u2026</string>
+    <string name="volume_dialog_ringer_guidance_normal">Zənglər və bildirişlər çalacaq</string>
+    <string name="systemui_restart_title">Sistem interfeysi yenidən başladılmalıdır</string>
+    <string name="systemui_restart_message">Bütün dəyişikliklərin effektiv olması üçün Sistem İnterfeysi yenidən başladılmalıdır. Başladılsın?</string>
+    <string name="battery_saver_on_notification_title">Batareyaya Qənaət işə salındı</string>
+    <string name="battery_saver_on_notification_summary">Proqrama görə. Ayarları incələmək üçün basın.</string>
+    <string name="pocket_lock_message_long_press">Kilidi açmaq üçün güc düyməsinə basılı saxlayın</string>
+    <string name="pocket_view_title">Cib rejimi açıqdır</string>
+    <string name="pocket_view_title_cancel">Telefonunuzu aktivləşdirmək üçün:</string>
+    <string name="pocket_view_top_tag_cancel">Zəhmət olmasa telefonunuzun mavi sahəsini örtməyin və üzərindəki bütün kir və ya tozları təmizləyin.</string>
+    <string name="pocket_view_top_tag_cancel2">Cib rejimindən çıxmağa məcbur etmək üçün güc düyməsinə uzun basın.</string>
+    <string name="gesture_locked_warning">Jestlərin kilidini açmaq üçün yenidən sürüşdürün</string>
+    <string name="face_unlock_disabled_idle">Fəaliyyətsizliyə görə üz kilidi sıradan çıxarıldı</string>
+    <string name="unlock_application"><xliff:g id="label" example="Telegram">%1$s</xliff:g> kilidini aç</string>
+</resources>
