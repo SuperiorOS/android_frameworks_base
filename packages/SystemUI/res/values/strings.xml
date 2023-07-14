@@ -19,6 +19,8 @@
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Name of the status bar as seen in the applications info settings page. [CHAR LIMIT=12] -->
     <string name="app_label">System UI</string>
+    
+    <string name="restarting_systemui_msg">Restarting SystemUI to apply settings change..</string>
 
     <!-- When the battery is low, this is displayed to the user in a dialog.  The title of the low battery alert.  [CHAR LIMIT=NONE]-->
     <string name="battery_low_title">Turn on Battery Saver?</string>
