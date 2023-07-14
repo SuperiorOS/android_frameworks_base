@@ -16,6 +16,8 @@
 
 package android.util;
 
+import android.util.Log;
+
 import android.compat.annotation.UnsupportedAppUsage;
 
 import java.io.UnsupportedEncodingException;
@@ -155,25 +157,29 @@ public class Base64 {
      * incorrect padding
      */
     public static byte[] decode(byte[] input, int offset, int len, int flags) {
-        // Allocate space for the most data the input could represent.
-        // (It could contain less if it contains whitespace, etc.)
-        Decoder decoder = new Decoder(flags, new byte[len*3/4]);
+        try {
+            Decoder decoder = new Decoder(flags, new byte[len * 3 / 4]);
+            if (!decoder.process(input, offset, len, true)) {
+                // Return a default value or an empty array to indicate the failure.
+                return new byte[0];
+            }
 
-        if (!decoder.process(input, offset, len, true)) {
-            throw new IllegalArgumentException("bad base-64");
+            if (decoder.op == decoder.output.length) {
+                return decoder.output;
+            }
+
+            byte[] temp = new byte[decoder.op];
+            System.arraycopy(decoder.output, 0, temp, 0, decoder.op);
+            return temp;
+        } catch (Exception e) {
+            // Log the bad string so we know if its deviceconfig related or google side
+            String errorMessage = "Error decoding Base64. Bad string: " + new String(input, offset, len);
+            Log.d("Base64", errorMessage);
+            Log.d("Base64", "Exception: " + e.getMessage());
+            return new byte[0];
         }
-
-        // Maybe we got lucky and allocated exactly enough output space.
-        if (decoder.op == decoder.output.length) {
-            return decoder.output;
-        }
-
-        // Need to shorten the array, so allocate a new one of the
-        // right size and copy.
-        byte[] temp = new byte[decoder.op];
-        System.arraycopy(decoder.output, 0, temp, 0, decoder.op);
-        return temp;
     }
+
 
     /* package */ static class Decoder extends Coder {
         /**
