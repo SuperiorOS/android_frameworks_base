@@ -206,7 +206,7 @@ public class KeyguardClockSwitchController extends ViewController<KeyguardClockS
 
         mStatusArea = mView.findViewById(R.id.keyguard_status_area);
 
-        if (mSmartspaceController.isEnabled()) {
+        if (mSmartspaceController.isEnabled() && !mShowWeather) {
             View ksv = mView.findViewById(R.id.keyguard_slice_view);
             int viewIndex = mStatusArea.indexOfChild(ksv);
             ksv.setVisibility(View.GONE);
@@ -259,7 +259,7 @@ public class KeyguardClockSwitchController extends ViewController<KeyguardClockS
     }
 
     void onLocaleListChanged() {
-        if (mSmartspaceController.isEnabled()) {
+        if (mSmartspaceController.isEnabled() && !mShowWeather) {
             if (mSmartspaceController.isDateWeatherDecoupled()) {
                 mDateWeatherView.removeView(mWeatherView);
                 int index = mStatusArea.indexOfChild(mDateWeatherView);
@@ -482,7 +482,7 @@ public class KeyguardClockSwitchController extends ViewController<KeyguardClockS
         if (mWeatherView != null) {
             mUiExecutor.execute(
                     () -> mWeatherView.setVisibility(
-                        mSmartspaceController.isWeatherEnabled() ? View.VISIBLE : View.GONE));
+                        mSmartspaceController.isWeatherEnabled() && !mShowWeather ? View.VISIBLE : View.GONE));
         }
     }
 
