@@ -29,7 +29,6 @@ import static android.content.pm.Checksum.TYPE_WHOLE_SHA1;
 import static android.content.pm.Checksum.TYPE_WHOLE_SHA256;
 import static android.content.pm.Checksum.TYPE_WHOLE_SHA512;
 
-import android.Manifest;
 import android.annotation.CallbackExecutor;
 import android.annotation.DrawableRes;
 import android.annotation.NonNull;
@@ -807,14 +806,6 @@ public class ApplicationPackageManager extends PackageManager {
                 }
             };
 
-    private static final String[] p21Codenames = {
-            "cheetah",
-            "panther",
-            "bluejay",
-            "oriole",
-            "raven"
-    };
-
     private static final String[] featuresPixel = {
             "com.google.android.apps.photos.PIXEL_2019_PRELOAD",
             "com.google.android.apps.photos.PIXEL_2019_MIDYEAR_PRELOAD",
@@ -831,38 +822,35 @@ public class ApplicationPackageManager extends PackageManager {
             "com.google.android.feature.GOOGLE_EXPERIENCE"
     };
 
-    private static final String[] featuresP21 = {
+    private static final String[] featuresP22 = {
             "com.google.android.feature.PIXEL_2022_EXPERIENCE",
             "com.google.android.feature.PIXEL_2022_MIDYEAR_EXPERIENCE",
+    };
+
+    private static final String[] featuresP21 = {
             "com.google.android.feature.PIXEL_2021_EXPERIENCE",
             "com.google.android.feature.PIXEL_2021_MIDYEAR_EXPERIENCE"
     };
 
     private static final String[] featuresNexus = {
             "com.google.android.apps.photos.NEXUS_PRELOAD",
-            "com.google.android.apps.photos.nexus_preload"
+            "com.google.android.apps.photos.nexus_preload",
+            "com.google.android.feature.PIXEL_EXPERIENCE",
+            "com.google.android.feature.GOOGLE_BUILD",
+            "com.google.android.feature.GOOGLE_EXPERIENCE"
     };
 
     @Override
     public boolean hasSystemFeature(String name, int version) {
         String packageName = ActivityThread.currentPackageName();
         if (packageName != null &&
-                packageName.equals("com.google.android.apps.photos") &&
-                SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
+                packageName.equals("com.google.android.apps.photos")) {
             if (Arrays.asList(featuresPixel).contains(name)) return false;
+            if (Arrays.asList(featuresP22).contains(name)) return false;
             if (Arrays.asList(featuresP21).contains(name)) return false;
             if (Arrays.asList(featuresNexus).contains(name)) return true;
         }
         if (Arrays.asList(featuresPixel).contains(name)) return true;
-        if (Arrays.asList(featuresP21).contains(name) &&
-                !Arrays.asList(p21Codenames).contains(SystemProperties.get("ro.product.device"))) {
-            return false;
-        } else if (packageName != null &&
-                packageName.contains("com.google.android.as") &&
-                (name.contains("PIXEL_2022_EXPERIENCE") ||
-                name.contains("PIXEL_2022_MIDYEAR_EXPERIENCE"))) {
-            return false;
-        }
         return mHasSystemFeatureCache.query(new HasSystemFeatureQuery(name, version));
     }
 
@@ -878,20 +866,7 @@ public class ApplicationPackageManager extends PackageManager {
 
     @Override
     public int checkPermission(String permName, String pkgName) {
-        int res = PermissionManager.checkPackageNamePermission(permName, pkgName, getUserId());
-        if (res != PERMISSION_GRANTED) {
-            // some Microsoft apps crash when INTERNET permission check fails, see
-            // com.microsoft.aad.adal.AuthenticationContext.checkInternetPermission() and
-            // com.microsoft.identity.client.PublicClientApplication.checkInternetPermission()
-            if (Manifest.permission.INTERNET.equals(permName)
-                    // don't rely on Context.getPackageName(), may be different from process package name
-                    && pkgName.equals(ActivityThread.currentPackageName())
-                    && pkgName.startsWith("com.microsoft"))
-            {
-                return PERMISSION_GRANTED;
-            }
-        }
-        return res;
+        return PermissionManager.checkPackageNamePermission(permName, pkgName, getUserId());
     }
 
     @Override
