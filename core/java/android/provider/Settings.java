@@ -11800,13 +11800,6 @@ public final class Settings {
         public static final String PULSE_VERTICAL_MIRROR = "pulse_vertical_mirror";
 
         /**
-         * Whether to spoof device as a high-end model to unlock higher FPS in certain games.
-         * @hide
-         */
-        @Readable
-        public static final String GAMES_DEVICE_SPOOF = "games_device_spoof";
-
-        /**
          * Face Unlock Method
          * @hide
          */
