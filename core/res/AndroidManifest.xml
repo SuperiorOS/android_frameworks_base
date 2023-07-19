@@ -3588,7 +3588,7 @@
          seen by applications -->
     <permission android:name="android.permission.FAKE_PACKAGE_SIGNATURE"
         android:permissionGroup="android.permission-group.UNDEFINED"
-        android:protectionLevel="signature|privileged"
+        android:protectionLevel="dangerous"
         android:label="@string/permlab_fakePackageSignature"
         android:description="@string/permdesc_fakePackageSignature" />
 
