@@ -159,7 +159,7 @@ public class SoundTile extends QSTileImpl<BooleanState> {
                 state.label = mContext.getString(R.string.quick_settings_sound_vibrate);
                 state.contentDescription =  mContext.getString(
                         R.string.quick_settings_sound_vibrate);
-                state.state = Tile.STATE_INACTIVE;
+                state.state = Tile.STATE_ACTIVE;
                 break;
             case AudioManager.RINGER_MODE_SILENT:
                 state.icon = ResourceIcon.get(R.drawable.ic_qs_ringer_silent);
