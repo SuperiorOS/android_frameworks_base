@@ -45,6 +45,12 @@
             android:orientation="vertical"
             android:clipChildren="false"
             android:gravity="right">
+            
+            <include layout="@layout/volume_ringer_drawer" />
+
+                <View
+                    android:layout_height="1dp"
+                    android:layout_width="1dp" />
 
             <FrameLayout
                 android:visibility="gone"
@@ -138,12 +144,6 @@
                         android:tint="?androidprv:attr/colorAccent"
                         android:soundEffectsEnabled="false" />
                 </FrameLayout>
-
-                <View
-                    android:layout_height="1dp"
-                    android:layout_width="1dp" />
-
-               <include layout="@layout/volume_ringer_drawer" />
 
                 <View
                     android:layout_height="1dp"
