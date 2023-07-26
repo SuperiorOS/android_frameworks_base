@@ -186,22 +186,18 @@ class DefaultClockController(
         }
 
         override fun recomputePadding(targetRegion: Rect?) {
-            // We center the view within the targetRegion instead of within the parent
-            // view by computing the difference and adding that to the padding.
-            val lp = view.getLayoutParams() as FrameLayout.LayoutParams
-            lp.topMargin =
-                if (onSecondaryDisplay) {
-                    // On the secondary display we don't want any additional top/bottom margin.
-                    0
-                } else {
-                    val parent = view.parent
-                    val yDiff =
-                        if (targetRegion != null && parent is View && parent.isLaidOut())
-                            targetRegion.centerY() - parent.height / 2f
-                        else 0f
-                    (-0.5f * view.bottom + yDiff).toInt()
-                }
-            view.setLayoutParams(lp)
+            if (view != null) {
+                // We center the view within the targetRegion instead of within the parent
+                // view by computing the difference and adding that to the padding.
+                val parent = view.parent
+                val yDiff =
+                    if (targetRegion != null && parent is View && parent.isLaidOut())
+                        targetRegion.centerY() - parent.height / 2f
+                    else 0f
+                val lp = view.getLayoutParams() as FrameLayout.LayoutParams
+                lp.topMargin = (-0.5f * view.bottom + yDiff).toInt()
+                view.setLayoutParams(lp)
+            }
         }
 
         /** See documentation at [AnimatableClockView.offsetGlyphsForStepClockAnimation]. */
