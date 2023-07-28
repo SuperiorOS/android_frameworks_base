@@ -18,7 +18,7 @@
 <resources>
     <!-- Height of the status bar header bar when on Keyguard.
          On large screens should be the same as the regular status bar. -->
-    <dimen name="status_bar_header_height_keyguard">@dimen/status_bar_height</dimen>
+    <dimen name="status_bar_header_height_keyguard">48dp</dimen>
 
     <!-- padding for container with status icons and battery -->
     <dimen name="status_bar_icons_padding_end">4dp</dimen>
