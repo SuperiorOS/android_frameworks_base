@@ -22,6 +22,7 @@ import com.android.systemui.qs.tiles.AODTile
 import com.android.systemui.qs.tiles.CaffeineTile
 import com.android.systemui.qs.tiles.CellularTile
 import com.android.systemui.qs.tiles.DataSwitchTile
+import com.android.systemui.qs.tiles.DcDimmingTile
 import com.android.systemui.qs.tiles.HeadsUpTile
 import com.android.systemui.qs.tiles.RebootTile
 import com.android.systemui.qs.tiles.SoundTile
@@ -71,6 +72,12 @@ interface SuperiorOSModule {
     @IntoMap
     @StringKey(DataSwitchTile.TILE_SPEC)
     fun bindDataSwitchTile(dataSwitchTile: DataSwitchTile): QSTileImpl<*>
+
+    /** Inject DcDimmingTile into tileMap in QSModule */
+    @Binds
+    @IntoMap
+    @StringKey(DcDimmingTile.TILE_SPEC)
+    fun bindDcDimmingTile(dcDimmingTile: DcDimmingTile): QSTileImpl<*>
 
     /** Inject HeadsUpTile into tileMap in QSModule */
     @Binds
