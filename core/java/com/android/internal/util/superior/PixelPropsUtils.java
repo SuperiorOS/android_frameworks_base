@@ -95,6 +95,7 @@ public class PixelPropsUtils {
     private static final Map<String, Object> propsToChangeOP8P;
     private static final String[] packagesToChangeOP8P = {
             "com.tencent.ig",
+            "com.pubg.imobile",
             "com.pubg.krmobile",
             "com.vng.pubgmobile",
             "com.rekoo.pubgm",
@@ -127,12 +128,6 @@ public class PixelPropsUtils {
     private static final String[] packagesToChangeMI13P = {
             "com.levelinfinite.sgameGlobal",
             "com.tencent.tmgp.sgame"
-    };
-
-    private static final Map<String, Object> propsToChangeK30U;
-    // Packages to Spoof as Redmi K30 Ultra
-    private static final String[] packagesToChangeK30U = {
-            "com.pubg.imobile"
     };
 
     private static final String[] packagesToKeep = {
@@ -202,7 +197,7 @@ public class PixelPropsUtils {
         propsToChangeOP8P = new HashMap<>();
         propsToChangeOP8P.put("MODEL", "IN2020");
         propsToChangeOP8P.put("MANUFACTURER", "OnePlus");
-	propsToChangeOP9P = new HashMap<>();
+        propsToChangeOP9P = new HashMap<>();
         propsToChangeOP9P.put("MODEL", "LE2123");
         propsToChangeOP9P.put("MANUFACTURER", "OnePlus");
         propsToChangeMI13P = new HashMap<>();
@@ -212,9 +207,6 @@ public class PixelPropsUtils {
         propsToChangeMI11T = new HashMap<>();
         propsToChangeMI11T.put("MODEL", "21081111RG");
         propsToChangeMI11T.put("MANUFACTURER", "Xiaomi");
-	propsToChangeK30U = new HashMap<>();
-        propsToChangeK30U.put("MODEL", "M2006J10C");
-        propsToChangeK30U.put("MANUFACTURER", "Xiaomi");
     }
 
     private static boolean isGoogleCameraPackage(String packageName){
@@ -280,10 +272,6 @@ public class PixelPropsUtils {
 
 	    if (Arrays.asList(packagesToChangeMI13P).contains(packageName)) {
                 propsToChange.putAll(propsToChangeMI13P);
-            }
-
-	    if (Arrays.asList(packagesToChangeK30U).contains(packageName)) {
-                propsToChange.putAll(propsToChangeK30U);
             }
 
             if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
@@ -356,13 +344,6 @@ public class PixelPropsUtils {
             } else if (Arrays.asList(packagesToChangeMI13P).contains(packageName)) {
                 if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
                 for (Map.Entry<String, Object> prop : propsToChangeMI13P.entrySet()) {
-                    String key = prop.getKey();
-                    Object value = prop.getValue();
-                    setPropValue(key, value);
-                }
-            } else if (Arrays.asList(packagesToChangeK30U).contains(packageName)) {
-                if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
-                for (Map.Entry<String, Object> prop : propsToChangeK30U.entrySet()) {
                     String key = prop.getKey();
                     Object value = prop.getValue();
                     setPropValue(key, value);
