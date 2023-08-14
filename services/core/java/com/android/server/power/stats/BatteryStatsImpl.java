@@ -11169,7 +11169,7 @@ public class BatteryStatsImpl extends BatteryStats {
                 BackgroundThread.getHandler().post(new Runnable() {
                     @Override
                     public void run() {
-                        synchronized (mCheckinFile) {
+                        synchronized (mDailyFile) {
                             final long startTimeMs2 = SystemClock.uptimeMillis();
                             FileOutputStream stream = null;
                             try {
