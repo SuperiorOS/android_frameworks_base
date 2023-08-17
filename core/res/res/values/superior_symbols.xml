@@ -78,4 +78,8 @@
      <!-- Soft restart dialog -->
      <java-symbol type="string" name="system_restart_title" />
      <java-symbol type="string" name="system_restart_message" />
+
+     <!-- SystemUI restart dialog -->
+     <java-symbol type="string" name="systemui_restart_title" />
+     <java-symbol type="string" name="systemui_restart_message" />
 </resources>
