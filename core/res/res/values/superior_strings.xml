@@ -10,11 +10,6 @@
     <string name="url_copy_success">URL copied successfully</string>
     <string name="url_copy_failed">An error occured while uploading the log to Memochō</string>
 
-    <!-- SystemUI Restart -->
-    <string name="systemui_restart_title">SystemUI restart required</string>
-    <string name="systemui_restart_message">For all changes to take effect, a SystemUI restart is
-        required. Restart SystemUI now?</string>
-
     <!-- Advanced reboot -->
     <string name="reboot_to_recovery_title">Recovery</string>
     <string name="reboot_to_recovery_message">Rebooting to recovery</string>
@@ -30,4 +25,9 @@
     <!-- System Reboot -->
     <string name="system_restart_title">System restart required</string>
     <string name="system_restart_message">For all the changes to take effect, a system restart is required. Perform system restart now?</string>
+    
+    <!-- SystemUI Restart -->
+    <string name="systemui_restart_title">SystemUI restart required</string>
+    <string name="systemui_restart_message">For all changes to take effect, a SystemUI restart is required. Restart SystemUI now?</string>
+
 </resources>
