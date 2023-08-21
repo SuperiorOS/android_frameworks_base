@@ -23,9 +23,9 @@
     <string name="global_action_reboot">Reiniciar</string>
     <string name="global_action_reboot_more">Reiniciar\u2026</string>
     <string name="global_action_reboot_sub">Sistema</string>
-    <string name="global_action_reboot_recovery">Recovery</string>
+    <string name="global_action_reboot_recovery">Recuperação</string>
     <string name="global_action_reboot_bootloader">Bootloader</string>
-    <string name="global_action_reboot_systemui">Interface do sistema</string>
+    <string name="global_action_reboot_systemui">Interface de usuário</string>
     <string name="global_action_settings">Configurações</string>
     <string name="screenrecord_delete_label">Excluir</string>
     <string name="screenrecord_delete_description">Gravação de tela excluída</string>
@@ -50,18 +50,18 @@
     <string name="screenrecord_skip_time_summary">Remover espera de 3 segundos</string>
     <string name="screenrecord_hevc_switch_label">Ativar HEVC</string>
     <string name="screenrecord_hevc_switch_summary">Usar codificação de vídeo HEVC mais eficiente</string>
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento Dash (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até concluir)</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="porcentagem">%2$s</xliff:g> • Carregamento Dash (<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%1$s</xliff:g> até concluir)</string>
     <string name="keyguard_plugged_in_dash_charging"><xliff:g id="porcentagem">%s</xliff:g> • Carregamento Dash</string>
     <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento Warp (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até concluir)</string>
-    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="Percentage">%s</xliff:g> • Carregando rapidamente</string>
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="Porcentagem">%s</xliff:g> • Carregando rapidamente</string>
     <string name="keyguard_indication_vooc_charging_time"><xliff:g id="porcentagem">%2$s</xliff:g> • Carregamento rápido (<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%1$s</xliff:g> até concluir)</string>
-    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • Carregamento VOOC</string>
-    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • Carregamento SuperDart (<xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> até concluir)</string>
-    <string name="keyguard_plugged_in_superdart_charging">Carregamento super Dart</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="porcentagem">%s</xliff:g> • Carregamento VOOC</string>
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="porcentagem">%2$s</xliff:g> • Carregamento SuperDart (<xliff:g id="charging_time_left" example="4 horas e 2 minutos">%1$s</xliff:g> até concluir)</string>
+    <string name="keyguard_plugged_in_superdart_charging">Carregamento SuperDart</string>
     <string name="task_helper_app_killed">%1$s forçar parada</string>
     <string name="empty_app_killed">App</string>
-    <string name="app_picker_dialog_title">Selecionar um aplicativo</string>
-    <string name="active_edge_app_select_title">Selecione aplicativo</string>
+    <string name="app_picker_dialog_title">Selecione um app</string>
+    <string name="active_edge_app_select_title">Selecionar aplicativo</string>
     <string name="active_edge_activity_select_title">Selecionar atividade</string>
     <string name="quick_settings_caffeine_label">Modo cafeína</string>
     <string name="accessibility_quick_settings_caffeine_off">Modo cafeína desativado</string>
@@ -88,7 +88,7 @@
     <string name="accessibility_quick_settings_heads_up_changed_on">As notificações pop-up foram ativadas.</string>
     <string name="quick_settings_poweroff_label">Desligar</string>
     <string name="quick_settings_reboot_label">Reiniciar</string>
-    <string name="quick_settings_reboot_recovery_label">Recovery</string>
+    <string name="quick_settings_reboot_recovery_label">Recuperação</string>
     <string name="quick_settings_reboot_bootloader_label">Bootloader</string>
     <string name="quick_settings_volume_panel_label">Painel de Volume</string>
     <string name="quick_settings_vpn_label">VPN</string>
@@ -110,4 +110,5 @@
     <string name="quick_settings_preferred_network_unsupported">Não suportado</string>
     <string name="refresh_rate_tile_label">Taxa de atualização</string>
     <string name="auto_mode_label">Automático</string>
+    <string name="face_unlock_recognizing">Reconhecendo rosto...</string>
 </resources>

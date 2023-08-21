@@ -110,4 +110,5 @@
     <string name="quick_settings_preferred_network_unsupported">Desteklenmiyor</string>
     <string name="refresh_rate_tile_label">Yenileme hızı</string>
     <string name="auto_mode_label">Otomatik</string>
+    <string name="face_unlock_recognizing">Yüz tanınıyor...</string>
 </resources>
