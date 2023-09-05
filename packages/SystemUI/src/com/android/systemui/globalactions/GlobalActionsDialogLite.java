@@ -2514,6 +2514,18 @@ public class GlobalActionsDialogLite implements DialogInterface.OnDismissListene
             mSelectedUserInteractor = selectedUserInteractor;
             mBlurUtils = new BlurUtils(mContext.getResources(),
                     CrossWindowBlurListeners.getInstance(), new DumpManager());
+
+            if (mBlurUtils.supportsBlursOnWindows()) {
+                Window window = getWindow();
+                // Enable blur behind
+                // Enable dim behind since we are setting some amount dim for the blur.
+                window.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND
+                        | WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+                // Set blur behind radius
+                int blurBehindRadius = mContext.getResources()
+                        .getDimensionPixelSize(com.android.systemui.res.R.dimen.max_window_blur_radius);
+                window.getAttributes().setBlurBehindRadius(blurBehindRadius);
+            }
         }
 
         @Override

@@ -69,9 +69,17 @@ public class GlobalActionsPowerDialog {
         window.setBackgroundDrawable(res.getDrawable(
                 com.android.systemui.R.drawable.global_actions_lite_background, context.getTheme()));
         window.addFlags(WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM);
-        // Set dim only when blur is enabled.
         if (blurUtils.supportsBlursOnWindows()) {
-             window.setDimAmount(0.54f);
+            // Enable blur behind
+            // Enable dim behind since we are setting some amount dim for the blur.
+            window.addFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND
+                    | WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+            // Set blur behind radius
+            int blurBehindRadius = context.getResources()
+                    .getDimensionPixelSize(com.android.systemui.res.R.dimen.max_window_blur_radius);
+            window.getAttributes().setBlurBehindRadius(blurBehindRadius);
+            // Set dim only when blur is enabled.
+            window.setDimAmount(0.54f);
         }
 
         return dialog;

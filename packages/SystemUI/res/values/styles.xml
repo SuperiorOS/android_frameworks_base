@@ -483,8 +483,6 @@
     <style name="Theme.SystemUI.Dialog.GlobalActions" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar.Fullscreen">
         <item name="android:colorError">@*android:color/error_color_material_dark</item>
         <item name="android:windowIsFloating">true</item>
-        <item name="android:windowBlurBehindEnabled">true</item>
-        <item name="android:windowBlurBehindRadius">@dimen/max_window_blur_radius</item>
     </style>
 
     <style name="Theme.SystemUI.Dialog.GlobalActionsLite" parent="Theme.SystemUI.Dialog">
@@ -497,8 +495,6 @@
         <!-- of ActionsDialogLite relies on this to be null (resource=0) to detect when to run -->
         <!-- the in-window animation. -->
         <item name="android:windowAnimationStyle">@null</item>
-        <item name="android:windowBlurBehindEnabled">true</item>
-        <item name="android:windowBlurBehindRadius">@dimen/max_window_blur_radius</item>
         <item name="android:elevation">2dp</item>
         <item name="android:clipChildren">false</item>
         <item name="android:clipToPadding">false</item>
