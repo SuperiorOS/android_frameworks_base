@@ -27,7 +27,7 @@
     <integer name="quick_settings_num_columns">3</integer>
 
     <!-- The maximum number of rows in the QuickSettings -->
-    <integer name="quick_settings_max_rows">3</integer>
+    <integer name="quick_settings_max_rows">5</integer>
 
 </resources>
 
