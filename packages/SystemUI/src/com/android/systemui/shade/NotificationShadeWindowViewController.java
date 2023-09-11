@@ -364,12 +364,15 @@ public class NotificationShadeWindowViewController implements Dumpable {
                 }
 
                 mFalsingCollector.onTouchEvent(ev);
-                mPulsingWakeupGestureHandler.onTouchEvent(ev);
-
+                mQQSGestureHandler.onTouchEvent(ev);
+                // Pass touch events to the pulsing gesture listener only if it's dozing,
+                // otherwise lockscreen DT2S and AOD DT2W will conflict.
+                if (mStatusBarStateController.isDozing()) {
+                    mPulsingWakeupGestureHandler.onTouchEvent(ev);
+                }
                 if (mGlanceableHubContainerController.onTouchEvent(ev)) {
                     return logDownDispatch(ev, "dispatched to glanceable hub container", true);
                 }
-                mQQSGestureHandler.onTouchEvent(ev);
                 if (mDreamingWakeupGestureHandler != null
                         && mDreamingWakeupGestureHandler.onTouchEvent(ev)) {
                     return logDownDispatch(ev, "dream wakeup gesture handled", true);
