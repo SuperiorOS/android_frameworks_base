@@ -215,7 +215,6 @@ import com.android.server.webkit.WebViewUpdateService;
 import com.android.server.wm.ActivityTaskManagerService;
 import com.android.server.wm.WindowManagerGlobalLock;
 import com.android.server.wm.WindowManagerService;
-import com.android.server.lineage.health.HealthInterfaceService;
 
 import dalvik.system.VMRuntime;
 
@@ -236,7 +235,7 @@ import java.util.concurrent.Future;
 
 // LineageHardware
 import com.android.server.custom.LineageHardwareService;
-
+import com.android.server.lineage.health.HealthInterfaceService;
 /**
  * Entry point to {@code system_server}.
  */
@@ -2551,9 +2550,12 @@ public final class SystemServer implements Dumpable {
                 t.traceBegin("StartPocketBridgeService");
                 mSystemServiceManager.startService(PocketBridgeService.class);
                 t.traceEnd();
-                t.traceBegin("StartHealthService");
-                mSystemServiceManager.startService(HealthInterfaceService.class);
-                t.traceEnd();
+                if (context.getResources().getBoolean(
+                        com.android.internal.R.bool.config_lineageHealthSupported)) {
+                    t.traceBegin("StartHealthService");
+                    mSystemServiceManager.startService(HealthInterfaceService.class);
+                    t.traceEnd();
+                }
             }
 
         }
