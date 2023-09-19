@@ -25,11 +25,11 @@
     <string name="url_copy_success">URL copiado com sucesso</string>
     <string name="url_copy_failed">Ocorreu um erro ao fazer o upload do log para o Memochō</string>
     <string name="reboot_to_bootloader_title">Reiniciar no bootloader</string>
-    <string name="reboot_to_bootloader_message">Reiniciando no Bootloader\u2026</string>
-    <string name="reboot_to_recovery_title">Reiniciar em Modo de Recuperação</string>
-    <string name="reboot_to_recovery_message">Reiniciando no modo de recuperação\u2026</string>
+    <string name="reboot_to_bootloader_message">Reiniciando...</string>
+    <string name="reboot_to_recovery_title">Reiniciar no recovery</string>
+    <string name="reboot_to_recovery_message">Reiniciando...</string>
     <string name="reboot_system_title">Reiniciar sistema</string>
-    <string name="reboot_system_message">Reiniciando o sistema\u2026</string>
+    <string name="reboot_system_message">Reiniciando...</string>
     <string name="volume_dialog_ringer_guidance_normal">Chamadas e notificações tocarão</string>
     <string name="systemui_restart_title">É necessário reiniciar a interface do usuário</string>
     <string name="systemui_restart_message">Para que todas as alterações sejam feitas, é necessário reiniciar a interface do usuário. Reiniciar agora?</string>

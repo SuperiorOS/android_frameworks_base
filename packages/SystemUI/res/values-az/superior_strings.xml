@@ -50,14 +50,14 @@
     <string name="screenrecord_skip_time_summary">3 saniyə gözləməyi sil</string>
     <string name="screenrecord_hevc_switch_label">HEVC-i fəallaşdır</string>
     <string name="screenrecord_hevc_switch_summary">Daha səmərəli HEVC video kodlaşdırması istifadə et</string>
-    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash enerji yığır (Dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> qalıb)</string>
-    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Dash enerji yığır</string>
-    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp enerji yığır (Dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> qalıb)</string>
-    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Warp enerji yığır</string>
-    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • VOOC enerji yığır(Dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> qalıb)</string>
-    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • VOOC enerji yığır</string>
-    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • SuperDart Enerji Yığır (Dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> qalıb)</string>
-    <string name="keyguard_plugged_in_superdart_charging">SuperDart enerji yığır</string>
+    <string name="keyguard_indication_dash_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Dash dolur (Dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> qalıb)</string>
+    <string name="keyguard_plugged_in_dash_charging"><xliff:g id="percentage">%s</xliff:g> • Dash dolur</string>
+    <string name="keyguard_indication_warp_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • Warp dolur (Dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> qalıb)</string>
+    <string name="keyguard_plugged_in_warp_charging"><xliff:g id="percentage">%s</xliff:g> • Warp dolur</string>
+    <string name="keyguard_indication_vooc_charging_time"><xliff:g id="percentage">%2$s</xliff:g> • VOOC dolur (Dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> qalıb)</string>
+    <string name="keyguard_plugged_in_vooc_charging"><xliff:g id="percentage">%s</xliff:g> • VOOC dolur</string>
+    <string name="keyguard_indication_superdart_charging_time" formatted="false"><xliff:g id="percentage">%2$s</xliff:g> • SuperDart dolur (Dolmasına <xliff:g id="charging_time_left" example="4 hours and 2 minutes">%1$s</xliff:g> qalıb)</string>
+    <string name="keyguard_plugged_in_superdart_charging">SuperDart dolur</string>
     <string name="task_helper_app_killed">%1$s məcburi dayandırıldı</string>
     <string name="empty_app_killed">Tətbiq</string>
     <string name="app_picker_dialog_title">Bir tətbiq seçin</string>
@@ -110,4 +110,5 @@
     <string name="quick_settings_preferred_network_unsupported">Dəstəklənmir</string>
     <string name="refresh_rate_tile_label">Yeniləmə tezliyi</string>
     <string name="auto_mode_label">Avto</string>
+    <string name="face_unlock_recognizing">Üz tanınır...</string>
 </resources>

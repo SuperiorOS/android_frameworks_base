@@ -110,4 +110,5 @@
     <string name="quick_settings_preferred_network_unsupported">Neacceptat</string>
     <string name="refresh_rate_tile_label">Rata de reîmprospătare</string>
     <string name="auto_mode_label">Automat</string>
+    <string name="face_unlock_recognizing">Se recunoaște fața...</string>
 </resources>
