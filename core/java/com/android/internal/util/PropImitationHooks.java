@@ -36,9 +36,6 @@ public class PropImitationHooks {
     private static final String TAG = "PropImitationHooks";
     private static final boolean DEBUG = false;
 
-    private static final String sCertifiedFp =
-            Resources.getSystem().getString(R.string.config_certifiedFingerprint);
-
     private static final String sStockFp =
             Resources.getSystem().getString(R.string.config_stockFingerprint);
 
@@ -93,9 +90,6 @@ public class PropImitationHooks {
         } else if (sIsGms) {
             dlog("Setting Pixel 2 fingerprint for: " + packageName);
             spoofBuildGms();
-        } else if (!sCertifiedFp.isEmpty() && sIsFinsky) {
-            dlog("Setting certified fingerprint for: " + packageName);
-            setPropValue("FINGERPRINT", sCertifiedFp);
         } else if (!sStockFp.isEmpty() && packageName.equals(PACKAGE_ARCORE)) {
             dlog("Setting stock fingerprint for: " + packageName);
             setPropValue("FINGERPRINT", sStockFp);
