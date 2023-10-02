@@ -28,4 +28,8 @@
     <!-- PropImitationHooks -->
     <java-symbol type="array" name="config_certifiedBuildProperties" />
     <java-symbol type="string" name="config_stockFingerprint" />
+
+    <!-- Status bar DT2S gesture -->
+    <java-symbol type="bool" name="config_dt2sGestureAvailable" />
+    <java-symbol type="bool" name="config_dt2sGestureEnabledByDefault" />
 </resources>
