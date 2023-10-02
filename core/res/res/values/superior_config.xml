@@ -46,4 +46,8 @@
 
     <!-- Build fingerprint from stock ROM -->
     <string name="config_stockFingerprint" translatable="false"></string>
+
+    <!-- Default values for status bar DT2S gesture -->
+    <bool name="config_dt2sGestureAvailable">true</bool>
+    <bool name="config_dt2sGestureEnabledByDefault">true</bool>
 </resources>
