@@ -17,6 +17,7 @@
 package com.android.systemui.statusbar.policy;
 
 import android.annotation.Nullable;
+import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothProfile;
 import android.content.Context;
