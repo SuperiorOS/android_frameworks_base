@@ -411,7 +411,7 @@ public final class PhantomProcessList {
     private void scheduleTrimPhantomProcessesLocked() {
         if (!mTrimPhantomProcessScheduled) {
             mTrimPhantomProcessScheduled = true;
-            mService.mHandler.post(this::trimPhantomProcessesIfNecessary);
+            mService.mHandler.post(() -> trimPhantomProcessesIfNecessary(mService.mConstants.getMaxCachedProcesses()));
         }
     }
 
@@ -420,7 +420,7 @@ public final class PhantomProcessList {
      * {@link ActivityManagerConstants#MAX_PHANTOM_PROCESSE}, kills those surpluses in the
      * order of the oom adjs of their parent process.
      */
-    void trimPhantomProcessesIfNecessary() {
+    void trimPhantomProcessesIfNecessary(int maxPhantomProcesses) {
         if (!mService.mSystemReady || !FeatureFlagUtils.isEnabled(mService.mContext,
                 SETTINGS_ENABLE_MONITOR_PHANTOM_PROCS)) {
             return;
@@ -428,7 +428,7 @@ public final class PhantomProcessList {
         synchronized (mService.mProcLock) {
             synchronized (mLock) {
                 mTrimPhantomProcessScheduled = false;
-                if (mService.mConstants.MAX_PHANTOM_PROCESSES < mPhantomProcesses.size()) {
+                if (maxPhantomProcesses < mPhantomProcesses.size()) {
                     for (int i = mPhantomProcesses.size() - 1; i >= 0; i--) {
                         mTempPhantomProcesses.add(mPhantomProcesses.valueAt(i));
                     }
@@ -455,7 +455,7 @@ public final class PhantomProcessList {
                         });
                     }
                     for (int i = mTempPhantomProcesses.size() - 1;
-                            i >= mService.mConstants.MAX_PHANTOM_PROCESSES; i--) {
+                            i >= maxPhantomProcesses; i--) {
                         final PhantomProcessRecord proc = mTempPhantomProcesses.get(i);
                         proc.killLocked("Trimming phantom processes", true);
                     }
