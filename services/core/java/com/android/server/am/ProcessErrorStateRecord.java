@@ -335,6 +335,9 @@ class ProcessErrorStateRecord {
                 latencyTracker.anrSkippedProcessErrorStateRecordAppNotResponding();
                 Counter.logIncrement("stability_anr.value_skipped_anrs");
                 return;
+            } else if (mApp.mOptRecord.isFrozen()) {
+                Slog.i(TAG, "App is frozen, Skipping ANR: " + this + " " + annotation);
+                return;
             }
             // In case we come through here for the same app before completing
             // this one, mark as anring now so we will bail out.

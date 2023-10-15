@@ -375,6 +375,8 @@ public class OomAdjuster {
     private final ActivityManagerService mService;
     private final ProcessList mProcessList;
     private final ActivityManagerGlobalLock mProcLock;
+    // Threshold for B-services when in memory pressure
+    int mBServiceAppThreshold = 16;
 
     private final int mNumSlots;
     private final ArrayList<ProcessRecord> mTmpProcessList = new ArrayList<ProcessRecord>();
@@ -460,6 +462,7 @@ public class OomAdjuster {
         mTmpQueue = new ArrayDeque<ProcessRecord>(mConstants.CUR_MAX_CACHED_PROCESSES << 1);
         mNumSlots = ((CACHED_APP_MAX_ADJ - CACHED_APP_MIN_ADJ + 1) >> 1)
                 / CACHED_APP_IMPORTANCE_LEVELS;
+        mBServiceAppThreshold = (mConstants.CUR_MAX_CACHED_PROCESSES / 4);
 
         // Enable Proactive Kills on devices with modern kernel mm setup
         conditionallyEnableProactiveKills();
@@ -1301,6 +1304,9 @@ public class OomAdjuster {
         int numCachedExtraGroup = 0;
         int numEmpty = 0;
         int numTrimming = 0;
+        ProcessRecord selectedAppRecord = null;
+        long serviceLastActivity = 0;
+        int numBServices = 0;
 
         double lowSwapThresholdPercent = mConstants.LOW_SWAP_THRESHOLD_PERCENT;
         double freeSwapPercent = mProactiveKillsEnabled ? getFreeSwapPercent() : 1.00;
@@ -1308,6 +1314,26 @@ public class OomAdjuster {
 
         for (int i = numLru - 1; i >= 0; i--) {
             ProcessRecord app = lruList.get(i);
+            if (app.mState.isServiceB() && app.mState.getCurAdj() == ProcessList.SERVICE_B_ADJ) {
+                numBServices++;
+                ServiceRecord latestService = null;
+                long minServiceLastActivity = Long.MAX_VALUE;
+                for (int s = app.mServices.numberOfRunningServices() - 1; s >= 0; s--) {
+                    ServiceRecord sr = app.mServices.getRunningServiceAt(s);
+
+                    if (SystemClock.uptimeMillis() - sr.lastActivity < (mBServiceAppThreshold * 100)) {
+                        continue;
+                    }
+                    if (sr.lastActivity < minServiceLastActivity) {
+                        minServiceLastActivity = sr.lastActivity;
+                        latestService = sr;
+                    }
+                }
+                if (latestService != null) {
+                    selectedAppRecord = app;
+                    serviceLastActivity = minServiceLastActivity;
+                }
+            }
             final ProcessStateRecord state = app.mState;
             if (!app.isKilledByAm() && app.getThread() != null) {
                 // We don't need to apply the update for the process which didn't get computed
@@ -1424,6 +1450,13 @@ public class OomAdjuster {
         }
 
         mLastFreeSwapPercent = freeSwapPercent;
+
+        if (numBServices > mBServiceAppThreshold && mService.mAppProfiler.allowLowerMemLevelLocked() && selectedAppRecord != null) {
+            int pid = selectedAppRecord.getPid();
+            int uid = selectedAppRecord.info.uid;
+            ProcessList.setOomAdj(pid, uid, ProcessList.CACHED_APP_MAX_ADJ);
+            selectedAppRecord.mState.setSetAdj(selectedAppRecord.mState.getCurAdj());
+        }
 
         return mService.mAppProfiler.updateLowMemStateLSP(numCached, numEmpty, numTrimming, now);
     }
@@ -3535,9 +3568,11 @@ public class OomAdjuster {
         final ProcessStateRecord state = app.mState;
         // Use current adjustment when freezing, set adjustment when unfreezing.
         if (state.getCurAdj() >= CACHED_APP_MIN_ADJ && !opt.isFrozen()
-                && !opt.shouldNotFreeze()) {
+                && !opt.shouldNotFreeze() && !mCachedAppOptimizer.isProcessInteractive(app) 
+                && !mCachedAppOptimizer.isFrozenProcessInteractive(app.info.packageName)) {
             mCachedAppOptimizer.freezeAppAsyncLSP(app);
-        } else if (state.getSetAdj() < CACHED_APP_MIN_ADJ) {
+        } else if (state.getSetAdj() < CACHED_APP_MIN_ADJ || mCachedAppOptimizer.isProcessInteractive(app) 
+            || mCachedAppOptimizer.isFrozenProcessInteractive(app.info.packageName)) {
             mCachedAppOptimizer.unfreezeAppLSP(app,
                     CachedAppOptimizer.getUnfreezeReasonCodeFromOomAdjReason(oomAdjReason));
         }
