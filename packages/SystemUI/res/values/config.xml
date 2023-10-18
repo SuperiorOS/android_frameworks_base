@@ -321,7 +321,7 @@
     <string name="config_navBarLayoutHandle" translatable="false">back[70AC];home_handle;ime_switcher[70AC]</string>
 
     <!-- Whether to show a warning notification when device's skin temperature is high. -->
-    <integer name="config_showTemperatureWarning">0</integer>
+    <integer name="config_showTemperatureWarning">1</integer>
 
     <!-- Whether to show a alarm dialog when device's usb port is overheating. -->
     <integer name="config_showUsbPortAlarm">0</integer>
