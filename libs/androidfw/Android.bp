@@ -35,16 +35,17 @@ cc_defaults {
     name: "libandroidfw_defaults",
     cpp_std: "gnu++2b",
     cflags: [
+        "-O3",
         "-Werror",
         "-Wunreachable-code",
     ],
     target: {
         windows: {
             // The Windows compiler warns incorrectly for value initialization with {}.
-            cppflags: ["-Wno-missing-field-initializers"],
+            cppflags: ["-O3", "-Wno-missing-field-initializers"],
         },
         host: {
-            cflags: ["-DSTATIC_ANDROIDFW_FOR_TOOLS"],
+            cflags: ["-O3", "-DSTATIC_ANDROIDFW_FOR_TOOLS"],
         },
     },
 }
@@ -150,6 +151,7 @@ cc_test {
     host_supported: true,
     defaults: ["libandroidfw_defaults"],
     cppflags: [
+        "-O3",
         // This is to suppress warnings/errors from gtest
         "-Wno-unnamed-type-template-args",
     ],
