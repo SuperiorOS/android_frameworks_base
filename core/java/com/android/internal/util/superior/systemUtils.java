@@ -125,8 +125,8 @@ public class systemUtils {
                         ServiceManager.getService(Context.STATUS_BAR_SERVICE));
                 if (mBarService != null) {
                     try {
-                        Thread.sleep(2000);
-                        mBarService.reboot(false, null);
+                        Thread.sleep(1250);
+                        mBarService.reboot(false);
                     } catch (RemoteException | InterruptedException e) {
                         e.printStackTrace();
                     }
