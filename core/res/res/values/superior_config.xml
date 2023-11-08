@@ -68,4 +68,8 @@
           recharge when the battery level is lower than a threshold. Set this so that the device
           will be charged between (limit - val) and limit. -->
      <integer name="config_chargingControlBatteryRechargeMargin">10</integer>
+
+     <!-- Default values for status bar DT2S gesture -->
+     <bool name="config_dt2sGestureAvailable">true</bool>
+     <bool name="config_dt2sGestureEnabledByDefault">true</bool>
 </resources>
