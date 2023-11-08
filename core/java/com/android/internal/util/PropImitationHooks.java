@@ -52,7 +52,8 @@ public class PropImitationHooks {
     
     private static final String PRODUCT_DEVICE = "ro.product.device";
 
-    private static final String sMainFP = "google/husky/husky:14/UD1A.230803.041/10808477:user/release-keys";
+    private static final String sMainFP = "google/felix/felix:14/UP1A.231105.003/11010452:user/release-keys";
+    private static final String sMainModel = "Pixel Fold";
     private static final String sStockFp = SystemProperties.get("ro.vendor.build.fingerprint");
 
     private static final String PACKAGE_ARCORE = "com.google.ar.core";
@@ -72,8 +73,8 @@ public class PropImitationHooks {
     private static final ComponentName GMS_ADD_ACCOUNT_ACTIVITY = ComponentName.unflattenFromString(
             "com.google.android.gms/.auth.uiflows.minutemaid.MinuteMaidActivity");
 
-    private static final Map<String, Object> sP8ProProps = createGoogleSpoofProps("husky", "Pixel 8 Pro", sMainFP);
-    private static final Map<String, Object> gPhotosProps = createGoogleSpoofProps("marlin", "Pixel XL", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
+    private static final Map<String, Object> sMainSpoofProps = createGoogleSpoofProps(sMainModel, sMainFP);
+    private static final Map<String, Object> gPhotosProps = createGoogleSpoofProps("Pixel XL", "google/marlin/marlin:10/QP1A.191005.007.A3/5972272:user/release-keys");
     private static final Map<String, Object> asusROG1Props = createGameProps("ASUS_Z01QD", "Asus");
     private static final Map<String, Object> asusROG3Props = createGameProps("ASUS_I003D", "Asus");
     private static final Map<String, Object> xperia5Props = createGameProps("SO-52A", "Sony");
@@ -89,18 +90,27 @@ public class PropImitationHooks {
         return props;
     }
 
-    private static Map<String, Object> createGoogleSpoofProps(String device, String model, String fingerprint) {
+    private static Map<String, Object> createGoogleSpoofProps(String model, String fingerprint) {
         Map<String, Object> props = new HashMap<>();
         props.put("BRAND", "google");
         props.put("MANUFACTURER", "Google");
         props.put("ID", getBuildID(fingerprint));
-        props.put("DEVICE", device);
-        props.put("PRODUCT", device);
+        props.put("DEVICE", getDeviceName(fingerprint));
+        props.put("PRODUCT", getDeviceName(fingerprint));
         props.put("MODEL", model);
         props.put("FINGERPRINT", fingerprint);
         props.put("TYPE", "user");
         props.put("TAGS", "release-keys");
         return props;
+    }
+
+    private static String getDeviceName(String fingerprint) {
+        String[] parts = fingerprint.split("/");
+        if (parts.length >= 3) {
+            return parts[2];
+        } else {
+            return "";
+        }
     }
 
     private static final Set<String> packagesToChangeROG1 = new HashSet<>(Arrays.asList(
@@ -193,7 +203,7 @@ public class PropImitationHooks {
                         break;
                     }
                     dlog("Spoofing as Pixel 8 Pro for: " + packageName);
-                    sP8ProProps.forEach((k, v) -> setPropValue(k, v));
+                    sMainSpoofProps.forEach((k, v) -> setPropValue(k, v));
                     break;
                 case PACKAGE_ARCORE:
                     dlog("Setting stock fingerprint for: " + packageName);
