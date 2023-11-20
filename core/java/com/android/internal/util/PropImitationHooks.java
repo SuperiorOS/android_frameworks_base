@@ -188,11 +188,10 @@ public class PropImitationHooks {
         sIsFinsky = packageName.equals(PACKAGE_FINSKY);
 
         if (sIsGms) {
-            dlog("Setting Asus Zenfone 4 fingerprint for: " + packageName);
-            setCertifiedPropsForGms();
-        } else if (sIsFinsky) {
-            dlog("Setting certified fingerprint for: " + packageName);
-            setPropValue("FINGERPRINT", sMainFP);
+            if (shouldTryToCertifyDevice()) {
+                dlog("Spoofing build for GMS");
+                spoofBuildGms();
+            }
         } else {
             switch (packageName) {
                 case PACKAGE_SUBSCRIPTION_RED:
@@ -218,7 +217,7 @@ public class PropImitationHooks {
                     setPropValue("FINGERPRINT", sStockFp);
                     break;
                 case PACKAGE_SNAPCHAT:
-                    dlog("Spoofing as Pixel 2 for: " + packageName);
+                    dlog("Spoofing build for: " + packageName);
                     spoofBuildGms();
                     break;
                 case PACKAGE_GPHOTOS:
@@ -261,29 +260,29 @@ public class PropImitationHooks {
         }
     }
 
-    private static void setCertifiedPropsForGms() {
+    private static boolean shouldTryToCertifyDevice() {
         final boolean was = isGmsAddAccountActivityOnTop();
-        final TaskStackListener taskStackListener = new TaskStackListener() {
+        final String reason = "GmsAddAccountActivityOnTop";
+        if (!was) {
+            return true;
+        }
+        dlog("Skip spoofing build for GMS, because " + reason + "!");
+        TaskStackListener taskStackListener = new TaskStackListener() {
             @Override
             public void onTaskStackChanged() {
-                final boolean is = isGmsAddAccountActivityOnTop();
-                if (is ^ was) {
-                    dlog("GmsAddAccountActivityOnTop is:" + is + " was:" + was +
-                            ", killing myself!"); // process will restart automatically later
+                final boolean isNow = isGmsAddAccountActivityOnTop();
+                if (isNow ^ was) {
+                    dlog(String.format("%s changed: isNow=%b, was=%b, killing myself!", reason, isNow, was));
                     Process.killProcess(Process.myPid());
                 }
             }
         };
-        if (!was) {
-            dlog("Spoofing build for GMS");
-            spoofBuildGms();
-        } else {
-            dlog("Skip spoofing build for GMS, because GmsAddAccountActivityOnTop");
-        }
         try {
             ActivityTaskManager.getService().registerTaskStackListener(taskStackListener);
+            return false;
         } catch (Exception e) {
             Log.e(TAG, "Failed to register task stack listener!", e);
+            return true;
         }
     }
 
@@ -357,7 +356,7 @@ public class PropImitationHooks {
     }
 
     private static boolean isCallerSafetyNet() {
-        return sIsGms && Arrays.stream(Thread.currentThread().getStackTrace())
+        return shouldTryToCertifyDevice() && sIsGms && Arrays.stream(Thread.currentThread().getStackTrace())
                 .anyMatch(elem -> elem.getClassName().toLowerCase().contains("droidguard"));
     }
 
@@ -370,6 +369,6 @@ public class PropImitationHooks {
     }
 
     public static void dlog(String msg) {
-      if (DEBUG) Log.d(TAG, "[" + sProcessName + "] " + msg);
+        if (DEBUG) Log.d(TAG, "[" + sProcessName + "] " + msg);
     }
 }
