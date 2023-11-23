@@ -357,7 +357,7 @@ public class PropImitationHooks {
 
     private static boolean isCallerSafetyNet() {
         return shouldTryToCertifyDevice() && sIsGms && Arrays.stream(Thread.currentThread().getStackTrace())
-                .anyMatch(elem -> elem.getClassName().toLowerCase().contains("droidguard"));
+                .anyMatch(elem -> elem.getClassName().contains("DroidGuard"));
     }
 
     public static void onEngineGetCertificateChain() {
