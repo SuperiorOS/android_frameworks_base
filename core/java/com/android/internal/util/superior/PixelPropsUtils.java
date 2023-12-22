@@ -290,11 +290,14 @@ public class PixelPropsUtils {
                 if (processName.equals("com.google.android.gms.unstable")) {
                     sIsGms = true;
                     // Alter build parameters to avoid hardware attestation enforcement
-                    setPropValue("DEVICE", "sailfish");
-                    setPropValue("FINGERPRINT", "google/sailfish/sailfish:8.1.0/OPM2.171019.029/4657601:user/release-keys");
-                    setPropValue("MODEL", "Pixel");
-                    setPropValue("PRODUCT", "sailfish");
-                    setVersionField("DEVICE_INITIAL_SDK_INT", Build.VERSION_CODES.O_MR1);
+                    setPropValue("PRODUCT", "c01_ww");
+                    setPropValue("DEVICE", "acer_c01");
+                    setPropValue("MANUFACTURER", "Acer Inc.");
+                    setPropValue("BRAND", "acer");
+                    setPropValue("MODEL", "C01");
+                    setPropValue("FINGERPRINT", "acer/c01_ww/acer_c01:7.1.1/NMF26F/1521514970:user/release-keys");
+                    setPropValue("FIRST_API_LEVEL", "24");
+                    setPropValue("SECURITY_PATCH", "2018-04-01");
                 }
                 return;
             }
