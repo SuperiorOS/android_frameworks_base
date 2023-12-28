@@ -290,14 +290,13 @@ public class PixelPropsUtils {
                 if (processName.equals("com.google.android.gms.unstable")) {
                     sIsGms = true;
                     // Alter build parameters to avoid hardware attestation enforcement
-                    setPropValue("PRODUCT", "c01_ww");
-                    setPropValue("DEVICE", "acer_c01");
-                    setPropValue("MANUFACTURER", "Acer Inc.");
-                    setPropValue("BRAND", "acer");
-                    setPropValue("MODEL", "C01");
-                    setPropValue("FINGERPRINT", "acer/c01_ww/acer_c01:7.1.1/NMF26F/1521514970:user/release-keys");
-                    setPropValue("FIRST_API_LEVEL", "24");
-                    setPropValue("SECURITY_PATCH", "2018-04-01");
+                    setPropValue("BRAND", "YU nitrogen");
+                    setPropValue("MANUFACTURER", "YU");
+                    setPropValue("DEVICE", "YUREKA");
+                    setPropValue("FINGERPRINT", "YU/YUREKA/YUREKA:5.1.1/LMY49J/YOG4PAS8A4:user/release-keys");
+                    setPropValue("MODEL", "YU5510");
+                    setPropValue("PRODUCT", "YUREKA");
+                    setPropValue("SECURITY_PATCH", "2015-11-01");
                 }
                 return;
             }
