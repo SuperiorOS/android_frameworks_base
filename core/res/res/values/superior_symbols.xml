@@ -82,4 +82,10 @@
      <!-- SystemUI restart dialog -->
      <java-symbol type="string" name="systemui_restart_title" />
      <java-symbol type="string" name="systemui_restart_message" />
+
+    <!-- Should we listen for fingerprints when the screen is off?  Devices
+         with a rear-mounted sensor want this, but certain devices have
+         the sensor embedded in the power key and listening all the time
+         causes a poor experience. -->
+    <java-symbol type="bool" name="config_fingerprintWakeAndUnlock" />
 </resources>
