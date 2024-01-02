@@ -244,12 +244,6 @@ public class PixelPropsUtils {
     }
 
     public static void setProps(Application app) {
-        if (!sEnablePixelProps) {
-            dlog("Pixel props is disabled by config");
-            return;
-        }
-
-        propsToChangeGeneric.forEach((k, v) -> setPropValue(k, v));
 
         final String packageName = app.getPackageName();
         final String processName = app.getProcessName();
@@ -270,6 +264,13 @@ public class PixelPropsUtils {
         if (shouldTryToCertifyDevice()) {
             return;
         }
+
+        if (!sEnablePixelProps) {
+            dlog("Pixel props is disabled by config");
+            return;
+        }
+
+        propsToChangeGeneric.forEach((k, v) -> setPropValue(k, v));
 
         if (packagesToChangeRecentPixel.contains(processName)
             || packagesToChangePixelFold.contains(processName)
