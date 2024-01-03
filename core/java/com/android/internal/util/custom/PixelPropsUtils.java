@@ -253,10 +253,11 @@ public class PixelPropsUtils {
         }
 
         String procName = packageName;
+        String proName = processName;
 
         if (procName.equals("com.android.vending")) {
             sIsFinsky = true;
-        } else if (procName.equals("com.google.android.gms")) {
+        } else if (procName.equals("com.google.android.gms") && proName.equals("com.google.android.gms.unstable")) {
             sIsGms = true;
         } else if (procName.equals("com.google.android.setupwizard")) {
             sIsSetupWizard = true;
