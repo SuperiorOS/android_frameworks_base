@@ -81,7 +81,8 @@ public class PixelPropsUtils {
             "com.google.android.setupwizard",
             "com.google.android.inputmethod.latin",
             "com.google.android.apps.privacy.wildlife",
-            "com.google.android.apps.subscriptions.red"
+            "com.google.android.apps.subscriptions.red",
+            "com.google.android.apps.photos"
     };
 
     private static final String[] extraPackagesToChange = {
@@ -279,15 +280,18 @@ public class PixelPropsUtils {
 
             boolean isPixelDevice = Arrays.asList(pixelCodenames).contains(SystemProperties.get(DEVICE));
 
-            if (packageName.equals("com.google.android.apps.photos")) {
-                propsToChange.putAll(propsToChangePixelXL);
-            } else if (isPixelDevice) {
+            if (isPixelDevice) {
                 return;
             } else {
                 if (Arrays.asList(packagesToChangePixel8Pro).contains(packageName)) {
                     propsToChange.putAll(propsToChangePixel8Pro);
                 } else {
                     propsToChange.putAll(propsToChangePixel5a);
+                }
+                if (packageName.equals("com.google.android.apps.photos")) {
+                    if (SystemProperties.getBoolean("persist.sys.pixelprops.gphotos", true)) {
+                        propsToChange.putAll(propsToChangePixelXL);
+                    }
                 }
             }
 
