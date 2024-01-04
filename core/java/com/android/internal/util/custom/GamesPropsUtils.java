@@ -103,8 +103,7 @@ public class GamesPropsUtils {
         return map;
     }
 
-    public static void setProps(Application app) {
-        final String packageName = app.getPackageName();
+    public static void setProps(String packageName) {
 
         if (packageName == null || packageName.isEmpty()) {
             return;
