@@ -47,9 +47,6 @@
     <!-- Device model (Build.MODEL) to spoof for netflix, if not empty -->
     <string name="config_netflixSpoofModel" translatable="false"></string>
 
-    <!-- Whether Pixel props is enabled -->
-    <bool name="config_enablePixelProps">true</bool>
-
     <!-- Build properties from a GMS certified device -->
     <string-array name="config_certifiedBuildProperties" translatable="false">
         <!--
