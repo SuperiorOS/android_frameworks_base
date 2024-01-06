@@ -34,6 +34,7 @@ import static android.media.AudioManager.STREAM_MUSIC;
 import static android.media.AudioManager.STREAM_SYSTEM;
 import static android.os.Process.FIRST_APPLICATION_UID;
 import static android.os.Process.INVALID_UID;
+import static android.provider.Settings.Secure.VOLUME_HUSH_CYCLE;
 import static android.provider.Settings.Secure.VOLUME_HUSH_MUTE;
 import static android.provider.Settings.Secure.VOLUME_HUSH_OFF;
 import static android.provider.Settings.Secure.VOLUME_HUSH_VIBRATE;
@@ -194,6 +195,7 @@ import android.view.KeyEvent;
 import android.view.accessibility.AccessibilityManager;
 import android.widget.Toast;
 
+import com.android.internal.R;
 import com.android.internal.annotations.GuardedBy;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.internal.os.SomeArgs;
@@ -931,6 +933,9 @@ public class AudioService extends IAudioService.Stub
     private @AttributeSystemUsage int[] mSupportedSystemUsages =
             new int[]{AudioAttributes.USAGE_CALL_ASSISTANT};
 
+    // Alert Slider
+    private boolean mHasAlertSlider = false;
+
     // Defines the format for the connection "address" for ALSA devices
     public static String makeAlsaAddressString(int card, int device) {
         return "card=" + card + ";device=" + device;
@@ -1061,6 +1066,10 @@ public class AudioService extends IAudioService.Stub
 
         mUseVolumeGroupAliases = mContext.getResources().getBoolean(
                 com.android.internal.R.bool.config_handleVolumeAliasesUsingVolumeGroups);
+
+        mHasAlertSlider = mContext.getResources().getBoolean(R.bool.config_hasAlertSlider)
+                && !TextUtils.isEmpty(mContext.getResources().getString(R.string.alert_slider_state_path))
+                && !TextUtils.isEmpty(mContext.getResources().getString(R.string.alert_slider_uevent_match_path));
 
         // Initialize volume
         // Priority 1 - Android Property
@@ -3304,6 +3313,27 @@ public class AudioService extends IAudioService.Stub
             }
         }
 
+        if (mHasAlertSlider) {
+            int volumeType = mStreamVolumeAlias[streamType];
+            VolumeStreamState volumeState = mStreamStates[volumeType];
+            int state = getDeviceForStream(volumeType);
+            int index = volumeState.getIndex(state);
+            int ringerMode = getRingerModeInternal();
+            if ((volumeType == AudioSystem.STREAM_RING)
+                    && (direction == AudioManager.ADJUST_LOWER)
+                    && (index == 0)) {
+                direction = AudioManager.ADJUST_SAME;
+            }
+            if ((ringerMode == AudioManager.RINGER_MODE_SILENT)
+                    && (direction == AudioManager.ADJUST_RAISE
+                    && volumeType != AudioSystem.STREAM_MUSIC
+                    && volumeType != AudioSystem.STREAM_ALARM
+                    && volumeType != AudioSystem.STREAM_VOICE_CALL
+                    && !isInCommunication())) {
+                direction = AudioManager.ADJUST_SAME;
+            }
+        }
+
         final boolean isMute = isMuteAdjust(direction);
 
         ensureValidStreamType(streamType);
@@ -5376,6 +5406,25 @@ public class AudioService extends IAudioService.Stub
                 effect = VibrationEffect.get(VibrationEffect.EFFECT_HEAVY_CLICK);
                 ringerMode = AudioManager.RINGER_MODE_VIBRATE;
                 toastText = com.android.internal.R.string.volume_dialog_ringer_guidance_vibrate;
+                break;
+            case VOLUME_HUSH_CYCLE:
+                switch (mRingerMode) {
+                    case AudioManager.RINGER_MODE_NORMAL:
+                        effect = VibrationEffect.get(VibrationEffect.EFFECT_HEAVY_CLICK);
+                        ringerMode = AudioManager.RINGER_MODE_VIBRATE;
+                        toastText = com.android.internal.R.string.volume_dialog_ringer_guidance_vibrate;
+                        break;
+                    case AudioManager.RINGER_MODE_VIBRATE:
+                        effect = VibrationEffect.get(VibrationEffect.EFFECT_DOUBLE_CLICK);
+                        ringerMode = AudioManager.RINGER_MODE_SILENT;
+                        toastText = com.android.internal.R.string.volume_dialog_ringer_guidance_silent;
+                        break;
+                    case AudioManager.RINGER_MODE_SILENT:
+                        effect = VibrationEffect.get(VibrationEffect.EFFECT_HEAVY_CLICK);
+                        ringerMode = AudioManager.RINGER_MODE_NORMAL;
+                        toastText = com.android.internal.R.string.volume_dialog_ringer_guidance_normal;
+                        break;
+                }
                 break;
         }
         maybeVibrate(effect, reason);
