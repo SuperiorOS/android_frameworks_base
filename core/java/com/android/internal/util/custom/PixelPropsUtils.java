@@ -48,7 +48,7 @@ import java.util.regex.Matcher;
 public class PixelPropsUtils {
 
     private static final String TAG = PixelPropsUtils.class.getSimpleName();
-    private static final String DEVICE = "ro.build.version.device";
+    private static final String DEVICE = "ro.superior.device";
 
     private static final String PACKAGE_GMS = "com.google.android.gms";
     private static final ComponentName GMS_ADD_ACCOUNT_ACTIVITY = ComponentName.unflattenFromString(
@@ -295,15 +295,15 @@ public class PixelPropsUtils {
                 }
             }
 
-            if (DEBUG) Log.d(TAG, "Defining props for: " + packageName);
+            dlog("Defining props for: " + packageName);
             for (Map.Entry<String, Object> prop : propsToChange.entrySet()) {
                 String key = prop.getKey();
                 Object value = prop.getValue();
                 if (propsToKeep.containsKey(packageName) && propsToKeep.get(packageName).contains(key)) {
-                    if (DEBUG) Log.d(TAG, "Not defining " + key + " prop for: " + packageName);
+                    dlog("Not defining " + key + " prop for: " + packageName);
                     continue;
                 }
-                if (DEBUG) Log.d(TAG, "Defining " + key + " prop for: " + packageName);
+                dlog("Defining " + key + " prop for: " + packageName);
                 setPropValue(key, value);
             }
             // Set proper indexing fingerprint
@@ -320,7 +320,7 @@ public class PixelPropsUtils {
 
     private static void setPropValue(String key, Object value) {
         try {
-            if (DEBUG) Log.d(TAG, "Defining prop " + key + " to " + value.toString());
+            dlog("Defining prop " + key + " to " + value.toString());
             Field field = Build.class.getDeclaredField(key);
             field.setAccessible(true);
             field.set(null, value);
@@ -333,6 +333,7 @@ public class PixelPropsUtils {
     private static void setBuildField(String key, String value) {
         try {
             // Unlock
+            dlog("Defining build field " + key + " to " + value);
             Field field = Build.class.getDeclaredField(key);
             field.setAccessible(true);
 
@@ -349,7 +350,7 @@ public class PixelPropsUtils {
     private static void setVersionField(String key, Object value) {
         try {
             // Unlock
-            if (DEBUG) Log.d(TAG, "Defining version field " + key + " to " + value.toString());
+            dlog("Defining version field " + key + " to " + value.toString());
             Field field = Build.VERSION.class.getDeclaredField(key);
             field.setAccessible(true);
 
@@ -366,7 +367,7 @@ public class PixelPropsUtils {
     private static void setVersionFieldInt(String key, int value) {
         try {
             // Unlock
-            if (DEBUG) Log.d(TAG, "Defining version field " + key + " to " + value);
+            dlog("Defining version field int " + key + " to " + value);
             Field field = Build.VERSION.class.getDeclaredField(key);
             field.setAccessible(true);
 
@@ -383,6 +384,7 @@ public class PixelPropsUtils {
     private static void setVersionFieldString(String key, String value) {
         try {
             // Unlock
+            dlog("Defining version field string " + key + " to " + value);
             Field field = Build.VERSION.class.getDeclaredField(key);
             field.setAccessible(true);
 
