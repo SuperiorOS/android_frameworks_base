@@ -31,9 +31,6 @@
      <!-- Name of a font family to use as regular font. For theming purpose. -->
      <string name="config_regularFontFamily" translatable="false">sans-serif-regular</string>
 
-    <!-- Device model (Build.MODEL) to spoof for netflix, if not empty -->
-    <string name="config_netflixSpoofModel" translatable="false"></string>
-
     <!-- Build properties from a GMS certified device -->
     <string-array name="config_certifiedBuildProperties" translatable="false">
         <!--
