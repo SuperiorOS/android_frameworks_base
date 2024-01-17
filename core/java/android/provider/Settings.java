@@ -117,6 +117,8 @@ import java.util.Set;
 import java.util.concurrent.Executor;
 import java.util.function.Consumer;
 
+import com.android.internal.util.custom.DeviceConfigUtils;
+
 /**
  * The Settings provider contains global system-level device preferences.
  */
@@ -5918,6 +5920,12 @@ public final class Settings {
          */
         public static final String FORCE_FULLSCREEN_CUTOUT_APPS = "force_full_screen_cutout_apps";
 
+         /**
+         * media artwork wallpaper blur level on lockscreen
+         * @hide
+         */
+        public static final String LOCKSCREEN_MEDIA_BLUR = "lockscreen_media_blur";
+      
         /**
          * IMPORTANT: If you add a new public settings you also have to add it to
          * PUBLIC_SETTINGS below. If the new setting is hidden you have to add
@@ -6131,6 +6139,12 @@ public final class Settings {
          * @hide
          */
         public static final String ROAMING_INDICATOR_ICON = "roaming_indicator_icon";
+
+        /**
+         * Whether to show heads up only for dialer and sms apps
+         * @hide
+         */
+        public static final String LESS_BORING_HEADS_UP = "less_boring_heads_up";
 
         /**
          * Whether to play notification sound and vibration if screen is ON
@@ -11941,6 +11955,13 @@ public final class Settings {
          * @hide
          */
         public static final String PULSE_ON_NEW_TRACKS = "pulse_on_new_tracks";
+
+        /**
+         * Whether to show media art on lockscreen
+         * Boolean setting. 0 = off, 1 = on.
+         * @hide
+         */
+        public static final String LOCKSCREEN_MEDIA_METADATA = "lockscreen_media_metadata";
 
         /**
          * Keys we no longer back up under the current schema, but want to continue to
@@ -19644,6 +19665,9 @@ public final class Settings {
         @RequiresPermission(Manifest.permission.WRITE_DEVICE_CONFIG)
         public static boolean putString(@NonNull String namespace,
                 @NonNull String name, @Nullable String value, boolean makeDefault) {
+            if (DeviceConfigUtils.shouldDenyDeviceConfigControl(namespace, name)) {
+                return true;
+            }
             ContentResolver resolver = getContentResolver();
             return sNameValueCache.putStringForUser(resolver, createCompositeName(namespace, name),
                     value, null, makeDefault, resolver.getUserId(),
@@ -19665,7 +19689,9 @@ public final class Settings {
         public static boolean setStrings(@NonNull String namespace,
                 @NonNull Map<String, String> keyValues)
                 throws DeviceConfig.BadConfigException {
-            return setStrings(getContentResolver(), namespace, keyValues);
+            boolean result = setStrings(getContentResolver(), namespace, keyValues);
+            DeviceConfigUtils.setDefaultProperties(namespace, null);
+            return result;
         }
 
         /**
@@ -19715,6 +19741,9 @@ public final class Settings {
         @RequiresPermission(Manifest.permission.WRITE_DEVICE_CONFIG)
         public static boolean deleteString(@NonNull String namespace,
                 @NonNull String name) {
+            if (DeviceConfigUtils.shouldDenyDeviceConfigControl(namespace, name)) {
+                return true;
+            }
             ContentResolver resolver = getContentResolver();
             return sNameValueCache.deleteStringForUser(resolver,
                     createCompositeName(namespace, name), resolver.getUserId());
@@ -19751,6 +19780,7 @@ public final class Settings {
             } catch (RemoteException e) {
                 Log.w(TAG, "Can't reset to defaults for " + CONTENT_URI, e);
             }
+            DeviceConfigUtils.setDefaultProperties(null, null);
         }
 
         /**
