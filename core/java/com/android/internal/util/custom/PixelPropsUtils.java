@@ -58,6 +58,9 @@ public class PixelPropsUtils {
     private static final String[] sCertifiedProps =
     Resources.getSystem().getStringArray(R.array.config_certifiedBuildProperties);
 
+    private static final String PROP_SECURITY_PATCH = "persist.sys.pihooks.security_patch";
+    private static final String PROP_FIRST_API_LEVEL = "persist.sys.pihooks.first_api_level";
+
     private static final Map<String, Object> propsToChangeGeneric;
     private static final Map<String, Object> propsToChangePixelXL;
 
@@ -152,6 +155,8 @@ public class PixelPropsUtils {
                 if (!sCertifiedProps[10].isEmpty() && sCertifiedProps[10].matches("\\d+")) {
                     setVersionFieldInt("DEVICE_INITIAL_SDK_INT", Integer.parseInt(sCertifiedProps[10]));
                 }
+                setSystemProperty(PROP_SECURITY_PATCH, Build.VERSION.SECURITY_PATCH);
+                setSystemProperty(PROP_FIRST_API_LEVEL, "32");
                 return true;
             }
         }
@@ -180,6 +185,15 @@ public class PixelPropsUtils {
                     setPropValue(key, value);
                 }
             }
+        }
+    }
+
+    private static void setSystemProperty(String name, String value) {
+        try {
+            SystemProperties.set(name, value);
+            dlog("Set system prop " + name + "=" + value);
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to set system prop " + name + "=" + value, e);
         }
     }
 
