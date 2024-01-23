@@ -74,9 +74,6 @@
          causes a poor experience. -->
     <bool name="config_fingerprintWakeAndUnlock">true</bool>
 
-    <!-- Whether device has an alert slider. -->
-    <bool name="config_hasAlertSlider">false</bool>
-
     <!-- Whether charging control should be enabled by default -->
     <bool name="config_chargingControlEnabled">false</bool>
     <!-- Default charging control mode.
