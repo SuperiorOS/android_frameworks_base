@@ -46,4 +46,7 @@
 
      <!-- Network traffic -->
      <dimen name="network_traffic_width">25sp</dimen>
+
+     <!-- HD calling icon -->
+     <dimen name="signal_icon_viewport_size">24dp</dimen>
 </resources>
