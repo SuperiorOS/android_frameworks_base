@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C)2022-2023 The SuperiorOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="aerr_copy">Çökmə jurnal URL-sini kopyala</string>
+    <string name="url_copy_success">URL uğurla kopyalandı</string>
+    <string name="url_copy_failed">Jurnalı Memochō-ya yükləyərkən xəta baş verdi</string>
+    <string name="reboot_to_recovery_title">Geri qaytarma</string>
+    <string name="reboot_to_recovery_message">Geri qaytarma rejimində başladılır</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Bootloader rejimində başladılır</string>
+    <string name="reboot_title">Yenidən başlat</string>
+    <string name="reboot_message">Sistem yenidən başladılır</string>
+    <string name="settings_restart_title">Ayarlar yenidən başladılmalıdır</string>
+    <string name="settings_restart_message">Bütün dəyişikliklərin qüvvəyə minməsi üçün Ayarlar tətbiqi yenidən başladılmalıdır. İndi yenidən başladılsın?</string>
+    <string name="system_restart_title">Sistem yenidən başladılmalıdır</string>
+    <string name="system_restart_message">Bütün dəyişikliklərin qüvvəyə minməsi üçün sistem yenidən başladılmalıdır. İndi yenidən başladılsın?</string>
+    <string name="systemui_restart_title">Sistem interfeysi yenidən başladılmalıdır</string>
+    <string name="systemui_restart_message">Bütün dəyişikliklərin qüvvəyə minməsi üçün Sistem İnterfeysi yenidən başladılmalıdır. İndi yenidən başladılsın?</string>
+    <string name="volume_dialog_ringer_guidance_normal">Zənglər və bildirişlər çalacaq</string>
+    <string name="charging_control_notification_channel">Doldurma nəzarəti</string>
+    <string name="charging_control_notification_title">Doldurma nəzarəti</string>
+    <string name="charging_control_notification_cancel_once">İmtina</string>
+    <string name="charging_control_notification_content_limit">Batareya %1$d%% qədər dolacaq</string>
+    <string name="charging_control_notification_content_limit_reached">Batareya %1$d%% doldu</string>
+    <string name="charging_control_notification_content_target">Batareya %1$s tam dolacaq</string>
+    <string name="charging_control_notification_content_target_reached">Batareya doldu</string>
+    <string name="gesture_locked_warning">Jestlərin kilidini açmaq üçün yenidən sürüşdürün</string>
+</resources>

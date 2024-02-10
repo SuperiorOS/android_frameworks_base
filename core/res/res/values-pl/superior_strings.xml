@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C)2022-2023 The SuperiorOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="aerr_copy">Skopiuj adres URL awarii</string>
+    <string name="url_copy_success">URL skopiowany pomyślnie</string>
+    <string name="url_copy_failed">Wystąpił błąd podczas przesyłania logów do Memochō</string>
+    <string name="reboot_to_recovery_title">Recovery</string>
+    <string name="reboot_to_recovery_message">Restart do Recovery</string>
+    <string name="reboot_to_bootloader_title">Bootloader</string>
+    <string name="reboot_to_bootloader_message">Restart do Bootloadera</string>
+    <string name="reboot_title">Uruchom ponownie</string>
+    <string name="reboot_message">Ponowne uruchamianie systemu</string>
+    <string name="settings_restart_title">Wymagany restart ustawień</string>
+    <string name="settings_restart_message">Aby wszystkie zmiany zostały wprowadzone, wymagane jest ponowne uruchomienie aplikacji Ustawienia. Uruchomić ponownie aplikację Ustawienia teraz?</string>
+    <string name="system_restart_title">Wymagane ponowne uruchomienie systemu</string>
+    <string name="system_restart_message">Aby zastosować wszystkie zmiany, wymagane jest ponowne uruchomienie systemu. Zrestartować system teraz?</string>
+    <string name="systemui_restart_title">Wymagane ponowne uruchomienie SystemUI</string>
+    <string name="systemui_restart_message">Aby wszystkie zmiany zostały wprowadzone, wymagane jest ponowne uruchomienie SystemUI. Uruchomić ponownie SystemUI teraz?</string>
+    <string name="volume_dialog_ringer_guidance_normal">Dzwonek przy połączeniach i powiadomieniach</string>
+    <string name="charging_control_notification_channel">Kontrola ładowania</string>
+    <string name="charging_control_notification_title">Kontrola ładowania</string>
+    <string name="charging_control_notification_cancel_once">Anuluj</string>
+    <string name="charging_control_notification_content_limit">Bateria zostanie naładowana do %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">Bateria jest naładowana w %1$d%%</string>
+    <string name="charging_control_notification_content_target">Bateria zostanie w pełni naładowana o %1$s</string>
+    <string name="charging_control_notification_content_target_reached">Bateria jest naładowana</string>
+    <string name="gesture_locked_warning">Przesuń ponownie, aby odblokować gesty</string>
+</resources>

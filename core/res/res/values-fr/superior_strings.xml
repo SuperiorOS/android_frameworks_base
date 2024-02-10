@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C)2022-2023 The SuperiorOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="aerr_copy">Copier l\'URL du rapport d\'erreur</string>
+    <string name="url_copy_success">URL copiée avec succès</string>
+    <string name="url_copy_failed">Une erreur s\'est produite lors de l\'envoi du rapport d\'erreurs à Memochō</string>
+    <string name="reboot_to_recovery_title">Récupération</string>
+    <string name="reboot_to_recovery_message">Redémarrage en mode récupération</string>
+    <string name="reboot_to_bootloader_title">Amorçage</string>
+    <string name="reboot_to_bootloader_message">Redémarrage en mode Amorçage</string>
+    <string name="reboot_title">Redémarrer</string>
+    <string name="reboot_message">Redémarrer le système</string>
+    <string name="settings_restart_title">Redémarrage des paramètres requis</string>
+    <string name="settings_restart_message">Pour que toutes les modifications prennent effet, un redémarrage de l\'interface utilisateur est nécessaire. Redémarrer l\'interface utilisateur maintenant ?</string>
+    <string name="system_restart_title">Redémarrage du système requis</string>
+    <string name="system_restart_message">Un redémarrage de SystemUI est requis pour que les changements soient appliqués. Redémarrer SystemUI maintenant ?</string>
+    <string name="systemui_restart_title">Un redémarrage de SystemUI est nécessaire</string>
+    <string name="systemui_restart_message">Un redémarrage de SystemUI est requis pour que les changements soient appliqués. Redémarrer SystemUI maintenant ?</string>
+    <string name="volume_dialog_ringer_guidance_normal">Les appels et les notifications sonneront</string>
+    <string name="charging_control_notification_channel">Contrôle de la charge</string>
+    <string name="charging_control_notification_title">Contrôle de la charge</string>
+    <string name="charging_control_notification_cancel_once">Annuler</string>
+    <string name="charging_control_notification_content_limit">La batterie sera chargée à %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">La batterie est chargée à %1$d%%</string>
+    <string name="charging_control_notification_content_target">La batterie sera complètement chargée à %1$s</string>
+    <string name="charging_control_notification_content_target_reached">La batterie est chargée</string>
+    <string name="gesture_locked_warning">Balayez à nouveau pour déverrouiller les gestes</string>
+</resources>

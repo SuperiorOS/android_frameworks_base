@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022-2024 The Superior OS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="screenshot_delete_label">Удалить</string>
+  <string name="screenshot_delete_description">Удалить снимок экрана</string>
+  <string name="screenrecord_delete_label">Удалить</string>
+  <string name="screenrecord_delete_description">Запись экрана удалена</string>
+  <plurals name="quick_settings_internet_hotspot_summary_num_devices">
+    <item quantity="one">Подключено %d устройство</item>
+    <item quantity="few">Подключено %d устройства</item>
+    <item quantity="many">Подключено %d устройств</item>
+    <item quantity="other">%d устройств подключено</item>
+  </plurals>
+  <string name="quick_settings_caffeine_label">Запрет сна</string>
+  <string name="accessibility_quick_settings_caffeine_off">Запрет сна выкл.</string>
+  <string name="accessibility_quick_settings_caffeine_on">Запрет сна вкл.</string>
+  <string name="quick_settings_heads_up_label">Всплывающие уведомления</string>
+  <string name="accessibility_quick_settings_heads_up_off">Всплывающие уведомления откл.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Всплывающие уведомления вкл.</string>
+  <string name="quick_settings_sync_label">Синхр.</string>
+  <string name="accessibility_quick_settings_sync_off">Синхр. выкл.</string>
+  <string name="accessibility_quick_settings_sync_on">Синхр. вкл.</string>
+  <string name="quick_settings_usb_tether_label">USB-модем</string>
+  <string name="quick_settings_vpn_label">VPN</string>
+  <string name="quick_settings_vpn_connect_dialog_title">Подключить к\u2026</string>
+  <string name="vpn_credentials_hint">Пожалуйста, введите ваши учетные данные для подключения к <xliff:g id="name">%s</xliff:g>     </string>
+  <string name="vpn_credentials_username">Имя пользователя</string>
+  <string name="vpn_credentials_password">Пароль</string>
+  <string name="vpn_credentials_dialog_connect">Подключиться</string>
+  <string name="qs_data_switch_label">Сменить SIM-карту</string>
+  <string name="quick_settings_sound_label">Звук</string>
+  <string name="quick_settings_sound_ring">Звонок</string>
+  <string name="quick_settings_sound_vibrate">Вибрация</string>
+  <string name="quick_settings_sound_silent">Бесшумный</string>
+  <string name="quick_settings_compass_label">Компас</string>
+  <string name="quick_settings_compass_value">          <xliff:g id="degrees">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g>
+     </string>
+  <string name="quick_settings_compass_init">Инициализация\u2026</string>
+  <string name="quick_settings_compass_N">С</string>
+  <string name="quick_settings_compass_NE">СВ</string>
+  <string name="quick_settings_compass_E">В</string>
+  <string name="quick_settings_compass_SE">ЮВ</string>
+  <string name="quick_settings_compass_S">Ю</string>
+  <string name="quick_settings_compass_SW">ЮЗ</string>
+  <string name="quick_settings_compass_W">З</string>
+  <string name="quick_settings_compass_NW">СЗ</string>
+  <string name="quick_settings_ambient_display_label">Активный экран</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Активный экран выкл.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Активный экран вкл.</string>
+  <string name="quick_settings_aod_label">Всегда активный экран</string>
+  <string name="quick_settings_aod_on_charge_label">Всегда активный экран при зарядке</string>
+  <string name="quick_settings_aod_off_label">Всегда активный экран выкл.</string>
+  <string name="status_bar_items_title">Значки строки состояния</string>
+  <string name="status_bar_call_strength">Уровень сигнала</string>
+  <string name="status_bar_data_saver">Экономия трафика</string>
+  <string name="status_bar_vpn">VPN</string>
+  <string name="status_bar_nfc">NFC</string>
+  <string name="accessibility_status_bar_nfc">Nfc</string>
+  <string name="global_action_restart_advanced">Расширенный</string>
+  <string name="global_action_restart_recovery">Рекавери</string>
+  <string name="global_action_restart_bootloader">Загрузчик</string>
+  <string name="global_action_restart_ui">Интерфейс</string>
+  <string name="clock">Часы</string>
+  <string name="status_bar_ims">VoLTE/VoWiFi</string>
+  <string name="usage_data">за сегодня</string>
+  <string name="usage_data_default_suffix">Данные</string>
+  <string name="usage_wifi_default_suffix">Wi-Fi</string>
+  <string name="weather_condition_clouds">Облачно</string>
+  <string name="weather_condition_rain">Дождливо</string>
+  <string name="weather_condition_clear">Солнечно</string>
+  <string name="weather_condition_storm">Гроза</string>
+  <string name="weather_condition_snow">Снежно</string>
+  <string name="weather_condition_wind">Ветрено</string>
+  <string name="weather_condition_mist">Туманно</string>
+  <string name="quick_settings_powershare_label">Беспроводной PowerShare</string>
+  <string name="quick_settings_powershare_off_powersave_label">Беспроводной режим PowerShare выкл\nЭкономия заряда батареи</string>
+  <string name="quick_settings_powershare_off_low_battery_label">Беспроводной PowerShare выкл.\nНизкий заряд батареи</string>
+  <string name="quick_settings_powershare_enabled_label">Беспроводной PowerShare включен</string>
+  <string name="turn_on_bluetooth">Использовать Bluetooth</string>
+  <string name="bluetooth_is_off">Bluetooth отключен</string>
+  <string name="tap_a_device_to_connect">Коснитесь устройства для подключения</string>
+  <string name="volume_ringer_priority_only">Важный</string>
+  <string name="volume_ringer_alarms_only">Будильник</string>
+  <string name="volume_ringer_dnd">Не беспокоить</string>
+  <string name="tristate_flashlight">Фонарик</string>
+  <string name="tristate_flashlight_on">Фонарик вкл.</string>
+  <string name="tristate_flashlight_off">Фонарик выкл.</string>
+  <string name="tristate_flashlight_blink">Мигание фонарика</string>
+  <string name="tristate_brightness_bright">Максимальная яркость</string>
+  <string name="tristate_brightness_dark">Минимальная яркость</string>
+  <string name="tristate_brightness_auto">Автояркость</string>
+  <string name="tristate_rotation_auto">Автоповорот</string>
+  <string name="tristate_rotation_0">Вертикальный</string>
+  <string name="tristate_rotation_90">Горизонтально (90°)</string>
+  <string name="tristate_rotation_270">Горизонтально (270°)</string>
+  <string name="task_helper_app_killed">%1$s принудительно остановлено</string>
+  <string name="empty_app_killed">Приложение</string>
+  <string name="app_picker_dialog_title">Выберите приложение</string>
+  <string name="active_edge_app_select_title">Выбрать приложение</string>
+  <string name="active_edge_activity_select_title">Выберите действие</string>
+</resources>

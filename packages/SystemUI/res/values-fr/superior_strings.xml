@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2022-2024 The Superior OS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="screenshot_delete_label">Supprimer</string>
+  <string name="screenshot_delete_description">Supprimer la capture d\'écran</string>
+  <string name="screenrecord_delete_label">Supprimer</string>
+  <string name="screenrecord_delete_description">Enregistrement d\'écran supprimé</string>
+  <plurals name="quick_settings_internet_hotspot_summary_num_devices">
+    <item quantity="one">%d appareil connecté</item>
+    <item quantity="other">%d Appareils connectés</item>
+  </plurals>
+  <string name="quick_settings_caffeine_label">Caféine</string>
+  <string name="accessibility_quick_settings_caffeine_off">Caféine off.</string>
+  <string name="accessibility_quick_settings_caffeine_on">Caféine on.</string>
+  <string name="quick_settings_heads_up_label">Notifications flottantes</string>
+  <string name="accessibility_quick_settings_heads_up_off">Notifications flottantes désactivées.</string>
+  <string name="accessibility_quick_settings_heads_up_on">Notifications flottantes activées.</string>
+  <string name="quick_settings_sync_label">Synchroniser</string>
+  <string name="accessibility_quick_settings_sync_off">Synchronisation désactivée.</string>
+  <string name="accessibility_quick_settings_sync_on">Synchronisation activée.</string>
+  <string name="quick_settings_usb_tether_label">Partage de connexion via USB</string>
+  <string name="quick_settings_vpn_label">VPN</string>
+  <string name="quick_settings_vpn_connect_dialog_title">Se connecter à\u2026</string>
+  <string name="vpn_credentials_hint">Veuillez entrer vos identifiants pour vous connecter à <xliff:g id="name">%s</xliff:g>     </string>
+  <string name="vpn_credentials_username">Nom d’utilisateur</string>
+  <string name="vpn_credentials_password">Mot de passe</string>
+  <string name="vpn_credentials_dialog_connect">Connecter</string>
+  <string name="qs_data_switch_label">Changer les données de carte Sim</string>
+  <string name="quick_settings_sound_label">Son</string>
+  <string name="quick_settings_sound_ring">Sonnerie</string>
+  <string name="quick_settings_sound_vibrate">Vibrer</string>
+  <string name="quick_settings_sound_silent">Muet</string>
+  <string name="quick_settings_compass_label">Boussole</string>
+  <string name="quick_settings_compass_value"><xliff:g id="degrés">%1$.0f</xliff:g>\u00b0 <xliff:g id="direction">%2$s</xliff:g>     </string>
+  <string name="quick_settings_compass_init">Réinitialisation\u2026</string>
+  <string name="quick_settings_compass_N">N</string>
+  <string name="quick_settings_compass_NE">NE</string>
+  <string name="quick_settings_compass_E">E</string>
+  <string name="quick_settings_compass_SE">SE</string>
+  <string name="quick_settings_compass_S">S</string>
+  <string name="quick_settings_compass_SW">SW</string>
+  <string name="quick_settings_compass_W">W</string>
+  <string name="quick_settings_compass_NW">NW</string>
+  <string name="quick_settings_ambient_display_label">Affichage ambiant</string>
+  <string name="accessibility_quick_settings_ambient_display_off">Affichage ambiant désactivé.</string>
+  <string name="accessibility_quick_settings_ambient_display_on">Affichage ambiant activé.</string>
+  <string name="quick_settings_aod_label">Affichage permanent</string>
+  <string name="quick_settings_aod_on_charge_label">Affichage permanent lors de la charge</string>
+  <string name="quick_settings_aod_off_label">Affichage permanent désactivé</string>
+  <string name="status_bar_items_title">Icônes de la barre d\'état</string>
+  <string name="status_bar_call_strength">Puissance du réseau</string>
+  <string name="status_bar_data_saver">Économiseur de données</string>
+  <string name="status_bar_vpn">VPN</string>
+  <string name="status_bar_nfc">NFC</string>
+  <string name="accessibility_status_bar_nfc">Nfc</string>
+  <string name="global_action_restart_advanced">Avancé</string>
+  <string name="global_action_restart_recovery">Récupération</string>
+  <string name="global_action_restart_bootloader">Amorçage</string>
+  <string name="global_action_restart_ui">Interface utilisateur</string>
+  <string name="clock">Horloge</string>
+  <string name="status_bar_ims">VoLTE/VoWiFi</string>
+  <string name="usage_data">utilisé aujourd\'hui</string>
+  <string name="usage_data_default_suffix">Données</string>
+  <string name="usage_wifi_default_suffix">Wi-Fi</string>
+  <string name="weather_condition_clouds">Nuageux</string>
+  <string name="weather_condition_rain">Pluvieux</string>
+  <string name="weather_condition_clear">Ensoleillé</string>
+  <string name="weather_condition_storm">Orageux</string>
+  <string name="weather_condition_snow">Neigeux</string>
+  <string name="weather_condition_wind">Venteux</string>
+  <string name="weather_condition_mist">Brumeux</string>
+  <string name="quick_settings_powershare_label">Partage de charge sans fil</string>
+  <string name="quick_settings_powershare_off_powersave_label">Partage de charge sans fil désactivé\nÉconomiseur de batterie</string>
+  <string name="quick_settings_powershare_off_low_battery_label">Recharge sans fil inversée désactivée\nBatterie trop faible</string>
+  <string name="quick_settings_powershare_enabled_label">Le partage de recharge sans fil est activé</string>
+  <string name="turn_on_bluetooth">Utiliser Bluetooth</string>
+  <string name="bluetooth_is_off">Bluetooth est désactivé</string>
+  <string name="tap_a_device_to_connect">Appuyez sur un appareil pour vous connecter</string>
+  <string name="volume_ringer_priority_only">Priorité</string>
+  <string name="volume_ringer_alarms_only">Alarmes</string>
+  <string name="volume_ringer_dnd">Ne Pas Déranger</string>
+  <string name="tristate_flashlight">Lampe de poche</string>
+  <string name="tristate_flashlight_on">Lampe de poche allumée</string>
+  <string name="tristate_flashlight_off">Lampe de poche éteinte</string>
+  <string name="tristate_flashlight_blink">Clignotement de la lampe de poche</string>
+  <string name="tristate_brightness_bright">Luminosité maximale</string>
+  <string name="tristate_brightness_dark">Luminosité minimale</string>
+  <string name="tristate_brightness_auto">Luminosité automatique</string>
+  <string name="tristate_rotation_auto">Rotation automatique</string>
+  <string name="tristate_rotation_0">Portrait</string>
+  <string name="tristate_rotation_90">Paysage (90°)</string>
+  <string name="tristate_rotation_270">Paysage (270°)</string>
+  <string name="task_helper_app_killed">%1$s s\'est arrêté</string>
+  <string name="empty_app_killed">Application</string>
+  <string name="app_picker_dialog_title">Sélectionner une application</string>
+  <string name="active_edge_app_select_title">Sélectionner l\'application</string>
+  <string name="active_edge_activity_select_title">Sélectionner l\'activité</string>
+</resources>

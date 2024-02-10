@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C)2022-2023 The SuperiorOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="aerr_copy">Копировать URL журнала сбоев</string>
+    <string name="url_copy_success">URL успешно скопирован</string>
+    <string name="url_copy_failed">Произошла ошибка при загрузке журнала в Мемочо</string>
+    <string name="reboot_to_recovery_title">Рекавери</string>
+    <string name="reboot_to_recovery_message">Перезагрузка в рекавери</string>
+    <string name="reboot_to_bootloader_title">Загрузчик</string>
+    <string name="reboot_to_bootloader_message">Перезагрузка в загрузчик</string>
+    <string name="reboot_title">Перезагрузить</string>
+    <string name="reboot_message">Перезагрузка системы</string>
+    <string name="settings_restart_title">Требуется перезапуск настроек</string>
+    <string name="settings_restart_message">Чтобы все изменения вступили в силу, требуется перезапуск настроек. Перезапустить настройки сейчас?</string>
+    <string name="system_restart_title">Требуется перезагрузка системы</string>
+    <string name="system_restart_message">Чтобы все изменения вступили в силу, требуется перезагрузка системы. Перезапустить систему сейчас?</string>
+    <string name="systemui_restart_title">Необходима перезагрузка интерфейса</string>
+    <string name="systemui_restart_message">Чтобы все изменения вступили в силу, требуется перезагрузка пользовательского интерфейса. Перезагрузить интерфейс?</string>
+    <string name="volume_dialog_ringer_guidance_normal">Звуковой сигнал для звонков и уведомлений</string>
+    <string name="charging_control_notification_channel">Управление зарядкой</string>
+    <string name="charging_control_notification_title">Управление зарядкой</string>
+    <string name="charging_control_notification_cancel_once">Отмена</string>
+    <string name="charging_control_notification_content_limit">Батарея будет заряжена до %1$d%%</string>
+    <string name="charging_control_notification_content_limit_reached">Батарея заряжена до %1$d%%</string>
+    <string name="charging_control_notification_content_target">Батарея будет полностью заряжена через %1$s</string>
+    <string name="charging_control_notification_content_target_reached">Батарея заряжена</string>
+    <string name="gesture_locked_warning">Проведите еще раз, чтобы разблокировать жестом</string>
+</resources>
