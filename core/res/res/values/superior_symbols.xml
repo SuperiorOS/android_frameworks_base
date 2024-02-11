@@ -42,12 +42,6 @@
      <java-symbol type="string" name="systemui_restart_title" />
      <java-symbol type="string" name="systemui_restart_message" />
 
-     <!-- Device model (Build.MODEL) to spoof for netflix, if not empty -->
-     <java-symbol type="string" name="config_netflixSpoofModel" />
-
-     <!-- Build properties from a GMS certified device -->
-     <java-symbol type="array" name="config_certifiedBuildProperties" />
-
      <!-- Proximity check on screen on -->
      <java-symbol type="bool" name="config_proximityCheckOnWake" />
 
@@ -121,4 +115,7 @@
 
      <!-- Whether key handler sends intent when changing slider position -->
      <java-symbol type="string" name="config_alertSliderIntent" />
+
+     <!-- Whether Pixel props is enabled -->
+     <java-symbol type="bool" name="config_enablePixelProps" />
 </resources>
