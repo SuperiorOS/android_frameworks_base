@@ -1396,6 +1396,9 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
             case 15: // Recents
                 SuperiorUtils.sendKeycode(KeyEvent.KEYCODE_APP_SWITCH);
                 break;
+            case 16: // Go forward
+                SuperiorUtils.sendKeycode(KeyEvent.KEYCODE_FORWARD);
+                break;
         }
     }
 
