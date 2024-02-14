@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C)2020-2024 The SuperiorOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Whether the mobile signal icon pipeline should ignore IWlan status -->
+    <bool name="config_mobileIconIgnoresIWlan">false</bool>
+</resources>
