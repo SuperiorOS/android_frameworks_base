@@ -15,7 +15,8 @@
      <dimen name="status_bar_battery_icon_big_circle_width">20.5dp</dimen>
 
      <!-- Height of the big battery circle icon in the status bar. -->
-     <dimen name="status_bar_battery_icon_big_circle_height">@dimen/status_bar_battery_icon_big_circle_width</dimen>
+     <dimen name="status_bar_battery_icon_big_circle_height">
+          @dimen/status_bar_battery_icon_big_circle_width</dimen>
 
      <!-- Height of the landscape battery icon in the status bar. -->
      <dimen name="status_bar_battery_icon_height_landscape">10.5dp</dimen>
@@ -38,4 +39,7 @@
      <dimen name="qs_top_brightness_margin_top">8dp</dimen>
      <dimen name="qs_top_brightness_margin_bottom">10dp</dimen>
      <dimen name="qs_bottom_brightness_margin_top">10dp</dimen>
+
+     <!-- HD calling icon -->
+     <dimen name="signal_icon_viewport_size">24dp</dimen>
 </resources>
