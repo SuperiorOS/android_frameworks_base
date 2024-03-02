@@ -16,6 +16,7 @@
 package com.android.systemui.statusbar.pipeline.ims.data.repository
 
 import android.telephony.SubscriptionManager
+import android.telephony.ims.ImsException
 import android.telephony.ims.ImsManager
 import android.telephony.ims.ImsMmTelManager
 import android.telephony.ims.ImsStateCallback
@@ -33,11 +34,13 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.asExecutor
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.retryWhen
 import kotlinx.coroutines.flow.scan
 import kotlinx.coroutines.flow.stateIn
 
@@ -104,6 +107,14 @@ class ImsRepositoryImpl(
                     imsMmTelManager.unregisterMmTelCapabilityCallback(capabilityCallback)
                 }
         }
+        .retryWhen { cause, _ ->
+            // Retry the flow with 1 second delay
+            // only if service not available.
+            // This state is temporary and service may be available after sometime.
+            delay(1000)
+            cause is ImsException && cause.code == ImsException.CODE_ERROR_SERVICE_UNAVAILABLE
+        }
+        .catch { /* Nothing */ }
         .scan(initial = initial) { state, event -> state.applyEvent(event) }
         .stateIn(scope = scope, started = SharingStarted.WhileSubscribed(), initial)
     }
