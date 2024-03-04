@@ -62,7 +62,6 @@
   <string name="global_action_restart_bootloader">Bootloader</string>
   <string name="global_action_restart_ui">Sistem interfeysi</string>
   <string name="clock">Saat</string>
-  <string name="status_bar_ims">VoLTE/VoWiFi</string>
   <string name="usage_data">bu gün istifadə edilən</string>
   <string name="usage_data_default_suffix">İnternet</string>
   <string name="usage_wifi_default_suffix">Wi-Fi</string>
@@ -74,8 +73,10 @@
   <string name="weather_condition_wind">Küləkli</string>
   <string name="weather_condition_mist">Sisli</string>
   <string name="quick_settings_powershare_label">Naqilsiz Enerji Paylaşma</string>
-  <string name="quick_settings_powershare_off_powersave_label">Naqilsiz Enerji Paylaşma bağlıdır\nBatereyaya qənaət</string>
-  <string name="quick_settings_powershare_off_low_battery_label">Naqilsiz Enerji Paylaşma bağlıdır\nBatereya səviyyəsi aşağıdır</string>
+  <string name="quick_settings_powershare_off_powersave_label">Naqilsiz Enerji Paylaşma bağlıdır\nBatereyaya
+          qənaət</string>
+  <string name="quick_settings_powershare_off_low_battery_label">Naqilsiz Enerji Paylaşma bağlıdır\nBatereya
+          səviyyəsi aşağıdır</string>
   <string name="quick_settings_powershare_enabled_label">Naqilsiz Enerji Paylaşma fəaldır</string>
   <string name="turn_on_bluetooth">Bluetooth istifadə et</string>
   <string name="bluetooth_is_off">Bluetooth bağlıdır</string>
@@ -99,4 +100,7 @@
   <string name="app_picker_dialog_title">Bir tətbiq seçin</string>
   <string name="active_edge_app_select_title">Tətbiq seçin</string>
   <string name="active_edge_activity_select_title">Faəliyyət seçin</string>
+  <string name="status_bar_roaming">Rouminq göstəricisi</string>
+  <string name="status_bar_hd_calling">HD zəng (VoLTE/VoNR)</string>
+  <string name="status_bar_vowifi">Wi-Fi zəngi (VoWiFi)</string>
 </resources>

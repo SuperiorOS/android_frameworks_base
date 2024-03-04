@@ -14,11 +14,14 @@
     <string name="reboot_title">Yenidən başlat</string>
     <string name="reboot_message">Sistem yenidən başladılır</string>
     <string name="settings_restart_title">Ayarlar yenidən başladılmalıdır</string>
-    <string name="settings_restart_message">Bütün dəyişikliklərin qüvvəyə minməsi üçün Ayarlar tətbiqi yenidən başladılmalıdır. İndi yenidən başladılsın?</string>
+    <string name="settings_restart_message">Bütün dəyişikliklərin qüvvəyə minməsi üçün Ayarlar
+        tətbiqi yenidən başladılmalıdır. İndi yenidən başladılsın?</string>
     <string name="system_restart_title">Sistem yenidən başladılmalıdır</string>
-    <string name="system_restart_message">Bütün dəyişikliklərin qüvvəyə minməsi üçün sistem yenidən başladılmalıdır. İndi yenidən başladılsın?</string>
+    <string name="system_restart_message">Bütün dəyişikliklərin qüvvəyə minməsi üçün sistem
+        yenidən başladılmalıdır. İndi yenidən başladılsın?</string>
     <string name="systemui_restart_title">Sistem interfeysi yenidən başladılmalıdır</string>
-    <string name="systemui_restart_message">Bütün dəyişikliklərin qüvvəyə minməsi üçün Sistem İnterfeysi yenidən başladılmalıdır. İndi yenidən başladılsın?</string>
+    <string name="systemui_restart_message">Bütün dəyişikliklərin qüvvəyə minməsi üçün Sistem İnterfeysi
+        yenidən başladılmalıdır. İndi yenidən başladılsın?</string>
     <string name="volume_dialog_ringer_guidance_normal">Zənglər və bildirişlər çalacaq</string>
     <string name="charging_control_notification_channel">Doldurma nəzarəti</string>
     <string name="charging_control_notification_title">Doldurma nəzarəti</string>
@@ -28,4 +31,5 @@
     <string name="charging_control_notification_content_target">Batareya %1$s tam dolacaq</string>
     <string name="charging_control_notification_content_target_reached">Batareya doldu</string>
     <string name="gesture_locked_warning">Jestlərin kilidini açmaq üçün yenidən sürüşdürün</string>
+    <string name="face_unlock_disabled_idle">Fəaliyyətsizliyə görə üz kilidi sıradan çıxarıldı</string>
 </resources>
