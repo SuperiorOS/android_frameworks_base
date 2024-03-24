@@ -32,4 +32,18 @@
     <!-- Names of the key handler classes -->
     <string-array name="config_deviceKeyHandlerClasses" translatable="false">
     </string-array>
+
+    <!-- Build properties from a GMS certified device against current platform SPL level -->
+    <string-array name="config_certifiedBuildProperties" translatable="false">
+        <item>PRODUCT:komodo_beta</item>
+        <item>DEVICE:komodo</item>
+        <item>MANUFACTURER:Google</item>
+        <item>BRAND:google</item>
+        <item>MODEL:Pixel 9 Pro XL</item>
+        <item>FINGERPRINT:google/komodo_beta/komodo:15/AP41.240726.010/12266677:user/release-keys</item>
+        <item>VERSION.SECURITY_PATCH:2024-08-05</item>
+    </string-array>
+
+    <!-- Build fingerprint from stock ROM -->
+    <string name="config_stockFingerprint" translatable="false"></string>
 </resources>
