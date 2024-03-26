@@ -78,6 +78,8 @@ public class BluetoothTile extends QSTileImpl<BooleanState> {
     private final BluetoothTileDialogViewModel mDialogViewModel;
 
     private final FeatureFlags mFeatureFlags;
+    
+    private boolean mBluetoothQsDialogEnabled;
 
     @Inject
     public BluetoothTile(
@@ -101,6 +103,7 @@ public class BluetoothTile extends QSTileImpl<BooleanState> {
         mExecutor = new HandlerExecutor(mainHandler);
         mFeatureFlags = featureFlags;
         mDialogViewModel = dialogViewModel;
+        mBluetoothQsDialogEnabled = mFeatureFlags.isEnabled(Flags.BLUETOOTH_QS_TILE_DIALOG);
     }
 
     @Override
@@ -110,22 +113,25 @@ public class BluetoothTile extends QSTileImpl<BooleanState> {
 
     @Override
     protected void handleClick(@Nullable View view) {
-        if (mFeatureFlags.isEnabled(Flags.BLUETOOTH_QS_TILE_DIALOG)) {
-            boolean isAutoOn = Settings.System.getInt(mContext.getContentResolver(),
-                    Settings.System.QS_BT_AUTO_ON, 0) == 1;
-            mDialogViewModel.showDialog(mContext, view, isAutoOn);
-        } else {
-            // Secondary clicks are header clicks, just toggle.
-            final boolean isEnabled = mState.value;
-            // Immediately enter transient enabling state when turning bluetooth on.
-            refreshState(isEnabled ? null : ARG_SHOW_TRANSIENT_ENABLING);
-            mController.setBluetoothEnabled(!isEnabled);
-        }
+        // Secondary clicks are header clicks, just toggle.
+        final boolean isEnabled = mState.value;
+        // Immediately enter transient enabling state when turning bluetooth on.
+        refreshState(isEnabled ? null : ARG_SHOW_TRANSIENT_ENABLING);
+        mController.setBluetoothEnabled(!isEnabled);
     }
 
     @Override
     public Intent getLongClickIntent() {
-        return new Intent(Settings.ACTION_BLUETOOTH_SETTINGS);
+        return mBluetoothQsDialogEnabled ? null : new Intent(Settings.ACTION_BLUETOOTH_SETTINGS);
+    }
+
+    @Override
+    protected void handleLongClick(@Nullable View view) {
+        if (mBluetoothQsDialogEnabled) {
+            boolean isAutoOn = Settings.System.getInt(mContext.getContentResolver(),
+                    Settings.System.QS_BT_AUTO_ON, 0) == 1;
+            mDialogViewModel.showDialog(mContext, view, isAutoOn);
+        }
     }
 
     @Override
