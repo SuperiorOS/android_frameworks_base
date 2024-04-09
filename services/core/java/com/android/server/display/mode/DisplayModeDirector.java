@@ -1011,7 +1011,7 @@ public class DisplayModeDirector {
             float highestRefreshRate = getMaxRefreshRateLocked(displayId);
 
             float minRefreshRate = Settings.System.getFloatForUser(cr,
-                    Settings.System.MIN_REFRESH_RATE, mDefaultRefreshRate, cr.getUserId());
+                    Settings.System.MIN_REFRESH_RATE, 0f, cr.getUserId());
             if (Float.isInfinite(minRefreshRate)) {
                 // Infinity means that we want the highest possible refresh rate
                 minRefreshRate = highestRefreshRate;
