@@ -1393,6 +1393,9 @@ public class EdgeBackGestureHandler implements PluginListener<NavigationEdgeBack
             case 14: // Powermenu
                 SuperiorUtils.showPowerMenu();
                 break;
+            case 15: // Recents
+                SuperiorUtils.sendKeycode(KeyEvent.KEYCODE_APP_SWITCH);
+                break;
         }
     }
 
