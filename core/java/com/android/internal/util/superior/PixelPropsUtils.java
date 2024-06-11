@@ -466,10 +466,6 @@ public class PixelPropsUtils {
 
     public static void onEngineGetCertificateChain() {
         // Check stack for SafetyNet or Play Integrity
-        if (sIsSetupWizard) {
-            Process.killProcess(Process.myPid());
-            return;
-        }
         if (isCallerSafetyNet() || sIsFinsky) {
             dlog("Blocked key attestation");
             throw new UnsupportedOperationException();

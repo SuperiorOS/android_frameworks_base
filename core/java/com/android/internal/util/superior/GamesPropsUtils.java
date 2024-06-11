@@ -77,15 +77,9 @@ public class GamesPropsUtils {
         propsToChange.put("OP8P", createOP8PProps());
         packagesToChange.put("OP8P", new String[]{
                 "com.netease.lztgglobal",
-                "com.pubg.imobile",
-                "com.pubg.krmobile",
-                "com.rekoo.pubgm",
                 "com.riotgames.league.wildrift",
                 "com.riotgames.league.wildrifttw",
-                "com.riotgames.league.wildriftvn",
-                "com.tencent.ig",
-                "com.tencent.tmgp.pubgmhd",
-                "com.vng.pubgmobile"
+                "com.riotgames.league.wildriftvn"
         });
 
         propsToChange.put("OP9P", createOP9PProps());
@@ -99,8 +93,8 @@ public class GamesPropsUtils {
         propsToChange.put("ROG3", createROG3Props());
         packagesToChange.put("ROG3", new String[]{
                 "com.ea.gp.fifamobile",
-                "com.pearlabyss.blackdesertm",
-                "com.pearlabyss.blackdesertm.gl"
+                "com.pearlabyss.blackdesertm.gl",
+                "com.pearlabyss.blackdesertm"
         });
 
         propsToChange.put("ROG6", createROG6Props());
@@ -113,10 +107,20 @@ public class GamesPropsUtils {
                 "com.riotgames.league.teamfighttacticsvn"
         });
 
+        propsToChange.put("ROG8", createROG8Props());
+        packagesToChange.put("ROG8", new String[]{
+                "com.pubg.imobile",
+                "com.pubg.krmobile",
+                "com.rekoo.pubgm",
+                "com.tencent.ig",
+                "com.tencent.tmgp.pubgmhd",
+                "com.vng.pubgmobile"
+        });
+
         propsToChange.put("XP5", createXP5Props());
         packagesToChange.put("XP5", new String[]{
-                "com.tencent.tmgp.kr.codm",
                 "com.garena.game.codm",
+                "com.tencent.tmgp.kr.codm",
                 "com.vng.codmvn"
         });
     }
@@ -201,6 +205,14 @@ public class GamesPropsUtils {
         props.put("BRAND", "asus");
         props.put("MANUFACTURER", "asus");
         props.put("MODEL", "ASUS_AI2201");
+        return props;
+    }
+
+    private static Map<String, Object> createROG8Props() {
+        Map<String, Object> props = new HashMap<>();
+        props.put("BRAND", "asus");
+        props.put("MANUFACTURER", "asus");
+        props.put("MODEL", "ASUS_AI2401_A");
         return props;
     }
 
