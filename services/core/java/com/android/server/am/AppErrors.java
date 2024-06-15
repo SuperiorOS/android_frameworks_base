@@ -654,7 +654,7 @@ class AppErrors {
                 return;
             }
 
-            // Add paste content for Memochō option
+            // Add paste content for MkrBin option
             String devFP = SystemProperties.get("ro.vendor.build.fingerprint", "");
             String superiorVers = SystemProperties.get("ro.superior.version", "");
             String boardName = SystemProperties.get("ro.product.board", "");
