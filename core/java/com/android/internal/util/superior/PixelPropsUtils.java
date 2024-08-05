@@ -127,12 +127,12 @@ public class PixelPropsUtils {
         // Alter build parameters to avoid hardware attestation enforcement
         setPropValue("BRAND", "google");
         setPropValue("MANUFACTURER", "Google");
-        setPropValue("DEVICE", "sailfish");
-        setPropValue("ID", "OPM1.171019.011");
-        setPropValue("FINGERPRINT", "google/sailfish/sailfish:8.1.0/OPM1.171019.011/4448085:user/release-keys");
-        setPropValue("MODEL", "Pixel");
-        setPropValue("PRODUCT", "sailfish");
-        setVersionFieldString("SECURITY_PATCH", "2017-12-05");
+        setPropValue("DEVICE", "husky");
+        setPropValue("ID", "AP31.240617.009");
+        setPropValue("FINGERPRINT", "google/husky_beta/husky:15/AP31.240617.009/12094726:user/release-keys");
+        setPropValue("MODEL", "Pixel 8 Pro");
+        setPropValue("PRODUCT", "husky_beta");
+        setVersionFieldString("SECURITY_PATCH", "2024-07-05");
     }
 
     private static boolean isCallerSafetyNet() {
