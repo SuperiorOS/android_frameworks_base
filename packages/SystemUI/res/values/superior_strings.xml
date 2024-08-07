@@ -94,4 +94,11 @@
      <string name="screenrecord_delete_label">Delete</string>
      <!-- A toast message shown after successfully deleting a screen recording [CHAR LIMIT=NONE] -->
      <string name="screenrecord_delete_description">Screen recording deleted</string>
+
+     <!-- Auto reboot Suggestion/Reminder -->
+     <string name="notification_channel_reboot_suggestion">Reboot Suggestion</string>
+     <string name="notification_channel_reboot_suggestion_description">Notifications for Reboot Suggestion</string>
+     <string name="reboot_suggestion_title">Reboot Reminder</string>
+     <string name="reboot_suggestion_description">Your device has been on for over a week. Rebooting is recommended.</string>
+     <string name="reboot_suggestion_now">Reboot</string>
 </resources>
