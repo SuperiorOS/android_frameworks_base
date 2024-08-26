@@ -37,7 +37,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Calendar;
 
-import com.android.internal.util.superior.ImageHelper;
 import com.android.systemui.res.R;
 
 public class FileHeaderProvider implements
@@ -48,10 +47,13 @@ public class FileHeaderProvider implements
     private static final String HEADER_FILE_NAME = "custom_file_header_image";
 
     private Context mContext;
-    private Drawable mImage;
+    private Drawable mImage = null;
 
     public FileHeaderProvider(Context context) {
         mContext = context;
+        if (isCustomHeaderEnabled()) {
+            loadHeaderImage();
+        }
     }
 
     @Override
@@ -61,22 +63,21 @@ public class FileHeaderProvider implements
 
     @Override
     public void settingsChanged(Uri uri) {
-        final boolean customHeader = Settings.System.getIntForUser(mContext.getContentResolver(),
-                Settings.System.STATUS_BAR_CUSTOM_HEADER, 0,
-                UserHandle.USER_CURRENT) == 1;
-
-        if (uri != null && uri.equals(Settings.System.getUriFor(
-                Settings.System.STATUS_BAR_FILE_HEADER_IMAGE))) {
-            String imageUri = Settings.System.getStringForUser(mContext.getContentResolver(),
-                    Settings.System.STATUS_BAR_FILE_HEADER_IMAGE,
-                    UserHandle.USER_CURRENT);
-            if (imageUri != null) {
-                saveHeaderImage(Uri.parse(imageUri));
-            }
-        }
-        if (customHeader) {
+        if (isCustomHeaderEnabled()) {
             loadHeaderImage();
         }
+    }
+    
+    private boolean isCustomHeaderEnabled() {
+        return Settings.System.getIntForUser(mContext.getContentResolver(),
+                Settings.System.STATUS_BAR_CUSTOM_HEADER, 0,
+                UserHandle.USER_CURRENT) == 1;
+    }
+    
+    private String getCustomHeaderPath() {
+        return Settings.System.getStringForUser(mContext.getContentResolver(),
+                    Settings.System.STATUS_BAR_FILE_HEADER_IMAGE,
+                    UserHandle.USER_CURRENT);
     }
 
     @Override
@@ -88,40 +89,21 @@ public class FileHeaderProvider implements
     public void disableProvider() {
     }
 
-    private void saveHeaderImage(Uri imageUri) {
-        if (DEBUG) Log.i(TAG, "Save header image " + " " + imageUri);
-        try {
-            final InputStream imageStream = mContext.getContentResolver().openInputStream(imageUri);
-            File file = new File(mContext.getFilesDir(), HEADER_FILE_NAME);
-            if (file.exists()) {
-                file.delete();
-            }
-            FileOutputStream output = new FileOutputStream(file);
-            byte[] buffer = new byte[8 * 1024];
-            int read;
-
-            while ((read = imageStream.read(buffer)) != -1) {
-                output.write(buffer, 0, read);
-            }
-            output.flush();
-            if (DEBUG) Log.i(TAG, "Saved header image " + " " + file.getAbsolutePath());
-        } catch (IOException e) {
-            Log.e(TAG, "Save header image failed " + " " + imageUri);
-        }
-    }
-
     private void loadHeaderImage() {
-        mImage = null;
-        File file = new File(mContext.getFilesDir(), HEADER_FILE_NAME);
-        if (file.exists()) {
-            if (DEBUG) Log.i(TAG, "Load header image");
-            final Bitmap image = ImageHelper.getCompressedBitmap(file.getAbsolutePath());
-            mImage = new BitmapDrawable(mContext.getResources(), image);
+        if (mContext == null) return;
+        String path = getCustomHeaderPath();
+        if (path == null || path.isEmpty()) return;
+        final Bitmap bitmap = BitmapFactory.decodeFile(path);
+        if (bitmap == null) {
+            Log.d(TAG + "loadHeaderImage: ", "Failed to decode bitmap from file");
+            return;
         }
+        mImage = new BitmapDrawable(mContext.getResources(), bitmap);
     }
 
     @Override
     public Drawable getCurrent(final Calendar now) {
+        loadHeaderImage();
         return mImage;
     }
 }
