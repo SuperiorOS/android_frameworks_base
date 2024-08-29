@@ -31,6 +31,7 @@ import com.android.systemui.common.shared.model.Icon
 import com.android.systemui.dagger.SysUISingleton
 import com.android.systemui.dagger.qualifiers.Application
 import com.android.systemui.globalactions.GlobalActionsDialogLite
+import com.android.systemui.plugins.ActivityStarter
 import com.android.systemui.plugins.FalsingManager
 import com.android.systemui.qs.dagger.QSFlagsModule.PM_LITE_ENABLED
 import com.android.systemui.qs.footer.data.model.UserSwitcherStatusModel
@@ -112,6 +113,7 @@ class FooterActionsViewModel(
         private val falsingManager: FalsingManager,
         private val footerActionsInteractor: FooterActionsInteractor,
         private val globalActionsDialogLiteProvider: Provider<GlobalActionsDialogLite>,
+        private val activityStarter: ActivityStarter,
         @Named(PM_LITE_ENABLED) private val showPowerButton: Boolean,
         private val keyguardStateController: KeyguardStateController
     ) {
@@ -138,6 +140,7 @@ class FooterActionsViewModel(
                 footerActionsInteractor,
                 falsingManager,
                 globalActionsDialogLite,
+                activityStarter,
                 showPowerButton,
                 keyguardStateController,
             )
@@ -150,6 +153,7 @@ fun FooterActionsViewModel(
     footerActionsInteractor: FooterActionsInteractor,
     falsingManager: FalsingManager,
     globalActionsDialogLite: GlobalActionsDialogLite,
+    activityStarter: ActivityStarter,
     showPowerButton: Boolean,
     keyguardStateController: KeyguardStateController
 ): FooterActionsViewModel {
@@ -175,7 +179,14 @@ fun FooterActionsViewModel(
             return
         }
 
-        footerActionsInteractor.showForegroundServicesDialog(expandable)
+        activityStarter.dismissKeyguardThenExecute(
+            {
+                footerActionsInteractor.showForegroundServicesDialog(expandable)
+                false /* if the dismiss should be deferred */
+            },
+            null /* cancelAction */,
+            true /* afterKeyguardGone */
+        )
     }
 
     fun onUserSwitcherClicked(expandable: Expandable) {
