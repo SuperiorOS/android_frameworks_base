@@ -8818,6 +8818,8 @@ public abstract class PackageManager {
         } catch (PackageParserException e) {
             Log.w(TAG, "Failure to parse package archive apkFile= " +apkFile);
             return null;
+        } finally {
+            parser2.close();
         }
     }
 
